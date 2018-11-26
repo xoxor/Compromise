@@ -1,0 +1,51 @@
+== Meeting 2
+
+*23/11/2018 - Remzi, Beatrice*
+
+=== Errata Corrige
+* The _Kalai–Smorodinsky solution_ takes the point whose utility ratio is equal to the ideal point's utility ratio
+** i.e. it takes the intersection of the Pareto surface and the line connecting the ideal point and the disagreement point (that for us is 0)
+** x~2~ / x~1~ = u~2~ / u~1~ -> x~2~ = u~2~ / u~1~ * x~1~
+** but we are searching for the most equal distribution of losses 
+* The _equal loss solution_ [9] takes the point in which the agents suffer equal losses from their utility levels at the ideal point
+** u~2~ - x~2~ = u~1~ - x~1~ -> x~2~ = (u~2~ - u~1~) + x~1~ 
+** *Problems*: it doesn't satisfy Pareto Optimality and Individual Rationality
+* *Solution*: The _lexicographic equal-loss solution_ [10]
+
+=== Desiderata
+* ε(x~1~ ... x~n~) ∈ [0,1]  inequality function
+** x ∈ R^n^~+~
+** ε : R^n^~+~ -> [0,1]
+* F(u) = {x ∈ PE(u) | ε( λ(x,y) )>=ε( λ(y,n) )  ∀ y ∈ A}
+
+=== Questions
+* What's ε?
+** It might be the Standard deviation, Gini or others (see [11])
+* Recall the question: _Suppose to deduce the alternatives's utility from the ranking (as in Borda) and to select a winner in the context of cardinal utility, to which voting rule it corresponds within the ordinal world?_ 
+** It might depend on ε
+
+=== Readings
+* Take a look at: 
+** [8] for comparisons of utility 
+** *Volume 2 chapter 20* of [7] for utility functions
+** [11] for an overview over the metrics used to measure inequality
+
+=== References
+1. https://www.sciencedirect.com/science/article/pii/S1574000505800670[Cooperative models of bargaining - William Thomson]
+2. Compromise Rules Revisited - Vincent Merlin, İpek Özkal Sanver and M. Remzi Sanver
+3. https://link.springer.com/content/pdf/10.1023%2FA%3A1011252808608.pdf[Fallback Bargaining - Steven J. Brams, D. Marc Kilgour]
+4. https://link.springer.com/content/pdf/10.1007%2Fs003550050164.pdf[The majoritarian compromise is majoritarian-optimal and subgame-perfect implementable - Murat R. SertelBilge Yılmaz]
+5. http://www.math.mcgill.ca/vetta/CS764.dir/nashbarg.pdf[The bargaining problem - John F. Nash] 
+6. Handbook of Income Distribution - Anthony B. Atkinson and François Bourguignon
+7. Handbook of Utility Theory (Volume 1, Volume 2)- Salvador Barbera, Peter Hammond, Christian Seidl
+8. https://www.jstor.org/stable/2526200?seq=1#metadata_info_tab_contents[Social Choice with Interpersonal Utility Comparisons: A Diagrammatic Introduction - C. Blackorby, D. Donaldson, J. Weymark]
+9. https://www.sciencedirect.com/science/article/pii/0165176588900225[The equal-loss principle for bargaining problems - Y. Chun]
+10. http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.537.8235&rep=rep1&type=pdf[The lexicographic equal-loss solution - Y. Chun, H. Peters]
+11. https://en.wikipedia.org/wiki/Income_inequality_metrics[Income inequality metrics]
+
+
+
+
+
+
+

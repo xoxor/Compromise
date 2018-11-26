@@ -1,0 +1,36 @@
+== Meeting 1
+
+*22/11/2018 - Remzi, Beatrice*
+
+=== Setting
+* Alternatives |A|=m>=2, voters |N|=n>=2, preference orders (antisymmetric, transitive, and a connex binary relations)
+* q ∈ {1 ... n} support (quota) : the approval of at least q voters is required to elect an alternative (q-approval fallback bargaining [3])
+** ties are broken taking the alternative with more supporters 
+** particular cases:
+*** when q=1 -> plurality rule
+*** when q=n/2+1 -> majority rule
+** q = n only makes sense in contexts with a low number of voters
+* See the majoritarian compromise [4]
+* Suppose to introduce an utility function u 
+** from ordinal preferences to cardinal utility
+
+
+=== Questions
+* What's a compromise?
+A compromise is a *Pareto Efficent alternative* whose loss profile lambda is the _"most equally"_ distributed. [2]
+* What _"most equally"_ means? 
+** Income distribution [6,7]
+** (Cooperative) Bargaining Theory [5]
+*** Kalai–Smorodinsky bargaining solution
+* Suppose to deduce the alternatives's utility from the ranking (as in Borda) and to select a winner in the context of cardinal utility, to which voting rule it corresponds within the ordinal world? (i.e. which voting rule would select the same alternative as a winner? Does it exist any?)
+
+
+=== References
+1. https://www.sciencedirect.com/science/article/pii/S1574000505800670[Cooperative models of bargaining - William Thomson]
+2. Compromise Rules Revisited - Vincent Merlin, İpek Özkal Sanver and M. Remzi Sanver
+3. https://link.springer.com/content/pdf/10.1023%2FA%3A1011252808608.pdf[Fallback Bargaining - Steven J. Brams, D. Marc Kilgour]
+4. https://link.springer.com/content/pdf/10.1007%2Fs003550050164.pdf[The majoritarian compromise is majoritarian-optimal and subgame-perfect implementable - Murat R. SertelBilge Yılmaz]
+5. http://www.math.mcgill.ca/vetta/CS764.dir/nashbarg.pdf[The bargaining problem - John F. Nash] 
+6. Handbook of Income Distribution - Anthony B. Atkinson and François Bourguignon
+7. Handbook of Utility Theory (Volume 1, Volume 2)- Salvador Barbera, Peter Hammond, Christian Seidl
+
