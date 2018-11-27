@@ -7,4 +7,3 @@
 * Regarding question 3 [i.e. _Suppose to deduce the alternatives's utility from the ranking (as in Borda) and to select a winner in the context of cardinal utility, to which voting rule it corresponds within the ordinal world?_]: When you deduce the utility from the ranking you're still in the ordinal world because you don't add any new information. See https://www.jstor.org/stable/2526200?seq=1#metadata_info_tab_contents[here].
 * http://darp.lse.ac.uk/papersdb/Kolm_(JET76a).pdf[Unequal Inequalities. I. by S. Kolm] could be a useful reading 
 
-
