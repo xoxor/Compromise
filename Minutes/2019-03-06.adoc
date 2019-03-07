@@ -1,0 +1,20 @@
+== Meeting 
+
+*06/03/2019 - Remzi, Olivier, Beatrice*
+
+=== Agenda
+* Olivier proved Proposition 0.1 for general functions (see picture 2019-03-06_1.jpg)
+** is "Σ closed under monotonic transformations of the input" a necessary condition? 
+*** Incompatible with Pairwise Pareto Dominance (in spirit)
+
+* Remzi will upload the draft according to the observations
+** a *finite* non-empty set A of alternatives
+** examples don't work
+** big N in the definition of σ (R^N^)
+
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 == Meeting 3
 
-*?/?/2018 - *
+*27/11/2018 - Olivier, Beatrice*
 
 === Agenda
 * Better to define b~i~(U)=argmax~a∈A~ u~i~(a)  
