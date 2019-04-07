@@ -73,17 +73,19 @@
 
 \begin{document}
 \section{Posing the problem}
+Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 2$. We write $L(A)$ for the set of linear orders over $A$ and $P_{i}\in L(A)$ stands for the preference of $i\in N$. For each $k\in \left\{ 1,...,\text{ }m\right\} $, $r_{k}(P_{i})$ is the alternative ranked at level $k$ by $P_{i}$. An (ordinal) social choice rule (SCR) is a mapping $f:L(A)^{N}\rightarrow 2^{A}\backslash \{\emptyset \}$.
 
-Consider a set $N$ of individuals with $\#N=n\geq 2$ and a set $A$ of alternatives with $\#A=m\geq 2$. We write $L(A)$ for the set of linear orders over $A$ and $P_{i}\in L(A)$ stands for a preference of $i\in N$. For each $k\in \left\{ 1,...,\text{ }m\right\} $, $r_{k}(P_{i})$ is the alternative ranked at level $k$ by $P_{i}$. An (ordinal) social choice rule (SCR) is a mapping $f:L(A)^{N}\rightarrow 2^{A}\backslash \{\emptyset \}$.
+We call BK-compromises the class of $q$-approval fallback bargaining rules introduced by Brams and Kilgour (2001): the $q$-approval fallback bargaining rule picks ranks 1, 2, …, and stops as soon as at least $q$ voters rank some alternative at the chosen rank or better. All such alternatives are elected.
+We start by two examples based on an observation made by Laslier at Buyukada. Consider the following preference profile $P\in L(A)^{N}$ with $n=100$:
 
-We call BK-compromises the class of $q-$approval fallback bargaining rules introduced by Brams and Kilgour (2001). We start by two examples based on an observation made by Laslier at Buyukada. Consider the following preference profile $P\in L(A)^{N}$ with $n=100$
 $51$ $a$ $b$ $c$
 
 $49$ $c$ $b$ $a$
 
-which represents 51 individuals who prefer $a$ to $b$, $b$ to $c$, hence $a$ to $c$; and 49 individuals who prefer $c$ to $b$, $b$ to $a$, hence $c$ to $a $. At $P,$ when $q\in \left\{ 1,...,\text{ }\lfloor \frac{n}{2}\rfloor +1\right\} $, all BK-compromises pick $a$, which does not appear as a compromise, as, after all, 51 voters reach their best alternative while the remaining 49 voters have to be contented with their worst one.
+which represents 51 individuals who prefer $a$ to $b$, $b$ to $c$, hence $a$ to $c$; and 49 individuals who prefer $c$ to $b$, $b$ to $a$, hence $c$ to $a $. At $P,$ when $q\in \left\{ 1,..., \lfloor \frac{n}{2}\rfloor +1\right\} $, all BK-compromises pick $a$, which does not appear as a compromise, as, after all, 51 voters reach their best alternative while the remaining 49 voters have to be contented with their worst one.
 
-This point can be extended to values of $q$ that exceed a majority. Again for $n=100$ but now with 4 alternatives, take any $q\in \left\{ \lfloor \frac{n}{2}\rfloor +2,...,\text{ }n-1\right\} $ and construct the preference profile
+This point can be extended to values of $q$ that exceed a majority. Again for $n=100$ but now with 4 alternatives, take any $q\in \left\{ \lfloor \frac{n}{2}\rfloor +2,..., n-1\right\} $ and construct the preference profile:
+
 $26$ $\ \ \ \ \ \ \ \ \ \ a$ $b$ $c$ $d$
 
 $25$ $\ \ \ \ \ \ \ \ \ \ c$ $b$ $a$ $d$
@@ -94,31 +96,31 @@ $100-q$ $\ \ d$ $a$ $c$ $b$
 
 \bigskip where the corresponding BK-compromise picks $b$. Here, the first three block of voters compromise among each other but the SCR doesn't seem to care about the fourth block of $100-q$ voters.
 
-These two examples illustrate that BK-compromises (except fallback bargaining (FB) where $q=n$) are \textquotedblleft ex-ante compromises\textquotedblright\ or \textquotedblleft procedural compromises\textquotedblright , i.e., they impose over individuals a willingness to compromise but they don't ensure an outcome where everyone has effectively compromised. So what is a "true compromise"? To define it, we switch to a utilitarian world.
+These two examples illustrate that BK-compromises (except fallback bargaining (FB) where $q=n$) are “ex-ante compromises” or “procedural compromises”, i.e., they impose over individuals a willingness to compromise but they don't ensure an outcome where everyone has effectively compromised. \commentOC{We should also discuss an example where $q=n$ and our rule differs.} So what is a “true compromise”? To define it, we switch to a utilitarian world.
 
 \section{Cardinal compromises}
-Let $U(A)$ be the set of real-valued \textquotedblleft utility\textquotedblright\ functions defined over $A$ with $u_{i}(x)\neq u_{i}(y)$ $\forall x,y\in A$, $\forall u_{i}\in U$. Note that each $u_{i}\in U$, induces a unique $P_{i}(u_{i})\in L(A)$. For each $k\in \left\{ 1, ..., m\right\} $, we write $r_{k}(u_{i})$ for $r_{k}(P_{i}(u_{i}))$.
+Let $U(A) \subseteq \R^A$ be the set of real-valued “utility” functions defined over $A$ with $u_{i}(x)\neq u_{i}(y)$ $\forall x,y\in A$, $\forall u_{i}\in U$. \commentOC{Is $U$ the utility profile? I find it hard to understand. If so, I suggest to either indicate that we slightly abuse notation, or distinguish these two letters, for example using $\mathcal{U}(A)$ instead of $U(A)$.} Note that each $u_{i}\in U$ induces a unique $P_{i}(u_{i})\in L(A)$ \commentOC{I suggest writing $P(u_i)$.}. For each $k\in \left\{ 1, ..., m\right\} $, we write $r_{k}(u_{i})$ for $r_{k}(P_{i}(u_{i}))$.
 
 A (cardinal) SCR is a mapping $f:U(A)^{N}\rightarrow 2^{A}\backslash \{\emptyset \}$. We will not specify whether a SCR is cardinal or ordinal whenever this is clear from its domain.
 
-We adopt the \textquotedblleft equal loss principle\textquotedblright\ which Chun (1988, Economics Letters), Chun and Peters (1991, MASS) introduce and characterize for bargaining problems. It seems that the concept is also used in bankruptcy and matching problems. For each $u\in U(A)^{N}$, each $x\in A$ and each $i\in N$, let $\lambda _{i}^{u}(x)=u_{i}(r_{1}(u_{i}))-u_{i}(x)$, and $\lambda ^{u}(x)=(\lambda _{i}^{u}(x))_{i\in N}$.
+We adopt the “equal loss principle” which Chun (1988, Economics Letters), Chun and Peters (1991, MASS) introduce and characterize for bargaining problems. It seems that the concept is also used in bankruptcy and matching problems. For each $u\in U(A)^{N}$, each $x\in A$ and each $i\in N$, let $\lambda_{i}^u(x) = u_{i}(r_{1}(u_{i})) - u_{i}(x)$ \commentOC{I suggest $\max_{a \in A} u_i(a)$ instead of $u_{i}(r_{1}(u_{i}))$ (but I don’t have strong feelings about it). Also, I would prefer $\lambda_i^U$ to $\lambda_i^u$ (and $\lambda^U$ to $\lambda^u$).}, and $\lambda ^{u}(x)=(\lambda _{i}^{u}(x))_{i\in N}$.
 
-Unlike bargaining, our problem does not induce a convex space of achievable utilities. As a result, we cannot ensure the existence of $x\in A$ with $\lambda _{i}^{u}(x)=\lambda _{j}^{u}(x)$ for all $i,j\in N$. Hence, in case we aim to determine the \textquotedblleft most equally distributed\textquotedblright\ vector within $\left\{ \lambda ^{u}(x)\right\} _{x\in A}$, we need to adopt a spread measure which is a mapping $\sigma : \R_{+}^{N}\longrightarrow \R_{+}$. We write $\Sigma $ for the class of spread measures that satisfy the following pairwise Pareto dominance condition: $\sigma (r)\leq \sigma (s)$ for all $r$, $s\in \R_{+}^{N}$ with $\left\vert r_{i}-r_{j}\right\vert \leq \left\vert s_{i}-s_{j}\right\vert $ $\forall i,$ $j\in N$.
+Unlike bargaining, our problem does not induce a convex space of achievable utilities. As a result, we cannot ensure the existence of $x\in A$ with $\lambda _{i}^{u}(x)=\lambda _{j}^{u}(x)$ for all $i,j\in N$. Hence, in case we aim to determine the “most equally distributed” vector within $\left\{ \lambda ^{u}(x)\right\} _{x\in A}$, we need to adopt a spread measure which is a mapping $\sigma : \R_{+}^{N}\longrightarrow \R_{+}$. We write $\Sigma $ for the class of spread measures that satisfy the following pairwise Pareto dominance condition: $\sigma (r)\leq \sigma (s)$ for all $r$, $s\in \R_{+}^{N}$ with $\left\vert r_{i}-r_{j}\right\vert \leq \left\vert s_{i}-s_{j}\right\vert $ $\forall i,$ $j\in N$.
 
 TO DO: Give reference to the relevant literature, also to the Pareto dominance condition. Give examples of spread measure that do and do not satisfy the condition.
 
-Given any $\sigma \in \Sigma $, we define a (cardinal) compromise as the SCR $C^{\sigma }:U(A)^{N}\rightarrow 2^{A}\backslash \{\emptyset \}$ such that $C^{\sigma }(u)=\left\{ x\in A:\sigma (\lambda ^{u}(x))\leq \sigma (\lambda ^{u}(y))\text{ }\forall y\in A\right\} $. Let $PO(u)$ be the set of alternatives which are Pareto optimal at $u\in U(A)^{N}$. As a matter of fact, $C^{\sigma }(u)$ can pick alternatives outside $PO(u)$. In fact, $C^{\sigma }(u)$ $\cap $ $PO(u)$ can even be empty. To see this, with two voters and five alternatives, conisder $u$ with $u_{1}(a)=5$, $u_{1}(b)=4$, $u_{1}(c)=3$, $u_{1}(d)=2$, $u_{1}(e)=1$, $u_{2}(d)=5$, $u_{2}(c)=4$, $u_{2}(b)=3$, $u_{2}(a)=2$, $u_{2}(e)=1$. Note that for any $\sigma \in \Sigma $, $C^{\sigma }(u)=\left\{ e\right\} $ while $PO(u)=\left\{ a,\text{ }b,\text{ }c,\text{ }d\right\} $. Given the spirit of fairness that underlies $C^{\sigma }$, picking $e$ at $u$ may have a merit.
+Given any $\sigma \in \Sigma $, we define a (cardinal) compromise as the SCR $C^{\sigma }:U(A)^{N}\rightarrow 2^{A}\backslash \{\emptyset \}$ such that $C^{\sigma }(u)=\left\{ x\in A:\sigma (\lambda ^{u}(x))\leq \sigma (\lambda ^{u}(y)) \forall y\in A\right\} $. Let $PO(u)$ be the set of alternatives which are Pareto optimal at $u\in U(A)^{N}$. As a matter of fact, $C^{\sigma }(u)$ can pick alternatives outside $PO(u)$. In fact, $C^{\sigma }(u)$ $\cap $ $PO(u)$ can even be empty. To see this, with two voters and five alternatives, conisder $u$ with $u_{1}(a)=5$, $u_{1}(b)=4$, $u_{1}(c)=3$, $u_{1}(d)=2$, $u_{1}(e)=1$, $u_{2}(d)=5$, $u_{2}(c)=4$, $u_{2}(b)=3$, $u_{2}(a)=2$, $u_{2}(e)=1$. Note that for any $\sigma \in \Sigma $, $C^{\sigma }(u)=\left\{ e\right\} $ while $PO(u)=\left\{ a, b, c, d\right\} $. Given the spirit of fairness that underlies $C^{\sigma }$, picking $e$ at $u$ may have a merit.
 
 TO DO: Motivate this with a discussion.
 
-However, from now on, we will ensure the Pareto optimality of cardinal compromises by defining them as $C^{\sigma }(u)=\left\{ x\in PO(u):\sigma (\lambda ^{u}(x))\leq \sigma (\lambda ^{u}(y))\text{ }\forall y\in A\right\}$.
+However, from now on, we will ensure the Pareto optimality of cardinal compromises by defining them as $C^{\sigma }(u)=\left\{ x\in PO(u):\sigma (\lambda ^{u}(x))\leq \sigma (\lambda ^{u}(y)) \forall y\in A\right\}$.
 
 OPEN QUESTION: Which axioms would charaterize $C^{\sigma }$?
 
 \section{Ordinal compromises} 
 We now address the question of relating $C^{\sigma }$ to ordinal SCRs.
 
-A utility assignment (UA) is a strictly decreasing function $v:\left\{ 1,...,\text{ }m\right\} \longrightarrow \R$ which assigns utilities to ranks. For each $P_{i}\in L(A)$, $v$ induces a utility function $v_{P_{i}}$ $\in U(A)$ with $v_{P_{i}}(x)=v(k)$ for each $x=r_{k}(P_{i})\in A$. So for every $P\in L(A)^{N}$, $v_{P}=(v_{P_{1}},...,v_{P_{n}})$ $\in U(A)^{N}$ is the utility profile that $v$ induces from the preference profile $P$.
+A utility assignment (UA) is a strictly decreasing function $v:\left\{ 1,..., m\right\} \longrightarrow \R$ which assigns utilities to ranks. For each $P_{i}\in L(A)$, $v$ induces a utility function $v_{P_{i}}$ $\in U(A)$ with $v_{P_{i}}(x)=v(k)$ for each $x=r_{k}(P_{i})\in A$. So for every $P\in L(A)^{N}$, $v_{P}=(v_{P_{1}},...,v_{P_{n}})$ $\in U(A)^{N}$ is the utility profile that $v$ induces from the preference profile $P$.
 
 Given any UA $v$, an ordinal compromise is the SCR $C^{\sigma }\circ v:L(A)^{N}\rightarrow 2^{A}\backslash \{\emptyset \}$ such that $C^{\sigma }\circ v(P)=C^{\sigma }(v_{P})$ for every $P\in L(A)^{N}$.
 
@@ -127,7 +129,7 @@ Given any UA $v$, an ordinal compromise is the SCR $C^{\sigma }\circ v:L(A)^{N}\
 Given any $\sigma \in \Sigma $ and any two UAs $v$ and $v^{\prime }$, there exists a $\sigma ^{\prime }\in \Sigma $ such that $C^{\sigma }\circ v=C^{\sigma ^{\prime }}\circ v^{\prime }$. 
 \end{proposition}
 \begin{proof}
-Take any $\sigma \in \Sigma $ and any two UAs $v$ and $v^{\prime }$. Take any $(l_{1},...,l_{n})\in \R_{+}^{n}$ such that for each $i\in \left\{ 1,...,\text{ }n\right\} $, we have $l_{i}=v^{\prime }(1)-v^{\prime }(r(l_{i}))$ for some $r(l_{i})\in \left\{ 1,...,\text{ }m\right\} $. We set $\sigma ^{\prime }(l_{1},...,l_{n})=$ $\sigma (v(1)-v(r(l_{1})),...,$ $v(1)-v(r(l_{n}))).$ 
+Take any $\sigma \in \Sigma $ and any two UAs $v$ and $v^{\prime }$. Take any $(l_{1},...,l_{n})\in \R_{+}^{n}$ such that for each $i\in \left\{ 1,..., n\right\} $, we have $l_{i}=v^{\prime }(1)-v^{\prime }(r(l_{i}))$ for some $r(l_{i})\in \left\{ 1,..., m\right\} $. We set $\sigma ^{\prime }(l_{1},...,l_{n})=$ $\sigma (v(1)-v(r(l_{1})),...,$ $v(1)-v(r(l_{n}))).$ 
 Now, take any $P\in L(A)^{N}$. I think, with this setting of $\sigma ^{\prime }$, we can show $C^{\sigma }\circ v(P)=C^{\sigma ^{\prime }}\circ v^{\prime }(P).$ Of course we also need to show $\sigma ^{\prime }\in \Sigma $.
 \end{proof}
 
@@ -159,6 +161,8 @@ $x$ $a_{1}...a_{k}$ $y$ $b_{1}....b_{k}$
 
 $b_{1}....b_{k-1}$ $y$ $x$ $b_{k}$ $a_{1}...a_{k}$
 
+\bigskip
+
 where under any $\sigma \in \Sigma $, $C^{\sigma }\circ v$ picks $y$ for the UA $v(k)=n-k+1$ while FB picks $x$. So FB fails Definition \ref{D2}, hence Definition \ref{D1}.
 
 Note that this example can be generalized to any $n$ by replicating the first voter as much as one wishes. This illustrates in a clear and simple
@@ -186,6 +190,6 @@ TO DO: See whether the analysis above prevails when the UA $v$ is allowed to var
 
 The two person example that shows that FB is not an ordinal compromise of special interest because $C^{\sigma }$ seems to particularly appealing in two person discrete bargaining environments. In that example, $y$ seems to be a more natural bargaining solution than $x$. So we can try to present $C^{\sigma }$ as a discrete bargaining solution. In this literature there is FB of Brams and Kilgour which is later rectified by Kibris and Sertel by adding the disagreement outcome that was originally missing. It will be certainly interesting to introduce and analyze $C^{\sigma }$ in this ordinal context where ranks are utilities. Clearly, minimized envy will be a key condition which will differentiate $C^{\sigma }$ from FB.
 
-Another direction of research to which Ali had pointed: As a spirit of compromise, we pick the alternative whose lambda is \textquotedblleft most equally distributed\textquotedblright . But once we have lambdas, it makes sense to ask what else we can do with these. Ali suggested to minimize the median value of lambda. Sounds plausible but what does this mean? What else can we do with our lambdas? I feel that there are plenty of interesting questions here.
+Another direction of research to which Ali had pointed: As a spirit of compromise, we pick the alternative whose lambda is “most equally distributed”. But once we have lambdas, it makes sense to ask what else we can do with these. Ali suggested to minimize the median value of lambda. Sounds plausible but what does this mean? What else can we do with our lambdas? I feel that there are plenty of interesting questions here.
 
 \end{document}
