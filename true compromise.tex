@@ -71,6 +71,8 @@
 \newtheorem{summary}{Summary}[section]
 %\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 
+\newcommand{\commentBN}[1]{\textcolor{red}{\small$\big[$BN: #1$\big]$}}
+
 \begin{document}
 \section{Posing the problem}
 Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 2$. We write $L(A)$ for the set of linear orders over $A$ and $P_{i}\in L(A)$ stands for the preference of $i\in N$. For each $k\in \left\{ 1,...,\text{ }m\right\} $, $r_{k}(P_{i})$ is the alternative ranked at level $k$ by $P_{i}$. An (ordinal) social choice rule (SCR) is a mapping $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$.
@@ -83,6 +85,7 @@ $51$ $a$ $b$ $c$
 $49$ $c$ $b$ $a$
 
 which represents 51 individuals who prefer $a$ to $b$, $b$ to $c$, hence $a$ to $c$; and 49 individuals who prefer $c$ to $b$, $b$ to $a$, hence $c$ to $a $. At $P,$ when $q\in \left\{ 1,..., \lfloor \frac{n}{2}\rfloor +1\right\} $, all BK-compromises pick $a$, which does not appear as a compromise, as, after all, 51 voters reach their best alternative while the remaining 49 voters have to be contented with their worst one.
+\commentBN{Not true. For $q\in \left\{ 1,..., \lfloor \frac{n}{2}\rfloor \right\} $ the fallback bargaining procedure does not uniquely determine a bargaining outcome. In this case, the set of possible common agreements would be $\{a,c\}$. Still the example can hold by saying that any of these choices seem to be a compromise. Indeed, either we pick a or c almost half of the voters rank it as their worst preferred alternative.}
 
 This point can be extended to values of $q$ that exceed a majority. Again for $n=100$ but now with 4 alternatives, take any $q\in \left\{ \lfloor \frac{n}{2}\rfloor +2,..., n-1\right\} $ and construct the preference profile:
 
@@ -95,6 +98,7 @@ $q-51$ $\ \ \ \ d$ $b$ $a$ $c$
 $100-q$ $\ \ d$ $a$ $c$ $b$
 
 \bigskip where the corresponding BK-compromise picks $b$. Here, the first three block of voters compromise among each other but the SCR doesn't seem to care about the fourth block of $100-q$ voters.
+\commentBN{Again the example does not hold as it is. Indeed, by picking, for example, $q\lfloor \frac{n}{2}\rfloor +2=52$ then we have in the first level 26 voters preferring the alternative a, 25 preferring c and 49 preferring d. No alternative reaches the quota required so we descend one level. Now, considering both first and second choices, $74$ voters agree on the alternative $a$ as a bargaining outcome, $52$ voters on $b$, $25$ on $c$ and $49$ on $d$. Only $a$ and $b$ reach the quota, so the compromise set is $\{a,b\}$. The example can be redefined as the previous one by saying that it misses a concept of fairness.}
 
 These two examples illustrate that BK-compromises (except fallback bargaining (FB) where $q=n$) are “ex-ante compromises” or “procedural compromises”, i.e., they impose over individuals a willingness to compromise but they don't ensure an outcome where everyone has effectively compromised. \commentOC{We should also discuss an example where $q=n$ and our rule differs.} So what is a “true compromise”? To define it, we switch to a utilitarian world.
 
@@ -107,7 +111,7 @@ We adopt the “equal loss principle” which Chun (1988, Economics Letters), Ch
 
 Unlike bargaining, our problem does not induce a convex space of achievable utilities. As a result, we cannot ensure the existence of $x\in A$ with $\lambda _{i}^{u}(x)=\lambda _{j}^{u}(x)$ for all $i,j\in N$. Hence, we aim to determine the “most equally distributed” vector within $\left\{ \lambda ^{u}(x)\right\} _{x\in A}$. We thus need to adopt a spread measure which is a mapping $\sigma : \R_{+}^{N}\longrightarrow \R_{+}$. We write $\Sigma $ for the class of spread measures that satisfy the following pairwise Pareto dominance condition: $\sigma (r)\leq \sigma (s)$ for all $r$, $s\in \R_{+}^{N}$ with $\left\vert r_{i}-r_{j}\right\vert \leq \left\vert s_{i}-s_{j}\right\vert $ $\forall i,$ $j\in N$. Any $\sigma \in \Sigma$ reaches a minimum value for an input whose components are all equal.
 
-TO DO: Give reference to the relevant literature, also to the Pareto dominance condition. Give examples of spread measure that do and do not satisfy the condition.
+TO DO: Give reference to the relevant literature, also to the Pareto dominance condition. Give examples of spread measure that do and do not satisfy the condition. \commentBN{TODO BEA: give some examples using average or standard deviation.}
 
 Given any $\sigma \in \Sigma $, we define a (cardinal) compromise as the SCR $C^{\sigma }:U(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ such that $C^{\sigma }(u)=\left\{ x\in A:\sigma (\lambda ^{u}(x))\leq \sigma (\lambda ^{u}(y)), \forall y\in A\right\} $. Let $PO(u)$ be the set of alternatives which are Pareto optimal at $u\in U(A)^{N}$. As a matter of fact, $C^{\sigma }(u)$ can pick alternatives outside $PO(u)$. In fact, $C^{\sigma }(u)$ $\cap $ $PO(u)$ can even be empty. To see this, with two voters and five alternatives, consider $u$ with $u_{1}(a)=5$, $u_{1}(b)=4$, $u_{1}(c)=3$, $u_{1}(d)=2$, $u_{1}(e)=1$, $u_{2}(d)=5$, $u_{2}(c)=4$, $u_{2}(b)=3$, $u_{2}(a)=2$, $u_{2}(e)=1$. Note that for any $\sigma \in \Sigma $, $C^{\sigma }(u)=\left\{ e\right\} $ while $PO(u)=\left\{ a, b, c, d\right\} $. 
 
