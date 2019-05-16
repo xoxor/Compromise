@@ -13,6 +13,8 @@
 *.toc
 *.vrb
 #out
-*.pdf
 *.out
 *.thm
+
+#*.pdf
+
