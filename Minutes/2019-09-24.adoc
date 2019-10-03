@@ -1,0 +1,17 @@
+== Meeting 
+
+*24/09/2019 - Remzi, Olivier, Beatrice*
+
+=== Agenda
+* Discussed about the example on page 2: trade-off between size of the q interval and the size of the ignored people. Decided to parametrize the example and explain both cases.
+* Went through the TODOs 
+* Side notes:
+** Ipek mentioned some literature on bankruptcy for equal loss principle
+** Axioms valid for equal loss solution surely help to characterize our cardinal compromise definition
+
+=== Next steps
+. Write the abstract and fix the example on pag 2
+. Give references to literature and examples of spreading indices
+. Check the proof and be sure that proposition 1 holds before Istanbul meeting
+. Axiomatization
+

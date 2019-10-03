@@ -15,6 +15,5 @@
 #out
 *.out
 *.thm
-
-#*.pdf
+*.pdf
 
