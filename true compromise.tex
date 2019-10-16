@@ -270,7 +270,14 @@ Another direction of research to which Ali had pointed: As a spirit of compromis
 
 \appendix
 \section{Transf}
-Given sets $A, B, C, G \subseteq C^B$, given $\emptyset ≠ V \subseteq B^A$ a subset of the bijective functions from $A$ to $B$. Define $F_1 \subseteq C^A$ as the set of functions $f$ such that $\exists v \in V, g \in G \suchthat f = g \circ v$. Define $F_2 \subseteq C^A$ as the set of functions $f$ such that $\forall v \in V, \exists g \in G \suchthat f = g \circ v$. It follows that $F_2 \subseteq F_1$. We are interested in defining conditions on $G$ which permit to obtain $F_1 \subseteq F_2$. 
+Given sets $A, B, C, G \subseteq C^B$, given $\emptyset ≠ V \subseteq B^A$ a subset of the injective functions from $A$ to $B$. Define $F_1 \subseteq C^A$ as the set of functions $f$ such that $\exists v \in V, g \in G \suchthat f = g \circ v$. Define $F_2 \subseteq C^A$ as the set of functions $f$ such that $\forall v \in V, \exists g \in G \suchthat f = g \circ v$. It follows that $F_2 \subseteq F_1$. We are interested in defining conditions on $G$ which permit to obtain $F_1 \subseteq F_2$. 
 
-Define condition $C$ as: $\forall v \in V, g \in G, v' \in V, \exists g^{v'} \in G$ such that $g^{v'}(b) = g(v(a))$ when $b = v'(a)$; equivalently, such that $g^{v'}(v'(a)) = g(v(a))$; equivalently, such that $g^{v'} \circ v' = g \circ v$; equivalently, such that $g^{v'} = g \circ v \circ v'^{-1}$ on the restricted domain $v'(A) \subseteq B$.
+Define condition COND as: $\forall v \in V, g \in G, v' \in V, \exists g^{v'} \in G$ such that $g^{v'}(b) = g(v(a))$ when $b = v'(a)$; equivalently, such that $g^{v'}(v'(a)) = g(v(a))$; equivalently, such that $g^{v'} \circ v' = g \circ v$; equivalently, such that $g^{v'} = g \circ v \circ v'^{-1}$ on the restricted domain $v'(A) \subseteq B$.
+
+\begin{lemma}
+	Given $A, B, C, G \subseteq C^B, \emptyset ≠ V \subseteq B^A$ as constrained above, and $F_1, F_2$ defined as above, if $G$ satisfies COND, then $F_1 \subseteq F_2$.
+\end{lemma}
+\begin{proof}
+	Given $f \in F_1$, take $v, g$ such that $f = g \circ v$. Given any $v' \in V$, we want to find $g^{v'}$ such that $f = g^{v'} \circ v$. Such a function exists thanks to COND.
+\end{proof}
 \end{document}
