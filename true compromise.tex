@@ -270,14 +270,21 @@ Another direction of research to which Ali had pointed: As a spirit of compromis
 
 \appendix
 \section{Transf}
-Given sets $A, B, C, G \subseteq C^B$, given $\emptyset ≠ V \subseteq B^A$ a subset of the injective functions from $A$ to $B$. Define $F_1 \subseteq C^A$ as the set of functions $f$ such that $\exists v \in V, g \in G \suchthat f = g \circ v$. Define $F_2 \subseteq C^A$ as the set of functions $f$ such that $\forall v \in V, \exists g \in G \suchthat f = g \circ v$. It follows that $F_2 \subseteq F_1$. We are interested in defining conditions on $G$ which permit to obtain $F_1 \subseteq F_2$. 
+Given sets $A, B, C, G \subseteq C^B$, given $\emptyset ≠ V \subseteq B^A$ a subset of the injective functions from $A$ to $B$. Define $F_1 \subseteq C^A$ as the set of functions $f$ such that $\exists v \in V, g \in G \suchthat f = g \circ v$. Define $F_2 \subseteq C^A$ as the set of functions $f$ such that $\forall v \in V, \exists g \in G \suchthat f = g \circ v$. It follows that $F_2 \subseteq F_1$. We are interested in defining a condition on $G$ which permit to obtain $F_1 \subseteq F_2$. 
 
-Define condition COND as: $\forall v \in V, g \in G, v' \in V, \exists g^{v'} \in G$ such that $g^{v'}(b) = g(v(a))$ when $b = v'(a)$; equivalently, such that $g^{v'}(v'(a)) = g(v(a))$; equivalently, such that $g^{v'} \circ v' = g \circ v$; equivalently, such that $g^{v'} = g \circ v \circ v'^{-1}$ on the restricted domain $v'(A) \subseteq B$.
+We say that \emph{$G$ can compensate for $V$-transformations} iff $\forall v, v' \in V, g \in G, \exists g' \in G \suchthat g' \circ v' = g \circ v$.%; equivalently, such that $g^{v'} = g \circ v \circ v'^{-1}$ on the restricted domain $v'(A) \subseteq B$.
 
 \begin{lemma}
-	Given $A, B, C, G \subseteq C^B, \emptyset ≠ V \subseteq B^A$ as constrained above, and $F_1, F_2$ defined as above, if $G$ satisfies COND, then $F_1 \subseteq F_2$.
+	Given $A, B, C, G \subseteq C^B, \emptyset ≠ V \subseteq B^A$ as constrained above, and $F_1, F_2$ defined as above, if $G$ can compensate for $V$-transformations, then $F_1 \subseteq F_2$.
 \end{lemma}
 \begin{proof}
-	Given $f \in F_1$, take $v, g$ such that $f = g \circ v$. Given any $v' \in V$, we want to find $g^{v'}$ such that $f = g^{v'} \circ v$. Such a function exists thanks to COND.
+	Given $f \in F_1$, take $v, g$ such that $f = g \circ v$. Given any $v' \in V$, we want to find $g'$ such that $f = g' \circ v$. Such a function exists thanks to the hypothesized condition.
+\end{proof}
+
+\begin{lemma}
+	Given $A, B, C, G \subseteq C^B, \emptyset ≠ V \subseteq B^A$ as constrained above, and $F_1, F_2$ defined as above, if $F_1 \subseteq F_2$, then $G$ can compensate for $V$-transformations.
+\end{lemma}
+\begin{proof}
+	We know that $\forall v, g: [\forall v', \exists g' \suchthat g' \circ v' = g \circ v]$. We have to show that $\forall v, v', g: \exists g' \suchthat g' \circ v' = g \circ v$, which is the same thing.
 \end{proof}
 \end{document}
