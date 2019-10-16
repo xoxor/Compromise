@@ -77,6 +77,7 @@
 
 \newcommand{\commentBN}[1]{\textcolor{magenta}{\small$\big[$BN: #1$\big]$}}
 \newcommand{\commentRS}[1]{\textcolor{red}{\small$\big[$RS: #1$\big]$}}
+\newcommand{\paretopt}{\mathit{PO}}
 
 \begin{document}
 
@@ -148,14 +149,14 @@ where the corresponding BK-compromise picks $b$ \commentBN{Only for $q > 63$. Ex
 These two examples illustrate that BK-compromises (except fallback bargaining (FB) where $q=n$ which will be further discussed in Example \ref{ex:qeqn}) are “ex-ante compromises” or “procedural compromises”, i.e., they impose over individuals a willingness to compromise but they don't ensure an outcome where everyone has effectively compromised. So what is a “true compromise”? To define it, we switch to an utilitarian world.
 
 \section{Cardinal compromises}
-Let $U(A) \subseteq \R^A$ be the set of real-valued “utility” functions defined over $A$ with $u_{i}(x)\neq u_{i}(y)$ $\forall x,y\in A$, $\forall u_{i}\in U(A)$. Note that each $u_{i}\in U$ induces a unique $P(u_{i})\in L(A)$.
+Let $U(A) \subseteq \R^A$ be the set of injective real-valued “utility” functions defined over $A$, thus mandating, $\forall u_{i}\in U(A)$: $u_{i}(x)\neq u_{i}(y)$ $\forall x ≠ y\in A$. Note that each $u_{i}\in U$ induces a unique $P(u_{i})\in L(A)$.
 For each $k\in \left\{ 1, ..., m\right\} $, we write $r_{k}(u_{i})$ for $r_{k}(P(u_{i}))$.
 
 A (cardinal) SCR is a mapping $f:U(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. We will not specify whether a SCR is cardinal or ordinal whenever this is clear from its domain.
 
-We adopt the “equal loss principle” which Chun (1988, Economics Letters) \cite{Chun1988}, Chun and Peters (1991, MASS) \cite{Chun1991} introduce and characterize for bargaining problems. It seems that the concept is also used in bankruptcy and matching problems. For each $u\in U(A)^{N}$, each $x\in A$ and each $i\in N$, let \mbox{$\lambda_{i}^u(x) = \max_{a \in A} u_i(a) - u_{i}(x)$}, and $\lambda ^{u}(x)=(\lambda _{i}^{u}(x))_{i\in N}$.
+We adopt the “equal loss principle” which Chun (1988, Economics Letters) \cite{Chun1988}, Chun and Peters (1991, MASS) \cite{Chun1991} introduce and characterize for bargaining problems. It seems that the concept is also used in bankruptcy and matching problems. For each $u\in U(A)^{N}$, each $x\in A$ and each $i\in N$, let $\lambda_{i}^u(x) = \max_{a \in A} u_i(a) - u_{i}(x)$ represent the loss of utility of $i$ when electing $x$, and $\lambda ^{u}(x)=(\lambda _{i}^{u}(x))_{i\in N}$.
 
-Unlike bargaining, our problem does not induce a convex space of achievable utilities. As a result, we cannot ensure the existence of $x\in A$ with $\lambda _{i}^{u}(x)=\lambda _{j}^{u}(x)$ for all $i,j\in N$. Hence, we aim to determine the “most equally distributed” vector within $\left\{ \lambda ^{u}(x)\right\} _{x\in A}$. We thus need to adopt a spread measure which is a mapping $\sigma : \R_{+}^{N}\longrightarrow \R_{+}$. We write $\Sigma $ for the class of spread measures that satisfy the following pairwise Pareto dominance condition: $\sigma (r)\leq \sigma (s)$ for all $r$, $s\in \R_{+}^{N}$ with $\left\vert r_{i}-r_{j}\right\vert \leq \left\vert s_{i}-s_{j}\right\vert $ $\forall i,$ $j\in N$. Any $\sigma \in \Sigma$ reaches a minimum value for an input whose components are all equal.
+Unlike bargaining, our problem does not induce a convex space of achievable utilities. As a result, we cannot ensure the existence of $x\in A$ with $\lambda _{i}^{u}(x)=\lambda _{j}^{u}(x)$ for all $i,j\in N$. Hence, we aim to determine the “most equally distributed” vector within $\left\{ \lambda ^{u}(x)\right\} _{x\in A}$. We thus need to adopt a spread measure which is a mapping $\sigma : \R_{+}^{N}\longrightarrow \R_{+}$. We write $\Sigma $ for the class of spread measures that satisfy the following pairwise Pareto dominance condition: for all $r$, $s\in \R_{+}^{N}$, $\left[\left\vert r_{i}-r_{j}\right\vert \leq \left\vert s_{i}-s_{j}\right\vert \forall i, j\in N\right] ⇒ \sigma (r)\leq \sigma (s)$. Any $\sigma \in \Sigma$ reaches a minimum value for an input whose components are all equal.
 
 \textbf{TO DO: }
 
@@ -166,17 +167,20 @@ $\cdot$ Give examples of spread measure that do and do not satisfy the condition
 $\cdot$ BEA: give some examples using average or standard deviation.\\
 
 
-Given any $\sigma \in \Sigma $, we define a (cardinal) compromise as the SCR $C^{\sigma }:U(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ such that $C^{\sigma }(u)=\left\{ x\in A:\sigma (\lambda ^{u}(x))\leq \sigma (\lambda ^{u}(y)), \forall y\in A\right\} $. Let $PO(u)$ be the set of alternatives which are Pareto optimal at $u\in U(A)^{N}$. As a matter of fact, $C^{\sigma }(u)$ can pick alternatives outside $PO(u)$. In fact, $C^{\sigma }(u)$ $\cap $ $PO(u)$ can even be empty. To see this, with two voters and five alternatives, consider $u$ with $u_{1}(a)=5$, $u_{1}(b)=4$, $u_{1}(c)=3$, $u_{1}(d)=2$, $u_{1}(e)=1$, $u_{2}(d)=5$, $u_{2}(c)=4$, $u_{2}(b)=3$, $u_{2}(a)=2$, $u_{2}(e)=1$. Note that for any $\sigma \in \Sigma $, $C^{\sigma }(u)=\left\{ e\right\} $ while $PO(u)=\left\{ a, b, c, d\right\} $. 
+Given any $\sigma \in \Sigma $, we define a (cardinal) compromise as the SCR $C^{\sigma }:U(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ such that $C^{\sigma }(u) = \argmin_{x \in A} (\sigma \circ \lambda^u)(x) = \left\{ x\in A:\sigma (\lambda ^{u}(x))\leq \sigma (\lambda ^{u}(y)), \forall y\in A\right\} $. Let $\paretopt(u)$ be the set of alternatives which are Pareto optimal at $u\in U(A)^{N}$. As a matter of fact, $C^{\sigma }(u)$ can pick alternatives outside $\paretopt(u)$. In fact, $C^{\sigma }(u)$ $\cap $ $\paretopt(u)$ can even be empty. To see this, with two voters and five alternatives, consider $u$ with $u_{1}(a)=5$, $u_{1}(b)=4$, $u_{1}(c)=3$, $u_{1}(d)=2$, $u_{1}(e)=1$, $u_{2}(d)=5$, $u_{2}(c)=4$, $u_{2}(b)=3$, $u_{2}(a)=2$, $u_{2}(e)=1$. Note that for any $\sigma \in \Sigma $, $C^{\sigma }(u)=\left\{ e\right\} $ while $\paretopt(u)=\left\{ a, b, c, d\right\} $. 
 
-Given the spirit of fairness that underlies $C^{\sigma }$, picking $e$ at $u$ may have a merit. To see why, consider the following situation, where a social planner must choose between a world $x$ where individuals may sell their organs, and a world $y$ where they may not (assuming that they do not if they may not). Assume that the utility of individual $1$ would be slightly higher in world $x$, because she would sell an organ to individual $2$, who would gain a lot from this sell: $u_1(x) = 1, u_1(y) = 0, u_2(x) = 100, u_2(y) = 0$. Even though $y$ is Pareto dominated in this example, the social planner might prefer $y$ to $x$ by considering that in $x$, an individual benefits in an unfair way of the sale. (A more thorough argument could observe that in real life, the set of alternatives is not necessarily determined once and for all, and that by adopting a strategy that tolerates huge inequalities, the social planner creates an incentive for $u_2$ to avoid helping adding new alternatives in the agenda, such as one where $u_1$ does not desire to sell an organ to $u_2$.) \commentOC{TODO refer to literature.} This example illustrates the tension between Pareto efficiency, which may come with a price of huge inequalities as in this example, and pure equalitarian view, which as the previous example illustrates may completely disregard Pareto efficiency even when the cost in supplemental inequality is low. Exploring rules that trade-off between these two objectives might be interesting, but is left as a future goal.
-From now on, we will ensure the Pareto optimality of cardinal compromises by defining them as $C^{\sigma }(u)=\left\{ x\in PO(u):\sigma (\lambda ^{u}(x))\leq \sigma (\lambda ^{u}(y)),  \forall y\in A\right\}$. \commentOC{Damned, my communist propaganda failed again.} \commentRS{Not necessarily. This is an inception for future resolution.}
+\begin{remark}
+	Given the spirit of fairness that underlies $C^{\sigma }$, picking $e$ at $u$ may have a merit. To see why, consider the following situation, where a social planner must choose between a world $x$ where individuals may sell their organs, and a world $y$ where they may not (assuming that they do not if they may not). Assume that the utility of individual $1$ would be slightly higher in world $x$, because she would sell an organ to individual $2$, who would gain a lot from this sell: $u_1(x) = 1, u_1(y) = 0, u_2(x) = 100, u_2(y) = 0$. Even though $y$ is Pareto dominated in this example, the social planner might prefer $y$ to $x$ by considering that in $x$, an individual benefits in an unfair way of the sale. (A more thorough argument could observe that in real life, the set of alternatives is not necessarily determined once and for all, and that by adopting a strategy that tolerates huge inequalities, the social planner creates an incentive for $u_2$ to avoid helping adding new alternatives in the agenda, such as one where $u_1$ does not desire to sell an organ to $u_2$.) \commentOC{TODO refer to literature.} This example illustrates the tension between Pareto efficiency, which may come with a price of huge inequalities as in this example, and pure equalitarian view, which as the previous example illustrates may completely disregard Pareto efficiency even when the cost in supplemental inequality is low. Exploring rules that trade-off between these two objectives might be interesting, but is left as a future goal.
+\end{remark}
+From now on, we will ensure the Pareto optimality of cardinal compromises by defining them as 
+\[C^{\sigma }(u) = \argmin_{x \in \paretopt(u)} (\sigma \circ \lambda^u)(x) = \left\{ x\in \paretopt(u):\sigma (\lambda ^{u}(x))\leq \sigma (\lambda ^{u}(y)),  \forall y\in A\right\}.\]
 
 OPEN QUESTION: Which axioms would characterize $C^{\sigma }$?
 
 \section{Ordinal compromises} 
 We now address the question of relating $C^{\sigma }$ to ordinal SCRs.
 
-A utility assignment (UA) is a strictly decreasing function $v:\left\{ 1,..., m\right\} \rightarrow \R$ which assigns utilities to ranks. For each $P_{i}\in L(A)$, $v$ induces a utility function $v_{P_{i}}$ $\in U(A)$ with $v_{P_{i}}(x)=v(k)$ for each $x=r_{k}(P_{i})\in A$. So for every $P\in L(A)^{N}$, $v_{P}=(v_{P_{1}},...,v_{P_{n}})$ $\in U(A)^{N}$ is the utility profile that $v$ induces from the preference profile $P$.
+A utility assignment (UA) is a strictly decreasing function $v:\left\{ 1,..., m\right\} \rightarrow \R$ which maps ranks to utilities. For each $P_{i}\in L(A)$, $v$ induces a utility function $v_{P_{i}}$ $\in U(A)$ with $v_{P_{i}}(x)=v(k)$ for each $x=r_{k}(P_{i})\in A$. So for every $P\in L(A)^{N}$, $v_{P}=(v_{P_{1}},...,v_{P_{n}})$ $\in U(A)^{N}$ is the utility profile that $v$ induces from the preference profile $P$.
 
 Given any UA $v$, an ordinal compromise is the SCR $C^{\sigma }\circ v:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ such that $(C^{\sigma }\circ v)(P)=C^{\sigma }(v_{P})$ for every $P\in L(A)^{N}$. (We slightly abuse notation here by pretending that we can apply $v$ as a function to elements of $L(A)$.)
 
@@ -264,4 +268,9 @@ Another direction of research to which Ali had pointed: As a spirit of compromis
 \bibliography{biblio}
 \bibliographystyle{abbrv}
 
+\appendix
+\section{Transf}
+Given sets $A, B, C, G \subseteq C^B$, given $\emptyset ≠ V \subseteq B^A$ a subset of the bijective functions from $A$ to $B$. Define $F_1 \subseteq C^A$ as the set of functions $f$ such that $\exists v \in V, g \in G \suchthat f = g \circ v$. Define $F_2 \subseteq C^A$ as the set of functions $f$ such that $\forall v \in V, \exists g \in G \suchthat f = g \circ v$. It follows that $F_2 \subseteq F_1$. We are interested in defining conditions on $G$ which permit to obtain $F_1 \subseteq F_2$. 
+
+Define condition $C$ as: $\forall v \in V, g \in G, v' \in V, \exists g^{v'} \in G$ such that $g^{v'}(b) = g(v(a))$ when $b = v'(a)$; equivalently, such that $g^{v'}(v'(a)) = g(v(a))$; equivalently, such that $g^{v'} \circ v' = g \circ v$; equivalently, such that $g^{v'} = g \circ v \circ v'^{-1}$ on the restricted domain $v'(A) \subseteq B$.
 \end{document}
