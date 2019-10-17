@@ -89,25 +89,13 @@
 
 \pagebreak
 
-\section{Related Works}
-	
-	
-	Imagine a setting where we want to 
-	
-	has to be selected among many candidates, the committee, who has to specify how to aggregate the preferences of the voters, faces the problem to arbitrate between the quality and the quantity of support behind an alternative.
-	
-	
-	In a social choice situation where a common agreement has to be selected among many candidates, the committee, who has to specify how to aggregate the preferences of the voters, faces the problem to arbitrate between the quality and the quantity of support behind an alternative. This decision it is not obvious, and it leads to various outcomes satisfying different properties. Preferring the first to the latter may results into a lack of a majority support or, worst, into a strict majority of agents which strongly dislikes the chosen candidate. Vice versa, favoring the number of voters behind an alternative implies descending levels in individual preferences. 
+\section{Introduction and Related Works}
 
-In a classical social choice situation where an alternative has to be chosen among many candidates, the committee, who has to specify how to aggregate the preferences of the voters, often has to decide whether prefer the quality or the quantity of support. Choosing the plurality rule, ad example, the alternatives which are ranked the best by the largest number of voters are picked as outcome. The problem of this procedure is that, as long as there are more than two alternatives, the outcome may lack the support of any majority. In fact it may also be opposed by a strict majority of agents each of whom ranks the chosen candidate as their least preferred choice. 
+In a social choice situation where individuals have preferences over several alternatives there is no unique way to define a procedure that select a common agreement between them. One of the first problems the decision makers have to face is whether to prefer the quantity of support behind an alternative (i.e. the number of voters who back it) to the quality of its support (i.e. until which level in voters’ preferences is legitimate to descend) or vice-versa. This decision it is not obvious, and it leads to various outcomes satisfying different properties. Preferring the first to the latter may results into a lack of a majority support or, worst, into a strict majority of individuals which strongly dislikes the chosen candidates. Vice versa, favoring the number of voters behind an alternative implies descending levels in individual preferences potentially ending on electing a generally disliked candidate because of the opposition of very few individuals. 
 
-In contrast to the plurality rule, the Majoritarian Compromise \cite{Sertel1999} unambiguously selects candidates who have the support of a majority in the best degree possible.
+Using the plurality rule, ad example, the alternatives which are ranked the best by the largest number of voters are picked as outcome. The problem of this procedure is that, as long as there are more than two alternatives, the outcome may lack the support of any majority. In fact, it may also be opposed by a strict majority of agents each of whom ranks the chosen candidate as their least preferred choice. In contrast to the plurality rule, the Majoritarian Compromise \cite{Sertel1999} unambiguously selects candidates who have the support of a majority in the best degree possible. So the trade-off between the quality and quantity of support behind alternatives is always questionable in social choice settings. Several other procedures have been proposed in the literature that aim to find a compromise and \cite{Merlin2019} gather them in the class of Compromise Rules.
 
-So the trade-off between the quality and quantity of support behind alternatives is always questionable in social choice settings.
-
-In the case where the candidates are only two we talk about bargaining. The bargaining problem was first axiomatized by \cite{Nash1950}, who also proposed a solution for the problem that is obtained by maximizing the product of the differences between the utility from an agreement and the one from a disagreement (namely the status quo). This is the only bargaining solution that satisfies all the following axioms: independence of equivalent utility transformations, independence of irrelevant alternatives, pareto optimality and symmetry.
-
-On compromise rules \cite{Merlin2019}. Bargaining survey \cite{Thomson1994}.
+In the case where the candidates are only two we talk about bargaining (see survey \cite{Thomson1994}). The bargaining problem was first axiomatized by \cite{Nash1950}, who also proposed a solution for the problem that is obtained by maximizing the product of the differences between the utility from an agreement and the one from a disagreement (namely the status quo). This is the only bargaining solution that satisfies all the following axioms: independence of equivalent utility transformations, independence of irrelevant alternatives, pareto optimality and symmetry.
 	
 \section{Posing the problem}
 Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 2$. We write $L(A)$ for the set of linear orders over $A$ and $P_{i}\in L(A)$ stands for the preference of $i\in N$. For each $k\in \left\{ 1,...,\text{ }m\right\} $, $r_{k}(P_{i})$ is the alternative ranked at level $k$ by $P_{i}$. An (ordinal) social choice rule (SCR) is a mapping $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$.
@@ -130,7 +118,7 @@ We start by two examples based on an observation made by Laslier at Buyukada.
 This point can be extended to values of $q$ that exceed a majority as we can see in the next example.
 
 \begin{example}
-	Let's consider again $n=100$ but now with 4 alternatives, take any $q\in \left\{ \lfloor \frac{n}{2}\rfloor +2,..., n-1\right\} $ and construct the preference profile:
+	Let's consider again $n=100$, but now with 4 alternatives, and construct the preference profile:
 	\begin{center}
 		$
 		\begin{array}{ccccc}
@@ -141,9 +129,37 @@ This point can be extended to values of $q$ that exceed a majority as we can see
 		\end{array}
 		$
 	\end{center}
-\end{example}
 
-where the corresponding BK-compromise picks $b$ \commentBN{Only for $q > 63$. Explain this and think how to change the example in order to show that there is a set of people whose will is always not taken into account.}. Here, the first three block of voters compromise among each other but the SCR doesn't seem to care about the fourth block of $100-q$ voters. Let's consider $q=\lfloor \frac{n}{2}\rfloor +2=52$ as an example, in the first level there are 26 voters preferring the alternative a, 25 preferring c and 49 preferring d. No alternative reaches the quota required so we descend one level. Now, considering both first and second top choices, $74$ voters agree on the alternative $a$ as a bargaining outcome, $52$ voters on $b$, $25$ on $c$ and $49$ on $d$. Only $a$ and $b$ reach the quota, so the compromise set is $\{a,b\}$ but the alternative who receive the highest support is $a$ therefore is the one picked as compromise.
+
+where $k\in \left\{ 64,..., 99\right\}$ for the sake of the example. For any $q\in \left\{ \lfloor \frac{n}{2}\rfloor,..., k\right\}$ all the BK-compromises pick $b$ as winner. We can observe that, the outcome reflects a compromise among the first three blocks of voters that disagree on their top choices. The fourth block of $100-k$ voters, however, does not seem to be taken into account by any of the fallback bargaining rules. 
+Let's consider $k=64$, the profile would then be the following: 
+
+\begin{center}
+	$
+	\begin{array}{ccccc}
+	\mathbf{26} \quad &a&b&c&d\\
+	\mathbf{25} \quad &c&b&a&d\\
+	\mathbf{13} \quad &d&b&a&c\\
+	\mathbf{36} \quad &d&a&c&b\\
+	\end{array}
+	$
+\end{center}
+
+If we consider only the first level there are $26$ individuals voting for $a$, $25$ voting for $c$, $49$ voting for $d$, and none voting for $b$. No alternative reaches the quota, which is $q=64$, therefore we descend one level. Considering now the first two levels $a$ gets $62$ votes, $b$ gets $64$ votes, $c$ gets $25$ votes and $d$ gets $49$ votes. The social choice function would then select $b$, even though there is a group of $36$ voters for which the outcome is the least preferred alternative.
+Let's consider the other extreme, $k=99$, the profile would then be the following: 
+\begin{center}
+	$
+	\begin{array}{ccccc}
+	\mathbf{26} \quad &a&b&c&d\\
+	\mathbf{25} \quad &c&b&a&d\\
+	\mathbf{48} \quad &d&b&a&c\\
+	\mathbf{1} \quad &d&a&c&b\\
+	\end{array}
+	$
+\end{center}
+The reasoning follows the same steps of the previous case, working now for any $q\in \left\{ 64,..., 99 \right\}$. as an example, in the first level there are 26 voters preferring the alternative a, 25 preferring c and 49 preferring d. No alternative reaches the quota required so we descend one level. Now, considering both first and second top choices, $74$ voters agree on the alternative $a$ as a bargaining outcome, $52$ voters on $b$, $25$ on $c$ and $49$ on $d$. Only $a$ and $b$ reach the quota, so the compromise set is $\{a,b\}$ but the alternative who receive the highest support is $a$ therefore is the one picked as compromise.
+
+\end{example}
 
 These two examples illustrate that BK-compromises (except fallback bargaining (FB) where $q=n$ which will be further discussed in Example \ref{ex:qeqn}) are “ex-ante compromises” or “procedural compromises”, i.e., they impose over individuals a willingness to compromise but they don't ensure an outcome where everyone has effectively compromised. So what is a “true compromise”? To define it, we switch to an utilitarian world.
 
