@@ -158,7 +158,8 @@ Let's consider the other extreme, $k=99$, the profile would then be the followin
 	\end{array}
 	$
 \end{center}
-The reasoning follows the same steps of the previous case, working now for any $q\in \left\{ 64,..., 99 \right\}$. as an example, in the first level there are 26 voters preferring the alternative a, 25 preferring c and 49 preferring d. No alternative reaches the quota required so we descend one level. Now, considering both first and second top choices, $74$ voters agree on the alternative $a$ as a bargaining outcome, $52$ voters on $b$, $25$ on $c$ and $49$ on $d$. Only $a$ and $b$ reach the quota, so the compromise set is $\{a,b\}$ but the alternative who receive the highest support is $a$ therefore is the one picked as compromise.
+The reasoning follows the same steps of the previous case, working now for any $q\in \left\{ 64,..., 99 \right\}$. 
+%as an example, in the first level there are 26 voters preferring the alternative a, 25 preferring c and 49 preferring d. No alternative reaches the quota required so we descend one level. Now, considering both first and second top choices, $74$ voters agree on the alternative $a$ as a bargaining outcome, $52$ voters on $b$, $25$ on $c$ and $49$ on $d$. Only $a$ and $b$ reach the quota, so the compromise set is $\{a,b\}$ but the alternative who receive the highest support is $a$ therefore is the one picked as compromise.
 
 \end{example}
 
@@ -207,17 +208,31 @@ A utility assignment (UA) is a strictly decreasing function $v:\left\{ 1,..., m\
 Given any UA $v$, an ordinal compromise is the SCR $C^{\sigma }\circ v:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ such that $(C^{\sigma }\circ v)(P)=C^{\sigma }(v_{P})$ for every $P\in L(A)^{N}$. (We slightly abuse notation here by pretending that we can apply $v$ as a function to elements of $L(A)$.)
 
 It is equivalent to define $C^\sigma_v$ as the following ordinal SCR, where $v$ is now considered a parameter of the SCR. Given $P$, define $\lambda^P(x) \in \intvl{1..m}^N$ as the mapping that associates to each voter $i$ the number $l_i$ of alternatives preferred to $x$ in $P_i$ (thus the loss, measured in ranks, endured by $i$ because of the choice of $x$ instead of her top choice), where $\intvl{1..m} = \{1, …, m\}$. Define $v^\text{loss}$ as mapping the number of ranks lost to a loss of utility, thus $v^\text{loss}(l) = v(1)-v(1+l)$. Define $\sigma^\text{ord}: \intvl{1..m}^N → \R_+$ such that $\sigma^\text{ord}((l_i)_{i \in N}) = \sigma((v^\text{loss}(l_i))_{i \in N})$. Finally, define $C^\sigma_v(P) = \argmin_{x \in A} \sigma^\text{ord}(\lambda^P(x))$. \commentOC{We should think about the advantage of each presentation, or whether we keep both.}
-
+\\\\
+Let's define with $\Sigma_\text{threshold}$ the class of spread measures that consider the number of time the loss of an alternative is greater or equal than a certain threshold $k \in \R$:
+\[\Sigma_\text{threshold}= \left\{ \sigma^k , k \in \R | \sigma^k (\lambda)= \# \{ u \in N, x \in A | \lambda_i(x) \geq k \} \right\}\]
 \begin{proposition} 
-\label{equivalence} 
-Given any $\sigma \in \Sigma $ and any two UAs $v$ and $v^{\prime }$, there exists a $\sigma ^{\prime }\in \Sigma $ such that $C^{\sigma }\circ v=C^{\sigma ^{\prime }}\circ v^{\prime }$. 
+\label{equivalence_SigmaThrs} 
+Given any $\sigma^k \in \Sigma_\text{threshold} $ and any two UAs $v$ and $v^{\prime }$, there exists a $\sigma^{k^\prime}\in \Sigma_\text{threshold} $ such that $C^{\sigma }\circ v=C^{\sigma ^{k^\prime}}\circ v^{\prime }$. 
 \end{proposition}
 \begin{proof}
-Define $v^\text{loss}$, $v^{\prime\text{loss}}$ and $\sigma^\text{ord} = \sigma \circ v^\text{loss}$ as described above. We need to show the existence of $\sigma'$ such that $\sigma^\text{ord} = \sigma' \circ v^{\prime\text{loss}}$. Thus $\sigma' = \sigma \circ v^\text{loss} \circ v^{{\prime\text{loss}}^{-1}}$. This is necessarily in $\Sigma$ iff $\Sigma$ is closed under strict monotonous transformations of the input: $\forall \sigma \in \Sigma, t: \R → \R, t \text{ strictly monotonous}: \sigma \circ t \in \Sigma$. \commentOC{TODO check this and think about apparent counter-example that we wrote on Remzi’s board.}
-
-Old proof follows.
-Take any $\sigma \in \Sigma $ and any two UAs $v$ and $v^{\prime }$. Take any $(l_{1},...,l_{n})\in \R_{+}^{n}$ such that for each $i\in \left\{ 1,..., n\right\} $, we have $l_{i}=v^{\prime }(1)-v^{\prime }(r(l_{i}))$ for some $r(l_{i})\in \left\{ 1,..., m\right\} $. We set $\sigma ^{\prime }(l_{1},...,l_{n})=$ $\sigma (v(1)-v(r(l_{1})),...,$ $v(1)-v(r(l_{n}))).$ 
-Now, take any $P\in L(A)^{N}$. I think, with this setting of $\sigma ^{\prime }$, we can show $C^{\sigma }\circ v(P)=C^{\sigma ^{\prime }}\circ v^{\prime }(P).$ Of course we also need to show $\sigma ^{\prime }\in \Sigma $.
+Define $\sigma^k$ by choosing a $k \in R$ which is greater than the $i_{th}$ biggest possible loss considering $v$; and a $\sigma^{k^\prime}$ such that $k^\prime$ is greater than the $i_{th}$ biggest possible loss considering now $v^\prime$. 
+Let's take the following profile $P$ as an example:
+	\begin{center}
+		$
+		\begin{array}{cccc}
+		\mathbf{u_1} \quad &a&b&c\\
+		\mathbf{u_2} \quad &b&c&a\\
+		\end{array}
+		$
+	\end{center}
+and consider the utility assignments $v$ such that $v_{P_1}=(3,1,0) , v_{P_2}=(0,3,1)$ and $v^\prime$ such that $v^\prime_{P_1}=(10,1,0) , v^\prime_{P_2}=(0,10,1)$. Define by $\lambda^P(x)$ the loss of utility of the alternative $x$ in the profile P under the utility assignment $v$, and $\lambda^{\prime P}(x)$ the one under the UA $v^\prime$. The possible values of $\lambda^P(x)$ are $(0,1,3)$ and the ones of $\lambda^{\prime P}(x)$ are $(0,9,10)$. Let's consider $\sigma^2$; $k=2$ is greater than the $2_nd$ biggest lost. We can construct $\sigma^{k^\prime}$ by choosing a $k^\prime$ greater than the $2_nd$ biggest lost considering $v^\prime$ and smaller or equal than the $3_rd$ one.
+	
+%Define $v^\text{loss}$, $v^{\prime\text{loss}}$ and $\sigma^\text{ord} = \sigma \circ v^\text{loss}$ as described above. We need to show the existence of $\sigma'$ such that $\sigma^\text{ord} = \sigma' \circ v^{\prime\text{loss}}$. Thus $\sigma' = \sigma \circ v^\text{loss} \circ v^{{\prime\text{loss}}^{-1}}$. This is necessarily in $\Sigma$ iff $\Sigma$ is closed under strict monotonous transformations of the input: $\forall \sigma \in \Sigma, t: \R → \R, t \text{ strictly monotonous}: \sigma \circ t \in \Sigma$. \commentOC{TODO check this and think about apparent counter-example that we wrote on Remzi’s board.}
+%
+%Old proof follows.
+%Take any $\sigma \in \Sigma $ and any two UAs $v$ and $v^{\prime }$. Take any $(l_{1},...,l_{n})\in \R_{+}^{n}$ such that for each $i\in \left\{ 1,..., n\right\} $, we have $l_{i}=v^{\prime }(1)-v^{\prime }(r(l_{i}))$ for some $r(l_{i})\in \left\{ 1,..., m\right\} $. We set $\sigma ^{\prime }(l_{1},...,l_{n})=$ $\sigma (v(1)-v(r(l_{1})),...,$ $v(1)-v(r(l_{n}))).$ 
+%Now, take any $P\in L(A)^{N}$. I think, with this setting of $\sigma ^{\prime }$, we can show $C^{\sigma }\circ v(P)=C^{\sigma ^{\prime }}\circ v^{\prime }(P).$ Of course we also need to show $\sigma ^{\prime }\in \Sigma $.
 \end{proof}
 
 TO DO: consider the profile $(x, a_1, a_2, a_3, y, b_1, b_2, b_3), (b_1, b_2, y, x, b_3, a_1, a_2, a_3)$. For $v = $ Borda, there is no $\sigma$ satisfying pairwise Pareto. But for $v = (1000, 999, 998, 997, 0, …)$, there is a $\sigma$ satisfying pairwise Pareto. This might be because in that case $\Sigma$ is not closed under monotonous transformations, as required in the proof. To be checked.
@@ -226,7 +241,7 @@ TO DO: consider the profile $(x, a_1, a_2, a_3, y, b_1, b_2, b_3), (b_1, b_2, y,
 \label{D1} \bigskip We say that an SCR $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ is an ordinal compromise iff there exists $\sigma \in \Sigma $ and an UA $v$ such that $C^{\sigma }\circ v=f$.
 \end{definition}
 
-Note that by Proposition \ref{equivalence}, Definition \ref{D1} is equivalent to the apparently following stronger version:
+Note that by Proposition \ref{equivalence_SigmaThrs}, Definition \ref{D1} is equivalent to the apparently following stronger version:
 
 \begin{definition}
 \label{D2} We say that an SCR $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ is an ordinal compromise iff for every UA $v$ there exists $\sigma \in \Sigma $ such that $C^{\sigma }\circ v=f$.
