@@ -156,7 +156,13 @@ A (cardinal) SCR is a mapping $f:U(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset
 
 We adopt the “equal loss principle” which Chun (1988, Economics Letters) \cite{Chun1988}, Chun and Peters (1991, MASS) \cite{Chun1991} introduce and characterize for bargaining problems. It seems that the concept is also used in bankruptcy and matching problems. For each $u\in U(A)^{N}$, each $x\in A$ and each $i\in N$, let $\lambda_{i}^u(x) = \max_{a \in A} u_i(a) - u_{i}(x)$ represent the loss of utility of $i$ when electing $x$, and $\lambda ^{u}(x)=(\lambda _{i}^{u}(x))_{i\in N}$.
 
-Unlike bargaining, our problem does not induce a convex space of achievable utilities. As a result, we cannot ensure the existence of $x\in A$ with $\lambda _{i}^{u}(x)=\lambda _{j}^{u}(x)$ for all $i,j\in N$. Hence, we aim to determine the “most equally distributed” vector within $\left\{ \lambda ^{u}(x)\right\} _{x\in A}$. We thus need to adopt a spread measure which is a mapping $\sigma : \R_{+}^{N}\longrightarrow \R_{+}$. We write $\Sigma $ for the class of spread measures that satisfy the following pairwise Pareto dominance condition: for all $r$, $s\in \R_{+}^{N}$, $\left[\left\vert r_{i}-r_{j}\right\vert \leq \left\vert s_{i}-s_{j}\right\vert \forall i, j\in N\right] ⇒ \sigma (r)\leq \sigma (s)$. Any $\sigma \in \Sigma$ reaches a minimum value for an input whose components are all equal.
+Unlike bargaining, our problem does not induce a convex space of achievable utilities. As a result, we cannot ensure the existence of $x\in A$ with $\lambda _{i}^{u}(x)=\lambda _{j}^{u}(x)$ for all $i,j\in N$. Hence, we aim to determine the “most equally distributed” vector within $\left\{ \lambda ^{u}(x)\right\} _{x\in A}$. We thus need to adopt a spread measure which is a mapping $\sigma : \R_{+}^{N}\longrightarrow \R_{+}$. We write $\Sigma $ for the class of spread measures that satisfy the following pairwise Pareto dominance condition.
+
+\begin{definition}[Pairwise Pareto dominance]
+	For all $r$, $s\in \R_{+}^{N}$: 
+	\[\left[\left\vert r_{i}-r_{j}\right\vert \leq \left\vert s_{i}-s_{j}\right\vert \forall i, j\in N\right] ⇒ \sigma (r)\leq \sigma (s).\] 
+\end{definition}
+Any $\sigma \in \Sigma$ reaches a minimum value for an input whose components are all equal.
 
 \textbf{TO DO: }
 
