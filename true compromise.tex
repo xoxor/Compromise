@@ -71,6 +71,9 @@
 \newtheorem{summary}{Summary}[section]
 %\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 
+\usepackage{blkarray}
+\usepackage{booktabs}
+
 \title{Ex-Ante versus Ex-Post \\ Compromise}
 \author{}
 \date{}
@@ -119,21 +122,22 @@ We start by two examples based on an observation made by Laslier at Buyukada.
 This point can be extended to values of $q$ that exceed a majority as we can see in the next example.
 
 \begin{example}
+	\label{ex:exk}
 	Let's consider again $n=100$, but now with 4 alternatives, and construct the preference profile:
 	\begin{center}
 		$
 		\begin{array}{ccccc}
 		\mathbf{26} \quad &a&b&c&d\\
 		\mathbf{25} \quad &c&b&a&d\\
-		\mathbf{k-51} \quad &d&b&a&c\\
-		\mathbf{100-k} \quad &d&a&c&b\\
+		\mathbf{z-51} \quad &d&b&a&c\\
+		\mathbf{100-z} \quad &d&a&c&b\\
 		\end{array}
 		$
 	\end{center}
 
 
-where $k\in \left\{ 64,..., 99\right\}$ for the sake of the example. For any $q\in \left\{ \lfloor \frac{n}{2}\rfloor,..., k\right\}$ all the BK-compromises pick $b$ as winner. We can observe that, the outcome reflects a compromise among the first three blocks of voters that disagree on their top choices. The fourth block of $100-k$ voters, however, does not seem to be taken into account by any of the fallback bargaining rules. 
-Let's consider $k=64$, the profile would then be the following: 
+where $z\in \left\{ 64,..., 99\right\}$. For any $q\in \left\{ \lfloor \frac{n}{2}\rfloor,..., z\right\}$ all the BK-compromises pick $b$ as winner. We can observe that, the outcome reflects a compromise among the first three blocks of voters that disagree on their top choices. The fourth block of $100-z$ voters, however, does not seem to be taken into account by any of the fallback bargaining rules. 
+Let's consider $z=64$, the profile would then be the following: 
 
 \begin{center}
 	$
@@ -146,8 +150,9 @@ Let's consider $k=64$, the profile would then be the following:
 	$
 \end{center}
 
-If we consider only the first level there are $26$ individuals voting for $a$, $25$ voting for $c$, $49$ voting for $d$, and none voting for $b$. No alternative reaches the quota, which is $q=64$, therefore we descend one level. Considering now the first two levels $a$ gets $62$ votes, $b$ gets $64$ votes, $c$ gets $25$ votes and $d$ gets $49$ votes. The social choice function would then select $b$, even though there is a group of $36$ voters for which the outcome is the least preferred alternative.
-Let's consider the other extreme, $k=99$, the profile would then be the following: 
+If we consider only the first level there are $26$ individuals voting for $a$, $25$ voting for $c$, $49$ voting for $d$, and none voting for $b$. No alternative reaches the quota, which is $q=64$, therefore we descend one level. Considering now the first two levels $a$ gets $62$ votes, $b$ gets $64$ votes, $c$ gets $25$ votes and $d$ gets $49$ votes. The social choice function would then select $b$, even though there is a big group of $36$ voters for which this outcome corresponds to the least preferred alternative.
+Let's consider the other extreme, $z=99$, the profile would then be the following: 
+
 \begin{center}
 	$
 	\begin{array}{ccccc}
@@ -157,10 +162,9 @@ Let's consider the other extreme, $k=99$, the profile would then be the followin
 	\mathbf{1} \quad &d&a&c&b\\
 	\end{array}
 	$
-\end{center}
-The reasoning follows the same steps of the previous case, working now for any $q\in \left\{ 64,..., 99 \right\}$. 
-%as an example, in the first level there are 26 voters preferring the alternative a, 25 preferring c and 49 preferring d. No alternative reaches the quota required so we descend one level. Now, considering both first and second top choices, $74$ voters agree on the alternative $a$ as a bargaining outcome, $52$ voters on $b$, $25$ on $c$ and $49$ on $d$. Only $a$ and $b$ reach the quota, so the compromise set is $\{a,b\}$ but the alternative who receive the highest support is $a$ therefore is the one picked as compromise.
+\end{center} 
 
+The reasoning follows the same steps of the previous case, working now for any $q\in \left\{ 64,..., 99 \right\}$. Even though only one person now ranks $b$ at the last position, the example does not lose his strength. Indeed, if it may seem reasonable to prefer the willing of the $99\%$ of the population, this is not always acceptable.
 \end{example}
 
 These two examples illustrate that BK-compromises (except fallback bargaining (FB) where $q=n$ which will be further discussed in Example \ref{ex:qeqn}) are “ex-ante compromises” or “procedural compromises”, i.e., they impose over individuals a willingness to compromise but they don't ensure an outcome where everyone has effectively compromised. So what is a “true compromise”? To define it, we switch to an utilitarian world.
@@ -206,33 +210,106 @@ We now address the question of relating $C^{\sigma }$ to ordinal SCRs.
 A utility assignment (UA) is a strictly decreasing function $v:\left\{ 1,..., m\right\} \rightarrow \R$ which maps ranks to utilities. For each $P_{i}\in L(A)$, $v$ induces a utility function $v_{P_{i}}$ $\in U(A)$ with $v_{P_{i}}(x)=v(k)$ for each $x=r_{k}(P_{i})\in A$. So for every $P\in L(A)^{N}$, $v_{P}=(v_{P_{1}},...,v_{P_{n}})$ $\in U(A)^{N}$ is the utility profile that $v$ induces from the preference profile $P$.
 
 Given any UA $v$, an ordinal compromise is the SCR $C^{\sigma }\circ v:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ such that $(C^{\sigma }\circ v)(P)=C^{\sigma }(v_{P})$ for every $P\in L(A)^{N}$. (We slightly abuse notation here by pretending that we can apply $v$ as a function to elements of $L(A)$.)
-
-It is equivalent to define $C^\sigma_v$ as the following ordinal SCR, where $v$ is now considered a parameter of the SCR. Given $P$, define $\lambda^P(x) \in \intvl{1..m}^N$ as the mapping that associates to each voter $i$ the number $l_i$ of alternatives preferred to $x$ in $P_i$ (thus the loss, measured in ranks, endured by $i$ because of the choice of $x$ instead of her top choice), where $\intvl{1..m} = \{1, …, m\}$. Define $v^\text{loss}$ as mapping the number of ranks lost to a loss of utility, thus $v^\text{loss}(l) = v(1)-v(1+l)$. Define $\sigma^\text{ord}: \intvl{1..m}^N → \R_+$ such that $\sigma^\text{ord}((l_i)_{i \in N}) = \sigma((v^\text{loss}(l_i))_{i \in N})$. Finally, define $C^\sigma_v(P) = \argmin_{x \in A} \sigma^\text{ord}(\lambda^P(x))$. \commentOC{We should think about the advantage of each presentation, or whether we keep both.}
+%It is equivalent to define $C^\sigma_v$ as the following ordinal SCR, where $v$ is now considered a parameter of the SCR. Given $P$, define $\lambda^P(x) \in \intvl{1..m}^N$ as the mapping that associates to each voter $i$ the number $l_i$ of alternatives preferred to $x$ in $P_i$ (thus the loss, measured in ranks, endured by $i$ because of the choice of $x$ instead of her top choice), where $\intvl{1..m} = \{1, …, m\}$. Define $v^\text{loss}$ as mapping the number of ranks lost to a loss of utility, thus $v^\text{loss}(l) = v(1)-v(1+l)$. Define $\sigma^\text{ord}: \intvl{1..m}^N → \R_+$ such that $\sigma^\text{ord}((l_i)_{i \in N}) = \sigma((v^\text{loss}(l_i))_{i \in N})$. Finally, define $C^\sigma_v(P) = \argmin_{x \in A} \sigma^\text{ord}(\lambda^P(x))$. \commentOC{We should think about the advantage of each presentation, or whether we keep both.}
 \\\\
-Let's define with $\Sigma_\text{threshold}$ the class of spread measures that consider the number of time the loss of an alternative is greater or equal than a certain threshold $k \in \R$:
-\[\Sigma_\text{threshold}= \left\{ \sigma^k , k \in \R | \sigma^k (\lambda)= \# \{ u \in N, x \in A | \lambda_i(x) \geq k \} \right\}\]
+Let's define with $\Sigma_\text{threshold}$ the class of spread measures that consider the number of time the loss is greater than or equal to a certain threshold $k \in \R$:
+\[\Sigma_\text{threshold}= \left\{ \sigma^k , k \in \R | \sigma^k (\lambda)= \# \{ i \in N | \lambda_i \geq k \} \right\}\]
 \begin{proposition} 
-\label{equivalence_SigmaThrs} 
-Given any $\sigma^k \in \Sigma_\text{threshold} $ and any two UAs $v$ and $v^{\prime }$, there exists a $\sigma^{k^\prime}\in \Sigma_\text{threshold} $ such that $C^{\sigma }\circ v=C^{\sigma ^{k^\prime}}\circ v^{\prime }$. 
+\label{prop:equivalence_SigmaThrs} 
+Given any $\sigma^k \in \Sigma_\text{threshold} $ and any two UAs $v$ and $v^{\prime }$, there exists a $\sigma^{k^\prime}\in \Sigma_\text{threshold} $ such that $C^{\sigma^k }\circ v=C^{\sigma ^{k^\prime}}\circ v^{\prime }$. 
 \end{proposition}
 \begin{proof}
-Define $\sigma^k$ by choosing a $k \in R$ which is greater than the $i_{th}$ biggest possible loss considering $v$; and a $\sigma^{k^\prime}$ such that $k^\prime$ is greater than the $i_{th}$ biggest possible loss considering now $v^\prime$. 
-Let's take the following profile $P$ as an example:
+Given any utility assignments $v$ and $v^{\prime}$, and $\sigma^k$, we need to show that it is possible to construct a $\sigma^{k^\prime}$ and a $v^\prime$ such that the proposition holds. The threshold $k$ is a real positive number, without loss of generality we can say it is greater than the $i_{th}$ biggest possible loss in $v$ and smaller than or equal to the $(i+1)_{th}$. Consider now $\sigma^{k^\prime}$ such that $k^\prime$ is a number greater than the $i_{th}$ biggest possible loss considering now $v^\prime$ and smaller than or equal to the $(i+1)_{th}$. Please note that $k$ denotes a position $p$ in the rank, the idea is to select the alternative that minimize the number of times it is ranked after the position $p$. Since $v$ and $v^{\prime}$ are strictly monotonic, choosing a $k^\prime$ in $v^\prime$ that corresponds to the same loss of $k$ in $v$ allows to consider the same position $p$ in the rank. For each alternative $a$, the number of times $a$ is ranked after the position $p$ does not change, thus the values of $\sigma^k (\lambda(a))$ are the same. This concludes the proof.  
+\begin{example}
+	Let's take the following profile $P$ as an example:
 	\begin{center}
 		$
 		\begin{array}{cccc}
-		\mathbf{u_1} \quad &a&b&c\\
-		\mathbf{u_2} \quad &b&c&a\\
+		\mathbf{i_1} \quad &a&b&c\\
+		\mathbf{i_2} \quad &b&c&a\\
 		\end{array}
 		$
 	\end{center}
-and consider the utility assignments $v$ such that $v_{P_1}=(3,1,0) , v_{P_2}=(0,3,1)$ and $v^\prime$ such that $v^\prime_{P_1}=(10,1,0) , v^\prime_{P_2}=(0,10,1)$. Define by $\lambda^P(x)$ the loss of utility of the alternative $x$ in the profile P under the utility assignment $v$, and $\lambda^{\prime P}(x)$ the one under the UA $v^\prime$. The possible values of $\lambda^P(x)$ are $(0,1,3)$ and the ones of $\lambda^{\prime P}(x)$ are $(0,9,10)$. Let's consider $\sigma^2$; $k=2$ is greater than the $2_nd$ biggest lost. We can construct $\sigma^{k^\prime}$ by choosing a $k^\prime$ greater than the $2_nd$ biggest lost considering $v^\prime$ and smaller or equal than the $3_rd$ one.
+	and consider the utility assignments $v$ such that $v_{P_1}=(3,1,0) , v_{P_2}=(0,3,1)$ and $v^\prime$ such that $v^\prime_{P_1}=(10,9,0) , v^\prime_{P_2}=(0,10,9)$. Define by $\lambda^P(x)$ the loss of utility of the alternative $x$ in the profile P under the utility assignment $v$, and $\lambda^{\prime P}(x)$ the one under the UA $v^\prime$. The possible values of $\lambda^P(x)$ are $(0,2,3)$ and the ones of $\lambda^{\prime P}(x)$ are $(0,1,10)$. Let's consider $\sigma^2$; $k=2$ is greater than the $1_{st}$ biggest lost and smaller than or equal to the $2_{nd}$. We can construct $\sigma^{k^\prime}$ by choosing a $k^\prime$ greater than the $1_{st}$ biggest lost considering $v^\prime$ and smaller than or equal to the $2_{nd}$ one. Let's take $k^\prime=1$. For $v$:
+	\begin{center}
+		$
+		\begin{array}{ccccc}
+		\lambda(a) \ = \ &0&3 & \rightarrow & \sigma^k(\lambda(a)) = 1\\
+		\lambda(b) \ = \ &2&0 & \rightarrow & \sigma^k(\lambda(b)) = 1\\
+		\lambda(c) \ = \ &3&2 & \rightarrow & \sigma^k(\lambda(c)) = 2\\
+		\end{array}
+		$
+	\end{center}
+	Thus $C^{\sigma^k}(v)\in \{a,b\}$. Consider now $v^\prime$:
+	\begin{center}
+		$
+		\begin{array}{ccccc}
+		\lambda(a) \ = \ &0&10 & \rightarrow & \sigma^{k^\prime}(\lambda(a)) = 1\\
+		\lambda(b) \ = \ &1&0 & \rightarrow & \sigma^{k^\prime}(\lambda(b)) = 1\\
+		\lambda(c) \ = \ &10&1 & \rightarrow & \sigma^{k^\prime}(\lambda(c)) = 2\\
+		\end{array}
+		$
+	\end{center}
+	Thus $C^{\sigma^{k^\prime}}(v^\prime)\in \{a,b\}$.
+\end{example}
 	
-%Define $v^\text{loss}$, $v^{\prime\text{loss}}$ and $\sigma^\text{ord} = \sigma \circ v^\text{loss}$ as described above. We need to show the existence of $\sigma'$ such that $\sigma^\text{ord} = \sigma' \circ v^{\prime\text{loss}}$. Thus $\sigma' = \sigma \circ v^\text{loss} \circ v^{{\prime\text{loss}}^{-1}}$. This is necessarily in $\Sigma$ iff $\Sigma$ is closed under strict monotonous transformations of the input: $\forall \sigma \in \Sigma, t: \R → \R, t \text{ strictly monotonous}: \sigma \circ t \in \Sigma$. \commentOC{TODO check this and think about apparent counter-example that we wrote on Remzi’s board.}
-%
-%Old proof follows.
-%Take any $\sigma \in \Sigma $ and any two UAs $v$ and $v^{\prime }$. Take any $(l_{1},...,l_{n})\in \R_{+}^{n}$ such that for each $i\in \left\{ 1,..., n\right\} $, we have $l_{i}=v^{\prime }(1)-v^{\prime }(r(l_{i}))$ for some $r(l_{i})\in \left\{ 1,..., m\right\} $. We set $\sigma ^{\prime }(l_{1},...,l_{n})=$ $\sigma (v(1)-v(r(l_{1})),...,$ $v(1)-v(r(l_{n}))).$ 
-%Now, take any $P\in L(A)^{N}$. I think, with this setting of $\sigma ^{\prime }$, we can show $C^{\sigma }\circ v(P)=C^{\sigma ^{\prime }}\circ v^{\prime }(P).$ Of course we also need to show $\sigma ^{\prime }\in \Sigma $.
+(Note: observe incompatibility between the $\Sigma_\text{threshold}$ and $\Sigma_\text{PPD}$)
+
+\begin{example}[Problem: does $\Sigma$ really compromise?]
+	Note that $\mathbf{\Sigma_\text{threshold}}$ does not consider the notion of compromise as we promote. In the case of the Example \ref{ex:exk}, $b$ is still the outcome considering $\sigma^k \in \Sigma_\text{threshold}$ with $k = 2$. With $k=1$ the winner is $d$ which is even worse fairness-wise. By Proposition \ref{prop:equivalence_SigmaThrs} the specific utility assignment is not relevant to determine the outcome, so consider the Borda one and let's have a look at the utility vectors of the alternatives:
+	
+	\begin{center}
+		$
+		\begin{array}{ccccccc}
+		\mathbf{a} \ = \ &(& \overbrace{3, \dots,3,}^{v_{1-26}} & \overbrace{1, \dots, 1,}^{v_{27-51}} & \overbrace{1, \dots, 1,}^{v_{52-z}} & \overbrace{2, \dots, 2}^{v_{(z+1)-100}} &) \\
+		\mathbf{b}\ = \ &(& 2, \dots,2, & 2, \dots, 2, & 2, \dots, 2, & 0, \dots, 0 &) \\
+		\mathbf{c}\ = \ &(& 1, \dots,1, & 3, \dots, 3, & 0, \dots, 0, & 1, \dots, 1 &) \\
+		\mathbf{d}\ = \ &(& 0, \dots,0, & 0, \dots, 0, & 3, \dots, 3, & 3, \dots, 3 &) \\
+		\end{array}
+		$
+	\end{center}
+	
+	Where $v_{1-26}$ indicate the group of voters from $v_1$ to $v_{26}$. Consider now the loss vectors: 
+
+	\begin{center}
+		$
+		\begin{array}{ccccccc}
+		\lambda(a)\ = \ &(& \overbrace{0, \dots,0,}^{|v_{1-26}|=26} & \overbrace{2, \dots, 2,}^{|v_{27-51}|=25} & \overbrace{2, \dots, 2,}^{|v_{\dots}|=z-51} & \overbrace{1, \dots, 1}^{|v_{\dots}|=100-z} &) \\
+		\lambda(b)\ = \ &(& 1, \dots,1, & 1, \dots, 1, & 1, \dots, 1, & 3, \dots, 3 &) \\
+		\lambda(c)\ = \ &(& 2, \dots,2, & 0, \dots, 0, & 3, \dots, 3, & 2, \dots, 2 &) \\
+		\lambda(d)\ = \ &(& 3, \dots,3, & 3, \dots, 3, & 0, \dots, 0, & 0, \dots, 0 &) \\
+		\end{array}
+		$
+	\end{center}
+	
+	\begin{center}
+		$
+		\begin{array}{cc|c|c}
+		& k=1 & k=2 & k=3 \\ \cmidrule{2-4}
+		\sigma^k (\lambda (a))\ = \ & 74 & z-26 & {\color{red}0} \\
+		\sigma^k (\lambda (b))\ = \ & 100 & {\color{red}100-z} & 100-z \\
+		\sigma^k (\lambda (c))\ = \ & 75 & 75 & z-51 \\
+		\sigma^k (\lambda (d))\ = \ & {\color{red}51} & 51 & 51 \\
+		\end{array}
+		$
+	\end{center}	
+	
+	Then for $k=1$ the winner would be $\color{red}d$; for $k=2$ would be $\color{red}b$ because $100-z$ is always less than $z-26$, $75$ and $51$ (remember that $z \in {64, \dots 99}$); for $k=3$ the winner would be $\color{red}a$.
+	\\\\
+	It is worth noting that if we consider $\sigma \in \mathbf{\Sigma_\text{PPD}}$ the outcome changes according to the utility assignment. For example, if we consider the UA such that the alternative ranked first has utility $1000$ and the rest $2,1,0$ then the loss vectors are: 
+	\begin{center}
+		$
+		\begin{array}{ccccccc}
+		\lambda(a)\ = \ &(& \overbrace{0, \dots,0,}^{|v_{1-26}|=26} & \overbrace{999, \dots, 999,}^{|v_{27-51}|=25} & \overbrace{999, \dots, 999,}^{|v_{\dots}|=z-51} & \overbrace{998, \dots, 998}^{|v_{\dots}|=100-z} &) \\
+		\lambda(b)\ = \ &(& 998, \dots,998, & 998, \dots, 998, & 998, \dots, 998, & 1000, \dots, 1000 &) \\
+		\lambda(c)\ = \ &(& 998, \dots,998, & 0, \dots, 0, & 1000, \dots, 1000, & 998, \dots, 998 &) \\
+		\lambda(d)\ = \ &(& 1000, \dots,1000, & 1000, \dots, 1000, & 0, \dots, 0, & 0, \dots, 0 &) \\
+		\end{array}
+		$
+	\end{center}
+	The winner is again $b$ but in this case we want it to be the outcome since it corresponds to our idea of compromise.
+\end{example}
+
 \end{proof}
 
 TO DO: consider the profile $(x, a_1, a_2, a_3, y, b_1, b_2, b_3), (b_1, b_2, y, x, b_3, a_1, a_2, a_3)$. For $v = $ Borda, there is no $\sigma$ satisfying pairwise Pareto. But for $v = (1000, 999, 998, 997, 0, …)$, there is a $\sigma$ satisfying pairwise Pareto. This might be because in that case $\Sigma$ is not closed under monotonous transformations, as required in the proof. To be checked.
@@ -241,7 +318,7 @@ TO DO: consider the profile $(x, a_1, a_2, a_3, y, b_1, b_2, b_3), (b_1, b_2, y,
 \label{D1} \bigskip We say that an SCR $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ is an ordinal compromise iff there exists $\sigma \in \Sigma $ and an UA $v$ such that $C^{\sigma }\circ v=f$.
 \end{definition}
 
-Note that by Proposition \ref{equivalence_SigmaThrs}, Definition \ref{D1} is equivalent to the apparently following stronger version:
+Note that by Proposition \ref{prop:equivalence_SigmaThrs}, Definition \ref{D1} is equivalent to the apparently following stronger version:
 
 \begin{definition}
 \label{D2} We say that an SCR $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ is an ordinal compromise iff for every UA $v$ there exists $\sigma \in \Sigma $ such that $C^{\sigma }\circ v=f$.
