@@ -164,7 +164,7 @@ Let's consider the other extreme, $z=99$, the profile would then be the followin
 	$
 \end{center} 
 
-The reasoning follows the same steps of the previous case, working now for any $q\in \left\{ 64,..., 99 \right\}$. Even though only one person now ranks $b$ at the last position, the example does not lose his strength. Indeed, if it may seem reasonable to prefer the willing of the $99\%$ of the population, this is not always acceptable.
+The reasoning follows the same steps of the previous case, working now for any $q\in \left\{ 64,..., 99 \right\}$. Even though only one person now ranks $b$ at the last position, the example does not lose his strength. Indeed, if it may seem reasonable to prefer the willing of the $99\%$ of the population, this is not always acceptable. In a world where, for example, a decision regarding organs exchanging or selling has to be taken, the fairness becomes a crucial point.
 \end{example}
 
 These two examples illustrate that BK-compromises (except fallback bargaining (FB) where $q=n$ which will be further discussed in Example \ref{ex:qeqn}) are “ex-ante compromises” or “procedural compromises”, i.e., they impose over individuals a willingness to compromise but they don't ensure an outcome where everyone has effectively compromised. So what is a “true compromise”? To define it, we switch to an utilitarian world.
@@ -180,6 +180,7 @@ We adopt the “equal loss principle” which Chun (1988, Economics Letters) \ci
 Unlike bargaining, our problem does not induce a convex space of achievable utilities. As a result, we cannot ensure the existence of $x\in A$ with $\lambda _{i}^{u}(x)=\lambda _{j}^{u}(x)$ for all $i,j\in N$. Hence, we aim to determine the “most equally distributed” vector within $\left\{ \lambda ^{u}(x)\right\} _{x\in A}$. We thus need to adopt a spread measure which is a mapping $\sigma : \R_{+}^{N}\longrightarrow \R_{+}$. We write $\Sigma $ for the class of spread measures that satisfy the following pairwise Pareto dominance condition.
 
 \begin{definition}[Pairwise Pareto dominance]
+	\label{def:PPD}
 	For all $r$, $s\in \R_{+}^{N}$: 
 	\[\left[\left\vert r_{i}-r_{j}\right\vert \leq \left\vert s_{i}-s_{j}\right\vert \forall i, j\in N\right] ⇒ \sigma (r)\leq \sigma (s).\] 
 \end{definition}
@@ -211,15 +212,17 @@ A utility assignment (UA) is a strictly decreasing function $v:\left\{ 1,..., m\
 
 Given any UA $v$, an ordinal compromise is the SCR $C^{\sigma }\circ v:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ such that $(C^{\sigma }\circ v)(P)=C^{\sigma }(v_{P})$ for every $P\in L(A)^{N}$. (We slightly abuse notation here by pretending that we can apply $v$ as a function to elements of $L(A)$.)
 %It is equivalent to define $C^\sigma_v$ as the following ordinal SCR, where $v$ is now considered a parameter of the SCR. Given $P$, define $\lambda^P(x) \in \intvl{1..m}^N$ as the mapping that associates to each voter $i$ the number $l_i$ of alternatives preferred to $x$ in $P_i$ (thus the loss, measured in ranks, endured by $i$ because of the choice of $x$ instead of her top choice), where $\intvl{1..m} = \{1, …, m\}$. Define $v^\text{loss}$ as mapping the number of ranks lost to a loss of utility, thus $v^\text{loss}(l) = v(1)-v(1+l)$. Define $\sigma^\text{ord}: \intvl{1..m}^N → \R_+$ such that $\sigma^\text{ord}((l_i)_{i \in N}) = \sigma((v^\text{loss}(l_i))_{i \in N})$. Finally, define $C^\sigma_v(P) = \argmin_{x \in A} \sigma^\text{ord}(\lambda^P(x))$. \commentOC{We should think about the advantage of each presentation, or whether we keep both.}
-\\\\
-Let's define with $\Sigma_\text{threshold}$ the class of spread measures that consider the number of time the loss is greater than or equal to a certain threshold $k \in \R$:
+\begin{definition}[$\Sigma_\text{threshold}$]
+	\label{def:Sigma_thrs}
+Let's define with $\Sigma_\text{threshold}$ the class of spread measures that consider the number of times the loss is greater than or equal to a certain threshold $k \in \R$:
 \[\Sigma_\text{threshold}= \left\{ \sigma^k , k \in \R | \sigma^k (\lambda)= \# \{ i \in N | \lambda_i \geq k \} \right\}\]
+\end{definition}
 \begin{proposition} 
 \label{prop:equivalence_SigmaThrs} 
 Given any $\sigma^k \in \Sigma_\text{threshold} $ and any two UAs $v$ and $v^{\prime }$, there exists a $\sigma^{k^\prime}\in \Sigma_\text{threshold} $ such that $C^{\sigma^k }\circ v=C^{\sigma ^{k^\prime}}\circ v^{\prime }$. 
 \end{proposition}
 \begin{proof}
-Given any utility assignments $v$ and $v^{\prime}$, and $\sigma^k$, we need to show that it is possible to construct a $\sigma^{k^\prime}$ and a $v^\prime$ such that the proposition holds. The threshold $k$ is a real positive number, without loss of generality we can say it is greater than the $i_{th}$ biggest possible loss in $v$ and smaller than or equal to the $(i+1)_{th}$. Consider now $\sigma^{k^\prime}$ such that $k^\prime$ is a number greater than the $i_{th}$ biggest possible loss considering now $v^\prime$ and smaller than or equal to the $(i+1)_{th}$. Please note that $k$ denotes a position $p$ in the rank, the idea is to select the alternative that minimize the number of times it is ranked after the position $p$. Since $v$ and $v^{\prime}$ are strictly monotonic, choosing a $k^\prime$ in $v^\prime$ that corresponds to the same loss of $k$ in $v$ allows to consider the same position $p$ in the rank. For each alternative $a$, the number of times $a$ is ranked after the position $p$ does not change, thus the values of $\sigma^k (\lambda(a))$ are the same. This concludes the proof.  
+Given any utility assignments $v$ and $v^{\prime}$, and a spread measure $\sigma^k$, we need to show that it is possible to construct a spread measure $\sigma^{k^\prime}$ and a $v^\prime$ such that the proposition holds. The threshold $k$ is a real positive number, without loss of generality we can say it is greater than or equal to the $i_{th}$ biggest possible loss in $v$ and smaller than the $(i+1)_{th}$. Consider now a $\sigma^{k^\prime}$ such that $k^\prime$ is a number greater than or equal to the $i_{th}$ biggest possible loss considering now $v^\prime$ and smaller than the $(i+1)_{th}$. Please note that $k$ denotes a position $p$ in the rank from which we start to count the number of times an alternative is ranked at that position or at a lower one. The idea is to select the alternative that minimize this number. Since $v$ and $v^{\prime}$ are strictly monotonic, choosing a $k^\prime$ in $v^\prime$ that corresponds to the same loss of $k$ in $v$ allows to consider the same position $p$ in the rank. For each alternative $a$, the number of times $a$ is ranked at the position $p$ or after does not change, thus the values of $\sigma^k (\lambda(a))$ are the same. This concludes the proof.  
 \begin{example}
 	Let's take the following profile $P$ as an example:
 	\begin{center}
@@ -230,7 +233,7 @@ Given any utility assignments $v$ and $v^{\prime}$, and $\sigma^k$, we need to s
 		\end{array}
 		$
 	\end{center}
-	and consider the utility assignments $v$ such that $v_{P_1}=(3,1,0) , v_{P_2}=(0,3,1)$ and $v^\prime$ such that $v^\prime_{P_1}=(10,9,0) , v^\prime_{P_2}=(0,10,9)$. Define by $\lambda^P(x)$ the loss of utility of the alternative $x$ in the profile P under the utility assignment $v$, and $\lambda^{\prime P}(x)$ the one under the UA $v^\prime$. The possible values of $\lambda^P(x)$ are $(0,2,3)$ and the ones of $\lambda^{\prime P}(x)$ are $(0,1,10)$. Let's consider $\sigma^2$; $k=2$ is greater than the $1_{st}$ biggest lost and smaller than or equal to the $2_{nd}$. We can construct $\sigma^{k^\prime}$ by choosing a $k^\prime$ greater than the $1_{st}$ biggest lost considering $v^\prime$ and smaller than or equal to the $2_{nd}$ one. Let's take $k^\prime=1$. For $v$:
+	and consider the utility assignments $v$ such that $v_{P_1}=(3,1,0) , v_{P_2}=(0,3,1)$ and $v^\prime$ such that $v^\prime_{P_1}=(10,9,0) , v^\prime_{P_2}=(0,10,9)$. Define by $\lambda^P(x)$ the loss of utility of the alternative $x$ in the profile P under the utility assignment $v$, and $\lambda^{\prime P}(x)$ the one under the UA $v^\prime$. The possible values of $\lambda^P(x)$ are $(0,2,3)$ and the ones of $\lambda^{\prime P}(x)$ are $(0,1,10)$. Let's consider $\sigma^2$; $k=2$ is greater than or equal to the $2_{nd}$ biggest lost and smaller than the $3_{rd}$. We can construct $\sigma^{k^\prime}$ by choosing a $k^\prime$ greater than or equal to the $2_{nd}$ biggest loss considering $v^\prime$ and smaller than the $3_{rd}$ one. Let's take $k^\prime=1$. For $v$:
 	\begin{center}
 		$
 		\begin{array}{ccccc}
@@ -252,7 +255,17 @@ Given any utility assignments $v$ and $v^{\prime}$, and $\sigma^k$, we need to s
 	\end{center}
 	Thus $C^{\sigma^{k^\prime}}(v^\prime)\in \{a,b\}$.
 \end{example}
-	
+
+\begin{definition}[$\Sigma_\text{PPD}$]
+Let's define with $\Sigma_\text{PPD}$ the class of spread measures that satisfy the Pairwise Pareto Dominance condition (see Definition\ref{def:PPD}). \commentBN{This is already previously defined as $\Sigma$, think about changing the one or the other.}
+\end{definition}
+\begin{proposition} 
+	\label{prop:equivalence_SigmaPPD} 
+	Given any $\sigma \in \Sigma_\text{PPD}$ and any two UAs $v$ and $v^{\prime }$ the Proposition \ref{prop:equivalence_SigmaThrs} does not hold. A spread measure $\sigma^\prime\in \Sigma_\text{PPD} $ such that $C^{\sigma}\circ v=C^{\sigma ^{\prime}}\circ v^{\prime }$ does not exist. 
+\end{proposition}
+
+TO DO: consider the profile $(x, a_1, a_2, a_3, y, b_1, b_2, b_3), (b_1, b_2, y, x, b_3, a_1, a_2, a_3)$. For $v = $ Borda, there is no $\sigma$ satisfying pairwise Pareto. But for $v = (1000, 999, 998, 997, 0, …)$, there is a $\sigma$ satisfying pairwise Pareto. This might be because in that case $\Sigma$ is not closed under monotonous transformations, as required in the proof. To be checked.
+
 (Note: observe incompatibility between the $\Sigma_\text{threshold}$ and $\Sigma_\text{PPD}$)
 
 \begin{example}[Problem: does $\Sigma$ really compromise?]
@@ -311,8 +324,6 @@ Given any utility assignments $v$ and $v^{\prime}$, and $\sigma^k$, we need to s
 \end{example}
 
 \end{proof}
-
-TO DO: consider the profile $(x, a_1, a_2, a_3, y, b_1, b_2, b_3), (b_1, b_2, y, x, b_3, a_1, a_2, a_3)$. For $v = $ Borda, there is no $\sigma$ satisfying pairwise Pareto. But for $v = (1000, 999, 998, 997, 0, …)$, there is a $\sigma$ satisfying pairwise Pareto. This might be because in that case $\Sigma$ is not closed under monotonous transformations, as required in the proof. To be checked.
 
 \begin{definition}
 \label{D1} \bigskip We say that an SCR $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ is an ordinal compromise iff there exists $\sigma \in \Sigma $ and an UA $v$ such that $C^{\sigma }\circ v=f$.
