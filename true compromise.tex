@@ -81,6 +81,10 @@
 \newcommand{\commentBN}[1]{\textcolor{magenta}{\small$\big[$BN: #1$\big]$}}
 \newcommand{\commentRS}[1]{\textcolor{red}{\small$\big[$RS: #1$\big]$}}
 \newcommand{\paretopt}{\mathit{PO}}
+\newcommand{\SPPd}{\Sigma^\text{PPd}}
+\newcommand{\SAll}{\Sigma^\text{All}}
+\newcommand{\SThreshold}{\Sigma_\text{threshold}}
+\newcommand{\vpr}{v^\text{pr}}
 
 \begin{document}
 
@@ -95,16 +99,16 @@
 
 \section{Introduction and Related Works}
 
-In a social choice situation where individuals have preferences over several alternatives there is no unique way to define a procedure that select a common agreement between them. One of the first problems the decision makers have to face is whether to prefer the quantity of support behind an alternative (i.e. the number of voters who back it) to the quality of its support (i.e. until which level in voters’ preferences is legitimate to descend) or vice-versa. This decision it is not obvious, and it leads to various outcomes satisfying different properties. Preferring the first to the latter may results into a lack of a majority support or, worst, into a strict majority of individuals which strongly dislikes the chosen candidates. Vice versa, favoring the number of voters behind an alternative implies descending levels in individual preferences potentially ending on electing a generally disliked candidate because of the opposition of very few individuals. 
+In a social choice situation where individuals have preferences over several alternatives there is no unique way to define a procedure that select a common agreement between them. One of the first problems the decision makers have to face is whether to prefer the quantity of support for an alternative (i.e. the number of voters who favor it) to the quality of its support (i.e. until which level in voters’ preferences is legitimate to descend) \commentBN{"voters who back it" and "support behind an alternative" is the terminology uset by Remzi et al. in their papers and it seems fitting to me.}. This decision leads to various outcomes satisfying different properties. Preferring the first to the latter may result in a lack of a majority support or, worst, into a strict majority of individuals which strongly dislikes the chosen candidates. Vice versa, favoring the number of voters behind an alternative implies descending levels in individual preferences potentially ending on electing a generally disliked candidate because of the opposition of very few individuals. 
 
-Using the plurality rule, ad example, the alternatives which are ranked the best by the largest number of voters are picked as outcome. The problem of this procedure is that, as long as there are more than two alternatives, the outcome may lack the support of any majority. In fact, it may also be opposed by a strict majority of agents each of whom ranks the chosen candidate as their least preferred choice. In contrast to the plurality rule, the Majoritarian Compromise \cite{Sertel1999} unambiguously selects candidates who have the support of a majority in the best degree possible. So the trade-off between the quality and quantity of support behind alternatives is always questionable in social choice settings. Several other procedures have been proposed in the literature that aim to find a compromise and \cite{Merlin2019} gather them in the class of Compromise Rules.
+Using the plurality rule, for example, the alternatives which are ranked the best by the largest number of voters are picked as outcome. The problem of this procedure is that, as long as there are more than two alternatives, the outcome may lack the support of any majority. In fact, it may also be opposed by a strict majority of agents each of whom ranks the chosen candidate as their least preferred choice. In contrast to the plurality rule, the Majoritarian Compromise \citep{Sertel1999} unambiguously selects candidates who have the support of a majority in the best degree possible. So the trade-off between the quality and quantity of support behind alternatives is always questionable in social choice settings. Several other procedures have been proposed in the literature that aim to find a compromise and \citet{Merlin2019} gather them in the class of Compromise Rules.
 
-In the case where the candidates are only two we talk about bargaining (see survey \cite{Thomson1994}). The bargaining problem was first axiomatized by \cite{Nash1950}, who also proposed a solution for the problem that is obtained by maximizing the product of the differences between the utility from an agreement and the one from a disagreement (namely the status quo). This is the only bargaining solution that satisfies all the following axioms: independence of equivalent utility transformations, independence of irrelevant alternatives, pareto optimality and symmetry.
+In the case where the candidates are only two we talk about bargaining \citep{Thomson1994}. The bargaining problem was first axiomatized by \citet{Nash1950}, who also proposed a solution for the problem that is obtained by maximizing the product of the differences between the utility from an agreement and the one from a disagreement (namely the status quo). This is the only bargaining solution that satisfies all the following axioms: independence of equivalent utility transformations, independence of irrelevant alternatives, pareto optimality and symmetry.
 	
 \section{Posing the problem}
 Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 2$. We write $L(A)$ for the set of linear orders over $A$ and $P_{i}\in L(A)$ stands for the preference of $i\in N$. For each $k\in \left\{ 1,...,\text{ }m\right\} $, $r_{k}(P_{i})$ is the alternative ranked at level $k$ by $P_{i}$. An (ordinal) social choice rule (SCR) is a mapping $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$.
 
-We call BK-compromises the class of $q$-approval fallback bargaining rules introduced by Brams and Kilgour (2001) \cite{Brams2001}: the $q$-approval fallback bargaining rule picks ranks 1, 2, …, and stops as soon as at least $q$ voters rank some alternative at the chosen rank or better. All such alternatives form the compromise set, and among them the ones which receive the highest support are elected.
+We call BK-compromises the class of $q$-approval fallback bargaining rules introduced by \citet{Brams2001}: the $q$-approval fallback bargaining rule picks ranks 1, 2, …, and stops as soon as at least $q$ voters rank some alternative at the chosen rank or better. All such alternatives form the compromise set, and, among them, the ones which receive the highest support are elected.
 We start by two examples based on an observation made by Laslier at Buyukada. 
 \begin{example}
 	Consider the following preference profile $P\in L(A)^{N}$ with $n=100$:
@@ -116,14 +120,14 @@ We start by two examples based on an observation made by Laslier at Buyukada.
 		\end{array}
 		$
 	\end{center}
-	which represents 51 individuals who prefer $a$ to $b$, $b$ to $c$, hence $a$ to $c$; and 49 individuals who prefer $c$ to $b$, $b$ to $a$, hence $c$ to $a $. At $P,$ when $q\in \left\{ 1,..., \lfloor \frac{n}{2}\rfloor +1\right\} $, all BK-compromises pick $a$, which does not appear as a compromise, as, after all, 51 voters reach their best alternative while the remaining 49 voters have to be contented with their worst one. Note that for $q\in \left\{ 1,..., \lfloor \frac{n}{2}\rfloor -1 \right\} $ the set of possible common agreements determined by the fallback bargaining procedure is $\{a,c\}$. Nevertheless, $a$ receives the highest support thus it is elected.
+	which represents 51 individuals who prefer $a$ to $b$, $b$ to $c$, hence $a$ to $c$; and 49 individuals who prefer $c$ to $b$, $b$ to $a$, hence $c$ to $a $. At $P,$ when $q\in \left\{ 1,..., \frac{n}{2} +1\right\} $, all BK-compromises pick $a$, which does not appear as a compromise, as 51 voters reach their best alternative while the remaining 49 voters have to be contented with their worst one. Note that for $q\in \left\{ 1,..., \frac{n}{2} -1 \right\} $ the set of possible common agreements determined by the fallback bargaining procedure is $\{a,c\}$. Nevertheless, $a$ receives the highest support thus it is elected.
 \end{example}
 
-This point can be extended to values of $q$ that exceed a majority as we can see in the next example.
+This point can be extended to greater values of $q$, as we can see in the next example.
 
 \begin{example}
 	\label{ex:exk}
-	Let's consider again $n=100$, but now with 4 alternatives, and construct the preference profile:
+	Consider again $n=100$, but now with 4 alternatives, and the preference profile
 	\begin{center}
 		$
 		\begin{array}{ccccc}
@@ -134,9 +138,7 @@ This point can be extended to values of $q$ that exceed a majority as we can see
 		\end{array}
 		$
 	\end{center}
-
-
-where $z\in \left\{ 64,..., 99\right\}$. For any $q\in \left\{ \lfloor \frac{n}{2}\rfloor,..., z\right\}$ all the BK-compromises pick $b$ as winner. We can observe that, the outcome reflects a compromise among the first three blocks of voters that disagree on their top choices. The fourth block of $100-z$ voters, however, does not seem to be taken into account by any of the fallback bargaining rules. 
+where $z\in \left\{ 64,..., 99\right\}$. For any $q\in \left\{ \lfloor \frac{n}{2}\rfloor,..., z\right\}$ all the BK-compromises pick $b$ as winner. We can observe that the outcome reflects a compromise among the first three blocks of voters that disagree on their top choices. The fourth block of $100-z$ voters, however, does not seem to be taken into account by any of the fallback bargaining rules. 
 Let's consider $z=64$, the profile would then be the following: 
 
 \begin{center}
@@ -164,41 +166,72 @@ Let's consider the other extreme, $z=99$, the profile would then be the followin
 	$
 \end{center} 
 
-The reasoning follows the same steps of the previous case, working now for any $q\in \left\{ 64,..., 99 \right\}$. Even though only one person now ranks $b$ at the last position, the example does not lose his strength. Indeed, if it may seem reasonable to prefer the willing of the $99\%$ of the population, this is not always acceptable. In a world where, for example, a decision regarding organs exchanging or selling has to be taken, the fairness becomes a crucial point.
+The reasoning follows the same steps than the previous case, working now for any $q\in \left\{ 64,..., 99 \right\}$. Even though only one person now ranks $b$ at the last position, the example does not lose his strength. Indeed, if it may seem reasonable to prefer the willing of the $99\%$ of the population, the result may nevertheless be considered as not satisfying the concept of a compromise. In a world where, for example, a decision regarding organs exchanging or selling has to be taken, the fairness becomes a crucial point.
 \end{example}
 
 These two examples illustrate that BK-compromises (except fallback bargaining (FB) where $q=n$ which will be further discussed in Example \ref{ex:qeqn}) are “ex-ante compromises” or “procedural compromises”, i.e., they impose over individuals a willingness to compromise but they don't ensure an outcome where everyone has effectively compromised. So what is a “true compromise”? To define it, we switch to an utilitarian world.
 
 \section{Cardinal compromises}
 Let $U(A) \subseteq \R^A$ be the set of injective real-valued “utility” functions defined over $A$, thus mandating, $\forall u_{i}\in U(A)$: $u_{i}(x)\neq u_{i}(y)$ $\forall x ≠ y\in A$. Note that each $u_{i}\in U$ induces a unique $P(u_{i})\in L(A)$.
-For each $k\in \left\{ 1, ..., m\right\} $, we write $r_{k}(u_{i})$ for $r_{k}(P(u_{i}))$.
+For each $k\in \left\{ 1, ..., m\right\} $, we write $r_{k}(u_{i})$ for $r_{k}(P(u_{i}))$, thus $r_k \in A$.
 
-A (cardinal) SCR is a mapping $f:U(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. We will not specify whether a SCR is cardinal or ordinal whenever this is clear from its domain.
+A cardinal SCR is a mapping $f:U(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. We will not specify whether a SCR is cardinal or ordinal whenever this is clear from its domain.
 
-We adopt the “equal loss principle” which Chun (1988, Economics Letters) \cite{Chun1988}, Chun and Peters (1991, MASS) \cite{Chun1991} introduce and characterize for bargaining problems. It seems that the concept is also used in bankruptcy and matching problems. For each $u\in U(A)^{N}$, each $x\in A$ and each $i\in N$, let $\lambda_{i}^u(x) = \max_{a \in A} u_i(a) - u_{i}(x)$ represent the loss of utility of $i$ when electing $x$, and $\lambda ^{u}(x)=(\lambda _{i}^{u}(x))_{i\in N}$.
+We adopt the “equal loss principle” which Chun (1988, Economics Letters) \cite{Chun1988}, Chun and Peters (1991, MASS) \cite{Chun1991} introduce and characterize for bargaining problems \commentOC{Which one do we want to cite as introducing and characterizing?}. It seems that the concept is also used in bankruptcy and matching problems. For each $u\in U(A)^{N}$, each $x\in A$ and each $i\in N$, let $\lambda_{i}^u(x) = \max_{a \in A} u_i(a) - u_{i}(x)$ represent the loss of utility for $i$ that $x$ be elected instead of her favorite alternative, and $\lambda ^{u}(x)=(\lambda _{i}^{u}(x))_{i\in N}$, thus $\lambda ^{u}(x) \in \R_+^N$ representing the vector of losses if electing $x$.
 
-Unlike bargaining, our problem does not induce a convex space of achievable utilities. As a result, we cannot ensure the existence of $x\in A$ with $\lambda _{i}^{u}(x)=\lambda _{j}^{u}(x)$ for all $i,j\in N$. Hence, we aim to determine the “most equally distributed” vector within $\left\{ \lambda ^{u}(x)\right\} _{x\in A}$. We thus need to adopt a spread measure which is a mapping $\sigma : \R_{+}^{N}\longrightarrow \R_{+}$. We write $\Sigma $ for the class of spread measures that satisfy the following pairwise Pareto dominance condition.
+Unlike bargaining, our problem does not induce a convex space of achievable utilities. As a result, we cannot ensure the existence of $x\in A$ with $\lambda _{i}^{u}(x)=\lambda _{j}^{u}(x)$ for all $i,j\in N$. Hence, we aim to determine the “most equally distributed” vector within $\left\{ \lambda ^{u}(x)\right\} _{x\in A}$. We thus need to adopt a spread measure which is a mapping $\sigma : \R_{+}^{N}\longrightarrow \R_{+}$. In what follows, we will consider various classes of possible spread measures. One of the conditions we consider is the following Pairwise Pareto dominance condition.
 
 \begin{definition}[Pairwise Pareto dominance]
 	\label{def:PPD}
 	For all $r$, $s\in \R_{+}^{N}$: 
 	\[\left[\left\vert r_{i}-r_{j}\right\vert \leq \left\vert s_{i}-s_{j}\right\vert \forall i, j\in N\right] ⇒ \sigma (r)\leq \sigma (s).\] 
 \end{definition}
-Any $\sigma \in \Sigma$ reaches a minimum value for an input whose components are all equal.
+We write $\SAll = R_+^{R_+^N}$ for the set of all spread measures. We write $\SPPd \subseteq \SAll$ for the class of spread measures that satisfy PPd. Any $\sigma \in \SPPd$ reaches a minimum value for an input whose components are all equal.
 
-\textbf{TO DO: }
+\textbf{TODO: }
+\begin{itemize}
+	\item Give reference to the relevant literature, also to the Pareto dominance condition.
+	\item Give examples of spread measure that do and do not satisfy the condition.
+	\item Give some examples using average or standard deviation.
+	\item Analyze which of our definitions and results make sense for any $\sigma \in \SAll$ and which ones should be restricted to $\sigma \in \SPPd$.
+\end{itemize}
 
-$\cdot$ Give reference to the relevant literature, also to the Pareto dominance condition.
-
-$\cdot$ Give examples of spread measure that do and do not satisfy the condition.
-
-$\cdot$ BEA: give some examples using average or standard deviation.\\
-
-
-Given any $\sigma \in \Sigma $, we define a (cardinal) compromise as the SCR $C^{\sigma }:U(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ such that $C^{\sigma }(u) = \argmin_{x \in A} (\sigma \circ \lambda^u)(x) = \left\{ x\in A:\sigma (\lambda ^{u}(x))\leq \sigma (\lambda ^{u}(y)), \forall y\in A\right\} $. Let $\paretopt(u)$ be the set of alternatives which are Pareto optimal at $u\in U(A)^{N}$. As a matter of fact, $C^{\sigma }(u)$ can pick alternatives outside $\paretopt(u)$. In fact, $C^{\sigma }(u)$ $\cap $ $\paretopt(u)$ can even be empty. To see this, with two voters and five alternatives, consider $u$ with $u_{1}(a)=5$, $u_{1}(b)=4$, $u_{1}(c)=3$, $u_{1}(d)=2$, $u_{1}(e)=1$, $u_{2}(d)=5$, $u_{2}(c)=4$, $u_{2}(b)=3$, $u_{2}(a)=2$, $u_{2}(e)=1$. Note that for any $\sigma \in \Sigma $, $C^{\sigma }(u)=\left\{ e\right\} $ while $\paretopt(u)=\left\{ a, b, c, d\right\} $. 
+Given any $\sigma \in \SPPd$, we define a (cardinal) compromise as the cardinal SCR $C^{\sigma }:U(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ such that $C^{\sigma }(u) = \argmin_{x \in A} (\sigma \circ \lambda^u)(x) = \left\{ x\in A:\sigma (\lambda ^{u}(x))\leq \sigma (\lambda ^{u}(y)), \forall y\in A\right\} $. Let $\paretopt(u)$ be the set of alternatives which are Pareto optimal at $u\in U(A)^{N}$. As a matter of fact, $C^{\sigma }(u)$ can pick alternatives outside $\paretopt(u)$. In fact, $C^{\sigma }(u)$ $\cap $ $\paretopt(u)$ can even be empty. To see this consider the following profile
+\begin{center}
+	$
+	\begin{array}{cccccc}
+	\mathbf{i_1} \ & a & b & c & d & e \\
+	\mathbf{i_2} \ & d & c & b & a & e \\
+	\end{array}
+	$
+\end{center}
+and the utility assignment $u$ such that
+\begin{center}
+	$
+	\begin{array}{ccc}
+	& u_1 & u_2 \\
+	\mathbf{a} \ & 5 & 2 \\
+	\mathbf{b} \ & 4 & 3 \\
+	\mathbf{c} \ & 3 & 4 \\
+	\mathbf{d} \ & 2 & 5 \\
+	\mathbf{e} \ & 1 & 1 \\
+	\end{array}
+	$
+\end{center}
+Note that for any $\sigma \in \Sigma $ \commentBN{$\sigma \in \SPPd $?}, $C^{\sigma }(u)=\left\{ e\right\} $ while $\paretopt(u)=\left\{ a, b, c, d\right\} $. 
 
 \begin{remark}
-	Given the spirit of fairness that underlies $C^{\sigma }$, picking $e$ at $u$ may have a merit. To see why, consider the following situation, where a social planner must choose between a world $x$ where individuals may sell their organs, and a world $y$ where they may not (assuming that they do not if they may not). Assume that the utility of individual $1$ would be slightly higher in world $x$, because she would sell an organ to individual $2$, who would gain a lot from this sell: $u_1(x) = 1, u_1(y) = 0, u_2(x) = 100, u_2(y) = 0$. Even though $y$ is Pareto dominated in this example, the social planner might prefer $y$ to $x$ by considering that in $x$, an individual benefits in an unfair way of the sale. (A more thorough argument could observe that in real life, the set of alternatives is not necessarily determined once and for all, and that by adopting a strategy that tolerates huge inequalities, the social planner creates an incentive for $u_2$ to avoid helping adding new alternatives in the agenda, such as one where $u_1$ does not desire to sell an organ to $u_2$.) \commentOC{TODO refer to literature.} This example illustrates the tension between Pareto efficiency, which may come with a price of huge inequalities as in this example, and pure equalitarian view, which as the previous example illustrates may completely disregard Pareto efficiency even when the cost in supplemental inequality is low. Exploring rules that trade-off between these two objectives might be interesting, but is left as a future goal.
+	Given the spirit of fairness that underlies $C^{\sigma }$, picking $e$ at $u$ may have a merit. To see why, consider the following situation, where a social planner must choose between a world $x$ where individuals may sell their organs, and a world $y$ where they may not (assuming that they do not if they may not). Assume that the utility of individual $1$ would be slightly higher in world $x$, because she would sell an organ to individual $2$, who would gain a lot from this sell: 
+	\begin{center}
+		$
+		\begin{array}{ccc}
+		& u_1 & u_2 \\
+		\mathbf{x} \ & 1 & 100 \\
+		\mathbf{y} \ & 0 & 0 \\
+		\end{array}
+		$
+	\end{center}
+	Even though $y$ is Pareto dominated in this example, the social planner might prefer $y$ to $x$ by considering that in $x$, an individual benefits in an unfair way of the sale. (A more thorough argument could observe that in real life, the set of alternatives is not necessarily determined once and for all, and that by adopting a strategy that tolerates huge inequalities, the social planner creates an incentive for $u_2$ to avoid helping adding new alternatives in the agenda, such as one where $u_1$ does not desire to sell an organ to $u_2$.) \commentOC{TODO refer to literature. Perhaps related to Sen - Rationality and Freedom (2002), chapter 12: Liberty and Social Choice.} This example illustrates the tension between Pareto efficiency, which may come with a price of huge inequalities as in this example, and pure equalitarian view, which as the previous example illustrates may completely disregard Pareto efficiency even when the cost in supplemental inequality is low. Exploring rules that trade-off between these two objectives might be interesting, but is left as a future goal.
 \end{remark}
 From now on, we will ensure the Pareto optimality of cardinal compromises by defining them as 
 \[C^{\sigma }(u) = \argmin_{x \in \paretopt(u)} (\sigma \circ \lambda^u)(x) = \left\{ x\in \paretopt(u):\sigma (\lambda ^{u}(x))\leq \sigma (\lambda ^{u}(y)),  \forall y\in A\right\}.\]
@@ -208,23 +241,39 @@ OPEN QUESTION: Which axioms would characterize $C^{\sigma }$?
 \section{Ordinal compromises} 
 We now address the question of relating $C^{\sigma }$ to ordinal SCRs.
 
-A utility assignment (UA) is a strictly decreasing function $v:\left\{ 1,..., m\right\} \rightarrow \R$ which maps ranks to utilities. For each $P_{i}\in L(A)$, $v$ induces a utility function $v_{P_{i}}$ $\in U(A)$ with $v_{P_{i}}(x)=v(k)$ for each $x=r_{k}(P_{i})\in A$. So for every $P\in L(A)^{N}$, $v_{P}=(v_{P_{1}},...,v_{P_{n}})$ $\in U(A)^{N}$ is the utility profile that $v$ induces from the preference profile $P$.
+A utility assignment (UA) is a strictly decreasing function $v:\left\{ 1,..., m\right\} \rightarrow \R$ which maps ranks to utilities. For each $P_{i}\in L(A)$, $v$ induces a utility function $v_{P_{i}}$ $\in U(A)$ with $v_{P_{i}}(x)=v(k)$ for each $x=r_{k}(P_{i})\in A$. So for every $P\in L(A)^{N}$, $v_{P}=(v_{P_{1}},...,v_{P_{n}})$ $\in U(A)^{N}$ is the utility profile that $v$ induces from the preference profile $P$. Given $v$, we can define $\vpr: L(A)^N → U(A)^N$ as the function which determines a utility profile by mapping each ordinal preference from a profile to its corresponding utility function. \commentOC{Perhaps write $\vpr$ instead of $v$ where appropriate, to clarify?} \commentBN{I agree that it would be useful but I find this notation a bit heavy. What do you think about using $\mathbf{v}$ instead of $\vpr$?}
 
-Given any UA $v$, an ordinal compromise is the SCR $C^{\sigma }\circ v:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ such that $(C^{\sigma }\circ v)(P)=C^{\sigma }(v_{P})$ for every $P\in L(A)^{N}$. (We slightly abuse notation here by pretending that we can apply $v$ as a function to elements of $L(A)$.)
-%It is equivalent to define $C^\sigma_v$ as the following ordinal SCR, where $v$ is now considered a parameter of the SCR. Given $P$, define $\lambda^P(x) \in \intvl{1..m}^N$ as the mapping that associates to each voter $i$ the number $l_i$ of alternatives preferred to $x$ in $P_i$ (thus the loss, measured in ranks, endured by $i$ because of the choice of $x$ instead of her top choice), where $\intvl{1..m} = \{1, …, m\}$. Define $v^\text{loss}$ as mapping the number of ranks lost to a loss of utility, thus $v^\text{loss}(l) = v(1)-v(1+l)$. Define $\sigma^\text{ord}: \intvl{1..m}^N → \R_+$ such that $\sigma^\text{ord}((l_i)_{i \in N}) = \sigma((v^\text{loss}(l_i))_{i \in N})$. Finally, define $C^\sigma_v(P) = \argmin_{x \in A} \sigma^\text{ord}(\lambda^P(x))$. \commentOC{We should think about the advantage of each presentation, or whether we keep both.}
-\begin{definition}[$\Sigma_\text{threshold}$]
-	\label{def:Sigma_thrs}
-Let's define with $\Sigma_\text{threshold}$ the class of spread measures that consider the number of times the loss is greater than or equal to a certain threshold $k \in \R$:
-\[\Sigma_\text{threshold}= \left\{ \sigma^k , k \in \R | \sigma^k (\lambda)= \# \{ i \in N | \lambda_i \geq k \} \right\}\]
+Given any UA $v$, an ordinal compromise is the SCR $C^{\sigma }\circ \vpr:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ such that $(C^{\sigma }\circ \vpr)(\{P_i, i \in N\}) = C^{\sigma}(\{v_{P_i}, i \in N\})$ for every $P\in L(A)^{N}$.
+
+\subsection{Interaction between utility assignment and spread measure}
+Once a class of functions $\Sigma \subseteq \SAll$ is defined, an ordinal compromise is defined by two parameters: the UA $v$ and the spread measure $\sigma \in \Sigma$. Here we investigate some links between these two parameters.
+
+First, we observe that in some cases, these two parameters can be treated as the choice of a single parameter, in the following sense.
+\begin{definition}[UA-independence]
+	A class of spread measure $\Sigma \subseteq \SAll$ is UA-independent iff, given any $\sigma \in \Sigma $ and any two UAs $v$ and $v^{\prime }$, there exists a $\sigma^\prime\in \Sigma $ such that $C^{\sigma}\circ \vpr = C^{\sigma ^{\prime}} \circ v^{\prime\text{pr}}$.
 \end{definition}
+
+As an example of such $\Sigma$, consider $\SThreshold$, the class of spread measures that consider the number of time the loss is greater than or equal to a certain threshold $k \in \R$:
+\[\Sigma_\text{threshold}= \set{ \sigma^k , k \in \R},\]
+where $\sigma^k (\lambda)= \# \set{ i \in N \suchthat \lambda_i \geq k}$.
+
 \begin{proposition} 
 \label{prop:equivalence_SigmaThrs} 
-Given any $\sigma^k \in \Sigma_\text{threshold} $ and any two UAs $v$ and $v^{\prime }$, there exists a $\sigma^{k^\prime}\in \Sigma_\text{threshold} $ such that $C^{\sigma^k }\circ v=C^{\sigma ^{k^\prime}}\circ v^{\prime }$. 
+$\SThreshold$ is UA-independent.
 \end{proposition}
 \begin{proof}
-Given any utility assignments $v$ and $v^{\prime}$, and a spread measure $\sigma^k$, we need to show that it is possible to construct a spread measure $\sigma^{k^\prime}$ and a $v^\prime$ such that the proposition holds. The threshold $k$ is a real positive number, without loss of generality we can say it is greater than or equal to the $i_{th}$ biggest possible loss in $v$ and smaller than the $(i+1)_{th}$. Consider now a $\sigma^{k^\prime}$ such that $k^\prime$ is a number greater than or equal to the $i_{th}$ biggest possible loss considering now $v^\prime$ and smaller than the $(i+1)_{th}$. Please note that $k$ denotes a position $p$ in the rank from which we start to count the number of times an alternative is ranked at that position or at a lower one. The idea is to select the alternative that minimize this number. Since $v$ and $v^{\prime}$ are strictly monotonic, choosing a $k^\prime$ in $v^\prime$ that corresponds to the same loss of $k$ in $v$ allows to consider the same position $p$ in the rank. For each alternative $a$, the number of times $a$ is ranked at the position $p$ or after does not change, thus the values of $\sigma^k (\lambda(a))$ are the same. This concludes the proof.  
+Given any utility assignments $v$ and $v^{\prime}$, and a spread measure $\sigma^k$, we need to show that it is possible to choose $k^\prime \in \R$ such that $C^{\sigma^k} \circ \vpr = C^{\sigma^{k'}} \circ v^{\prime \text{pr}}$. Let  $t \in \intvl{1, m}$ be the position such that the loss of any alternative $x \in A$ ranked $t$ by any of the voters is greater than or equal to $k$.
+\[t \in \intvl{1, m} \ s.t. \  \lambda_{i}^v(x)\geq k \ \forall i \in N , x = r_{t}(P_{i}) \in A\]
+If we call $v(t_{top})$ the utility associated to the top position of the ranking order according to $v$, then that is equivalent to say
+\[t \in \intvl{1, m} \ s.t. \ v(t_{top})-v(t) \geq k \] 
+\commentBN{We don't need to leave both, but I feel the first is better for understanding and the second one helps with the proof.}
+Consider now $\sigma^{k^\prime}$ with $k^\prime = v^\prime(t_{top})-v^\prime(t)$, i.e. $k^\prime$ equal to the loss of any alternative ranked $t$ according to the UA $v^\prime$. Observe that $\sigma^k(\lambda(x))$ counts the number of times the alternative $x$ is ranked at position $t$ or lower. Since $v$ and $v^{\prime}$ are strictly monotonic, choosing $k^\prime$ as described, allows us to consider in $\sigma^{k^\prime}$ the same rank positions considered in $\sigma^k$. Note that the profile does not change so the number of times an alternative is ranked at a certain position does not change either, thus $\sigma^k(\lambda)=\sigma^{k^\prime}(\lambda^\prime)$. It follows that 
+\[C^{\sigma^k} \circ \vpr = \argmin_{x \in A} (\sigma^k(\lambda^v))(x) = \argmin_{x \in A} (\sigma^{k^\prime}(\lambda^{v^\prime}))(x) = C^{\sigma^{k'}} \circ v^{\prime \text{pr}}.\]
+
+\end{proof}
+
 \begin{example}
-	Let's take the following profile $P$ as an example:
+	Take the following profile $P$ as an example:
 	\begin{center}
 		$
 		\begin{array}{cccc}
@@ -233,48 +282,111 @@ Given any utility assignments $v$ and $v^{\prime}$, and a spread measure $\sigma
 		\end{array}
 		$
 	\end{center}
-	and consider the utility assignments $v$ such that $v_{P_1}=(3,1,0) , v_{P_2}=(0,3,1)$ and $v^\prime$ such that $v^\prime_{P_1}=(10,9,0) , v^\prime_{P_2}=(0,10,9)$. Define by $\lambda^P(x)$ the loss of utility of the alternative $x$ in the profile P under the utility assignment $v$, and $\lambda^{\prime P}(x)$ the one under the UA $v^\prime$. The possible values of $\lambda^P(x)$ are $(0,2,3)$ and the ones of $\lambda^{\prime P}(x)$ are $(0,1,10)$. Let's consider $\sigma^2$; $k=2$ is greater than or equal to the $2_{nd}$ biggest lost and smaller than the $3_{rd}$. We can construct $\sigma^{k^\prime}$ by choosing a $k^\prime$ greater than or equal to the $2_{nd}$ biggest loss considering $v^\prime$ and smaller than the $3_{rd}$ one. Let's take $k^\prime=1$. For $v$:
+
+	and consider the utility assignments $v$ such that $v_{P_1}=(3,1,0) , v_{P_2}=(0,3,1)$ and $v^\prime$ such that $v^\prime_{P_1}=(10,9,0) , v^\prime_{P_2}=(0,10,9)$. Define by $\lambda^P(x)$ the loss of utility of the alternative $x$ in the profile P under the utility assignment $v$, and $\lambda^{\prime P}(x)$ the one under the UA $v^\prime$. Let $\sigma^2(\lambda^v)$ be the given spread measure; the position $t$ induced by $k=2$ can be computed considering that $t_{top} = 1$ and $v(t_{top})=3$
 	\begin{center}
-		$
-		\begin{array}{ccccc}
-		\lambda(a) \ = \ &0&3 & \rightarrow & \sigma^k(\lambda(a)) = 1\\
-		\lambda(b) \ = \ &2&0 & \rightarrow & \sigma^k(\lambda(b)) = 1\\
-		\lambda(c) \ = \ &3&2 & \rightarrow & \sigma^k(\lambda(c)) = 2\\
+		$ 
+		\begin{array}{cccc}
+		& v(t_{top})-v(t) &\geq &k \vspace{1.5mm} \\ 
+		t=1 \qquad & 3 - 3 &\ngeq &2 \\
+		\color{red}t=2 \qquad & 3 - 1 &\color{red}\geq &2 \\
 		\end{array}
 		$
 	\end{center}
-	Thus $C^{\sigma^k}(v)\in \{a,b\}$. Consider now $v^\prime$:
+	Hence $t=2$ and now we choose $k^\prime = v^\prime(t_{top})-v^\prime(t)= v^\prime(1)-v^\prime(2)=10-9=1$. We can observe that the social choice rule $C^{\sigma^2} \circ \vpr$ is equal to $C^{\sigma^1} \circ v^{\prime \text{pr}}$, indeed
 	\begin{center}
 		$
 		\begin{array}{ccccc}
-		\lambda(a) \ = \ &0&10 & \rightarrow & \sigma^{k^\prime}(\lambda(a)) = 1\\
-		\lambda(b) \ = \ &1&0 & \rightarrow & \sigma^{k^\prime}(\lambda(b)) = 1\\
-		\lambda(c) \ = \ &10&1 & \rightarrow & \sigma^{k^\prime}(\lambda(c)) = 2\\
+		\lambda^P(a) \ = \ &0&3 & \rightarrow & \sigma^2(\lambda^P(a)) = 1\\
+		\lambda^P(b) \ = \ &2&0 & \rightarrow & \sigma^2(\lambda^P(b)) = 1\\
+		\lambda^P(c) \ = \ &3&2 & \rightarrow & \sigma^2(\lambda^P(c)) = 2\\
 		\end{array}
 		$
 	\end{center}
-	Thus $C^{\sigma^{k^\prime}}(v^\prime)\in \{a,b\}$.
+	$C^{\sigma^2}(v)\in \{a,b\}$ and
+	\begin{center}
+		$
+		\begin{array}{ccccc}
+		\lambda^{\prime P}(a) \ = \ &0&10 & \rightarrow & \sigma^{1^\prime}(\lambda^{\prime P}(a)) = 1\\
+		\lambda^{\prime P}(b) \ = \ &1&0 & \rightarrow & \sigma^{1^\prime}(\lambda^{\prime P}(b)) = 1\\
+		\lambda^{\prime P}(c) \ = \ &10&1 & \rightarrow & \sigma^{1^\prime}(\lambda^{\prime P}(c)) = 2\\
+		\end{array}
+		$
+	\end{center}
+	$C^{\sigma^{1^\prime}}(v^\prime)\in \{a,b\}$.
 \end{example}
 
-\begin{definition}[$\Sigma_\text{PPD}$]
-Let's define with $\Sigma_\text{PPD}$ the class of spread measures that satisfy the Pairwise Pareto Dominance condition (see Definition\ref{def:PPD}). \commentBN{This is already previously defined as $\Sigma$, think about changing the one or the other.}
-\end{definition}
 \begin{proposition} 
 	\label{prop:equivalence_SigmaPPD} 
-	Given any $\sigma \in \Sigma_\text{PPD}$ and any two UAs $v$ and $v^{\prime }$ the Proposition \ref{prop:equivalence_SigmaThrs} does not hold. A spread measure $\sigma^\prime\in \Sigma_\text{PPD} $ such that $C^{\sigma}\circ v=C^{\sigma ^{\prime}}\circ v^{\prime }$ does not exist. 
+	$\SPPd$ is not UA-independent.
 \end{proposition}
+\begin{proof}
+	Consider, as a counterexample, the profile $P$
+	\begin{center}
+		$
+		\begin{array}{ccccccccc}
+		\mathbf{i_1} \quad &x&a_1&a_2&a_3&y&b_1&b_2&b_3\\
+		\mathbf{i_2} \quad &b_1&b_2&y&x&b_3&a_1&a_2&a_3\\
+		\end{array}
+		$
+	\end{center}
+	and the UAs $v$ and $v^\prime$ such that the utilities associated to the ranks are
+	\begin{center}
+		$
+		\begin{array}{cccccccccc}
+		&k=& 1&2&3&4&5&6&7&8 \vspace{1.5mm}\\
+		v(k) & &7&6&5&4&3&2&1&0\\
+		v^\prime(k) & &1000&999&998&997&3&2&1&0\\
+		\end{array}
+		$
+	\end{center}
+	Define by $\lambda$ the losses of utility under the UA $v$, $\lambda^\prime$ the ones under the $v^\prime$ and consider $\sigma \in \SPPd$. We can observe that the SCRs associated give very different results
+	\begin{center}
+		$
+		\begin{array}{ccccc}
+		& v_{P_1}(\cdot) & v_{P_2}(\cdot) & & \lambda^P(\cdot) \\
+		x \quad &7&4 & \quad & (0,3)\\
+		y \quad &3&5 & \quad & \color{red}(4,2)\\
+		a_1 \quad &6&2 & \quad & (1,5)\\
+		a_2 \quad &5&1 & \quad & (2,6)\\
+		a_3 \quad &4&0 & \quad & (3,7)\\
+		b_1 \quad &2&7 & \quad & (5,0)\\
+		b_2 \quad &1&6 & \quad & (6,1)\\
+		b_3 \quad &0&3 & \quad & (7,4)\\
+		\end{array}
+		$
+	\end{center}
+	$C^{\sigma}(v)\in \{y\}$. 
+	\begin{center}
+		$
+		\begin{array}{ccccc}
+		& v^\prime_{P_1}(\cdot) & v^\prime_{P_2}(\cdot) & & \lambda^{\prime P}(\cdot) \\
+		x \quad &1000&997 & \quad & \color{red}(0,3)\\
+		y \quad &3&998 & \quad & (997,2)\\
+		a_1 \quad &999&2 & \quad & (1,998)\\
+		a_2 \quad &998&1 & \quad & (2,999)\\
+		a_3 \quad &997&0 & \quad & (3,1000)\\
+		b_1 \quad &2&1000 & \quad & (998,0)\\
+		b_2 \quad &1&999 & \quad & (999,1)\\
+		b_3 \quad &0&3 & \quad & \color{red}(1000,997)\\
+		\end{array}
+		$
+	\end{center}
+	$C^{\sigma}(v^\prime)\in \{x,b_3\}$.
+\end{proof}
 
-TO DO: consider the profile $(x, a_1, a_2, a_3, y, b_1, b_2, b_3), (b_1, b_2, y, x, b_3, a_1, a_2, a_3)$. For $v = $ Borda, there is no $\sigma$ satisfying pairwise Pareto. But for $v = (1000, 999, 998, 997, 0, …)$, there is a $\sigma$ satisfying pairwise Pareto. This might be because in that case $\Sigma$ is not closed under monotonous transformations, as required in the proof. To be checked.
+	
+(Note: observe incompatibility between the $\SThreshold$ and $\SPPd$)\commentOC{Here we should simply observe that some $\sigma \in \SThreshold$ fail to satisfy PPd (give an example to prove it), and conclude that therefore, the Threshold condition is not enough to ensure a satisfactory notion of spread measure.}
 
-(Note: observe incompatibility between the $\Sigma_\text{threshold}$ and $\Sigma_\text{PPD}$)
 
 \begin{example}[Problem: does $\Sigma$ really compromise?]
-	Note that $\mathbf{\Sigma_\text{threshold}}$ does not consider the notion of compromise as we promote. In the case of the Example \ref{ex:exk}, $b$ is still the outcome considering $\sigma^k \in \Sigma_\text{threshold}$ with $k = 2$. With $k=1$ the winner is $d$ which is even worse fairness-wise. By Proposition \ref{prop:equivalence_SigmaThrs} the specific utility assignment is not relevant to determine the outcome, so consider the Borda one and let's have a look at the utility vectors of the alternatives:
+	\commentOC{Try to capture your intuition formally and in a shorter way by defining a property that you think a “compromise” sigma should satisfy and that some sigma in $\SThreshold$ do not satisfy. Unless this is already captured by PPd. (Not urgent, can be left for later.)} \commentBN{My idea was, indeed, that PPd represents what we want a compromise to be. But we can surely add other properties.}
+	Note that $\SThreshold$ does not consider the notion of compromise as we promote. In the case of the Example \ref{ex:exk}, $b$ is still the outcome considering $\sigma^k \in \SThreshold$ with $k = 2$. With $k=1$ the winner is $d$ which is even worse fairness-wise. By Proposition \ref{prop:equivalence_SigmaThrs} the specific utility assignment is not relevant to determine the outcome, so consider the Borda one, the utility vectors of the alternatives are the following
 	
 	\begin{center}
 		$
 		\begin{array}{ccccccc}
-		\mathbf{a} \ = \ &(& \overbrace{3, \dots,3,}^{v_{1-26}} & \overbrace{1, \dots, 1,}^{v_{27-51}} & \overbrace{1, \dots, 1,}^{v_{52-z}} & \overbrace{2, \dots, 2}^{v_{(z+1)-100}} &) \\
+		\mathbf{a} \ = \ &(& \overbrace{3, \dots,3,}^{i_{1-26}} & \overbrace{1, \dots, 1,}^{i_{27-51}} & \overbrace{1, \dots, 1,}^{i_{52-z}} & \overbrace{2, \dots, 2}^{i_{(z+1)-100}} &) \\
 		\mathbf{b}\ = \ &(& 2, \dots,2, & 2, \dots, 2, & 2, \dots, 2, & 0, \dots, 0 &) \\
 		\mathbf{c}\ = \ &(& 1, \dots,1, & 3, \dots, 3, & 0, \dots, 0, & 1, \dots, 1 &) \\
 		\mathbf{d}\ = \ &(& 0, \dots,0, & 0, \dots, 0, & 3, \dots, 3, & 3, \dots, 3 &) \\
@@ -282,12 +394,12 @@ TO DO: consider the profile $(x, a_1, a_2, a_3, y, b_1, b_2, b_3), (b_1, b_2, y,
 		$
 	\end{center}
 	
-	Where $v_{1-26}$ indicate the group of voters from $v_1$ to $v_{26}$. Consider now the loss vectors: 
+	Where $i_{1-26}$ indicate the group of voters from $i_1$ to $i_{26}$. Consider now the loss vectors: 
 
 	\begin{center}
 		$
 		\begin{array}{ccccccc}
-		\lambda(a)\ = \ &(& \overbrace{0, \dots,0,}^{|v_{1-26}|=26} & \overbrace{2, \dots, 2,}^{|v_{27-51}|=25} & \overbrace{2, \dots, 2,}^{|v_{\dots}|=z-51} & \overbrace{1, \dots, 1}^{|v_{\dots}|=100-z} &) \\
+		\lambda(a)\ = \ &(& \overbrace{0, \dots,0,}^{|i_{1-26}|=26} & \overbrace{2, \dots, 2,}^{|i_{27-51}|=25} & \overbrace{2, \dots, 2,}^{|i_{\dots}|=z-51} & \overbrace{1, \dots, 1}^{|i_{\dots}|=100-z} &) \\
 		\lambda(b)\ = \ &(& 1, \dots,1, & 1, \dots, 1, & 1, \dots, 1, & 3, \dots, 3 &) \\
 		\lambda(c)\ = \ &(& 2, \dots,2, & 0, \dots, 0, & 3, \dots, 3, & 2, \dots, 2 &) \\
 		\lambda(d)\ = \ &(& 3, \dots,3, & 3, \dots, 3, & 0, \dots, 0, & 0, \dots, 0 &) \\
@@ -309,7 +421,7 @@ TO DO: consider the profile $(x, a_1, a_2, a_3, y, b_1, b_2, b_3), (b_1, b_2, y,
 	
 	Then for $k=1$ the winner would be $\color{red}d$; for $k=2$ would be $\color{red}b$ because $100-z$ is always less than $z-26$, $75$ and $51$ (remember that $z \in {64, \dots 99}$); for $k=3$ the winner would be $\color{red}a$.
 	\\\\
-	It is worth noting that if we consider $\sigma \in \mathbf{\Sigma_\text{PPD}}$ the outcome changes according to the utility assignment. For example, if we consider the UA such that the alternative ranked first has utility $1000$ and the rest $2,1,0$ then the loss vectors are: 
+	It is worth noting that if we consider $\sigma \in \SPPd$ the outcome changes according to the utility assignment. For example, if we consider the UA such that the alternative ranked first has utility $1000$ and the rest $2,1,0$ then the loss vectors are: 
 	\begin{center}
 		$
 		\begin{array}{ccccccc}
@@ -323,21 +435,24 @@ TO DO: consider the profile $(x, a_1, a_2, a_3, y, b_1, b_2, b_3), (b_1, b_2, y,
 	The winner is again $b$ but in this case we want it to be the outcome since it corresponds to our idea of compromise.
 \end{example}
 
-\end{proof}
+
 
 \begin{definition}
-\label{D1} \bigskip We say that an SCR $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ is an ordinal compromise iff there exists $\sigma \in \Sigma $ and an UA $v$ such that $C^{\sigma }\circ v=f$.
+\label{D1} \bigskip We say that a SCR $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ is a $\Sigma$-ordinal compromise iff there exists $\sigma \in \Sigma $ and an UA $v$ such that $C^{\sigma }\circ \vpr=f$.
 \end{definition}
 
-Note that by Proposition \ref{prop:equivalence_SigmaThrs}, Definition \ref{D1} is equivalent to the apparently following stronger version:
+Note that for $\SThreshold$, by \cref{prop:equivalence_SigmaThrs}, \cref{D1} is equivalent to the apparently following stronger version:
 
 \begin{definition}
-\label{D2} We say that an SCR $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ is an ordinal compromise iff for every UA $v$ there exists $\sigma \in \Sigma $ such that $C^{\sigma }\circ v=f$.
+\label{D2} We say that an SCR $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ is a $\SThreshold$-ordinal compromise iff for every UA $v$ there exists $\sigma \in \SThreshold$ such that $C^{\sigma }\circ \vpr=f$.
 \end{definition}
+
+\subsection{Comparison of compromises}
+Many ordinal SCRs fail to be ordinal compromises. 
 
 \begin{example}
 	\label{ex:qeqn}
-Many ordinal SCRs fail to be ordinal compromises. To see this, consider the following preference profile
+To see this, consider the following preference profile
 
 \begin{center}
 	$
@@ -351,6 +466,7 @@ Many ordinal SCRs fail to be ordinal compromises. To see this, consider the foll
 where $C^{\sigma }\circ v$ picks $b$ for any UA $v$ and any $\sigma \in \Sigma $ while all BK-compromises (except when $q=n$) pick $a$. Moreover, for any scoring rule (except anti plurality), there is a choice of $n$ where the scoring rule picks $a$. Finally, all Condorcet consistent rules pick $a$ as well.
 \end{example}
 
+\commentOC{The proof does not hold here with $\SPPd$. To be checked.}
 Regarding FB, consider the following preference profile with $n=2$ and $m=2k+2$
 
 \bigskip
@@ -384,7 +500,7 @@ where under any $\sigma \in \Sigma $, $C^{\sigma }\circ v$ picks $d$ for the UA 
 
 We thus observe that all BK-compromises, all scoring rules and all Condorcet consistent rules fail to be ordinal compromises.
 
-TO DO: See whether the analysis above prevails when the UA $v$ is allowed to vary among individuals.
+TODO: See whether the analysis above prevails when the UA $v$ is allowed to vary among individuals.
 
 The two person example that shows that FB is not an ordinal compromise of special interest because $C^{\sigma }$ seems to particularly appealing in two person discrete bargaining environments. In that example, $y$ seems to be a more natural bargaining solution than $x$. So we can try to present $C^{\sigma }$ as a discrete bargaining solution. In this literature there is FB of Brams and Kilgour which is later rectified by Kibris and Sertel \cite{Sertel1999} by adding the disagreement outcome that was originally missing. It will be certainly interesting to introduce and analyze $C^{\sigma }$ in this ordinal context where ranks are utilities. Clearly, minimized envy will be a key condition which will differentiate $C^{\sigma }$ from FB.
 
