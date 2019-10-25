@@ -138,7 +138,7 @@ This point can be extended to greater values of $q$, as we can see in the next e
 		\end{array}
 		$
 	\end{center}
-where $z\in \left\{ 64,..., 99\right\}$. For any $q\in \left\{ \lfloor \frac{n}{2}\rfloor,..., z\right\}$ all the BK-compromises pick $b$ as winner. We can observe that the outcome reflects a compromise among the first three blocks of voters that disagree on their top choices. The fourth block of $100-z$ voters, however, does not seem to be taken into account by any of the fallback bargaining rules. 
+where $z\in \left\{ 64,..., 99\right\}$. For any $q\in \left\{ \frac{n}{2},..., z\right\}$ all the BK-compromises pick $b$ as winner. We can observe that the outcome reflects a compromise among the first three blocks of voters that disagree on their top choices. The fourth block of $100-z$ voters, however, does not seem to be taken into account by any of the fallback bargaining rules. 
 Let's consider $z=64$, the profile would then be the following: 
 
 \begin{center}
@@ -375,13 +375,38 @@ Consider now $\sigma^{k^\prime}$ with $k^\prime = v^\prime(t_{top})-v^\prime(t)$
 	$C^{\sigma}(v^\prime)\in \{x,b_3\}$.
 \end{proof}
 
+\begin{remark}
+	Observe that some $\sigma \in \SThreshold$ fail to satisfy the PPd condition. Consider, for example, the following profile $P$
+	\begin{center}
+		$
+		\begin{array}{ccccc}
+		\mathbf{i_1} \quad &a&d&b&c\\
+		\mathbf{i_2} \quad &b&c&d&a\\
+		\end{array}
+		$
+	\end{center}
+	an UA $v$ which assign the utility values $10,2,1,0$ respectively to the ranks $1,2,3,4$, and a spread measure $\sigma^k \in \SThreshold$ with $k=1$.
+	\begin{center}
+		$
+		\begin{array}{ccccccc}
+		&&&&&& \sigma^1(\lambda^P(\cdot))\\
+		\lambda^P(a) \ =  &(&0&10&) & \quad & 1\\
+		\lambda^P(b) \ =  &(&9&0&) &  & 1\\
+		\lambda^P(c) \ =  &(&10&8&) &  & 2\\
+		\lambda^P(d) \ =  &(&8&9&) &  & 2\\
+		\end{array}
+		$
+	\end{center}
+	Consider $\lambda^P(d)$ and $\lambda^P(a)$, $\left\vert \lambda^P(d)_{1}-\lambda^P(d)_{2}\right\vert = 1$ and $\left\vert \lambda^P(a)_{1}-\lambda^P(a)_{2}\right\vert=10$, for the PPd condition 
+	\[\left\vert \lambda^P(d)_{1}-\lambda^P(d)_{2}\right\vert \leq \left\vert \lambda^P(a)_{1}-\lambda^P(a)_{2}\right\vert \Rightarrow \sigma^k (\lambda^P(d))\leq \sigma^k (\lambda^P(a))\] 
+	But this is not the case since $\sigma^k (\lambda^P(d))=2\nleq 1=\sigma^k (\lambda^P(a))$.
 	
-(Note: observe incompatibility between the $\SThreshold$ and $\SPPd$)\commentOC{Here we should simply observe that some $\sigma \in \SThreshold$ fail to satisfy PPd (give an example to prove it), and conclude that therefore, the Threshold condition is not enough to ensure a satisfactory notion of spread measure.}
-
+	Therefore, we can conclude that the Threshold condition does not consider the notion of compromise as we promote and it is not enough to ensure a satisfactory notion of spread measure for our intents.
+\end{remark}	
 
 \begin{example}[Problem: does $\Sigma$ really compromise?]
-	\commentOC{Try to capture your intuition formally and in a shorter way by defining a property that you think a “compromise” sigma should satisfy and that some sigma in $\SThreshold$ do not satisfy. Unless this is already captured by PPd. (Not urgent, can be left for later.)} \commentBN{My idea was, indeed, that PPd represents what we want a compromise to be. But we can surely add other properties.}
-	Note that $\SThreshold$ does not consider the notion of compromise as we promote. In the case of the Example \ref{ex:exk}, $b$ is still the outcome considering $\sigma^k \in \SThreshold$ with $k = 2$. With $k=1$ the winner is $d$ which is even worse fairness-wise. By Proposition \ref{prop:equivalence_SigmaThrs} the specific utility assignment is not relevant to determine the outcome, so consider the Borda one, the utility vectors of the alternatives are the following
+	Following this remark, we can observe that some $\sigma \in \SThreshold$ fail to compromise by going back to the Example \ref{ex:exk}, where we showed that all the fallback bargaining rules would have picked $b$ as outcome, ignoring the willing of $100-z$ voters.
+	Indeed, we can see that if we consider $\sigma^k \in \SThreshold$ with $k = 2$, the alternative $b$ would still be the outcome. Moreover, with $k=1$ the winner would be $d$ which is even worse fairness-wise. By Proposition \ref{prop:equivalence_SigmaThrs} the specific utility assignment is not relevant to determine the outcome, so consider the Borda one, the utility vectors of the alternatives are the following
 	
 	\begin{center}
 		$
@@ -425,7 +450,7 @@ Consider now $\sigma^{k^\prime}$ with $k^\prime = v^\prime(t_{top})-v^\prime(t)$
 	\begin{center}
 		$
 		\begin{array}{ccccccc}
-		\lambda(a)\ = \ &(& \overbrace{0, \dots,0,}^{|v_{1-26}|=26} & \overbrace{999, \dots, 999,}^{|v_{27-51}|=25} & \overbrace{999, \dots, 999,}^{|v_{\dots}|=z-51} & \overbrace{998, \dots, 998}^{|v_{\dots}|=100-z} &) \\
+		\lambda(a)\ = \ &(& \overbrace{0, \dots,0,}^{|i_{1-26}|=26} & \overbrace{999, \dots, 999,}^{|i_{27-51}|=25} & \overbrace{999, \dots, 999,}^{|i_{\dots}|=z-51} & \overbrace{998, \dots, 998}^{|i_{\dots}|=100-z} &) \\
 		\lambda(b)\ = \ &(& 998, \dots,998, & 998, \dots, 998, & 998, \dots, 998, & 1000, \dots, 1000 &) \\
 		\lambda(c)\ = \ &(& 998, \dots,998, & 0, \dots, 0, & 1000, \dots, 1000, & 998, \dots, 998 &) \\
 		\lambda(d)\ = \ &(& 1000, \dots,1000, & 1000, \dots, 1000, & 0, \dots, 0, & 0, \dots, 0 &) \\
@@ -433,6 +458,8 @@ Consider now $\sigma^{k^\prime}$ with $k^\prime = v^\prime(t_{top})-v^\prime(t)$
 		$
 	\end{center}
 	The winner is again $b$ but in this case we want it to be the outcome since it corresponds to our idea of compromise.
+	
+	\commentOC{Try to capture your intuition formally and in a shorter way by defining a property that you think a “compromise” sigma should satisfy and that some sigma in $\SThreshold$ do not satisfy. Unless this is already captured by PPd. (Not urgent, can be left for later.)} \commentBN{My idea was, indeed, that PPd represents what we want a compromise to be. But we can surely add other properties.}
 \end{example}
 
 
@@ -466,18 +493,29 @@ To see this, consider the following preference profile
 where $C^{\sigma }\circ v$ picks $b$ for any UA $v$ and any $\sigma \in \Sigma $ while all BK-compromises (except when $q=n$) pick $a$. Moreover, for any scoring rule (except anti plurality), there is a choice of $n$ where the scoring rule picks $a$. Finally, all Condorcet consistent rules pick $a$ as well.
 \end{example}
 
-\commentOC{The proof does not hold here with $\SPPd$. To be checked.}
+\commentOC{The proof does not hold here with $\SPPd$. To be checked.} \commentBN{Didn't get which proof you're referring to.}
 Regarding FB, consider the following preference profile with $n=2$ and $m=2k+2$
 
-\bigskip
+\begin{center}
+	$
+	\begin{array}{cc}
+	\mathbf{i_1}& \mathbf{i_2} \\
+	x &b_1\\
+	a_1 &\cdot\\
+	\cdot &\cdot\\
+	\cdot &b_{k-1}\\
+	\cdot &y\\
+	a_k &x\\
+	y &b_k\\
+	b_1 &a_1\\
+	\cdot &\cdot\\
+	\cdot &\cdot\\
+	b_k &a_k\\
+	\end{array}
+	$
+\end{center}
 
-$x$ $a_{1}...a_{k}$ $y$ $b_{1}....b_{k}$
-
-$b_{1}....b_{k-1}$ $y$ $x$ $b_{k}$ $a_{1}...a_{k}$
-
-\bigskip
-
-where under any $\sigma \in \Sigma $, $C^{\sigma }\circ v$ picks $y$ for the UA $v(k)=n-k+1$ while FB picks $x$. So FB fails Definition \ref{D2}, hence Definition \ref{D1}.
+where under any $\sigma \in \Sigma $ \commentBN{$\sigma \in \SPPd$}, $C^{\sigma }\circ v$ picks $y$ for the UA $v(k)=n-k+1$ while FB picks $x$. So FB fails Definition \ref{D2}, hence Definition \ref{D1}.
 
 Note that this example can be generalized to any $n$ by replicating the first voter as much as one wishes. This illustrates in a clear and simple
 way that $C^{\sigma }$ is ready to pay arbitrary amounts of utility (computed as a total loss of utility over all voters) to satisfy someone's envy.
@@ -496,7 +534,7 @@ $1$ $.....d$ $e$
 
 \bigskip
 
-where under any $\sigma \in \Sigma $, $C^{\sigma }\circ v$ picks $d$ for the UA $v(k)=n-k+1$ while anti plurality picks $e$.
+where under any $\sigma \in \Sigma $ \commentBN{$\sigma \in \SPPd$}, $C^{\sigma }\circ v$ picks $d$ for the UA $v(k)=n-k+1$ while anti plurality picks $e$.
 
 We thus observe that all BK-compromises, all scoring rules and all Condorcet consistent rules fail to be ordinal compromises.
 
