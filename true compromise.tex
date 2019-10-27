@@ -241,7 +241,7 @@ OPEN QUESTION: Which axioms would characterize $C^{\sigma }$?
 \section{Ordinal compromises} 
 We now address the question of relating $C^{\sigma }$ to ordinal SCRs.
 
-A utility assignment (UA) is a strictly decreasing function $v:\left\{ 1,..., m\right\} \rightarrow \R$ which maps ranks to utilities. For each $P_{i}\in L(A)$, $v$ induces a utility function $v_{P_{i}}$ $\in U(A)$ with $v_{P_{i}}(x)=v(k)$ for each $x=r_{k}(P_{i})\in A$. So for every $P\in L(A)^{N}$, $v_{P}=(v_{P_{1}},...,v_{P_{n}})$ $\in U(A)^{N}$ is the utility profile that $v$ induces from the preference profile $P$. Given $v$, we can define $\vpr: L(A)^N → U(A)^N$ as the function which determines a utility profile by mapping each ordinal preference from a profile to its corresponding utility function. \commentOC{Perhaps write $\vpr$ instead of $v$ where appropriate, to clarify?} \commentBN{I agree that it would be useful but I find this notation a bit heavy. What do you think about using $\mathbf{v}$ instead of $\vpr$?}
+A utility assignment (UA) is a strictly decreasing function $v:\left\{ 1,..., m\right\} \rightarrow \R$ which maps ranks to utilities. For each $P_{i}\in L(A)$, $v$ induces a utility function $v_{P_{i}}$ $\in U(A)$ with $v_{P_{i}}(x)=v(k)$ for each $x=r_{k}(P_{i})\in A$. So for every $P\in L(A)^{N}$, $v_{P}=(v_{P_{1}},...,v_{P_{n}})$ $\in U(A)^{N}$ is the utility profile that $v$ induces from the preference profile $P$. Given $v$, we can define $\vpr: L(A)^N → U(A)^N$ as the function which determines a utility profile by mapping each ordinal preference from a profile to its corresponding utility function. \commentOC{Perhaps write $\mathbf{v}$ instead of $v$ (or $\vpr$) where appropriate, to clarify?}
 
 Given any UA $v$, an ordinal compromise is the SCR $C^{\sigma }\circ \vpr:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ such that $(C^{\sigma }\circ \vpr)(\{P_i, i \in N\}) = C^{\sigma}(\{v_{P_i}, i \in N\})$ for every $P\in L(A)^{N}$.
 
@@ -262,7 +262,7 @@ where $\sigma^k (\lambda)= \# \set{ i \in N \suchthat \lambda_i \geq k}$.
 $\SThreshold$ is UA-independent.
 \end{proposition}
 \begin{proof}
-Given any utility assignments $v$ and $v^{\prime}$, and a spread measure $\sigma^k$, we need to show that it is possible to choose $k^\prime \in \R$ such that $C^{\sigma^k} \circ \vpr = C^{\sigma^{k'}} \circ v^{\prime \text{pr}}$. Let  $t \in \intvl{1, m}$ be the position such that the loss of any alternative $x \in A$ ranked $t$ by any of the voters is greater than or equal to $k$.
+Given any utility assignments $v$ and $v^{\prime}$, and a spread measure $\sigma^k$, we need to show that it is possible to choose $k^\prime \in \R$ such that $C^{\sigma^k} \circ \vpr = C^{\sigma^{k'}} \circ v^{\prime \text{pr}}$. Let  $t \in \intvl{1, m}$ be the position such that the loss of any alternative $x \in A$ ranked $t$ in $v$ by any of the voters is greater than or equal to $k$. \commentOC{As defined here, $t$ is not well-defined as it is usually not unique (if some $t$ satisfies the definition below, then $t' > t$ also satisfy the definition). Other problem: for $k$ very big, no $t$ satisfy the definition.}
 \[t \in \intvl{1, m} \ s.t. \  \lambda_{i}^v(x)\geq k \ \forall i \in N , x = r_{t}(P_{i}) \in A\]
 If we call $v(t_{top})$ the utility associated to the top position of the ranking order according to $v$, then that is equivalent to say
 \[t \in \intvl{1, m} \ s.t. \ v(t_{top})-v(t) \geq k \] 
@@ -465,7 +465,7 @@ Consider now $\sigma^{k^\prime}$ with $k^\prime = v^\prime(t_{top})-v^\prime(t)$
 
 
 \begin{definition}
-\label{D1} \bigskip We say that a SCR $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ is a $\Sigma$-ordinal compromise iff there exists $\sigma \in \Sigma $ and an UA $v$ such that $C^{\sigma }\circ \vpr=f$.
+\label{D1} \bigskip We say that a SCR $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ is a $\Sigma$-ordinal compromise iff there exists $\sigma \in \Sigma $ and an UA $v$ such that $C^{\sigma }\circ \vpr=f$. \commentOC{Please check whether we mean $v$ or $\vpr$ here (and below) and correct accordingly.}
 \end{definition}
 
 Note that for $\SThreshold$, by \cref{prop:equivalence_SigmaThrs}, \cref{D1} is equivalent to the apparently following stronger version:
@@ -493,7 +493,7 @@ To see this, consider the following preference profile
 where $C^{\sigma }\circ v$ picks $b$ for any UA $v$ and any $\sigma \in \Sigma $ while all BK-compromises (except when $q=n$) pick $a$. Moreover, for any scoring rule (except anti plurality), there is a choice of $n$ where the scoring rule picks $a$. Finally, all Condorcet consistent rules pick $a$ as well.
 \end{example}
 
-\commentOC{The proof does not hold here with $\SPPd$. To be checked.} \commentBN{Didn't get which proof you're referring to.}
+\commentOC{The proof does not hold here with $\SPPd$: we can’t use \cref{D2} (as we do one paragraph below). To be checked.} \commentBN{Didn't get which proof you're referring to.}
 Regarding FB, consider the following preference profile with $n=2$ and $m=2k+2$
 
 \begin{center}
