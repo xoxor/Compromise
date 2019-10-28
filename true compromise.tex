@@ -262,7 +262,7 @@ where $\sigma^k (\lambda)= \# \set{ i \in N \suchthat \lambda_i \geq k}$.
 $\SThreshold$ is UA-independent.
 \end{proposition}
 \begin{proof}
-Given any utility assignments $v$ and $v^{\prime}$, and a spread measure $\sigma^k$, we need to show that it is possible to choose $k^\prime \in \R$ such that $C^{\sigma^k} \circ \vpr = C^{\sigma^{k'}} \circ v^{\prime \text{pr}}$. Let  $t \in \intvl{1, m}$ be the position such that the loss of any alternative $x \in A$ ranked $t$ in $v$ by any of the voters is greater than or equal to $k$. \commentOC{As defined here, $t$ is not well-defined as it is usually not unique (if some $t$ satisfies the definition below, then $t' > t$ also satisfy the definition). Other problem: for $k$ very big, no $t$ satisfy the definition.}
+Given any utility assignments $v$ and $v^{\prime}$, and a spread measure $\sigma^k$, we need to show that it is possible to choose $k^\prime \in \R$ such that $C^{\sigma^k} \circ \vpr = C^{\sigma^{k'}} \circ v^{\prime \text{pr}}$. Let  $t \in \intvl{1, m}$ be the position such that the loss of any alternative $x \in A$ ranked $t$ in $v$ by any of the voters is greater than or equal to $k$. \commentOC{As defined here, $t$ is not well-defined as it is usually not unique (if some $t$ satisfies the definition below, then $t' > t$ also satisfy the definition). Other problem: for $k$ very big, no $t$ satisfy the definition.} \commentBN{"be the minimal position such that $\dots$", "If no such t exists then $k^\prime=v^\prime(t_{top})-v^\prime(m)+1$"}
 \[t \in \intvl{1, m} \ s.t. \  \lambda_{i}^v(x)\geq k \ \forall i \in N , x = r_{t}(P_{i}) \in A\]
 If we call $v(t_{top})$ the utility associated to the top position of the ranking order according to $v$, then that is equivalent to say
 \[t \in \intvl{1, m} \ s.t. \ v(t_{top})-v(t) \geq k \] 
@@ -465,7 +465,7 @@ Consider now $\sigma^{k^\prime}$ with $k^\prime = v^\prime(t_{top})-v^\prime(t)$
 
 
 \begin{definition}
-\label{D1} \bigskip We say that a SCR $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ is a $\Sigma$-ordinal compromise iff there exists $\sigma \in \Sigma $ and an UA $v$ such that $C^{\sigma }\circ \vpr=f$. \commentOC{Please check whether we mean $v$ or $\vpr$ here (and below) and correct accordingly.}
+\label{D1} \bigskip We say that a SCR $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ is a $\Sigma$-ordinal compromise iff there exists $\sigma \in \Sigma $ and an UA $v$ such that $C^{\sigma }\circ \vpr=f$.
 \end{definition}
 
 Note that for $\SThreshold$, by \cref{prop:equivalence_SigmaThrs}, \cref{D1} is equivalent to the apparently following stronger version:
@@ -490,7 +490,7 @@ To see this, consider the following preference profile
 	$
 \end{center}
 
-where $C^{\sigma }\circ v$ picks $b$ for any UA $v$ and any $\sigma \in \Sigma $ while all BK-compromises (except when $q=n$) pick $a$. Moreover, for any scoring rule (except anti plurality), there is a choice of $n$ where the scoring rule picks $a$. Finally, all Condorcet consistent rules pick $a$ as well.
+where $C^{\sigma }\circ \vpr$ picks $b$ for any UA $v$ and any $\sigma \in \Sigma $ \commentBN{$\sigma \in \SPPd$} while all BK-compromises (except when $q=n$) pick $a$. Moreover, for any scoring rule (except anti plurality), there is a choice of $n$ where the scoring rule picks $a$. Finally, all Condorcet consistent rules pick $a$ as well.
 \end{example}
 
 \commentOC{The proof does not hold here with $\SPPd$: we can’t use \cref{D2} (as we do one paragraph below). To be checked.} \commentBN{Didn't get which proof you're referring to.}
@@ -515,7 +515,7 @@ Regarding FB, consider the following preference profile with $n=2$ and $m=2k+2$
 	$
 \end{center}
 
-where under any $\sigma \in \Sigma $ \commentBN{$\sigma \in \SPPd$}, $C^{\sigma }\circ v$ picks $y$ for the UA $v(k)=n-k+1$ while FB picks $x$. So FB fails Definition \ref{D2}, hence Definition \ref{D1}.
+where under any $\sigma \in \Sigma $ \commentBN{$\sigma \in \SPPd$}, $C^{\sigma }\circ \vpr$ picks $y$ for the UA $v(k)=n-k+1$ while FB picks $x$. So FB fails Definition \ref{D2}, hence Definition \ref{D1}.
 
 Note that this example can be generalized to any $n$ by replicating the first voter as much as one wishes. This illustrates in a clear and simple
 way that $C^{\sigma }$ is ready to pay arbitrary amounts of utility (computed as a total loss of utility over all voters) to satisfy someone's envy.
@@ -534,7 +534,7 @@ $1$ $.....d$ $e$
 
 \bigskip
 
-where under any $\sigma \in \Sigma $ \commentBN{$\sigma \in \SPPd$}, $C^{\sigma }\circ v$ picks $d$ for the UA $v(k)=n-k+1$ while anti plurality picks $e$.
+where under any $\sigma \in \Sigma $ \commentBN{$\sigma \in \SPPd$}, $C^{\sigma }\circ \vpr$ picks $d$ for the UA $v(k)=n-k+1$ while anti plurality picks $e$.
 
 We thus observe that all BK-compromises, all scoring rules and all Condorcet consistent rules fail to be ordinal compromises.
 
