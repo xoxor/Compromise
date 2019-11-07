@@ -86,14 +86,6 @@
   url      = {https://doi.org/10.1023/A:1011252808608},
 }
 
-@Book{Edgeworth1881,
-  author    = {Edgeworth, Francis Ysidro},
-  publisher = {McMaster University Archive for the History of Economic Thought},
-  title     = {Mathematical Psychics},
-  year      = {1881},
-  url       = {https://EconPapers.repec.org/RePEc:hay:hetboo:edgeworth1881},
-}
-
 @Comment{jabref-meta: databaseType:bibtex;}
 
 % This file was created with JabRef 2.10.
