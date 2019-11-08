@@ -200,39 +200,78 @@ Some spread measures are the following.
 
 \subsubsection{Mean Absolute Difference}
 \[\sigma_{mad}(r)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|x_i-x_j| \]
-The mean absolute difference is a measure of dispersion calculated as the arithmetic mean of the absolute value of all possible differences. It satisfies both PEr and PPd. To see that consider the following vectors:
-\begin{example}
-	\label{ex:spreadVectors}
-	\begin{align}
+The mean absolute difference is a measure of dispersion calculated as the arithmetic mean of the absolute value of all possible differences. 
+\begin{proposition}
+	$\sigma_{mad}$ satisfies both PEr and PPd.
+\end{proposition}
+\begin{proof}
+	To see that consider the following vectors:
+	\begin{example}
+		\label{ex:spreadVectors}
+		\begin{align}
 		s=(3,3,3,3) \\
 		t=(1,2,3,4) \\
 		w=(1,3,5,7) \\
-	\end{align}
-	In order for a spread measure $\sigma$ to satisfy PEr it must be $\sigma(s)=0$, and to satisfy PEr it must be $\sigma(t)<\sigma(w)$.
-	
-	If we compute the $\sigma_{mad}$ of these vectors we have:
-	\begin{align}
+		\end{align}
+		In order for a spread measure $\sigma$ to satisfy PEr it must be $\sigma(s)=0$, and to satisfy PEr it must be $\sigma(t)<\sigma(w)$.
+	\end{example}
+		Compute now $\sigma_{mad}$ for these vectors, we have:
+		\begin{align}
 		\sigma_{mad}(s) &= \frac{1}{4^2} \cdot 0 =0 \\
 		\sigma_{mad}(t) &= \frac{1+2+3+1+1+2+2+1+1+3+2+1}{4^2}=\frac{20}{16} \\
 		\sigma_{mad}(w) &= \frac{2+4+6+2+2+4+4+2+2+6+4+2}{4^2}=\frac{40}{16} \\
+		\end{align}
+		\begin{align}
+		\sigma_{mad}(s) = 0 \rightarrow PEr \ \surd \\
+		\sigma_{mad}(t) < \sigma_{mad}(w) \rightarrow PPd \ \surd \\
+		\end{align}
+\end{proof}
+
+
+\subsubsection{Average Absolute Deviation}
+\[\sigma_{aad}(r)= \frac{\sum_{i=1}^{n}|x_i-\bar{x}|}{n}\]
+The average absolute deviation considers the differences between the values of the vector and their arithmetic mean $\bar{x}$.
+
+\begin{proposition}
+	$\sigma_{aad}$ satisfies both PEr and PPd.
+\end{proposition}
+\begin{proof}
+	Consider the vectors of the Example \ref{ex:spreadVectors}.
+	If we compute $\sigma_{aad}$ for those vectors we have:
+	\begin{align}
+	\sigma_{aad}(s) &= \frac{\sum_{i=1}^{4} |3-3|}{4} =0 \\
+	\sigma_{aad}(t) &= \frac{|1-2.5|+|2-2.5|+|3-2.5|+|4-2.5|}{4}=\frac{4}{4}=1 \\
+	\sigma_{aad}(w) &= \frac{|1-4|+|3-4|+|5-4|+|7-4|}{4}=\frac{8}{4}=2 \\
 	\end{align}
 	\begin{align}
-	\sigma_{mad}(s) = 0 \rightarrow PEr \ \surd \\
-	\sigma_{mad}(t) < \sigma_{mad}(w) \rightarrow PPd \ \surd \\
+	\sigma_{aad}(s) = 0 \rightarrow PEr \ \surd \\
+	\sigma_{aad}(t) < \sigma_{aad}(w) \rightarrow PPd \ \surd \\
 	\end{align}
-\end{example}
+\end{proof}
 
-%\subsubsection{Average Absolute Deviation}
-%
-%\subsubsection{Standard Deviation}
-%
-%\subsubsection{Gini Coefficient}
+\subsubsection{Standard Deviation}
+\[\sigma_{sd}(r)= \sqrt{\frac{\sum_{i=1}^{n}(x_i-\bar{x})^2}{n}}\]
+\begin{proposition}
+	$\sigma_{sd}$ satisfies both PEr and PPd.
+\end{proposition}
+\begin{proof}
+	Consider the vectors of Example \ref{ex:spreadVectors}.
+	If we compute $\sigma_{sd}$ for those vectors we have:
+	\begin{align}
+	\sigma_{sd}(s) &= \sqrt{\frac{\sum_{i=1}^{4} (3-3)^2}{4}}=0 \\
+	\sigma_{sd}(t) &= \sqrt{\frac{(1-2.5)^2+(2-2.5)^2+(3-2.5)^2+(4-2.5)^2}{4}}=\sqrt{\frac{5}{4}} \\
+	\sigma_{sd}(w) &= \sqrt{\frac{(1-4)^2+(3-4)^2+(5-4)^2+(7-4)^2}{4}}=\sqrt{\frac{20}{4}}=\sqrt{5} \\
+	\end{align}
+	\begin{align}
+	\sigma_{sd}(s) = 0 \rightarrow PEr \ \surd \\
+	\sigma_{sd}(t) < \sigma_{sd}(w) \rightarrow PPd \ \surd \\
+	\end{align}
+\end{proof}
+
 
 \textbf{TODO: }
 \begin{itemize}
 	\item Give reference to the relevant literature, also to the Pareto dominance condition.
-	\item Give examples of spread measure that do and do not satisfy the condition.
-	\item Give some examples using average or standard deviation.
 	\item Analyze which of our definitions and results make sense for any $\sigma \in \SAll$ and which ones should be restricted to $\sigma \in \SPPd$.
 \end{itemize}
 
