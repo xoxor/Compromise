@@ -1,0 +1,23 @@
+== Meeting 
+
+*08/11/2019 - Remzi, Olivier, Beatrice*
+
+=== Agenda
+* A class of spread measure as now defined satisfying PPd is not UA-independent 
+* Solutions:
+** Richer context: sigma includes not only the losses but also the starting point 
+	sigma(1,100) -> sigma(10->11,1000->1100) (sigma does lot of work)
+** Tranforming 'imposing' comparability before appling sigma (sigma does less work)
+	implies: voter i cares equally about 1->2 and 100000->100001
+
+* Conjecture Remzi: Let sigma:R^2->R be defined as sigma(x1,x2)=|x1-x2|/(x1+x2) forall (x1,x2)\in R^2. Given any P \in L(A)^N any two utility assignments v,v' and any x,y \in A 
+sigma(\lambdaVp(x))>=sigma(\lambdaVp(y)) iff sigma(\lambdaVp'(x)) >= sigma(\lambdaVp'(y))
+* Counterexample Olivier: 
+		 v  v'
+	a  a	10  10
+	x  b	 9   9
+	b  x	 8   8
+	y  c	 7   7
+	d  y	 6 -13
+
+* We can pass from the cardinal to the ordinal world by using the Borda assignment. (That we can rephrase as the number of pairwise flips we have to make in each voter's preference ranking in order to make an alternative x equal for everyone [Keminy])
