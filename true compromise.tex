@@ -357,6 +357,12 @@ A utility assignment (UA) is a strictly decreasing function $v:\left\{ 1,..., m\
 
 Given any UA $v$, an ordinal compromise is the SCR $C^{\sigma }\circ \vpr:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ such that $(C^{\sigma }\circ \vpr)(\{P_i, i \in N\}) = C^{\sigma}(\{v_{P_i}, i \in N\})$ for every $P\in L(A)^{N}$.
 
+\subsection{Ordinal treatment}
+A cardinal compromise $C^\sigma$ is said to treat its input ordinally when it only cares about the orderings of the alternatives given by the utilities it is given. Here is a more precise definition.
+\begin{definition}[Ordinal treatment]
+	A cardinal compromise $C^\sigma$ \emph{treats its input ordinally} iff, for any input $(u_i)_{i \in N} \in U(A)^N$, and any list of strictly monotonous transformations $(t_i)_{i \in N}$, where each $t_i: \R → \R$, it holds that $C^\sigma((u_i)_{i \in N}) = C^\sigma((t_i \circ u_i)_{i \in N})$.
+\end{definition}
+
 \subsection{Interaction between utility assignment and spread measure}
 Once a class of functions $\Sigma \subseteq \SAll$ is defined, an ordinal compromise is defined by two parameters: the UA $v$ and the spread measure $\sigma \in \Sigma$. Here we investigate some links between these two parameters.
 
