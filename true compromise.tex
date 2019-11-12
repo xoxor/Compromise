@@ -194,20 +194,14 @@ When all the values are the same, a coefficient of zero expresses perfect equali
 	For all $r$, $s\in \R_{+}^{N}$: 
 	\[\left[\left\vert r_{i}-r_{j}\right\vert \leq \left\vert s_{i}-s_{j}\right\vert \forall i, j\in N\right] ⇒ \sigma (r)\leq \sigma (s).\] 
 \end{definition}
-We write $\SAll = R_+^{R_+^N}$ for the set of all spread measures that satisfy PEr. The recognition of equality is a requirement for all the spread measures that we consider. We write $\SPPd \subseteq \SAll$ for the class of spread measures that satisfy also PPd. Any $\sigma \in \SPPd$ reaches a minimum value for an input whose components are all equal.
+We write $\SAll = \R_+^{\R_+^N}$ for the set of all spread measures that satisfy PEr. The recognition of equality is a requirement for all the spread measures that we consider. We write $\SPPd \subseteq \SAll$ for the class of spread measures that satisfy also PPd. Any $\sigma \in \SPPd$ reaches a minimum value for an input whose components are all equal.
 
-\commentBN{Discuss about Definition 3 and 4}
-\begin{definition}[Pairwise Pareto dominance relaxed]
-	For all $r$, $s\in \R_{+}^{N}$: 
-	\[ \frac{|r_{i}-r_{j}|}{|r_{i}+r_{j}|} \leq \frac{|s_{i}-s_{j}|}{|s_{i}+s_{j}|} \ \forall i, j\in N ⇒ \sigma (r)\leq \sigma (s).\] 
-	The intuition is that $\sigma([1,2])$ should be bigger that $\sigma([10001,10003])$.
-\end{definition}
+\begin{conjecture}
+	Let $\sigma: \R_+^2 \rightarrow \R_+$ be defined as $\sigma(r)=\frac{|r_1-r_2|}{r_1+r_2} \ \forall r \in \R_+^2$. Given any $P \in L(A)^N$, any $x,y \in A$ and any two utility assignments $u_P$, $u_P'$ such that $u'=au+b$ 
+	\[\sigma(\lambda^{u_P}(x)) \geq \sigma(\lambda^{u_P}(y)) \Rightarrow \sigma(\lambda^{u_P'}(x)) \geq \sigma(\lambda^{u_P'}(y))\] 
+\end{conjecture}
 
-\begin{definition}
-	$t=(1,1,2,2) \ w=(2,2,3,3)$ Do we want $\sigma(t)<\sigma(w)$? \commentBN{Maybe this case is already considered by Remzi definition}
-\end{definition}
-
-
+\vspace{7mm}
 Some examples of spread measures are the following.
 
 \subsubsection{Mean Absolute Difference}
@@ -356,6 +350,7 @@ We now address the question of relating $C^{\sigma }$ to ordinal SCRs.
 A utility assignment (UA) is a strictly decreasing function $v:\left\{ 1,..., m\right\} \rightarrow \R$ which maps ranks to utilities. For each $P_{i}\in L(A)$, $v$ induces a utility function $v_{P_{i}}$ $\in U(A)$ with $v_{P_{i}}(x)=v(k)$ for each $x=r_{k}(P_{i})\in A$. So for every $P\in L(A)^{N}$, $v_{P}=(v_{P_{1}},...,v_{P_{n}})$ $\in U(A)^{N}$ is the utility profile that $v$ induces from the preference profile $P$. Given $v$, we can define $\vpr: L(A)^N → U(A)^N$ as the function which determines a utility profile by mapping each ordinal preference from a profile to its corresponding utility function.
 
 Given any UA $v$, an ordinal compromise is the SCR $C^{\sigma }\circ \vpr:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ such that $(C^{\sigma }\circ \vpr)(\{P_i, i \in N\}) = C^{\sigma}(\{v_{P_i}, i \in N\})$ for every $P\in L(A)^{N}$.
+\commentBN{Maybe it would be better to define an ordinal compromise separately from the cardinal definition and move the link between the two in a following section.(?) \\ Consider a profile $P$, an alternative $x\in A$ and a voter $i\in N$, we define with $\lambda_{i}^P(x)$ the loss of levels in the preference ranking of $i$ when electing $x$ instead of her favorite alternative. This value can also be seen as the number of pairwise flips we need to perform in order to place $x$ at top position for $i$. Thus, $\lambda ^{P}(x)=(\lambda _{i}^{P}(x))_{i\in N}\in \R_+^N$ represents the vector of losses when electing $x$. An ordinal compromise is the SCR $C^{\sigma }:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ defined as \[C^{\sigma}(P) = \argmin_{x \in \paretopt(P)} (\sigma \circ \lambda^u)(x) = \left\{ x\in \paretopt(P):\sigma (\lambda ^{P}(x))\leq \sigma (\lambda ^{P}(y)),  \forall y\in A\right\}.\]}
 
 \subsection{Ordinal treatment}
 A cardinal compromise $C^\sigma$ is said to treat its input ordinally when it only cares about the orderings of the alternatives given by the utilities it is given. Here is a more precise definition.
