@@ -244,12 +244,13 @@ The mean absolute difference is a measure of dispersion calculated as the arithm
 The average absolute deviation considers the differences between the values of the vector and their arithmetic mean $\bar{r}$.
 
 \begin{proposition}
+	\label{prop:ad}
 	$\sigma_{ad}$ satisfies both PEr and PPd.
 \end{proposition}
 \begin{proof}
 	When $r_i=r_j \ \forall i,j\in {1, \dots, n}$ then $\bar{r}=\frac{\sum_{i=1}^{n}r_i}{n}=r_i$ for any $i \in N$. It follows that $\sum_{i=1}^{n}|r_i-\bar{r}|=0$ and $\sigma_{ad}(r)=0$ satisfying PEr.
 	
-	In order to show that $\sigma_{ad}$ satisfies PPd we have to prove that:
+	In order to prove that $\sigma_{ad}$ satisfies PPd we have to show that:
 	
 	\begin{align}
 		\sigma_{ad}(r) &\leq \sigma_{ad}(s) \\
@@ -304,6 +305,26 @@ The average absolute deviation considers the differences between the values of t
 	$\sigma_{sd}$ satisfies both PEr and PPd.
 \end{proposition}
 \begin{proof}
+	If $r_i=r_j \ \forall i,j\in {1, \dots, n}$ then $\bar{r}=\frac{\sum_{i=1}^{n}r_i}{n}=r_i$ for any $i \in N$, thus the sum will be zero and $\sigma_{sd}(r)=0$ satisfying PEr.
+	\\ To prove that $\sigma_{sd}$ satisfies PPd we need to show that
+	\[\sum_{i=1}^{n}(r_i-\bar{r})^2 \leq \sum_{i=1}^{n}(s_i-\bar{s})^2\]
+	Since 
+	\[(r_i-\bar{r})^2 = |r_i-\bar{r}|^2 \text{ and } (s_i-\bar{s})^2 = |s_i-\bar{s}|^2 \] 
+	we can rewrite it as
+	\[\sum_{i=1}^{n}|r_i-\bar{r}|^2 \leq \sum_{i=1}^{n}|s_i-\bar{s}|^2\]
+	We know that 
+		\[ \sum_{i=1}^{n}|r_i-\bar{r}|^2 \leq (\sum_{i=1}^{n}|r_i-\bar{r}|)^2 \text{ and }
+		\sum_{i=1}^{n}|s_i-\bar{s}|^2 \leq (\sum_{i=1}^{n}|s_i-\bar{s}|)^2 \]
+	indeed, in case $n=2$, $(a-b)^2 = a^2+2ab+b^2$ so $(a-b)^2 \geq a^2+b^2$ only if $2ab > 0$; in our case $a$ and $b$ are the terms of the summation, respectively $|r_1-\bar{r}|$ and $|r_2-\bar{r}|$ (or $|s_1-\bar{s}|$ and $|s_2-\bar{s}|$) so they are always positive. 
+	From the proof of Proposition \ref{prop:ad}, we also know that
+	\begin{align}
+		\sum_{i=1}^{n}|r_i-\bar{r}| &\leq \sum_{i=1}^{n}|s_i-\bar{s}| \\
+		(\sum_{i=1}^{n}|r_i-\bar{r}|)^2 &\leq (\sum_{i=1}^{n}|s_i-\bar{s}|)^2
+	\end{align}
+	so we can affirm that 
+	\[\sum_{i=1}^{n}|r_i-\bar{r}|^2 \leq (\sum_{i=1}^{n}|r_i-\bar{r}|)^2 \leq (\sum_{i=1}^{n}|s_i-\bar{s}|)^2 \]
+	(TO BE CONTINUED $\dots$)
+\end{proof}
 	Consider the vectors of Example \ref{ex:spreadVectors}.
 	If we compute $\sigma_{sd}$ for those vectors we have:
 	\begin{align}
@@ -315,7 +336,6 @@ The average absolute deviation considers the differences between the values of t
 	\sigma_{sd}(s) = 0 \rightarrow PEr \ \surd \\
 	\sigma_{sd}(t) \leq \sigma_{sd}(w) \rightarrow PPd \ \surd \\
 	\end{align}
-\end{proof}
 
 \subsubsection{Gini Coefficient}
 \[\sigma_{G}(r)= \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|}{2 \cdot n \cdot \sum_{i=1}^{n} r_i}\]
