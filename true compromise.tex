@@ -100,12 +100,12 @@
 
 \section{Introduction and Related Works}
 
-In a social choice situation where individuals have preferences over several alternatives there is no unique way to define a procedure that select a common agreement between them. One of the first problems the decision makers have to face is whether to prefer the quantity of support for an alternative (i.e. the number of voters who favor it) to the quality of its support (i.e. until which level in voters’ preferences is legitimate to descend) \commentBN{"voters who back it" and "support behind an alternative" is the terminology uset by Remzi et al. in their papers and it seems fitting to me.}. This decision leads to various outcomes satisfying different properties. Preferring the first to the latter may result in a lack of a majority support or, worst, into a strict majority of individuals which strongly dislikes the chosen candidates. Vice versa, favoring the number of voters behind an alternative implies descending levels in individual preferences potentially ending on electing a generally disliked candidate because of the opposition of very few individuals. 
+In a social choice situation where individuals have preferences over several alternatives there is no unique way to define a procedure that select a common agreement between them. One of the first problems the decision makers have to face is whether to prefer the quantity of support behind an alternative (i.e. the number of voters who favor it) to the quality of its support (i.e. until which level in voters’ preferences is legitimate to descend). This decision leads to various outcomes satisfying different properties. Preferring the first to the latter may result in a lack of a majority support or, worst, into a strict majority of individuals which strongly dislikes the chosen candidates. Vice versa, favoring the number of voters behind an alternative implies descending levels in individual preferences potentially ending on electing a generally disliked candidate because of the opposition of very few individuals. 
 
 Using the plurality rule, for example, the alternatives which are ranked the best by the largest number of voters are picked as outcome. The problem of this procedure is that, as long as there are more than two alternatives, the outcome may lack the support of any majority. In fact, it may also be opposed by a strict majority of agents each of whom ranks the chosen candidate as their least preferred choice. In contrast to the plurality rule, the Majoritarian Compromise \citep{Sertel1999} unambiguously selects candidates who have the support of a majority in the best degree possible. So the trade-off between the quality and quantity of support behind alternatives is always questionable in social choice settings. Several other procedures have been proposed in the literature that aim to find a compromise and \citet{Merlin2019} gather them in the class of Compromise Rules.
 
 In the case where the candidates are only two we talk about bargaining \citep{Thomson1994}. The bargaining problem was first axiomatized by \citet{Nash1950}, who also proposed a solution for the problem that is obtained by maximizing the product of the differences between the utility from an agreement and the one from a disagreement (namely the status quo). This is the only bargaining solution that satisfies all the following axioms: independence of equivalent utility transformations, independence of irrelevant alternatives, pareto optimality and symmetry.
-	
+\newpage	
 \section{Posing the problem}
 Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 2$. We write $L(A)$ for the set of linear orders over $A$ and $P_{i}\in L(A)$ stands for the preference of $i\in N$. For each $k\in \left\{ 1,...,\text{ }m\right\} $, $r_{k}(P_{i})$ is the alternative ranked at level $k$ by $P_{i}$. An (ordinal) social choice rule (SCR) is a mapping $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$.
 
@@ -172,15 +172,8 @@ The reasoning follows the same steps than the previous case, working now for any
 
 These two examples illustrate that BK-compromises (except fallback bargaining (FB) where $q=n$ which will be further discussed in Example \ref{ex:qeqn}) are “ex-ante compromises” or “procedural compromises”, i.e., they impose over individuals a willingness to compromise but they don't ensure an outcome where everyone has effectively compromised. So what is a “true compromise”? To define it, we switch to an utilitarian world.
 
-\section{Cardinal compromises}
-Let $U(A) \subseteq \R^A$ be the set of injective real-valued “utility” functions defined over $A$, thus mandating, $\forall u_{i}\in U(A)$: $u_{i}(x)\neq u_{i}(y)$ $\forall x ≠ y\in A$. Note that each $u_{i}\in U$ induces a unique $P(u_{i})\in L(A)$.
-For each $k\in \left\{ 1, ..., m\right\} $, we write $r_{k}(u_{i})$ for $r_{k}(P(u_{i}))$, thus $r_k \in A$.
 
-A cardinal SCR is a mapping $f:U(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. We will not specify whether a SCR is cardinal or ordinal whenever this is clear from its domain.
-
-We adopt the “equal loss principle” which Chun (1988, Economics Letters) \cite{Chun1988}, Chun and Peters (1991, MASS) \cite{Chun1991} introduce and characterize for bargaining problems \commentOC{Which one do we want to cite as introducing and characterizing?}. It seems that the concept is also used in bankruptcy and matching problems. For each $u\in U(A)^{N}$, each $x\in A$ and each $i\in N$, let $\lambda_{i}^u(x) = \max_{a \in A} u_i(a) - u_{i}(x)$ represent the loss of utility for $i$ that $x$ be elected instead of her favorite alternative, and $\lambda ^{u}(x)=(\lambda _{i}^{u}(x))_{i\in N}$, thus $\lambda ^{u}(x) \in \R_+^N$ representing the vector of losses if electing $x$.
-
-\subsection{Spread Measures}
+\section{Spread Measures}
 Unlike bargaining, our problem does not induce a convex space of achievable utilities. As a result, we cannot ensure the existence of $x\in A$ with $\lambda _{i}^{u}(x)=\lambda _{j}^{u}(x)$ for all $i,j\in N$. Hence, we aim to determine the “most equally distributed” vector within $\left\{ \lambda ^{u}(x)\right\} _{x\in A}$. We thus need to adopt a spread measure which is a mapping $\sigma : \R_{+}^{N}\longrightarrow \R_{+}$. In what follows, we will consider various classes of possible spread measures. Consider some of the conditions we consider are the following.
 
 \begin{definition}[Pure Equality recognition]
@@ -204,7 +197,7 @@ We write $\SAll = \R_+^{\R_+^N}$ for the set of all spread measures that satisfy
 \vspace{7mm}
 Given a vector $r \in \R^N$ of $n$ elements, some examples of spread measures are the following.
 
-\subsubsection{Mean Absolute Difference}
+\subsection{Mean Absolute Difference}
 \[\sigma_{mad}(r)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j| \]
 The mean absolute difference is a measure of dispersion calculated as the arithmetic mean of the absolute value of all possible differences. 
 \begin{proposition}
@@ -239,7 +232,7 @@ The mean absolute difference is a measure of dispersion calculated as the arithm
 
 
 
-\subsubsection{Average Absolute Deviation}
+\subsection{Average Absolute Deviation}
 \[\sigma_{ad}(r)= \frac{\sum_{i=1}^{n}|r_i-\bar{r}|}{n}\]
 The average absolute deviation considers the differences between the values of the vector and their arithmetic mean $\bar{r}$.
 
@@ -299,7 +292,7 @@ The average absolute deviation considers the differences between the values of t
 	\sigma_{ad}(t) \leq \sigma_{ad}(w) \rightarrow PPd \ \surd \\
 	\end{align}
 
-\subsubsection{Standard Deviation}
+\subsection{Standard Deviation}
 \[\sigma_{sd}(r)= \sqrt{\frac{\sum_{i=1}^{n}(r_i-\bar{r})^2}{n}}\]
 \begin{proposition}
 	$\sigma_{sd}$ satisfies both PEr and PPd.
@@ -315,15 +308,17 @@ The average absolute deviation considers the differences between the values of t
 	We know that 
 		\[ \sum_{i=1}^{n}|r_i-\bar{r}|^2 \leq (\sum_{i=1}^{n}|r_i-\bar{r}|)^2 \text{ and }
 		\sum_{i=1}^{n}|s_i-\bar{s}|^2 \leq (\sum_{i=1}^{n}|s_i-\bar{s}|)^2 \]
-	indeed, in case $n=2$, $(a-b)^2 = a^2+2ab+b^2$ so $(a-b)^2 \geq a^2+b^2$ only if $2ab > 0$; in our case $a$ and $b$ are the terms of the summation, respectively $|r_1-\bar{r}|$ and $|r_2-\bar{r}|$ (or $|s_1-\bar{s}|$ and $|s_2-\bar{s}|$) so they are always positive. 
-	From the proof of Proposition \ref{prop:ad}, we also know that
+	indeed, in case $n=2$, $(a-b)^2 = a^2+2ab+b^2$ so $(a-b)^2 \geq a^2+b^2$ only if $2ab > 0$; in our case $a$ and $b$ are the terms of the summation, respectively $|r_1-\bar{r}|$ and $|r_2-\bar{r}|$ (or $|s_1-\bar{s}|$ and $|s_2-\bar{s}|$) so they are always positive. So we can rewrite our expression as 
+	\[\sum_{i=1}^{n}|r_i-\bar{r}|^2 \leq \sum_{i=1}^{n}|s_i-\bar{s}|^2  \leq (\sum_{i=1}^{n}|s_i-\bar{s}|)^2 \]
+	and if we show that $\sum_{i=1}^{n}|r_i-\bar{r}|^2 \leq (\sum_{i=1}^{n}|s_i-\bar{s}|)^2 $ then the proof is concluded.
+	From the proof of Proposition \ref{prop:ad}, we know that
 	\begin{align}
 		\sum_{i=1}^{n}|r_i-\bar{r}| &\leq \sum_{i=1}^{n}|s_i-\bar{s}| \\
 		(\sum_{i=1}^{n}|r_i-\bar{r}|)^2 &\leq (\sum_{i=1}^{n}|s_i-\bar{s}|)^2
 	\end{align}
 	so we can affirm that 
 	\[\sum_{i=1}^{n}|r_i-\bar{r}|^2 \leq (\sum_{i=1}^{n}|r_i-\bar{r}|)^2 \leq (\sum_{i=1}^{n}|s_i-\bar{s}|)^2 \]
-	(TO BE CONTINUED $\dots$)
+	Therefore $\sum_{i=1}^{n}|r_i-\bar{r}|^2 \leq (\sum_{i=1}^{n}|s_i-\bar{s}|)^2 $ and this concludes the proof.
 \end{proof}
 	Consider the vectors of Example \ref{ex:spreadVectors}.
 	If we compute $\sigma_{sd}$ for those vectors we have:
@@ -337,7 +332,7 @@ The average absolute deviation considers the differences between the values of t
 	\sigma_{sd}(t) \leq \sigma_{sd}(w) \rightarrow PPd \ \surd \\
 	\end{align}
 
-\subsubsection{Gini Coefficient}
+\subsection{Gini Coefficient}
 \[\sigma_{G}(r)= \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|}{2 \cdot n \cdot \sum_{i=1}^{n} r_i}\]
 \begin{proposition}
 	$\sigma_{G}$ satisfies PEr but it does not satisfy PPd.
@@ -355,55 +350,8 @@ The average absolute deviation considers the differences between the values of t
 	$|t'_{i}-t'_{j}| \leq |w'_{i}-w'_{j}| \forall i, j$ but $\sigma_{G}(t') \nleq \sigma_{G}(w')$
 \end{proof}
 
-\textbf{TODO: }
-\begin{itemize}
-	\item Give reference to the relevant literature, also to the Pareto dominance condition.
-	\item Analyze which of our definitions and results make sense for any $\sigma \in \SAll$ and which ones should be restricted to $\sigma \in \SPPd$.
-\end{itemize}
+TODO: Give reference to the relevant literature, also to the Pareto dominance condition.
 
-\subsection{Cardinal Compromise Rule}
-Given any $\sigma \in \Sigma$, we define a (cardinal) compromise as the cardinal SCR $C^{\sigma }:U(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ such that $C^{\sigma }(u) = \argmin_{x \in A} (\sigma \circ \lambda^u)(x) = \left\{ x\in A:\sigma (\lambda ^{u}(x))\leq \sigma (\lambda ^{u}(y)), \forall y\in A\right\} $. Let $\paretopt(u)$ be the set of alternatives which are Pareto optimal at $u\in U(A)^{N}$. As a matter of fact, $C^{\sigma }(u)$ can pick alternatives outside $\paretopt(u)$. In fact, $C^{\sigma }(u)$ $\cap $ $\paretopt(u)$ can even be empty. To see this consider the following profile
-\begin{center}
-	$
-	\begin{array}{cccccc}
-	\mathbf{i_1} \ & a & b & c & d & e \\
-	\mathbf{i_2} \ & d & c & b & a & e \\
-	\end{array}
-	$
-\end{center}
-and the utility assignment $u$ such that
-\begin{center}
-	$
-	\begin{array}{ccc}
-	& u_1 & u_2 \\
-	\mathbf{a} \ & 5 & 2 \\
-	\mathbf{b} \ & 4 & 3 \\
-	\mathbf{c} \ & 3 & 4 \\
-	\mathbf{d} \ & 2 & 5 \\
-	\mathbf{e} \ & 1 & 1 \\
-	\end{array}
-	$
-\end{center}
-Note that for any $\sigma \in \SPPd $, $C^{\sigma }(u)=\left\{ e\right\} $ while $\paretopt(u)=\left\{ a, b, c, d\right\} $. 
-
-\begin{remark}
-	Given the spirit of fairness that underlies $C^{\sigma }$, picking $e$ at $u$ may have a merit. To see why, consider the following situation, where a social planner must choose between a world $x$ where individuals may sell their organs, and a world $y$ where they may not (assuming that they do not if they may not). Assume that the utility of individual $1$ would be slightly higher in world $x$, because she would sell an organ to individual $2$, who would gain a lot from this sell: 
-	\begin{center}
-		$
-		\begin{array}{ccc}
-		& u_1 & u_2 \\
-		\mathbf{x} \ & 1 & 100 \\
-		\mathbf{y} \ & 0 & 0 \\
-		\end{array}
-		$
-	\end{center}
-	Even though $y$ is Pareto dominated in this example, the social planner might prefer $y$ to $x$ by considering that in $x$, an individual benefits in an unfair way of the sale. \cite{Sen2004} introduced the notion of individual liberty which considers that each individual has a recognized personal sphere in which only his preferences count in determining the social preference. He considered three different interpretations where this can be applied: outcome evaluation, normative choice and descriptive choice. Considering both individual liberty and Pareto principle, he then provided impossibility results for each of them. \commentBN{Whereas the idea of "y will not be chosen when x is available" is similar to our approach, Sen assumed that x is preferred to y for some voter and this is into her personal sphere. We do not make the same assumption. In our example y can be chosen even if none like it because it's considered the fairest for the society.} 
-	(A more thorough argument could observe that in real life, the set of alternatives is not necessarily determined once and for all, and that by adopting a strategy that tolerates huge inequalities, the social planner creates an incentive for $u_2$ to avoid helping adding new alternatives in the agenda, such as one where $u_1$ does not desire to sell an organ to $u_2$.) This example illustrates the tension between Pareto efficiency, which may come with a price of huge inequalities as in this example, and pure equalitarian view, which as the previous example illustrates may completely disregard Pareto efficiency even when the cost in supplemental inequality is low. Exploring rules that trade-off between these two objectives might be interesting, but is left as a future goal.
-\end{remark}
-From now on, we will ensure the Pareto optimality of cardinal compromises by defining them as 
-\[C^{\sigma }(u) = \argmin_{x \in \paretopt(u)} (\sigma \circ \lambda^u)(x) = \left\{ x\in \paretopt(u):\sigma (\lambda ^{u}(x))\leq \sigma (\lambda ^{u}(y)),  \forall y\in A\right\}.\]
-
-OPEN QUESTION: Which axioms would characterize $C^{\sigma }$?
 
 \section{Ordinal compromises} 
 We now address the question of relating $C^{\sigma }$ to ordinal SCRs.
@@ -413,11 +361,7 @@ A utility assignment (UA) is a strictly decreasing function $v:\left\{ 1,..., m\
 Given any UA $v$, an ordinal compromise is the SCR $C^{\sigma }\circ \vpr:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ such that $(C^{\sigma }\circ \vpr)(\{P_i, i \in N\}) = C^{\sigma}(\{v_{P_i}, i \in N\})$ for every $P\in L(A)^{N}$.
 \commentBN{Maybe it would be better to define an ordinal compromise separately from the cardinal definition and move the link between the two in a following section.(?) \\ Consider a profile $P$, an alternative $x\in A$ and a voter $i\in N$, we define with $\lambda_{i}^P(x)$ the loss of levels in the preference ranking of $i$ when electing $x$ instead of her favorite alternative. This value can also be seen as the number of pairwise flips we need to perform in order to place $x$ at top position for $i$. Thus, $\lambda ^{P}(x)=(\lambda _{i}^{P}(x))_{i\in N}\in \R_+^N$ represents the vector of losses when electing $x$. An ordinal compromise is the SCR $C^{\sigma }:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ defined as \[C^{\sigma}(P) = \argmin_{x \in \paretopt(P)} (\sigma \circ \lambda^u)(x) = \left\{ x\in \paretopt(P):\sigma (\lambda ^{P}(x))\leq \sigma (\lambda ^{P}(y)),  \forall y\in A\right\}.\]}
 
-\subsection{Ordinal treatment}
-A cardinal compromise $C^\sigma$ is said to treat its input ordinally when it only cares about the orderings of the alternatives given by the utilities it is given. Here is a more precise definition.
-\begin{definition}[Ordinal treatment]
-	A cardinal compromise $C^\sigma$ \emph{treats its input ordinally} iff, for any input $(u_i)_{i \in N} \in U(A)^N$, and any list of strictly monotonous transformations $(t_i)_{i \in N}$, where each $t_i: \R → \R$, it holds that $C^\sigma((u_i)_{i \in N}) = C^\sigma((t_i \circ u_i)_{i \in N})$.
-\end{definition}
+
 
 \subsection{Interaction between utility assignment and spread measure}
 Once a class of functions $\Sigma \subseteq \SAll$ is defined, an ordinal compromise is defined by two parameters: the UA $v$ and the spread measure $\sigma \in \Sigma$. Here we investigate some links between these two parameters.
@@ -722,6 +666,71 @@ Another direction of research to which Ali had pointed: As a spirit of compromis
 
 \pagebreak
 \appendix
+\section{Cardinal compromises}
+Let $U(A) \subseteq \R^A$ be the set of injective real-valued “utility” functions defined over $A$, thus mandating, $\forall u_{i}\in U(A)$: $u_{i}(x)\neq u_{i}(y)$ $\forall x ≠ y\in A$. Note that each $u_{i}\in U$ induces a unique $P(u_{i})\in L(A)$.
+For each $k\in \left\{ 1, ..., m\right\} $, we write $r_{k}(u_{i})$ for $r_{k}(P(u_{i}))$, thus $r_k \in A$.
+
+A cardinal SCR is a mapping $f:U(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. We will not specify whether a SCR is cardinal or ordinal whenever this is clear from its domain.
+
+We adopt the “equal loss principle” which Chun (1988, Economics Letters) \cite{Chun1988}, Chun and Peters (1991, MASS) \cite{Chun1991} introduce and characterize for bargaining problems \commentOC{Which one do we want to cite as introducing and characterizing?}. It seems that the concept is also used in bankruptcy and matching problems. For each $u\in U(A)^{N}$, each $x\in A$ and each $i\in N$, let $\lambda_{i}^u(x) = \max_{a \in A} u_i(a) - u_{i}(x)$ represent the loss of utility for $i$ that $x$ be elected instead of her favorite alternative, and $\lambda ^{u}(x)=(\lambda _{i}^{u}(x))_{i\in N}$, thus $\lambda ^{u}(x) \in \R_+^N$ representing the vector of losses if electing $x$.
+
+\subsection{Cardinal Compromise Rule}
+\label{sec:cardCompr}
+Given any $\sigma \in \Sigma$, we define a (cardinal) compromise as the cardinal SCR $C^{\sigma }:U(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$ such that $C^{\sigma }(u) = \argmin_{x \in A} (\sigma \circ \lambda^u)(x) = \left\{ x\in A:\sigma (\lambda ^{u}(x))\leq \sigma (\lambda ^{u}(y)), \forall y\in A\right\} $. Let $\paretopt(u)$ be the set of alternatives which are Pareto optimal at $u\in U(A)^{N}$. As a matter of fact, $C^{\sigma }(u)$ can pick alternatives outside $\paretopt(u)$. In fact, $C^{\sigma }(u)$ $\cap $ $\paretopt(u)$ can even be empty. To see this consider the following profile
+\begin{example} 
+	\label{ex:dropPo} $ $\\
+	\begin{center}
+		$
+		\begin{array}{cccccc}
+		\mathbf{i_1} \ & a & b & c & d & e \\
+		\mathbf{i_2} \ & d & c & b & a & e \\
+		\end{array}
+		$
+	\end{center}
+	and the utility assignment $u$ such that
+	\begin{center}
+		$
+		\begin{array}{ccc}
+		& u_1 & u_2 \\
+		\mathbf{a} \ & 5 & 2 \\
+		\mathbf{b} \ & 4 & 3 \\
+		\mathbf{c} \ & 3 & 4 \\
+		\mathbf{d} \ & 2 & 5 \\
+		\mathbf{e} \ & 1 & 1 \\
+		\end{array}
+		$
+	\end{center}
+	Note that for any $\sigma \in \SPPd $, $C^{\sigma }(u)=\left\{ e\right\} $ while $\paretopt(u)=\left\{ a, b, c, d\right\} $. 
+\end{example}
+
+From now on, we will ensure the Pareto optimality of cardinal compromises by defining them as 
+\[C^{\sigma }(u) = \argmin_{x \in \paretopt(u)} (\sigma \circ \lambda^u)(x) = \left\{ x\in \paretopt(u):\sigma (\lambda ^{u}(x))\leq \sigma (\lambda ^{u}(y)),  \forall y\in A\right\}.\]
+
+OPEN QUESTION: Which axioms would characterize $C^{\sigma }$?
+
+\subsection{Ordinal treatment}
+A cardinal compromise $C^\sigma$ is said to treat its input ordinally when it only cares about the orderings of the alternatives given by the utilities it is given. Here is a more precise definition.
+\begin{definition}[Ordinal treatment]
+	A cardinal compromise $C^\sigma$ \emph{treats its input ordinally} iff, for any input $(u_i)_{i \in N} \in U(A)^N$, and any list of strictly monotonous transformations $(t_i)_{i \in N}$, where each $t_i: \R → \R$, it holds that $C^\sigma((u_i)_{i \in N}) = C^\sigma((t_i \circ u_i)_{i \in N})$.
+\end{definition}
+
+\section{Dropping Pareto Optimality}
+	Consider the Example \ref{ex:dropPo} in Section \ref{sec:cardCompr}.
+	Given the spirit of fairness that underlies $C^{\sigma }$, picking $e$ at $u$ may have a merit. To see why, consider the following situation, where a social planner must choose between a world $x$ where individuals may sell their organs, and a world $y$ where they may not (assuming that they do not if they may not). Assume that the utility of individual $1$ would be slightly higher in world $x$, because she would sell an organ to individual $2$, who would gain a lot from this sell: 
+	\begin{center}
+		$
+		\begin{array}{ccc}
+		& u_1 & u_2 \\
+		\mathbf{x} \ & 1 & 100 \\
+		\mathbf{y} \ & 0 & 0 \\
+		\end{array}
+		$
+		\end{center}
+		Even though $y$ is Pareto dominated in this example, the social planner might prefer $y$ to $x$ by considering that in $x$, an individual benefits in an unfair way of the sale. \cite{Sen2004} introduced the notion of individual liberty which considers that each individual has a recognized personal sphere in which only his preferences count in determining the social preference. He considered three different interpretations where this can be applied: outcome evaluation, normative choice and descriptive choice. Considering both individual liberty and Pareto principle, he then provided impossibility results for each of them. \commentBN{Whereas the idea of "y will not be chosen when x is available" is similar to our approach, Sen assumed that x is preferred to y for some voter and this is into her personal sphere. We do not make the same assumption. In our example y can be chosen even if none like it because it's considered the fairest for the society.} 
+		(A more thorough argument could observe that in real life, the set of alternatives is not necessarily determined once and for all, and that by adopting a strategy that tolerates huge inequalities, the social planner creates an incentive for $u_2$ to avoid helping adding new alternatives in the agenda, such as one where $u_1$ does not desire to sell an organ to $u_2$.) This example illustrates the tension between Pareto efficiency, which may come with a price of huge inequalities as in this example, and pure equalitarian view, which as the previous example illustrates may completely disregard Pareto efficiency even when the cost in supplemental inequality is low. Exploring rules that trade-off between these two objectives might be interesting, but is left as a future goal.
+	
+
+
 \section{Transf}
 Given sets $A, B, C, G \subseteq C^B$, given $\emptyset ≠ V \subseteq B^A$ a subset of the injective functions from $A$ to $B$. Define $F_1 \subseteq C^A$ as the set of functions $f$ such that $\exists v \in V, g \in G \suchthat f = g \circ v$. Define $F_2 \subseteq C^A$ as the set of functions $f$ such that $\forall v \in V, \exists g \in G \suchthat f = g \circ v$. It follows that $F_2 \subseteq F_1$. We are interested in defining a condition on $G$ which permit to obtain $F_1 \subseteq F_2$. 
 
