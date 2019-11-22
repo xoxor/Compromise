@@ -142,15 +142,15 @@ Please note that the group of ignored voters could be even larger.
 These two examples illustrate that BK-compromises (except fallback bargaining (FB) where $q=n$ which will be further discussed in Example \ref{ex:qeqn}) are “ex-ante compromises” or “procedural compromises”, i.e., they impose over individuals a willingness to compromise but they don't ensure an outcome where everyone has effectively compromised. So what is a compromise?
 
 \section{Compromises}
-Consider a set of alternative $A$, a set of voters $N$, a profile $P$ and a SCR $f$ as defined above. For each $x \in A$ and $i \in N$ let $r^{P_i}(x)$ be the rank of the alternative $x$ in the preference order of $i$; we write with $\lambda^{P_i}(x)=r^{P_i}(x)-1$ the loss of ranks for $i$ when electing $x$ instead of her favorite alternative. This value can also be seen as the number of pairwise flips we need to perform in order to place $x$ at top position for $i$. Thus, $\lambda ^{P}(x)=(\lambda _{i}^{P}(x))_{i\in N}\in \R_+^N$ represents the vector of losses when electing $x$. 
-We define a spread measure $\sigma \in \SAll$ as a function $\sigma : \R_{+}^{N}\longrightarrow \R_{+}$ such that $\sigma(r_i, \dots, r_n)=0 \iff r_i=r_j \forall i,j$. When all the values are the same, a coefficient of zero expresses perfect equality.
+Consider a set of alternative $A$, a set of voters $N$, a profile $P$ and a SCR $f$ as defined above. For each $x \in A$ and $i \in N$ let $r_i(x)$ be the rank of the alternative $x$ in the preference order of $i$; we write with $\lambda^{P}_i(x)=r_{i}(x)-1$ the loss of ranks for $i$ when electing $x$ instead of her favorite alternative. This value can also be seen as the number of pairwise flips we need to perform in order to place $x$ at top position for $i$. Thus, $\lambda ^{P}(x)=(\lambda _{i}^{P}(x))_{i\in N}\in \R_+^N$ represents the vector of losses when electing $x$. 
+We define a spread measure $\sigma \in \SAll$ as a function $\sigma : \R_{+}^{N}\longrightarrow \R_{+}$ such that $\sigma(l_1, \dots, l_n)=0 \iff l_i=l_j \forall i,j \in \{1, \dots, n\}$ given a vector $l \in R_{+}^{N}$. When all the values are the same, a coefficient of zero expresses perfect equality.
 
 \begin{definition}[Compromise]
 	A SCR $f$ is a compromise iff $f(P) \subseteq \argmin_{x \in A} (\sigma(\lambda^P(x))$, $\forall P \in L(A)^N$.
 \end{definition}
 
-\begin{remark}
-	Let $\paretopt(P)$ be the set of alternatives which are Pareto optimal at $P$. $\paretopt(P)$ and the set $f(P)$ of the alternatives elected by a compromise SCR $f$ might be disjoint.
+
+	Note that $\paretopt(P)$ be the set of alternatives which are Pareto optimal at $P$. Let $f(P)$ be the set of the alternatives elected by a compromise SCR $f$, $\paretopt(P)$ and $f(P)$ might be disjoint.
 	\begin{example} Consider the following profile $P$
 		\begin{center}
 			$
@@ -162,13 +162,12 @@ We define a spread measure $\sigma \in \SAll$ as a function $\sigma : \R_{+}^{N}
 		\end{center}
 	For each $\sigma \in \SAll$ we have $\sigma(\lambda^P(a))>0$, $\sigma(\lambda^P(b))>0$, $\sigma(\lambda^P(c))=0$. A compromise rule would, in this case, elect $c$ which is a pareto dominated alternative.
 	\end{example}
-\end{remark}
 
 \begin{definition}[Efficient Compromise]
 	A SCR $f$ is an efficient compromise iff $f(P) \subseteq \argmin_{x \in \paretopt(P)} (\sigma(\lambda^P(x))$, $\forall P \in L(A)^N$.
 \end{definition}
 
-Consider again the profile $P$ of the Example \ref{ex:ex1}. 
+\noindent Consider again the profile $P$ of the Example \ref{ex:ex1}. 
 	\begin{center}
 		$
 		\begin{array}{cccc}
@@ -177,28 +176,27 @@ Consider again the profile $P$ of the Example \ref{ex:ex1}.
 		\end{array}
 		$
 	\end{center}
-	At $P$, $b$ is the only efficient compromise, and we can say that 
+	At $P$, $b$ is the only efficient \commentBN{efficient egalitarian alternative}, and we can say that 
 \begin{itemize}
 	\item Condorcet is not an efficient compromise since it picks $a$ as the winner.
-	\item No scoring rule except anti-plurality is an efficient compromise
-	\begin{proof} $ $ \\
-		Without loss of generality we can consider the score function $s:\{1,\dots,m\}\rightarrow [0,1]$ a function assigning $1$ to the alternative ranked at the first position, and $0$ to the one ranked at the last.
-		\begin{center}
-			$
-			\begin{array}{ccc}
-			\quad & \mathbf{k} &\mathbf{1}\\
-			1 \quad &a&c\\
-			\lambda \quad &b&b\\
-			0 \quad &c&a\\
-			\end{array}
-			$
-		\end{center}
-		We have that $s(a)=k$, $s(b)=(k+1)\cdot \lambda$, $s(c)=1$. For $a$ to be selected as winner it must be that $k>(k+1)\cdot\lambda$ so that $k>\frac{\lambda}{(1-\lambda)}$, and that is always the case unless $\lambda=1$ which is anti-plurality.
-	\end{proof}
-	\item No BK-compromise is an efficient compromise, unless $q=n=k+1$ which is fallback bargaining.
-	\item No preferential runoff method is an efficient compromise.
-\end{itemize}	
-
+	\item No scoring rule except anti-plurality is an efficient compromise (see Proof below).
+	\item No BK-compromise is an efficient compromise, unless $q=n$ which is fallback bargaining. Indeed for $q=\{1,\dots, n-1\}$ the alternative selected by the BK-compromise rules is $a$.
+	\item No preferential runoff method is an efficient compromise since it always selects $a$ in the first round.
+\end{itemize}
+As mentioned above, for the considered example no scoring rule except anti-plurality is an efficient compromise.
+\begin{proof} Without loss of generality we can consider the scoring function $s:\{1,\dots,m\}\rightarrow [0,1]$ as a function assigning $1$ to the alternative ranked at the first position, and $0$ to the one ranked at the last. Therefore, the alternative ranked in the second position will have a score $0 \leq \lambda<1$. We exclude $\lambda = 1$ which is anti-plurality.
+	\begin{center}
+		$
+		\begin{array}{ccc}
+		\quad & \mathbf{n-1} &\mathbf{1}\\
+		1 \quad &a&c\\
+		\lambda \quad &b&b\\
+		0 \quad &c&a\\
+		\end{array}
+		$
+	\end{center}
+	We have that $s(a)=n-1$, $s(b)=(n-1+1)\cdot \lambda$, $s(c)=1$. We can see that the alternative $a$ will always be selected as winner because $s(a)$ is always greater than $s(b)$ and $s(c)$. For $c$ is trivial, for $b$ we have that $n-1>n\cdot\lambda$ so $n-1>\frac{\lambda}{(1-\lambda)}$ and since $\lambda \neq 1$ that is always the case.
+\end{proof}
 
 \section{Spread Measures}
  In our idea of compromise, we aim to determine the “most equally distributed” vector within $\left\{ \lambda^P(x)\right\} _{x\in A}$. We thus need to adopt a spread measure which is a mapping $\sigma \in \SAll: \R_{+}^{N}\longrightarrow \R_{+}$ which satisfies $\sigma(r_i, \dots, r_n)=0 \iff r_i=r_j \forall i,j$. In what follows, we will consider various classes of possible spread measures.
@@ -208,8 +206,7 @@ Consider again the profile $P$ of the Example \ref{ex:ex1}.
 	For all $r$, $s\in \R_{+}^{N}$: 
 	\[\left[\left\vert r_{i}-r_{j}\right\vert \leq \left\vert s_{i}-s_{j}\right\vert \forall i, j\in N\right] ⇒ \sigma (r)\leq \sigma (s).\] 
 \end{definition}
-We write $\SPPd \subseteq \SAll$ for the class of spread measures that satisfy also PPd. Any $\sigma \in \SPPd$ reaches a minimum value for an input whose components are all equal.
-
+We write $\SPPd \subseteq \SAll$ for the class of spread measures that satisfy also PPd.
 Given a vector $r \in \R^N$ of $n$ elements, some examples of spread measures are the following.
 
 \subsection{Mean Absolute Difference}
@@ -221,7 +218,7 @@ The mean absolute difference is a measure of dispersion calculated as the arithm
 \begin{proof} 
 	In order to be a spread measure as we defined $\sigma_{mad}$ should be zero when all the elements of $r$ are equals, $r_i-r_j = 0 \ \forall i,j\in {1, \dots, n}$. In this case the sum term $\sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|$ will always be zero, and thus $\sigma_{mad}(r)=0$ for such $r$. Hence $\sigma_{mad}$ is a spread measure.
 	In order to prove the satisfaction of PPd we can observe that, given two vectors $r,s \in \R^N$, if \mbox{$|r_{i}-r_{j}| \leq |s_{i}-s_{j}| \ \forall i,j \in N$} then also \[\sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j| \leq \sum_{i=1}^{n}\sum_{j=1}^{n}|s_i-s_j| \]
-	The remaining term $\frac{1}{n^2}$ is constant and same for both, so $\sigma_{mad}(r) \leq \sigma_{mad}(s)$ and PPd is satisfied.
+	The remaining term $\frac{1}{n^2}$ is constant and it is equal for both sides, so $\sigma_{mad}(r) \leq \sigma_{mad}(s)$ and PPd is satisfied.
 \end{proof}
 \begin{example}
 	\label{ex:spreadVectors}
