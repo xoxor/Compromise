@@ -198,6 +198,105 @@ As mentioned above, for the considered example no scoring rule except anti-plura
 	We have that $s(a)=n-1$, $s(b)=(n-1+1)\cdot \lambda$, $s(c)=1$. We can see that the alternative $a$ will always be selected as winner because $s(a)$ is always greater than $s(b)$ and $s(c)$. For $c$ is trivial, for $b$ we have that $n-1>n\cdot\lambda$ so $n-1>\frac{\lambda}{(1-\lambda)}$ and since $\lambda \neq 1$ that is always the case.
 \end{proof}
 
+\commentBN{The following definitions have been characterized on the 15/11 and are susceptible to changes.}
+\begin{definition}
+	An \textit{unequivocal compromise alternative} is an alternative ranked at the same position by all voters. If it is not Pareto dominated then it is also efficient.
+\end{definition}
+\begin{conjecture}
+	A SCR f is a compromise $\iff$ if an unequivocal compromise alternative exists than f only picks unequivocal compromise alternatives.
+\end{conjecture}
+\begin{conjecture}
+	A SCR f is an efficient compromise $\iff$ if an efficient unequivocal compromise alternative exists than it is picked as a sole winner.
+\end{conjecture}
+\begin{definition}[Compromise]
+	\[ COMP(P) = \argmin_x \sigma(\lambda^P(x)) \]
+	\[f(P) \subseteq COMP(P) \qquad \forall P \text{ for some } \sigma\]
+\end{definition}
+\begin{definition}[Efficient Compromise]
+	\[ EffCOMP(P) = \argmin_{x \in \paretopt(P)} \sigma(\lambda^P(x)) \]
+	\[f(P) \subseteq EffCOMP(P) \qquad \forall P \text{ for some } \sigma\]
+\end{definition}
+\begin{definition}[Compromise Compatible]
+	A SCR f is compromise compatible $\iff$
+	$f(P) \cap COMP(P) \neq 0 \qquad \forall P \text{ for some } \sigma$.
+\end{definition}
+\begin{definition}[Compromise Compatible]
+	A SCR f is efficient compromise compatible $\iff$
+	$f(P) \cap EffCOMP(P) \neq 0 \qquad \forall P \text{ for some } \sigma$.
+\end{definition}
+\begin{proposition}
+	Condorcet, Scoring Rules (except Anti-Plurality), BK-Compromise (except FB) are neither compromise nor compromise compatible.
+\end{proposition}
+
+Antiplurality and FB are closer to be compromise.
+
+\begin{proposition}
+	Anti-plurality is not compromise compatible.
+\end{proposition}
+\begin{proof} Consider the following profile $P$
+	\begin{center}
+		$
+		\begin{array}{cc}
+		a&b\\
+		b&a\\
+		c&c\\
+		\end{array}
+		$
+	\end{center}
+	$COMP(P)=\{c\}$ and $\textit{antiplr}(P)=\{a,b\}$, so $COMP(P) \cap \textit{antyplr}(P)=0$ at $P$.
+\end{proof}
+
+\begin{definition}
+	\label{def:effcomprcmp}
+	A SCR f is efficient compromise compatible $\iff$ if an efficient unequivocal compromise alternative exists it must be among the winner.
+\end{definition}
+
+\begin{proposition}
+	Efficient anti-plurality is efficient compromise compatible.
+\end{proposition}
+
+\begin{proof}
+	It follows from \ref{def:effcomprcmp}. TODO
+\end{proof}
+\begin{example}
+	Consider the following profile $P$
+	\begin{center}
+		$
+		\begin{array}{cc}
+		a&b\\
+		c&c\\
+		b&a\\
+		d&d\\
+		\end{array}
+		$
+	\end{center}
+	$EffCOMP(P)=\{c\}$ and $\textit{effantiplr}(P)=\{a,b,c\}$.
+\end{example}
+\begin{proposition}
+	FB is neither compromise compatible nor efficient compromise compatible.
+\end{proposition}
+\begin{proof} Consider the following profile $P$
+	\begin{center}
+		$
+		\begin{array}{cc}
+		\mathbf{i_1}& \mathbf{i_2} \\
+		x &b_1\\
+		a_1 &\cdot\\
+		\cdot &\cdot\\
+		\cdot &b_{k-1}\\
+		\cdot &y\\
+		a_k &x\\
+		y &b_k\\
+		b_1 &a_1\\
+		\cdot &\cdot\\
+		\cdot &\cdot\\
+		b_k &a_k\\
+		\end{array}
+		$
+	\end{center}
+	$COMP(P)=EffCOMP(P)=\{c\}$ and $\textit{FB}(P)=\{x\}$.
+\end{proof}
+
 \section{Spread Measures}
  In our idea of compromise, we aim to determine the “most equally distributed” vector within $\left\{ \lambda^P(x)\right\} _{x\in A}$. We thus need to adopt a spread measure which is a mapping $\sigma \in \SAll: \R_{+}^{N}\longrightarrow \R_{+}$ which satisfies $\sigma(r_i, \dots, r_n)=0 \iff r_i=r_j \forall i,j$. In what follows, we will consider various classes of possible spread measures.
 
@@ -364,77 +463,6 @@ The average absolute deviation considers the differences between the values of t
 
 TODO: Give reference to the relevant literature, also to the Pareto dominance condition.
 
-
-\subsection{Comparison of compromises}
-Many ordinal SCRs fail to be ordinal compromises. 
-
-\begin{example}
-	\label{ex:qeqn}
-To see this, consider the following preference profile
-
-\begin{center}
-	$
-	\begin{array}{cccc}
-	\mathbf{n-1} \quad &a&b&c\\
-	\mathbf{1} \quad &c&b&a\\
-	\end{array}
-	$
-\end{center}
-
-where $C^{\sigma }\circ \vpr$ picks $b$ for any UA $v$ and any $\sigma \in \SPPd $ while all BK-compromises (except when $q=n$) pick $a$. Moreover, for any scoring rule (except anti plurality), there is a choice of $n$ where the scoring rule picks $a$. Finally, all Condorcet consistent rules pick $a$ as well.
-\end{example}
-
-\commentOC{The proof does not hold here with $\SPPd$: we can’t use \cref{D2} (as we do one paragraph below). To be checked.}
-Regarding FB, consider the following preference profile with $n=2$ and $m=2k+2$
-
-\begin{center}
-	$
-	\begin{array}{cc}
-	\mathbf{i_1}& \mathbf{i_2} \\
-	x &b_1\\
-	a_1 &\cdot\\
-	\cdot &\cdot\\
-	\cdot &b_{k-1}\\
-	\cdot &y\\
-	a_k &x\\
-	y &b_k\\
-	b_1 &a_1\\
-	\cdot &\cdot\\
-	\cdot &\cdot\\
-	b_k &a_k\\
-	\end{array}
-	$
-\end{center}
-
-where under any $\sigma \in \SPPd $, $C^{\sigma }\circ \vpr$ picks $y$ for the UA $v(k)=n-k+1$ while FB picks $x$. So FB fails Definition \ref{D2}, hence Definition \ref{D1}.
-
-Note that this example can be generalized to any $n$ by replicating the first voter as much as one wishes. This illustrates in a clear and simple
-way that $C^{\sigma }$ is ready to pay arbitrary amounts of utility (computed as a total loss of utility over all voters) to satisfy someone's envy.
-
-To see that anti plurality also fails Definition 2, consider the following preference profile with $n=12$ and $m=5$
-
-$3$ $.....d$ $a$
-
-$3$ $.....d$ $b$
-
-$3$ $.....d$ $c$
-
-$2$ $......$ $d$
-
-$1$ $.....d$ $e$
-
-\bigskip
-
-where under any $\sigma \in \SPPd $, $C^{\sigma }\circ \vpr$ picks $d$ for the UA $v(k)=n-k+1$ while anti plurality picks $e$.
-
-We thus observe that all BK-compromises, all scoring rules and all Condorcet consistent rules fail to be ordinal compromises.
-
-TODO: See whether the analysis above prevails when the UA $v$ is allowed to vary among individuals.
-
-The two person example that shows that FB is not an ordinal compromise of special interest because $C^{\sigma }$ seems to particularly appealing in two person discrete bargaining environments. In that example, $y$ seems to be a more natural bargaining solution than $x$. So we can try to present $C^{\sigma }$ as a discrete bargaining solution. In this literature there is FB of Brams and Kilgour which is later rectified by Kibris and Sertel \cite{Sertel1999} by adding the disagreement outcome that was originally missing. It will be certainly interesting to introduce and analyze $C^{\sigma }$ in this ordinal context where ranks are utilities. Clearly, minimized envy will be a key condition which will differentiate $C^{\sigma }$ from FB.
-
-Another direction of research to which Ali had pointed: As a spirit of compromise, we pick the alternative whose lambda is “most equally distributed”. But once we have lambdas, it makes sense to ask what else we can do with these. Ali suggested to minimize the median value of lambda. Sounds plausible but what does this mean? What else can we do with our lambdas? I feel that there are plenty of interesting questions here.
-
 \bibliography{biblio}
 \bibliographystyle{abbrv}
 
@@ -483,6 +511,13 @@ From now on, we will ensure the Pareto optimality of cardinal compromises by def
 \[C^{\sigma }(u) = \argmin_{x \in \paretopt(u)} (\sigma \circ \lambda^u)(x) = \left\{ x\in \paretopt(u):\sigma (\lambda ^{u}(x))\leq \sigma (\lambda ^{u}(y)),  \forall y\in A\right\}.\]
 
 OPEN QUESTION: Which axioms would characterize $C^{\sigma }$?
+
+Many rules fail to be a compromise.
+TODO: See whether it is the case when the UA $v$ is allowed to vary among individuals.
+
+The two person example that shows that FB is not an ordinal compromise of special interest because $C^{\sigma }$ seems to particularly appealing in two person discrete bargaining environments. In that example, $y$ seems to be a more natural bargaining solution than $x$. So we can try to present $C^{\sigma }$ as a discrete bargaining solution. In this literature there is FB of Brams and Kilgour which is later rectified by Kibris and Sertel \cite{Sertel1999} by adding the disagreement outcome that was originally missing. It will be certainly interesting to introduce and analyze $C^{\sigma }$ in this ordinal context where ranks are utilities. Clearly, minimized envy will be a key condition which will differentiate $C^{\sigma }$ from FB.
+
+Another direction of research to which Ali had pointed: As a spirit of compromise, we pick the alternative whose lambda is “most equally distributed”. But once we have lambdas, it makes sense to ask what else we can do with these. Ali suggested to minimize the median value of lambda. Sounds plausible but what does this mean? What else can we do with our lambdas? I feel that there are plenty of interesting questions here.
 
 \subsection{Ordinal treatment}
 A cardinal compromise $C^\sigma$ is said to treat its input ordinally when it only cares about the orderings of the alternatives given by the utilities it is given. Here is a more precise definition.
