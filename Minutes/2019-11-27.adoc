@@ -1,0 +1,20 @@
+== Meeting 
+
+*27/11/2019 - Remzi, Olivier, Beatrice*
+
+=== Sectioning of the paper
+==== I. Introduction
+* Most of the material in section2 go there
+* example 1: all scr that doesn't satisfie the veto power of maneskin
+
+=== II. Basic notion and notation
+* N,A,L(A),f, Pareto Condorcet, scoring rule, BK-compromise etc
+
+=== III. Compromises
+* lambda^P(x)=(lambda_i^P(x))i \in N  
+* sigma recognising equality
+* mu_sigma(P) and mu_sigma*(P)
+** remark: they can be disjoint
+* definitions of EC,PC,ECC,PCC and implications 
+* comparision with existing rules
+* Anti-plurality and FB
