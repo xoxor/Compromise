@@ -4,10 +4,10 @@
 
 === Sectioning of the paper
 ==== I. Introduction
-* Most of the material in section2 go there
-* example 1: all scr that doesn't satisfie the veto power of maneskin
+* Most of the material that now is in section2 
+* example 1: all scrs that don't satisfy the veto power of maskin
 
-=== II. Basic notion and notation
+=== II. Basic notions and notation
 * N,A,L(A),f, Pareto Condorcet, scoring rule, BK-compromise etc
 
 === III. Compromises
@@ -16,5 +16,5 @@
 * mu_sigma(P) and mu_sigma*(P)
 ** remark: they can be disjoint
 * definitions of EC,PC,ECC,PCC and implications 
-* comparision with existing rules
+* comparison with existing rules
 * Anti-plurality and FB
