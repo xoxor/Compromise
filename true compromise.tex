@@ -47,6 +47,8 @@
 %H=36
 %F=36,\PARA{038<p type="texpara" tag="Body Text" >\hfill \thepage}
 %}
+\usepackage[english]{babel}
+\usepackage{centernot}
 
 %\newtheorem{theorem}{Theorem}[section]
 \newtheorem{acknowledgement}[theorem]{Acknowledgement}
@@ -75,6 +77,7 @@
 \usepackage{booktabs}
 \usepackage{amsmath}
 
+
 \title{Ex-Ante versus Ex-Post \\ Compromise}
 \author{}
 \date{}
@@ -86,7 +89,8 @@
 \newcommand{\SAll}{\Sigma^\text{All}}
 \newcommand{\SThreshold}{\Sigma_\text{threshold}}
 \newcommand{\vpr}{\mathbf{v}}
-
+\newcommand{\musigma}{\mu_{\sigma}}
+\newcommand{\mustar}{\mu_{\sigma}^*}
 \begin{document}
 
 \maketitle
@@ -100,18 +104,16 @@
 
 \section{Introduction and Related Works}
 
-In a social choice situation where individuals have preferences over several alternatives there is no unique procedure for selecting a common agreement between them. One of the way to define such a procedure is to prefer the quantity of support behind an alternative (i.e. the number of voters who favor it) to the quality of its support (i.e. until which level in voters’ preferences is legitimate to descend) or vice-versa. Deciding to give more importance to the first may result in a lack of a majority support or, worst, into a strict majority of individuals which strongly dislikes the chosen candidates. Vice versa, favoring the number of voters behind an alternative implies descending levels in individual preferences potentially ending on electing a generally disliked candidate because of the opposition of very few individuals. 
+In a social choice situation where individuals have preferences over several alternatives there is no unique procedure for selecting a common agreement between them. One of the way to define such a procedure is to prefer the quantity of support behind an alternative (i.e. the number of voters who favor it) to the quality of its support (i.e. until which level in voters’ preferences is legitimate to descend). This decision may result in a lack of a majority support or, worst, into a strict majority of individuals which strongly dislikes the chosen candidates. Vice versa, favoring the number of voters behind an alternative implies descending levels in individual preferences potentially ending on electing a generally disliked candidate because of the opposition of very few individuals. 
 
-Using the plurality rule, for example, the alternatives which are ranked the best by the largest number of voters are picked as outcome. The problem of this procedure is that, as long as there are more than two alternatives, the outcome may lack the support of any majority. In fact, it may also be opposed by a strict majority of agents each of whom ranks the chosen candidate as their least preferred choice. 
-
-All the rules existing in literature aiming at finding a compromise between voters end up facing the problem of balancing the trade-off between the quality and quantity of support behind alternatives. \citet{Merlin2019} gather them in the class of Compromise Rules. The Majoritarian Compromise \citep{Sertel1999} selects candidates who have the support of a majority in the best degree possible. 
-We call BK-compromises the class of $q$-approval fallback bargaining rules introduced by \citet{Brams2001}: the $q$-approval fallback bargaining rule picks ranks 1, 2, …, and stops as soon as at least $q$ voters rank some alternative at the chosen rank or better. All such alternatives form the compromise set, and, among them, the ones which receive the highest support are elected.
+The plurality rule, for example, selects the alternatives which are ranked the best by the largest number of voters. The problem of this procedure is that, as long as there are more than two alternatives, the outcome may lack the support of any majority. In fact, it may also be opposed by a strict majority of agents each of whom ranks the chosen candidate as their least preferred choice. All the rules existing in literature aiming at finding a compromise between voters end up facing the problem of balancing the trade-off between the quality and quantity of support behind alternatives. \citet{Merlin2019} gather them in the class of Compromise Rules. The Majoritarian Compromise \citep{Sertel1999} selects candidates who have the support of a majority in the best degree possible. 
+We call BK-compromises the class of $q$-approval fallback bargaining rules introduced by \citet{Brams2001}: the $q$-approval fallback bargaining rule picks ranks $1, 2, \dots$ and stops as soon as at least $q$ voters rank some alternative at the chosen rank or better. All such alternatives form the compromise set, and, among them, the ones which receive the highest support are elected.
 We start by an example, based on an observation made by Laslier at Buyukada, that will help us to define the problem and to give the motivation for our approach.
 
 
 \begin{example}
 	\label{ex:ex1}
-	Consider the following preference profile $P\in L(A)^{N}$ with a set $N$ of $n$ voters and a set $A$ of alternatives. $L(A)$ represents the set of linear orders over $A$.
+	Let $N$ be a set of $n$ voters and $A$ a set of alternatives. $L(A)$ represents the set of linear orders over $A$. Consider the following preference profile $P\in L(A)^{N}$
 	\begin{center}
 		$
 		\begin{array}{cccc}
@@ -143,18 +145,18 @@ These two examples illustrate that BK-compromises (except fallback bargaining (F
 
 \section{Basic notions and notation}
 Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 2$. We write $L(A)$ for the set of linear orders over $A$ and $P_{i}\in L(A)$ stands for the preference of $i\in N$. An ordinal social choice rule (SCR) is a mapping $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. For each $x \in A$ and $i \in N$ let $r_i(x)$ be the rank of the alternative $x$ in the preference order of $i$; we write with $\lambda^{P}_i(x)=r_{i}(x)-1$ the loss of ranks for $i$ when electing $x$ instead of her favorite alternative. This value can also be seen as the number of pairwise flips we need to perform in order to place $x$ at top position for $i$. Thus, $\lambda ^{P}(x)=(\lambda _{i}^{P}(x))_{i\in N}\in \R_+^N$ represents the vector of losses when electing $x$. 
-We define a spread measure $\sigma \in \SAll$ as a function $\sigma : \R_{+}^{N}\longrightarrow \R_{+}$ such that $\sigma(l_1, \dots, l_n)=0 \iff l_i=l_j \forall i,j \in \{1, \dots, n\}$ given a vector $l \in R_{+}^{N}$. When all the values are the same, a coefficient of zero expresses perfect equality.
+We define a spread measure $\sigma \in \Sigma$ as a function $\sigma : \R_{+}^{N}\longrightarrow \R_{+}$ such that $\sigma(l_1, \dots, l_n)=0 \iff l_i=l_j \forall i,j \in \{1, \dots, n\}$ given a vector $l \in R_{+}^{N}$. When all the values are the same, a coefficient of zero expresses perfect equality.
 
 \section{Compromises}
-
-
-\begin{definition}[Compromise]
-	A SCR $f$ is a compromise iff $f(P) \subseteq \argmin_{x \in A} (\sigma(\lambda^P(x))$, $\forall P \in L(A)^N$.
-\end{definition}
-
-
-	Note that $\paretopt(P)$ be the set of alternatives which are Pareto optimal at $P$. Let $f(P)$ be the set of the alternatives elected by a compromise SCR $f$, $\paretopt(P)$ and $f(P)$ might be disjoint.
-	\begin{example} Consider the following profile $P$
+Consider the set $\musigma(P)$ as the set of the alternatives whose losses vectors are the most equally distributed according to a spread measure $\sigma$; and $\mustar(P)$ as the set of such alternatives selected among the pareto optimal ones. 
+\begin{align}
+	\musigma(P) & = \{ x \in A \ | \ \sigma (\lambda^P(x))\leq \sigma (\lambda^P(y)), \forall y \in A \} \\
+	\mustar(P) & = \{ x \in \paretopt(P) \ | \ \sigma (\lambda^P(x))\leq \sigma (\lambda^P(y)), \forall y \in \paretopt(P) \} 
+\end{align}
+\begin{proposition} \label{prop:disjoint}
+	The sets $\musigma(P)$ and $\mustar(P)$ may be disjoint.
+\end{proposition}
+	\begin{proof} Consider the following profile $P$
 		\begin{center}
 			$
 			\begin{array}{cccc}
@@ -163,12 +165,62 @@ We define a spread measure $\sigma \in \SAll$ as a function $\sigma : \R_{+}^{N}
 			\end{array}
 			$
 		\end{center}
-	For each $\sigma \in \SAll$ we have $\sigma(\lambda^P(a))>0$, $\sigma(\lambda^P(b))>0$, $\sigma(\lambda^P(c))=0$. A compromise rule would, in this case, elect $c$ which is a pareto dominated alternative.
-	\end{example}
+		For each $\sigma \in \Sigma$ we have $\sigma(\lambda^P(a))>0$, $\sigma(\lambda^P(b))>0$, $\sigma(\lambda^P(c))=0$. Thus, the set $\musigma(P)$ of the "most equal" alternatives consist of the only alternative $c$. On the other hand, the set $\mustar(P)$ will never contain $c$ whatever is the choice of $\sigma$ since it is a pareto dominated alternative.
+	\end{proof}
 
-\begin{definition}[Efficient Compromise]
-	A SCR $f$ is an efficient compromise iff $f(P) \subseteq \argmin_{x \in \paretopt(P)} (\sigma(\lambda^P(x))$, $\forall P \in L(A)^N$.
+Considering $\musigma$ and $\mustar$, we define some classes of social choice rules.
+\begin{definition} A SCR $f$ is an \textit{Egalitarian Compromise} EC iff \[\exists \ \sigma \in \Sigma \text{ s.t. } f(P) \subseteq \musigma(P), \ \forall P \in L(A)^N.\]
 \end{definition}
+
+\begin{definition} A SCR $f$ is an EC$^*$ iff \[f(P) \subseteq \musigma(P), \ \forall P \in L(A)^N, \forall \ \sigma \in \Sigma.\]
+\end{definition}
+
+\begin{definition} A SCR $f$ is a \textit{Paretian Compromise} PC iff \[\exists \ \sigma \in \Sigma \text{ s.t. } f(P) \subseteq \mustar(P), \ \forall P \in L(A)^N.\]
+\end{definition}
+
+\begin{definition} A SCR $f$ is an PC$^*$ iff \[f(P) \subseteq \mustar(P), \ \forall P \in L(A)^N, \forall \ \sigma \in \Sigma.\]
+\end{definition}
+
+\begin{definition} A SCR $f$ is \textit{Egalitarian Compromise Compatible} ECC iff \[\exists \ \sigma \in \Sigma \text{ s.t. } f(P) \cap \musigma(P) \neq 0, \ \forall P \in L(A)^N.\]
+\end{definition}
+
+\begin{definition} A SCR $f$ is ECC$^*$ iff \[f(P) \cap \musigma(P) \neq 0, \ \forall P \in L(A)^N, \forall \ \sigma \in \Sigma.\]
+\end{definition}
+
+\begin{definition} A SCR $f$ is \textit{Paretian Compromise Compatible} PCC iff \[\exists \ \sigma \in \Sigma \text{ s.t. } f(P) \cap \mustar(P) \neq 0, \ \forall P \in L(A)^N.\]
+\end{definition}
+
+\begin{definition} A SCR $f$ is PCC$^*$ iff \[ f(P) \cap \mustar(P) \neq 0, \ \forall P \in L(A)^N, \forall \ \sigma \in \Sigma.\]
+\end{definition}
+
+In what follow, we analyze some relationships between these classes. It follows from the definitions that if a SCR $f$ is an Egalitarian (or a Paretian) Compromise then $f$ is also Egalitarian (or Paretian) Compromise Compatible. We write this as:
+\begin{proposition}
+	$\text{EC} \implies \text{ECC}$ and $\text{PC} \implies \text{PCC}$.
+\end{proposition}
+
+Moreover, we can add that
+\begin{proposition}
+	$\text{EC} \implies \lnot \text{PCC}$ and $\text{PC} \implies \lnot \text{ECC}$.
+\end{proposition}
+\begin{proof}
+	In order to prove the first implication, we have to show that if a SCR $f$ is an Egalitarian Compromise then $\forall \ \sigma \in \Sigma , \ \exists P \in L(A)^N  \text{ s.t. }f(P) \cap \mustar(P) = 0$. Since $f$ is an EC then $f(P) \subseteq \musigma(P)$, but we already showed in Proposition \ref{prop:disjoint} that $\forall \sigma \in \Sigma, \exists P \in L(A)^N $ s.t. $\musigma(P)\cap\mustar(P)=0$. The proof for the second implication works equivalently.
+\end{proof}
+
+
+\begin{proposition}
+	$\text{ECC} \centernot \implies \text{PCC}$ and $\text{PCC} \centernot \implies \text{ECC}$.
+\end{proposition}
+ In fact, considering the Proposition \ref{prop:disjoint}, the existence of a spread measure $\sigma$ such that our SCR $f$ picks some alternatives which belong to the set $\musigma$ is not a guarantee that they are also pareto optimal, thus belonging to the set $\mustar$ (and vice-versa).
+
+
+\begin{proposition}
+	There exists a SCR $f$ which is ECC and PCC.
+\end{proposition}
+\begin{proof}
+	Consider the SCR $f$ such that $f(P)=A \forall P \in L(A)^N$, i.e. the rule that always selects the whole set of alternatives. We can see that $\forall P \in L(A)^N$ and $\forall \sigma \in \Sigma$, $\musigma \subseteq A$ and $\mustar \subseteq A$. Therefore, $f(P)=A \cap \musigma \neq 0$ so $f$ is Egalitarian Compromise Compatible, and $f(P)=A \cap \mustar \neq 0$ thus $f$ is Paretian Compromise Compatible.
+\end{proof}
+
+/TOCLEAN
 
 \noindent Consider again the profile $P$ of the Example \ref{ex:ex1}. 
 	\begin{center}
