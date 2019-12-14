@@ -150,10 +150,11 @@ We define a spread measure $\sigma \in \Sigma$ as a function $\sigma : \R_{+}^{N
 \section{Compromises}
 Consider the set $\musigma(P)$ as the set of the alternatives whose losses vectors are the most equally distributed according to a spread measure $\sigma$; and $\mustar(P)$ as the set of such alternatives selected among the pareto optimal ones. 
 \begin{align}
-	\musigma(P) & = \{ x \in A \ | \ \sigma (\lambda^P(x))\leq \sigma (\lambda^P(y)), \forall y \in A \} \\
-	\mustar(P) & = \{ x \in \paretopt(P) \ | \ \sigma (\lambda^P(x))\leq \sigma (\lambda^P(y)), \forall y \in \paretopt(P) \} 
+	\musigma(P) & = \argmin_{x \in A} \sigma(\lambda^P(x)) = \{ x \in A \ | \ \sigma (\lambda^P(x))\leq \sigma (\lambda^P(y)), \forall y \in A \} \\
+	\mustar(P) & = \argmin_{x \in PO(P)} \sigma(\lambda^P(x)) = \{ x \in \paretopt(P) \ | \ \sigma (\lambda^P(x))\leq \sigma (\lambda^P(y)), \forall y \in \paretopt(P) \} 
 \end{align}
 \begin{proposition} \label{prop:disjoint}
+	\commentOC{We should determine for which values of $n$ and $m$ there exists $P$ with disjoint such sets.}
 	The sets $\musigma(P)$ and $\mustar(P)$ may be disjoint.
 \end{proposition}
 	\begin{proof} Consider the following profile $P$
@@ -193,21 +194,31 @@ Considering $\musigma$ and $\mustar$, we define some classes of social choice ru
 \begin{definition} A SCR $f$ is PCC$^*$ iff \[ f(P) \cap \mustar(P) \neq 0, \ \forall P \in L(A)^N, \forall \ \sigma \in \Sigma.\]
 \end{definition}
 
+\begin{proposition}
+	For $n=2, m=2$, no SCR is EC*, and no SCR is PC*.
+\end{proposition}
+\begin{proof}
+	Consider the profile such that voter $1$ prefers $a$ to $b$ and voter $2$ prefers $b$ to $a$. Observe that $\lambda(a) = (0, 1)$ and $\lambda(b) = (1, 0)$. Define $\sigma_1$ and $\sigma_2$ as ordering differently $\lambda(a)$ and $\lambda(b)$. To be EC*, $f$ must satisfy $f(P) \subseteq \set{a}$ and $f(P) \subseteq \set{b}$, which is impossible. The same constraints apply to be PC*.
+\end{proof}
+
 In what follow, we analyze some relationships between these classes. It follows from the definitions that if a SCR $f$ is an Egalitarian (or a Paretian) Compromise then $f$ is also Egalitarian (or Paretian) Compromise Compatible. We write this as:
 \begin{proposition}
-	$\text{EC} \implies \text{ECC}$ and $\text{PC} \implies \text{PCC}$.
+	$\forall n, m ≥ 1, \text{EC} \implies \text{ECC}$ and $\text{PC} \implies \text{PCC}$.
 \end{proposition}
 
 Moreover, we can add that
 \begin{proposition}
+	\commentOC{We should determine for which values of $n$ and $m$ this is true.}
 	$\text{EC} \implies \lnot \text{PCC}$ and $\text{PC} \implies \lnot \text{ECC}$.
 \end{proposition}
 \begin{proof}
-	In order to prove the first implication, we have to show that if a SCR $f$ is an Egalitarian Compromise then $\forall \ \sigma \in \Sigma , \ \exists P \in L(A)^N  \text{ s.t. }f(P) \cap \mustar(P) = 0$. Since $f$ is an EC then $f(P) \subseteq \musigma(P)$, but we already showed in Proposition \ref{prop:disjoint} that $\forall \sigma \in \Sigma, \exists P \in L(A)^N $ s.t. $\musigma(P)\cap\mustar(P)=0$. The proof for the second implication works equivalently.
+	In order to prove the first implication, we have to show that if a SCR $f$ is an Egalitarian Compromise then $\forall \ \sigma \in \Sigma , \ \exists P \in L(A)^N  \text{ s.t. }f(P) \cap \mustar(P) = 0$. Since $f$ is an EC, $f(P) \subseteq \musigma(P)$, but we already showed in Proposition \ref{prop:disjoint} that $\forall \sigma \in \Sigma, \exists P \in L(A)^N $ s.t. $\musigma(P)\cap\mustar(P)=0$. The proof for the second implication works equivalently.
+	\commentOC{This proof has a problem: $f$ is an EC means that for some $\sigma$, …, and not for all $\sigma$. We need to use the profile $P = 1 → (a, b, c); 2 → (b, a, c)$ and observe that $f$ being EC implies $f(P)=\set{c}$ and that for all $\sigma'$, $\mu_{\sigma'}^*(P) ≠ \set{c}$. (We have to build an argument for the other claim as well.)}
 \end{proof}
 
 
 \begin{proposition}
+	\commentOC{I think that we do not need to state the proposition that $ECC \not ⇒ PCC$, as it is a direct consequence of our other propositions: take a $f$ EC, it is also ECC, and it is not PCC.}
 	$\text{ECC} \centernot \implies \text{PCC}$ and $\text{PCC} \centernot \implies \text{ECC}$.
 \end{proposition}
  In fact, considering the Proposition \ref{prop:disjoint}, the existence of a spread measure $\sigma$ such that our SCR $f$ picks some alternatives which belong to the set $\musigma$ is not a guarantee that they are also pareto optimal, thus belonging to the set $\mustar$ (and vice-versa).
@@ -217,7 +228,7 @@ Moreover, we can add that
 	There exists a SCR $f$ which is ECC and PCC.
 \end{proposition}
 \begin{proof}
-	Consider the SCR $f$ such that $f(P)=A \forall P \in L(A)^N$, i.e. the rule that always selects the whole set of alternatives. We can see that $\forall P \in L(A)^N$ and $\forall \sigma \in \Sigma$, $\musigma \subseteq A$ and $\mustar \subseteq A$. Therefore, $f(P)=A \cap \musigma \neq 0$ so $f$ is Egalitarian Compromise Compatible, and $f(P)=A \cap \mustar \neq 0$ thus $f$ is Paretian Compromise Compatible.
+	Consider the SCR which always selects the whole set of alternatives, $f(P)=A, \forall P \in L(A)^N$. We can see that $\forall P \in L(A)^N$ and $\forall \sigma \in \Sigma$, $\musigma(P) \subseteq A$ and $\mustar(P) \subseteq A$. Therefore, $f(P)=A \cap \musigma(P) \neq \emptyset$ so $f$ is Egalitarian Compromise Compatible, and $f(P)=A \cap \mustar(P) \neq \emptyset$ thus $f$ is Paretian Compromise Compatible.
 \end{proof}
 
 /TOCLEAN
@@ -231,6 +242,7 @@ Moreover, we can add that
 		\end{array}
 		$
 	\end{center}
+\commentOC{Shouldn’t we consider these claims for each $n, m$?}
 	At $P$, $b$ is the only efficient \commentBN{efficient egalitarian alternative}, and we can say that 
 \begin{itemize}
 	\item Condorcet is not an efficient compromise since it picks $a$ as the winner.
