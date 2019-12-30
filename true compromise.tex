@@ -154,10 +154,22 @@ Consider the set $\musigma(P)$ as the set of the alternatives whose losses vecto
 	\mustar(P) & = \argmin_{x \in PO(P)} \sigma(\lambda^P(x)) = \{ x \in \paretopt(P) \ | \ \sigma (\lambda^P(x))\leq \sigma (\lambda^P(y)), \forall y \in \paretopt(P) \} 
 \end{align}
 \begin{proposition} \label{prop:disjoint}
-	\commentOC{We should determine for which values of $n$ and $m$ there exists $P$ with disjoint such sets.}
-	The sets $\musigma(P)$ and $\mustar(P)$ may be disjoint.
+	\commentOC{We should determine for which values of $n$ and $m$ there exists $P$ with disjoint such sets.} \commentBN{}
+	{\color{magenta} For $n\geq 2, \ m\geq3,$} the sets $\musigma(P)$ and $\mustar(P)$ may be disjoint.
 \end{proposition}
-	\begin{proof} Consider the following profile $P$
+	\begin{proof} For $m=2$ we can have one of the following situations:
+	\begin{center}
+		$
+		\begin{array}{ccccccccc}
+		P_1:&&&&&P_2:&&&\\ 
+		&\mathbf{k} \quad &a&b&  \qquad &&\mathbf{k} \quad &a&b\\
+		&\mathbf{n-k} \quad &b&a& \qquad &&\mathbf{n-k} \quad &a&b\\
+		\end{array}
+		$
+	\end{center}
+	In the first case there are no pareto dominated alternatives, so the set of pareto optimal alternative $PO(P)$ is equivalent to $A$ and $\musigma(P_1)=\mustar(P_1)$. In the second case, $\forall \sigma \in \Sigma$, $\musigma(P_2)={a,b}$ and $\mustar(P_2)={a}$ so they are not disjoint.
+		
+		Consider now the following profile $P$ with $m=3$
 		\begin{center}
 			$
 			\begin{array}{cccc}
@@ -208,12 +220,22 @@ In what follow, we analyze some relationships between these classes. It follows 
 
 Moreover, we can add that
 \begin{proposition}
-	\commentOC{We should determine for which values of $n$ and $m$ this is true.}
+	\commentOC{We should determine for which values of $n$ and $m$ this is true.} \commentBN{}
+	{\color{magenta} For $n\geq 2, \ m\geq3,$} 
 	$\text{EC} \implies \lnot \text{PCC}$ and $\text{PC} \implies \lnot \text{ECC}$.
 \end{proposition}
 \begin{proof}
-	In order to prove the first implication, we have to show that if a SCR $f$ is an Egalitarian Compromise then $\forall \ \sigma \in \Sigma , \ \exists P \in L(A)^N  \text{ s.t. }f(P) \cap \mustar(P) = 0$. Since $f$ is an EC, $f(P) \subseteq \musigma(P)$, but we already showed in Proposition \ref{prop:disjoint} that $\forall \sigma \in \Sigma, \exists P \in L(A)^N $ s.t. $\musigma(P)\cap\mustar(P)=0$. The proof for the second implication works equivalently.
-	\commentOC{This proof has a problem: $f$ is an EC means that for some $\sigma$, …, and not for all $\sigma$. We need to use the profile $P = 1 → (a, b, c); 2 → (b, a, c)$ and observe that $f$ being EC implies $f(P)=\set{c}$ and that for all $\sigma'$, $\mu_{\sigma'}^*(P) ≠ \set{c}$. (We have to build an argument for the other claim as well.)}
+	We already showed, in the proof of Proposition \ref{prop:disjoint}, that for $m=2$ and $\forall \sigma \in \Sigma$ and $\forall P \in L(A)^N$ $\musigma(P) \cap \mustar(P) \neq 0$. So this proposition does not hold for $m<3$.
+	Consider now $m=3$; in order to prove the first implication, we have to show that if a SCR $f$ is an Egalitarian Compromise then $\forall \ \sigma \in \Sigma , \ \exists P \in L(A)^N  \text{ s.t. }f(P) \cap \mustar(P) = 0$. Consider again the profile $P$
+	\begin{center}
+		$
+		\begin{array}{cccc}
+		\mathbf{k} \quad &a&b&c\\
+		\mathbf{n-k} \quad &b&a&c\\
+		\end{array}
+		$
+	\end{center}
+	Since $f$ is an EC, $f(P)={c}$, but $c$ is Pareto dominated, thus $\mu_{\sigma}^*(P)$ does not contain ${c}, \forall \sigma \in \Sigma$. So $f(P) \cap \mustar(P) = 0$ and the first implication is proved. Moreover, we can observe that $\musigma(P)={c}$ and $c \notin \mustar(P)$, not only for some particular spread measure, but for all $\sigma \in \Sigma$. This proves the second implication.
 \end{proof}
 
 
@@ -231,6 +253,7 @@ Moreover, we can add that
 	Consider the SCR which always selects the whole set of alternatives, $f(P)=A, \forall P \in L(A)^N$. We can see that $\forall P \in L(A)^N$ and $\forall \sigma \in \Sigma$, $\musigma(P) \subseteq A$ and $\mustar(P) \subseteq A$. Therefore, $f(P)=A \cap \musigma(P) \neq \emptyset$ so $f$ is Egalitarian Compromise Compatible, and $f(P)=A \cap \mustar(P) \neq \emptyset$ thus $f$ is Paretian Compromise Compatible.
 \end{proof}
 
+\vspace{2cm}
 /TOCLEAN
 
 \noindent Consider again the profile $P$ of the Example \ref{ex:ex1}. 
@@ -242,7 +265,7 @@ Moreover, we can add that
 		\end{array}
 		$
 	\end{center}
-\commentOC{Shouldn’t we consider these claims for each $n, m$?}
+%\commentOC{Shouldn’t we consider these claims for each $n, m$?}
 	At $P$, $b$ is the only efficient \commentBN{efficient egalitarian alternative}, and we can say that 
 \begin{itemize}
 	\item Condorcet is not an efficient compromise since it picks $a$ as the winner.
