@@ -219,7 +219,7 @@ In what follow, we analyze some relationships between these classes. It follows 
 \end{proposition}
 
 Moreover, we can add that
-\begin{proposition}
+\begin{proposition} \label{prop:negation}
 	\commentOC{We should determine for which values of $n$ and $m$ this is true.} \commentBN{}
 	{\color{magenta} For $n\geq 2, \ m\geq3,$} 
 	$\text{EC} \implies \lnot \text{PCC}$ and $\text{PC} \implies \lnot \text{ECC}$.
@@ -240,7 +240,7 @@ Moreover, we can add that
 
 
 \begin{proposition}
-	\commentOC{I think that we do not need to state the proposition that $ECC \not ⇒ PCC$, as it is a direct consequence of our other propositions: take a $f$ EC, it is also ECC, and it is not PCC.}
+	\commentOC{I think that we do not need to state the proposition that $ECC \not ⇒ PCC$, as it is a direct consequence of our other propositions: take a $f$ EC, it is also ECC, and it is not PCC.} \commentBN{I agree, but I also find nice to have a clear statement. Maybe we can write this as a corollary of proposition \ref{prop:negation}?}
 	$\text{ECC} \centernot \implies \text{PCC}$ and $\text{PCC} \centernot \implies \text{ECC}$.
 \end{proposition}
  In fact, considering the Proposition \ref{prop:disjoint}, the existence of a spread measure $\sigma$ such that our SCR $f$ picks some alternatives which belong to the set $\musigma$ is not a guarantee that they are also pareto optimal, thus belonging to the set $\mustar$ (and vice-versa).
@@ -253,10 +253,20 @@ Moreover, we can add that
 	Consider the SCR which always selects the whole set of alternatives, $f(P)=A, \forall P \in L(A)^N$. We can see that $\forall P \in L(A)^N$ and $\forall \sigma \in \Sigma$, $\musigma(P) \subseteq A$ and $\mustar(P) \subseteq A$. Therefore, $f(P)=A \cap \musigma(P) \neq \emptyset$ so $f$ is Egalitarian Compromise Compatible, and $f(P)=A \cap \mustar(P) \neq \emptyset$ thus $f$ is Paretian Compromise Compatible.
 \end{proof}
 
-\vspace{2cm}
-/TOCLEAN
+\begin{proposition} \label{prop:POECC}
+	$\nexists$ a Pareto Optimal SCR $f$ that is $ECC$. \commentBN{Maybe we can also write this as a corollary.}
+\end{proposition}
 
-\noindent Consider again the profile $P$ of the Example \ref{ex:ex1}. 
+\begin{proposition} \commentBN{For n>2}
+	\begin{item}
+		\item[1)] Condorcet consistent rules are not $PCC$
+		\item[2)] BK compromise for $q \in \{1, \dots n-1\}$ are not $PCC$
+		\item[3)] Scoring rules (except Antiplurality) are not $PCC$
+		\item[4)] Ranked runoff rules (like STV) are not $PCC$
+	\end{item}
+\end{proposition}
+\begin{proof}
+	Consider again the profile $P$ of Example \ref{ex:ex1}.
 	\begin{center}
 		$
 		\begin{array}{cccc}
@@ -265,128 +275,66 @@ Moreover, we can add that
 		\end{array}
 		$
 	\end{center}
-%\commentOC{Shouldn’t we consider these claims for each $n, m$?}
-	At $P$, $b$ is the only efficient \commentBN{efficient egalitarian alternative}, and we can say that 
-\begin{itemize}
-	\item Condorcet is not an efficient compromise since it picks $a$ as the winner.
-	\item No scoring rule except anti-plurality is an efficient compromise (see Proof below).
-	\item No BK-compromise is an efficient compromise, unless $q=n$ which is fallback bargaining. Indeed for $q=\{1,\dots, n-1\}$ the alternative selected by the BK-compromise rules is $a$.
-	\item No preferential runoff method is an efficient compromise since it always selects $a$ in the first round.
-\end{itemize}
-As mentioned above, for the considered example no scoring rule except anti-plurality is an efficient compromise.
-\begin{proof} Without loss of generality we can consider the scoring function $s:\{1,\dots,m\}\rightarrow [0,1]$ as a function assigning $1$ to the alternative ranked at the first position, and $0$ to the one ranked at the last. Therefore, the alternative ranked in the second position will have a score $0 \leq \lambda<1$. We exclude $\lambda = 1$ which is anti-plurality.
-	\begin{center}
-		$
-		\begin{array}{ccc}
-		\quad & \mathbf{n-1} &\mathbf{1}\\
-		1 \quad &a&c\\
-		\lambda \quad &b&b\\
-		0 \quad &c&a\\
-		\end{array}
-		$
-	\end{center}
-	We have that $s(a)=n-1$, $s(b)=(n-1+1)\cdot \lambda$, $s(c)=1$. We can see that the alternative $a$ will always be selected as winner because $s(a)$ is always greater than $s(b)$ and $s(c)$. For $c$ is trivial, for $b$ we have that $n-1>n\cdot\lambda$ so $n-1>\frac{\lambda}{(1-\lambda)}$ and since $\lambda \neq 1$ that is always the case.
+	We can see that, $\forall \sigma \in \Sigma$, $\musigma(P)=\{b\}$, but all Condorcet consistent rules, BK compromise for $q \in \{1, \dots n-1\}$ and ranked runoff rules would select $a$ as the winner. Thus the propositions $1), 2) \text{ and } 3)$ are proved. 
+	
+	In order to prove the $3)$, let $s:\{1,\dots,m\}\rightarrow [0,1]$ be a scoring function that assigns $1$ to the alternative ranked at the first position, and $0$ to the one ranked at the last. Therefore, the alternative ranked in the second position has a score $0 \leq \lambda<1$. We exclude $\lambda = 1$ which is anti-plurality.
+	We have that $s(a)=n-1$, $s(b)=n\cdot \lambda$, $s(c)=1$. We can see that $s(a)$ is always greater than $s(c)$ since $n>2$. But $s(a)$ is also greater than $s(b)$, in fact we can rewrite $n-1>n\cdot\lambda$ as
+	\begin{align}
+		n-1&>n\cdot\lambda - \lambda + \lambda \\
+		n -1 - n\cdot\lambda + \lambda &> \lambda \\
+		(n-1)(1-\lambda)&> \lambda \\
+		n-1&>\frac{\lambda}{(1-\lambda)}
+	\end{align}
+	and since $\lambda \neq 1$ this is always the case.
+	\commentBN{That's not true. For $n=4$ and $\lambda=0.8$ we have $3 > \frac{0.8}{0.2}$ therefore $3>4$ which is false. Indeed, the score of a, $s(a)$, is greater than the score of b, $s(b)$, only for $\lambda< \frac{n-1}{n}$.}
 \end{proof}
 
-\commentBN{The following definitions have been characterized on the 15/11 and are susceptible to changes.}
-\begin{definition}
-	An \textit{unequivocal compromise alternative} is an alternative ranked at the same position by all voters. If it is not Pareto dominated then it is also efficient.
-\end{definition}
-\begin{conjecture}
-	A SCR f is a compromise $\iff$ if an unequivocal compromise alternative exists than f only picks unequivocal compromise alternatives.
-\end{conjecture}
-\begin{conjecture}
-	A SCR f is an efficient compromise $\iff$ if an efficient unequivocal compromise alternative exists than it is picked as a sole winner.
-\end{conjecture}
-\begin{definition}[Compromise]
-	\[ COMP(P) = \argmin_x \sigma(\lambda^P(x)) \]
-	\[f(P) \subseteq COMP(P) \qquad \forall P \text{ for some } \sigma\]
-\end{definition}
-\begin{definition}[Efficient Compromise]
-	\[ EffCOMP(P) = \argmin_{x \in \paretopt(P)} \sigma(\lambda^P(x)) \]
-	\[f(P) \subseteq EffCOMP(P) \qquad \forall P \text{ for some } \sigma\]
-\end{definition}
-\begin{definition}[Compromise Compatible]
-	A SCR f is compromise compatible $\iff$
-	$f(P) \cap COMP(P) \neq 0 \qquad \forall P \text{ for some } \sigma$.
-\end{definition}
-\begin{definition}[Compromise Compatible]
-	A SCR f is efficient compromise compatible $\iff$
-	$f(P) \cap EffCOMP(P) \neq 0 \qquad \forall P \text{ for some } \sigma$.
-\end{definition}
-\begin{proposition}
-	Condorcet, Scoring Rules (except Anti-Plurality), BK-Compromise (except FB) are neither compromise nor compromise compatible.
-\end{proposition}
-
-Antiplurality and FB are closer to be compromise.
+Please note that these impossibility results prevail for any restrictions $D \subseteq \Sigma$.
 
 \begin{proposition}
-	Anti-plurality is not compromise compatible.
+	Anti-plurality is not ECC.
 \end{proposition}
-\begin{proof} Consider the following profile $P$
-	\begin{center}
-		$
-		\begin{array}{cc}
-		a&b\\
-		b&a\\
-		c&c\\
-		\end{array}
-		$
-	\end{center}
-	$COMP(P)=\{c\}$ and $\textit{antiplr}(P)=\{a,b\}$, so $COMP(P) \cap \textit{antyplr}(P)=0$ at $P$.
-\end{proof}
-
-\begin{definition}
-	\label{def:effcomprcmp}
-	A SCR f is efficient compromise compatible $\iff$ if an efficient unequivocal compromise alternative exists it must be among the winner.
-\end{definition}
-
-\begin{proposition}
-	Efficient anti-plurality is efficient compromise compatible.
-\end{proposition}
-
 \begin{proof}
-	It follows from \ref{def:effcomprcmp}. TODO
+	Banally consider the example in the proof of Proposition \ref{prop:disjoint}, where the most equal alternative $c$ is ranked last by all voters. This alternative is the only element of the set $\musigma$ but it is not selected by anti-plurality. 
 \end{proof}
-\begin{example}
+
+Note that, although we stated in Proposition \ref{prop:POECC} that no PO SCR is ECC, anti-plurality is not Pareto Optimal so it is worth to express this result.
+
+\begin{proposition}
+	Anti-plurality is not PC.
+\end{proposition}
+\begin{proof}
 	Consider the following profile $P$
 	\begin{center}
 		$
-		\begin{array}{cc}
-		a&b\\
-		c&c\\
-		b&a\\
-		d&d\\
+		\begin{array}{cccc}
+		\mathbf{n-1} \quad &a&b&c\\
+		\mathbf{1} \quad &a&b&c\\
 		\end{array}
 		$
 	\end{center}
-	$EffCOMP(P)=\{c\}$ and $\textit{effantiplr}(P)=\{a,b,c\}$.
-\end{example}
-\begin{proposition}
-	FB is neither compromise compatible nor efficient compromise compatible.
-\end{proposition}
-\begin{proof} Consider the following profile $P$
-	\begin{center}
-		$
-		\begin{array}{cc}
-		\mathbf{i_1}& \mathbf{i_2} \\
-		x &b_1\\
-		a_1 &\cdot\\
-		\cdot &\cdot\\
-		\cdot &b_{k-1}\\
-		\cdot &y\\
-		a_k &x\\
-		y &b_k\\
-		b_1 &a_1\\
-		\cdot &\cdot\\
-		\cdot &\cdot\\
-		b_k &a_k\\
-		\end{array}
-		$
-	\end{center}
-	$COMP(P)=EffCOMP(P)=\{c\}$ and $\textit{FB}(P)=\{x\}$.
+	The only element of the set $\musigma(P)$ is $a$, but anti-plurality selects $a$ and $b$.
 \end{proof}
 
+\begin{proposition}
+	Anti-plurality is PCC.
+\end{proposition}
+\begin{proof}
+	Take any profile $P$, then either
+	\begin{itemize}
+		\item[case 1.] there exists an alternative $x$ ranked at the same position by every voter and it is Pareto Optimal,
+		\item[case 2.] or not.
+	\end{itemize}
+	In the first case $x\in \mustar(P) $ and $ x \in AP(P)$, where $AP(P)$ is the set of alternatives selected by anti-plurality.
+	
+	In the second case, consider a spread measure $\bar{\sigma} \in \Sigma$ such that \[
+	\bar{\sigma}(l_1, \dots,l_n)= \begin{cases}
+	0 \text{ if } l_i=l_j \ \forall i,j \\ 1 \text{ otherwise} \\
+	\end{cases}. \]
+	Then, $\exists \ y \in AP(P)$ and also $ y \in \mu_{\bar{\sigma}}^*(P)$.
+\end{proof}
+
+\pagebreak
 
 \bibliography{biblio}
 \bibliographystyle{abbrv}
