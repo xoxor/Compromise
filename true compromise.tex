@@ -59,7 +59,7 @@
 \newtheorem{conclusion}{Conclusion}[section]
 \newtheorem{condition}{Condition}[section]
 \newtheorem{conjecture}{Conjecture}[section]
-%\newtheorem{corollary}{Corallary}[section]
+%\newtheorem{corollary}{Corollary}[section]
 \newtheorem{criterion}{Criterion}[section]
 %\newtheorem{definition}{Definition}[section]
 %\newtheorem{example}{Example}[section]
@@ -145,14 +145,15 @@ These two examples illustrate that BK-compromises (except fallback bargaining (F
 %In the case where the candidates are only two we talk about bargaining \citep{Thomson1994}. The bargaining problem was first axiomatized by \citet{Nash1950}, who also proposed a solution for the problem that is obtained by maximizing the product of the differences between the utility from an agreement and the one from a disagreement (namely the status quo). This is the only bargaining solution that satisfies all the following axioms: independence of equivalent utility transformations, independence of irrelevant alternatives, Pareto optimality and symmetry.
 
 \section{Basic notions and notation}
-Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 2$. We write $L(A)$ for the set of linear orders (a connected, transitive, asymmetric relation) over the set of alternatives $A$. A social choice rule (SCR) is a mapping $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. Each individual $i \in N$ is associated to her preference order $P_{i} \in L(A)$, and, following the classical nomenclature, we call {\em profile} $P=(P_1, \dots, P_n)$ the set of preference orders for each individual. We denote with $P_i(x)$ the rank (position) of alternative $x$ in the preference order of the individual $i$. Given a profile $P$ and two alternatives $x$ and $y$, if every individual ranks $x$ over $y$ than we say that $x$ Pareto dominates $y$ and that $y$ is Pareto dominated. We write $\paretopt(P)$ for the set of Pareto optimal alternatives, i.e. alternatives who are not Pareto dominated. 
+Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 2$. We write $L(A)$ for the set of linear orders (a connected, transitive, asymmetric relation) over the set of alternatives $A$. A social choice rule (SCR) is a mapping $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. Each individual $i \in N$ is associated to her preference order $P_{i} \in L(A)$, and, following the classical nomenclature, we call {\em profile} $P=(P_1, \dots, P_n)$ the set of preference orders for each individual. We denote with $P_i(x)$ \commentBN{back to r} the rank (position) of alternative $x$ in the preference order of the individual $i$. Given a profile $P$ and two alternatives $x$ and $y$, if every individual ranks $x$ over $y$ than we say that $x$ Pareto dominates $y$ and that $y$ is Pareto dominated. We write $\paretopt(P)$ for the set of Pareto optimal alternatives, i.e., the alternatives which are not Pareto dominated. 
 %A SCR $f$ is Pareto optimal if $f(P)$ never contains a Pareto dominated alternative. 
 
-We write with $\lambda^{P}_i(x)=P_{i}(x)-1$ \commentBN{Isn't $m-P_{i}(x)$?} the loss of ranks for $i$ when electing $x$ instead of her favorite alternative. This value can also be seen as the number of pairwise flips we need to perform in order to place $x$ at top position for $i$. Thus, $\lambda ^{P}(x)=(\lambda _{i}^{P}(x))_{i\in N}\in \R_+^N$ represents the vector of losses when electing $x$. 
-We define $\Sigma$ as a set of spread measures such that for each $\sigma \in \Sigma : \R_{+}^{N}\longrightarrow \R_{+}$ it is $\sigma(l_1, \dots, l_n)=0 \iff l_i=l_j \forall i,j \in \{1, \dots, n\}$ given a vector $l \in R_{+}^{N}$. When all the values are the same, a coefficient of zero expresses perfect equality.
+We write with $\lambda^{P}_i(x)=P_{i}(x)-1$ the loss of ranks for $i$ when electing $x$ instead of her favorite alternative. This value can also be seen as the number of pairwise flips we need to perform in order to place $x$ at top position for $i$. Thus, $\lambda ^{P}(x)=(\lambda _{i}^{P}(x))_{i\in N}\in \R_+^N$ represents the vector of losses when electing $x$. 
+Considering a loss vector, we are interested in measuring its "spread". We define a spread measure as a function $\sigma: \R_{+}^{N}\longrightarrow \R_{+}$ that associates a spread value to each possible loss vector.
+We define $\Sigma$ as a set of spread measures such that for each $\sigma \in \Sigma$ and for each vector $l \in R_{+}^{N}$,  $\sigma(l_1, \dots, l_n)=0 \iff l_i=l_j$ $\forall i,j \in \{1, \dots, n\}$ . When all the values are the same, a coefficient of zero expresses perfect equality.
 
 \section{Egalitarian versus Paretian compromises}
-Consider the set $\musigma(P)$ as the set of the alternatives whose losses vectors are the most equally distributed according to a spread measure $\sigma$; and $\mustar(P)$ as the set of such alternatives selected among the Pareto optimal ones. 
+We define the set $\musigma(P)$ as the set of the alternatives whose loss vectors are the most equally distributed according to the spread measure $\sigma$; and $\mustar(P)$ as the set of such alternatives selected among the Pareto optimal ones. 
 \begin{align}
 	\musigma(P) & = \argmin_{x \in A} \sigma(\lambda^P(x)) = \{ x \in A \ | \ \sigma (\lambda^P(x))\leq \sigma (\lambda^P(y)), \forall y \in A \} \\
 	\mustar(P) & = \argmin_{x \in \paretopt(P)} \sigma(\lambda^P(x)) = \{ x \in \paretopt(P) \ | \ \sigma (\lambda^P(x))\leq \sigma (\lambda^P(y)), \forall y \in \paretopt(P) \} 
@@ -170,6 +171,7 @@ Consider the set $\musigma(P)$ as the set of the alternatives whose losses vecto
 			\end{array}
 			$
 		\end{center}
+		\commentBN{cc dd zz}
 		For each $\sigma \in \Sigma$ we have $\sigma(\lambda^P(a))>0$, $\sigma(\lambda^P(b))>0$, $\sigma(\lambda^P(c))=0$. Thus, the alternative c is included in the set $\musigma(P)$ of the "most equal" alternatives. On the other hand, the set $\mustar(P)$ will never contain $c$ whatever is the choice of $\sigma$ since it is a Pareto dominated alternative.
 	\end{proof}
 \begin{note}
@@ -183,7 +185,7 @@ Consider the set $\musigma(P)$ as the set of the alternatives whose losses vecto
 		\end{array}
 		$
 	\end{center}
-	In the first case there are no Pareto dominated alternatives, so the set of Pareto optimal alternatives $\paretopt(P)$ is equivalent to $A$ and $\musigma(P_1)=\mustar(P_1)$. In the second case, $\forall \sigma \in \Sigma$, $\musigma(P_2)={a,b}$ and $\mustar(P_2)={a}$ so they are not disjoint.
+	In the first case there are no Pareto dominated alternatives, so the set of Pareto optimal alternatives $\paretopt(P)$ is equivalent to $A$ and $\musigma(P_1)=\mustar(P_1)$. In the second case, $\forall \sigma \in \Sigma$, $\musigma(P_2)=\{a,b\}$ and $\mustar(P_2)=\{a\}$ so they are not disjoint.
 \end{note}
 
 \pagebreak
@@ -195,10 +197,10 @@ Considering $\musigma$ and $\mustar$, we define some classes of social choice ru
 \begin{definition} A SCR $f$ is a \textit{Paretian Compromise} PC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in L(A)^N: f(P) \subseteq \mustar(P).\]
 \end{definition}
 
-\begin{definition} A SCR $f$ is \textit{Egalitarian Compromise Compatible} ECC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in L(A)^N: f(P) \cap \musigma(P) \neq 0.\]
+\begin{definition} A SCR $f$ is \textit{Egalitarian Compromise Compatible} ECC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in L(A)^N: f(P) \cap \musigma(P) \neq \emptyset.\]
 \end{definition}
 
-\begin{definition} A SCR $f$ is \textit{Paretian Compromise Compatible} PCC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in L(A)^N: f(P) \cap \mustar(P) \neq 0.\]
+\begin{definition} A SCR $f$ is \textit{Paretian Compromise Compatible} PCC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in L(A)^N: f(P) \cap \mustar(P) \neq \emptyset.\]
 \end{definition}
 
 
@@ -222,10 +224,11 @@ Considering $\musigma$ and $\mustar$, we define some classes of social choice ru
 %\end{proof}
 
 \vspace{+1ex}
-In what follow, we analyze some relationships between these classes. It follows from the definitions that if a SCR $f$ is an Egalitarian (or a Paretian) Compromise then $f$ is also Egalitarian (or Paretian) Compromise Compatible: 
+In what follows, we analyze some relationships between these classes. 
+
+It follows from the definitions that if a SCR $f$ is an Egalitarian (or a Paretian) Compromise then $f$ is also Egalitarian (or Paretian, respectively) Compromise Compatible: 
 \[\forall n, m ≥ 1, \quad \text{EC} \implies \text{ECC} \text{ and } \text{PC} \implies \text{PCC}.\]
-\vspace{+1ex}
-Moreover, we can add that
+
 \begin{proposition} \label{prop:incompatibility} For $n\geq 2, \ m\geq3$, $\text{EC} \implies \lnot \text{PCC}$ and $\text{PC} \implies \lnot \text{ECC}$.
 \end{proposition}
 \begin{proof}
@@ -239,43 +242,43 @@ Moreover, we can add that
 		\end{array}
 		$
 	\end{center}
-	In order to prove the first implication, we have to show that if a SCR $f$ is an Egalitarian Compromise then $\forall \ \sigma \in \Sigma , \ \exists P \in L(A)^N  \text{ s.t. }f(P) \cap \mustar(P) = 0$.
-	Since $f$ is an EC, $f(P)={c}$, but $c$ is Pareto dominated, thus $\mu_{\sigma}^*(P)$ does not contain ${c}, \forall \sigma \in \Sigma$. So $f(P) \cap \mustar(P) = 0$ and the first implication is proved. Moreover, we can observe that $\musigma(P)={c}$ and $c \notin \mustar(P)$, not only for some particular spread measure, but for all $\sigma \in \Sigma$. This proves the second implication.
+	Consider any SCR $f$ that is an Egalitarian Compromise, and any $\sigma \in \Sigma$. In order to prove the first implication, we will show that $f(P) \cap \mustar(P) = \emptyset$.
+	Since $f$ is an EC, $f(P)={c}$, but $c$ is Pareto dominated, thus $\mu_{\sigma}^*(P)$ does not contain ${c}, \forall \sigma \in \Sigma$. So $f(P) \cap \mustar(P) = \emptyset$ and the first implication is proved. Moreover, we can observe that $\musigma(P)={c}$ and $c \notin \mustar(P)$, not only for some particular spread measure, but for all $\sigma \in \Sigma$. This proves the second implication.
 \end{proof}
-\begin{note}
+\begin{corollary} 
 	$\nexists$ a Pareto Optimal SCR $f$ that is $ECC$.
-\end{note}
+\end{corollary}
 
 \vspace{+1ex}
 \begin{proposition}
 	There exists a SCR $f$ which is ECC and PCC.
 \end{proposition}
 \begin{proof}
-	Consider the SCR which always selects the whole set of alternatives, $f(P)=A, \forall P \in L(A)^N$. We can see that $\forall P \in L(A)^N$ and $\forall \sigma \in \Sigma$, $\musigma(P) \subseteq A$ and $\mustar(P) \subseteq A$. Therefore, $f(P)=A \cap \musigma(P) \neq \emptyset$ so $f$ is Egalitarian Compromise Compatible, and $f(P)=A \cap \mustar(P) \neq \emptyset$ thus $f$ is Paretian Compromise Compatible.
+	Consider the SCR which always selects the whole set of alternatives, $f(P)=A, \forall P \in L(A)^N$. We can see that $\forall P \in L(A)^N$ and $\forall \sigma \in \Sigma$, $\emptyset \neq \musigma(P) \subseteq A$ and $\emptyset \neq \mustar(P) \subseteq A$. Therefore, $f(P) \cap \musigma(P) \neq \emptyset$ so $f$ is Egalitarian Compromise Compatible, and $f(P) \cap \mustar(P) \neq \emptyset$ thus $f$ is Paretian Compromise Compatible.
 \end{proof}
 \begin{note}
 	Observe that $\text{ECC} \centernot \implies \text{PCC}$ and $\text{PCC} \centernot \implies \text{ECC}$.
-	In fact, considering the Proposition \ref{prop:disjoint}, the existence of a spread measure $\sigma$ such that our SCR $f$ picks some alternatives which belong to the set $\musigma$ is not a guarantee that they are also Pareto optimal, thus belonging to the set $\mustar$ (and vice-versa).
+	In fact, considering Proposition \ref{prop:disjoint}, the existence of a spread measure $\sigma$ such that our SCR $f$ picks some alternatives which belong to the set $\musigma$ is not a guarantee that they are also Pareto optimal, thus belonging to the set $\mustar$ (and vice-versa).
 \end{note}
 
 
 \section{Known SCRs and Compromise (?)}
-\commentBN{Do we have to define these rules first?}
+\commentBN{Do we have to define these rules first? Yes}
 \begin{proposition}
 	All Condorcet consistent rules, all BK compromises, all point runoff rules and all scoring rules fail ECC.
 \end{proposition}
 \begin{proof}
 	For proving this proposition it is enough to observe that all these rules, except Anti-plurality, are Pareto optimal and $\nexists$ a Pareto Optimal SCR $f$ that is $ECC$. 
-	In order to prove it for Anti-plurality, consider the profile described in the proof of Proposition \ref{prop:disjoint}, where the most equal alternative $c$ is ranked last by all voters. This alternative is the only element of the set $\musigma$ but it is not selected by anti-plurality. 
+	In order to prove it for Anti-plurality, consider the profile described in the proof of Proposition \ref{prop:disjoint}, where the most equal alternative $c$ is ranked last by all voters. This alternative is the only element of the set $\musigma$ but it is not selected by anti-plurality. \commentBN{check after changing the example}
 \end{proof}
 
-\begin{proposition} \commentBN{For n>2}
+\begin{proposition} For n>2, m=3 \commentBN{check for n=2 and m>3}
 	\vspace{-4ex} 
 	\begin{item}
 		\item[1)] Condorcet consistent rules are not $PCC$
 		\item[2)] BK compromise for $q \in \{1, \dots n-1\}$ are not $PCC$
-		\item[3)] Scoring rules (except Antiplurality) are not $PCC$
-		\item[4)] Ranked runoff rules (like STV) are not $PCC$
+		\item[3)] Ranked runoff rules (like STV) are not $PCC$
+		\item[4)] Scoring rules (except Antiplurality) are not $PCC$
 	\end{item}
 \end{proposition}
 \begin{proof}
@@ -290,7 +293,7 @@ Moreover, we can add that
 	\end{center}
 	We can see that, $\forall \sigma \in \Sigma$, $\musigma(P)=\{b\}$, but all Condorcet consistent rules, BK compromise for $q \in \{1, \dots n-1\}$ and ranked runoff rules would select $a$ as the winner. Thus the propositions $1), 2) \text{ and } 3)$ are proved. 
 	
-	In order to prove the $3)$, let $s:\{1,\dots,m\}\rightarrow [0,1]$ be a scoring function that assigns $1$ to the alternative ranked at the first position, and $0$ to the one ranked at the last. Therefore, the alternative ranked in the second position has a score $0 \leq \lambda<1$. We exclude $\lambda = 1$ which is anti-plurality.
+	In order to prove \commentBN{label}$4)$, let $s:\{1,\dots,m\}\rightarrow [0,1]$ be a scoring function that assigns $1$ to the alternative ranked at the first position, and $0$ to the one ranked at the last. Therefore, the alternative ranked in the second position has a score $0 \leq \lambda<1$. We exclude $\lambda = 1$ which is anti-plurality.
 	We have that $s(a)=n-1$, $s(b)=n\cdot \lambda$, $s(c)=1$. We can see that $s(a)$ is always greater than $s(c)$ since $n>2$. But $s(a)$ is also greater than $s(b)$, in fact we can rewrite $n-1>n\cdot\lambda$ as
 	\begin{align}
 		n-1&>n\cdot\lambda - \lambda + \lambda \\
@@ -302,12 +305,14 @@ Moreover, we can add that
 	\commentBN{That's not true. For $n=4$ and $\lambda=0.8$ we have $3 > \frac{0.8}{0.2}$ therefore $3>4$ which is false. Indeed, the score of a, $s(a)$, is greater than the score of b, $s(b)$, only for $\lambda< \frac{n-1}{n}$.}
 \end{proof}
 
+\commentBN{Prop: Some scoring rules are  $PCC$}
+
 Please note that these impossibility results prevail for any restrictions $D \subseteq \Sigma$.
 
 \begin{proposition}
-	Anti-plurality is not PC but it is PCC.
+	\commentBN{for m n check} Anti-plurality is not PC but it is PCC.
 \end{proposition}
-\begin{proof}
+\begin{proof} 
 	In order to prove the first statement, consider the following profile $P$
 	\begin{center}
 		$
@@ -324,7 +329,7 @@ Please note that these impossibility results prevail for any restrictions $D \su
 		\item[case 1.] there exists an alternative $x$ ranked at the same position by every voter and it is Pareto Optimal,
 		\item[case 2.] or not.
 	\end{itemize}
-	In the first case $x\in \mustar(P) $ and $ x \in AP(P)$, where $AP(P)$ is the set of alternatives selected by anti-plurality.
+	In the first case $x$ is never last, thus $x\in \mustar(P) $ and $ x \in AP(P)$, where $AP(P)$ is the set of alternatives selected by anti-plurality.
 	
 	In the second case, consider a spread measure $\bar{\sigma} \in \Sigma$ such that \[
 	\bar{\sigma}(l_1, \dots,l_n)= \begin{cases}
@@ -333,7 +338,7 @@ Please note that these impossibility results prevail for any restrictions $D \su
 	Then, $\exists \ y \in AP(P)$ and also $ y \in \mu_{\bar{\sigma}}^*(P)$.
 \end{proof}
 
-\commentRS{ It is worth noting that the negative results are quite robust because they establish the non-existence of a spread measure within the very large class capital sigma. On the other hand, the positive result that anti plurality is PCC may not be very robust and could turn to be negative when capital sigma is restricted by some further conditions over spread measures. This is an issue to be explored. \\ Another issue to be explored is whether FB satisfies PC or PCC. In an earlier version, we had a nice 2-person example about FB, which seems to be lost in this version. Can we find it?	\bigskip \\ {\color{black}$x$ $a_{1}...a_{k}$ $y$ $b_{1}....b_{k}$ \\	$b_{1}....b_{k-1}$ $y$ $x$ $b_{k}$ $a_{1}...a_{k}$} \bigskip \\
+\commentRS{ It is worth noting that the negative results are quite robust because they establish the non-existence of a spread measure within the very large class capital sigma. On the other hand, the positive result that anti plurality is PCC may not be very robust and could turn to be negative when capital sigma is restricted by some further conditions over spread measures. This is an issue to be explored. \\ Another issue to be explored is whether FB satisfies PC or PCC. In an earlier version, we had a nice 2-person example about FB, which seems to be lost in this version. Can we find it? Yes:	\bigskip \\ {\color{black}$x$ $a_{1}...a_{k}$ $y$ $b_{1}....b_{k}$ \\	$b_{1}....b_{k-1}$ $y$ $x$ $b_{k}$ $a_{1}...a_{k}$} \bigskip \\
 A further question to explore is whether we can suggest interesting SCRs that satisfy PCC. The particular “bargaining” case of n=2 many deserve specific consideration.}
 \pagebreak
 
