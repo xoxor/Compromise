@@ -1,65 +1,36 @@
-\RequirePackage[l2tabu, orthodox]{nag}
-\documentclass[version=3.21, pagesize, notitlepage, twoside=off, bibliography=totoc, DIV=calc, fontsize=12pt, a4paper]{scrartcl}
-\input{preamble/packages}
-\input{preamble/redac}
-\input{preamble/math_basics}
-\input{preamble/math_mine}
-%\input{preamble/draw}
-%\input{preamble/acronyms}
-%\input{preamble/refAPIcmds}
+\input{ec-submission}
 
-%I find these settings useful in draft mode. Should be removed for final versions.
-	%Which line breaks are chosen: accept worse lines, therefore reducing risk of overfull lines. Default = 200.
-		\tolerance=2000
-	%Accept overfull hbox up to...
-		\hfuzz=2cm
-	%Reduces verbosity about the bad line breaks.
-		\hbadness 5000
-	%Reduces verbosity about the underful vboxes.
-		\vbadness=1300
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newunicodechar}
+\usepackage{textcomp}
+\usepackage{amsmath}
+\usepackage{enumerate,amsthm}
+\newcommand\hmmax{0}
+\newcommand\bmmax{0}
+\let\Bbbk\relax
+\usepackage{amssymb}
+\usepackage{natbib}
+\usepackage[strict]{siunitx}
+\usepackage{hyperref}
+\usepackage{mathrsfs}
 
-%\title{Title \thanks{Thanks.}}
-%\author{Name1}
-%\author{Name2}
-%\affil{Université Paris-Dauphine, PSL Research University, CNRS, LAMSADE, 75016 PARIS, FRANCE\\
-%	\href{mailto:olivier.cailloux@dauphine.fr}{olivier.cailloux@dauphine.fr}
-%}
-%\author{Name3}
-%\affil{Affil2}
-%\hypersetup{
-%	pdfsubject={},
-%	pdfkeywords={},
-%}
+\usepackage{bm}
+\usepackage{empheq}
+\usepackage{cleveref}
+\usepackage{xcolor}
 
-\setcounter{MaxMatrixCols}{10}
-%TCIDATA{OutputFilter=LATEX.DLL}
-%TCIDATA{Version=5.50.0.2953}
-%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
-%TCIDATA{BibliographyScheme=Manual}
-%TCIDATA{Created=Tuesday, August 09, 2005 15:34:58}
-%TCIDATA{LastRevised=Thursday, March 07, 2019 13:36:58}
-%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
-%TCIDATA{<META NAME="DocumentShell" CONTENT="Scientific Notebook\Blank with Theorem Tags">}
-%TCIDATA{Language=American English}
-%TCIDATA{CSTFile=Math.cst}
-%TCIDATA{PageSetup=14,14,57,57,0}
-%TCIDATA{AllPages=
-%H=36
-%F=36,\PARA{038<p type="texpara" tag="Body Text" >\hfill \thepage}
-%}
-\usepackage[english]{babel}
-\usepackage{centernot}
 
-%\newtheorem{theorem}{Theorem}[section]
+\newtheorem{theorem}{Theorem}[section]
 \newtheorem{acknowledgement}[theorem]{Acknowledgement}
-\newtheorem{algorithm}[theorem]{Algorithm}
+%\newtheorem{algorithm}[theorem]{Algorithm}
 \newtheorem{axiom}{Axiom}[section]
 \newtheorem{case}{Case}[section]
 \newtheorem{claim}{Claim}[section]
 \newtheorem{conclusion}{Conclusion}[section]
 \newtheorem{condition}{Condition}[section]
 \newtheorem{conjecture}{Conjecture}[section]
-%\newtheorem{corollary}{Corollary}[section]
+\newtheorem{corollary}{Corollary}[section]
 \newtheorem{criterion}{Criterion}[section]
 %\newtheorem{definition}{Definition}[section]
 %\newtheorem{example}{Example}[section]
@@ -74,14 +45,40 @@
 \newtheorem*{note}{Note}
 %\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
 
-\usepackage{blkarray}
-\usepackage{booktabs}
-\usepackage{amsmath}
+\newunicodechar{⇒}{\Rightarrow}
+\newunicodechar{≠}{\ensuremath{\neq}}
+\newunicodechar{≤}{\leq}
+\newunicodechar{≥}{\geq}
+%… Horizontal Ellipsis
+\DeclareUnicodeCharacter{2026}{\ifmmode\dots\else\textellipsis\fi}
+\newunicodechar{∧}{\land}
+\newunicodechar{∨}{\lor}
+\newunicodechar{∩}{\cap}
+\newunicodechar{∪}{\cup}
+%¬ Not Sign
+\DeclareUnicodeCharacter{00AC}{\ifmmode\lnot\else\textlnot\fi}
+\newunicodechar{⇔}{\Leftrightarrow}
+\newcommand{\N}{ℕ}
+\newunicodechar{ℕ}{\mathbb{N}}
+\newcommand{\R}{ℝ}
+\newunicodechar{ℝ}{\mathbb{R}}
 
+\newcommand{\pref}{\succ}%real, connected pref, strict
+\newcommand{\prefeq}{\succeq}%real, connected pref, strict
+\newcommand{\prefr}{{\succ}^\text{r}}%real, connected pref, strict
+\newcommand{\pprefeq}{\succeq^\text{p}}%partial pref
+\newcommand{\ppref}{\succ^\text{p}}%partial pref
+\newcommand{\pprefinv}{\prec^\text{p}}%partial pref
+\newcommand{\nppref}{\nsucc^\text{p}}%negated partial pref
+\newcommand{\linors}{\mathcal{L}(A)}
+\newcommand{\suchthat}{\;\ifnum\currentgrouptype=16 \middle\fi|\;}
 
-\title{Ex-Ante versus Ex-Post \\ Compromise}
-\author{}
-\date{}
+\newcommand{\oquot}{``}
+\newcommand{\cquot}{''}
+
+\DeclarePairedDelimiter\set{\{}{\}}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
 
 \newcommand{\commentBN}[1]{\textcolor{magenta}{\small$\big[$BN: #1$\big]$}}
 \newcommand{\commentRS}[1]{\textcolor{red}{\small$\big[$RS: #1$\big]$}}
@@ -92,20 +89,24 @@
 \newcommand{\vpr}{\mathbf{v}}
 \newcommand{\musigma}{\mu_{\sigma}}
 \newcommand{\mustar}{\mu_{\sigma}^*}
-\begin{document}
 
-\maketitle
-\thispagestyle{empty}
+
+\title{Ex-Ante versus Ex-Post Compromise}
+\author{Submission ID}
+\date{}
+
+%\thispagestyle{empty}
 
 \begin{abstract}
 	A classical social choice setting is composed of a group of individuals, or voters, that express their preferences over a set of alternatives. The social choice problem consists in defining a procedure able to determine a collective choice for this group of voters, starting from their individual preferences. Such procedure is called social choice rule and it can be defined as a function mapping preference profiles to alternatives. Depending on the properties that this function satisfies, very different outcomes can be produced starting from the same initial profile. The plurality rule is one of the most common social choice rule and it consists in selecting, as a winner, the alternative that is considered the best by the largest number of voters forming the society. Yet, this rule can pick, as a winner, an alternative that is considered the worst by a strict majority of voters. Such outcome may be undesirable. Several procedures, the so-called compromise rules, have been proposed in the literature that aim to find a compromise. Nevertheless, all those rules can be defined as \textit{ex-ante compromises} or \textit{procedural compromises}, i.e., they impose over individuals a willingness to compromise but they do not ensure an outcome where everyone has effectively compromised. In this work, we approach the problem of compromise from an \textit{ex-post} perspective, favoring an outcome where every voter gives up her most preferred positions if this increases equality. We propose a new notion of compromise in the social choice context, considering ordinal utilities. 
 \end{abstract}
 
-\pagebreak
+\begin{document}
+	\maketitle
 
 \section{Introduction and Related Works}
 
-In a social choice situation where individuals have preferences over several alternatives there is no unique procedure for selecting a common agreement between them. One of the way to define such a procedure is to prefer the quantity of support behind an alternative (i.e. the number of voters who favor it) to the quality of its support (i.e. until which level in voters’ preferences is legitimate to descend). This decision may result in a lack of a majority support or, worst, into a strict majority of individuals which strongly dislikes the chosen candidates. Vice versa, favoring the number of voters behind an alternative implies descending levels in individual preferences potentially ending on electing a generally disliked candidate because of the opposition of very few individuals. 
+In a social choice situation where individuals have preferences over several alternatives there is no unique procedure for selecting a common agreement between them. One of the way to define such a procedure is to prefer the quantity of support behind an alternative (i.e. the number of voters who favor it) to the quality of its support (i.e. until which level in voters’ preferences is legitimate to descend). This decision may result in a lack of a majority support or, worst, into a strict majority of individuals which strongly dislike the chosen candidates. Vice versa, favoring the number of voters behind an alternative implies descending levels in individual preferences potentially ending on electing a generally disliked candidate because of the opposition of very few individuals. 
 
 The plurality rule, for example, selects the alternatives which are ranked the best by the largest number of voters. The problem of this procedure is that, as long as there are more than two alternatives, the outcome may lack the support of any majority. In fact, it may also be opposed by a strict majority of agents each of whom ranks the chosen candidate as their least preferred choice. All the rules existing in literature aiming at finding a compromise between voters end up facing the problem of balancing the trade-off between the quality and quantity of support behind alternatives. \citet{Merlin2019} gather them in the class of Compromise Rules. The Majoritarian Compromise \citep{Sertel1999} selects candidates who have the support of a majority in the best degree possible. 
 We call BK-compromises the class of $q$-approval fallback bargaining rules introduced by \citet{Brams2001}: the $q$-approval fallback bargaining rule picks ranks $1, 2, \dots$ and stops as soon as at least $q$ voters rank some alternative at the chosen rank or better. All such alternatives form the compromise set, and, among them, the ones which receive the highest support are elected.
@@ -114,7 +115,7 @@ We start by an example, based on an observation made by Laslier at Buyukada, tha
 
 \begin{example}
 	\label{ex:ex1}
-	Let $N$ be a set of $n$ voters and $A$ a set of alternatives. $L(A)$ represents the set of linear orders over $A$. Consider the following preference profile $P\in L(A)^{N}$
+	Let $N$ be a set of $n$ voters and $A$ a set of alternatives. $\linors$ represents the set of linear orders over $A$. Consider the following preference profile $P\in \linors^{N}$
 	\begin{center}
 		$
 		\begin{array}{cccc}
@@ -126,7 +127,7 @@ We start by an example, based on an observation made by Laslier at Buyukada, tha
 	which represents $n-1$ individuals who prefer $a$ to $b$, $b$ to $c$, hence $a$ to $c$; and one individual who prefers $c$ to $b$, $b$ to $a$, hence $c$ to $a $. At $P$ all BK-compromises, except fallback bargaining i.e. when $q=n$, pick $a$ as the winner, which does not appear as a compromise as a voter ranks it as her least preferred alternative.
 \end{example}
 
-Please note that the group of ignored voters could be even larger.
+\noindent Please note that the group of ignored voters could be even larger.
 \begin{example}
 	Consider the following preference profile with $n=100$:
 	\begin{center}
@@ -140,17 +141,17 @@ Please note that the group of ignored voters could be even larger.
 	When $q\in \left\{ 1,..., \frac{n}{2} +1\right\} $, all BK-compromises pick $a$, and, again, it does not appear as a compromise as 51 voters reach their best alternative while the remaining 49 voters have to be contented with their worst one. Note that for $q\in \left\{ 1,..., \frac{n}{2} -1 \right\} $ the set of possible common agreements determined by the fallback bargaining procedure is $\{a,c\}$. Nevertheless, $a$ receives the highest support thus it is elected.
 \end{example}
 
-These two examples illustrate that BK-compromises (except fallback bargaining (FB) where $q=n$) are “ex-ante compromises” or “procedural compromises”, i.e., they impose over individuals a willingness to compromise but they don't ensure an outcome where everyone has effectively compromised. So what is a compromise?
+These two examples illustrate that BK-compromises (except fallback bargaining (FB) where $q=n$) are \oquot ex-ante compromises\cquot \ or \oquot procedural compromises\cquot, i.e., they impose over individuals a willingness to compromise but they don't ensure an outcome where everyone has effectively compromised. So what is a compromise?
 
 %In the case where the candidates are only two we talk about bargaining \citep{Thomson1994}. The bargaining problem was first axiomatized by \citet{Nash1950}, who also proposed a solution for the problem that is obtained by maximizing the product of the differences between the utility from an agreement and the one from a disagreement (namely the status quo). This is the only bargaining solution that satisfies all the following axioms: independence of equivalent utility transformations, independence of irrelevant alternatives, Pareto optimality and symmetry.
 
 \section{Basic notions and notation}
-Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 2$. We write $L(A)$ for the set of linear orders (a connected, transitive, asymmetric relation) over the set of alternatives $A$. A social choice rule (SCR) is a mapping $f:L(A)^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. Each individual $i \in N$ is associated to her preference order $P_{i} \in L(A)$, and, following the classical nomenclature, we call {\em profile} $P=(P_1, \dots, P_n)$ the set of preference orders for each individual. We denote with $P_i(x)$ \commentBN{back to r} the rank (position) of alternative $x$ in the preference order of the individual $i$. Given a profile $P$ and two alternatives $x$ and $y$, if every individual ranks $x$ over $y$ than we say that $x$ Pareto dominates $y$ and that $y$ is Pareto dominated. We write $\paretopt(P)$ for the set of Pareto optimal alternatives, i.e., the alternatives which are not Pareto dominated. 
+Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 2$. We write $\linors$ for the set of linear orders (a connected, transitive, asymmetric relation) over the set of alternatives $A$. A social choice rule (SCR) is a mapping $f:\linors^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. Each individual $i \in N$ is associated to her preference order $\pref_i \in \linors$, which we also denote with $P_i$. Following the classical nomenclature, we call {\em profile} $P=(P_1, \dots, P_n)$ the set of preference orders for each individual. We define the rank (position) of alternative $x$ in the preference order of the individual $i$ as the number of alternatives that $i$ prefers to $x$: $r_i(x)=\#\{a \in A | b\prefeq_i a , b\in A\}$. Given a profile $P$ and two alternatives $x$ and $y$, if every individual ranks $x$ over $y$ than we say that $x$ Pareto dominates $y$ and that $y$ is Pareto dominated. We write $\paretopt(P)$ for the set of Pareto optimal alternatives, i.e., the alternatives which are not Pareto dominated. 
 %A SCR $f$ is Pareto optimal if $f(P)$ never contains a Pareto dominated alternative. 
 
 We write with $\lambda^{P}_i(x)=P_{i}(x)-1$ the loss of ranks for $i$ when electing $x$ instead of her favorite alternative. This value can also be seen as the number of pairwise flips we need to perform in order to place $x$ at top position for $i$. Thus, $\lambda ^{P}(x)=(\lambda _{i}^{P}(x))_{i\in N}\in \R_+^N$ represents the vector of losses when electing $x$. 
-Considering a loss vector, we are interested in measuring its "spread". We define a spread measure as a function $\sigma: \R_{+}^{N}\longrightarrow \R_{+}$ that associates a spread value to each possible loss vector.
-We define $\Sigma$ as a set of spread measures such that for each $\sigma \in \Sigma$ and for each vector $l \in R_{+}^{N}$,  $\sigma(l_1, \dots, l_n)=0 \iff l_i=l_j$ $\forall i,j \in \{1, \dots, n\}$ . When all the values are the same, a coefficient of zero expresses perfect equality.
+Considering a loss vector, we are interested in measuring its \oquot spread\cquot. We define a spread measure as a function $\sigma: \R_{+}^{N}\longrightarrow \R_{+}$ that associates a spread value to each possible loss vector.
+We call $\Sigma$ the set of spread measures such that for each $\sigma \in \Sigma$ and for each vector $l \in R_{+}^{N}$,  $\sigma(l_1, \dots, l_n)=0 \iff l_i=l_j$ $\forall i,j \in \{1, \dots, n\}$ . When all the values are the same, a coefficient of zero expresses perfect equality.
 
 \section{Egalitarian versus Paretian compromises}
 We define the set $\musigma(P)$ as the set of the alternatives whose loss vectors are the most equally distributed according to the spread measure $\sigma$; and $\mustar(P)$ as the set of such alternatives selected among the Pareto optimal ones. 
@@ -162,17 +163,17 @@ We define the set $\musigma(P)$ as the set of the alternatives whose loss vector
 	For $n\geq 2, \ m\geq3,$ the sets $\musigma(P)$ and $\mustar(P)$ may be disjoint.
 \end{proposition}
 	\begin{proof} 
-		Consider the following profile $P$
+		Consider the following profile $P$,
 		\begin{center}
 			$
 			\begin{array}{ccccc}
-			\mathbf{1} \quad &a&b&\dots&c\\
-			\mathbf{n-1} \quad &b&a&\dots&c\\
+			\mathbf{1} \quad &a&b&\dots&z\\
+			\mathbf{n-1} \quad &b&a&\dots&z\\
 			\end{array}
 			$
 		\end{center}
-		\commentBN{cc dd zz}
-		For each $\sigma \in \Sigma$ we have $\sigma(\lambda^P(a))>0$, $\sigma(\lambda^P(b))>0$, $\sigma(\lambda^P(c))=0$. Thus, the alternative c is included in the set $\musigma(P)$ of the "most equal" alternatives. On the other hand, the set $\mustar(P)$ will never contain $c$ whatever is the choice of $\sigma$ since it is a Pareto dominated alternative.
+		where we have $m$ alternatives disposed such that only one alternative $z$ is ranked at the same position by every voter, and it is ranked last.
+		For each $\sigma \in \Sigma$ the spread associated to every alternative except $z$ is greater than zero $\sigma(\lambda^P(x))>0$, $\forall x \in A \ \{z\}$; whilst $\sigma(\lambda^P(z))=0$. Thus, the set $\musigma(P)$ of the \oquot most equal\cquot \ alternatives consists of the only element $z$. On the other hand, the set $\mustar(P)$ will never contain $z$ whatever is the choice of $\sigma$ since it is a Pareto dominated alternative.
 	\end{proof}
 \begin{note}
 	Observe that for $m=2$ we can have one of the following situations:
@@ -188,32 +189,31 @@ We define the set $\musigma(P)$ as the set of the alternatives whose loss vector
 	In the first case there are no Pareto dominated alternatives, so the set of Pareto optimal alternatives $\paretopt(P)$ is equivalent to $A$ and $\musigma(P_1)=\mustar(P_1)$. In the second case, $\forall \sigma \in \Sigma$, $\musigma(P_2)=\{a,b\}$ and $\mustar(P_2)=\{a\}$ so they are not disjoint.
 \end{note}
 
-\pagebreak
 
 Considering $\musigma$ and $\mustar$, we define some classes of social choice rules.
-\begin{definition} A SCR $f$ is an \textit{Egalitarian Compromise} EC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in L(A)^N: f(P) \subseteq \musigma(P).\]
+\begin{definition} A SCR $f$ is an \textit{Egalitarian Compromise} EC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N: f(P) \subseteq \musigma(P).\]
 \end{definition}
 
-\begin{definition} A SCR $f$ is a \textit{Paretian Compromise} PC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in L(A)^N: f(P) \subseteq \mustar(P).\]
+\begin{definition} A SCR $f$ is a \textit{Paretian Compromise} PC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N: f(P) \subseteq \mustar(P).\]
 \end{definition}
 
-\begin{definition} A SCR $f$ is \textit{Egalitarian Compromise Compatible} ECC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in L(A)^N: f(P) \cap \musigma(P) \neq \emptyset.\]
+\begin{definition} A SCR $f$ is \textit{Egalitarian Compromise Compatible} ECC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N: f(P) \cap \musigma(P) \neq \emptyset.\]
 \end{definition}
 
-\begin{definition} A SCR $f$ is \textit{Paretian Compromise Compatible} PCC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in L(A)^N: f(P) \cap \mustar(P) \neq \emptyset.\]
+\begin{definition} A SCR $f$ is \textit{Paretian Compromise Compatible} PCC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N: f(P) \cap \mustar(P) \neq \emptyset.\]
 \end{definition}
 
 
-%\begin{definition} A SCR $f$ is an EC$^*$ iff \[f(P) \subseteq \musigma(P), \ \forall P \in L(A)^N, \forall \ \sigma \in \Sigma.\]
+%\begin{definition} A SCR $f$ is an EC$^*$ iff \[f(P) \subseteq \musigma(P), \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
 %\end{definition}
 %
-%\begin{definition} A SCR $f$ is an PC$^*$ iff \[f(P) \subseteq \mustar(P), \ \forall P \in L(A)^N, \forall \ \sigma \in \Sigma.\]
+%\begin{definition} A SCR $f$ is an PC$^*$ iff \[f(P) \subseteq \mustar(P), \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
 %\end{definition}
 %
-%\begin{definition} A SCR $f$ is ECC$^*$ iff \[f(P) \cap \musigma(P) \neq 0, \ \forall P \in L(A)^N, \forall \ \sigma \in \Sigma.\]
+%\begin{definition} A SCR $f$ is ECC$^*$ iff \[f(P) \cap \musigma(P) \neq 0, \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
 %\end{definition}
 %
-%\begin{definition} A SCR $f$ is PCC$^*$ iff \[ f(P) \cap \mustar(P) \neq 0, \ \forall P \in L(A)^N, \forall \ \sigma \in \Sigma.\]
+%\begin{definition} A SCR $f$ is PCC$^*$ iff \[ f(P) \cap \mustar(P) \neq 0, \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
 %\end{definition}
 %
 %\begin{proposition}
@@ -223,7 +223,6 @@ Considering $\musigma$ and $\mustar$, we define some classes of social choice ru
 %	Consider the profile such that voter $1$ prefers $a$ to $b$ and voter $2$ prefers $b$ to $a$. Observe that $\lambda(a) = (0, 1)$ and $\lambda(b) = (1, 0)$. Define $\sigma_1$ and $\sigma_2$ as ordering differently $\lambda(a)$ and $\lambda(b)$. To be EC*, $f$ must satisfy $f(P) \subseteq \set{a}$ and $f(P) \subseteq \set{b}$, which is impossible. The same constraints apply to be PC*.
 %\end{proof}
 
-\vspace{+1ex}
 In what follows, we analyze some relationships between these classes. 
 
 It follows from the definitions that if a SCR $f$ is an Egalitarian (or a Paretian) Compromise then $f$ is also Egalitarian (or Paretian, respectively) Compromise Compatible: 
@@ -232,29 +231,31 @@ It follows from the definitions that if a SCR $f$ is an Egalitarian (or a Pareti
 \begin{proposition} \label{prop:incompatibility} For $n\geq 2, \ m\geq3$, $\text{EC} \implies \lnot \text{PCC}$ and $\text{PC} \implies \lnot \text{ECC}$.
 \end{proposition}
 \begin{proof}
-%	We already showed, in the proof of Proposition \ref{prop:disjoint}, that for $m=2$ and $\forall \sigma \in \Sigma$ and $\forall P \in L(A)^N$ $\musigma(P) \cap \mustar(P) \neq 0$. So this proposition does not hold for $m<3$.
+%	We already showed, in the proof of Proposition \ref{prop:disjoint}, that for $m=2$ and $\forall \sigma \in \Sigma$ and $\forall P \in \linors^N$ $\musigma(P) \cap \mustar(P) \neq 0$. So this proposition does not hold for $m<3$.
 	Consider the profile $P$ described in the proof of Proposition \ref{prop:disjoint}.
 	\begin{center}
 		$
 		\begin{array}{ccccc}
-		\mathbf{1} \quad &a&b&\dots&c\\
-		\mathbf{n-1} \quad &b&a&\dots&c\\
+		\mathbf{1} \quad &a&b&\dots&z\\
+		\mathbf{n-1} \quad &b&a&\dots&z\\
 		\end{array}
 		$
 	\end{center}
 	Consider any SCR $f$ that is an Egalitarian Compromise, and any $\sigma \in \Sigma$. In order to prove the first implication, we will show that $f(P) \cap \mustar(P) = \emptyset$.
-	Since $f$ is an EC, $f(P)={c}$, but $c$ is Pareto dominated, thus $\mu_{\sigma}^*(P)$ does not contain ${c}, \forall \sigma \in \Sigma$. So $f(P) \cap \mustar(P) = \emptyset$ and the first implication is proved. Moreover, we can observe that $\musigma(P)={c}$ and $c \notin \mustar(P)$, not only for some particular spread measure, but for all $\sigma \in \Sigma$. This proves the second implication.
+	Observe that $z$ is the only alternative contained in the set $\musigma(P)$, so since $f$ is an EC then $f(P)={z}$. But $z$ is Pareto dominated, thus $\mustar(P)$ does not contain $z$. Therefore, $f(P) \cap \mustar(P) = \emptyset$ and the first implication is proved.
+	
+	Moreover, we can observe that $\musigma(P)={z}$ and $z \notin \mustar(P)$, not only for some particular spread measure, but for all $\sigma \in \Sigma$. This proves the second implication.
 \end{proof}
-\begin{corollary} 
+\begin{corollary} \label{cor:optECC}
 	$\nexists$ a Pareto Optimal SCR $f$ that is $ECC$.
 \end{corollary}
 
-\vspace{+1ex}
+
 \begin{proposition}
 	There exists a SCR $f$ which is ECC and PCC.
 \end{proposition}
 \begin{proof}
-	Consider the SCR which always selects the whole set of alternatives, $f(P)=A, \forall P \in L(A)^N$. We can see that $\forall P \in L(A)^N$ and $\forall \sigma \in \Sigma$, $\emptyset \neq \musigma(P) \subseteq A$ and $\emptyset \neq \mustar(P) \subseteq A$. Therefore, $f(P) \cap \musigma(P) \neq \emptyset$ so $f$ is Egalitarian Compromise Compatible, and $f(P) \cap \mustar(P) \neq \emptyset$ thus $f$ is Paretian Compromise Compatible.
+	Consider the SCR which always selects the whole set of alternatives, $f(P)=A, \forall P \in \linors^N$. We can see that $\forall P \in \linors^N$ and $\forall \sigma \in \Sigma$, $\emptyset \neq \musigma(P) \subseteq A$ and $\emptyset \neq \mustar(P) \subseteq A$. Therefore, $f(P) \cap \musigma(P) \neq \emptyset$ so $f$ is Egalitarian Compromise Compatible, and $f(P) \cap \mustar(P) \neq \emptyset$ thus $f$ is Paretian Compromise Compatible.
 \end{proof}
 \begin{note}
 	Observe that $\text{ECC} \centernot \implies \text{PCC}$ and $\text{PCC} \centernot \implies \text{ECC}$.
@@ -263,54 +264,67 @@ It follows from the definitions that if a SCR $f$ is an Egalitarian (or a Pareti
 
 
 \section{Known SCRs and Compromise (?)}
-\commentBN{Do we have to define these rules first? Yes}
+\commentBN{Rules definitions}
 \begin{proposition}
 	All Condorcet consistent rules, all BK compromises, all point runoff rules and all scoring rules fail ECC.
 \end{proposition}
 \begin{proof}
-	For proving this proposition it is enough to observe that all these rules, except Anti-plurality, are Pareto optimal and $\nexists$ a Pareto Optimal SCR $f$ that is $ECC$. 
-	In order to prove it for Anti-plurality, consider the profile described in the proof of Proposition \ref{prop:disjoint}, where the most equal alternative $c$ is ranked last by all voters. This alternative is the only element of the set $\musigma$ but it is not selected by anti-plurality. \commentBN{check after changing the example}
+	For proving this proposition is enough to consider Corollary \ref{cor:optECC}, and to observe that all these rules, except Anti-plurality, are Pareto optimal.
+	
+	In order to prove it for Anti-plurality, consider the profile described in the proof of Proposition \ref{prop:disjoint}, where the most equal alternative $z$ is ranked last by all voters. This alternative is the only element of the set $\musigma$ but it is not selected by anti-plurality.
 \end{proof}
 
-\begin{proposition} For n>2, m=3 \commentBN{check for n=2 and m>3}
-	\vspace{-4ex} 
+\begin{proposition} For $n>2$, $m\geq3$ \commentBN{check for n=2 (classical bargaining setting)} \label{prop:rulesnotPCC}
 	\begin{item}
 		\item[1)] Condorcet consistent rules are not $PCC$
 		\item[2)] BK compromise for $q \in \{1, \dots n-1\}$ are not $PCC$
 		\item[3)] Ranked runoff rules (like STV) are not $PCC$
-		\item[4)] Scoring rules (except Antiplurality) are not $PCC$
+%		\item[4)] Scoring rules (except Antiplurality) are not $PCC$
 	\end{item}
 \end{proposition}
 \begin{proof}
-	Consider again the profile $P$ of Example \ref{ex:ex1}.
+	Consider the following profile $P$
 	\begin{center}
 		$
-		\begin{array}{cccc}
-		\mathbf{1} \quad &c&b&a\\
-		\mathbf{n-1} \quad &a&b&c\\		
+		\begin{array}{ccccc}
+		\mathbf{1} \quad &c&b&\dots &a\\
+		\mathbf{n-1} \quad &a&b&\dots &c\\		
 		\end{array}
 		$
 	\end{center}
+	where we have $m$ alternatives disposed such that only one alternative $b$ is ranked at the same position by every voter, and it is ranked second.
 	We can see that, $\forall \sigma \in \Sigma$, $\musigma(P)=\{b\}$, but all Condorcet consistent rules, BK compromise for $q \in \{1, \dots n-1\}$ and ranked runoff rules would select $a$ as the winner. Thus the propositions $1), 2) \text{ and } 3)$ are proved. 
-	
-	In order to prove \commentBN{label}$4)$, let $s:\{1,\dots,m\}\rightarrow [0,1]$ be a scoring function that assigns $1$ to the alternative ranked at the first position, and $0$ to the one ranked at the last. Therefore, the alternative ranked in the second position has a score $0 \leq \lambda<1$. We exclude $\lambda = 1$ which is anti-plurality.
+\end{proof}
+
+\noindent Please note that these impossibility results prevail for any restrictions $D \subseteq \Sigma$.
+
+\begin{proposition}
+	For $n>2$, $m=3$ some scoring rules are  $PCC$
+\end{proposition}
+\begin{proof}
+	Consider again the profile $P$ defined in Proposition \ref{prop:rulesnotPCC}.
+	\begin{center}
+		$
+		\begin{array}{ccccc}
+		\mathbf{1} \quad &c&b&\dots &a\\
+		\mathbf{n-1} \quad &a&b&\dots &c\\		
+		\end{array}
+		$
+	\end{center}
+	Let $s:\{1,\dots,m\}\rightarrow [0,1]$ be a scoring function that assigns $1$ to the alternative ranked at the first position, and $0$ to the one ranked at the last. Therefore, the alternative ranked in the second position has a score $0 \leq \lambda<1$. We exclude $\lambda = 1$ which is anti-plurality.
 	We have that $s(a)=n-1$, $s(b)=n\cdot \lambda$, $s(c)=1$. We can see that $s(a)$ is always greater than $s(c)$ since $n>2$. But $s(a)$ is also greater than $s(b)$, in fact we can rewrite $n-1>n\cdot\lambda$ as
 	\begin{align}
-		n-1&>n\cdot\lambda - \lambda + \lambda \\
-		n -1 - n\cdot\lambda + \lambda &> \lambda \\
-		(n-1)(1-\lambda)&> \lambda \\
-		n-1&>\frac{\lambda}{(1-\lambda)}
+	n-1&>n\cdot\lambda - \lambda + \lambda \\
+	n -1 - n\cdot\lambda + \lambda &> \lambda \\
+	(n-1)(1-\lambda)&> \lambda \\
+	n-1&>\frac{\lambda}{(1-\lambda)}
 	\end{align}
 	and since $\lambda \neq 1$ this is always the case.
 	\commentBN{That's not true. For $n=4$ and $\lambda=0.8$ we have $3 > \frac{0.8}{0.2}$ therefore $3>4$ which is false. Indeed, the score of a, $s(a)$, is greater than the score of b, $s(b)$, only for $\lambda< \frac{n-1}{n}$.}
 \end{proof}
-
-\commentBN{Prop: Some scoring rules are  $PCC$}
-
-Please note that these impossibility results prevail for any restrictions $D \subseteq \Sigma$.
-
+	
 \begin{proposition}
-	\commentBN{for m n check} Anti-plurality is not PC but it is PCC.
+	\commentBN{for m n check} Anti-plurality is not $PC$ but it is $PCC$.
 \end{proposition}
 \begin{proof} 
 	In order to prove the first statement, consider the following profile $P$
@@ -340,12 +354,12 @@ Please note that these impossibility results prevail for any restrictions $D \su
 
 \commentRS{ It is worth noting that the negative results are quite robust because they establish the non-existence of a spread measure within the very large class capital sigma. On the other hand, the positive result that anti plurality is PCC may not be very robust and could turn to be negative when capital sigma is restricted by some further conditions over spread measures. This is an issue to be explored. \\ Another issue to be explored is whether FB satisfies PC or PCC. In an earlier version, we had a nice 2-person example about FB, which seems to be lost in this version. Can we find it? Yes:	\bigskip \\ {\color{black}$x$ $a_{1}...a_{k}$ $y$ $b_{1}....b_{k}$ \\	$b_{1}....b_{k-1}$ $y$ $x$ $b_{k}$ $a_{1}...a_{k}$} \bigskip \\
 A further question to explore is whether we can suggest interesting SCRs that satisfy PCC. The particular “bargaining” case of n=2 many deserve specific consideration.}
-\pagebreak
+\newpage
 
 \bibliography{biblio}
-\bibliographystyle{abbrv}
+\bibliographystyle{ACM-Reference-Format}
 
-\pagebreak
+\newpage
 \appendix
 \section{Spread Measures}
 In our idea of compromise, we aim to determine the “most equally distributed” vector within $\left\{ \lambda^P(x)\right\} _{x\in A}$. We thus need to adopt a spread measure which is a mapping $\sigma \in \SAll: \R_{+}^{N}\longrightarrow \R_{+}$ which satisfies $\sigma(r_i, \dots, r_n)=0 \iff r_i=r_j \forall i,j$. In what follows, we will consider various classes of possible spread measures.
