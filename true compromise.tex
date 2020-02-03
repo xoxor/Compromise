@@ -274,7 +274,7 @@ It follows from the definitions that if a SCR $f$ is an Egalitarian (or a Pareti
 	In order to prove it for Anti-plurality, consider the profile described in the proof of Proposition \ref{prop:disjoint}, where the most equal alternative $z$ is ranked last by all voters. This alternative is the only element of the set $\musigma$ but it is not selected by anti-plurality.
 \end{proof}
 
-\begin{proposition} For $n>2$, $m\geq3$ \commentBN{check for n=2 (classical bargaining setting)} \label{prop:rulesnotPCC}
+\begin{proposition} For $n>2$, $m\geq3$ \commentBN{Generalize for n=2 (classical bargaining setting)} \label{prop:rulesnotPCC}
 	\begin{item}
 		\item[1)] Condorcet consistent rules are not $PCC$
 		\item[2)] BK compromise for $q \in \{1, \dots n-1\}$ are not $PCC$
@@ -299,9 +299,12 @@ It follows from the definitions that if a SCR $f$ is an Egalitarian (or a Pareti
 \noindent Please note that these impossibility results prevail for any restrictions $D \subseteq \Sigma$.
 
 \begin{proposition}
-	For $n>2$, $m=3$ some scoring rules are  $PCC$
+	For $n>2$, $m=3$ some scoring rules are  $PCC$ \commentBN{Generalize for n=2}
 \end{proposition}
 \begin{proof}
+	Let $(w_1, \dots, w_m)$ be a scoring vector such that $w_i$ represents the score given to an alternative ranked $i$-th in some preference order. Consider $1 = w_1 \geq w_2 \geq \dots \geq w_{m} = 0$. Let $s:\{1,\dots,m\}\rightarrow [0,1]$ be a scoring function that assigns to each alternative $x \in A$ a value depending on the rank obtained in each of the preference orders: 
+	\[ s(x) = \sum_{i=1}^{m} \alpha^{x}_i w_i \ ,\]
+	where $\alpha^{x}_i$ is the number of times that alternative $x$ was ranked in the $i$-th position. Let $f$ be the SCR that selects the alternatives with the highest score $f(P)=\{x \in A | s(x)\geq s(y), \ \forall y \in A\}$.
 	Consider again the profile $P$ defined in Proposition \ref{prop:rulesnotPCC}.
 	\begin{center}
 		$
@@ -311,16 +314,12 @@ It follows from the definitions that if a SCR $f$ is an Egalitarian (or a Pareti
 		\end{array}
 		$
 	\end{center}
-	Let $s:\{1,\dots,m\}\rightarrow [0,1]$ be a scoring function that assigns $1$ to the alternative ranked at the first position, and $0$ to the one ranked at the last. Therefore, the alternative ranked in the second position has a score $0 \leq \lambda<1$. We exclude $\lambda = 1$ which is anti-plurality.
-	We have that $s(a)=n-1$, $s(b)=n\cdot \lambda$, $s(c)=1$. We can see that $s(a)$ is always greater than $s(c)$ since $n>2$. But $s(a)$ is also greater than $s(b)$, in fact we can rewrite $n-1>n\cdot\lambda$ as
-	\begin{align}
-	n-1&>n\cdot\lambda - \lambda + \lambda \\
-	n -1 - n\cdot\lambda + \lambda &> \lambda \\
-	(n-1)(1-\lambda)&> \lambda \\
-	n-1&>\frac{\lambda}{(1-\lambda)}
-	\end{align}
-	and since $\lambda \neq 1$ this is always the case.
-	\commentBN{That's not true. For $n=4$ and $\lambda=0.8$ we have $3 > \frac{0.8}{0.2}$ therefore $3>4$ which is false. Indeed, the score of a, $s(a)$, is greater than the score of b, $s(b)$, only for $\lambda< \frac{n-1}{n}$.}
+	We have that $s(a)=n-1$, $s(b)=n\cdot \lambda$, $s(c)=1$. We can observe that $s(a)$ is always greater than $s(c)$ since $n>2$, and that $s(b)\geq s(x)$ for any other alternative $x\in A \setminus \{a,c\}$. Recall that $b$ is the only alternative equally ranked by everyone, so $\sigma(\lambda^P(b))=0$ and $\sigma(\lambda^P(x))>0$, $\forall x \in A \ \{b\}$; thus, $\mustar(P)=\{b\}$. In order for $f$ to be $PCC$, $f(P)$ must contain $b$. This happens if $s(b)\geq s(a)$, therefore if 
+	\begin{align*}
+	n\cdot\lambda &\geq n-1 \\
+	\lambda &\geq \frac{n-1}{n} 
+	\end{align*}
+	\commentBN{Can we generalize it for each possible profile P?}
 \end{proof}
 	
 \begin{proposition}
