@@ -1,5 +1,5 @@
-\documentclass[a4paper]{article}
-
+\RequirePackage[l2tabu, orthodox]{nag}
+\documentclass[version=3.21, pagesize, notitlepage, twoside=off, bibliography=totoc, DIV=calc, fontsize=11pt, a4paper]{scrartcl}
 \input{myPreamble/packages.tex}
 \input{myPreamble/maths.tex}
 
@@ -26,7 +26,7 @@
 	A classical social choice setting is composed of a group of individuals, or voters, that express their preferences over a set of alternatives. The social choice problem consists in defining a procedure able to determine a collective choice for this group of voters, starting from their individual preferences. Such procedure is called social choice rule and it can be defined as a function mapping preference profiles to alternatives. Depending on the properties that this function satisfies, very different outcomes can be produced starting from the same initial profile. The plurality rule is one of the most common social choice rule and it consists in selecting, as a winner, the alternative that is considered the best by the largest number of voters forming the society. Yet, this rule can pick, as a winner, an alternative that is considered the worst by a strict majority of voters. Such outcome may be undesirable. Several procedures, the so-called compromise rules, have been proposed in the literature that aim to find a compromise. Nevertheless, all those rules can be defined as \textit{ex-ante compromises} or \textit{procedural compromises}, i.e., they impose over individuals a willingness to compromise but they do not ensure an outcome where everyone has effectively compromised. In this work, we approach the problem of compromise from an \textit{ex-post} perspective, favoring an outcome where every voter gives up her most preferred positions if this increases equality. We propose a new notion of compromise in the social choice context, considering ordinal utilities. 
 \end{abstract}
 
-
+\pagebreak
 
 \section{Introduction and Related Works}
 
@@ -70,12 +70,12 @@ These two examples illustrate that BK-compromises (except fallback bargaining (F
 %In the case where the candidates are only two we talk about bargaining \citep{Thomson1994}. The bargaining problem was first axiomatized by \citet{Nash1950}, who also proposed a solution for the problem that is obtained by maximizing the product of the differences between the utility from an agreement and the one from a disagreement (namely the status quo). This is the only bargaining solution that satisfies all the following axioms: independence of equivalent utility transformations, independence of irrelevant alternatives, Pareto optimality and symmetry.
 
 \section{Basic notions and notation}
-Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 2$. We write $\linors$ for the set of linear orders (a connected, transitive, asymmetric relation) over the set of alternatives $A$. A social choice rule (SCR) is a mapping $f:\linors^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. Each individual $i \in N$ is associated to her preference order $\pref_i \in \linors$, which we also denote with $P_i$. Following the classical nomenclature, we call {\em profile} $P=(P_1, \dots, P_n)$ the set of preference orders for each individual. We define the rank (position) of alternative $x$ in the preference order of the individual $i$ as the number of alternatives that $i$ prefers to $x$: $r_i(x)=\#\{a \in A | b\prefeq_i a , b\in A\}$. Given a profile $P$ and two alternatives $x$ and $y$, if every individual ranks $x$ over $y$ than we say that $x$ Pareto dominates $y$ and that $y$ is Pareto dominated. We write $\paretopt(P)$ for the set of Pareto optimal alternatives, i.e., the alternatives which are not Pareto dominated. 
+Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 2$. We write $\linors$ for the set of linear orders (a connected, transitive, asymmetric relation) over the set of alternatives $A$. A social choice rule (SCR) is a mapping $f:\linors^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. Each individual $i \in N$ is associated to her preference order $\pref_i \in \linors$. Following the classical nomenclature, we call {\em profile} $P=(\pref_1, \dots, \pref_n)$ the set of preference orders for each individual. We define the rank (position) of alternative $x$ in the preference order of the individual $i$ as the number of alternatives that $i$ prefers to $x$: $r_{\pref_i}(x)=\#\{a \in A | b\prefeq_i a , b\in A\}$. Given a profile $P$ and two alternatives $x$ and $y$, if every individual ranks $x$ over $y$ than we say that $x$ Pareto dominates $y$ and that $y$ is Pareto dominated. We write $\paretopt(P)$ for the set of Pareto optimal alternatives, i.e., the alternatives which are not Pareto dominated. \commentBN{More formal definition of PO.}
 %A SCR $f$ is Pareto optimal if $f(P)$ never contains a Pareto dominated alternative. 
 
-We write with $\lambda^{P}_i(x)=r_{i}(x)-1$ the loss of ranks for $i$ when electing $x$ instead of her favorite alternative. This value can also be seen as the number of pairwise flips we need to perform in order to place $x$ at top position for $i$. Thus, $\lambda ^{P}(x)=(\lambda _{i}^{P}(x))_{i\in N}\in \R_+^N$ represents the vector of losses when electing $x$. 
-Considering a loss vector, we are interested in measuring its \oquot spread\cquot. We define a spread measure as a function $\sigma: \R_{+}^{N}\longrightarrow \R_{+}$ that associates a spread value to each possible loss vector.
-We call $\Sigma$ the set of spread measures $\sigma$ such that for each vector $l \in R_{+}^{N}$,  $\sigma(l_1, \dots, l_n)=0 \iff l_i=l_j$ $\forall i,j \in \{1, \dots, n\}$ . Thus, the spread of $l$ gets its lowest value $0$ in case of perfect equality and only in such case.
+We write with $\lambda^{P}_i(x)=r_{\pref_i}(x)-1$ the loss of ranks for $i$ when electing $x$ instead of her favorite alternative. This value can also be seen as the number of pairwise flips we need to perform in order to place $x$ at top position for $i$. Thus, $\lambda ^{P}(x)=(\lambda _{i}^{P}(x))_{i\in N}\in \R_+^N$ represents the vector of losses when electing $x$. 
+Considering a loss vector, we are interested in measuring its \oquot spread\cquot. We define a spread measure as a function $\sigma: (0,\dots,m-1)^{N}\longrightarrow \R_{+}$ that associates a spread value to each possible loss vector.
+We call $\Sigma$ the set of spread measures $\sigma$ such that for each vector $l \in (0,\dots,m-1)^{N}$,  $\sigma(l_1, \dots, l_n)=0 \iff l_i=l_j$ $\forall i,j \in \{1, \dots, n\}$ . Thus, the spread of $l$ gets its lowest value $0$ in case of perfect equality and only in such case.
 
 \section{Egalitarian versus Paretian compromises}
 We define the set $\musigma(P)$ as the set of the alternatives whose loss vectors are the most equally distributed according to the spread measure $\sigma$; and $\mustar(P)$ as the set of such alternatives selected among the Pareto optimal ones. 
@@ -90,14 +90,14 @@ We define the set $\musigma(P)$ as the set of the alternatives whose loss vector
 		Consider the following profile $P$,
 		\begin{center}
 			$
-			\begin{array}{ccccc}
-			\mathbf{1} \quad &a&b&\dots&z\\
-			\mathbf{n-1} \quad &b&a&\dots&z\\
+			\begin{array}{cccccc}
+			\mathbf{1} \quad &a_1&a_2&a_3&\dots&a_m\\
+			\mathbf{n-1} \quad &a_2&a_3&\dots&a_1&a_m\\
 			\end{array}
 			$
 		\end{center}
-		where we have $m$ alternatives disposed such that only one alternative $z$ is ranked at the same position by every voter, and it is ranked last.
-		For each $\sigma \in \Sigma$ the spread associated to every alternative except $z$ is greater than zero $\sigma(\lambda^P(x))>0$, $\forall x \in A \ \{z\}$; whilst $\sigma(\lambda^P(z))=0$. Thus, the set $\musigma(P)$ of the \oquot most equal\cquot \ alternatives consists of the only element $z$. On the other hand, the set $\mustar(P)$ will never contain $z$ whatever is the choice of $\sigma$ since it is a Pareto dominated alternative.
+		where we have $m$ alternatives disposed such that only one alternative $a_m$ is ranked at the same position by every voter, and it is ranked last.
+		For each $\sigma \in \Sigma$ the spread associated to every alternative except $a_m$ is greater than zero $\sigma(\lambda^P(a))>0$, $\forall a \in A \setminus \{a_m\}$; whilst $\sigma(\lambda^P(a_m))=0$. Thus, the set $\musigma(P)$ of the \oquot most equal\cquot \ alternatives consists of the only element $a_m$. On the other hand, the set $\mustar(P)$ will never contain $a_m$ whatever is the choice of $\sigma$ since it is a Pareto dominated alternative.
 	\end{proof}
 \begin{note}
 	Observe that for $m=2$ we can have one of the following situations:
@@ -158,7 +158,7 @@ It follows from the definitions that if a SCR $f$ is an Egalitarian (or a Pareti
 \end{proposition}
 \begin{proof}
 %	We already showed, in the proof of Proposition \ref{prop:disjoint}, that for $m=2$ and $\forall \sigma \in \Sigma$ and $\forall P \in \linors^N$ $\musigma(P) \cap \mustar(P) \neq 0$. So this proposition does not hold for $m<3$.
-	Consider the profile $P$ described in the proof of Proposition \ref{prop:disjoint}.
+	Consider the profile $P$ described in the proof of Proposition \ref{prop:disjoint}. \commentBN{Consider the new profile.}
 	\begin{center}
 		$
 		\begin{array}{ccccc}
@@ -172,9 +172,7 @@ It follows from the definitions that if a SCR $f$ is an Egalitarian (or a Pareti
 	
 	Moreover, we can observe that $\musigma(P)={z}$ and $z \notin \mustar(P)$, not only for some particular spread measure, but for all $\sigma \in \Sigma$. This proves the second implication.
 \end{proof}
-\begin{corollary}
-	content...
-\end{corollary}
+
 \begin{corollary} \label{cor:optECC}
 	\commentBN{m,n}$\nexists$ Pareto Optimal SCR $f$ that is $ECC$.
 \end{corollary}
@@ -200,7 +198,7 @@ It follows from the definitions that if a SCR $f$ is an Egalitarian (or a Pareti
 \begin{proof}
 	For proving this proposition is enough to consider Corollary \ref{cor:optECC}, and to observe that all these rules, except Anti-plurality, are Pareto optimal.
 	
-	In order to prove it for Anti-plurality, \commentBN{profile st z is the last and the other are shifted by 1} consider the profile described in the proof of Proposition \ref{prop:disjoint}, where the most equal alternative $z$ is ranked last by all voters. This alternative is the only element of the set $\musigma$ but it is not selected by anti-plurality.
+	In order to prove it for Anti-plurality, consider the profile described in the proof of Proposition \ref{prop:disjoint}, where the most equal alternative $z$ is ranked last by all voters. This alternative is the only element of the set $\musigma$ but it is not selected by anti-plurality. \commentBN{Change according to the new profile.}%profile st z is the last and the other are shifted by 1}
 \end{proof}
 
 \begin{proposition} For $n\geq3$, $m\geq3$ \commentBN{Generalize for n=2 (classical bargaining setting)} \label{prop:rulesnotPCC}
