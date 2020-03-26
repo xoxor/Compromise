@@ -118,30 +118,10 @@ Considering $\musigma$, we define some classes of social choice rules.
 		\]
 		We can observe that $a_m$ is the only alternative ranked at the same position by every voter, and it is ranked last. Hence, for each $\sigma \in \Sigma$ the spread associated to every alternative except $a_m$ is greater than zero $\sigma(\lambda^P(x))>0$, $\forall x \in A \setminus \{a_m\}$, while $\sigma(\lambda^P(a_m))=0$. The set $\musigma(P)$ of the \oquot most equal\cquot \ alternatives consists then of the only element $a_m$. 
 		
-		Furthermore, we can also observe that the only Pareto optimal alternatives are $a_1$ and $a_2$ \commentBN{and $a_{m-1}$}. 
-		Thus, we can conclude that the two sets $\musigma(P)=\{a_m\}$ and $\paretopt(P)=\{a_1,a_2, {\color{magenta}a_{m-1}}\}$ are disjoint $\forall \sigma \in \Sigma$.
+		Furthermore, we can also observe that the only Pareto optimal alternatives are $a_1$ and $a_2$. 
+		Thus, we can conclude that the two sets $\musigma(P)=\{a_m\}$ and $\paretopt(P)=\{a_1,a_2\}$ are disjoint $\forall \sigma \in \Sigma$.
 	\end{proof}
-	\commentBN{The construction of the profile doesn't work. For $m=4$ then the resulting profile is 
-		\begin{center}
-			$
-			\begin{array}{ccccc}
-			\mathbf{1} \quad &a_1&a_2&a_3&a_4\\
-			\mathbf{n-1} \quad &a_3&a_2&a_1&a_4\\
-			\end{array}
-			$
-		\end{center}
-	 $a_4$ is no longer the only alternative ranked at the same position by every voter, therefore $\musigma(P)=\{a_2,a_4\}$ and $\paretopt(P)=\{a_1,a_2,a_3\}$ are not disjoint.
-	 Also, I believe we should find a profile $\bar{P}$ such that not only $\musigma(\bar{P})=\mu_{\sigma'}(\bar{P})$, $\forall \sigma, \sigma' \in \Sigma$ but also $\mustar(\bar{P})=\mu^*_{\sigma'}(\bar{P})$, $\forall \sigma, \sigma' \in \Sigma$. This can be done only if $\bar{P}$ is in the form 
-	 \begin{center}
-	 	$
-	 	\begin{array}{ccccc}
-	 	\mathbf{1} \quad &a_1&a_2&\dots&a_m\\
-	 	\mathbf{n-1} \quad &a_2&a_1&\dots&a_m\\
-	 	\end{array}
-	 	$
-	 \end{center}
-	 Indeed, in this case $\musigma(\bar{P})=\{a_m\}$ and $\mustar(\bar{P})=\{a_1,a_2\}$ $\forall \sigma \in \Sigma$. But this, again, doesn't work with $m=4$.
-	}
+	
 \begin{note}
 	Observe that for $m=2$ only the two following situations are possible:
 	\begin{center}
@@ -191,7 +171,7 @@ It follows from the definitions that $\forall n, m ≥ 1, \quad \text{EC} \impli
 	$\text{EC} \implies \lnot \text{PCC}$.
 	Let $f$ be $EC$, then $\exists \bar{\sigma}\in \Sigma$ s.t. $f(P) \subseteq \mu_{\bar{\sigma}}(P)$ $\forall P \in \linors^N$. By Remark \ref{rem:deductions} \ref{itm:ded1}, $\exists \bar{P}\in \linors^N$ such that $\musigma(\bar{P})=\mu_{\sigma'}(\bar{P})$ $\forall \sigma, \sigma' \in \Sigma$, hence, $f(\bar{P}) \subseteq \mu_{\sigma'}(\bar{P})$ $\forall \sigma' \in \Sigma$. Moreover, since $\mustar(P) \subseteq \paretopt(P)$ $\forall \sigma \in \Sigma$, $\forall P \in \linors^N$, by Remark \ref{rem:deductions} \ref{itm:ded3} $\musigma(\bar{P}) \cap \mustar(\bar{P}) = \emptyset$ $\forall \sigma \in \Sigma$, we have that ${f(\bar{P})\cap \mustar(\bar{P})=\emptyset}$ $\forall \sigma \in \Sigma$.
 	
-	$\text{PC} \implies \lnot \text{ECC}$. Let $f$ be $PC$, then $\exists \bar{\sigma}\in \Sigma$ s.t. $f(P) \subseteq \mu^*_{\bar{\sigma}}(P)$ $\forall P \in \linors^N$. \commentBN{We can use the same structure of the previous case if we construct a profile $\bar{P}$ in Proposition \ref{prop:nonParetian} s.t. $\mustar(\bar{P})=\mu^*_{\sigma'}(\bar{P})$, $\forall \sigma, \sigma' \in \Sigma$}
+	$\text{PC} \implies \lnot \text{ECC}$. Let $f$ be $PC$, then $\exists \bar{\sigma}\in \Sigma$ s.t. $f(P) \subseteq \mu^*_{\bar{\sigma}}(P)$ $\forall P \in \linors^N$. \commentBN{We cannot use the same structure of the previous case because it's not true that $\mustar(\bar{P})=\mu^*_{\sigma'}(\bar{P})$, $\forall \sigma, \sigma' \in \Sigma$}
 %	By Remark \ref{rem:deductions} \ref{itm:ded3}, $\exists \bar{P}\in \linors^N$ such that
 %	$\musigma(\bar{P}) \cap \mustar(\bar{P}) = \emptyset$ $\forall \sigma \in \Sigma$, so $f(\bar{P})$
 \end{proof}
