@@ -11,6 +11,7 @@
 	\usepackage{newunicodechar}
 %Text Companion fonts, much used together with CM-like fonts. Provides \texteuro and commands for text mode characters such as \textminus, \textrightarrow, \textlbrackdbl.
 	\usepackage{textcomp}
+\usepackage{centernot}
 %Solves bug in lmodern, https://tex.stackexchange.com/a/261188; probably useful only for unusually big font sizes; and probably better to use exscale instead. Note that the authors of exscale write against this trick.
 	%\DeclareFontShape{OMX}{cmex}{m}{n}{
 		%<-7.5> cmex7
@@ -143,7 +144,7 @@
 	\makeatother
 %Permits to customize enumeration display and references
 	%\nottoggle{LCpres}{
-		%\usepackage{enumitem} %follow list environments by a string to customize enumeration, example: \begin{description}[itemindent=8em, labelwidth=!] or \begin{enumerate}[label=({\roman*}), ref={\roman*}].
+		\usepackage{enumitem} %follow list environments by a string to customize enumeration, example: \begin{description}[itemindent=8em, labelwidth=!] or \begin{enumerate}[label=({\roman*}), ref={\roman*}].
 	%}{
 	%}
 %Provides \Cen­ter­ing, \RaggedLeft, and \RaggedRight and en­vi­ron­ments Cen­ter, FlushLeft, and FlushRight, which al­low hy­phen­ation. With tikzposter, seems to cause 1=1 to be printed in the middle of the poster.
@@ -180,7 +181,7 @@
 	}{
 	}
 %Also loaded by tikz.
-	%\usepackage{xcolor}
+	\usepackage{xcolor}
 \iftoggle{LCpres}{
 	\usepackage{tikz}
 	%\usetikzlibrary{babel, matrix, fit, plotmarks, calc, trees, shapes.geometric, positioning, plothandlers, arrows, shapes.multipart}

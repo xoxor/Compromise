@@ -1,5 +1,5 @@
 %Decision Theory (MCDA and SC)
-\NewDocumentCommand{\allalts}{}{\mathscr{A}}
+\NewDocumentCommand{\allalts}{}{A}
 \NewDocumentCommand{\allcrits}{}{\mathscr{C}}
 \NewDocumentCommand{\alts}{}{A}
 \NewDocumentCommand{\dm}{}{i}
@@ -8,12 +8,14 @@
 \NewDocumentCommand{\voters}{}{N}
 \NewDocumentCommand{\allprofs}{}{\boldsymbol{\mathcal{R}}}
 \NewDocumentCommand{\prof}{}{\boldsymbol{R}}
-\NewDocumentCommand{\linors}{}{\mathscr{L}(\allalts)}
+\NewDocumentCommand{\linors}{}{\mathcal{L}(\allalts)}
 %Thanks to https://tex.stackexchange.com/q/154549
 	%\makeatletter
 	%\def\@myRgood@#1#2{\mathrel{R^X_{#2}}}
 	%\def\myRgood{\@ifnextchar_{\@myRgood@}{\mathrel{R^X}}}
 	%\makeatother
+\newcommand{\pref}{\succ}%real, connected pref, strict
+\newcommand{\prefeq}{\succeq}%real, connected pref, strict
 
 %Deliberated Judgment
 \NewDocumentCommand{\allargs}{}{S^*}
