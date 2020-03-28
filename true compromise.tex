@@ -176,13 +176,13 @@ It will also probably come with no surprise that being a PC is incompatible with
 	\newcommand{\Ptop}{\overline{P}}
 	\newcommand{\sigmatop}{\overline{\sigma}}
 	
-	Letting $\Ptop$ denote the profile of \cref{prop:muSigmaLast} and considering any EC $f$ and any $\sigma \in \Sigma$, suffices to prove that $f(\Ptop) \cap \mustar(\Ptop) = \emptyset$.
+	Letting $\Ptop$ denote the profile of \cref{prop:muSigmaLast}, with $a_m$ the alternative mentioned there, and considering any EC $f$ and any $\sigma \in \Sigma$, suffices to prove that $f(\Ptop) \cap \mustar(\Ptop) = \emptyset$.
 	
-	From \cref{prop:muSigmaLast}, $\musigma(\Ptop) \cap \paretopt(\Ptop) = \emptyset$, hence $\musigma(\Ptop) \cap \mustar(\Ptop) = \emptyset$.
+	First, from \cref{prop:muSigmaLast}, $\set{a_m} \cap \paretopt(\Ptop) = \emptyset$, hence $\set{a_m} \cap \mustar(\Ptop) = \emptyset$.
 	
-	Also, because $f$ is an EC, for some $\sigmatop$, $f(\Ptop) \subseteq \mu_{\sigmatop}(\Ptop)$. Using \cref{prop:muSigmaLast} again, we see that $\forall \sigma' \in \Sigma$, $\musigma(\Ptop) = \mu_{\sigma'}(\Ptop)$, and in particular, $\musigma(\Ptop) = \mu_{\sigmatop}(\Ptop)$, hence $f(\Ptop) \subseteq \musigma(\Ptop)$.
+	Second, because $f$ is an EC, for some $\sigmatop$, $f(\Ptop) \subseteq \mu_{\sigmatop}(\Ptop)$. Using \cref{prop:muSigmaLast} again, we see that $\mu_{\sigmatop}(\Ptop) = \set{a_m}$, hence $f(\Ptop) = \set{a_m}$.
 	
-	From these two facts follow that $f(\Ptop) \cap \mustar(\Ptop) = \emptyset$.
+	That $f(\Ptop) \cap \mustar(\Ptop) = \emptyset$ follow from these two facts.
 \end{proof}
 
 \begin{remark}
