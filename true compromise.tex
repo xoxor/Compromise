@@ -22,21 +22,11 @@
 	pdfkeywords={axiomatic analysis},
 }
 
-\newcommand{\commentBN}[1]{\textcolor{magenta}{\small$\big[$BN: #1$\big]$}}
-\newcommand{\commentRS}[1]{\textcolor{red}{\small$\big[$RS: #1$\big]$}}
-\newcommand{\paretopt}{\text{PO}}
-\newcommand{\SPPd}{\Sigma^\text{PPd}}
-\newcommand{\SAll}{\Sigma^\text{All}}
-\newcommand{\SThreshold}{\Sigma_\text{threshold}}
-\newcommand{\vpr}{\mathbf{v}}
-\newcommand{\musigma}{\mu_{\sigma}}
-\newcommand{\mustar}{\mu_{\sigma}^*}
-
 \begin{document}
 \maketitle
 
 \begin{abstract}
-	A classical social choice setting is composed of a group of individuals, or voters, that express their preferences over a set of alternatives. The social choice problem consists in defining a procedure able to determine a collective choice for this group of voters, starting from their individual preferences. Such procedure is called social choice rule and it can be defined as a function mapping preference profiles to alternatives. Depending on the properties that this function satisfies, very different outcomes can be produced starting from the same initial profile. The plurality rule is one of the most common social choice rule and it consists in selecting, as a winner, the alternative that is considered the best by the largest number of voters forming the society. Yet, this rule can pick, as a winner, an alternative that is considered the worst by a strict majority of voters. Such outcome may be undesirable. Several procedures, the so-called compromise rules, have been proposed in the literature that aim to find a compromise. Nevertheless, all those rules can be defined as \textit{ex-ante compromises} or \textit{procedural compromises}, i.e., they impose over individuals a willingness to compromise but they do not ensure an outcome where everyone has effectively compromised. In this work, we approach the problem of compromise from an \textit{ex-post} perspective, favoring an outcome where every voter gives up her most preferred positions if this increases equality. We propose a new notion of compromise in the social choice context, considering ordinal utilities. 
+	A classical social choice setting is composed of a group of individuals, or voters, that express their preferences over a set of alternatives. The social choice problem consists in defining a procedure able to determine a collective choice for this group of voters, starting from their individual preferences. Such procedure is called social choice rule and it can be defined as a function mapping preference profiles to alternatives. Depending on the properties that this function satisfies, very different outcomes can be produced starting from the same initial profile. The plurality rule is one of the most common social choice rule and it consists in selecting, as a winner, the alternative that is considered the best by the largest number of voters forming the society. Yet, this rule can pick, as a winner, an alternative that is considered the worst by a strict majority of voters. Such outcome may be undesirable. Several procedures, the so-called compromise rules, have been proposed in the literature that aim to find a compromise. Nevertheless, all those rules can be defined as \emph{ex-ante compromises} or \emph{procedural compromises}, i.e., they impose over individuals a willingness to compromise but they do not ensure an outcome where everyone has effectively compromised. In this work, we approach the problem of compromise from an \emph{ex-post} perspective, favoring an outcome where every voter gives up her most preferred positions if this increases equality. We propose a new notion of compromise in the social choice context, considering ordinal utilities. 
 \end{abstract}
 
 \section{Introduction and Related Works}
@@ -46,7 +36,6 @@ In a social choice situation where individuals have preferences over several alt
 The plurality rule, for example, selects the alternatives which are ranked the best by the largest number of voters. The problem of this procedure is that, as long as there are more than two alternatives, the outcome may lack the support of any majority. In fact, it may also be opposed by a strict majority of agents each of whom ranks the chosen candidate as their least preferred choice. All the rules existing in literature aiming at finding a compromise between voters end up facing the problem of balancing the trade-off between the quality and quantity of support behind alternatives. \citet{Merlin2019} gather them in the class of Compromise Rules. The Majoritarian Compromise \citep{Sertel1999} selects candidates who have the support of a majority in the best degree possible. 
 We call BK-compromises the class of $q$-approval fallback bargaining rules introduced by \citet{Brams2001}: the $q$-approval fallback bargaining rule picks ranks $1, 2, \dots$ and stops as soon as at least $q$ voters rank some alternative at the chosen rank or better. All such alternatives form the compromise set, and, among them, the ones which receive the highest support are elected.
 We start by an example, based on an observation made by Laslier at Buyukada, that will help us to define the problem and to give the motivation for our approach.
-
 
 \begin{example}
 	\label{ex:ex1}
@@ -81,58 +70,72 @@ These two examples illustrate that BK-compromises (except fallback bargaining (F
 %In the case where the candidates are only two we talk about bargaining \citep{Thomson1994}. The bargaining problem was first axiomatized by \citet{Nash1950}, who also proposed a solution for the problem that is obtained by maximizing the product of the differences between the utility from an agreement and the one from a disagreement (namely the status quo). This is the only bargaining solution that satisfies all the following axioms: independence of equivalent utility transformations, independence of irrelevant alternatives, Pareto optimality and symmetry.
 
 \section{Basic notions and notation}
-Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 2$. We write $\linors$ for the set of linear orders (a connected, transitive, asymmetric relation) over the set of alternatives $A$. A \emph{social choice rule} (SCR) is a mapping $f:\linors^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. Each individual $i \in N$ is associated to her preference order $\pref_i \in \linors$. Following the classical nomenclature, we call {\em profile} $P: N \rightarrow \linors$ the association of a preference order to each individual. We define the \emph{rank} of alternative $x$ in the preference order of the individual $i$ as the number of alternatives that $i$ weakly prefers to $x$: $r_{\pref_i}(x)=\#\{y \in A | y\pref_i x \}+1$. Given a profile $P$ and two alternatives $x$ and $y$, we say that $x$ \emph{Pareto dominates} $y$, and that $y$ is \emph{Pareto dominated}, iff $x \pref_i y, \forall i \in N$. We denote with $\paretopt(P)= \{x \in A | \forall y ≠ x \in A, \exists i \in N \mid x \pref_i y \}$ the set of \emph{Pareto optimal} alternatives, i.e., the alternatives which are not Pareto dominated. A SCR $f$ is \emph{Paretian} iff $\forall P \in \linors^N: f(P) \subseteq \paretopt(P)$.
+\commentRS{The case of n = 2 is certainly interesting while I doubt m = 2 is of interest for the question we are addressing. One possibility is to rule out m = 2 at the outset, so in Section 2 say that n is at least 2 and m is at least three. In this case, the note that follows Proposition 3.1 where m =2 is discussed becomes unnecessary. If, otherwise, we keep m = 2, then this note should be improved. Moreover, a similar discussion should follow Proposition 3.2.}
 
-We write with $\lambda^{P}_i(x)=r_{\pref_i}(x)-1$ the loss for $i$ when electing $x$ instead of her favorite alternative, in number of ranks. This value can also be seen as the minimal number of pairwise flips required for placing $x$ at top position for $i$. Thus, $\lambda ^{P}(x)=(\lambda _{i}^{P}(x))_{i\in N}\in \intvl{0, m-1}^{N}$ represents the vector of losses when electing $x$. 
-Considering a loss vector, we are interested in measuring its \oquot spread\cquot. We define a spread measure as a function $\sigma: \intvl{0, m-1}^{N}\longrightarrow \R_{+}$ that associates a spread value to each possible loss vector.
-We call $\Sigma$ the set of spread measures $\sigma$ such that for each vector $l \in \intvl{0, m-1}^{N}$,  $\sigma(l_1, \dots, l_n)=0 \iff l_i=l_j$ $\forall i,j \in \intvl{0, n}$ . Thus, the spread of $l$ gets its lowest value $0$ in case of perfect equality and only in such case.
+Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 2$. We write $\linors$ for the set of linear orders (a connected, transitive, asymmetric relation) over the set of alternatives $A$. 
+Following the classical nomenclature, we call {\em profile} $P: N → \linors$ the association, to each individual $i \in N$, of a preference order $\prefi \in \linors$ (note that we write $\prefi$ instead of $P_i$). 
+A \emph{social choice rule} (SCR) is a mapping $f:\linors^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. 
+
+We define the \emph{rank} of alternative $x$ in the preference order of the individual $i$ as the number of alternatives that $i$ weakly prefers to $x$: $r_\prefi(x)=\#\{y \in A \suchthat y \pref_i x \}+1$. 
+We write with $\lambda_\prefi(x)=r_\prefi(x)-1$ the loss for $i$ when electing $x$ instead of her favorite alternative, in number of ranks. This value can also be seen as the minimal number of pairwise flips required for placing $x$ at top position for $i$. 
+The notation $\lambda^{P}(x)=(\lambda_\prefi(x))_{i \in N}$ represents the vector of losses when electing $x$. 
+We use double brackets to denote intervals in the integers, thus $\lambda^{P}(x) \in \alllosses$.
+
+Considering a loss vector, we are interested in measuring its “spread”. We define a \emph{spread measure} as a function $\sigma: \alllosses → \R_{+}$ that associates a spread value to each possible loss vector.
+We call $\Sigma$ the set of spread measures $\sigma$ such that for each vector $l \in \alllosses$,  $(\sigma(l)=0) \iff (\forall i, j \in N: l_i=l_j)$. Thus, the spread of $l$ gets its lowest value $0$ in case of perfect equality and only in such case.
+
+Given a profile $P$ and two alternatives $x$ and $y$, we say that $x$ \emph{Pareto dominates} $y$, and that $y$ is \emph{Pareto dominated}, iff $x \pref_i y, \forall i \in N$. We denote the set of \emph{Pareto optimal} alternatives, i.e., the alternatives which are not Pareto dominated, with $\paretopt(P)= \set{x \in A \suchthat \forall y ≠ x \in A, \exists i \in N \suchthat x \pref_i y}$. A SCR $f$ is \emph{Paretian} iff $\forall P \in \linors^N: f(P) \subseteq \paretopt(P)$.
 
 \section{Egalitarian versus Paretian compromises}
-\subsection{Egalitarian compromise}
-We define the set $\musigma(P)$ as the set of the alternatives whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
+\subsection{Egalitarian compromises}
+Let $\musigma(P)$ denote the alternatives whose loss vectors are the most equally distributed according to the spread measure $\sigma$:
 \[
-	\musigma(P) = \argmin_{x \in A} \sigma(\lambda^P(x)) = \{ x \in A \ | \ \sigma (\lambda^P(x))\leq \sigma (\lambda^P(y)), \forall y \in A \}
+	\musigma(P) = \argmin_{x \in A} \sigma(\lambda^P(x)) = \set{ x \in A \suchthat \forall y \in A: \sigma(\lambda^P(x)) ≤ \sigma(\lambda^P(y)) }.
 \]
+\commentOC{$\lambda^P: A → \alllosses$. Define ${\lambda^P}^{-1}: \lambda^P(A) → A$. Define $<_\sigma$ and $≤_\sigma$ as binary relations over $\alllosses$. Given $L \subseteq \alllosses$, define $\min_{<_\sigma}L = \set{l \in L \suchthat \forall l' \in L: l ≤_\sigma l'}$ as the minimal elements of $L$ considering $<_\sigma$. Then, $\musigma(P) = {\lambda^P}^{-1}(\min_{<_\sigma}(\lambda^P(A))$. Define $<_{\sigma \circ \lambda^P} \subseteq A × A$ and $x <_{\sigma \circ \lambda^P} y \iff \lambda^P(x) <_\sigma \lambda^P(y)$. Then, $\musigma(P) = \min_{<_{\sigma \circ \lambda^P}}(A)$.}
 
-Considering $\musigma$, we define some classes of social choice rules.
+We are interested in this section in analyzing the following classes of social choice rules. Egalitarian Compromises always select \emph{all} winners among the alternatives with most equally distributed losses; Egalitarian Compromise Compatible rules always select \emph{some} winners among the alternatives with most equally distributed losses.
 
-\begin{definition} A SCR $f$ is an \textit{Egalitarian Compromise} EC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have }f(P) \subseteq \musigma(P).\]
+\begin{definition} A SCR $f$ is an \emph{Egalitarian Compromise} (EC) iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have }f(P) \subseteq \musigma(P).\]
 \end{definition}
 
-\begin{definition} A SCR $f$ is \textit{Egalitarian Compromise Compatible} ECC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \cap \musigma(P) \neq \emptyset.\]
+\begin{definition} A SCR $f$ is \emph{Egalitarian Compromise Compatible} (ECC) iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \cap \musigma(P) \neq \emptyset.\]
 \end{definition}
 
-\begin{proposition} \label{prop:nonParetian}
-	For $n\geq 2, \ m\geq3$, $\nexists$ a Paretian SCR $f$ which is $ECC$.
-\end{proposition}
-	\begin{proof}
-		In order to prove the proposition we need to show that there exists a profile $P$ such that $\paretopt(P) \cap \musigma(P) = \emptyset$, $\forall \sigma \in \Sigma$.
-		 
-		Consider the following profile $P$,
-		\begin{center}
-			$
-			\begin{array}{ccccc}
-			\mathbf{1} \quad &a_1&a_2&\dots&a_m\\
-			\mathbf{n-1} \quad &a_{\pi_(1)}&a_{\pi_(2)}&\dots&a_{\pi_(m)}\\
-			\end{array}
-			$
-		\end{center}
-		where 
-		\[
-		\pi(i) = 
-		\begin{cases}
-		i+1 & \text{if } i \in \intvl{1, m-2} \\
-		1 & \text{if } i = m-1 \\
-		m & \text{if } i = m
-		\end{cases}.
-		\]
-		We can observe that $a_m$ is the only alternative ranked at the same position by every voter, and it is ranked last. Hence, for each $\sigma \in \Sigma$ the spread associated to every alternative except $a_m$ is greater than zero $\sigma(\lambda^P(x))>0$, $\forall x \in A \setminus \{a_m\}$, while $\sigma(\lambda^P(a_m))=0$. The set $\musigma(P)$ of the \oquot most equal\cquot \ alternatives consists then of the only element $a_m$. 
-		
-		Furthermore, we can also observe that the only Pareto optimal alternatives are $a_1$ and $a_2$. 
-		Thus, we can conclude that the two sets $\musigma(P)=\{a_m\}$ and $\paretopt(P)=\{a_1,a_2\}$ are disjoint $\forall \sigma \in \Sigma$.
-	\end{proof}
+From these definitions, it is plain that being an EC implies being ECC.
+
+\begin{theorem} \label{prop:nonParetian}
+	For $n\geq 2, \ m\geq3$, no Paretian SCR is $ECC$.
+\end{theorem}
+\begin{proof}
+	In order to prove the proposition we need to show that $\forall \sigma \in \Sigma$, for some profile $P$, $\paretopt(P) \cap \musigma(P) = \emptyset$.
+	 
+	Consider the following profile $P$,
+	\begin{center}
+		$
+		\begin{array}{ccccc}
+		\mathbf{1} \quad &a_1&a_2&\dots&a_m\\
+		\mathbf{n-1} \quad &a_{\pi_(1)}&a_{\pi_(2)}&\dots&a_{\pi_(m)}\\
+		\end{array}
+		$
+	\end{center}
+	where 
+	\[
+	\pi(i) = 
+	\begin{cases}
+	i+1 & \text{if } i \in \intvl{1, m-2} \\
+	1 & \text{if } i = m-1 \\
+	m & \text{if } i = m
+	\end{cases}.
+	\]
+	We can observe that $a_m$ is the only alternative ranked at the same position by every voter, and it is ranked last. Hence, for each $\sigma \in \Sigma$ the spread associated to every alternative except $a_m$ is greater than zero $\sigma(\lambda^P(x))>0$, $\forall x \in A \setminus \{a_m\}$, while $\sigma(\lambda^P(a_m))=0$. The set $\musigma(P)$ of the \oquot most equal\cquot \ alternatives consists then of the only element $a_m$. 
+	
+	Furthermore, we can also observe that the only Pareto optimal alternatives are $a_1$ and $a_2$. 
+	Thus, we can conclude that the two sets $\musigma(P)=\{a_m\}$ and $\paretopt(P)=\{a_1,a_2\}$ are disjoint $\forall \sigma \in \Sigma$.
+\end{proof}
 	
 \begin{remark}
+\commentRS{Remark 3.1 (only parts i and ii) can go right after the proof of Proposition 3.1, noting that it will be later used in the proof of Proposition 3.2. As in Remark 3.1, ii directly implies iii, we can still use it for Proposition 3.2 when showing EC implies not PCC. }
 	Observe that for $m=2$ only the two following situations are possible:
 	\begin{center}
 		$
@@ -146,17 +149,18 @@ Considering $\musigma$, we define some classes of social choice rules.
 	In the first case there are no Pareto dominated alternatives, so the set of Pareto optimal alternatives $\paretopt(P)$ is equivalent to $A$ and, whatever $\musigma(P)$ is, their intersection is non-empty. In the second case, the alternative $b$ is Pareto dominated, thus $\paretopt(P')=\{a\}$. Moreover, both the alternatives $a$ and $b$ are ranked at the same position by every voter, so, $\forall \sigma \in \Sigma$, the spread of the loss vectors associated to both of those alternatives is $0$. The set of \oquot most equal\cquot \ alternatives is then $\musigma(P')=\{a,b\}$ and its intersection with $\paretopt(P')$ is, again, non-empty.
 \end{remark}
 
-\subsection{Paretian Compromise}
+\subsection{Paretian compromises}
+\commentRS{Section 3.2 must have more of a narrative of what we are doing, with more comments on Proposition 3.2 and Remark 3.2.}
 We define the set $\mustar(P)$ as the set of the Pareto optimal alternatives whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
 \[	\mustar(P)  = \argmin_{x \in \paretopt(P)} \sigma(\lambda^P(x)) = \{ x \in \paretopt(P) \ | \ \sigma (\lambda^P(x))\leq \sigma (\lambda^P(y)), \forall y \in \paretopt(P) \} \]
 
 As in the Egalitarian case, considering $\mustar$, we define some classes of social choice rules.
 
-\begin{definition} A SCR $f$ is a \textit{Paretian Compromise} PC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \subseteq \mustar(P).\]
+\begin{definition} A SCR $f$ is a \emph{Paretian Compromise} PC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \subseteq \mustar(P).\]
 \end{definition}
 
 
-\begin{definition} A SCR $f$ is \textit{Paretian Compromise Compatible} PCC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \cap \mustar(P) \neq \emptyset.\]
+\begin{definition} A SCR $f$ is \emph{Paretian Compromise Compatible} PCC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \cap \mustar(P) \neq \emptyset.\]
 \end{definition}
 
 In what follows, we analyze some relationships between the classes described so far. 
@@ -164,6 +168,7 @@ In what follows, we analyze some relationships between the classes described so 
 It follows from the definitions that $\forall n, m ≥ 1, \quad \text{EC} \implies \text{ECC} \text{ and } \text{PC} \implies \text{PCC} $. 
 
 \begin{remark}
+	\commentOC{This used to be Remark 3.1}
 	\label{rem:deductions}
 	By the proof of Proposition \ref{prop:nonParetian}, we can deduce that, for $n\geq 2, \ m\geq3$, $\exists \bar{P} \in \linors^N$ s.t. 
 	\begin{enumerate}[label=(\roman*)]
@@ -173,8 +178,7 @@ It follows from the definitions that $\forall n, m ≥ 1, \quad \text{EC} \impli
 	\end{enumerate}
 \end{remark}
 
-
-
+\commentRS{For Proposition 3.2, the proof of PC implies not ECC is straightforward: if f is PC, then f is Paretian and by Proposition 3.1, f is not ECC. }
 \begin{proposition} \label{prop:incompatibility} For $n\geq 2, \ m\geq3$, $\text{EC} \implies \lnot \text{PCC}$ and $\text{PC} \implies \lnot \text{ECC}$ $\forall \sigma \in \Sigma$.
 \end{proposition}
 \begin{proof}
@@ -187,6 +191,8 @@ It follows from the definitions that $\forall n, m ≥ 1, \quad \text{EC} \impli
 \end{proof}
 
 \begin{remark}
+	\commentOC{This used to be Remark 3.2.}
+	\commentRS{Remark 3.2 should mention n and m }
 	There exists a SCR $f$ which is ECC and PCC.
 \end{remark}
 \begin{proof}
@@ -200,7 +206,7 @@ It follows from the definitions that $\forall n, m ≥ 1, \quad \text{EC} \impli
 	\commentBN{m,n}All Condorcet consistent rules, all BK compromises, all point runoff rules and all scoring rules fail ECC.
 \end{proposition}
 \begin{proof}
-	For proving this proposition is enough to consider Corollary \ref{cor:optECC}, and to observe that all these rules, except Anti-plurality, are Pareto optimal.
+	For proving this proposition is enough to consider Corollary ref{cor:optECC}, and to observe that all these rules, except Anti-plurality, are Pareto optimal.
 	
 	In order to prove it for Anti-plurality, consider the profile described in the proof of Proposition \ref{prop:nonParetian}, where the most equal alternative $z$ is ranked last by all voters. This alternative is the only element of the set $\musigma$ but it is not selected by anti-plurality. \commentBN{Change according to the new profile.}%profile st z is the last and the other are shifted by 1}
 \end{proof}
