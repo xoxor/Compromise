@@ -102,7 +102,7 @@ We are interested in this section in analyzing the following classes of social c
 \begin{definition} A SCR $f$ is \emph{Egalitarian Compromise Compatible} (ECC) iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \cap \musigma(P) \neq \emptyset.\]
 \end{definition}
 
-From these definitions, it is plain that being an EC implies being ECC. Perhaps more surprisingly, being ECC (or EC) is incompatible with being Paretian. This will be deduced from the following proposition, which will also be useful for \cref{prop:todo}.
+From these definitions, it is plain that being an EC implies being ECC. Perhaps more surprisingly, being ECC (or EC) is incompatible with being Paretian. This will be deduced from the following proposition, which will also be useful for \cref{prop:incompatibility}.
 
 \begin{proposition} \label{prop:muSigmaLast}
 	For $n ≥ 2, m ≥ 3$, there exists a profile $P \in \linors^N$ that contains an alternative $a_m$ ranked last by every voter and such that $\forall \sigma \in \Sigma: \musigma(P) = \set{a_m}$ and $\musigma(P) \cap \paretopt(P) = \emptyset$.
@@ -173,12 +173,16 @@ It will also probably come with no surprise that being a PC is incompatible with
 	For $n ≥ 2, m ≥ 3$, no SCR is both EC and PCC.
 \end{proposition}
 \begin{proof}
-	$\text{EC} \implies \lnot \text{PCC}$.
-	Let $f$ be $EC$, then $\exists \bar{\sigma}\in \Sigma$ s.t. $f(P) \subseteq \mu_{\bar{\sigma}}(P)$ $\forall P \in \linors^N$. By Remark \ref{rem:deductions} \ref{itm:ded1}, $\exists \bar{P}\in \linors^N$ such that $\musigma(\bar{P})=\mu_{\sigma'}(\bar{P})$ $\forall \sigma, \sigma' \in \Sigma$, hence, $f(\bar{P}) \subseteq \mu_{\sigma'}(\bar{P})$ $\forall \sigma' \in \Sigma$. Moreover, since $\mustar(P) \subseteq \paretopt(P)$ $\forall \sigma \in \Sigma$, $\forall P \in \linors^N$, by Remark \ref{rem:deductions} \ref{itm:ded3} $\musigma(\bar{P}) \cap \mustar(\bar{P}) = \emptyset$ $\forall \sigma \in \Sigma$, we have that ${f(\bar{P})\cap \mustar(\bar{P})=\emptyset}$ $\forall \sigma \in \Sigma$.
+	\newcommand{\Ptop}{\overline{P}}
+	\newcommand{\sigmatop}{\overline{\sigma}}
 	
-	$\text{PC} \implies \lnot \text{ECC}$. Let $f$ be $PC$, then $\exists \bar{\sigma}\in \Sigma$ s.t. $f(P) \subseteq \mu^*_{\bar{\sigma}}(P)$ $\forall P \in \linors^N$. \commentBN{We cannot use the same structure of the previous case because it's not true that $\mustar(\bar{P})=\mu^*_{\sigma'}(\bar{P})$, $\forall \sigma, \sigma' \in \Sigma$}
-%	By Remark \ref{rem:deductions} \ref{itm:ded3}, $\exists \bar{P}\in \linors^N$ such that
-%	$\musigma(\bar{P}) \cap \mustar(\bar{P}) = \emptyset$ $\forall \sigma \in \Sigma$, so $f(\bar{P})$
+	Letting $\Ptop$ denote the profile of \cref{prop:muSigmaLast} and considering any EC $f$ and any $\sigma \in \Sigma$, suffices to prove that $f(\Ptop) \cap \mustar(\Ptop) = \emptyset$.
+	
+	From \cref{prop:muSigmaLast}, $\musigma(\Ptop) \cap \paretopt(\Ptop) = \emptyset$, hence $\musigma(\Ptop) \cap \mustar(\Ptop) = \emptyset$.
+	
+	Also, because $f$ is an EC, for some $\sigmatop$, $f(\Ptop) \subseteq \mu_{\sigmatop}(\Ptop)$. Using \cref{prop:muSigmaLast} again, we see that $\forall \sigma' \in \Sigma$, $\musigma(\Ptop) = \mu_{\sigma'}(\Ptop)$, and in particular, $\musigma(\Ptop) = \mu_{\sigmatop}(\Ptop)$, hence $f(\Ptop) \subseteq \musigma(\Ptop)$.
+	
+	From these two facts follow that $f(\Ptop) \cap \mustar(\Ptop) = \emptyset$.
 \end{proof}
 
 \begin{remark}
