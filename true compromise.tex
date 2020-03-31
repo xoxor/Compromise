@@ -93,11 +93,11 @@ Let $\musigma(P)$ denote the alternatives whose loss vectors are the most equall
 \[
 	\musigma(P) = \argmin_{x \in A} \sigma(\lambda^P(x)) = \set{ x \in A \suchthat \forall y \in A: \sigma(\lambda^P(x)) ≤ \sigma(\lambda^P(y)) }.
 \]
-\commentOC{I suggest the following notation instead. Given $L \subseteq \alllosses$, define $\min_{\sigma \circ \lambda^P} L = \set{l \in L \suchthat \forall l' \in L: \sigma(\lambda^P(l)) ≤ \sigma(\lambda^P(l'))}$ as the minimal elements of $L$, as measured by $(\sigma \circ \lambda^P)$. Then, $\musigma(P) = \min_{\sigma \circ \lambda^P} (A)$ and $\mustar(P) = \min_{\sigma \circ \lambda^P} (\paretopt(P))$.}
+\commentOC{I suggest the following notation instead. Given $X \subseteq A$, define $\min_{\sigma \circ \lambda^P} X = \set{x \in X \suchthat \forall y \in A: \sigma(\lambda^P(x)) ≤ \sigma(\lambda^P(y))}$ as the minimal elements of $X$, as measured by $(\sigma \circ \lambda^P)$. Then, $\musigma(P) = \min_{\sigma \circ \lambda^P} (A)$ and $\mustar(P) = \min_{\sigma \circ \lambda^P} (\paretopt(P))$.}
 
 \commentOC{Note for myself (do not pay attention). $\lambda^P: A → \alllosses$. Define ${\lambda^P}^{-1}: \lambda^P(A) → A$. Define $<_\sigma$ and $≤_\sigma$ as binary relations over $\alllosses$. Then, $\musigma(P) = {\lambda^P}^{-1}(\min_{<_\sigma}(\lambda^P(A))$. Define $<_{\sigma \circ \lambda^P} \subseteq A × A$ and $x <_{\sigma \circ \lambda^P} y \iff \lambda^P(x) <_\sigma \lambda^P(y)$.}
 
-We are interested in this section in analyzing the following classes of social choice rules. Egalitarian Compromises always select \emph{all} winners among the alternatives with most equally distributed losses; Egalitarian Compromise Compatible rules always select \emph{some} winners among the alternatives with most equally distributed losses.
+We are interested in this section in analyzing the following classes of social choice rules. \emph{All} Egalitarian Compromises winners are among the alternatives with most equally distributed losses; while \emph{some} Egalitarian Compromise Compatible winners are among the alternatives with most equally distributed losses.
 
 \begin{definition} A SCR $f$ is an \emph{Egalitarian Compromise} (EC) iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have }f(P) \subseteq \musigma(P).\]
 \end{definition}
@@ -108,7 +108,7 @@ We are interested in this section in analyzing the following classes of social c
 From these definitions, it is plain that being an EC implies being ECC. Perhaps more surprisingly, being ECC (or EC) is incompatible with being Paretian. This will be deduced from the following proposition, which will also be useful for \cref{prop:incompatibility}.
 
 \begin{proposition} \label{prop:muSigmaLast}
-	For $n ≥ 2, m ≥ 3$, there exists a profile $P \in \linors^N$ that contains an alternative $a_m$ ranked last by every voter and such that $\forall \sigma \in \Sigma: \musigma(P) = \set{a_m}$ and $\musigma(P) \cap \paretopt(P) = \emptyset$.
+	For $n ≥ 2, m ≥ 3$, there exists a profile $P \in \linors^N$ and an alternative $a_m$ such that $a_m$ is ranked last by every voter and such that $\forall \sigma \in \Sigma: \musigma(P) = \set{a_m}$; hence, $\musigma(P) \cap \paretopt(P) = \emptyset$.
 \end{proposition}
 \begin{proof}
 	Consider the following profile $P$:
@@ -120,7 +120,7 @@ From these definitions, it is plain that being an EC implies being ECC. Perhaps 
 		\end{array}
 		$,
 	\end{center}
-	where 
+	where $\pi$ is the following permutation over $\intvl{1, m-1}$:
 	\[
 	\pi(i) = 
 	\begin{cases}
@@ -128,7 +128,7 @@ From these definitions, it is plain that being an EC implies being ECC. Perhaps 
 	1 & \text{if } i = m-1
 	\end{cases}.
 	\]
-	In $P$, $a_m$ is the only alternative ranked at the same position by every voter, and it is ranked last. Hence, for each $\sigma \in \Sigma$ the spread $\sigma(\lambda^P(a))$ associated to each alternative $a ≠ a_m$ is greater than zero, while $\sigma(\lambda^P(a_m))=0$. The set $\musigma(P)$ of the alternatives with most equally distributed losses thus consists of the sole element $a_m$. And because $a_m$ is Pareto dominated, $\musigma(P) \cap \paretopt(P) = \emptyset$.
+	In $P$, $a_m$ is the only alternative ranked at the same position by every voter, and it is ranked last. Hence, for each $\sigma \in \Sigma$ the spread $\sigma(\lambda^P(a))$ associated to each alternative $a ≠ a_m$ is greater than zero, while $\sigma(\lambda^P(a_m))=0$. The set $\musigma(P)$ of the alternatives with most equally distributed losses thus consists of the sole element $a_m$. Moreover, because $a_m$ is Pareto dominated, $\musigma(P) \cap \paretopt(P) = \emptyset$.
 \end{proof}
 
 Our main observation for this section follows easily.
@@ -138,19 +138,6 @@ Our main observation for this section follows easily.
 \begin{proof}
 	Proving this amounts to show that $\forall \sigma \in \Sigma, \exists P \in \linors^N \suchthat \paretopt(P) \cap \musigma(P) = \emptyset$. Suffices to use \cref{prop:muSigmaLast}, which asserts that there exists a profile $P$ such that $\forall \sigma \in \Sigma: \musigma(P) \cap \paretopt(P) = \emptyset$.
 \end{proof}
-	
-\begin{remark}
-	\Cref{prop:nonParetian} does not hold for $m=2$: in that case, the largest Paretian SCR, $f(P) = \paretopt(P)$, is ECC. In fact, $\forall \sigma, P: \paretopt(P) \cap \musigma(P) ≠ \emptyset$. This is because all profiles with two alternatives have this form, with $k < n$:
-	\begin{center}
-		$
-		\begin{array}{ccc}
-		\mathbf{k} \quad &a&b\\
-		\mathbf{n-k} \quad &b&a\\
-		\end{array}
-		$
-	\end{center}
-	If $k ≥ 1$, there are no Pareto dominated alternatives, so $\paretopt(P) = A$, thus $\paretopt(P) \cap \musigma(P) ≠ \emptyset$. And if $k = 0$, all alternatives are ranked at the same position by every voter, so $\forall \sigma \in \Sigma$, the spread of the loss vectors associated to each alternative is $0$, thus, $\musigma(P)=A$ and, again, $\paretopt(P) \cap \musigma(P) ≠ \emptyset$.
-\end{remark}
 
 \subsection{Paretian compromises}
 The previous section shows the tension between being Paretian and insisting on selecting egalitarian alternatives even when they are Pareto dominated. This section investigates the consequences of inverting the order of priorities: the compromise rules defined here insist that at least some of the winning alternatives be Pareto optimal, and considers the most equally distributed loss vectors among those.
@@ -190,12 +177,26 @@ It is less immediate that being an EC is incompatible with being PCC, because be
 It is interesting to note that the incompatibility is not complete, however.
 
 \begin{remark}
-	For all $n, m$, there exists an ECC and PCC SCR.
+	For $n ≥ 2$, $m ≥ 2$, there exists an ECC and PCC SCR.
 \end{remark}
 \begin{proof}
 	Consider the SCR which always selects the whole set of alternatives: $f(P)=A, \forall P \in \linors^N$. Then, $f(P) \cap \musigma(P) \neq \emptyset$, so $f$ is ECC, and $f(P) \cap \mustar(P) \neq \emptyset$, so $f$ is PCC.
 \end{proof}
 This is of course only a partial relief for the lovers of both these principles, as such a compatible rule must fail to be Paretian.
+
+\commentOC{TODO complement this remark.}
+\begin{remark}
+	\Cref{prop:nonParetian} does not hold for $m=2$: in that case, the largest Paretian SCR, $f(P) = \paretopt(P)$, is ECC. In fact, $\forall \sigma, P: \paretopt(P) \cap \musigma(P) ≠ \emptyset$. This is because all profiles with two alternatives have this form, with $k < \frac{n}{2}$:
+	\begin{center}
+		$
+		\begin{array}{ccc}
+		\mathbf{k} \quad &a&b\\
+		\mathbf{n-k} \quad &b&a\\
+		\end{array}
+		$
+	\end{center}
+	If $k ≥ 1$, there are no Pareto dominated alternatives, so $\paretopt(P) = A$, thus $\paretopt(P) \cap \musigma(P) ≠ \emptyset$. And if $k = 0$, all alternatives are ranked at the same position by every voter, so $\forall \sigma \in \Sigma$, the spread of the loss vectors associated to each alternative is $0$, thus, $\musigma(P)=A$ and, again, $\paretopt(P) \cap \musigma(P) ≠ \emptyset$.
+\end{remark}
 
 \section{Which SCRs are compromises?}
 
@@ -238,8 +239,7 @@ a_{1}\right\} $ while $\mu _{\sigma }(P)=\mu _{\sigma }^{\ast }(P)=\left\{
 a_{2}\right\} $ $\forall \sigma \in \Sigma $.
 \end{proof}
 
-Note that Condorcet consistent rules need not be Paretian so the fact that
-they all fail ECC does not follow from \cref{prop:nonParetian}. \commentOC{I am not convinced of the value of this remark.}
+Note that Condorcet consistent rules need not be Paretian so the fact that they all fail ECC does not follow from \cref{prop:nonParetian}. 
 
 \subsection{Scoring rules}
 A \emph{score vector} is an $m-$tuple $w=(w_{1},...,$ $w_{m})\in \left[ 0,1%
@@ -284,7 +284,7 @@ lead to a failure of PCC.
 If $k.n\geq m-1$ for some $k\in \left\{ 1,...,\text{ }m-2\right\} $ and $%
 \frac{n-1}{n}>w_{m-k}$ then $f^w$ fails PCC.
 \end{proposition}
-\commentOC{Didn’t we have some similar result whose proof was easier?}
+\commentOC{Didn’t we have some similar result whose proof was easier? Let’s try to simplify it, under condition that the other results still follow.}
 \begin{proof}
 Take any $n\geq 3$ and $m\geq 3$ with $k.n\geq m-1$ for some $k\in \left\{
 1,...,\text{ }m-2\right\} $. Let $A=\left\{ a_{1},...,\text{ }a_{m}\right\} $%
@@ -304,18 +304,14 @@ f^{w}(P)\cap $ $\mu _{\sigma }^{\ast }(P)=\varnothing $ $\forall \sigma \in
 \end{proof}
 
 As an interesting particular case covered by Proposition \ref{whenPCCfails}
-we have scoring vectors with $w_{2}<1$ which also includes strict scoring
-rules. \commentOC{Why “which also includes strict scoring rules”?}
+we have scoring vectors with $w_{2}<1$ which also includes the Borda rule. \commentOC{Improve wording and give a reference.}
 
 \begin{proposition}
 Let $n\geq 3$ and $m\geq 3.$ For any score vector $w$ with $w_{2}<1$, if $%
 \frac{n-1}{n}>w_{2}$ then $f^w$ fails PCC.
 \end{proposition}
 \begin{proof}
-\commentOC{I’d write: \Cref{whenPCCfails} can be applied by taking $k=m-2$ and observing that $n ≥ 3 ≥ \frac{m-1}{m-2}$.}
-Take any $n\geq 3$ and $m\geq 3.$ Note that when $k=m-2$, we have $k.n\geq
-m-1$ for any $n$ and $m.$ Thus, by Proposition \ref{whenPCCfails}, $\frac{n-1%
-}{n}>w_{2}$ ensures the failure of PCC.
+\Cref{whenPCCfails} can be applied by taking $k=m-2$ and observing that $n ≥ 3 ≥ \frac{m-1}{m-2}$.
 \end{proof}
 
 As a matter of fact, Proposition \ref{whenPCCfails} paves the way the
@@ -343,7 +339,7 @@ Define $n = \max\set*{\ceil*{\frac{m-1}{k}}, \floor*{\frac{1}{1-w_{m-k}}}+1}$. \
 
 An immediate corollary to Proposition \ref{nlargefailspcc} is about the 
 \textit{antiplurality rule }which is the scoring rule $f^{w}$ with $w_{i}=1$ 
-$\forall i\in \left\{ 1,...,\text{ }m-1\right\} .$ \commentOC{This is actually an equivalent statement. And I find its interest clearer when written in the second way. Thus, I’d remove the previous proposition and directly prove it using the phrasing involving AP. And write it conversely: if  $f^w$ is PCC for any $n ≥ 3$, then $f^w$ is AP.}
+$\forall i\in \left\{ 1,...,\text{ }m-1\right\} .$ \commentOC{This is actually an equivalent statement. And I find its interest clearer when written in the second way. Thus, I’d remove the previous proposition and directly prove it using the phrasing involving AP. And write it conversely: if  $f^w$ is PCC for any $n ≥ 3$, then $f^w$ is AP. Let’s write it $f^w_n$, by the way.}
 
 \begin{proposition}
 Let $m\geq 3$. If $f^w$ is a scoring rule which isn't the antiplurality
