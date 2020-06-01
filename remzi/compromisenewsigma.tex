@@ -1,0 +1,79 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Saturday, March 28, 2020 13:25:21}
+%TCIDATA{LastRevised=Tuesday, March 31, 2020 20:40:58}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+\begin{document}
+
+
+Given a rank vector $r\in \left\{ 1,...,\text{ }m\right\} ^{N}$, we write $%
+\varepsilon ^{k}(r)=(\left\vert r_{i}-k\right\vert )_{i\in N}$ for the
+equalizing vector at level $k\in $ $\left\{ 1,...,\text{ }m\right\} $. We
+write $\overline{\varepsilon ^{k}}(r)$ for the vector obtained by
+reshuffling the entries of $\varepsilon ^{k}(r)$ in a non-decreasing order.
+Given any two rank vectors $r,q\in \left\{ 1,...,\text{ }m\right\} ^{N}$ we
+say that $r$ is more equal than $q$ iff $\exists k^{\ast }\in \left\{ 1,...,%
+\text{ }m\right\} $ such that $\overline{\varepsilon _{i}^{k^{\ast }}}%
+(r)\leq $ $\overline{\varepsilon _{i}^{k}}(q)$ $\forall i\in N$, $\forall
+k\in \left\{ 1,...,\text{ }m\right\} $ while the inequality is strict for
+some $i\in N$ at some $k\in \left\{ 1,...,\text{ }m\right\} $.
+
+A spread measure $\sigma $ is reasonable iff given any $l,l^{\prime }\in
+\left\{ 0,...,\text{ }m-1\right\} ^{N}$, we have $\sigma (l)<\sigma
+(l^{\prime })$ whenever $(l_{1}+1,...,$ $l_{n}+1)$ is more equal than $%
+(l_{1}^{\prime }+1,...,$ $l_{n}^{\prime }+1)$.
+
+\begin{theorem}
+Let $m\geq 3.$ When $\Sigma $ is furthermore reasonable, there exist $n\geq
+3 $ such that both the antiplurality rule $f$ $^{w}$ and $f_{n}$ fail PCC.
+\end{theorem}
+
+\begin{proof}
+Take any $m\geq 3$ and let $\Sigma $ be reasonable. Take any $n\geq m$, say $%
+n=m$ without loss of generality. Take some $x,$ $y\in A$ and some $P\in
+L(A)^{N}$ with $r_{\succ _{1}}(x)=m-2$, $r_{\succ _{2}}(x)=m,$ $r_{\succ
+_{i}}(x)=m-1$ $\forall i\in N\diagdown \left\{ 1,\text{ }2\right\} ,$ $%
+r_{\succ _{i}}(y)=m-i$ $\forall i\in N\diagdown \left\{ n\right\} ,$ $%
+r_{\succ _{n}}(y)=1$. Moreover, for each $z\in A\diagdown \left\{ x,\text{ }%
+y\right\} $, we have $r_{\succ _{1}}(z)=m$ for some $i\in N$. Note that both 
+$f$ $^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda
+^{P}(x)=(m-3,$ $m-1,m-2,...,$ $m-2)$ and $\lambda ^{P}(y)=(m-2,$ $m-1,,...1,$
+$0,$ $\ 0)$. As $\alpha $ is reasonable, $\sigma (\lambda ^{P}(x))<$ $\sigma
+(\lambda ^{P}(y))$ $\forall \sigma \in \Sigma ,$ implying $y\notin \mu _{%
+\overline{\sigma }}^{\ast }(P)$ $\forall \sigma \in \Sigma .$
+\end{proof}
+
+\end{document}

@@ -1,0 +1,292 @@
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb}
+
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Saturday, March 28, 2020 13:25:21}
+%TCIDATA{LastRevised=Saturday, March 28, 2020 22:19:42}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\begin{document}
+
+
+\section{Which SCRs are compromises?}
+
+In this section we assume $n\geq 3$ and leave the analysis of $n=2$ to the
+next section.
+
+\subsection{Condorcet consistent rules}
+
+We say that $x\in A$ is a \textit{Condorcet winner} at $P\in L(A)^{N}$ iff $%
+\#\left\{ i\in N:x\succ _{i}y\right\} >\#\left\{ i\in N:y\succ _{i}x\right\} 
+$ for all $y\in A\diagdown \left\{ x\right\} $. So each profile admits
+either no or a unique Condorcet winner. An SCR $f$ is \textit{Condorcet
+consistent} iff $f(P)=$ $\left\{ x\right\} $ at each $P\in L(A)^{N}$ that
+admits $x$ as the unique Condorcet winner.
+
+\begin{theorem}
+Let $n\geq 3$ and $m\geq 3.$ A Condorcet consistent SCR $f$ is neither ECC
+nor PCC.
+\end{theorem}
+
+\begin{proof}
+Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},a_{2,}...a_{m}\right\} $. Consider any Condorcet consistent SCR $f$ and some $%
+P\in L(A)^{N}$ such that $a_{1}\succ _{i}a_{2}\succ _{i}...\succ _{i}a_{m}$ $%
+\forall i\in N\diagdown \left\{ n\right\} $ and $a_{\pi (1)}\succ _{n}a_{\pi
+(2)}\succ _{n}...\succ _{n}a_{\pi (m)}$ where $\pi $ is a bijection on $%
+\{ 1,\text{ }2,...,\text{ }m\} $ with $\pi (1)=3$, $\pi (2)=2,\pi
+(3)=1$, $\pi (i)=i+1$ $\forall i\in \left\{ 4,...,m-1\right\} $ and $%
+\pi (m)=4$. As $f$ is Condorcet consistent, we have $f(P)=\left\{
+a_{1}\right\} $ while $\mu _{\sigma }(P)=\mu _{\sigma }^{\ast }(P)=\left\{
+a_{2}\right\} $ $\forall \sigma \in \Sigma $.
+\end{proof}
+
+Note that Condorcet consistent rules need not be Paretian so the fact that
+they all fail ECC does not follow from Proposition 3.1 \textsc{(or whatever
+its new name will be). }
+
+\subsection{Scoring rules}
+
+\textit{A score vector }is an $m-$tuple $w=(w_{1},...,$ $w_{m})\in \left[ 0,1%
+\right] ^{m}$ with $w_{1}=1$, $w_{m}=0$ and $w_{i}\geq w_{i+1}$ $\forall
+i\in \left\{ 1,...,\text{ }m-1\right\} .$ A score vector $w$ is \textit{%
+strict}, if, furthermore, $w_{i}>w_{i+1}$ $\forall i\in \left\{ 1,...,\text{ 
+}m-1\right\} .$ Given a score vector $w$, we write $s^{w}(x;$ $%
+P)=\dsum\limits_{i\in N}w_{r_{\succ _{i}}(x)}$ for the score of $x\in A$ at $%
+P\in L(A)^{N}$. Every score vector $\ w$ induces a SCR called the \textit{%
+scoring rule }$f$ $^{w}$ defined as $f$ $^{w}(P)=\left\{ x\in
+A:s^{w}(x;P)\geq s^{w}(y;P)\text{ }\forall y\in A\right\} $ for every $P\in
+L(A)^{N}$. We call $f$ $^{w}$ a \textit{strict scoring rule }whenever $w$ is
+strict.
+
+We first show that all scoring rules fail ECC for any value of $n$ and $m.$
+
+\begin{theorem}
+Let $n\geq 3$ and $m\geq 3.$ No score vector $w$ induces a scoring rule $f$ $%
+^{w}$ that is ECC.
+\end{theorem}
+
+\begin{proof}
+Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...%
+\text{ }a_{m}\right\} $. Take any score vector $w$ . If $w$ is strict then $%
+f $ $^{w}$ is Paretian which, by Proposition 3.1 \textsc{(or whatever its
+new name will be)}, implies that $f$ $^{w}$ is not ECC. Now, let $w$ not be
+strict. Consider some $P\in L(A)^{N}$ such that $a_{1}\succ _{i}a_{2}\succ
+_{i}...\succ _{i}a_{m}$ $\forall i\in N\diagdown \left\{ n\right\} $ and $%
+a_{\pi (1)}\succ _{n}a_{\pi (2)}\succ _{n}...\succ _{n}a_{\pi (m)}$ where $%
+\pi $ is a bijection on $\left\{ 1,\text{ }2,...,\text{ }m\right\} $ with $%
+\pi (i)=i+1$ $\forall i\in \left\{ 1,...,\text{ }m-2\right\} $, $\pi (m-1)=1$
+and $\pi (m)=m$. Observe that $\mu _{\sigma }(P)=\left\{ a_{m}\right\} $ $%
+\forall \sigma \in \Sigma $. However, as $w_{1}>w_{m}$, we have $%
+s^{w}(a_{1}; $ $P)$ $>s^{w}(a_{m};$ $P)$ which implies $a_{m}\notin $ $f$ $%
+^{w}(P)$.
+\end{proof}
+
+We now analyze whether scoring rules satisfy PC or PCC. Our first result
+identifies, for a given score vector $w,$ properties for $n$ and $m$ that
+lead to a failure of PCC.
+
+\begin{proposition}
+\label{whenPCCfails} Let $n\geq 3$ and $m\geq 3.$ Take any score vector $w$.
+If $k.n\geq m-1$ for some $k\in \left\{ 1,...,\text{ }m-2\right\} $ and $%
+\frac{n-1}{n}>w_{m-k}$ then $f$ $^{w}$ fails PCC.
+\end{proposition}
+
+\begin{proof}
+Take any $n\geq 3$ and $m\geq 3$ with $k.n\geq m-1$ for some $k\in \left\{
+1,...,\text{ }m-2\right\} $. Let $A=\left\{ a_{1},...,\text{ }a_{m}\right\} $%
+. Consider any score vector $w$ with $\frac{n-1}{n}>w_{m-k}$. Take some $%
+P\in L(A)^{N}$ with $r_{\succ _{i}}(a_{1})=1$ $\forall i\in \left\{ 1,...,%
+\text{ }n-1\right\} $, $r_{\succ _{n}}(a_{1})=m,$ $r_{\succ
+_{i}}(a_{m-k})=m-k$ $\forall i\in N.$ Moreover, for every $x\in A\diagdown
+\left\{ a_{m-k}\right\} $, $r_{\succ _{i}}(x)>m-k$ for some $i\in N$ and $%
+r_{\succ _{j}}(x)\neq r_{\succ _{k}}(x)$ for some $j,k\in N$. \textsc{Such a
+P exists but we should argue about this. }By construction of $P$, we have $%
+\mu _{\sigma }^{\ast }(P)=\left\{ a_{m-k}\right\} $ $\forall \sigma \in
+\Sigma $. Note that $s^{w}(a_{1};$ $P)=n-1$ and $s^{w}(a_{m-k};$ $P)=n\cdot
+w_{m-k}$. As $\frac{n-1}{n}>w_{m-k}$, we have $s^{w}(a_{1};$ $%
+P)>s^{w}(a_{m-k};$ $P)$, establishing $a_{m-k}\notin f^{w}(P)$, thus $%
+f^{w}(P)\cap $ $\mu _{\sigma }^{\ast }(P)=\varnothing $ $\forall \sigma \in
+\Sigma $.
+\end{proof}
+
+As an interesting particular case covered by Proposition \ref{whenPCCfails}
+we have scoring vectors with $w_{2}<1$ which also includes strict scoring
+rules.
+
+\begin{proposition}
+Let $n\geq 3$ and $m\geq 3.$ For any score vector $w$ with $w_{2}<1$, if $%
+\frac{n-1}{n}>w_{2}$ then $f$ $^{w}$ fails PCC.
+\end{proposition}
+
+\begin{proof}
+Take any $n\geq 3$ and $m\geq 3.$ Note that when $k=m-2$, we have $k.n\geq
+m-1$ for any $n$ and $m.$ Thus, by Proposition \ref{whenPCCfails}, $\frac{n-1%
+}{n}>w_{2}$ ensures the failure of PCC.
+\end{proof}
+
+As a matter of fact, Proposition \ref{whenPCCfails} paves the way the
+observe a very large class of scoring rules that fail PCC, when $n$ is
+sufficiently large.
+
+\begin{proposition}
+\label{nlargefailspcc} \bigskip Let $m$ $\geq 3.$ For any score vector $w$
+with $w_{m-k}<1$ for some $k\in \left\{ 1,...,\text{ }m-2\right\} $, there
+exist $n$ $\geq 3$ such that $f$ $^{w}$ fails PCC.
+\end{proposition}
+
+\begin{proof}
+Take any $m$ $\geq 3$ and any $w$ with $w_{m-k}<1$ for some $k\in \left\{
+1,...,\text{ }m-2\right\} $. First, observe the existence of $n_{1}\geq 3$
+satisfying $k.n_{1}\geq m-1$. Next, note that $\frac{n-1}{n}>w_{m-k}$ can be
+ensured with a sufficienty large $n$ if and only if $w_{m-k}<1$. So pick
+some $n_{2}\geq 3$ with $\frac{n_{2}-1}{n_{2}}>w_{m-k}$ . Taking $n=\max
+\left\{ n_{1},\text{ }n_{2}\right\} $, through Proposition \ref{whenPCCfails}%
+, we see that $f^{w}$ fails PCC.
+\end{proof}
+
+An immediate corollary to Proposition \ref{nlargefailspcc} is about the 
+\textit{antiplurality rule }which is the scoring rule $f^{w}$ with $w_{i}=1$ 
+$\forall i\in \left\{ 1,...,\text{ }m-1\right\} .$
+
+\begin{proposition}
+Let $m\geq 3$. If $f$ $^{w}$ is a scoring rule which isn't the antiplurality
+rule then there exist $n\geq 3$ such that $f$ $^{w}$ is not PCC.
+\end{proposition}
+
+Thus among the class of scoring rules, the antiplurality rule is the only
+candidate to ensure the satisfaction of PCC which, in fact, is the case, as
+we state and show below.
+
+\begin{proposition}
+Let $n\geq 3$ and $m\geq 3.$ The antiplurality rule $f$ $^{w}$ satisfies PCC
+but fails PC.
+\end{proposition}
+
+\begin{proof}
+Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...%
+\text{ }a_{m}\right\} $. The antiplurality rule $f$ $^{w}$ is not Paretian,
+hence fails PC, which can bee seen by picking a unanimous profile $P\in
+L(A)^{N}$ with $a_{1}\succ _{i}a_{2}\succ _{i}...\succ _{i}a_{m}$ $\forall
+i\in N$ where $\mu _{\sigma }^{\ast }(P)=\left\{ a_{1}\right\} $ $\forall
+\sigma \in \Sigma $ while $f$ $^{w}(P)=A\diagdown \left\{ a_{m}\right\} $.
+
+To see that the antiplurality rule $f$ $^{w}$ satisfies PCC, pick $\overline{%
+\sigma }\in \Sigma $ defined for each $(l_{1},...,$ \ $l_{n})$ $\in \left\{
+0,1,...,\text{ }m-1\right\} ^{N}$ as $\overline{\sigma }(l_{1},...,$ \ $%
+l_{n})=1$ if $l_{i}\neq l_{j}$ for some $i,j\in N$ and $\overline{\sigma }%
+(l_{1},...,$ \ $l_{n})=0$ otherwise. Suppose, for a contradiction, $f$ $^{w}$
+fails PCC. So, $\mu _{\overline{\sigma }}^{\ast }(P)\cap $ $f$ $%
+^{w}(P)=\varnothing $ for some $P\in $ $L(A)^{N}$. Note that $\overline{%
+\sigma }(\lambda _{P}(x))=\overline{\sigma }(\lambda _{P}(y))$ $\forall x,$ $%
+y\in \mu _{\overline{\sigma }}^{\ast }(P)$ holds by definition of $\mu _{%
+\overline{\sigma }}^{\ast }(P)$ and by the choice of $\overline{\sigma }$,
+for $x\in \mu _{\overline{\sigma }}^{\ast }(P)$, either $\overline{\sigma }%
+(\lambda _{P}(x))=1$ or $\overline{\sigma }(\lambda _{P}(x))=0$. In the
+former case, $\mu _{\overline{\sigma }}^{\ast }(P)=PO(P)$, and $\mu _{%
+\overline{\sigma }}^{\ast }(P)\cap $ $f$ $^{w}(P)=\varnothing $ cannot hold,
+as the antiplurality rule, although not Paretian, never picks only
+non-Pareto optimal alternatives. So we consider the case $\overline{\sigma }%
+(\lambda _{P}(x))=0$ $\forall x\in \mu _{\overline{\sigma }}^{\ast }(P)$.
+Take any $x\in \mu _{\overline{\sigma }}^{\ast }(P)$. As $\overline{\sigma }%
+(\lambda _{P}(x))=0,$ we have $\lambda _{i}^{P}(x)=\lambda _{i}^{P}(x)$ $%
+\forall i,j\in N$, hence $r_{\succ _{i}}(x)=r_{\succ _{j}}(x)$ $\forall
+i,j\in N$. However, in case $r_{\succ _{i}}(x)\in \left\{ 1,...,\text{ }%
+m-1\right\} $, we have $x\in f$ $^{w}(P)$ and in case $r_{\succ _{i}}(x)=m$,
+we have $x\in f$ $^{w}(P)$, both cases giving a contradiction.
+\end{proof}
+
+Our findings on scoring rules lead to the following theorem as a corollary.
+
+\begin{theorem}
+Let $m\geq 3.$ A score vector $w$ induces a scoring rule $f$ $^{w}$ that is
+PCC for any $n\geq 3$ if and only if $f$ $^{w}$ is the antiplurality rule.
+\end{theorem}
+
+\subsection{BK-compromises}
+
+Given any $r\in \left\{ 1,\ldots ,m\right\} ,$ we write $n_{r}(x,P)=\#\{i\in
+N\mid r_{\succ _{i}}(x)\leq r\}$ for the number of individuals for whom the
+rank of alternative $x\in A$ is lower than or equal to $r$ in the profile $%
+P\in $ $L(A)^{N}$. We call $n_{r}(x,P)$ the $r-$support that $x$ gets at $P.$
+Note that $n_{r}(x,P)\in \{1,\ldots ,n\}$ is non-decreasing on $r$ and $%
+n_{m}(x,P)=n.$ For each $q\in \left\{ 1,...,n\right\} $, we define $\rho
+_{q}(x,P)=\min \{r\in \{1,\ldots ,m\}:n_{r}(x,P)\geq q\}$ as the minimal
+rank $r$ at which the $r-$support that $x$ gets at $P$ is at least $q$. We
+write $\rho _{q}(P)=\min \{\rho _{q}(x,P)\}_{x\in A}$ for the minimal rank $%
+r $ at which the $r-$support that some alternative gets at $P$ is at least $q
+$. \textit{A Brams and Kilgour (BK) compromise with threshold }$q$ is the
+SCR $f_{q}$ defined for each $P\in L(A)^{N}$ as $f_{q}(P)=\{x\in A\mid
+n_{\rho _{q}(P)}(x,P)\geq n_{\rho _{q}(P)}(y,P)$ $\forall y\in A\}.$
+
+\begin{theorem}
+Let $n\geq 3$ and $m\geq 3.$ A BK compromise $f_{q}$ with threshold $q\in
+\left\{ 1,...,n-1\right\} $ is neither ECC nor PCC.
+\end{theorem}
+
+\begin{proof}
+Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...%
+\text{ }a_{m}\right\} $. Pick some $q\in \left\{ 1,...,n\right\} $ and
+consider the BK compromise $f_{q}$. At the profile $P\in L(A)^{N}$ such that 
+$a_{1}\succ _{i}a_{2}\succ _{i}...\succ _{i}a_{m}$ $\forall i\in N\diagdown
+\left\{ n\right\} $ and $a_{\pi (1)}\succ _{n}a_{\pi (2)}\succ _{n}...\succ
+_{n}a_{\pi (m)}$ where $\pi $ is a bijection on $\left\{ 1,\text{ }2,...,%
+\text{ }m\right\} $ with $\pi (1)=3$, $\pi (2)=2,\pi (3)=1$, $\pi (i)=i+1$ $%
+\forall i\in \left\{ 4,...,\text{ }m-1\right\} $ and $\pi (m)=4 $, we have $%
+f_{q}(P)=\left\{ a_{1}\right\} $ while $\mu _{\sigma }(P)=\mu _{\sigma
+}^{\ast }(P)=\left\{ a_{2}\right\} $ $\forall \sigma \in \Sigma $.
+\end{proof}
+
+\begin{theorem}
+Let $n\geq 3$ and $m\geq 3.$ The BK compromise $f_{n}$ fails ECC but
+satisfies PC.
+\end{theorem}
+
+\begin{proof}
+Take any $n\geq 3$ and $m\geq 3.$ As $f_{n}$ is Paretian, it fails ECC by
+Proposition 3.1. To see that $f_{n}$ satisfies PC, pick $\overline{\sigma }%
+\in \Sigma $ defined for each $(l_{1},...,$ \ $l_{n})$ $\in \left\{ 0,1,...,%
+\text{ }m-1\right\} ^{N}$ as $\overline{\sigma }(l_{1},...,$ \ $l_{n})=1$ if 
+$l_{i}\neq l_{j}$ for some $i,j\in N$ and $\overline{\sigma }(l_{1},...,$ \ $%
+l_{n})=0$ otherwise. Suppose, for a contradiction, $f_{n}$ fails PC. So,
+there exist some $P\in $ $L(A)^{N}$ for which $f_{n}(P)\diagdown \mu _{%
+\overline{\sigma }}^{\ast }(P)\neq \varnothing $ . Pick some $x\in
+f_{n}(P)\diagdown \mu _{\overline{\sigma }}^{\ast }(P)$. As $x\in f_{n}(P)$, 
+$x\in PO(P)$ as well. Thus, $x\notin \mu _{\overline{\sigma }}^{\ast }(P)$
+because there exists $y\in PO(P)\diagdown \left\{ x\right\} $ with  $%
+\overline{\sigma }(\lambda _{P}(y))<\overline{\sigma }(\lambda _{P}(x))$.
+Given the choice of $\overline{\sigma }$, we have  $\overline{\sigma }%
+(\lambda _{P}(y))=0$ and $\overline{\sigma }(\lambda _{P}(x))=1$. Thus, $%
+r_{\succ _{i}}(y)=r_{\succ _{j}}(y)$ $\forall i,j\in N$. As $x\in f_{n}(P)$,
+this contradicts $y\in PO(P)$.
+\end{proof}
+
+\end{document}

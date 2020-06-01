@@ -30,7 +30,7 @@
 \end{abstract}
 
 \section{Introduction and Related Works}
-
+\label{sec:introduction}
 In a social choice situation where individuals have preferences over several alternatives there is no unique procedure for selecting a common agreement between them. One of the way to define such a procedure is to prefer the quantity of support behind an alternative (i.e. the number of voters who favor it) to the quality of its support (i.e. until which level in voters’ preferences is legitimate to descend). This decision may result in a lack of a majority support or, worst, into a strict majority of individuals which strongly dislike the chosen candidates. Vice versa, favoring the number of voters behind an alternative implies descending levels in individual preferences potentially ending on electing a generally disliked candidate because of the opposition of very few individuals. 
 
 The plurality rule, for example, selects the alternatives which are ranked the best by the largest number of voters. The problem of this procedure is that, as long as there are more than two alternatives, the outcome may lack the support of any majority. In fact, it may also be opposed by a strict majority of agents each of whom ranks the chosen candidate as their least preferred choice. All the rules existing in literature aiming at finding a compromise between voters end up facing the problem of balancing the trade-off between the quality and quantity of support behind alternatives. \citet{Merlin2019} gather them in the class of Compromise Rules. The Majoritarian Compromise \citep{Sertel1999} selects candidates who have the support of a majority in the best degree possible. 
@@ -53,6 +53,7 @@ We start by an example, based on an observation made by Laslier at Buyukada, tha
 
 \noindent Please note that the group of ignored voters could be even larger.
 \begin{example}
+	\label{ex:ex2}
 	Consider the following preference profile with $n=100$:
 	\begin{center}
 		$
@@ -70,7 +71,7 @@ These two examples illustrate that BK-compromises (except fallback bargaining (F
 %In the case where the candidates are only two we talk about bargaining \citep{Thomson1994}. The bargaining problem was first axiomatized by \citet{Nash1950}, who also proposed a solution for the problem that is obtained by maximizing the product of the differences between the utility from an agreement and the one from a disagreement (namely the status quo). This is the only bargaining solution that satisfies all the following axioms: independence of equivalent utility transformations, independence of irrelevant alternatives, Pareto optimality and symmetry.
 
 \section{Basic notions and notation}
-
+\label{sec:notation}
 Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 3$. We write $\linors$ for the set of linear orders (a connected, transitive, asymmetric relation) over the set of alternatives $A$. 
 Following the classical nomenclature, we call {\em profile} $P: N → \linors$ the association, to each individual $i \in N$, of a preference order $\prefi \in \linors$ (note that we write $\prefi$ instead of $P_i$). 
 A \emph{social choice rule} (SCR) is a mapping $f:\linors^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. 
@@ -195,7 +196,7 @@ This is of course only a partial relief for the lovers of both these principles,
 \end{remark}
 
 \section{Which SCRs are compromises?}
-
+\label{sec:more2voters}
 In this section we assume $n\geq 3$ and leave the analysis of $n=2$ to the
 next section.
 
@@ -393,7 +394,7 @@ PCC for any $n\geq 3$ if and only if $f^w$ is the antiplurality rule.
 \end{theorem}
 
 \subsection{BK-compromises}
-
+\label{sec:BKn3}
 Given any $r\in \left\{ 1,\ldots ,m\right\} ,$ we write $n_{r}(x,P)=\#\{i\in
 N\mid r_{\succ _{i}}(x)\leq r\}$ for the \emph{$r$-support} that $x$ gets at $P$, that is, the number of individuals for whom the rank of alternative $x\in A$ is lower than or equal to $r$ in the profile $P\in $ $L(A)^{N}$. \commentOC{Nitpicking, but I find a bit odd that we write $s(x; P)$ but $n_r(x, P)$. I’d favor writing $s(x, P)$.}
 Note that $n_{r}(x,P)\in \{1,\ldots ,n\}$ is non-decreasing on $r$ and $%
@@ -407,6 +408,7 @@ SCR $f_{q}$ defined for each $P\in L(A)^{N}$ as $f_{q}(P)=\{x\in A\mid
 n_{\rho _{q}(P)}(x,P)\geq n_{\rho _{q}(P)}(y,P)$ $\forall y\in A\}.$
 
 \begin{theorem}
+	\label{th:BKthreshold}
 Let $n\geq 3$ and $m\geq 3.$ A BK compromise $f_{q}$ with threshold $q\in
 \left\{ 1,...,n-1\right\} $ is neither ECC nor PCC.
 \end{theorem}
@@ -425,8 +427,8 @@ f_{q}(P)=\left\{ a_{1}\right\} $ while $\mu _{\sigma }(P)=\mu _{\sigma
 \end{proof}
 
 \begin{theorem}
-Let $n\geq 3$ and $m\geq 3.$ The BK compromise $f_{n}$ fails ECC but
-satisfies PC.
+	\label{th:FBn3}
+Let $n\geq 3$ and $m\geq 3.$ The BK compromise $f_{n}$ fails ECC but satisfies PC.
 \end{theorem}
 
 \begin{proof}
@@ -493,6 +495,118 @@ A spread measure $\sigma $ is reasonable iff given any $l,l^{\prime }\in
 				\overline{\sigma }}^{\ast }(P)$ $\forall \sigma \in \Sigma .$
 	\end{proof}
 
+\section{Two voters case}
+In Section \ref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in Section \ref{sec:notation}, we consider here the case $n=2$. Two agents express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems.
+\subsection{The Bargaining problem}
+Several authors, through the years, have proposed theories that would predict the compromise that the two voters would reach through negotiation. Each of these theories, also called solutions, satisfies a specific set of axioms.
+\\ 
+In other words, a solution can be seen as the recommendation that an impartial arbitrator would make, and the axioms represent properties (like fairness, monotonicity etc.) that this recommendation should embed. 
+
+The best-known solution is the one introduced by \cite{Nash1950}, where the compromise is obtained by maximizing the product of utility gains from the disagreement point.
+Consider the following axioms:
+\begin{itemize}
+	\item Pareto-optimality: no change could be made that would lead to an improvement for any voter;
+	\item Symmetry: the agreement is invariant under all permutations of the agents;
+	\item Scale invariance: a transformation of the utility function (that maintains the same preferences ordering) should not alter the outcome;
+	\item Independence of irrelevant alternatives (IIA): if an alternative is judged to be the best compromise for a problem, then it should still be judged best for any subproblem that contains it.
+\end{itemize}
+
+The Nash solution is the only one satisfying Pareto-optimality, symmetry, scale invariance, and independence of irrelevant alternatives.
+
+His characterization opened the door to several others. The solution proposed by \cite{Kalai1975}, for example, defines as a compromise the maximal point (above the disagreement point) which maintains the ratios of gains. In other words, the agreement point is defined as the highest utility any agent can obtain given that no agent should receive less than her coordinate of the disagreement point.
+The Kalai–Smorodinsky solution satisfies all the above mentioned axioms except for IIA. Instead, a monotonicity requirement is added, which says that no agent should lose from the increase in resources.
+\\
+A solution that includes both IIA and monotonicity, dropping the condition of scale invariance, is the Egalitarian solution (\cite{Kalai1977}), whose central idea is the one of equal gains.
+\newline
+Other solutions have been proposed in literature, and \cite{Thomson1994} collected most of them.
+\newline\\
+Questions:
+\begin{itemize}
+	\item Which axioms EC, ECC, PC and PCC satisfy?
+	\item Does this depend on $\sigma$? If yes, can we define classes of spreading measures?
+\end{itemize}
+
+\subsection{Which SCRs are still compromises?}
+
+\subsubsection{BK-compromises}
+In Section \ref{sec:introduction}, we use the example \ref{ex:ex1} and the example \ref{ex:ex2} to define what we call \oquot ex-ante compromises\cquot. We say that all BK-compromises, except fallback bargaining (FB) (where $q=n$), seem to pursuit a goal of compromising but they fail in ensuring an outcome where everyone has effectively compromised. In Section \ref{sec:BKn3}, we further investigate this matter for $n\geq3$ and $m\geq3$ by proving, in Theorem \ref{th:BKthreshold}, that any BK-compromises, except fallback bargaining, is neither ECC nor PCC. Morever, in Theorem \ref{th:FBn3}, we prove that fallback bargaining $f_{n}$ fails ECC but satisfies PC.
+
+\begin{Theorem}
+	Let $n=2$ and $m\geq3$. The BK-compromise $f_{n}$ is neither ECC nor PCC. 
+\end{Theorem}
+
+\begin{proof}
+	Since $f_{n}$ is Paretian, it fails ECC by Theorem \ref{prop:nonParetian}. In order to prove that it also fails PCC, consider the following preference profile $P\in \linors^{N}$:
+\begin{center}
+	$
+	\begin{array}{cccccccccc}
+	\mathbf{i_1} \quad &x&a_1&\dots&a_k&y&b_1&\dots&b_k\\
+	\mathbf{i_2} \quad &b_1&\dots&b_{k}&x&y&a_1&\dots&a_k\\
+	\end{array}
+	$
+\end{center}
+Here, $f_n(P)=\{x\}$ while $\mustar(P)=\{y\}$ $\forall \sigma \in \Sigma$. Therefore $\exists P \in  \linors^{N}$ such that $f_n(P) \cap \mustar(P) = \emptyset$, $\forall \sigma \in \Sigma$.
+\end{proof}
+
+
+Questions:
+\begin{itemize}
+	\item Let $n=2$ and $m\geq3$. No BK-compromise  is neither ECC nor PCC. [I suspect. ToProve]
+	\item Do the results we got for $n\geq3$ for the other SCR considered in section 4 still hold?
+\end{itemize}
+\begin{example}
+	The example of FB for two voters was:
+	\begin{center}
+		$
+		\begin{array}{cccccccccc}
+		\mathbf{i_1} \quad &x&a_1&\dots&&a_k&y&b_1&\dots&b_k\\
+		\mathbf{i_2} \quad &b_1&\dots&b_{k-1}&y&x&b_k&a_1&\dots&a_k\\
+		\end{array}
+		$
+	\end{center}
+\end{example}
+
+
+\newpage
+
+\bibliography{biblio}
+
+\newpage
+\appendix
+\section{Removed Material}
+Definition of $\musigma$ and $\mustar$
+\[
+\musigma(P) = \argmin_{x \in A} \sigma(\lambda^P(x)) = \set{ x \in A \suchthat \forall y \in A: \sigma(\lambda^P(x)) ≤ \sigma(\lambda^P(y)) }.
+\]
+\[	\mustar(P)  = \argmin_{x \in \paretopt(P)} \sigma(\lambda^P(x)) = \{ x \in \paretopt(P) \ | \ \sigma (\lambda^P(x))\leq \sigma (\lambda^P(y)), \forall y \in \paretopt(P) \} \]
+
+\begin{corollary}
+	For $n\geq 2, \ m\geq3,$ $\exists P$ such that $\musigma(P)$ and $\mustar(P)$ are disjoint  $\forall \sigma \in \Sigma$.
+\end{corollary}
+
+\begin{definition} A SCR $f$ is an EC$^*$ iff \[f(P) \subseteq \musigma(P), \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
+\end{definition}
+
+\begin{definition} A SCR $f$ is an PC$^*$ iff \[f(P) \subseteq \mustar(P), \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
+\end{definition}
+
+\begin{definition} A SCR $f$ is ECC$^*$ iff \[f(P) \cap \musigma(P) \neq 0, \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
+\end{definition}
+
+\begin{definition} A SCR $f$ is PCC$^*$ iff \[ f(P) \cap \mustar(P) \neq 0, \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
+\end{definition}
+
+\begin{proposition}
+	For $n=2, m=2$, no SCR is EC*, and no SCR is PC*.
+\end{proposition}
+\begin{proof}
+	Consider the profile such that voter $1$ prefers $a$ to $b$ and voter $2$ prefers $b$ to $a$. Observe that $\lambda(a) = (0, 1)$ and $\lambda(b) = (1, 0)$. Define $\sigma_1$ and $\sigma_2$ as ordering differently $\lambda(a)$ and $\lambda(b)$. To be EC*, $f$ must satisfy $f(P) \subseteq \set{a}$ and $f(P) \subseteq \set{b}$, which is impossible. The same constraints apply to be PC*.
+\end{proof}
+
+\begin{remark}
+	Observe that $\text{ECC} \centernot \implies \text{PCC}$ and $\text{PCC} \centernot \implies \text{ECC}$.
+	In fact, considering Proposition \ref{prop:nonParetian}, the existence of a spread measure $\sigma$ such that our SCR $f$ picks some alternatives which belong to the set $\musigma$ is not a guarantee that they are also Pareto optimal, thus belonging to the set $\mustar$ (and vice-versa).
+\end{remark}
 
 \section{Old section about which SCRs are compromises}
 \begin{proposition}
@@ -509,7 +623,7 @@ A spread measure $\sigma $ is reasonable iff given any $l,l^{\prime }\in
 		\item[1)] Condorcet consistent rules are not $PCC$
 		\item[2)] BK compromise for $q \in \{1, \dots ,n-1\}$ are not $PCC$
 		\item[3)] Point runoff rules (like STV) are not $PCC$
-%		\item[4)] Scoring rules (except Antiplurality) are not $PCC$
+		%		\item[4)] Scoring rules (except Antiplurality) are not $PCC$
 	\end{item}
 \end{proposition}
 \begin{proof}
@@ -552,7 +666,7 @@ A spread measure $\sigma $ is reasonable iff given any $l,l^{\prime }\in
 	\end{align}
 	\commentBN{Can we generalize it for each possible profile P?}
 \end{proof}
-	
+
 \begin{proposition}
 	\commentBN{for m n check} Anti-plurality is not $PC$ but it is $PCC$.
 \end{proposition}
@@ -583,48 +697,9 @@ A spread measure $\sigma $ is reasonable iff given any $l,l^{\prime }\in
 \end{proof}
 
 \commentRS{ It is worth noting that the negative results are quite robust because they establish the non-existence of a spread measure within the very large class capital sigma. On the other hand, the positive result that anti plurality is PCC may not be very robust and could turn to be negative when capital sigma is restricted by some further conditions over spread measures. This is an issue to be explored. \\ Another issue to be explored is whether FB satisfies PC or PCC. In an earlier version, we had a nice 2-person example about FB, which seems to be lost in this version. Can we find it? Yes:	\bigskip \\ {\color{black}$x$ $a_{1}...a_{k}$ $y$ $b_{1}....b_{k}$ \\	$b_{1}....b_{k-1}$ $y$ $x$ $b_{k}$ $a_{1}...a_{k}$} \bigskip \\
-A further question to explore is whether we can suggest interesting SCRs that satisfy PCC. The particular “bargaining” case of n=2 many deserve specific consideration. \bigskip \\
-If our results don't hold for n=2 we can say that }
-\newpage
+	A further question to explore is whether we can suggest interesting SCRs that satisfy PCC. The particular “bargaining” case of n=2 many deserve specific consideration. \bigskip \\
+	If our results don't hold for n=2 we can say that }
 
-\bibliography{biblio}
-
-\newpage
-\appendix
-\section{Removed Material}
-Definition of $\musigma$ and $\mustar$
-\[
-\musigma(P) = \argmin_{x \in A} \sigma(\lambda^P(x)) = \set{ x \in A \suchthat \forall y \in A: \sigma(\lambda^P(x)) ≤ \sigma(\lambda^P(y)) }.
-\]
-\[	\mustar(P)  = \argmin_{x \in \paretopt(P)} \sigma(\lambda^P(x)) = \{ x \in \paretopt(P) \ | \ \sigma (\lambda^P(x))\leq \sigma (\lambda^P(y)), \forall y \in \paretopt(P) \} \]
-
-\begin{corollary}
-	For $n\geq 2, \ m\geq3,$ $\exists P$ such that $\musigma(P)$ and $\mustar(P)$ are disjoint  $\forall \sigma \in \Sigma$.
-\end{corollary}
-
-\begin{definition} A SCR $f$ is an EC$^*$ iff \[f(P) \subseteq \musigma(P), \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
-\end{definition}
-
-\begin{definition} A SCR $f$ is an PC$^*$ iff \[f(P) \subseteq \mustar(P), \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
-\end{definition}
-
-\begin{definition} A SCR $f$ is ECC$^*$ iff \[f(P) \cap \musigma(P) \neq 0, \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
-\end{definition}
-
-\begin{definition} A SCR $f$ is PCC$^*$ iff \[ f(P) \cap \mustar(P) \neq 0, \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
-\end{definition}
-
-\begin{proposition}
-	For $n=2, m=2$, no SCR is EC*, and no SCR is PC*.
-\end{proposition}
-\begin{proof}
-	Consider the profile such that voter $1$ prefers $a$ to $b$ and voter $2$ prefers $b$ to $a$. Observe that $\lambda(a) = (0, 1)$ and $\lambda(b) = (1, 0)$. Define $\sigma_1$ and $\sigma_2$ as ordering differently $\lambda(a)$ and $\lambda(b)$. To be EC*, $f$ must satisfy $f(P) \subseteq \set{a}$ and $f(P) \subseteq \set{b}$, which is impossible. The same constraints apply to be PC*.
-\end{proof}
-
-\begin{remark}
-	Observe that $\text{ECC} \centernot \implies \text{PCC}$ and $\text{PCC} \centernot \implies \text{ECC}$.
-	In fact, considering Proposition \ref{prop:nonParetian}, the existence of a spread measure $\sigma$ such that our SCR $f$ picks some alternatives which belong to the set $\musigma$ is not a guarantee that they are also Pareto optimal, thus belonging to the set $\mustar$ (and vice-versa).
-\end{remark}
 
 \section{Spread Measures}
 In our idea of compromise, we aim to determine the “most equally distributed” vector within $\left\{ \lambda^P(x)\right\} _{x\in A}$. We thus need to adopt a spread measure which is a mapping $\sigma \in \SAll: \R_{+}^{N}\longrightarrow \R_{+}$ which satisfies $\sigma(r_i, \dots, r_n)=0 \iff r_i=r_j \forall i,j$. In what follows, we will consider various classes of possible spread measures.
