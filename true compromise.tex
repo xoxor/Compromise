@@ -93,7 +93,8 @@ denotes the alternatives whose loss vectors are the most equally distributed acc
 
 \commentOC{Note for myself (do not pay attention). $\lambda^P: A → \alllosses$. Define ${\lambda^P}^{-1}: \lambda^P(A) → A$. Define $<_\sigma$ and $≤_\sigma$ as binary relations over $\alllosses$. Then, $\musigma(P) = {\lambda^P}^{-1}(\min_{<_\sigma}(\lambda^P(A))$. Define $<_{\sigma \circ \lambda^P} \subseteq A × A$ and $x <_{\sigma \circ \lambda^P} y \iff \lambda^P(x) <_\sigma \lambda^P(y)$.}
 
-In this section, we are interested in analyzing the following classes of social choice rules. \emph{All} Egalitarian Compromises winners are among the alternatives with most equally distributed losses; while \emph{some} Egalitarian Compromise Compatible winners are among the alternatives with most equally distributed losses. \commentBN{I would put this phrasing after the definitions, I find hard to follow if I don't know what an EC is.}
+In what follows, we define some classes of social choice rules that we are interested in analyzing. 
+
 
 \begin{definition} A SCR $f$ is an \emph{Egalitarian Compromise} (EC) iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have }f(P) \subseteq \musigma(P).\]
 \end{definition}
@@ -101,7 +102,8 @@ In this section, we are interested in analyzing the following classes of social 
 \begin{definition} A SCR $f$ is \emph{Egalitarian Compromise Compatible} (ECC) iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \cap \musigma(P) \neq \emptyset.\]
 \end{definition}
 
-From these definitions, it is plain that being an EC implies being ECC. Perhaps more surprisingly, being ECC (or EC) is incompatible with being Paretian. This will be deduced from the following proposition, which will also be useful for \cref{prop:incompatibility}.
+\emph{All} Egalitarian Compromises winners are among the alternatives with most equally distributed losses; while \emph{some} Egalitarian Compromise Compatible winners are among the alternatives with most equally distributed losses.
+From the definitions, it is plain that being an EC implies being ECC. Perhaps more surprisingly, being ECC (or EC) is incompatible with being Paretian. This will be deduced from the following proposition, which will also be useful for \cref{prop:incompatibility}.
 
 \begin{proposition} \label{prop:muSigmaLast}
 	For $n ≥ 2, m ≥ 3$, there exists a profile $P \in \linors^N$ and an alternative $a_m$ such that $a_m$ is ranked last by every voter and such that $\forall \sigma \in \Sigma: \musigma(P) = \set{a_m}$; hence, $\musigma(P) \cap \paretopt(P) = \emptyset$.
@@ -181,7 +183,7 @@ It is interesting to note that the incompatibility is not complete, however.
 \end{proof}
 This is of course only a partial relief for the lovers of both these principles, as such a compatible rule must fail to be Paretian.
 
-\commentOC{TODO complement this remark.}
+\commentOC{TODO complement this remark.} \commentBN{I'm not quite sure what complement means here.}
 \begin{remark}
 	\Cref{prop:nonParetian} does not hold for $m=2$: in that case, the largest Paretian SCR, $f(P) = \paretopt(P)$, is ECC. In fact, $\forall \sigma, P: \paretopt(P) \cap \musigma(P) ≠ \emptyset$. This is because all profiles with two alternatives have this form, with $k < \frac{n}{2}$:
 	\begin{center}
@@ -208,68 +210,40 @@ consistent} iff $f(P)=$ $\left\{ x\right\} $ at each $P\in L(A)^{N}$ that
 admits $x$ as the unique Condorcet winner.
 
 \begin{theorem}
-Let $n\geq 3$ and $m\geq 3.$ A Condorcet consistent SCR $f$ is neither ECC
-nor PCC.
+Let $n\geq 3$ and $m\geq 3$. A Condorcet consistent SCR $f$ is neither ECC nor PCC.
 \end{theorem}
 
 \begin{proof}
-Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...%
-\text{ }a_{m}\right\} $. 
-	Consider the following profile $P$ \commentOC{I propose this one (if adopted, we have to adjust the text accordingly); otherwise we have to adjust for the case $m=3$}:
+Let $A=\left\{ a_{1},a_{2}, a_{3},\dots,a_{m}\right\} $ where $m\geq 3$, and consider the following profile $P$:
 	\begin{center}
 		$
-		\begin{array}{ccccccc}
-		\mathbf{n-1} \quad &a_1&a_2&a_3&\dots&a_{m-1}&a_m\\
-		\mathbf{1} \quad &a_3&a_2&a_4&\dots&a_m&a_1\\
+		\begin{array}{cccccc}
+		\mathbf{n-1} \quad &a_1&a_2&a_3&\dots&a_m\\
+		\mathbf{1} \quad &a_3&a_2&\dots&a_m&a_1\\
 		\end{array}
 		$,
 	\end{center}
 
-Consider any Condorcet consistent SCR $f$ and some $%
-P\in L(A)^{N}$ such that $a_{1}\succ _{i}a_{2}\succ _{i}...\succ _{i}a_{m}$ $%
-\forall i\in N\diagdown \left\{ n\right\} $ and $a_{\pi (1)}\succ _{n}a_{\pi
-(2)}\succ _{n}...\succ _{n}a_{\pi (m)}$ where $\pi $ is a bijection on $%
-\left\{ 1,\text{ }2,...,\text{ }m\right\} $ with $\pi (1)=3$, $\pi (2)=2,\pi
-(3)=1$, $\pi (i)=i+1$ $\forall i\in \left\{ 4,...,\text{ }m-1\right\} $ and $%
-\pi (m)=4$. As $f$ is Condorcet consistent, we have $f(P)=\left\{
-a_{1}\right\} $ while $\mu _{\sigma }(P)=\mu _{\sigma }^{\ast }(P)=\left\{
-a_{2}\right\} $ $\forall \sigma \in \Sigma $.
+Consider any Condorcet consistent SCR $f$, then $f(P)=\{a_1\}$. However, $\musigma(P)=\mustar(P)=\{a_2\}$ $\forall \sigma \in \Sigma$, so there exists a profile $P$ such that both $f(P)\cap \musigma(P)$ and $f(P)\cap \mustar(P)$ are empty.
 \end{proof}
 
 Note that Condorcet consistent rules need not be Paretian so the fact that they all fail ECC does not follow from \cref{prop:nonParetian}. 
 
 \subsection{Scoring rules}
-A \emph{score vector} is an $m-$tuple $w=(w_{1},...,$ $w_{m})\in \left[ 0,1%
-\right] ^{m}$ with $w_{1}=1$, $w_{m}=0$ and $w_{i}\geq w_{i+1}$ $\forall
-i\in \left\{ 1, \ldots, m-1\right\} .$ A score vector $w$ is \emph{strict} iff $w_{i}>w_{i+1}$ $\forall i\in \left\{ 1, \ldots, m-1\right\} .$ Given a score vector $w$, we write $s^{w}(x;$ $%
-P)=\sum_{i\in N}w_{r_{\succ _{i}}(x)}$ for the score of $x\in A$ at $%
-P\in L(A)^{N}$. Every score vector $w$ induces \commentOC{Isn’t generates preferable here?} a SCR called the \emph{scoring rule} $f^{w}$ defined as $f^{w}(P)=\left\{ x\in
-A:s^{w}(x;P)\geq s^{w}(y;P)\text{ }\forall y\in A\right\} $ for every $P\in
-L(A)^{N}$. We call $f^{w}$ a \emph{strict scoring rule} whenever $w$ is
-strict. \commentOC{Odd phrasing (strict applies to the rule, given a rule, what is $w$?); do we need this?}
+A \emph{score vector} is an $m-$tuple $w=(w_{1},...,$ $w_{m})\in \intvl{0, 1}^{m}$ with $w_{1}=1$, $w_{m}=0$ and $w_{i}\geq w_{i+1}$ $\forall
+i\in \intvl{1, m-1}$. A score vector $w$ is \emph{strict} iff $w_{i}>w_{i+1}$ $\forall i\in \intvl{1, m-1}$. Given a score vector $w$, we write $s^{w}(x,P)=\sum_{i\in N}w_{r_{\succ _{i}}(x)}$ for the score of $x\in A$ at $P\in L(A)^{N}$. Every score vector $w$ identifies a \emph{scoring rule} $f^{w}$ defined as $f^{w}(P)=\left\{ x\in
+A:s^{w}(x,P)\geq s^{w}(y,P) \ \forall y\in A\right\}$ for every $P\in L(A)^{N}$.
+%We call $f^{w}$ a \emph{strict scoring rule} whenever $w$ is
+%strict. \commentOC{Odd phrasing (strict applies to the rule, given a rule, what is $w$?); do we need this?}
 
-We first show that no scoring rules are ECC, for any value of $n$ and $m$ at least 3.
+We first show that no scoring rule is ECC, for any value of $n$ and $m$ at least 3.
 
 \begin{theorem}
 Let $n\geq 3$ and $m\geq 3.$ No score vector $w$ induces a scoring rule $f^{w}$ that is ECC.
 \end{theorem}
 
 \begin{proof}
-Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...%
-\text{ }a_{m}\right\} $. Take any score vector $w$ . If $w$ is strict then $f^w$ is Paretian, which, by \cref{prop:nonParetian}, implies that $f^w$ is not ECC. Now, let $w$ not be
-strict \commentOC{I’d write: be non-strict}. Consider some $P\in L(A)^{N}$ such that $a_{1}\succ _{i}a_{2}\succ
-_{i}...\succ _{i}a_{m}$ $\forall i\in N\diagdown \left\{ n\right\} $ and $%
-a_{\pi (1)}\succ _{n}a_{\pi (2)}\succ _{n}...\succ _{n}a_{\pi (m)}$ where $%
-\pi $ is a bijection on $\left\{ 1,\text{ }2,...,\text{ }m\right\} $ with $%
-\pi (i)=i+1$ $\forall i\in \left\{ 1,...,\text{ }m-2\right\} $, $\pi (m-1)=1$
-and $\pi (m)=m$. Observe that $\mu _{\sigma }(P)=\left\{ a_{m}\right\} $ $%
-\forall \sigma \in \Sigma $. However, as $w_{1}>w_{m}$, we have $%
-s^{w}(a_{1}; $ $P)$ $>s^{w}(a_{m};$ $P)$ which implies $a_{m}\notin $ $f$ $%
-^{w}(P)$.
-
-\commentOC{Alternative proposition ($n ≥ 2$).}
-If $w$ is strict, then $f^w$ is Paretian and \cref{prop:nonParetian} implies that $f^w$ is not ECC. Now, let $w$ be non-strict. Consider the profile $P$ of \cref{prop:muSigmaLast}, and any alternative $a$ ranked first at least once in $P$. Because $w_1 > w_m$, we have $%
-s^{w}(a; $ $P)$ $>s^{w}(a_{m};$ $P)$, thus $a_{m}\notin $ $f^{w}(P)$.
+Take any score vector $w$. If $w$ is strict, then $f^w$ is Paretian and \cref{prop:nonParetian} implies that $f^w$ is not ECC. Now, let $w$ be non-strict. Consider the profile $P$ of \cref{prop:muSigmaLast}. Observe that $\musigma(P)=\{a_m\} \ \forall \sigma \in \Sigma $. However, as $w_{1}>w_{m}$, we have $s^{w}(a_{1},P)>s^{w}(a_{m},P)$ which implies $a_{m}\notin f^{w}(P)$.
 \end{proof}
 
 We now analyze whether scoring rules satisfy PC or PCC. Our first result
@@ -278,10 +252,9 @@ lead to a failure of PCC.
 
 \begin{proposition}
 \label{whenPCCfails} Let $n\geq 3$ and $m\geq 3.$ Take any score vector $w$.
-If $k.n\geq m-1$ for some $k\in \left\{ 1,...,\text{ }m-2\right\} $ and $%
-\frac{n-1}{n}>w_{m-k}$ then $f^w$ fails PCC.
+If $k\cdot n\geq m-1$ for some $k\in \normalfont{\intvl{1, m-2}}$ and $\frac{n-1}{n}>w_{m-k}$ then $f^w$ fails PCC.
 \end{proposition}
-\commentOC{Didn’t we have some similar result whose proof was easier? Let’s try to simplify it, under condition that the other results still follow.}
+\commentOC{Didn’t we have some similar result whose proof was easier? Let’s try to simplify it, under condition that the other results still follow.} //TOFIND
 \begin{proof}
 Take any $n\geq 3$ and $m\geq 3$ with $k.n\geq m-1$ for some $k\in \left\{
 1,...,\text{ }m-2\right\} $. Let $A=\left\{ a_{1},...,\text{ }a_{m}\right\} $%
@@ -300,8 +273,8 @@ f^{w}(P)\cap $ $\mu _{\sigma }^{\ast }(P)=\varnothing $ $\forall \sigma \in
 \Sigma $.
 \end{proof}
 
-As an interesting particular case covered by Proposition \ref{whenPCCfails}
-we have scoring vectors with $w_{2}<1$ which also includes the Borda rule. \commentOC{Improve wording and give a reference.}
+Among all the scoring rules for which Proposition \ref{whenPCCfails} holds, of particular interest are the ones defined by a scoring vector $w$ such that $w_2<1$. Such SCRs include Borda count and Plurality. 
+
 
 \begin{proposition}
 Let $n\geq 3$ and $m\geq 3.$ For any score vector $w$ with $w_{2}<1$, if $%
@@ -313,30 +286,22 @@ Let $n\geq 3$ and $m\geq 3.$ For any score vector $w$ with $w_{2}<1$, if $%
 
 As a matter of fact, Proposition \ref{whenPCCfails} paves the way the
 observe a very large class of scoring rules that fail PCC, when $n$ is
-sufficiently large. \commentOC{We should introduce this alternative meaning of scoring rule that we use from here onwards, that is, a rule defined on a variable number of voters. And I’d favor using another word.}
+sufficiently large. \commentOC{We should introduce this alternative meaning of scoring rule that we use from here onwards, that is, a rule defined on a variable number of voters. And I’d favor using another word.} \commentBN{I don't recall the outcome of this discussion, actually I don't recall this discussion at all.}
 
 \begin{proposition}
 \label{nlargefailspcc} \bigskip Let $m$ $\geq 3.$ For any score vector $w$
-with $w_{m-k}<1$ for some $k\in \left\{ 1,...,\text{ }m-2\right\} $, there
+with $w_{m-k}<1$ for some $k\in \normalfont{\intvl{1, m-2}}$, there
 exist $n$ $\geq 3$ such that $f^w$ fails PCC.
 \end{proposition}
 
 \begin{proof}
-Take any $m$ $\geq 3$ and any $w$ with $w_{m-k}<1$ for some $k\in \left\{
-1,...,\text{ }m-2\right\} $. First, observe the existence of $n_{1}\geq 3$
-satisfying $k.n_{1}\geq m-1$. Next, note that $\frac{n-1}{n}>w_{m-k}$ can be
-ensured with a sufficienty large $n$ if and only if $w_{m-k}<1$. So pick
-some $n_{2}\geq 3$ with $\frac{n_{2}-1}{n_{2}}>w_{m-k}$ . Taking $n=\max
-\left\{ n_{1},\text{ }n_{2}\right\} $, through Proposition \ref{whenPCCfails}%
-, we see that $f^{w}$ fails PCC.
-
-\commentOC{Alternative proposition.}
-Define $n = \max\set*{\ceil*{\frac{m-1}{k}}, \floor*{\frac{1}{1-w_{m-k}}}+1}$. \Cref{whenPCCfails} then applies, because $n ≥ \frac{m-1}{k}$, and because $n > \frac{1}{1-w_{m-k}}$ which in turn implies $1-w_{m-k} > \frac{1}{n}$ and $1-\frac{1}{n} > w_{m-k}$.
+Take any $m$ $\geq 3$ and any $w$ with $w_{m-k}<1$ for some $k\in \intvl{1, m-2}$. Define $n = \max\set*{\ceil*{\frac{m-1}{k}}, \floor*{\frac{1}{1-w_{m-k}}}+1}$. \Cref{whenPCCfails} then applies, because $n ≥ \frac{m-1}{k}$, and because $n > \frac{1}{1-w_{m-k}}$ which in turn implies $1-w_{m-k} > \frac{1}{n}$ and $1-\frac{1}{n} > w_{m-k}$.
+%Remzi proof: First, observe the existence of $n_{1}\geq 3$ satisfying $k\cdot n_{1}\geq m-1$. Next, note that $\frac{n-1}{n}>w_{m-k}$ can be ensured with a sufficiently large $n$ if and only if $w_{m-k}<1$. So pick some $n_{2}\geq 3$ with $\frac{n_{2}-1}{n_{2}}>w_{m-k}$ . Taking $n=\max \left\{ n_{1},\text{ }n_{2}\right\} $, through Proposition \ref{whenPCCfails}%, we see that $f^{w}$ fails PCC.
 \end{proof}
 
 An immediate corollary to Proposition \ref{nlargefailspcc} is about the 
 \textit{antiplurality rule }which is the scoring rule $f^{w}$ with $w_{i}=1$ 
-$\forall i\in \left\{ 1,...,\text{ }m-1\right\} .$ \commentOC{This is actually an equivalent statement. And I find its interest clearer when written in the second way. Thus, I’d remove the previous proposition and directly prove it using the phrasing involving AP. And write it conversely: if  $f^w$ is PCC for any $n ≥ 3$, then $f^w$ is AP. Let’s write it $f^w_n$, by the way.}
+$\forall i\in \left\{ 1,...,\text{ }m-1\right\} .$ \commentOC{This is actually an equivalent statement. And I find its interest clearer when written in the second way. Thus, I’d remove the previous proposition and directly prove it using the phrasing involving AP. And write it conversely: if  $f^w$ is PCC for any $n ≥ 3$, then $f^w$ is AP. Let’s write it $f^w_n$, by the way.} \commentBN{Again, I don't have in my notes the decision on this matter.}
 
 \begin{proposition}
 Let $m\geq 3$. If $f^w$ is a scoring rule which isn't the antiplurality
@@ -396,7 +361,7 @@ PCC for any $n\geq 3$ if and only if $f^w$ is the antiplurality rule.
 \subsection{BK-compromises}
 \label{sec:BKn3}
 Given any $r\in \left\{ 1,\ldots ,m\right\} ,$ we write $n_{r}(x,P)=\#\{i\in
-N\mid r_{\succ _{i}}(x)\leq r\}$ for the \emph{$r$-support} that $x$ gets at $P$, that is, the number of individuals for whom the rank of alternative $x\in A$ is lower than or equal to $r$ in the profile $P\in $ $L(A)^{N}$. \commentOC{Nitpicking, but I find a bit odd that we write $s(x; P)$ but $n_r(x, P)$. I’d favor writing $s(x, P)$.}
+N\mid r_{\succ _{i}}(x)\leq r\}$ for the \emph{$r$-support} that $x$ gets at $P$, that is, the number of individuals for whom the rank of alternative $x\in A$ is lower than or equal to $r$ in the profile $P\in $ $L(A)^{N}$.
 Note that $n_{r}(x,P)\in \{1,\ldots ,n\}$ is non-decreasing on $r$ and $%
 n_{m}(x,P)=n.$ For each $q\in \left\{ 1,...,n\right\} $, we define $\rho
 _{q}(x,P)=\min \{r\in \{1,\ldots ,m\}:n_{r}(x,P)\geq q\}$ as the minimal
