@@ -81,7 +81,8 @@ We write with $\lambda_\prefi(x)=r_\prefi(x)-1$ the loss for $i$ when electing $
 The notation $\lambda^{P}(x)=(\lambda_\prefi(x))_{i \in N}$ represents the vector of losses when electing $x$. We use double brackets to denote intervals in the integers, thus $\lambda^P: A → \alllosses$.
 
 Considering a loss vector, we are interested in measuring its “spread”. We define a \emph{spread measure} as a function $\sigma: \alllosses → \R_{+}$ that associates a spread value to each possible loss vector.
-We call $\Sigma$ the set of spread measures $\sigma$ such that for each vector $l \in \alllosses$,  $(\sigma(l)=0) \iff (\forall i, j \in N: l_i=l_j)$. Thus, the spread of $l$ gets its lowest value $0$ in case of perfect equality and only in such case.
+We call $\Sigma$ the set of spread measures $\sigma$ such that for each vector $l \in \alllosses$,  $\sigma(l)=0 \iff \forall i, j \in N: l_i=l_j$. Thus, the spread of $l$ gets its lowest value $0$ in case of perfect equality and only in such case.
+\commentBN{Moreover, given a vector $l \in \alllosses$, $\sigma(l)=\sigma(l')$ for any reordering $l'$ of $l$.}
 
 Given a profile $P$ and two alternatives $x$ and $y$, we say that $x$ \emph{Pareto dominates} $y$, and that $y$ is \emph{Pareto dominated}, iff $x \pref_i y, \forall i \in N$. We denote the set of \emph{Pareto optimal} alternatives, i.e., the alternatives which are not Pareto dominated, with $\paretopt(P)= \set{x \in A \suchthat \forall y ≠ x \in A, \exists i \in N \suchthat x \pref_i y}$. A SCR $f$ is \emph{Paretian} iff $\forall P \in \linors^N: f(P) \subseteq \paretopt(P)$.
 
@@ -103,7 +104,7 @@ In what follows, we define some classes of social choice rules that we are inter
 \end{definition}
 
 \emph{All} Egalitarian Compromises winners are among the alternatives with most equally distributed losses; while \emph{some} Egalitarian Compromise Compatible winners are among the alternatives with most equally distributed losses.
-From the definitions, it is plain that being an EC implies being ECC. Perhaps more surprisingly, being ECC (or EC) is incompatible with being Paretian. This will be deduced from the following proposition, which will also be useful for \cref{prop:incompatibility}.
+From the definitions, it is plain that being an EC implies being ECC. Perhaps more surprisingly, being ECC (or EC) is incompatible with being Paretian. This will be deduced from the following proposition, which will also be useful for \cref{th:incompatibility}.
 
 \begin{proposition} \label{prop:muSigmaLast}
 	For $n ≥ 2, m ≥ 3$, there exists a profile $P \in \linors^N$ and an alternative $a_m$ such that $a_m$ is ranked last by every voter and such that $\forall \sigma \in \Sigma: \musigma(P) = \set{a_m}$; hence, $\musigma(P) \cap \paretopt(P) = \emptyset$.
@@ -130,7 +131,7 @@ From the definitions, it is plain that being an EC implies being ECC. Perhaps mo
 \end{proof}
 
 Our main observation for this section follows easily.
-\begin{theorem} \label{prop:nonParetian}
+\begin{theorem} \label{th:nonParetian}
 	For $n\geq 2, \ m\geq3$, no Paretian SCR is ECC.
 \end{theorem}
 \begin{proof}
@@ -153,17 +154,14 @@ This section considers these classes of social choice rules.
 \end{definition}
 
 As previously, it directly follows from the definitions that being a PC implies being PCC. 
-It will also probably come with no surprise that being a PC is incompatible with being ECC: being a PC requires to be Paretian, which permits to use \cref{prop:nonParetian}. 
+It will also probably come with no surprise that being a PC is incompatible with being ECC: being a PC requires to be Paretian, which permits to use \cref{th:nonParetian}. 
 
 It is less immediate that being an EC is incompatible with being PCC, because being PCC does not require to be Paretian. This is however true.
 
-\begin{proposition} \label{prop:incompatibility} 
+\begin{theorem} \label{th:incompatibility} 
 	For $n ≥ 2, m ≥ 3$, no SCR is both EC and PCC.
-\end{proposition}
-\begin{proof}
-	\newcommand{\Ptop}{\overline{P}}
-	\newcommand{\sigmatop}{\overline{\sigma}}
-	
+\end{theorem}
+\begin{proof}	
 	Letting $\Ptop$ denote the profile of \cref{prop:muSigmaLast}, with $a_m$ the alternative mentioned there, and considering any EC $f$ and any $\sigma \in \Sigma$, suffices to prove that $f(\Ptop) \cap \mustar(\Ptop) = \emptyset$.
 	
 	First, from \cref{prop:muSigmaLast}, $\set{a_m} \cap \paretopt(\Ptop) = \emptyset$, hence $\set{a_m} \cap \mustar(\Ptop) = \emptyset$.
@@ -184,8 +182,8 @@ It is interesting to note that the incompatibility is not complete, however.
 This is of course only a partial relief for the lovers of both these principles, as such a compatible rule must fail to be Paretian.
 
 \commentOC{TODO complement this remark.} \commentBN{I'm not quite sure what complement means here.}
-\begin{remark}
-	\Cref{prop:nonParetian} does not hold for $m=2$: in that case, the largest Paretian SCR, $f(P) = \paretopt(P)$, is ECC. In fact, $\forall \sigma, P: \paretopt(P) \cap \musigma(P) ≠ \emptyset$. This is because all profiles with two alternatives have this form, with $k < \frac{n}{2}$:
+\begin{remark} \label{rmk:ECCandPC}
+	\cref{th:nonParetian} does not hold for $m=2$: in that case, the largest Paretian SCR, $f(P) = \paretopt(P)$, is ECC. In fact, $\forall \sigma, P: \paretopt(P) \cap \musigma(P) ≠ \emptyset$. This is because all profiles with two alternatives have this form, with $k < \frac{n}{2}$:
 	\begin{center}
 		$
 		\begin{array}{ccc}
@@ -195,6 +193,10 @@ This is of course only a partial relief for the lovers of both these principles,
 		$
 	\end{center}
 	If $k ≥ 1$, there are no Pareto dominated alternatives, so $\paretopt(P) = A$, thus $\paretopt(P) \cap \musigma(P) ≠ \emptyset$. And if $k = 0$, all alternatives are ranked at the same position by every voter, so $\forall \sigma \in \Sigma$, the spread of the loss vectors associated to each alternative is $0$, thus, $\musigma(P)=A$ and, again, $\paretopt(P) \cap \musigma(P) ≠ \emptyset$.
+\end{remark}
+
+\begin{remark}\label{rmk:ECandPCC}
+	\cref{th:incompatibility} does not hold for $m=2$. Consider the same SCR of \cref*{rmk:ECCandPC}, $f(P) = \paretopt(P)$, and a spread measure $\sigma' \in \Sigma$ that assign $0$ to a loss vector $l \in \alllosses$ if all its components are equal, $1$ otherwise. Following the same reasoning of \cref*{rmk:ECCandPC}, all profiles with two alternatives have the same form. If $k ≥ 1$, then there are no Pareto dominated alternatives, therefore $f(P)=A$ and $\sigma'(\lambda^P(a))= \sigma'(\lambda^P(b))=1$, therefore  $\mu_{\sigma'}(P)=\mu^*_{\sigma'}(P)=A$. If $k = 0$, then $\sigma'(\lambda^P(a))= \sigma'(\lambda^P(b))=0$ so $\mu_{\sigma'}(P)=A$. Inevitably one of the two alternatives will be Pareto dominated by the other, but $f(P)\subseteq \mu_{\sigma'}(P)$ still holds, therefore $f$ is EC. Furthermore, $f(P) \subseteq \mu^*_{\sigma'}(P)$  so $f$ is also PCC.
 \end{remark}
 
 \section{Which SCRs are compromises?}
@@ -209,7 +211,7 @@ either no or a unique Condorcet winner. An SCR $f$ is \textit{Condorcet
 consistent} iff $f(P)=$ $\left\{ x\right\} $ at each $P\in L(A)^{N}$ that
 admits $x$ as the unique Condorcet winner.
 
-\begin{theorem}
+\begin{theorem} \label{th:condorcet}
 Let $n\geq 3$ and $m\geq 3$. A Condorcet consistent SCR $f$ is neither ECC nor PCC.
 \end{theorem}
 
@@ -227,7 +229,7 @@ Let $A=\left\{ a_{1},a_{2}, a_{3},\dots,a_{m}\right\} $ where $m\geq 3$, and con
 Consider any Condorcet consistent SCR $f$, then $f(P)=\{a_1\}$. However, $\musigma(P)=\mustar(P)=\{a_2\}$ $\forall \sigma \in \Sigma$, so there exists a profile $P$ such that both $f(P)\cap \musigma(P)$ and $f(P)\cap \mustar(P)$ are empty.
 \end{proof}
 
-Note that Condorcet consistent rules need not be Paretian so the fact that they all fail ECC does not follow from \cref{prop:nonParetian}. 
+Note that Condorcet consistent rules need not be Paretian so the fact that they all fail ECC does not follow from \cref{th:nonParetian}. 
 
 \subsection{Scoring rules}
 A \emph{score vector} is an $m-$tuple $w=(w_{1},...,$ $w_{m})\in \intvl{0, 1}^{m}$ with $w_{1}=1$, $w_{m}=0$ and $w_{i}\geq w_{i+1}$ $\forall
@@ -238,12 +240,12 @@ A:s^{w}(x,P)\geq s^{w}(y,P) \ \forall y\in A\right\}$ for every $P\in L(A)^{N}$.
 
 We first show that no scoring rule is ECC, for any value of $n$ and $m$ at least 3.
 
-\begin{theorem}
+\begin{theorem}\label{th:srECC}
 Let $n\geq 3$ and $m\geq 3.$ No score vector $w$ induces a scoring rule $f^{w}$ that is ECC.
 \end{theorem}
 
 \begin{proof}
-Take any score vector $w$. If $w$ is strict, then $f^w$ is Paretian and \cref{prop:nonParetian} implies that $f^w$ is not ECC. Now, let $w$ be non-strict. Consider the profile $P$ of \cref{prop:muSigmaLast}. Observe that $\musigma(P)=\{a_m\} \ \forall \sigma \in \Sigma $. However, as $w_{1}>w_{m}$, we have $s^{w}(a_{1},P)>s^{w}(a_{m},P)$ which implies $a_{m}\notin f^{w}(P)$.
+Take any score vector $w$. If $w$ is strict, then $f^w$ is Paretian and \cref{th:nonParetian} implies that $f^w$ is not ECC. Now, let $w$ be non-strict. Consider the profile $P$ of \cref{prop:muSigmaLast}. Observe that $\musigma(P)=\{a_m\} \ \forall \sigma \in \Sigma $. However, as $w_{1}>w_{m}$, we have $s^{w}(a_{1},P)>s^{w}(a_{m},P)$ which implies $a_{m}\notin f^{w}(P)$.
 \end{proof}
 
 We now analyze whether scoring rules satisfy PC or PCC. Our first result
@@ -251,10 +253,10 @@ identifies, for a given score vector $w,$ properties for $n$ and $m$ that
 lead to a failure of PCC.
 
 \begin{proposition}
-\label{whenPCCfails} Let $n\geq 3$ and $m\geq 3.$ Take any score vector $w$.
+\label{prop:whenPCCfails} Let $n\geq 3$ and $m\geq 3.$ Take any score vector $w$.
 If $k\cdot n\geq m-1$ for some $k\in \normalfont{\intvl{1, m-2}}$ and $\frac{n-1}{n}>w_{m-k}$ then $f^w$ fails PCC.
 \end{proposition}
-\commentOC{Didn’t we have some similar result whose proof was easier? Let’s try to simplify it, under condition that the other results still follow.} //TOFIND
+\commentOC{Didn’t we have some similar result whose proof was easier? Let’s try to simplify it, under condition that the other results still follow.} 
 \begin{proof}
 Take any $n\geq 3$ and $m\geq 3$ with $k.n\geq m-1$ for some $k\in \left\{
 1,...,\text{ }m-2\right\} $. Let $A=\left\{ a_{1},...,\text{ }a_{m}\right\} $%
@@ -273,7 +275,7 @@ f^{w}(P)\cap $ $\mu _{\sigma }^{\ast }(P)=\varnothing $ $\forall \sigma \in
 \Sigma $.
 \end{proof}
 
-Among all the scoring rules for which Proposition \ref{whenPCCfails} holds, of particular interest are the ones defined by a scoring vector $w$ such that $w_2<1$. Such SCRs include Borda count and Plurality. 
+Among all the scoring rules for which Proposition \ref{prop:whenPCCfails} holds, of particular interest are the ones defined by a scoring vector $w$ such that $w_2<1$. Such SCRs include Borda count and Plurality. 
 
 
 \begin{proposition}
@@ -281,10 +283,10 @@ Let $n\geq 3$ and $m\geq 3.$ For any score vector $w$ with $w_{2}<1$, if $%
 \frac{n-1}{n}>w_{2}$ then $f^w$ fails PCC.
 \end{proposition}
 \begin{proof}
-\Cref{whenPCCfails} can be applied by taking $k=m-2$ and observing that $n ≥ 3 ≥ \frac{m-1}{m-2}$.
+\Cref{prop:whenPCCfails} can be applied by taking $k=m-2$ and observing that $n ≥ 3 ≥ \frac{m-1}{m-2}$.
 \end{proof}
 
-As a matter of fact, Proposition \ref{whenPCCfails} paves the way the
+As a matter of fact, Proposition \ref{prop:whenPCCfails} paves the way the
 observe a very large class of scoring rules that fail PCC, when $n$ is
 sufficiently large. \commentOC{We should introduce this alternative meaning of scoring rule that we use from here onwards, that is, a rule defined on a variable number of voters. And I’d favor using another word.} \commentBN{I don't recall the outcome of this discussion, actually I don't recall this discussion at all.}
 
@@ -295,8 +297,8 @@ exist $n$ $\geq 3$ such that $f^w$ fails PCC.
 \end{proposition}
 
 \begin{proof}
-Take any $m$ $\geq 3$ and any $w$ with $w_{m-k}<1$ for some $k\in \intvl{1, m-2}$. Define $n = \max\set*{\ceil*{\frac{m-1}{k}}, \floor*{\frac{1}{1-w_{m-k}}}+1}$. \Cref{whenPCCfails} then applies, because $n ≥ \frac{m-1}{k}$, and because $n > \frac{1}{1-w_{m-k}}$ which in turn implies $1-w_{m-k} > \frac{1}{n}$ and $1-\frac{1}{n} > w_{m-k}$.
-%Remzi proof: First, observe the existence of $n_{1}\geq 3$ satisfying $k\cdot n_{1}\geq m-1$. Next, note that $\frac{n-1}{n}>w_{m-k}$ can be ensured with a sufficiently large $n$ if and only if $w_{m-k}<1$. So pick some $n_{2}\geq 3$ with $\frac{n_{2}-1}{n_{2}}>w_{m-k}$ . Taking $n=\max \left\{ n_{1},\text{ }n_{2}\right\} $, through Proposition \ref{whenPCCfails}%, we see that $f^{w}$ fails PCC.
+Take any $m$ $\geq 3$ and any $w$ with $w_{m-k}<1$ for some $k\in \intvl{1, m-2}$. Define $n = \max\set*{\ceil*{\frac{m-1}{k}}, \floor*{\frac{1}{1-w_{m-k}}}+1}$. \Cref{prop:whenPCCfails} then applies, because $n ≥ \frac{m-1}{k}$, and because $n > \frac{1}{1-w_{m-k}}$ which in turn implies $1-w_{m-k} > \frac{1}{n}$ and $1-\frac{1}{n} > w_{m-k}$.
+%Remzi proof: First, observe the existence of $n_{1}\geq 3$ satisfying $k\cdot n_{1}\geq m-1$. Next, note that $\frac{n-1}{n}>w_{m-k}$ can be ensured with a sufficiently large $n$ if and only if $w_{m-k}<1$. So pick some $n_{2}\geq 3$ with $\frac{n_{2}-1}{n_{2}}>w_{m-k}$ . Taking $n=\max \left\{ n_{1},\text{ }n_{2}\right\} $, through Proposition \ref{prop:whenPCCfails}%, we see that $f^{w}$ fails PCC.
 \end{proof}
 
 An immediate corollary to Proposition \ref{nlargefailspcc} is about the 
@@ -326,24 +328,24 @@ L(A)^{N}$ with $a_{1}\succ _{i}a_{2}\succ _{i}...\succ _{i}a_{m}$ $\forall
 i\in N$ where $\mu _{\sigma }^{\ast }(P)=\left\{ a_{1}\right\} $ $\forall
 \sigma \in \Sigma $ while $f^w(P)=A\diagdown \left\{ a_{m}\right\} $.
 
-To see that the antiplurality rule $f^w$ satisfies PCC, pick $\overline{%
+To see that the antiplurality rule $f^w$ satisfies PCC, pick $\bar{%
 \sigma }\in \Sigma $ defined for each $(l_{1},...,$ \ $l_{n})$ $\in \left\{
-0,1,...,\text{ }m-1\right\} ^{N}$ as $\overline{\sigma }(l_{1},...,$ \ $%
-l_{n})=1$ if $l_{i}\neq l_{j}$ for some $i,j\in N$ and $\overline{\sigma }%
+0,1,...,\text{ }m-1\right\} ^{N}$ as $\bar{\sigma }(l_{1},...,$ \ $%
+l_{n})=1$ if $l_{i}\neq l_{j}$ for some $i,j\in N$ and $\bar{\sigma }%
 (l_{1},...,$ \ $l_{n})=0$ otherwise. Suppose, for a contradiction, $f^w$
-fails PCC. So, $\mu _{\overline{\sigma }}^{\ast }(P)\cap $ $f$ $%
-^{w}(P)=\varnothing $ for some $P\in $ $L(A)^{N}$. Note that $\overline{%
-\sigma }(\lambda _{P}(x))=\overline{\sigma }(\lambda _{P}(y))$ $\forall x,$ $%
-y\in \mu _{\overline{\sigma }}^{\ast }(P)$ holds by definition of $\mu _{%
-\overline{\sigma }}^{\ast }(P)$ and by the choice of $\overline{\sigma }$,
-for $x\in \mu _{\overline{\sigma }}^{\ast }(P)$, either $\overline{\sigma }%
-(\lambda _{P}(x))=1$ or $\overline{\sigma }(\lambda _{P}(x))=0$. In the
-former case, $\mu _{\overline{\sigma }}^{\ast }(P)=PO(P)$, and $\mu _{%
-\overline{\sigma }}^{\ast }(P)\cap $ $f^w(P)=\varnothing $ cannot hold,
+fails PCC. So, $\mu _{\bar{\sigma }}^{\ast }(P)\cap $ $f$ $%
+^{w}(P)=\varnothing $ for some $P\in $ $L(A)^{N}$. Note that $\bar{%
+\sigma }(\lambda _{P}(x))=\bar{\sigma }(\lambda _{P}(y))$ $\forall x,$ $%
+y\in \mu _{\bar{\sigma }}^{\ast }(P)$ holds by definition of $\mu _{%
+\bar{\sigma }}^{\ast }(P)$ and by the choice of $\bar{\sigma }$,
+for $x\in \mu _{\bar{\sigma }}^{\ast }(P)$, either $\bar{\sigma }%
+(\lambda _{P}(x))=1$ or $\bar{\sigma }(\lambda _{P}(x))=0$. In the
+former case, $\mu _{\bar{\sigma }}^{\ast }(P)=PO(P)$, and $\mu _{%
+\bar{\sigma }}^{\ast }(P)\cap $ $f^w(P)=\varnothing $ cannot hold,
 as the antiplurality rule, although not Paretian, never picks only
-non-Pareto optimal alternatives. So we consider the case $\overline{\sigma }%
-(\lambda _{P}(x))=0$ $\forall x\in \mu _{\overline{\sigma }}^{\ast }(P)$.
-Take any $x\in \mu _{\overline{\sigma }}^{\ast }(P)$. As $\overline{\sigma }%
+non-Pareto optimal alternatives. So we consider the case $\bar{\sigma }%
+(\lambda _{P}(x))=0$ $\forall x\in \mu _{\bar{\sigma }}^{\ast }(P)$.
+Take any $x\in \mu _{\bar{\sigma }}^{\ast }(P)$. As $\bar{\sigma }%
 (\lambda _{P}(x))=0,$ we have $\lambda _{i}^{P}(x)=\lambda _{i}^{P}(x)$ $%
 \forall i,j\in N$, hence $r_{\succ _{i}}(x)=r_{\succ _{j}}(x)$ $\forall
 i,j\in N$. However, in case $r_{\succ _{i}}(x)\in \left\{ 1,...,\text{ }%
@@ -381,14 +383,27 @@ Let $n\geq 3$ and $m\geq 3.$ A BK compromise $f_{q}$ with threshold $q\in
 \begin{proof}
 Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...%
 \text{ }a_{m}\right\} $. Pick some $q\in \left\{ 1,...,n\right\} $ and
-consider the BK compromise $f_{q}$. At the profile $P\in L(A)^{N}$ such that 
-$a_{1}\succ _{i}a_{2}\succ _{i}...\succ _{i}a_{m}$ $\forall i\in N\diagdown
-\left\{ n\right\} $ and $a_{\pi (1)}\succ _{n}a_{\pi (2)}\succ _{n}...\succ
-_{n}a_{\pi (m)}$ where $\pi $ is a bijection on $\left\{ 1,\text{ }2,...,%
-\text{ }m\right\} $ with $\pi (1)=3$, $\pi (2)=2,\pi (3)=1$, $\pi (i)=i+1$ $%
-\forall i\in \left\{ 4,...,\text{ }m-1\right\} $ and $\pi (m)=4 $, \commentOC{We should specify what happens when $m = 3$. I suggest to rather say that $P$ is any profile where $n-1$ voters rank $a_1$ first and $a_2$ second and one voter rank $a_3$ first and $a_2$ second. We can’t say, in any case, that $\musigma(P) = \set{a_2}$, but we can say that because $\sigma(\lambda^P(a_2)) = 0$, $\musigma(P)$ can’t contain $a_1$.} we have $%
-f_{q}(P)=\left\{ a_{1}\right\} $ while $\mu _{\sigma }(P)=\mu _{\sigma
-}^{\ast }(P)=\left\{ a_{2}\right\} $ $\forall \sigma \in \Sigma $.
+consider the BK compromise $f_{q}$. Consider the profile $P$ of \cref{th:condorcet} proof:
+\begin{center}
+	$
+	\begin{array}{cccccc}
+	\mathbf{n-1} \quad &a_1&a_2&a_3&\dots&a_m\\
+	\mathbf{1} \quad &a_3&a_2&\dots&a_m&a_1\\
+	\end{array}
+	$,
+\end{center}
+We have that $f_{q}(P)=\{a_1\}$, and, because $\sigma(\lambda^P(a_2)) = 0$, neither $\musigma(P)$ nor $\mustar(P)$ contain $a_1$ for any $\sigma \in \Sigma$. 
+%Remzi's proof
+%Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...%
+%\text{ }a_{m}\right\} $. Pick some $q\in \left\{ 1,...,n\right\} $ and
+%consider the BK compromise $f_{q}$. Consider the profile $P\in L(A)^{N}$ such that 
+%$a_{1}\succ _{i}a_{2}\succ _{i}...\succ _{i}a_{m}$ $\forall i\in N\diagdown
+%\left\{ n\right\} $ and $a_{\pi (1)}\succ _{n}a_{\pi (2)}\succ _{n}...\succ
+%_{n}a_{\pi (m)}$ where $\pi $ is a bijection on $\left\{ 1,\text{ }2,...,%
+%\text{ }m\right\} $ with $\pi (1)=3$, $\pi (2)=2,\pi (3)=1$, $\pi (i)=i+1$ $%
+%\forall i\in \left\{ 4,...,\text{ }m-1\right\} $ and $\pi (m)=4 $, we have $%
+%f_{q}(P)=\left\{ a_{1}\right\} $ while $\mu _{\sigma }(P)=\mu _{\sigma
+%}^{\ast }(P)=\left\{ a_{2}\right\} $ $\forall \sigma \in \Sigma $.
 \end{proof}
 
 \begin{theorem}
@@ -398,47 +413,47 @@ Let $n\geq 3$ and $m\geq 3.$ The BK compromise $f_{n}$ fails ECC but satisfies P
 
 \begin{proof}
 Take any $n\geq 3$ and $m\geq 3.$ As $f_{n}$ is Paretian, it fails ECC by
-Proposition 3.1. To see that $f_{n}$ satisfies PC, pick $\overline{\sigma }%
+Proposition 3.1. To see that $f_{n}$ satisfies PC, pick $\bar{\sigma }%
 \in \Sigma $ defined for each $(l_{1},...,$ \ $l_{n})$ $\in \left\{ 0,1,...,%
-\text{ }m-1\right\} ^{N}$ as $\overline{\sigma }(l_{1},...,$ \ $l_{n})=1$ if 
-$l_{i}\neq l_{j}$ for some $i,j\in N$ and $\overline{\sigma }(l_{1},...,$ \ $%
+\text{ }m-1\right\} ^{N}$ as $\bar{\sigma }(l_{1},...,$ \ $l_{n})=1$ if 
+$l_{i}\neq l_{j}$ for some $i,j\in N$ and $\bar{\sigma }(l_{1},...,$ \ $%
 l_{n})=0$ otherwise. 
 
 Suppose, for a contradiction, $f_{n}$ fails PC. So,
 there exist some $P\in $ $L(A)^{N}$ for which $f_{n}(P)\diagdown \mu _{%
-\overline{\sigma }}^{\ast }(P)\neq \varnothing $ . Pick some $x\in
-f_{n}(P)\diagdown \mu _{\overline{\sigma }}^{\ast }(P)$. As $x\in f_{n}(P)$, 
-$x\in PO(P)$ as well. Thus, $x\notin \mu _{\overline{\sigma }}^{\ast }(P)$
+\bar{\sigma }}^{\ast }(P)\neq \varnothing $ . Pick some $x\in
+f_{n}(P)\diagdown \mu _{\bar{\sigma }}^{\ast }(P)$. As $x\in f_{n}(P)$, 
+$x\in PO(P)$ as well. Thus, $x\notin \mu _{\bar{\sigma }}^{\ast }(P)$
 because there exists $y\in PO(P)\diagdown \left\{ x\right\} $ with  $%
-\overline{\sigma }(\lambda _{P}(y))<\overline{\sigma }(\lambda _{P}(x))$.
-Given the choice of $\overline{\sigma }$, we have  $\overline{\sigma }%
-(\lambda _{P}(y))=0$ and $\overline{\sigma }(\lambda _{P}(x))=1$. Thus, $%
+\bar{\sigma }(\lambda^{P}(y))<\bar{\sigma }(\lambda^{P}(x))$.
+Given the choice of $\bar{\sigma }$, we have  $\bar{\sigma }%
+(\lambda^{P}(y))=0$ and $\bar{\sigma }(\lambda^{P}(x))=1$. Thus, $%
 r_{\succ _{i}}(y)=r_{\succ _{j}}(y)$ $\forall i,j\in N$. As $x\in f_{n}(P)$,
 this contradicts $y\in PO(P)$.
 
-\commentOC{Again, a matter of style, but I prefer to avoid long contradictions, which leads to state a lot of things that may (in a sense) be false. Also, it seems to me that an elaboration for $y$ being not same-ranked would not be superfluous. I suggest this  alternative, as a remplacement of the second paragraph.}
-
-Considering any $x \in f_n(P)$, let us show that $x \in \mu_{\overline{\sigma}}^*(P)$. Because $x \in \paretopt(P)$, suffices to show that $\forall y \in \paretopt(P)$, $\overline{\sigma}(\lambda^P(y)) ≥ \overline{\sigma}(\lambda^P(x))$.
-Pick any $y \in \paretopt(P) \setminus \set{x}$. Because $\rho_n = \min_i r_\prefi(x)$, $\exists i \suchthat r_\prefi(y) > \rho_n$ (otherwise $\rho_n$ would be smaller). And, because $y \in \paretopt(P)$, $\exists j \suchthat \rho_n > r_{\pref_j}(y)$. We conclude that $\overline{\sigma}(\lambda^P(y)) ≠ 0$, thus $\overline{\sigma}(\lambda^P(y))  ≥ \overline{\sigma}(\lambda^P(x))$.
+%I prefer Remzi's one this time
+%\commentOC{Again, a matter of style, but I prefer to avoid long contradictions, which leads to state a lot of things that may (in a sense) be false. Also, it seems to me that an elaboration for $y$ being not same-ranked would not be superfluous. I suggest this  alternative, as a remplacement of the second paragraph.}
+%Considering any $x \in f_n(P)$, let us show that $x \in \mu_{\bar{\sigma}}^*(P)$. Because $x \in \paretopt(P)$, suffices to show that $\forall y \in \paretopt(P)$, $\bar{\sigma}(\lambda^P(y)) ≥ \bar{\sigma}(\lambda^P(x))$.
+%Pick any $y \in \paretopt(P) \setminus \set{x}$. Because $\rho_n = \min_i r_\prefi(x)$, $\exists i \suchthat r_\prefi(y) > \rho_n$ (otherwise $\rho_n$ would be smaller). And, because $y \in \paretopt(P)$, $\exists j \suchthat \rho_n > r_{\pref_j}(y)$. We conclude that $\bar{\sigma}(\lambda^P(y)) ≠ 0$, thus $\bar{\sigma}(\lambda^P(y))  ≥ \bar{\sigma}(\lambda^P(x))$.
 \end{proof}
 
-\section{New sigma}
-Given a rank vector $r\in \left\{ 1,...,\text{ }m\right\} ^{N}$, we write $%
-\varepsilon ^{k}(r)=(\left\vert r_{i}-k\right\vert )_{i\in N}$ for the
-equalizing vector at level $k\in $ $\left\{ 1,...,\text{ }m\right\} $. We
-write $\overline{\varepsilon ^{k}}(r)$ for the vector obtained by
-reshuffling the entries of $\varepsilon ^{k}(r)$ in a non-decreasing order.
-Given any two rank vectors $r,q\in \left\{ 1,...,\text{ }m\right\} ^{N}$ we
-say that $r$ is more equal than $q$ iff $\exists k^{\ast }\in \left\{ 1,...,%
-\text{ }m\right\} $ such that $\overline{\varepsilon _{i}^{k^{\ast }}}%
-(r)\leq $ $\overline{\varepsilon _{i}^{k}}(q)$ $\forall i\in N$, $\forall
-k\in \left\{ 1,...,\text{ }m\right\} $ while the inequality is strict for
-some $i\in N$ at some $k\in \left\{ 1,...,\text{ }m\right\} $.
+\begin{remark}
+	Prove that \cref{th:condorcet}, \cref{th:srECC}  and \cref{th:BKthreshold} do not hold for $m=2$.
+\end{remark}
 
-A spread measure $\sigma $ is reasonable iff given any $l,l^{\prime }\in
-\left\{ 0,...,\text{ }m-1\right\} ^{N}$, we have $\sigma (l)<\sigma
-(l^{\prime })$ whenever $(l_{1}+1,...,$ $l_{n}+1)$ is more equal than $%
-(l_{1}^{\prime }+1,...,$ $l_{n}^{\prime }+1)$.
+\subsection{Restrictions on sigma}
+Given a rank vector $r\in \intvl{1,m}^\N$, we write $
+\varepsilon ^{k}(r)=(\left\vert r_{i}-k\right\vert )_{i\in N}$ for the
+equalizing vector at level $k\in \intvl{1,m}$. We
+write $\bar{\varepsilon ^{k}}(r)$ for the vector obtained by reshuffling the entries of $\varepsilon ^{k}(r)$ in a non-decreasing order.
+Given any two rank vectors $r,q\in \intvl{1,m}^\N$ we
+say that $r$ is more equal than $q$ iff $\exists k^*\in \intvl{1,m} $ such that $\bar{\varepsilon _{i}^{k^*}}(r)\leq $ $\bar{\varepsilon _{i}^{k}}(q)$ $\forall i\in N$, $\forall
+k\in \intvl{1,m} $ while the inequality is strict for
+some $i\in N$ at some $k\in \intvl{1,m}$.
+
+A spread measure $\sigma $ is reasonable iff given any $l,l'\in
+\intvl{0,m-1}^\N$, we have $\sigma (l)<\sigma
+(l')$ whenever $(l_{1}+1,\dots,l_{n}+1)$ is more equal than $(l_{1}'+1,\dots,l_{n}'+1)$.
 
 \begin{theorem}
 	Let $m\geq 3.$ When $\Sigma $ is furthermore reasonable, there exist $n\geq
@@ -455,13 +470,18 @@ A spread measure $\sigma $ is reasonable iff given any $l,l^{\prime }\in
 			y\right\} $, we have $r_{\succ _{1}}(z)=m$ for some $i\in N$. Note that both 
 			$f$ $^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda
 			^{P}(x)=(m-3,$ $m-1,m-2,...,$ $m-2)$ and $\lambda ^{P}(y)=(m-2,$ $m-1,,...1,$
-			$0,$ $\ 0)$. As $\alpha $ is reasonable, $\sigma (\lambda ^{P}(x))<$ $\sigma
+			$0,$ $\ 0)$. As $\sigma $ is reasonable, $\sigma (\lambda ^{P}(x))<$ $\sigma
 			(\lambda ^{P}(y))$ $\forall \sigma \in \Sigma ,$ implying $y\notin \mu _{%
-				\overline{\sigma }}^{\ast }(P)$ $\forall \sigma \in \Sigma .$
+				\bar{\sigma }}^{\ast }(P)$ $\forall \sigma \in \Sigma .$
 	\end{proof}
 
+ 
+\begin{remark} If $\sigma$ is reasonable then \cref{th:incompatibility} still does not hold for $m=2$. As we showed in \cref{rmk:ECCandPC}, all profiles with two alternatives have the same form. If $k ≥ 1$ then $\sigma(\lambda^P(a))=(0_1, \dots, 0_k, 1_{k+1}, \dots, 1_n )$ and $\sigma(\lambda^P(b))=(1_1, \dots, 1_k, 0_{k+1}, \dots, 0_n )$. Because $\sigma$ is reasonable then $\sigma(\lambda ^{P}(a))< \sigma(\lambda ^{P}(b))$ if $k>n-k$, vice-versa if $k<n-k$ \commentBN{not sure if k=n}. Consider $f$ the majority rule, then $f(P)=\{a\}$ if $k>n-k$, $f(P)=\{b\}$ otherwise. Thus, $f(P)\subseteq \musigma(P)$ in both cases, and $\musigma(P)=\mustar(P)$. If $k=0$ then $\sigma(\lambda ^{P}(b))< \sigma(\lambda ^{P}(a))$, hence $f(P)=\musigma(P)=\mustar(P)$.
+\end{remark}
+
+
 \section{Two voters case}
-In Section \ref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in Section \ref{sec:notation}, we consider here the case $n=2$. Two agents express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems.
+In \cref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in \cref{sec:notation}, we consider here the case $n=2$. Two agents express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems.
 \subsection{The Bargaining problem}
 Several authors, through the years, have proposed theories that would predict the compromise that the two voters would reach through negotiation. Each of these theories, also called solutions, satisfies a specific set of axioms.
 \\ 
@@ -494,14 +514,14 @@ Questions:
 \subsection{Which SCRs are still compromises?}
 
 \subsubsection{BK-compromises}
-In Section \ref{sec:introduction}, we use the example \ref{ex:ex1} and the example \ref{ex:ex2} to define what we call \oquot ex-ante compromises\cquot. We say that all BK-compromises, except fallback bargaining (FB) (where $q=n$), seem to pursuit a goal of compromising but they fail in ensuring an outcome where everyone has effectively compromised. In Section \ref{sec:BKn3}, we further investigate this matter for $n\geq3$ and $m\geq3$ by proving, in Theorem \ref{th:BKthreshold}, that any BK-compromises, except fallback bargaining, is neither ECC nor PCC. Morever, in Theorem \ref{th:FBn3}, we prove that fallback bargaining $f_{n}$ fails ECC but satisfies PC.
+In \cref{sec:introduction}, we use the \cref{ex:ex1} and the \cref{ex:ex2} to define what we call \oquot ex-ante compromises\cquot. We say that all BK-compromises, except fallback bargaining (FB) (where $q=n$), seem to pursuit a goal of compromising but they fail in ensuring an outcome where everyone has effectively compromised. In \cref{sec:BKn3}, we further investigate this matter for $n\geq3$ and $m\geq3$ by proving, in \cref{th:BKthreshold}, that any BK-compromises, except fallback bargaining, is neither ECC nor PCC. Morever, in \cref{th:FBn3}, we prove that fallback bargaining $f_{n}$ fails ECC but satisfies PC.
 
 \begin{Theorem}
 	Let $n=2$ and $m\geq3$. The BK-compromise $f_{n}$ is neither ECC nor PCC. 
 \end{Theorem}
 
 \begin{proof}
-	Since $f_{n}$ is Paretian, it fails ECC by Theorem \ref{prop:nonParetian}. In order to prove that it also fails PCC, consider the following preference profile $P\in \linors^{N}$:
+	Since $f_{n}$ is Paretian, it fails ECC by \cref{th:nonParetian}. In order to prove that it also fails PCC, consider the following preference profile $P\in \linors^{N}$:
 \begin{center}
 	$
 	\begin{array}{cccccccccc}
@@ -570,7 +590,7 @@ Definition of $\musigma$ and $\mustar$
 
 \begin{remark}
 	Observe that $\text{ECC} \centernot \implies \text{PCC}$ and $\text{PCC} \centernot \implies \text{ECC}$.
-	In fact, considering Proposition \ref{prop:nonParetian}, the existence of a spread measure $\sigma$ such that our SCR $f$ picks some alternatives which belong to the set $\musigma$ is not a guarantee that they are also Pareto optimal, thus belonging to the set $\mustar$ (and vice-versa).
+	In fact, considering \cref{th:nonParetian}, the existence of a spread measure $\sigma$ such that our SCR $f$ picks some alternatives which belong to the set $\musigma$ is not a guarantee that they are also Pareto optimal, thus belonging to the set $\mustar$ (and vice-versa).
 \end{remark}
 
 \section{Old section about which SCRs are compromises}
@@ -578,9 +598,9 @@ Definition of $\musigma$ and $\mustar$
 	\commentBN{m,n}All Condorcet consistent rules, all BK compromises, all point runoff rules and all scoring rules fail ECC.
 \end{proposition}
 \begin{proof}
-	For proving this proposition is enough to consider Corollary ref{cor:optECC}, and to observe that all these rules, except Anti-plurality, are Pareto optimal.
+	For proving this proposition is enough to consider Corollary cref{cor:optECC}, and to observe that all these rules, except Anti-plurality, are Pareto optimal.
 	
-	In order to prove it for Anti-plurality, consider the profile described in the proof of Proposition \ref{prop:nonParetian}, where the most equal alternative $z$ is ranked last by all voters. This alternative is the only element of the set $\musigma$ but it is not selected by anti-plurality. \commentBN{Change according to the new profile.}%profile st z is the last and the other are shifted by 1}
+	In order to prove it for Anti-plurality, consider the profile described in the proof of \cref{th:nonParetian}, where the most equal alternative $z$ is ranked last by all voters. This alternative is the only element of the set $\musigma$ but it is not selected by anti-plurality. \commentBN{Change according to the new profile.}%profile st z is the last and the other are shifted by 1}
 \end{proof}
 
 \begin{proposition} For $n\geq3$, $m\geq3$ \commentBN{Generalize for n=2 (classical bargaining setting)} \label{prop:rulesnotPCC}
