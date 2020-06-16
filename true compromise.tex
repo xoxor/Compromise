@@ -35,7 +35,7 @@ In a social choice situation where individuals have preferences over several alt
 
 The plurality rule, for example, selects the alternatives which are ranked the best by the largest number of voters. The problem of this procedure is that, as long as there are more than two alternatives, the outcome may lack the support of any majority. In fact, it may also be opposed by a strict majority of agents each of whom ranks the chosen candidate as their least preferred choice. All the rules existing in literature aiming at finding a compromise between voters end up facing the problem of balancing the trade-off between the quality and quantity of support behind alternatives. \citet{Merlin2019} gather them in the class of Compromise Rules. The Majoritarian Compromise \citep{Sertel1999} selects candidates who have the support of a majority in the best degree possible. 
 We call BK-compromises the class of $q$-approval fallback bargaining rules introduced by \citet{Brams2001}: the $q$-approval fallback bargaining rule picks ranks $1, 2, \dots$ and stops as soon as at least $q$ voters rank some alternative at the chosen rank or better. All such alternatives form the compromise set, and, among them, the ones which receive the highest support are elected.
-We start by an example, based on an observation made by Laslier at Buyukada, that will help us to define the problem and to give the motivation for our approach.
+We start by an example, based on an observation made by Laslier at Buyukada, that will help us to define the problem and to give the motivation for our approach. Yes
 
 \begin{example}
 	\label{ex:ex1}
@@ -84,7 +84,7 @@ Considering a loss vector, we are interested in measuring its “spread”. We d
 We call $\Sigma$ the set of spread measures $\sigma$ such that for each vector $l \in \alllosses$,  $\sigma(l)=0 \iff \forall i, j \in N: l_i=l_j$. Thus, the spread of $l$ gets its lowest value $0$ in case of perfect equality and only in such case.
 \commentBN{Moreover, given a vector $l \in \alllosses$, $\sigma(l)=\sigma(l')$ for any reordering $l'$ of $l$.}
 
-Given a profile $P$ and two alternatives $x$ and $y$, we say that $x$ \emph{Pareto dominates} $y$, and that $y$ is \emph{Pareto dominated}, iff $x \pref_i y, \forall i \in N$. We denote the set of \emph{Pareto optimal} alternatives, i.e., the alternatives which are not Pareto dominated, with $\paretopt(P)= \set{x \in A \suchthat \forall y ≠ x \in A, \exists i \in N \suchthat x \pref_i y}$. A SCR $f$ is \emph{Paretian} iff $\forall P \in \linors^N: f(P) \subseteq \paretopt(P)$.
+Given a profile $P$ and two alternatives $x$ and $y$, we say that $x$ \emph{Pareto dominates} $y$, and that $y$ is \emph{Pareto dominated}, iff $x \pref_i y, \forall i \in N$. We denote the set of \emph{Pareto optimal} alternatives, i.e., the alternatives which are not Pareto dominated, with $\paretopt(P)= \set{x \in A \suchthat \forall y ≠ x \in A, \exists i \in N \suchthat x \pref_i y}$. A SCR $f$ is \emph{} iff $\forall P \in \linors^N: f(P) \subseteq \paretopt(P)$.
 
 \section{Egalitarian versus Paretian compromises}
 \subsection{Egalitarian compromises}
