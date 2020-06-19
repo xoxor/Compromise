@@ -26,49 +26,45 @@
 \maketitle
 
 \begin{abstract}
-	A classical social choice setting is composed of a group of individuals, or voters, that express their preferences over a set of alternatives. The social choice problem consists in defining a procedure able to determine a collective choice for this group of voters, starting from their individual preferences. Such procedure is called social choice rule and it can be defined as a function mapping preference profiles to alternatives. Depending on the properties that this function satisfies, very different outcomes can be produced starting from the same initial profile. The plurality rule is one of the most common social choice rule and it consists in selecting, as a winner, the alternative that is considered the best by the largest number of voters forming the society. Yet, this rule can pick, as a winner, an alternative that is considered the worst by a strict majority of voters. Such outcome may be undesirable. Several procedures, the so-called compromise rules, have been proposed in the literature that aim to find a compromise. Nevertheless, all those rules can be defined as \emph{ex-ante compromises} or \emph{procedural compromises}, i.e., they impose over individuals a willingness to compromise but they do not ensure an outcome where everyone has effectively compromised. In this work, we approach the problem of compromise from an \emph{ex-post} perspective, favoring an outcome where every voter gives up her most preferred positions if this increases equality. We propose a new notion of compromise in the social choice context, considering ordinal utilities. \commentBN{Test overleaf} \commentOC{Test Ol} \commentOC{From git}
+	A classical social choice setting is composed of a group of individuals, or voters, that express their preferences over a set of alternatives. The social choice problem consists in defining a procedure able to determine a collective choice for this group of voters, starting from their individual preferences. Such procedure is called social choice rule and it can be defined as a function mapping preference profiles to alternatives. Depending on the properties that this function satisfies, very different outcomes can be produced starting from the same initial profile. The plurality rule is one of the most common social choice rule and it consists in selecting, as a winner, the alternative that is considered the best by the largest number of voters forming the society. Yet, this rule can pick, as a winner, an alternative that is considered the worst by a strict majority of voters. Such outcome may be undesirable. Several procedures, the so-called compromise rules, have been proposed in the literature that aim to find a compromise. Nevertheless, all those rules can be defined as \emph{ex-ante compromises} or \emph{procedural compromises}, i.e., they impose over individuals a willingness to compromise but they do not ensure an outcome where everyone has effectively compromised. In this work, we approach the problem of compromise from an \emph{ex-post} perspective, favoring an outcome where every voter gives up her most preferred positions if this increases equality. We propose a new notion of compromise in the social choice context, considering ordinal utilities.
 \end{abstract}
 
 \section{Introduction and Related Works}
 \label{sec:introduction}
-In a social choice situation where individuals have preferences over several alternatives there is no unique procedure for selecting a common agreement between them. One of the way to define such a procedure is to prefer the quantity of support behind an alternative (i.e. the number of voters who favor it) to the quality of its support (i.e. until which level in voters’ preferences is legitimate to descend). This decision may result in a lack of a majority support or, worst, into a strict majority of individuals which strongly dislike the chosen candidates. Vice versa, favoring the number of voters behind an alternative implies descending levels in individual preferences potentially ending on electing a generally disliked candidate because of the opposition of very few individuals. 
+In a classical social choice scenario, several individuals express their preferences over a set of alternatives and there is no unique procedure for selecting a common agreement between them. Nevertheless, there is an accepted understanding that collective choices must reflect compromises. One of the first to explicitly refer to a social choice rule (SCR) as a compromise is \cite{Sertel1986} introducing the \textit{majoritarian compromise}. This SCR, further analyzed by \cite{Sertel1999}, is a rediscovery of a method suggested by James W. Bucklin at the beginning of the 20th Century. It asks voters to simultaneously fall back from their ideal alternative to their second, third and more generally k-\emph{th} best until one of the alternatives is among the first k best for a majority. \cite{Brams2001} generalize this concept and introduce a class of SCRs called $q-$\textit{approval fallback bargaining }where $q$ is the level of required support which can vary from a single voter up to unanimity. Naturally, different choices of $q$ lead to different SCRs, such as $q=1$ giving the plurality rule; $q$ being majority giving the majoritarian compromise and $q$ being unanimity giving a bargaining procedure called \textit{fallback bargaining} which has been further analyzed by \cite{Kibris2007} and \cite{Congar2012}. 
 
-The plurality rule, for example, selects the alternatives which are ranked the best by the largest number of voters. The problem of this procedure is that, as long as there are more than two alternatives, the outcome may lack the support of any majority. In fact, it may also be opposed by a strict majority of agents each of whom ranks the chosen candidate as their least preferred choice. All the rules existing in literature aiming at finding a compromise between voters end up facing the problem of balancing the trade-off between the quality and quantity of support behind alternatives. \citet{Merlin2019} gather them in the class of Compromise Rules. The Majoritarian Compromise \citep{Sertel1999} selects candidates who have the support of a majority in the best degree possible. 
-We call BK-compromises the class of $q$-approval fallback bargaining rules introduced by \citet{Brams2001}: the $q$-approval fallback bargaining rule picks ranks $1, 2, \dots$ and stops as soon as at least $q$ voters rank some alternative at the chosen rank or better. All such alternatives form the compromise set, and, among them, the ones which receive the highest support are elected.
-We start by an example, based on an observation made by Laslier at Buyukada, that will help us to define the problem and to give the motivation for our approach. Yes
+As \cite{OezkalSanver2004} discuss, the concept of compromising is mostly understood as the trade off between the number of voters supporting an alternative (i.e., the quantity of support) and the distance of that alternative from the supporters' ideal alternative (i.e., the quality of support). This trade off, which is explicit for $q-$approval fallback bargaining, is also the basis for several other SCRs such as the \textit{median voting rule} proposed by \cite{Bassett1999} and further analyzed by \cite{Gehrlein2003} or the \textit{Condorcet practical method }described by \cite{Nurmi1999}.
 
-\begin{example}
-	\label{ex:ex1}
-	Let $N$ be a set of $n$ voters and $A$ a set of alternatives. $\linors$ represents the set of linear orders over $A$. Consider the following preference profile $P\in \linors^{N}$
-	\begin{center}
-		$
-		\begin{array}{cccc}
-		\mathbf{1} \quad &c&b&a\\
-		\mathbf{n-1} \quad &a&b&c\\
-		\end{array}
-		$
-	\end{center}
-	which represents $n-1$ individuals who prefer $a$ to $b$, $b$ to $c$, hence $a$ to $c$; and one individual who prefers $c$ to $b$, $b$ to $a$, hence $c$ to $a $. At $P$ all BK-compromises, except fallback bargaining i.e. when $q=n$, pick $a$ as the winner, which does not appear as a compromise as a voter ranks it as her least preferred alternative.
-\end{example}
+\cite{Merlin2019} identify and analyze a large class of \textit{compromise rules} which are based on balancing the trade off between the quality and the quantity of support. On the other hand, as conflicting
+individual preferences over the available alternatives makes impossible to ensure the best outcome for every member of the group, one can argue that making a collective choice \textit{per se} implies compromising. In that sense, every SCR incorporates some understanding of what a compromise means. To be sure, there are instances where this understanding may contradict common sense, such as dictatorships where one voter always ensures his best outcome whatever the others prefer. Nevertheless, interesting SCRs base the collective choice on the principle that all voters may have to fall back from their ideal position. Whether, at the end of the day, all voters do effectively fall back or not is another issue which is the subject matter of this paper.
 
-\noindent Please note that the group of ignored voters could be even larger.
-\begin{example}
-	\label{ex:ex2}
-	Consider the following preference profile with $n=100$:
-	\begin{center}
-		$
-		\begin{array}{cccc}
-		\mathbf{49} \quad &c&b&a\\
-		\mathbf{51} \quad &a&b&c\\
-		\end{array}
-		$
-	\end{center}
-	When $q\in \left\{ 1,..., \frac{n}{2} +1\right\} $, all BK-compromises pick $a$, and, again, it does not appear as a compromise as 51 voters reach their best alternative while the remaining 49 voters have to be contented with their worst one. Note that for $q\in \left\{ 1,..., \frac{n}{2} -1 \right\} $ the set of possible common agreements determined by the fallback bargaining procedure is $\{a,c\}$. Nevertheless, $a$ receives the highest support thus it is elected.
-\end{example}
+They don't, indeed! This observation was the basis for an objection made by Jean Fran\c{c}ois Laslier to the nomenclature on compromising.\footnote{This happened at a CNRS workshop on compromising hosted by Istanbul Bilgi University at Buyukada, Istanbul on fall 2018.} Consider 100 voters who all, except one, prefer an alternative $x$ to an alternative $y$ and $y$ to another alternative $z$ while the remaining voter prefers $z$ to $y$ and $y$ to $x$. So, with a display that we use throughout the paper, we have the
+preference profile
 
-These two examples illustrate that BK-compromises (except fallback bargaining (FB) where $q=n$) are \oquot ex-ante compromises\cquot \ or \oquot procedural compromises\cquot, i.e., they impose over individuals a willingness to compromise but they don't ensure an outcome where everyone has effectively compromised. So what is a compromise?
+\bigskip $99$ $x$ $y$ $z$
 
-%In the case where the candidates are only two we talk about bargaining \citep{Thomson1994}. The bargaining problem was first axiomatized by \citet{Nash1950}, who also proposed a solution for the problem that is obtained by maximizing the product of the differences between the utility from an agreement and the one from a disagreement (namely the status quo). This is the only bargaining solution that satisfies all the following axioms: independence of equivalent utility transformations, independence of irrelevant alternatives, Pareto optimality and symmetry.
+$1$ $\ z$ $y$ $x$
+
+\bigskip
+
+where, except fallback bargaining, every member of the $q-$approval fallback bargaining class, including the majortarian compromise, will ignore the single voter and will pick $x$ as the collective outcome. As a matter of fact, almost every interesting SCR will ignore this \oquot marginal minority\cquot and choose $x$ in this situtation. While this choice is defendable on the grounds of qualified majoritarianism, the presence of $y$ which receives unanimous support when each voter falls back one step from his ideal point, renders questionable whether $x$ can be qualified as a compromise. The question becomes even more acute for majoritarian SCRs, including the majoritarian compromise, where $x$ would
+remain the collective choice even when the split, rather than being 99-1, is 51-49, hence ignoring a minority of 49 percent. It is important to observe
+that all these SCRs impose to voters a willingness to compromise which does not mean that under the collective choice that will be made, all voters
+will be effectively compromising. In other words, the term \oquot compromise \cquot in this literature refers to procedural or \textit{ex-ante} compromises which is different than outcome oriented or \textit{ex-post} compromises, a conceptual distinction that seems to be overlooked in the literature.
+
+To define an ex-post compromise, we adopt to our framework, a concept of equal losses that is prevalent in the literature that considers the allocation of continuous utilities.\footnote{This is the equal-loss principle used for bargaining problems (\cite{Chun1988}, \cite{Chun1991}) as well as for bankruptcy problems (\cite{Herrero2001}).} 
+We introduce two definitions for being a compromise which ensure a collective choice where all voters \oquot equally \cquot give up from their ideal point. One of them, called \textit{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \textit{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. The two concepts are logically incompatible. As a result, Pareto efficient SCRs cannot ensure egalitarian compromises. Furthermore, large classes of SCRs of the literature such as Condorcet extensions, scoring rules, $q-$approval fallback bargaining, all fail to be Paretian compromises.
+
+These findings lead to ask which interesting SCRs, if any, are Paretian compromise. We show that there are instances where being a Paretian compromise necessitates to pick an alternative that is, although Pareto optimal, ranked considerably low by all voters. This observation makes the equal-loss principle to appear quite inadequate for collective choice problems, unless envy-freeness is a major concern.
+
+examples of envy-freeness 2-person
+
+equality indices literature
+
+computational
+
+
+
 
 \section{Basic notions and notation}
 \label{sec:notation}
