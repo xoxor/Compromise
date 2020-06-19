@@ -38,32 +38,60 @@ As \cite{OezkalSanver2004} discuss, the concept of compromising is mostly unders
 \cite{Merlin2019} identify and analyze a large class of \textit{compromise rules} which are based on balancing the trade off between the quality and the quantity of support. On the other hand, as conflicting
 individual preferences over the available alternatives makes impossible to ensure the best outcome for every member of the group, one can argue that making a collective choice \textit{per se} implies compromising. In that sense, every SCR incorporates some understanding of what a compromise means. To be sure, there are instances where this understanding may contradict common sense, such as dictatorships where one voter always ensures his best outcome whatever the others prefer. Nevertheless, interesting SCRs base the collective choice on the principle that all voters may have to fall back from their ideal position. Whether, at the end of the day, all voters do effectively fall back or not is another issue which is the subject matter of this paper.
 
-They don't, indeed! This observation was the basis for an objection made by Jean Fran\c{c}ois Laslier to the nomenclature on compromising.\footnote{This happened at a CNRS workshop on compromising hosted by Istanbul Bilgi University at Buyukada, Istanbul on fall 2018.} Consider 100 voters who all, except one, prefer an alternative $x$ to an alternative $y$ and $y$ to another alternative $z$ while the remaining voter prefers $z$ to $y$ and $y$ to $x$. So, with a display that we use throughout the paper, we have the
-preference profile
+Sometimes, indeed, they do not. This observation was the basis for an objection made by Jean Fran\c{c}ois Laslier to the nomenclature on compromising.\footnote{This happened at a CNRS workshop on compromising hosted by Istanbul Bilgi University at Buyukada, Istanbul on fall 2018.} Consider the following example:
+\begin{example}
+	\label{ex:ex1}
+	Let $N$ be a set of $n$ voters and $A$ a set of alternatives. $\linors$ represents the set of linear orders over $A$. Consider the following preference profile $P\in \linors^{N}$
+	\begin{center}
+		$
+		\begin{array}{cccc}
+		\mathbf{1} \quad &c&b&a\\
+		\mathbf{n-1} \quad &a&b&c\\
+		\end{array}
+		$
+	\end{center}
+	which represents $n-1$ individuals who prefer $a$ to $b$, $b$ to $c$, hence $a$ to $c$; and one individual who prefers $c$ to $b$, $b$ to $a$, hence $c$ to $a $. At $P$ all BK-compromises, except fallback bargaining i.e. when $q=n$, will ignore the single voter and will pick $a$ as the collective outcome.
+\end{example}
 
-\bigskip $99$ $x$ $y$ $z$
+As a matter of fact, almost every interesting SCR will ignore this \oquot marginal minority\cquot and choose $a$ in this situtation. While this choice is defendable on the grounds of qualified majoritarianism, the presence of $b$ which receives unanimous support when each voter falls back one step from his ideal point, renders questionable whether $a$ can be qualified as a compromise. The question becomes even more acute for majoritarian SCRs, including the majoritarian compromise, where $a$ would
+remain the collective choice even when the ignored group is much larger.
 
-$1$ $\ z$ $y$ $x$
+\begin{example}
+	\label{ex:ex2}
+	Consider the following preference profile with $n=100$:
+	\begin{center}
+		$
+		\begin{array}{cccc}
+		\mathbf{49} \quad &c&b&a\\
+		\mathbf{51} \quad &a&b&c\\
+		\end{array}
+		$
+	\end{center}
+	When $q\in \left\{ 1,..., \frac{n}{2} +1\right\} $, all BK-compromises pick $a$, and, again, it does not appear as a compromise as 51 voters reach their best alternative while the remaining 49 voters have to be contented with their worst one. Note that for $q\in \left\{ 1,..., \frac{n}{2} -1 \right\} $ the set of possible common agreements determined by the fall back bargaining procedure is $\{a,c\}$. Nevertheless, $a$ receives the highest support thus it is elected.
+\end{example}
 
-\bigskip
+It is important to observe that all these SCRs impose to voters a willingness to compromise which does not mean that under the collective choice that will be made, all voters will be effectively compromising. In other words, the term \oquot compromise\cquot in this literature refers to procedural or \textit{ex-ante} compromises which is different than outcome oriented or \textit{ex-post} compromises, a conceptual distinction that seems to be overlooked in the literature.
 
-where, except fallback bargaining, every member of the $q-$approval fallback bargaining class, including the majortarian compromise, will ignore the single voter and will pick $x$ as the collective outcome. As a matter of fact, almost every interesting SCR will ignore this \oquot marginal minority\cquot and choose $x$ in this situtation. While this choice is defendable on the grounds of qualified majoritarianism, the presence of $y$ which receives unanimous support when each voter falls back one step from his ideal point, renders questionable whether $x$ can be qualified as a compromise. The question becomes even more acute for majoritarian SCRs, including the majoritarian compromise, where $x$ would
-remain the collective choice even when the split, rather than being 99-1, is 51-49, hence ignoring a minority of 49 percent. It is important to observe
-that all these SCRs impose to voters a willingness to compromise which does not mean that under the collective choice that will be made, all voters
-will be effectively compromising. In other words, the term \oquot compromise \cquot in this literature refers to procedural or \textit{ex-ante} compromises which is different than outcome oriented or \textit{ex-post} compromises, a conceptual distinction that seems to be overlooked in the literature.
-
-To define an ex-post compromise, we adopt to our framework, a concept of equal losses that is prevalent in the literature that considers the allocation of continuous utilities.\footnote{This is the equal-loss principle used for bargaining problems (\cite{Chun1988}, \cite{Chun1991}) as well as for bankruptcy problems (\cite{Herrero2001}).} 
-We introduce two definitions for being a compromise which ensure a collective choice where all voters \oquot equally \cquot give up from their ideal point. One of them, called \textit{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \textit{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. The two concepts are logically incompatible. As a result, Pareto efficient SCRs cannot ensure egalitarian compromises. Furthermore, large classes of SCRs of the literature such as Condorcet extensions, scoring rules, $q-$approval fallback bargaining, all fail to be Paretian compromises.
+To define an ex-post compromise, we adopt to our framework, a concept of equal losses that is prevalent in the literature that considers the allocation of continuous utilities. This principle is used for bargaining problems (\cite{Chun1988}, \cite{Chun1991}) as well as for bankruptcy problems (\cite{Herrero2001}).
+We introduce two definitions for being a compromise which ensure a collective choice where all voters \oquot equally\cquot give up from their ideal point. One of them, called \textit{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \textit{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. The two concepts are logically incompatible. As a result, Pareto efficient SCRs cannot ensure egalitarian compromises. Furthermore, large classes of SCRs of the literature such as Condorcet extensions, scoring rules, $q-$approval fallback bargaining, all fail to be Paretian compromises.
 
 These findings lead to ask which interesting SCRs, if any, are Paretian compromise. We show that there are instances where being a Paretian compromise necessitates to pick an alternative that is, although Pareto optimal, ranked considerably low by all voters. This observation makes the equal-loss principle to appear quite inadequate for collective choice problems, unless envy-freeness is a major concern.
-
+\\ \\
 examples of envy-freeness 2-person
-
+\begin{example}
+	\begin{center}
+		$
+		\begin{array}{cccccccccc}
+		\mathbf{i_1} \quad &x&a_1&\dots&&a_k&y&b_1&\dots&b_k\\
+		\mathbf{i_2} \quad &b_1&\dots&b_{k-1}&y&x&b_k&a_1&\dots&a_k\\
+		\end{array}
+		$
+	\end{center}
+\end{example}
+.\\
 equality indices literature
-
+\\ \\
 computational
-
-
 
 
 \section{Basic notions and notation}
@@ -535,17 +563,7 @@ Questions:
 	\item Let $n=2$ and $m\geq3$. No BK-compromise  is neither ECC nor PCC. [I suspect. ToProve]
 	\item Do the results we got for $n\geq3$ for the other SCR considered in section 4 still hold?
 \end{itemize}
-\begin{example}
-	The example of FB for two voters was:
-	\begin{center}
-		$
-		\begin{array}{cccccccccc}
-		\mathbf{i_1} \quad &x&a_1&\dots&&a_k&y&b_1&\dots&b_k\\
-		\mathbf{i_2} \quad &b_1&\dots&b_{k-1}&y&x&b_k&a_1&\dots&a_k\\
-		\end{array}
-		$
-	\end{center}
-\end{example}
+
 
 
 \newpage
