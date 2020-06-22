@@ -96,24 +96,27 @@ computational
 
 \section{Basic notions and notation}
 \label{sec:notation}
-Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 3$. We write $\linors$ for the set of linear orders (a connected, transitive, asymmetric relation) over the set of alternatives $A$. 
-Following the classical nomenclature, we call {\em profile} $P: N → \linors$ the association, to each individual $i \in N$, of a preference order $\prefi \in \linors$ (note that we write $\prefi$ instead of $P_i$). 
+Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 2$. We write $\linors$ for the set of linear orders %(a connected, transitive, asymmetric relation) 
+over $A$.
+A generic element $\prefi$ of $\linors$ stands for a preference of $i\in N$.\footnote{So given any $x,y\in A$, precisely one of $x\prefi y$ and $y\prefi x$ holds while $x \prefi x$ holds for no $x\in A.$ Moreover, $x\prefi y$ and $y\prefi z$ implies $x\prefi z$ $\forall x,y,z\in A$.}
+A {\em profile} $P: N → \linors$ associates with each individual $i \in N$ a preference order $\prefi$. 
 A \emph{social choice rule} (SCR) is a mapping $f:\linors^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. 
 
-We define the \emph{rank} of alternative $x$ in the preference order of the individual $i$ as the number of alternatives that $i$ weakly prefers to $x$: $r_\prefi(x)=\#\{y \in A \suchthat y \pref_i x \}+1$. 
-We write with $\lambda_\prefi(x)=r_\prefi(x)-1$ the loss for $i$ when electing $x$ instead of her favorite alternative, in number of ranks. This value can also be seen as the minimal number of pairwise flips required for placing $x$ at top position for $i$. 
-The notation $\lambda^{P}(x)=(\lambda_\prefi(x))_{i \in N}$ represents the vector of losses when electing $x$. We use double brackets to denote intervals in the integers, thus $\lambda^P: A → \alllosses$.
+We write $r_{\prefi}(x)=\#\{y\in A \suchthat y \prefi x\}+1$ for the \emph{rank} of $x\in A$ at $\prefi \in \linors$. We denote by $\lambda_{\prefi}(x)=r_{\prefi}(x)-1$ the loss in terms of ranks for $i\in N$ with preference $\prefi$, when $x$ is elected instead of the best alternative
+for $i$. The mapping $\lambda^P: A → \alllosses$ assigns to each $x\in A$, the loss vector $\lambda^{P}(x)=(\lambda_{\prefi}(x))_{i\in N}$ induced by the election of $x$.\footnote{We use double brackets to denote intervals in the integers.}
 
-Considering a loss vector, we are interested in measuring its “spread”. We define a \emph{spread measure} as a function $\sigma: \alllosses → \R_{+}$ that associates a spread value to each possible loss vector.
-We call $\Sigma$ the set of spread measures $\sigma$ such that for each vector $l \in \alllosses$,  $\sigma(l)=0 \iff \forall i, j \in N: l_i=l_j$. Thus, the spread of $l$ gets its lowest value $0$ in case of perfect equality and only in such case.
-\commentBN{Moreover, given a vector $l \in \alllosses$, $\sigma(l)=\sigma(l')$ for any reordering $l'$ of $l$.}
+We are interested in measuring the spread of loss vectors. To this end, we adopt a \emph{spread measure} $\sigma: \alllosses → \R_{+}$ that associates a spread value to every possible loss
+vector. We write $\Sigma$ for the set of spread measures $\sigma$ that satisfy for every $l\in\alllosses$, $\sigma(l)=0\iff l_{i}=l_{j}$ $\forall i,j\in N$. Thus, the spread of $l$ gets its lowest value $0$ in case of perfect equality and only in this case. \commentBN{Moreover, given a vector $l \in \alllosses$, $\sigma(l)=\sigma(l')$ for any reordering $l'$ of $l$.}
 
-Given a profile $P$ and two alternatives $x$ and $y$, we say that $x$ \emph{Pareto dominates} $y$, and that $y$ is \emph{Pareto dominated}, iff $x \pref_i y, \forall i \in N$. We denote the set of \emph{Pareto optimal} alternatives, i.e., the alternatives which are not Pareto dominated, with $\paretopt(P)= \set{x \in A \suchthat \forall y ≠ x \in A, \exists i \in N \suchthat x \pref_i y}$. A SCR $f$ is \emph{} iff $\forall P \in \linors^N: f(P) \subseteq \paretopt(P)$.
+Given any distinct $x,y\in A$, we say that $x$ \emph{Pareto dominates} $y$ at $P \in\linors^{N}$ (or equivalenty $y$ is \emph{Pareto dominated} by $x $ at
+$P$ iff $x\prefi y,\forall i\in N$. We denote
+$\paretopt(P)= \set{x \in A \suchthat \forall y ≠ x \in A, \exists i \in N \suchthat x \pref_i y}$ the set of \emph{Pareto optimal} alternatives at $P$.
+A SCR $f$ is \emph{Paretian} iff $f(P)\subseteq\paretopt(P)$ $\forall P\in\linors^{N}$.
 
 \section{Egalitarian versus Paretian compromises}
 \subsection{Egalitarian compromises}
-Consider $X \subseteq A$, we denote with $\min_{\sigma \circ \lambda^P} X = \set{x \in X \suchthat \forall y \in A: \sigma(\lambda^P(x)) ≤ \sigma(\lambda^P(y))}$ the minimal elements of $X$ according to $(\sigma \circ \lambda^P)$. Then,
-\[\musigma(P) = \min_{\sigma \circ \lambda^P} (A)\]
+We denote with $\min_{\sigma \circ \lambda^P} X = \set{x \in X \suchthat \forall y \in A: \sigma(\lambda^P(x)) ≤ \sigma(\lambda^P(y))}$ the minimal elements of $X\in2^{A}\setminus \{\emptyset\}$ according to $(\sigma\circ\lambda^{P})$. Thus,
+\[\musigma(P)=\min_{\sigma\circ\lambda^{P}}(A)\]
 denotes the alternatives whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
 
 \commentOC{Note for myself (do not pay attention). $\lambda^P: A → \alllosses$. Define ${\lambda^P}^{-1}: \lambda^P(A) → A$. Define $<_\sigma$ and $≤_\sigma$ as binary relations over $\alllosses$. Then, $\musigma(P) = {\lambda^P}^{-1}(\min_{<_\sigma}(\lambda^P(A))$. Define $<_{\sigma \circ \lambda^P} \subseteq A × A$ and $x <_{\sigma \circ \lambda^P} y \iff \lambda^P(x) <_\sigma \lambda^P(y)$.}
@@ -127,8 +130,8 @@ In what follows, we define some classes of social choice rules that we are inter
 \begin{definition} A SCR $f$ is \emph{Egalitarian Compromise Compatible} (ECC) iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \cap \musigma(P) \neq \emptyset.\]
 \end{definition}
 
-\emph{All} Egalitarian Compromises winners are among the alternatives with most equally distributed losses; while \emph{some} Egalitarian Compromise Compatible winners are among the alternatives with most equally distributed losses.
-From the definitions, it is plain that being an EC implies being ECC. Perhaps more surprisingly, being ECC (or EC) is incompatible with being Paretian. This will be deduced from the following proposition, which will also be useful for \cref{th:incompatibility}.
+Under a SCR that is EC (resp., ECC), \emph{all}(resp., \emph{some}) winners are among the alternatives with most equally distributed losses. Clearly, EC is a subclass of ECC. Perhaps less obviously, being ECC (or EC) is incompatible with being Paretian. This will be deduced from the following proposition, which will also be useful to prove \cref{th:incompatibility}.
+
 
 \begin{proposition} \label{prop:muSigmaLast}
 	For $n ≥ 2, m ≥ 3$, there exists a profile $P \in \linors^N$ and an alternative $a_m$ such that $a_m$ is ranked last by every voter and such that $\forall \sigma \in \Sigma: \musigma(P) = \set{a_m}$; hence, $\musigma(P) \cap \paretopt(P) = \emptyset$.
@@ -163,13 +166,12 @@ Our main observation for this section follows easily.
 \end{proof}
 
 \subsection{Paretian compromises}
-The previous section shows the tension between being Paretian and insisting on selecting egalitarian alternatives even when they are Pareto dominated. This section investigates the consequences of inverting the order of priorities: the compromise rules defined here insist that at least some of the winning alternatives be Pareto optimal, and considers the most equally distributed loss vectors among those.
+Having seen the tension for a SCR being Paretian and ECC, we investigate the consequences of inverting the order of priorities by insisting that at least some of the winning alternatives are Pareto optimal, and considering the most equally distributed loss vectors among those.
 
 Let $\mustar(P)$ denote the set of Pareto optimal alternatives whose loss vectors are the most equally distributed according to the spread measure $\sigma$:
 \[\mustar(P) = \min_{\sigma \circ \lambda^P} (\paretopt(P))\]
 
-
-This section considers these classes of social choice rules.
+We consider two classes of social choice rules.
 
 \begin{definition} A SCR $f$ is a \emph{Paretian Compromise} PC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \subseteq \mustar(P).\]
 \end{definition}
@@ -177,10 +179,8 @@ This section considers these classes of social choice rules.
 \begin{definition} A SCR $f$ is \emph{Paretian Compromise Compatible} PCC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \cap \mustar(P) \neq \emptyset.\]
 \end{definition}
 
-As previously, it directly follows from the definitions that being a PC implies being PCC. 
-It will also probably come with no surprise that being a PC is incompatible with being ECC: being a PC requires to be Paretian, which permits to use \cref{th:nonParetian}. 
-
-It is less immediate that being an EC is incompatible with being PCC, because being PCC does not require to be Paretian. This is however true.
+Again, it is clear that PC is a subclass of PCC. It will also probably come with no surprise that for a SCR, being PC is incompatible with being ECC, as being PC requires to be Paretian, which permits to use \cref{th:nonParetian}. On the other hand, it is less immediate that being EC is incompatible with
+being PCC, because being PCC does not require to be Paretian. This is however true.
 
 \begin{theorem} \label{th:incompatibility} 
 	For $n ≥ 2, m ≥ 3$, no SCR is both EC and PCC.
