@@ -277,7 +277,7 @@ lead to a failure of PCC.
 \label{prop:whenPCCfails} Let $n\geq 3$ and $m\geq 3.$ Take any score vector $w$.
 If $k\cdot n\geq m-1$ for some $k\in \normalfont{\intvl{1, m-2}}$ and $\frac{n-1}{n}>w_{m-k}$ then $f^w$ fails PCC.
 \end{proposition}
-\commentOC{Didn’t we have some similar result whose proof was easier? Let’s try to simplify it, under condition that the other results still follow.} 
+\commentOC{Is there hope of generalizing \cref{th:bound} so that $w_k < 1$ implies failure of PCC (in suppl to $w_2 < 1$ implying this failure)? Let’s try to simplify this result, under condition that this generalisation holds.}
 \begin{proof}
 Take any $n\geq 3$ and $m\geq 3$ with $k.n\geq m-1$ for some $k\in \left\{
 1,...,\text{ }m-2\right\} $. Let $A=\left\{ a_{1},...,\text{ }a_{m}\right\} $%
@@ -639,6 +639,7 @@ Definition of $\musigma$ and $\mustar$
 \noindent Note that these impossibility results prevail for any restrictions $D \subseteq \Sigma$. \commentBN{first comment Remzi}
 
 \begin{proposition}
+	\label{th:bound}
 	For $n>2$, $m\geq3$ some scoring rules are  $PCC$ \commentBN{Generalize for n=2}
 \end{proposition}
 \begin{proof}
