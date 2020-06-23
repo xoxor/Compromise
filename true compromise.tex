@@ -98,7 +98,7 @@ computational
 Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 2$. We write $\linors$ for the set of linear orders over $A$.
 A generic element $\prefi$ of $\linors$ stands for a preference of $i\in N$.%
 \footnote{So given any $x ≠ y\in A$, precisely one of $x \prefi y$ and $y\prefi x$ holds while $x \prefi x$ holds for no $x\in A.$ Moreover, $x\prefi y$ and $y\prefi z$ implies $x\prefi z$ $\forall x,y,z\in A$.}
-A \emph{profile} $P: N → \linors$ associates with each individual $i \in N$ a preference order $\prefi$. 
+A \emph{profile} $P: N → \linors$ associates with each individual $i \in N$ a preference order $P(i) = {\prefi}$. 
 A \emph{social choice rule} (SCR) is a mapping $f:\linors^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. 
 
 We write $r_{\prefi}(x)=\#\{y\in A \suchthat y \prefi x\}+1$ for the \emph{rank} of $x\in A$ at ${\prefi} \in \linors$. We denote by $\lambda_{\prefi}(x)=r_{\prefi}(x)-1$ the loss in terms of ranks for $i\in N$ with preference $\prefi$, when $x$ is elected instead of the best alternative
@@ -334,6 +334,8 @@ rule then there exist $n\geq 3$ such that $f^w$ is not PCC.
 Thus among the class of scoring rules, the antiplurality rule is the only
 candidate to ensure the satisfaction of PCC which, in fact, is the case, as
 we state and show below.
+
+%A variable electorate scoring rule $f^w: \bigcup_{N \subseteq \mathcal{N}} \linors^N → 2^A$ is…
 
 \begin{proposition}
 Let $n\geq 3$ and $m\geq 3.$ The antiplurality rule $f^w$ satisfies PCC
