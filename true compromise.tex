@@ -383,13 +383,13 @@ PCC for any $n\geq 3$ if and only if $f^w$ is the antiplurality rule.
 
 \subsection{BK-compromises}
 \label{sec:BKn3}
-Given any $r\in \left\{ 1,\ldots ,m\right\} $, \commentOC{Isn’t $r$ confusing here?} we write $n_{r}(x,P)=\#\{i\in
+Given any $r\in \intvl{1, m}$, \commentOC{Isn’t $r$ confusing here?} we write $n_{r}(x,P)=\#\{i\in
 N\mid r_{\succ _{i}}(x)\leq r\}$ for the \emph{$r$-support} that $x$ gets at $P$, that is, the number of individuals for whom the rank of alternative $x\in A$ is lower than or equal to $r$ in the profile $P\in $ $L(A)^{N}$.
-Note that $n_{r}(x,P)\in \{1,\ldots ,n\}$ is non-decreasing on $r$ and $%
+Note that $n_{r}(x,P)\in \intvl{1, n}$ is non-decreasing on $r$ and $%
 n_{m}(x,P)=n.$ For each $q\in \left\{ 1,...,n\right\} $, we define $\rho
 _{q}(x,P)=\min \{r\in \{1,\ldots ,m\} \suchthat n_{r}(x,P)\geq q\}$ as the minimal
 rank $r$ at which the $r$-support that $x$ gets at $P$ is at least $q$. We
-write $\rho _{q}(P)=\min \{\rho _{q}(x,P)\}_{x\in A}$ for the minimal rank $%
+write $\rho _{q}(P)=\min_{x\in A} \{\rho _{q}(x,P)\}$ for the minimal rank $%
 r $ at which the $r$-support that some alternative gets at $P$ is at least $q
 $. \textit{A Brams and Kilgour (BK) compromise with threshold }$q$ is the
 SCR $f_{q}$ defined for each $P\in L(A)^{N}$ as $f_{q}(P)=\{x\in A\mid
@@ -565,7 +565,7 @@ Questions:
 
 \newpage
 
-%\bibliography{biblio}
+\bibliography{biblio}
 
 \newpage
 \appendix
