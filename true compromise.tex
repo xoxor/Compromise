@@ -98,8 +98,7 @@ computational
 Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 3$. We write $\linors$ for the set of linear orders over $A$.
 A generic element $\prefi$ of $\linors$ stands for a preference of $i\in N$.%
 \footnote{So given any $x ≠ y\in A$, precisely one of $x \prefi y$ and $y\prefi x$ holds while $x \prefi x$ holds for no $x\in A.$ Moreover, $x\prefi y$ and $y\prefi z$ implies $x\prefi z$ $\forall x,y,z\in A$.}
-A \emph{profile} $P: N → \linors$ associates with each individual $i \in N$ a preference order  $P(i) = {\prefi}$. 
-A \emph{social choice rule} (SCR) is a mapping $f:\linors^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. 
+A \emph{profile} $P: N → \linors$ associates with each individual $i \in N$ a preference order  $P(i) = {\prefi}$. A \emph{social choice rule} (SCR) is a mapping $f:\linors^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. 
 
 We write $r_{\prefi}(x)=\#\{y\in A \suchthat y \prefi x\}+1$ for the \emph{rank} of $x\in A$ at ${\prefi} \in \linors$. We denote by $\lambda_{\prefi}(x)=r_{\prefi}(x)-1$ the loss in terms of ranks for $i\in N$ with preference $\prefi$, when $x$ is elected instead of the best alternative
 for $i$. The mapping $\lambda^P: A → \alllosses$ assigns to each $x\in A$ the loss vector $\lambda^{P}(x)=(\lambda_{\prefi}(x))_{i\in N}$ induced by the election of $x$.\footnote{We use double brackets to denote intervals in the integers.}
@@ -214,9 +213,8 @@ admits $x$ as the unique Condorcet winner.
 \begin{theorem} \label{th:condorcet}
 Let $n\geq 3$ and $m\geq 3$. A Condorcet consistent SCR $f$ is neither ECC nor PCC.
 \end{theorem}
-
 \begin{proof}
-Let $A=\left\{ a_{1},a_{2}, a_{3},\dots,a_{m}\right\} $ where $m\geq 3$, and consider the following profile $P$, where the dots represent the sequence $a_4$ to $a_m$:
+Consider the following profile $P$, where the dots represent the sequence $a_4$ to $a_m$:
 	\begin{center}
 		$
 		\begin{array}{cccccc}
@@ -316,6 +314,8 @@ Thus among the class of scoring rules, the antiplurality rule is the only
 candidate to ensure the satisfaction of PCC which, in fact, is the case, as
 we state and show below.
 
+%A variable electorate scoring rule $f^w: \bigcup_{N \subseteq \mathcal{N}} \linors^N → 2^A$ is…
+
 \begin{proposition}
 Let $n\geq 3$ and $m\geq 3.$ The antiplurality rule $f^w$ satisfies PCC
 but fails PC.
@@ -377,23 +377,23 @@ n_{\rho _{q}(P)}(x,P)\geq n_{\rho _{q}(P)}(y,P)$ $\forall y\in A\}.$
 
 \begin{theorem}
 	\label{th:BKthreshold}
-Let $n\geq 3$ and $m\geq 3.$ A BK compromise $f_{q}$ with threshold $q\in
+Let $n\geq 3$ and $m\geq 3.$ A BK compromise $f_{q}$ with threshold $q \in
 \left\{ 1,...,n-1\right\} $ is neither ECC nor PCC.
 \end{theorem}
-
 \begin{proof}
-Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...%
-\text{ }a_{m}\right\} $. Pick some $q\in \left\{ 1,...,n\right\} $ and
-consider the BK compromise $f_{q}$. Consider the profile $P$ of \cref{th:condorcet} proof:
-\begin{center}
-	$
-	\begin{array}{cccccc}
-	\mathbf{n-1} \quad &a_1&a_2&a_3&\dots&a_m\\
-	\mathbf{1} \quad &a_3&a_2&\dots&a_m&a_1\\
-	\end{array}
-	$,
-\end{center}
-We have that $f_{q}(P)=\{a_1\}$, and, because $\sigma(\lambda^P(a_2)) = 0$, neither $\musigma$ nor $\mustar$ contain $a_1$ for any $\sigma \in \Sigma$. 
+%Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...
+%\text{ }a_{m}\right\} $. Pick some $q\in \left\{ 1,...,n\right\} $ and
+%consider the BK compromise $f_{q}$. 
+Consider the following profile $P$, where the dots represent the sequence $a_4$ to $a_m$ (also used in the proof of \cref{th:condorcet}):
+	\begin{center}
+		$
+		\begin{array}{cccccc}
+		\mathbf{n-1} \quad &a_1&a_2&a_3&\dots\\
+		\mathbf{1} \quad &a_3&a_2&\dots&a_1\\
+		\end{array}
+		$.
+	\end{center}
+We have that $f_{q}(P)=\{a_1\}$, and, because $\sigma(\lambda^P(a_2)) = 0$ and $\sigma(\lambda^P(a_1)) > 0$, neither $\musigma(P)$ nor $\mustar(P)$ contain $a_1$ for any $\sigma \in \Sigma$. 
 %Remzi's proof
 %Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...%
 %\text{ }a_{m}\right\} $. Pick some $q\in \left\{ 1,...,n\right\} $ and
