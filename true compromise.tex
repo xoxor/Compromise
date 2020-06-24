@@ -230,9 +230,9 @@ Consider any Condorcet consistent SCR $f$, then $f(P)=\{a_1\}$. However, $\musig
 Note that Condorcet consistent rules need not be Paretian so the fact that they all fail ECC does not follow from \cref{th:nonParetian}. 
 
 \subsection{Scoring rules}
-A \emph{score vector} is an $m-$tuple $w=(w_{1},...,$ $w_{m})\in \intvl{0, 1}^{m}$ with $w_{1}=1$, $w_{m}=0$ and $w_{i}\geq w_{i+1}$ $\forall
-i\in \intvl{1, m-1}$. A score vector $w$ is \emph{strict} iff $w_{i}>w_{i+1}$ $\forall i\in \intvl{1, m-1}$. Given a score vector $w$, we write $s^{w}(x,P)=\sum_{i\in N}w_{r_{\succ _{i}}(x)}$ for the score of $x\in A$ at $P\in L(A)^{N}$. Every score vector $w$ identifies a \emph{scoring rule} $f^{w}$ defined as $f^{w}(P)=\left\{ x\in
-A:s^{w}(x,P)\geq s^{w}(y,P) \ \forall y\in A\right\}$ for every $P\in L(A)^{N}$.
+A \emph{score vector} is an $m-$tuple $w=(w_{1},\dots,$ $w_{m})\in \intvl{0, 1}^{m}$ with $w_{1}=1$, $w_{m}=0$ and $w_{i}\geq w_{i+1}$ $\forall
+i\in \intvl{1, m-1}$. A score vector $w$ is \emph{strict} iff $w_{i}>w_{i+1}$ $\forall i\in \intvl{1, m-1}$. Given a score vector $w$, we write $s^{w}(x,P)=\sum_{i\in N}w_{r_{\succ _{i}}(x)}$ for the score of $x\in A$ at $P\in L(A)^{N}$. Every score vector $w$ identifies a \emph{scoring rule} \commentRS{$f_n^w$} $f^{w}$ defined as $f^{w}(P)=\left\{ x\in
+A:s^{w}(x,P)\geq s^{w}(y,P) \ \forall y\in A\right\}$ for every $P\in L(A)^{N}$. 
 %We call $f^{w}$ a \emph{strict scoring rule} whenever $w$ is
 %strict. \commentOC{Odd phrasing (strict applies to the rule, given a rule, what is $w$?); do we need this?}
 
@@ -241,7 +241,7 @@ A:s^{w}(x,P)\geq s^{w}(y,P) \ \forall y\in A\right\}$ for every $P\in L(A)^{N}$.
 We first show that no scoring rule is ECC, for any value of $n$ and $m$ at least 3.
 
 \begin{theorem}\label{th:srECC}
-Let $n\geq 3$ and $m\geq 3.$ No score vector $w$ induces a scoring rule $f^{w}$ that is ECC.
+Let $n\geq 3$ and $m\geq 3.$ No score vector $w$ induces a scoring rule $f^{w}$ \commentRS{$f_n^w$} that is ECC.
 \end{theorem}
 
 \begin{proof}
@@ -254,7 +254,7 @@ lead to a failure of PCC.
 
 \begin{proposition}
 \label{prop:whenPCCfails} Let $n\geq 3$ and $m\geq 3.$ Take any score vector $w$.
-If $k\cdot n\geq m-1$ for some $k\in \normalfont{\intvl{1, m-2}}$ and $\frac{n-1}{n}>w_{m-k}$ then $f^w$ fails PCC.
+If $k\cdot n\geq m-1$ for some $k\in \normalfont{\intvl{1, m-2}}$ and $\frac{n-1}{n}>w_{m-k}$ then $f^w$ \commentRS{$f_n^w$} fails PCC.
 \end{proposition}
 \commentOC{Is there hope of generalizing \cref{th:bound} so that $w_k < 1$ implies failure of PCC (in suppl to $w_2 < 1$ implying this failure)? Let’s try to simplify this result, under condition that this generalisation holds.}
 \begin{proof}
@@ -275,12 +275,12 @@ f^{w}(P)\cap $ $\mu _{\sigma }^{\ast }(P)=\varnothing $ $\forall \sigma \in
 \Sigma $.
 \end{proof}
 
-Among all the scoring rules for which Proposition \ref{prop:whenPCCfails} holds, of particular interest are the ones defined by a scoring vector $w$ such that $w_2<1$. Such SCRs include Borda count and Plurality. 
+Among all the scoring rules for which Proposition \ref{prop:whenPCCfails} holds, of particular interest are the ones defined by a scoring vector $w$ such that $w_2<1$. Such SCRs include Borda count and Plurality. \commentRS{Delete this paragraph in order not to refer to plurality and Borda.}
 
 
 \begin{proposition}
 Let $n\geq 3$ and $m\geq 3.$ For any score vector $w$ with $w_{2}<1$, if $%
-\frac{n-1}{n}>w_{2}$ then $f^w$ fails PCC.
+\frac{n-1}{n}>w_{2}$ then $f^w$ \commentRS{$f_n^w$} fails PCC.
 \end{proposition}
 \begin{proof}
 \Cref{prop:whenPCCfails} can be applied by taking $k=m-2$ and observing that $n ≥ 3 ≥ \frac{m-1}{m-2}$.
@@ -302,22 +302,26 @@ Take any $m$ $\geq 3$ and any $w$ with $w_{m-k}<1$ for some $k\in \intvl{1, m-2}
 \end{proof}
 
 An immediate corollary to Proposition \ref{nlargefailspcc} is about the 
-\textit{antiplurality rule }which is the scoring rule $f^{w}$ with $w_{i}=1$ 
-$\forall i\in \left\{ 1,...,\text{ }m-1\right\} .$ \commentOC{This is actually an equivalent statement. And I find its interest clearer when written in the second way. Thus, I’d remove the previous proposition and directly prove it using the phrasing involving AP. And write it conversely: if  $f^w$ is PCC for any $n ≥ 3$, then $f^w$ is AP. Let’s write it $f^w_n$, by the way.} 
+\textit{antiplurality rule} which is the scoring rule $f^{w}$ with $w_{i}=1$ 
+$\forall i\in \left\{ 1,...,\text{ }m-1\right\} .$ \commentOC{This is actually an equivalent statement. And I find its interest clearer when written in the second way. Thus, I’d remove the previous proposition and directly prove it using the phrasing involving AP. And write it conversely: if  $f^w$ is PCC for any $n ≥ 3$, then $f^w$ is AP. Let’s write it $f^w_n$, by the way.}
+
+\commentRS{An immediate corollary to \cref{nlargefailspcc} is about the \textit{antiplurality score vector} $w$ which is defined as $w_i = 1, \forall i \in \intvl{1,m−1}$.}
 
 \begin{proposition}
 Let $m\geq 3$. If $f^w$ is a scoring rule which isn't the antiplurality
-rule then there exist $n\geq 3$ such that $f^w$ is not PCC.
+rule then there exist $n\geq 3$ such that $f^w$ is not PCC. 
+
+\commentRS{Let $m ≥ 3$. If w isn't the antiplurality score vector then there exists $n ≥ 3$ such that $f^w_n$ is not PCC.}
 \end{proposition}
 
-Thus among the class of scoring rules, the antiplurality rule is the only
-candidate to ensure the satisfaction of PCC which, in fact, is the case, as
-we state and show below.
+Thus among the class of scoring rules, the antiplurality rule is the only candidate to ensure the satisfaction of PCC which, in fact, is the case, as we state and show below.
+
+\commentRS{Thus, among all score vectors, antiplurality is the only candidate to induce a scoring rule (called “antipluralty rule” for each $f^w_n$) that satisfies PCC. This is, in fact, the case, as we state and show below.}
 
 %A variable electorate scoring rule $f^w: \bigcup_{N \subseteq \mathcal{N}} \linors^N → 2^A$ is…
 
 \begin{proposition}
-Let $n\geq 3$ and $m\geq 3.$ The antiplurality rule $f^w$ satisfies PCC
+Let $n\geq 3$ and $m\geq 3.$ The antiplurality rule \commentRS{$f_n^w$} $f^w$ satisfies PCC
 but fails PC.
 \end{proposition}
 
@@ -358,8 +362,9 @@ we have $x\in f^w(P)$, both cases giving a contradiction.
 Our findings on scoring rules lead to the following theorem as a corollary.
 
 \begin{theorem}
-Let $m\geq 3.$ A score vector $w$ induces a scoring rule $f^w$ that is
-PCC for any $n\geq 3$ if and only if $f^w$ is the antiplurality rule. \commentRS{Alternative version: Let $m\geq 3$ and consider any score vector $w$. $f^w_n$ is PCC for any $n\geq 3$ if and only if $w$ is the antiplurality vector.}
+Let $m\geq 3.$ A score vector $w$ induces a scoring rule $f^w$ that is PCC for any $n\geq 3$ if and only if $f^w$ is the antiplurality rule.
+
+\commentRS{Let $m ≥ 3$. Take any score vector $w$. The scoring rule $f_n^w$ is PCC for any $n ≥ 3$ if and only if $w$ is the antiplurality score vector, i.e., $f_n^w$ is the antiplurality rule.}
 \end{theorem}
 
 
