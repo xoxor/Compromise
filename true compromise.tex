@@ -230,17 +230,14 @@ Note that Condorcet consistent rules need not be Paretian so the fact that they 
 
 \subsection{Scoring rules}
 A \emph{score vector} is an $m-$tuple $w=(w_{1},\dots,$ $w_{m})\in \intvl{0, 1}^{m}$ with $w_{1}=1$, $w_{m}=0$ and $w_{i}\geq w_{i+1}$ $\forall
-i\in \intvl{1, m-1}$. A score vector $w$ is \emph{strict} iff $w_{i}>w_{i+1}$ $\forall i\in \intvl{1, m-1}$. Given a score vector $w$, we write $s^{w}(x,P)=\sum_{i\in N}w_{r_{\succ _{i}}(x)}$ for the score of $x\in A$ at $P\in L(A)^{N}$. Every score vector $w$ identifies a \emph{scoring rule} \commentRS{$f_n^w$} $f^{w}$ defined as $f^{w}(P)=\left\{ x\in
+i\in \intvl{1, m-1}$. A score vector $w$ is \emph{strict} iff $w_{i}>w_{i+1}$ $\forall i\in \intvl{1, m-1}$. Given a score vector $w$, we write $s^{w}(x,P)=\sum_{i\in N}w_{r_{\succ _{i}}(x)}$ for the score of $x\in A$ at $P\in L(A)^{N}$. Every score vector $w$ identifies a \emph{scoring rule} $f^w_n$ defined as $f^w_n(P)=\left\{ x\in
 A:s^{w}(x,P)\geq s^{w}(y,P) \ \forall y\in A\right\}$ for every $P\in L(A)^{N}$. 
-
-\commentOC{A small drawback is that $f^w_n$ is not formally correct as $f$ depends on $N$, not merely on $n$. Alternative: define a scoring rule $f^w$ as above, without $n$. When required, talk about the antiplurality rule $(f^w_{N'})_{N' \subseteq N}$, where $f^w_{N'}$ designates the scoring rule defined for the set of voters $N'$. But this fix is incomplete (requires $N$ to be infinite and some proofs probably would require adjustment), and is probably too much pedantry.}
 
 We first show that no scoring rule is ECC, for any value of $n$ and $m$ at least 3.
 
 \begin{theorem}\label{th:srECC}
-Let $n\geq 3$ and $m\geq 3.$ No score vector $w$ induces a scoring rule $f^{w}$ \commentRS{$f_n^w$} that is ECC.
+Let $n\geq 3$ and $m\geq 3.$ No score vector $w$ induces a scoring rule $f^w_n$ that is ECC.
 \end{theorem}
-
 \begin{proof}
 Take any score vector $w$. If $w$ is strict, then $f^w$ is Paretian and \cref{th:nonParetian} implies that $f^w$ is not ECC. Now, let $w$ be non-strict. Consider the profile $P$ of \cref{prop:muSigmaLast}. Observe that $\musigma=\{a_m\} \ \forall \sigma \in \Sigma $. However, as $w_{1}>w_{m}$, we have $s^{w}(a_{1},P)>s^{w}(a_{m},P)$ which implies $a_{m}\notin f^{w}(P)$.
 \end{proof}
@@ -251,7 +248,7 @@ lead to a failure of PCC.
 
 \begin{proposition}
 \label{prop:whenPCCfails} Let $n\geq 3$ and $m\geq 3.$ Take any score vector $w$.
-If $k\cdot n\geq m-1$ for some $k\in \normalfont{\intvl{1, m-2}}$ and $\frac{n-1}{n}>w_{m-k}$ then $f^w$ \commentRS{$f_n^w$} fails PCC.
+If $k\cdot n\geq m-1$ for some $k\in \normalfont{\intvl{1, m-2}}$ and $\frac{n-1}{n}>w_{m-k}$ then $f^w_n$ fails PCC.
 \end{proposition}
 \commentOC{Is there hope of generalizing \cref{th:bound} so that $w_k < 1$ implies failure of PCC (in suppl to $w_2 < 1$ implying this failure)? Let’s try to simplify this result, under condition that this generalisation holds.}
 \begin{proof}
@@ -290,7 +287,7 @@ Among all the scoring rules for which Proposition \ref{prop:whenPCCfails} holds,
 
 \begin{proposition}
 Let $n\geq 3$ and $m\geq 3.$ For any score vector $w$ with $w_{2}<1$ \commentRS{this is redundant}, if $%
-\frac{n-1}{n}>w_{2}$ then $f^w$ \commentRS{$f_n^w$} fails PCC.
+\frac{n-1}{n}>w_{2}$ then $f^w_n$ fails PCC.
 \end{proposition}
 \begin{proof}
 \Cref{prop:whenPCCfails} can be applied by taking $k=m-2$ and observing that $n ≥ 3 ≥ \frac{m-1}{m-2}$.
@@ -332,10 +329,8 @@ Thus among the class of scoring rules, the antiplurality rule is the only candid
 %A variable electorate scoring rule $f^w: \bigcup_{N \subseteq \mathcal{N}} \linors^N → 2^A$ is…
 
 \begin{proposition}
-Let $n\geq 3$ and $m\geq 3.$ The antiplurality rule \commentRS{$f_n^w$} $f^w$ satisfies PCC
-but fails PC.
+Let $n\geq 3$ and $m\geq 3.$ The antiplurality rule $f^w_n$ satisfies PCC but fails PC.
 \end{proposition}
-
 \begin{proof}
 \commentOC{Not checked.}
 Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...%
@@ -496,7 +491,6 @@ A spread measure $\sigma $ is reasonable iff given any $l,l'\in
  
 \begin{remark} If $\sigma$ is reasonable then \cref{th:incompatibility} still does not hold for $m=2$. As we showed in \cref{rmk:ECCandPC}, all profiles with two alternatives have the same form. If $k ≥ 1$ then $\sigma(\lambda_P(a))=(0_1, \dots, 0_k, 1_{k+1}, \dots, 1_n )$ and $\sigma(\lambda_P(b))=(1_1, \dots, 1_k, 0_{k+1}, \dots, 0_n )$. Because $\sigma$ is reasonable then $\sigma(\lambda_{P}(a))< \sigma(\lambda_{P}(b))$ if $k>n-k$, vice-versa if $k<n-k$ \commentBN{not sure if k=n}. Consider $f$ the majority rule, then $f(P)=\{a\}$ if $k>n-k$, $f(P)=\{b\}$ otherwise. Thus, $f(P)\subseteq \musigma$ in both cases, and $\musigma=\mustar$. If $k=0$ then $\sigma(\lambda_{P}(b))< \sigma(\lambda_{P}(a))$, hence $f(P)=\musigma=\mustar$.
 \end{remark}
-
 
 \section{Two voters case}
 In \cref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in \cref{sec:notation}, we consider here the case $n=2$. Two agents express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems.
