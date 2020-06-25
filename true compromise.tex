@@ -150,7 +150,7 @@ Under a SCR that is EC (resp., ECC), \emph{all} (resp., \emph{some}) winners are
 	In $P$, $a_m$ is the only alternative such that $r_{\prefi}(a_m)=m$, $\forall i \in N$; hence, $\sigma(\lambda_P(a)\geq 0$, $\forall a \in A\setminus \{a_m\}$, $\forall \sigma \in \Sigma$. Thus, the set $\musigma$ consists of the sole element $a_m$, and, because $a_m$ is Pareto dominated, $\musigma \cap \paretopt(P) = \emptyset$.
 \end{proof}
 
-Our main observation for this section follows easily.
+Our main result for Section \commentBN{add ref 3.1} follows easily.
 \begin{theorem} \label{th:nonParetian}
 	For $n\geq 2, \ m\geq3$, no Paretian SCR is ECC.
 \end{theorem}
@@ -194,7 +194,7 @@ It is interesting to note that the incompatibility is not complete, however.
 %\begin{proof}
 %	Consider the SCR which always selects the whole set of alternatives: $f(P)=A, \forall P \in \linors^N$. Then, $f(P) \cap \musigma \neq \emptyset$, so $f$ is ECC, and $f(P) \cap \mustar \neq \emptyset$, so $f$ is PCC.
 %\end{proof}
-This is of course only a partial relief for the lovers of both these principles, as such a compatible rule must fail to be Paretian. 
+This is of course only a partial relief for the lovers of both these principles, as such a compatible rule must fail to be Paretian. \commentRS{Can we find a more direct way to say this?}
 
 
 \section{Which SCRs are compromises?}
@@ -289,7 +289,7 @@ Among all the scoring rules for which Proposition \ref{prop:whenPCCfails} holds,
 \commentOC{I’d say this can be kept as is, as I find this remark interesting.}
 
 \begin{proposition}
-Let $n\geq 3$ and $m\geq 3.$ For any score vector $w$ with $w_{2}<1$, if $%
+Let $n\geq 3$ and $m\geq 3.$ For any score vector $w$ with $w_{2}<1$ \commentRS{this is redundant}, if $%
 \frac{n-1}{n}>w_{2}$ then $f^w$ \commentRS{$f_n^w$} fails PCC.
 \end{proposition}
 \begin{proof}
@@ -454,13 +454,11 @@ this contradicts $y\in PO(P)$.
 %Pick any $y \in \paretopt(P) \setminus \set{x}$. Because $\rho_n = \min_i r_\prefi(x)$, $\exists i \suchthat r_\prefi(y) > \rho_n$ (otherwise $\rho_n$ would be smaller). And, because $y \in \paretopt(P)$, $\exists j \suchthat \rho_n > r_{\pref_j}(y)$. We conclude that $\bar{\sigma}(\lambda_P(y)) ≠ 0$, thus $\bar{\sigma}(\lambda_P(y))  ≥ \bar{\sigma}(\lambda_P(x))$.
 \end{proof}
 
-\begin{remark}
-	Prove that \cref{th:condorcet}, \cref{th:srECC}  and \cref{th:BKthreshold} do not hold for $m=2$.
-\end{remark}
 
 \subsection{Restrictions on sigma}
-\commentOC{What was the problem again with PW PD? I find the profile totally convincing, but the proposed reasonability condition seems too strong, because it (needlessly, I think) requires to care only about the difference of ranks, and not about the ranks themselves.
-Here is an alternative proposal, but it is even more complex. Given a rank-vector $r \in \intvl{1, m}^N$ and $k \in \intvl{1, m}$, let $c^{r → k}_i = (r_i, k)$ if $r_i ≤ k$, and $c^{r → k}_i = (k, r_i)$ otherwise, denote the “$i$-th change to $k$”, representing (as a pair) the change required to bring the $i$th rank to $k$. Let $r → k$ denote the “change to $k$”, defined as the multiset of pairs $\left<c^{r → k}_i\right>_{i \in N}$, representing the changes required to bring $r$ to the constant rank-vector $(k)_{i \in N}$. Let $C$ be the set of multisets of $n$ pairs $(a, b)$ in $\intvl{1, m} × \intvl{1, m}$ such that $a ≤ b$. Given two such change multisets $c, c' \in C$, say that $c$ is a smaller change than $c'$ iff some bijection between $c$ and $c'$ is such that each pair $(a, b)$ in $c$ is included in its corresponding pair $(a', b')$ in $c'$, meaning that $a' ≤ a ≤ b ≤ b'$. Let $\rho(r) = \set{r → k}_{k \in N}$ associate to the rank-vector $r$ the set of “change to $k$” for each $k$. Say that $r$ is more equal than $r'$ iff $\forall c \in \rho(r), \exists c' \in \rho(r') \suchthat c \text{ is a smaller change than } c'$.}
+\commentOC{I find the profile totally convincing, but the proposed reasonability condition seems too strong, because it (needlessly, I think) requires to care only about the difference of ranks, and not about the ranks themselves.
+Here is an alternative proposal, but it is even more complex. Given a rank-vector $r \in \intvl{1, m}^N$ and $k \in \intvl{1, m}$, let $c^{r → k}_i = (r_i, k)$ if $r_i ≤ k$, and $c^{r → k}_i = (k, r_i)$ otherwise, denote the “$i$-th change to $k$”, representing (as a pair) the change required to bring the $i$th rank to $k$. Let $r → k$ denote the “change to $k$”, defined as the multiset of pairs $\left<c^{r → k}_i\right>_{i \in N}$, representing the changes required to bring $r$ to the constant rank-vector $(k)_{i \in N}$. Let $C$ be the set of multisets of $n$ pairs $(a, b)$ in $\intvl{1, m} × \intvl{1, m}$ such that $a ≤ b$. Given two such change multisets $c, c' \in C$, say that $c$ is a smaller change than $c'$ iff some bijection between $c$ and $c'$ is such that each pair $(a, b)$ in $c$ is included in its corresponding pair $(a', b')$ in $c'$, meaning that $a' ≤ a ≤ b ≤ b'$. Let $\rho(r) = \set{r → k}_{k \in N}$ associate to the rank-vector $r$ the set of “change to $k$” for each $k$. Say that $r$ is more equal than $r'$ iff $\forall c \in \rho(r), \exists c' \in \rho(r') \suchthat c \text{ is a smaller change than } c'$.
+TODO get rid of this and rewrite in terms of dis-satifaction of going from some loss to $k$.}
 
 Given a rank vector $r\in \intvl{1,m}^\N$, we write $
 \varepsilon ^{k}(r)=(\left\vert r_{i}-k\right\vert )_{i\in N}$ for the
@@ -730,6 +728,7 @@ In our idea of compromise, we aim to determine the “most equally distributed�
 \end{definition}
 We write $\SPPd \subseteq \SAll$ for the class of spread measures that satisfy also PPd.
 Given a vector $r \in \R^N$ of $n$ elements, some examples of spread measures are the following.
+\commentOC{We dropped this because it says that $(0, 2)$ is more equal than $(10^6, 10^6 + 3)$.}
 
 \subsection{Mean Absolute Difference}
 \[\sigma_{mad}(r)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j| \]
