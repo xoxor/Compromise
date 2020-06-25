@@ -95,17 +95,16 @@ computational
 
 \section{Basic notions and notation}
 \label{sec:notation}
-Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 2$. We write $\linors$ for the set of linear orders over $A$.
+Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 3$. We write $\linors$ for the set of linear orders over $A$.
 A generic element $\prefi$ of $\linors$ stands for a preference of $i\in N$.%
 \footnote{So given any $x ≠ y\in A$, precisely one of $x \prefi y$ and $y\prefi x$ holds while $x \prefi x$ holds for no $x\in A.$ Moreover, $x\prefi y$ and $y\prefi z$ implies $x\prefi z$ $\forall x,y,z\in A$.}
-A \emph{profile} $P: N → \linors$ associates with each individual $i \in N$ a preference order $P(i) = {\prefi}$. 
-A \emph{social choice rule} (SCR) is a mapping $f:\linors^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. 
+A \emph{profile} $P: N → \linors$ associates with each individual $i \in N$ a preference order  $P(i) = {\prefi}$. A \emph{social choice rule} (SCR) is a mapping $f:\linors^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. 
 
 We write $r_{\prefi}(x)=\#\{y\in A \suchthat y \prefi x\}+1$ for the \emph{rank} of $x\in A$ at ${\prefi} \in \linors$. We denote by $\lambda_{\prefi}(x)=r_{\prefi}(x)-1$ the loss in terms of ranks for $i\in N$ with preference $\prefi$, when $x$ is elected instead of the best alternative
-for $i$. The mapping $\lambda^P: A → \alllosses$ assigns to each $x\in A$ the loss vector $\lambda^{P}(x)=(\lambda_{\prefi}(x))_{i\in N}$ induced by the election of $x$.\footnote{We use double brackets to denote intervals in the integers.}
+for $i$. The mapping $\lambda_P: A → \alllosses$ assigns to each $x\in A$ the loss vector $\lambda_{P}(x)=(\lambda_{\prefi}(x))_{i\in N}$ induced by the election of $x$.\footnote{We use double brackets to denote intervals in the integers.}
 
 We are interested in measuring the spread of loss vectors. To this end, we adopt a \emph{spread measure} $\sigma: \alllosses → \R_{+}$ that associates a spread value to every possible loss
-vector. We write $\Sigma$ for the set of spread measures $\sigma$ that satisfy for every $l\in\alllosses$, $\sigma(l)=0\iff l_{i}=l_{j}$ $\forall i,j\in N$. Thus, the spread of $l$ gets its lowest value $0$ in case of perfect equality and only in this case. \commentBN{Moreover, given a vector $l \in \alllosses$, $\sigma(l)=\sigma(l')$ for any reordering $l'$ of $l$.}
+vector. We write $\Sigma$ for the set of spread measures $\sigma$ that satisfy for every $l\in\alllosses$, $\sigma(l)=0\iff l_{i}=l_{j}$ $\forall i,j\in N$. Thus, the spread of $l$ gets its lowest value $0$ in case of perfect equality and only in this case. 
 
 Given any distinct $x,y\in A$, we say that $x$ \emph{Pareto dominates} $y$ at $P \in\linors^{N}$ (or equivalenty $y$ is \emph{Pareto dominated} by $x $ at $P$) iff $x\prefi y,\forall i\in N$. We denote
 $\paretopt(P)= \set{x \in A \suchthat \forall y ≠ x \in A, \exists i \in N \suchthat x \pref_i y}$ the set of \emph{Pareto optimal} alternatives at $P$.
@@ -113,25 +112,22 @@ A SCR $f$ is \emph{Paretian} iff $f(P)\subseteq\paretopt(P)$ $\forall P\in\linor
 
 \section{Egalitarian versus Paretian compromises}
 \subsection{Egalitarian compromises}
-We denote the minimal elements of $X\in2^{A}\setminus \{\emptyset\}$ according to $(\sigma\circ\lambda^{P})$ with $\min_{\sigma \circ \lambda^P} X = \set{x \in X \suchthat \forall y \in A: \sigma(\lambda^P(x)) ≤ \sigma(\lambda^P(y))}$. Thus,
-\[\musigma(P)=\min_{\sigma\circ\lambda^{P}}(A)\]
-denotes the alternatives whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
-\commentOC{What do you think of dropping $\musigma$ and $\musigma$?}
+We denote the minimal elements of $X\in2^{A}\setminus \{\emptyset\}$ according to $(\sigma\circ\lambda_{P})$ with $\min_{\sigma \circ \lambda_P} X = \set{x \in X \suchthat \forall y \in A: \sigma(\lambda_P(x)) ≤ \sigma(\lambda_P(y))}$. Thus, $\min_{\sigma\circ\lambda_{P}}(A)$ denotes the alternatives whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
 
 In what follows, we define some classes of social choice rules that we are interested in analyzing. 
 
 
-\begin{definition} A SCR $f$ is an \emph{Egalitarian Compromise} (EC) iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have }f(P) \subseteq \musigma(P).\]
+\begin{definition} A SCR $f$ is an \emph{Egalitarian Compromise} (EC) iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have }f(P) \subseteq \musigma.\]
 \end{definition}
 
-\begin{definition} A SCR $f$ is \emph{Egalitarian Compromise Compatible} (ECC) iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \cap \musigma(P) \neq \emptyset.\]
+\begin{definition} A SCR $f$ is \emph{Egalitarian Compromise Compatible} (ECC) iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \cap \musigma \neq \emptyset.\]
 \end{definition}
 
 Under a SCR that is EC (resp., ECC), \emph{all} (resp., \emph{some}) winners are among the alternatives with most equally distributed losses. Clearly, EC is a subclass of ECC. Perhaps less obviously, being ECC (or EC) is incompatible with being Paretian. This will be deduced from the following proposition, which will also be useful to prove other theorems.% \cref{th:incompatibility}.
 
 
 \begin{proposition} \label{prop:muSigmaLast}
-	For $n ≥ 2, m ≥ 3$, there exists a profile $P \in \linors^N$ and an alternative $a_m$ such that $a_m$ is ranked last by every voter and such that $\forall \sigma \in \Sigma: \musigma(P) = \set{a_m}$; hence, $\musigma(P) \cap \paretopt(P) = \emptyset$.
+	For $n ≥ 2, m ≥ 3$, there exists a profile $P \in \linors^N$ and an alternative $a_m$ such that $\forall i \in N$: $r_{\prefi}(a_m)=m$, and such that $\forall \sigma \in \Sigma: \musigma = \set{a_m}$; hence, $\musigma \cap \paretopt(P) = \emptyset$.
 \end{proposition}
 \begin{proof}
 	Consider the following profile $P$:
@@ -151,7 +147,7 @@ Under a SCR that is EC (resp., ECC), \emph{all} (resp., \emph{some}) winners are
 	1 & \text{if } i = m-1
 	\end{cases}.
 	\]
-	In $P$, $a_m$ is the only alternative ranked at the same position by every voter, and it is ranked last. Hence, for each $\sigma \in \Sigma$ the spread $\sigma(\lambda^P(a))$ associated to each alternative $a ≠ a_m$ is greater than zero, while $\sigma(\lambda^P(a_m))=0$. The set $\musigma(P)$ of the alternatives with most equally distributed losses thus consists of the sole element $a_m$. Moreover, because $a_m$ is Pareto dominated, $\musigma(P) \cap \paretopt(P) = \emptyset$. \commentOC{Shorten?}
+	In $P$, $a_m$ is the only alternative such that $r_{\prefi}(a_m)=m$, $\forall i \in N$; hence, $\sigma(\lambda_P(a)\geq 0$, $\forall a \in A\setminus \{a_m\}$, $\forall \sigma \in \Sigma$. Thus, the set $\musigma$ consists of the sole element $a_m$, and, because $a_m$ is Pareto dominated, $\musigma \cap \paretopt(P) = \emptyset$.
 \end{proof}
 
 Our main observation for this section follows easily.
@@ -159,21 +155,20 @@ Our main observation for this section follows easily.
 	For $n\geq 2, \ m\geq3$, no Paretian SCR is ECC.
 \end{theorem}
 \begin{proof}
-	Proving this amounts to show that $\forall \sigma \in \Sigma, \exists P \in \linors^N \suchthat \paretopt(P) \cap \musigma(P) = \emptyset$. Suffices to use \cref{prop:muSigmaLast}, which asserts that there exists a profile $P$ such that $\forall \sigma \in \Sigma: \musigma(P) \cap \paretopt(P) = \emptyset$.
+	Proving this amounts to show that $\forall \sigma \in \Sigma, \exists P \in \linors^N \suchthat \paretopt(P) \cap \musigma = \emptyset$. Suffices to use \cref{prop:muSigmaLast}, which asserts that there exists a profile $P$ such that $\forall \sigma \in \Sigma: \musigma \cap \paretopt(P) = \emptyset$.
 \end{proof}
 
 \subsection{Paretian compromises}
 Having seen the tension for a SCR being Paretian and ECC, we investigate the consequences of inverting the order of priorities by insisting that at least some of the winning alternatives are Pareto optimal, and considering the most equally distributed loss vectors among those.
 
-Let $\mustar(P)$ denote the set of Pareto optimal alternatives whose loss vectors are the most equally distributed according to the spread measure $\sigma$:
-\[\mustar(P) = \min_{\sigma \circ \lambda^P} (\paretopt(P)).\]
+With this in mind, $\mustar$ denotes the set of Pareto optimal alternatives whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
 
 We consider two classes of social choice rules.
 
-\begin{definition} A SCR $f$ is a \emph{Paretian Compromise} PC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \subseteq \mustar(P).\]
+\begin{definition} A SCR $f$ is a \emph{Paretian Compromise} PC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \subseteq \mustar.\]
 \end{definition}
 
-\begin{definition} A SCR $f$ is \emph{Paretian Compromise Compatible} PCC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \cap \mustar(P) \neq \emptyset.\]
+\begin{definition} A SCR $f$ is \emph{Paretian Compromise Compatible} PCC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \cap \mustar \neq \emptyset.\]
 \end{definition}
 
 Again, it is clear that PC is a subclass of PCC. It will also probably come with no surprise that for a SCR, being PC is incompatible with being ECC, as being PC requires to be Paretian, which permits to use \cref{th:nonParetian}. On the other hand, it is less immediate that being EC is incompatible with
@@ -183,42 +178,25 @@ being PCC, because being PCC does not require to be Paretian. This is however tr
 	For $n ≥ 2, m ≥ 3$, no SCR is both EC and PCC.
 \end{theorem}
 \begin{proof}	
-	Letting $\Ptop$ denote the profile of \cref{prop:muSigmaLast}, with $a_m$ the alternative mentioned there, and considering any EC $f$ and any $\sigma \in \Sigma$, suffices to prove that $f(\Ptop) \cap \mustar(\Ptop) = \emptyset$.
+	Letting $\Ptop$ denote the profile of \cref{prop:muSigmaLast}, with $a_m$ the alternative mentioned there, and considering any EC $f$ and any $\sigma \in \Sigma$, suffices to prove that $f(\Ptop) \cap {\mustar[\sigma][\Ptop]} = \emptyset$.
 	
-	First, from \cref{prop:muSigmaLast}, $\set{a_m} \cap \paretopt(\Ptop) = \emptyset$, hence $\set{a_m} \cap \mustar(\Ptop) = \emptyset$.
+	First, from \cref{prop:muSigmaLast}, $\set{a_m} \cap \paretopt(\Ptop) = \emptyset$, hence $\set{a_m} \cap {\mustar[\sigma][\Ptop]} = \emptyset$. 
 	
-	Second, because $f$ is an EC, for some $\sigmatop$, $f(\Ptop) \subseteq \mu_{\sigmatop}(\Ptop)$. Using \cref{prop:muSigmaLast} again, we see that $\mu_{\sigmatop}(\Ptop) = \set{a_m}$, hence $f(\Ptop) = \set{a_m}$.
+	Second, because $f$ is an EC, for some $\sigmatop$, $f(\Ptop) \subseteq {\musigma[\sigmatop][\Ptop]}$. Using \cref{prop:muSigmaLast} again, we see that ${\musigma[\sigmatop][\Ptop]} = \set{a_m}$, hence $f(\Ptop) = \set{a_m}$.
 	
-	That $f(\Ptop) \cap \mustar(\Ptop) = \emptyset$ follow from these two facts.
+	That $f(\Ptop) \cap {\mustar[\sigma][\Ptop]} = \emptyset$ follow from these two facts.
 \end{proof}
 
 It is interesting to note that the incompatibility is not complete, however.
 
 \begin{remark}
-	For $n ≥ 2$, $m ≥ 2$, there exists an ECC and PCC SCR.
+	For $n ≥ 2$, $m ≥ 3$, there exists an ECC and PCC SCR, which is the rule that always selects the whole set of alternatives.
 \end{remark}
-\begin{proof}
-	Consider the SCR which always selects the whole set of alternatives: $f(P)=A, \forall P \in \linors^N$. Then, $f(P) \cap \musigma(P) \neq \emptyset$, so $f$ is ECC, and $f(P) \cap \mustar(P) \neq \emptyset$, so $f$ is PCC.
-\end{proof}
-This is of course only a partial relief for the lovers of both these principles, as such a compatible rule must fail to be Paretian.
+%\begin{proof}
+%	Consider the SCR which always selects the whole set of alternatives: $f(P)=A, \forall P \in \linors^N$. Then, $f(P) \cap \musigma \neq \emptyset$, so $f$ is ECC, and $f(P) \cap \mustar \neq \emptyset$, so $f$ is PCC.
+%\end{proof}
+This is of course only a partial relief for the lovers of both these principles, as such a compatible rule must fail to be Paretian. 
 
-\commentOC{TODO complement this remark.} \commentBN{I'm not quite sure what complement means here.}
-\begin{remark} \label{rmk:ECCandPC}
-	\cref{th:nonParetian} does not hold for $m=2$: in that case, the largest Paretian SCR, $f(P) = \paretopt(P)$, is ECC. In fact, $\forall \sigma, P: \paretopt(P) \cap \musigma(P) ≠ \emptyset$. This is because all profiles with two alternatives have this form, with $k < \frac{n}{2}$:
-	\begin{center}
-		$
-		\begin{array}{ccc}
-		\mathbf{k} \quad &a&b\\
-		\mathbf{n-k} \quad &b&a\\
-		\end{array}.
-		$
-	\end{center}
-	If $k ≥ 1$, there are no Pareto dominated alternatives, so $\paretopt(P) = A$, thus $\paretopt(P) \cap \musigma(P) ≠ \emptyset$. And if $k = 0$, all alternatives are ranked at the same position by every voter, so $\forall \sigma \in \Sigma$, the spread of the loss vectors associated to each alternative is $0$, thus, $\musigma(P)=A$ and, again, $\paretopt(P) \cap \musigma(P) ≠ \emptyset$.
-\end{remark}
-
-\begin{remark}\label{rmk:ECandPCC}
-	\cref{th:incompatibility} does not hold for $m=2$. Consider the same SCR of \cref*{rmk:ECCandPC}, $f(P) = \paretopt(P)$, and a spread measure $\sigma' \in \Sigma$ that assign $0$ to a loss vector $l \in \alllosses$ if all its components are equal, $1$ otherwise. Following the same reasoning of \cref*{rmk:ECCandPC}, all profiles with two alternatives have the same form. If $k ≥ 1$, then there are no Pareto dominated alternatives, therefore $f(P)=A$ and $\sigma'(\lambda^P(a))= \sigma'(\lambda^P(b))=1$, therefore  $\mu_{\sigma'}(P)=\mu^*_{\sigma'}(P)=A$. If $k = 0$, then $\sigma'(\lambda^P(a))= \sigma'(\lambda^P(b))=0$ so $\mu_{\sigma'}(P)=A$. Inevitably one of the two alternatives will be Pareto dominated by the other, but $f(P)\subseteq \mu_{\sigma'}(P)$ still holds, therefore $f$ is EC. Furthermore, $f(P) \subseteq \mu^*_{\sigma'}(P)$  so $f$ is also PCC.
-\end{remark}
 
 \section{Which SCRs are compromises?}
 \label{sec:more2voters}
@@ -246,26 +224,28 @@ Consider the following profile $P$, where the dots represent the sequence $a_4$ 
 		$.
 	\end{center}
 
-Consider any Condorcet consistent SCR $f$, then $f(P)=\{a_1\}$. However, $\musigma(P)=\mustar(P)=\{a_2\}$ $\forall \sigma \in \Sigma$, so there exists a profile $P$ such that both $f(P)\cap \musigma(P)$ and $f(P)\cap \mustar(P)$ are empty.
+Consider any Condorcet consistent SCR $f$, then $f(P)=\{a_1\}$. However, $\musigma=\mustar=\{a_2\}$ $\forall \sigma \in \Sigma$, so there exists a profile $P$ such that both $f(P)\cap \musigma$ and $f(P)\cap \mustar$ are empty.
 \end{proof}
 
 Note that Condorcet consistent rules need not be Paretian so the fact that they all fail ECC does not follow from \cref{th:nonParetian}. 
 
 \subsection{Scoring rules}
-A \emph{score vector} is an $m-$tuple $w=(w_{1},...,$ $w_{m})\in \intvl{0, 1}^{m}$ with $w_{1}=1$, $w_{m}=0$ and $w_{i}\geq w_{i+1}$ $\forall
-i\in \intvl{1, m-1}$. A score vector $w$ is \emph{strict} iff $w_{i}>w_{i+1}$ $\forall i\in \intvl{1, m-1}$. Given a score vector $w$, we write $s^{w}(x,P)=\sum_{i\in N}w_{r_{\succ _{i}}(x)}$ for the score of $x\in A$ at $P\in L(A)^{N}$. Every score vector $w$ identifies a \emph{scoring rule} $f^{w}$ defined as $f^{w}(P)=\left\{ x\in
-A:s^{w}(x,P)\geq s^{w}(y,P) \ \forall y\in A\right\}$ for every $P\in L(A)^{N}$.
+A \emph{score vector} is an $m-$tuple $w=(w_{1},\dots,$ $w_{m})\in \intvl{0, 1}^{m}$ with $w_{1}=1$, $w_{m}=0$ and $w_{i}\geq w_{i+1}$ $\forall
+i\in \intvl{1, m-1}$. A score vector $w$ is \emph{strict} iff $w_{i}>w_{i+1}$ $\forall i\in \intvl{1, m-1}$. Given a score vector $w$, we write $s^{w}(x,P)=\sum_{i\in N}w_{r_{\succ _{i}}(x)}$ for the score of $x\in A$ at $P\in L(A)^{N}$. Every score vector $w$ identifies a \emph{scoring rule} \commentRS{$f_n^w$} $f^{w}$ defined as $f^{w}(P)=\left\{ x\in
+A:s^{w}(x,P)\geq s^{w}(y,P) \ \forall y\in A\right\}$ for every $P\in L(A)^{N}$. 
 %We call $f^{w}$ a \emph{strict scoring rule} whenever $w$ is
 %strict. \commentOC{Odd phrasing (strict applies to the rule, given a rule, what is $w$?); do we need this?}
+
+\commentOC{We may want to define a variable electorate scoring rule $f^w_n: \bigcup_{N \subseteq \mathcal{N}} \linors^N → 2^A$ }
 
 We first show that no scoring rule is ECC, for any value of $n$ and $m$ at least 3.
 
 \begin{theorem}\label{th:srECC}
-Let $n\geq 3$ and $m\geq 3.$ No score vector $w$ induces a scoring rule $f^{w}$ that is ECC.
+Let $n\geq 3$ and $m\geq 3.$ No score vector $w$ induces a scoring rule $f^{w}$ \commentRS{$f_n^w$} that is ECC.
 \end{theorem}
 
 \begin{proof}
-Take any score vector $w$. If $w$ is strict, then $f^w$ is Paretian and \cref{th:nonParetian} implies that $f^w$ is not ECC. Now, let $w$ be non-strict. Consider the profile $P$ of \cref{prop:muSigmaLast}. Observe that $\musigma(P)=\{a_m\} \ \forall \sigma \in \Sigma $. However, as $w_{1}>w_{m}$, we have $s^{w}(a_{1},P)>s^{w}(a_{m},P)$ which implies $a_{m}\notin f^{w}(P)$.
+Take any score vector $w$. If $w$ is strict, then $f^w$ is Paretian and \cref{th:nonParetian} implies that $f^w$ is not ECC. Now, let $w$ be non-strict. Consider the profile $P$ of \cref{prop:muSigmaLast}. Observe that $\musigma=\{a_m\} \ \forall \sigma \in \Sigma $. However, as $w_{1}>w_{m}$, we have $s^{w}(a_{1},P)>s^{w}(a_{m},P)$ which implies $a_{m}\notin f^{w}(P)$.
 \end{proof}
 
 We now analyze whether scoring rules satisfy PC or PCC. Our first result
@@ -274,7 +254,7 @@ lead to a failure of PCC.
 
 \begin{proposition}
 \label{prop:whenPCCfails} Let $n\geq 3$ and $m\geq 3.$ Take any score vector $w$.
-If $k\cdot n\geq m-1$ for some $k\in \normalfont{\intvl{1, m-2}}$ and $\frac{n-1}{n}>w_{m-k}$ then $f^w$ fails PCC.
+If $k\cdot n\geq m-1$ for some $k\in \normalfont{\intvl{1, m-2}}$ and $\frac{n-1}{n}>w_{m-k}$ then $f^w$ \commentRS{$f_n^w$} fails PCC.
 \end{proposition}
 \commentOC{Is there hope of generalizing \cref{th:bound} so that $w_k < 1$ implies failure of PCC (in suppl to $w_2 < 1$ implying this failure)? Let’s try to simplify this result, under condition that this generalisation holds.}
 \begin{proof}
@@ -295,12 +275,12 @@ f^{w}(P)\cap $ $\mu _{\sigma }^{\ast }(P)=\varnothing $ $\forall \sigma \in
 \Sigma $.
 \end{proof}
 
-Among all the scoring rules for which Proposition \ref{prop:whenPCCfails} holds, of particular interest are the ones defined by a scoring vector $w$ such that $w_2<1$. Such SCRs include Borda count and Plurality. 
+Among all the scoring rules for which Proposition \ref{prop:whenPCCfails} holds, of particular interest are the ones defined by a scoring vector $w$ such that $w_2<1$. Such SCRs include Borda count and Plurality. \commentRS{Delete this paragraph in order not to refer to plurality and Borda.}
 
 
 \begin{proposition}
 Let $n\geq 3$ and $m\geq 3.$ For any score vector $w$ with $w_{2}<1$, if $%
-\frac{n-1}{n}>w_{2}$ then $f^w$ fails PCC.
+\frac{n-1}{n}>w_{2}$ then $f^w$ \commentRS{$f_n^w$} fails PCC.
 \end{proposition}
 \begin{proof}
 \Cref{prop:whenPCCfails} can be applied by taking $k=m-2$ and observing that $n ≥ 3 ≥ \frac{m-1}{m-2}$.
@@ -308,7 +288,7 @@ Let $n\geq 3$ and $m\geq 3.$ For any score vector $w$ with $w_{2}<1$, if $%
 
 As a matter of fact, Proposition \ref{prop:whenPCCfails} paves the way the
 observe a very large class of scoring rules that fail PCC, when $n$ is
-sufficiently large. \commentOC{We should introduce this alternative meaning of scoring rule that we use from here onwards, that is, a rule defined on a variable number of voters. And I’d favor using another word.} \commentBN{I don't recall the outcome of this discussion, actually I don't recall this discussion at all.}
+sufficiently large. \commentOC{We should introduce this alternative meaning of scoring rule that we use from here onwards, that is, a rule defined on a variable number of voters. And I’d favor using another word.} 
 
 \begin{proposition}
 \label{nlargefailspcc} \bigskip Let $m$ $\geq 3.$ For any score vector $w$
@@ -322,22 +302,26 @@ Take any $m$ $\geq 3$ and any $w$ with $w_{m-k}<1$ for some $k\in \intvl{1, m-2}
 \end{proof}
 
 An immediate corollary to Proposition \ref{nlargefailspcc} is about the 
-\textit{antiplurality rule }which is the scoring rule $f^{w}$ with $w_{i}=1$ 
-$\forall i\in \left\{ 1,...,\text{ }m-1\right\} .$ \commentOC{This is actually an equivalent statement. And I find its interest clearer when written in the second way. Thus, I’d remove the previous proposition and directly prove it using the phrasing involving AP. And write it conversely: if  $f^w$ is PCC for any $n ≥ 3$, then $f^w$ is AP. Let’s write it $f^w_n$, by the way.} \commentBN{Again, I don't have in my notes the decision on this matter.}
+\textit{antiplurality rule} which is the scoring rule $f^{w}$ with $w_{i}=1$ 
+$\forall i\in \left\{ 1,...,\text{ }m-1\right\} .$ \commentOC{This is actually an equivalent statement. And I find its interest clearer when written in the second way. Thus, I’d remove the previous proposition and directly prove it using the phrasing involving AP. And write it conversely: if  $f^w$ is PCC for any $n ≥ 3$, then $f^w$ is AP. Let’s write it $f^w_n$, by the way.}
+
+\commentRS{An immediate corollary to \cref{nlargefailspcc} is about the \textit{antiplurality score vector} $w$ which is defined as $w_i = 1, \forall i \in \intvl{1,m−1}$.}
 
 \begin{proposition}
 Let $m\geq 3$. If $f^w$ is a scoring rule which isn't the antiplurality
-rule then there exist $n\geq 3$ such that $f^w$ is not PCC.
+rule then there exist $n\geq 3$ such that $f^w$ is not PCC. 
+
+\commentRS{Let $m ≥ 3$. If w isn't the antiplurality score vector then there exists $n ≥ 3$ such that $f^w_n$ is not PCC.}
 \end{proposition}
 
-Thus among the class of scoring rules, the antiplurality rule is the only
-candidate to ensure the satisfaction of PCC which, in fact, is the case, as
-we state and show below.
+Thus among the class of scoring rules, the antiplurality rule is the only candidate to ensure the satisfaction of PCC which, in fact, is the case, as we state and show below.
+
+\commentRS{Thus, among all score vectors, antiplurality is the only candidate to induce a scoring rule (called “antipluralty rule” for each $f^w_n$) that satisfies PCC. This is, in fact, the case, as we state and show below.}
 
 %A variable electorate scoring rule $f^w: \bigcup_{N \subseteq \mathcal{N}} \linors^N → 2^A$ is…
 
 \begin{proposition}
-Let $n\geq 3$ and $m\geq 3.$ The antiplurality rule $f^w$ satisfies PCC
+Let $n\geq 3$ and $m\geq 3.$ The antiplurality rule \commentRS{$f_n^w$} $f^w$ satisfies PCC
 but fails PC.
 \end{proposition}
 
@@ -378,21 +362,21 @@ we have $x\in f^w(P)$, both cases giving a contradiction.
 Our findings on scoring rules lead to the following theorem as a corollary.
 
 \begin{theorem}
-Let $m\geq 3.$ A score vector $w$ induces a scoring rule $f^w$ that is
-PCC for any $n\geq 3$ if and only if $f^w$ is the antiplurality rule.
+Let $m\geq 3.$ A score vector $w$ induces a scoring rule $f^w$ that is PCC for any $n\geq 3$ if and only if $f^w$ is the antiplurality rule.
+
+\commentRS{Let $m ≥ 3$. Take any score vector $w$. The scoring rule $f_n^w$ is PCC for any $n ≥ 3$ if and only if $w$ is the antiplurality score vector, i.e., $f_n^w$ is the antiplurality rule.}
 \end{theorem}
+
 
 \subsection{BK-compromises}
 \label{sec:BKn3}
-Given any $r\in \intvl{1, m}$, \commentOC{Isn’t $r$ confusing here?} we write $n_{r}(x,P)=\#\{i\in
-N\mid r_{\succ _{i}}(x)\leq r\}$ for the \emph{$r$-support} that $x$ gets at $P$, that is, the number of individuals for whom the rank of alternative $x\in A$ is lower than or equal to $r$ in the profile $P\in $ $L(A)^{N}$.
-Note that $n_{r}(x,P)\in \intvl{1, n}$ is non-decreasing on $r$ and $%
+Given any $k\in \intvl{1, m}$, we write $n_{k}(x,P)=\#\{i\in
+N\mid r_{\succ _{i}}(x)\leq k\}$ for the \emph{$k$-support} that $x$ gets at $P$, that is, the number of individuals for whom the rank of alternative $x\in A$ is lower than or equal to $k$ in the profile $P\in $ $L(A)^{N}$.
+Note that $n_{k}(x,P)\in \intvl{1, n}$ is non-decreasing on $k$ and $%
 n_{m}(x,P)=n.$ For each $q\in \left\{ 1,...,n\right\} $, we define $\rho
-_{q}(x,P)=\min \{r\in \{1,\ldots ,m\} \suchthat n_{r}(x,P)\geq q\}$ as the minimal
-rank $r$ at which the $r$-support that $x$ gets at $P$ is at least $q$. We
-write $\rho _{q}(P)=\min_{x\in A} \{\rho _{q}(x,P)\}$ for the minimal rank $%
-r $ at which the $r$-support that some alternative gets at $P$ is at least $q
-$. \textit{A Brams and Kilgour (BK) compromise with threshold }$q$ is the
+_{q}(x,P)=\min \{k\in \{1,\ldots ,m\} \suchthat n_{k}(x,P)\geq q\}$ as the minimal
+rank $k$ at which the $k$-support that $x$ gets at $P$ is at least $q$. We
+write $\rho _{q}(P)=\min_{x\in A} \{\rho _{q}(x,P)\}$ for the minimal rank $k $ at which the $k$-support that some alternative gets at $P$ is at least $q$. \textit{A Brams and Kilgour (BK) compromise with threshold }$q$ is the
 SCR $f_{q}$ defined for each $P\in L(A)^{N}$ as $f_{q}(P)=\{x\in A\mid
 n_{\rho _{q}(P)}(x,P)\geq n_{\rho _{q}(P)}(y,P)$ $\forall y\in A\}.$
 
@@ -413,7 +397,7 @@ Consider the following profile $P$, where the dots represent the sequence $a_4$ 
 		\end{array}
 		$.
 	\end{center}
-We have that $f_{q}(P)=\{a_1\}$, and, because $\sigma(\lambda^P(a_2)) = 0$ and $\sigma(\lambda^P(a_1)) > 0$, neither $\musigma(P)$ nor $\mustar(P)$ contain $a_1$ for any $\sigma \in \Sigma$. 
+We have that $f_{q}(P)=\{a_1\}$, and, because $\sigma(\lambda_P(a_2)) = 0$ and $\sigma(\lambda_P(a_1)) > 0$, neither $\musigma(P)$ nor $\mustar(P)$ contain $a_1$ for any $\sigma \in \Sigma$. 
 %Remzi's proof
 %Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...%
 %\text{ }a_{m}\right\} $. Pick some $q\in \left\{ 1,...,n\right\} $ and
@@ -446,17 +430,17 @@ there exist some $P\in $ $L(A)^{N}$ for which $f_{n}(P)\diagdown \mu _{%
 f_{n}(P)\diagdown \mu _{\bar{\sigma }}^{\ast }(P)$. As $x\in f_{n}(P)$, 
 $x\in PO(P)$ as well. Thus, $x\notin \mu _{\bar{\sigma }}^{\ast }(P)$
 because there exists $y\in PO(P)\diagdown \left\{ x\right\} $ with  $%
-\bar{\sigma }(\lambda^{P}(y))<\bar{\sigma }(\lambda^{P}(x))$.
+\bar{\sigma }(\lambda_{P}(y))<\bar{\sigma }(\lambda_{P}(x))$.
 Given the choice of $\bar{\sigma }$, we have  $\bar{\sigma }%
-(\lambda^{P}(y))=0$ and $\bar{\sigma }(\lambda^{P}(x))=1$. Thus, $%
+(\lambda_{P}(y))=0$ and $\bar{\sigma }(\lambda_{P}(x))=1$. Thus, $%
 r_{\succ _{i}}(y)=r_{\succ _{j}}(y)$ $\forall i,j\in N$. As $x\in f_{n}(P)$,
 this contradicts $y\in PO(P)$.
 
 \commentOC{Is it obvious that $r_{\succ_i}(y)=r_{\succ_j}(y), \forall i, j\in N$?}
 %I prefer Remzi's one this time
 %\commentOC{Again, a matter of style, but I prefer to avoid long contradictions, which leads to state a lot of things that may (in a sense) be false. Also, it seems to me that an elaboration for $y$ being not same-ranked would not be superfluous. I suggest this  alternative, as a remplacement of the second paragraph.}
-%Considering any $x \in f_n(P)$, let us show that $x \in \mu_{\bar{\sigma}}^*(P)$. Because $x \in \paretopt(P)$, suffices to show that $\forall y \in \paretopt(P)$, $\bar{\sigma}(\lambda^P(y)) ≥ \bar{\sigma}(\lambda^P(x))$.
-%Pick any $y \in \paretopt(P) \setminus \set{x}$. Because $\rho_n = \min_i r_\prefi(x)$, $\exists i \suchthat r_\prefi(y) > \rho_n$ (otherwise $\rho_n$ would be smaller). And, because $y \in \paretopt(P)$, $\exists j \suchthat \rho_n > r_{\pref_j}(y)$. We conclude that $\bar{\sigma}(\lambda^P(y)) ≠ 0$, thus $\bar{\sigma}(\lambda^P(y))  ≥ \bar{\sigma}(\lambda^P(x))$.
+%Considering any $x \in f_n(P)$, let us show that $x \in \mu_{\bar{\sigma}}^*(P)$. Because $x \in \paretopt(P)$, suffices to show that $\forall y \in \paretopt(P)$, $\bar{\sigma}(\lambda_P(y)) ≥ \bar{\sigma}(\lambda_P(x))$.
+%Pick any $y \in \paretopt(P) \setminus \set{x}$. Because $\rho_n = \min_i r_\prefi(x)$, $\exists i \suchthat r_\prefi(y) > \rho_n$ (otherwise $\rho_n$ would be smaller). And, because $y \in \paretopt(P)$, $\exists j \suchthat \rho_n > r_{\pref_j}(y)$. We conclude that $\bar{\sigma}(\lambda_P(y)) ≠ 0$, thus $\bar{\sigma}(\lambda_P(y))  ≥ \bar{\sigma}(\lambda_P(x))$.
 \end{proof}
 
 \begin{remark}
@@ -494,14 +478,14 @@ A spread measure $\sigma $ is reasonable iff given any $l,l'\in
 			r_{\succ _{n}}(y)=1$. Moreover, for each $z\in A\diagdown \left\{ x,\text{ }%
 			y\right\} $, we have $r_{\succ _{1}}(z)=m$ for some $i\in N$. Note that both 
 			$f$ $^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda
-			^{P}(x)=(m-3,$ $m-1,m-2,...,$ $m-2)$ and $\lambda ^{P}(y)=(m-2,$ $m-1,,...1,$
-			$0,$ $\ 0)$. As $\sigma $ is reasonable, $\sigma (\lambda ^{P}(x))<$ $\sigma
-			(\lambda ^{P}(y))$ $\forall \sigma \in \Sigma ,$ implying $y\notin \mu _{%
+			^{P}(x)=(m-3,$ $m-1,m-2,...,$ $m-2)$ and $\lambda_{P}(y)=(m-2,$ $m-1,,...1,$
+			$0,$ $\ 0)$. As $\sigma $ is reasonable, $\sigma (\lambda_{P}(x))<$ $\sigma
+			(\lambda_{P}(y))$ $\forall \sigma \in \Sigma ,$ implying $y\notin \mu _{%
 				\bar{\sigma }}^{\ast }(P)$ $\forall \sigma \in \Sigma .$
 	\end{proof}
 
  
-\begin{remark} If $\sigma$ is reasonable then \cref{th:incompatibility} still does not hold for $m=2$. As we showed in \cref{rmk:ECCandPC}, all profiles with two alternatives have the same form. If $k ≥ 1$ then $\sigma(\lambda^P(a))=(0_1, \dots, 0_k, 1_{k+1}, \dots, 1_n )$ and $\sigma(\lambda^P(b))=(1_1, \dots, 1_k, 0_{k+1}, \dots, 0_n )$. Because $\sigma$ is reasonable then $\sigma(\lambda ^{P}(a))< \sigma(\lambda ^{P}(b))$ if $k>n-k$, vice-versa if $k<n-k$ \commentBN{not sure if k=n}. Consider $f$ the majority rule, then $f(P)=\{a\}$ if $k>n-k$, $f(P)=\{b\}$ otherwise. Thus, $f(P)\subseteq \musigma(P)$ in both cases, and $\musigma(P)=\mustar(P)$. If $k=0$ then $\sigma(\lambda ^{P}(b))< \sigma(\lambda ^{P}(a))$, hence $f(P)=\musigma(P)=\mustar(P)$.
+\begin{remark} If $\sigma$ is reasonable then \cref{th:incompatibility} still does not hold for $m=2$. As we showed in \cref{rmk:ECCandPC}, all profiles with two alternatives have the same form. If $k ≥ 1$ then $\sigma(\lambda_P(a))=(0_1, \dots, 0_k, 1_{k+1}, \dots, 1_n )$ and $\sigma(\lambda_P(b))=(1_1, \dots, 1_k, 0_{k+1}, \dots, 0_n )$. Because $\sigma$ is reasonable then $\sigma(\lambda_{P}(a))< \sigma(\lambda_{P}(b))$ if $k>n-k$, vice-versa if $k<n-k$ \commentBN{not sure if k=n}. Consider $f$ the majority rule, then $f(P)=\{a\}$ if $k>n-k$, $f(P)=\{b\}$ otherwise. Thus, $f(P)\subseteq \musigma$ in both cases, and $\musigma=\mustar$. If $k=0$ then $\sigma(\lambda_{P}(b))< \sigma(\lambda_{P}(a))$, hence $f(P)=\musigma=\mustar$.
 \end{remark}
 
 
@@ -555,7 +539,7 @@ In \cref{sec:introduction}, we use the \cref{ex:ex1} and the \cref{ex:ex2} to de
 	\end{array}
 	$
 \end{center}
-Here, $f_n(P)=\{x\}$ while $\mustar(P)=\{y\}$ $\forall \sigma \in \Sigma$. Therefore $\exists P \in  \linors^{N}$ such that $f_n(P) \cap \mustar(P) = \emptyset$, $\forall \sigma \in \Sigma$.
+Here, $f_n(P)=\{x\}$ while $\mustar=\{y\}$ $\forall \sigma \in \Sigma$. Therefore $\exists P \in  \linors^{N}$ such that $f_n(P) \cap \mustar = \emptyset$, $\forall \sigma \in \Sigma$.
 \end{proof}
 
 
@@ -574,26 +558,46 @@ Questions:
 \newpage
 \appendix
 \section{Removed Material}
+\subsection{Case m=2}
+
+\begin{remark} \label{rmk:ECCandPC}
+	\cref{th:nonParetian} does not hold for $m=2$: in that case, the largest Paretian SCR, $f(P) = \paretopt(P)$, is ECC. In fact, $\forall \sigma, P: \paretopt(P) \cap \musigma ≠ \emptyset$. This is because all profiles with two alternatives have this form, with $k < \frac{n}{2}$:
+	\begin{center}
+		$
+		\begin{array}{ccc}
+		\mathbf{k} \quad &a&b\\
+		\mathbf{n-k} \quad &b&a\\
+		\end{array}.
+		$
+		\end{center}
+		If $k ≥ 1$, there are no Pareto dominated alternatives, so $\paretopt(P) = A$, thus $\paretopt(P) \cap \musigma ≠ \emptyset$. And if $k = 0$, all alternatives are ranked at the same position by every voter, so $\forall \sigma \in \Sigma$, the spread of the loss vectors associated to each alternative is $0$, thus, $\musigma=A$ and, again, $\paretopt(P) \cap \musigma ≠ \emptyset$.
+		\end{remark}
+		
+		\begin{remark}\label{rmk:ECandPCC}
+			\cref{th:incompatibility} does not hold for $m=2$. Consider the same SCR of \cref*{rmk:ECCandPC}, $f(P) = \paretopt(P)$, and a spread measure $\sigma' \in \Sigma$ that assign $0$ to a loss vector $l \in \alllosses$ if all its components are equal, $1$ otherwise. Following the same reasoning of \cref*{rmk:ECCandPC}, all profiles with two alternatives have the same form. If $k ≥ 1$, then there are no Pareto dominated alternatives, therefore $f(P)=A$ and $\sigma'(\lambda_P(a))= \sigma'(\lambda_P(b))=1$, therefore  $\musigma[\sigma']=\mustar[\sigma']=A$. If $k = 0$, then $\sigma'(\lambda_P(a))= \sigma'(\lambda_P(b))=0$ so $\musigma[\sigma']=A$. Inevitably one of the two alternatives will be Pareto dominated by the other, but $f(P)\subseteq \musigma[\sigma']$ still holds, therefore $f$ is EC. Furthermore, $f(P) \subseteq \mustar[\sigma']$  so $f$ is also PCC.
+			\end{remark}
+
+\subsection{Definitions}
 Definition of $\musigma$ and $\mustar$
 \[
-\musigma(P) = \argmin_{x \in A} \sigma(\lambda^P(x)) = \set{ x \in A \suchthat \forall y \in A: \sigma(\lambda^P(x)) ≤ \sigma(\lambda^P(y)) }.
+\musigma = \argmin_{x \in A} \sigma(\lambda_P(x)) = \set{ x \in A \suchthat \forall y \in A: \sigma(\lambda_P(x)) ≤ \sigma(\lambda_P(y)) }.
 \]
-\[	\mustar(P)  = \argmin_{x \in \paretopt(P)} \sigma(\lambda^P(x)) = \{ x \in \paretopt(P) \ | \ \sigma (\lambda^P(x))\leq \sigma (\lambda^P(y)), \forall y \in \paretopt(P) \} \]
+\[	\mustar  = \argmin_{x \in \paretopt(P)} \sigma(\lambda_P(x)) = \{ x \in \paretopt(P) \ | \ \sigma (\lambda_P(x))\leq \sigma (\lambda_P(y)), \forall y \in \paretopt(P) \} \]
 
 \begin{corollary}
-	For $n\geq 2, \ m\geq3,$ $\exists P$ such that $\musigma(P)$ and $\mustar(P)$ are disjoint  $\forall \sigma \in \Sigma$.
+	For $n\geq 2, \ m\geq3,$ $\exists P$ such that $\musigma$ and $\mustar$ are disjoint  $\forall \sigma \in \Sigma$.
 \end{corollary}
 
-\begin{definition} A SCR $f$ is an EC$^*$ iff \[f(P) \subseteq \musigma(P), \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
+\begin{definition} A SCR $f$ is an EC$^*$ iff \[f(P) \subseteq \musigma, \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
 \end{definition}
 
-\begin{definition} A SCR $f$ is an PC$^*$ iff \[f(P) \subseteq \mustar(P), \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
+\begin{definition} A SCR $f$ is an PC$^*$ iff \[f(P) \subseteq \mustar, \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
 \end{definition}
 
-\begin{definition} A SCR $f$ is ECC$^*$ iff \[f(P) \cap \musigma(P) \neq 0, \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
+\begin{definition} A SCR $f$ is ECC$^*$ iff \[f(P) \cap \musigma \neq 0, \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
 \end{definition}
 
-\begin{definition} A SCR $f$ is PCC$^*$ iff \[ f(P) \cap \mustar(P) \neq 0, \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
+\begin{definition} A SCR $f$ is PCC$^*$ iff \[ f(P) \cap \mustar \neq 0, \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
 \end{definition}
 
 \begin{proposition}
@@ -637,7 +641,7 @@ Definition of $\musigma$ and $\mustar$
 		$
 	\end{center}
 	where we have $m$ alternatives disposed such that only one alternative $b$ is ranked at the same position by every voter, and it is ranked second.
-	We can see that, $\forall \sigma \in \Sigma$, $\musigma(P)=\{b\}$, but all Condorcet consistent rules, BK compromise for $q \in \{1, \dots n-1\}$ and ranked runoff rules would select $a$ as the winner. Thus the propositions $1), 2) \text{ and } 3)$ are proved. 
+	We can see that, $\forall \sigma \in \Sigma$, $\musigma=\{b\}$, but all Condorcet consistent rules, BK compromise for $q \in \{1, \dots n-1\}$ and ranked runoff rules would select $a$ as the winner. Thus the propositions $1), 2) \text{ and } 3)$ are proved. 
 \end{proof}
 
 \noindent Note that these impossibility results prevail for any restrictions $D \subseteq \Sigma$. \commentBN{first comment Remzi}
@@ -660,7 +664,7 @@ Definition of $\musigma$ and $\mustar$
 		\end{array}
 		$
 	\end{center}
-	We have that $s(a)=n-1$, $s(b)=n\cdot \lambda$, $s(c)=1$. We can observe that $s(a)$ is always greater than $s(c)$ since $n>2$, and that $s(b)\geq s(x)$ for any other alternative $x\in A \setminus \{a,c\}$. Recall that $b$ is the only alternative equally ranked by everyone, so $\sigma(\lambda^P(b))=0$ and $\sigma(\lambda^P(x))>0$, $\forall x \in A \ \{b\}$; thus, $\mustar(P)=\{b\}$. In order for $f$ to be $PCC$, $f(P)$ must contain $b$. This happens if $s(b)\geq s(a)$, therefore if 
+	We have that $s(a)=n-1$, $s(b)=n\cdot \lambda$, $s(c)=1$. We can observe that $s(a)$ is always greater than $s(c)$ since $n>2$, and that $s(b)\geq s(x)$ for any other alternative $x\in A \setminus \{a,c\}$. Recall that $b$ is the only alternative equally ranked by everyone, so $\sigma(\lambda_P(b))=0$ and $\sigma(\lambda_P(x))>0$, $\forall x \in A \ \{b\}$; thus, $\mustar=\{b\}$. In order for $f$ to be $PCC$, $f(P)$ must contain $b$. This happens if $s(b)\geq s(a)$, therefore if 
 	\begin{align}
 	n\cdot\lambda &\geq n-1 \\
 	\lambda &\geq \frac{n-1}{n} 
@@ -681,20 +685,20 @@ Definition of $\musigma$ and $\mustar$
 		\end{array}
 		$
 	\end{center}
-	The only element of the set $\musigma(P)$ is $a$, but anti-plurality selects $a$ and $b$. So it is not PC.
+	The only element of the set $\musigma$ is $a$, but anti-plurality selects $a$ and $b$. So it is not PC.
 	
 	For proving the second statement, take any profile $P$. Either
 	\begin{itemize}
 		\item[case 1.] there exists an alternative $x$ ranked at the same position by every voter and it is Pareto Optimal,
 		\item[case 2.] or not.
 	\end{itemize}
-	In the first case $x$ is never last, thus $x\in \mustar(P) $ and $ x \in AP(P)$, where $AP(P)$ is the set of alternatives selected by anti-plurality.
+	In the first case $x$ is never last, thus $x\in \mustar $ and $ x \in AP(P)$, where $AP(P)$ is the set of alternatives selected by anti-plurality.
 	
 	In the second case, consider a spread measure $\bar{\sigma} \in \Sigma$ such that \[
 	\bar{\sigma}(l_1, \dots,l_n)= \begin{cases}
 	0 \text{ if } l_i=l_j \ \forall i,j \\ 1 \text{ otherwise} \\
 	\end{cases}. \]
-	Then, $\exists \ y \in AP(P)$ and also $ y \in \mu_{\bar{\sigma}}^*(P)$.
+	Then, $\exists \ y \in AP(P)$ and also $ y \in \mustar[\bar{\sigma}]$.
 \end{proof}
 
 \commentRS{ It is worth noting that the negative results are quite robust because they establish the non-existence of a spread measure within the very large class capital sigma. On the other hand, the positive result that anti plurality is PCC may not be very robust and could turn to be negative when capital sigma is restricted by some further conditions over spread measures. This is an issue to be explored. \\ Another issue to be explored is whether FB satisfies PC or PCC. In an earlier version, we had a nice 2-person example about FB, which seems to be lost in this version. Can we find it? Yes:	\bigskip \\ {\color{black}$x$ $a_{1}...a_{k}$ $y$ $b_{1}....b_{k}$ \\	$b_{1}....b_{k-1}$ $y$ $x$ $b_{k}$ $a_{1}...a_{k}$} \bigskip \\
@@ -703,7 +707,7 @@ Definition of $\musigma$ and $\mustar$
 
 
 \section{Spread Measures}
-In our idea of compromise, we aim to determine the “most equally distributed” vector within $\left\{ \lambda^P(x)\right\} _{x\in A}$. We thus need to adopt a spread measure which is a mapping $\sigma \in \SAll: \R_{+}^{N}\longrightarrow \R_{+}$ which satisfies $\sigma(r_i, \dots, r_n)=0 \iff r_i=r_j \forall i,j$. In what follows, we will consider various classes of possible spread measures.
+In our idea of compromise, we aim to determine the “most equally distributed” vector within $\left\{ \lambda_P(x)\right\} _{x\in A}$. We thus need to adopt a spread measure which is a mapping $\sigma \in \SAll: \R_{+}^{N}\longrightarrow \R_{+}$ which satisfies $\sigma(r_i, \dots, r_n)=0 \iff r_i=r_j \forall i,j$. In what follows, we will consider various classes of possible spread measures.
 
 \begin{definition}[Pairwise Pareto dominance]
 	\label{def:PPD}
