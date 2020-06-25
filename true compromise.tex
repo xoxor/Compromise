@@ -452,6 +452,7 @@ Given the choice of $\bar{\sigma }$, we have  $\bar{\sigma }%
 r_{\succ _{i}}(y)=r_{\succ _{j}}(y)$ $\forall i,j\in N$. As $x\in f_{n}(P)$,
 this contradicts $y\in PO(P)$.
 
+\commentOC{Is it obvious that $r_{\succ_i}(y)=r_{\succ_j}(y), \forall i, j\in N$?}
 %I prefer Remzi's one this time
 %\commentOC{Again, a matter of style, but I prefer to avoid long contradictions, which leads to state a lot of things that may (in a sense) be false. Also, it seems to me that an elaboration for $y$ being not same-ranked would not be superfluous. I suggest this  alternative, as a remplacement of the second paragraph.}
 %Considering any $x \in f_n(P)$, let us show that $x \in \mu_{\bar{\sigma}}^*(P)$. Because $x \in \paretopt(P)$, suffices to show that $\forall y \in \paretopt(P)$, $\bar{\sigma}(\lambda^P(y)) ≥ \bar{\sigma}(\lambda^P(x))$.
@@ -463,6 +464,9 @@ this contradicts $y\in PO(P)$.
 \end{remark}
 
 \subsection{Restrictions on sigma}
+\commentOC{What was the problem again with PW PD? I find the profile totally convincing, but the proposed reasonability condition seems too strong, because it (needlessly, I think) requires to care only about the difference of ranks, and not about the ranks themselves.
+Here is an alternative proposal, but it is even more complex. Given a rank-vector $r \in \intvl{1, m}^N$ and $k \in \intvl{1, m}$, let $c^{r → k}_i = (r_i, k)$ if $r_i ≤ k$, and $c^{r → k}_i = (k, r_i)$ otherwise, denote the “$i$-th change to $k$”, representing (as a pair) the change required to bring the $i$th rank to $k$. Let $r → k$ denote the “change to $k$”, defined as the multiset of pairs $\left<c^{r → k}_i\right>_{i \in N}$, representing the changes required to bring $r$ to the constant rank-vector $(k)_{i \in N}$. Let $C$ be the set of multisets of $n$ pairs $(a, b)$ in $\intvl{1, m} × \intvl{1, m}$ such that $a ≤ b$. Given two such change multisets $c, c' \in C$, say that $c$ is a smaller change than $c'$ iff some bijection between $c$ and $c'$ is such that each pair $(a, b)$ in $c$ is included in its corresponding pair $(a', b')$ in $c'$, meaning that $a' ≤ a ≤ b ≤ b'$. Let $\rho(r) = \set{r → k}_{k \in N}$ associate to the rank-vector $r$ the set of “change to $k$” for each $k$. Say that $r$ is more equal than $r'$ iff $\forall c \in \rho(r), \exists c' \in \rho(r') \suchthat c \text{ is a smaller change than } c'$.}
+
 Given a rank vector $r\in \intvl{1,m}^\N$, we write $
 \varepsilon ^{k}(r)=(\left\vert r_{i}-k\right\vert )_{i\in N}$ for the
 equalizing vector at level $k\in \intvl{1,m}$. We
