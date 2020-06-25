@@ -232,10 +232,8 @@ Note that Condorcet consistent rules need not be Paretian so the fact that they 
 A \emph{score vector} is an $m-$tuple $w=(w_{1},\dots,$ $w_{m})\in \intvl{0, 1}^{m}$ with $w_{1}=1$, $w_{m}=0$ and $w_{i}\geq w_{i+1}$ $\forall
 i\in \intvl{1, m-1}$. A score vector $w$ is \emph{strict} iff $w_{i}>w_{i+1}$ $\forall i\in \intvl{1, m-1}$. Given a score vector $w$, we write $s^{w}(x,P)=\sum_{i\in N}w_{r_{\succ _{i}}(x)}$ for the score of $x\in A$ at $P\in L(A)^{N}$. Every score vector $w$ identifies a \emph{scoring rule} \commentRS{$f_n^w$} $f^{w}$ defined as $f^{w}(P)=\left\{ x\in
 A:s^{w}(x,P)\geq s^{w}(y,P) \ \forall y\in A\right\}$ for every $P\in L(A)^{N}$. 
-%We call $f^{w}$ a \emph{strict scoring rule} whenever $w$ is
-%strict. \commentOC{Odd phrasing (strict applies to the rule, given a rule, what is $w$?); do we need this?}
 
-\commentOC{We may want to define a variable electorate scoring rule $f^w_n: \bigcup_{N \subseteq \mathcal{N}} \linors^N → 2^A$ }
+\commentOC{A small drawback is that $f^w_n$ is not formally correct as $f$ depends on $N$, not merely on $n$. Alternative: define a scoring rule $f^w$ as above, without $n$. When required, talk about the antiplurality rule $(f^w_{N'})_{N' \subseteq N}$, where $f^w_{N'}$ designates the scoring rule defined for the set of voters $N'$. But this fix is incomplete (requires $N$ to be infinite and some proofs probably would require adjustment), and is probably too much pedantry.}
 
 We first show that no scoring rule is ECC, for any value of $n$ and $m$ at least 3.
 
@@ -274,8 +272,21 @@ f^{w}(P)\cap $ $\mu _{\sigma }^{\ast }(P)=\varnothing $ $\forall \sigma \in
 \Sigma $.
 \end{proof}
 
-Among all the scoring rules for which Proposition \ref{prop:whenPCCfails} holds, of particular interest are the ones defined by a scoring vector $w$ such that $w_2<1$. Such SCRs include Borda count and Plurality. \commentRS{Delete this paragraph in order not to refer to plurality and Borda.}
+\commentOC{%
+	We could focus on the following proposition (sketch). If $n ≥ m-1$ and $\frac{n-1}{n} > w_{m-1}$, then PCC fails. The proof (reusing the logic adopted by Remzi here above) may use the following profile $P$, if I am not mistaken. The number $i \in \intvl{1, n}$ of the left is the identifier of a voter, voters being numbered from $1$ to $n$. The dots represent the alternatives not displayed in the first and last three ranks (in some arbitrary ordering). We can argue (as done above) that $a_m \in f(P)$ is required to satisfy PCC but $a_m \notin f(P)$ as $s(a_1) = n-1 > s(a_m) = n w_{m-1}$.
+	\begin{center}
+		$
+		\begin{array}{ccccccc}
+		i = 1 \quad & a_2 & … & a_{m-1} & a_m & a_1\\
+		2 ≤ i ≤ m - 2 \quad & a_1 & … & a_{i+1} & a_m & a_i\\
+		m - 1 ≤ i ≤ n \quad & a_1 & … & a_{m-2} & a_m & a_{m-1}\\
+		\end{array}
+		$.
+	\end{center}
+}
 
+Among all the scoring rules for which Proposition \ref{prop:whenPCCfails} holds, of particular interest are the ones defined by a scoring vector $w$ such that $w_2<1$. Such SCRs include Borda count and Plurality. \commentRS{Delete this paragraph in order not to refer to plurality and Borda.}
+\commentOC{I’d say this can be kept as is, as I find this remark interesting.}
 
 \begin{proposition}
 Let $n\geq 3$ and $m\geq 3.$ For any score vector $w$ with $w_{2}<1$, if $%
@@ -305,6 +316,7 @@ An immediate corollary to Proposition \ref{nlargefailspcc} is about the
 $\forall i\in \left\{ 1,...,\text{ }m-1\right\} .$ \commentOC{This is actually an equivalent statement. And I find its interest clearer when written in the second way. Thus, I’d remove the previous proposition and directly prove it using the phrasing involving AP. And write it conversely: if  $f^w$ is PCC for any $n ≥ 3$, then $f^w$ is AP. Let’s write it $f^w_n$, by the way.}
 
 \commentRS{An immediate corollary to \cref{nlargefailspcc} is about the \textit{antiplurality score vector} $w$ which is defined as $w_i = 1, \forall i \in \intvl{1,m−1}$.}
+\commentOC{Or could we talk about the antiplurality rule $(f^w_n)_{n \in \N}$?}
 
 \begin{proposition}
 Let $m\geq 3$. If $f^w$ is a scoring rule which isn't the antiplurality
