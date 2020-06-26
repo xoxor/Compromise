@@ -114,7 +114,7 @@ A SCR $f$ is \emph{Paretian} iff $f(P)\subseteq\paretopt(P)$ $\forall P\in\linor
 \subsection{Egalitarian compromises}
 We denote the minimal elements of $X\in2^{A}\setminus \{\emptyset\}$ according to $(\sigma\circ\lambda_{P})$ with $\min_{\sigma \circ \lambda_P} X = \set{x \in X \suchthat \forall y \in A: \sigma(\lambda_P(x)) ≤ \sigma(\lambda_P(y))}$. Thus, $\min_{\sigma\circ\lambda_{P}}(A)$ denotes the alternatives whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
 
-In what follows, we define some classes of social choice rules that we are interested in analyzing. 
+In what follows, we define some classes of SCRs that we are interested in analyzing. 
 
 
 \begin{definition} A SCR $f$ is an \emph{Egalitarian Compromise} (EC) iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have }f(P) \subseteq \musigma.\]
@@ -161,7 +161,7 @@ Our main result for Section \commentBN{add ref 3.1} follows easily.
 \subsection{Paretian compromises}
 Having seen the tension for a SCR being Paretian and ECC, we investigate the consequences of inverting the order of priorities by insisting that at least some of the winning alternatives are Pareto optimal, and considering the most equally distributed loss vectors among those.
 
-We consider two classes of social choice rules. 
+We consider two classes of SCRs. 
 Observe that $\mustar$ denotes the set of Pareto optimal alternatives whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
 
 \begin{definition} A SCR $f$ is a \emph{Paretian Compromise} PC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \subseteq \mustar.\]
@@ -189,12 +189,8 @@ being PCC, because being PCC does not require to be Paretian. This is however tr
 It is interesting to note that the incompatibility is not complete, however.
 
 \begin{remark}
-	For $n ≥ 2$, $m ≥ 3$, there exists an ECC and PCC SCR, which is the rule that always selects the whole set of alternatives.
+	For $n ≥ 2$, $m ≥ 3$, there exist SCRs that are both ECC and PCC, such as the SCR that selects the whole set of alternatives at every profile. However, this SCR fails to be Paretian, as it must be for every SCR that is ECC.
 \end{remark}
-%\begin{proof}
-%	Consider the SCR which always selects the whole set of alternatives: $f(P)=A, \forall P \in \linors^N$. Then, $f(P) \cap \musigma \neq \emptyset$, so $f$ is ECC, and $f(P) \cap \mustar \neq \emptyset$, so $f$ is PCC.
-%\end{proof}
-This is of course only a partial relief for the lovers of both these principles, as such a compatible rule must fail to be Paretian. \commentRS{Can we find a more direct way to say this?}
 
 
 \section{Which SCRs are compromises?}
