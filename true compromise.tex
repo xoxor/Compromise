@@ -420,26 +420,24 @@ f_{n}(P)\diagdown \mu _{\bar{\sigma }}^{\ast }(P)$. As $x\in f_{n}(P)$,
 $x\in PO(P)$ as well. Thus, $x\notin \mu _{\bar{\sigma }}^{\ast }(P)$
 because there exists $y\in PO(P)\diagdown \left\{ x\right\} $ with  $%
 \bar{\sigma }(\lambda_{P}(y))<\bar{\sigma }(\lambda_{P}(x))$.
-Given the choice of $\bar{\sigma }$, we have  $\bar{\sigma }%
-(\lambda_{P}(y))=0$ and $\bar{\sigma }(\lambda_{P}(x))=1$. Thus, $%
-r_{\succ _{i}}(y)=r_{\succ _{j}}(y)$ $\forall i,j\in N$. As $x\in f_{n}(P)$,
+Given the choice of $\bar{\sigma}$, we have  $\bar{\sigma}(\lambda_{P}(y))=0$ and $\bar{\sigma}(\lambda_{P}(x))=1$. Thus, $r_{\succ _{i}}(y)=r_{\succ _{j}}(y)$ $\forall i,j\in N$. As $x\in f_{n}(P)$,
 this contradicts $y\in PO(P)$.
 
-\commentOC{Is it obvious that $r_{\succ_i}(y)=r_{\succ_j}(y), \forall i, j\in N$?}
+\commentOC{Is it obvious that $x \in f_n(P)$ contradicts $y$ being same-ranked and PO?}
 %I prefer Remzi's one this time
 %\commentOC{Again, a matter of style, but I prefer to avoid long contradictions, which leads to state a lot of things that may (in a sense) be false. Also, it seems to me that an elaboration for $y$ being not same-ranked would not be superfluous. I suggest this  alternative, as a remplacement of the second paragraph.}
-%Considering any $x \in f_n(P)$, let us show that $x \in \mu_{\bar{\sigma}}^*(P)$. Because $x \in \paretopt(P)$, suffices to show that $\forall y \in \paretopt(P)$, $\bar{\sigma}(\lambda_P(y)) ≥ \bar{\sigma}(\lambda_P(x))$.
-%Pick any $y \in \paretopt(P) \setminus \set{x}$. Because $\rho_n = \min_i r_\prefi(x)$, $\exists i \suchthat r_\prefi(y) > \rho_n$ (otherwise $\rho_n$ would be smaller). And, because $y \in \paretopt(P)$, $\exists j \suchthat \rho_n > r_{\pref_j}(y)$. We conclude that $\bar{\sigma}(\lambda_P(y)) ≠ 0$, thus $\bar{\sigma}(\lambda_P(y))  ≥ \bar{\sigma}(\lambda_P(x))$.
+%Considering any $x \in f_n(P)$, let us show that $x \in \mu_{\bar{\sigma}}^*(P)$. Because $x \in \paretopt(P)$, suffices to show that $\forall y \in \paretopt(P)$, $\bar{\sigma}(\lambda_P(y)) ≥ \bar{\sigma}(\lambda_P(x))$. Equivalently, picking any $y$ such that $\bar{\sigma}(\lambda_P(y)) < \bar{\sigma}(\lambda_P(x))$, let us show that $y \notin \paretopt(P)$. Given the choice of $\bar{\sigma}$, we must have $\bar{\sigma}(\lambda_{P}(y))=0$. Thus, $\forall i,j\in N: r_{\succ _{i}}(y)=r_{\succ _{j}}(y)$. As $x\in f_{n}(P)$, this contradicts $y\in PO(P)$.
+%Because $\rho_n = \min_i r_{\prefi}(x)$, $\exists i \suchthat r_{\prefi}(y) > \rho_n$ (otherwise $\rho_n$ would be smaller). And, because $y \in \paretopt(P)$, $\exists j \suchthat \rho_n > r_{\pref_j}(y)$. We conclude that $\bar{\sigma}(\lambda_P(y)) ≠ 0$, thus $\bar{\sigma}(\lambda_P(y))  ≥ \bar{\sigma}(\lambda_P(x))$.
 \end{proof}
 
 \subsection{Restrictions on sigma}
 The perfect equality recognition condition we adopt for spread measures, i.e., that the spread gets its lowest value $0$ in case of perfect equality and only in this case, is very basic. Unless this condition is violated, $\Sigma$ is the largest set of spread measures we could conceive. On the other hand, it is possible to let $\Sigma$ shrink by imposing additional conditions over spread measures. Nevertheless, as the satisfaction of PC, PCC, EC, or ECC requires the existence of a spread measure, all of our negative results, namely, those expressed by Theorems 1, 2, 3, 4, 5, and 6 prevail when $\Sigma$ is restricted. In a similar vein, the positive results in Theorems 5 and 7 risk to be lost with additional conditions over spread measures.
 
-A \emph{spread measure} $\sigma: \alllosses → \R_{+}$ satisfies condition gamma iff  $\sigma (m-3,$ $m-1,m-2,...,$ $m-2)$ <$\sigma(m-2,$ $m-1,...1,$0, $\ 0)$.
-			(\lambda_{P}(y))$ that associates a spread value to every possible loss
-vector. We write On the other hand, $\lambda
-			^{P}(x)=(m-3,$ $m-1,m-2,...,$ $m-2)$ and $\lambda_{P}(y)=(m-2,$ $m-1,,...1,$
-			$0,$ $\ 0)$.
+%A \emph{spread measure} $\sigma: \alllosses → \R_{+}$ satisfies condition gamma iff  $\sigma (m-3,$ $m-1,m-2,...,$ $m-2)$ <$\sigma(m-2,$ $m-1,...1,$0, $\ 0)$.
+%			(\lambda_{P}(y))$ that associates a spread value to every possible loss
+%vector. We write On the other hand, $\lambda
+%			^{P}(x)=(m-3,$ $m-1,m-2,...,$ $m-2)$ and $\lambda_{P}(y)=(m-2,$ $m-1,,...1,$
+%			$0,$ $\ 0)$.
 
 \commentOC{I find the profile totally convincing, but the proposed reasonability condition seems too strong, because it (needlessly, I think) requires to care only about the difference of ranks, and not about the ranks themselves.
 Here is an alternative proposal, but it is even more complex. Given a rank-vector $r \in \intvl{1, m}^N$ and $k \in \intvl{1, m}$, let $c^{r → k}_i = (r_i, k)$ if $r_i ≤ k$, and $c^{r → k}_i = (k, r_i)$ otherwise, denote the “$i$-th change to $k$”, representing (as a pair) the change required to bring the $i$th rank to $k$. Let $r → k$ denote the “change to $k$”, defined as the multiset of pairs $\left<c^{r → k}_i\right>_{i \in N}$, representing the changes required to bring $r$ to the constant rank-vector $(k)_{i \in N}$. Let $C$ be the set of multisets of $n$ pairs $(a, b)$ in $\intvl{1, m} × \intvl{1, m}$ such that $a ≤ b$. Given two such change multisets $c, c' \in C$, say that $c$ is a smaller change than $c'$ iff some bijection between $c$ and $c'$ is such that each pair $(a, b)$ in $c$ is included in its corresponding pair $(a', b')$ in $c'$, meaning that $a' ≤ a ≤ b ≤ b'$. Let $\rho(r) = \set{r → k}_{k \in N}$ associate to the rank-vector $r$ the set of “change to $k$” for each $k$. Say that $r$ is more equal than $r'$ iff $\forall c \in \rho(r), \exists c' \in \rho(r') \suchthat c \text{ is a smaller change than } c'$.
