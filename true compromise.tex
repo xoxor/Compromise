@@ -67,7 +67,7 @@ remain the collective choice even when the ignored group is much larger.
 		\end{array}.
 		$
 	\end{center}
-	When $q\in \left\{ 1,..., \frac{n}{2} +1\right\} $, all BK-compromises pick $a$, and, again, it does not appear as a compromise as 51 voters reach their best alternative while the remaining 49 voters have to be contented with their worst one. Note that for $q\in \left\{ 1,..., \frac{n}{2} -1 \right\} $ the set of possible common agreements determined by the fall-back bargaining procedure is $\{a,c\}$. Nevertheless, $a$ receives the highest support, thus it is elected.
+	When $q\in \intvl{1,\frac{n}{2}+1} $, all BK-compromises pick $a$, and, again, it does not appear as a compromise as 51 voters reach their best alternative while the remaining 49 voters have to be contented with their worst one. Note that for $q\in \intvl{1,\frac{n}{2}-1} $ the set of possible common agreements determined by the fall-back bargaining procedure is $\{a,c\}$. Nevertheless, $a$ receives the highest support, thus it is elected.
 \end{example}
 
 It is important to observe that all these SCRs impose to voters a willingness to compromise which does not mean that under the collective choice that will be made, all voters will be effectively compromising. In other words, the term “compromise” in this literature refers to procedural or \textit{ex-ante} compromises, which is different than outcome oriented or \textit{ex-post} compromises, a conceptual distinction that seems to be overlooked in the literature.
@@ -227,7 +227,7 @@ Note that Condorcet consistent rules need not be Paretian so the fact that they 
 
 \subsection{Scoring rules}
 A \emph{score vector} is an $m-$tuple $w=(w_{1},\dots,$ $w_{m})\in \intvl{0, 1}^{m}$ with $w_{1}=1$, $w_{m}=0$ and $w_{i}\geq w_{i+1}$ $\forall
-i\in \intvl{1, m-1}$. A score vector $w$ is \emph{strict} iff $w_{i}>w_{i+1}$ $\forall i\in \intvl{1, m-1}$. Given a score vector $w$, we write $s^{w}(x,P)=\sum_{i\in N}w_{r_{\succ _{i}}(x)}$ for the score of $x\in A$ at $P\in L(A)^{N}$. Every score vector $w$ identifies a \emph{scoring rule} $f^w_n$ defined as $f^w_n(P)=\left\{ x\in
+i\in \intvl{1, m-1}$. A score vector $w$ is \emph{strict} iff $w_{i}>w_{i+1}$ $\forall i\in \intvl{1, m-1}$. Given a score vector $w$, we write $s^{w}(x,P)=\sum_{i\in N}w_{r_{\prefi}(x)}$ for the score of $x\in A$ at $P\in L(A)^{N}$. Every score vector $w$ identifies a \emph{scoring rule} $f^w_n$ defined as $f^w_n(P)=\left\{ x\in
 A:s^{w}(x,P)\geq s^{w}(y,P) \ \forall y\in A\right\}$ for every $P\in L(A)^{N}$. 
 
 We first show that no scoring rule is ECC, for any value of $n$ and $m$ at least 3.
@@ -239,123 +239,25 @@ Let $n\geq 3$ and $m\geq 3.$ No score vector $w$ induces a scoring rule $f^w_n$ 
 Take any score vector $w$. If $w$ is strict, then $f^w$ is Paretian and \cref{th:nonParetian} implies that $f^w$ is not ECC. Now, let $w$ be non-strict. Consider the profile $P$ of \cref{prop:muSigmaLast}. Observe that $\musigma=\{a_m\} \ \forall \sigma \in \Sigma $. However, as $w_{1}>w_{m}$, we have $s^{w}(a_{1},P)>s^{w}(a_{m},P)$ which implies $a_{m}\notin f^{w}(P)$.
 \end{proof}
 
-We now analyze whether scoring rules satisfy PC or PCC. Our first result
-identifies, for a given score vector $w,$ properties for $n$ and $m$ that
-lead to a failure of PCC.
-
-\begin{proposition}
-\label{prop:whenPCCfails} Let $n\geq 3$ and $m\geq 3.$ Take any score vector $w$.
-If $k\cdot n\geq m-1$ for some $k\in \normalfont{\intvl{1, m-2}}$ and $\frac{n-1}{n}>w_{m-k}$ then $f^w_n$ fails PCC.
-\end{proposition}
-\commentOC{Is there hope of generalizing \cref{th:bound} so that $w_k < 1$ implies failure of PCC (in suppl to $w_2 < 1$ implying this failure)? Let’s try to simplify this result, under condition that this generalisation holds.}
-\begin{proof}
-Take any $n\geq 3$ and $m\geq 3$ with $k.n\geq m-1$ for some $k\in \left\{
-1,...,\text{ }m-2\right\} $. Let $A=\left\{ a_{1},...,\text{ }a_{m}\right\} $%
-. Consider any score vector $w$ with $\frac{n-1}{n}>w_{m-k}$. Take some $%
-P\in L(A)^{N}$ with $r_{\succ _{i}}(a_{1})=1$ $\forall i\in \left\{ 1,...,%
-\text{ }n-1\right\} $, $r_{\succ _{n}}(a_{1})=m,$ $r_{\succ
-_{i}}(a_{m-k})=m-k$ $\forall i\in N.$ Moreover, for every $x\in A\diagdown
-\left\{ a_{m-k}\right\} $, $r_{\succ _{i}}(x)>m-k$ for some $i\in N$ and $%
-r_{\succ _{j}}(x)\neq r_{\succ _{k}}(x)$ for some $j,k\in N$. \commentRS{Such a
-P exists but we should argue about this.} By construction of $P$, we have $%
-\mustar=\left\{ a_{m-k}\right\} $ $\forall \sigma \in
-\Sigma $. Note that $s^{w}(a_{1};$ $P)=n-1$ and $s^{w}(a_{m-k};$ $P)=n\cdot
-w_{m-k}$. As $\frac{n-1}{n}>w_{m-k}$, we have $s^{w}(a_{1};$ $%
-P)>s^{w}(a_{m-k};$ $P)$, establishing $a_{m-k}\notin f^{w}(P)$, thus $%
-f^{w}(P)\cap $ $\mustar=\varnothing $ $\forall \sigma \in
-\Sigma $.
-\end{proof}
-
-\commentOC{%
-	We could focus on the following proposition (sketch). If $n ≥ m-1$ and $\frac{n-1}{n} > w_{m-1}$, then PCC fails. The proof (reusing the logic adopted by Remzi here above) may use the following profile $P$, if I am not mistaken. The number $i \in \intvl{1, n}$ of the left is the identifier of a voter, voters being numbered from $1$ to $n$. The dots represent the alternatives not displayed in the first and last three ranks (in some arbitrary ordering). We can argue (as done above) that $a_m \in f(P)$ is required to satisfy PCC but $a_m \notin f(P)$ as $s(a_1) = n-1 > s(a_m) = n w_{m-1}$.
-	\begin{center}
-		$
-		\begin{array}{ccccccc}
-		i = 1 \quad & a_2 & … & a_{m-1} & a_m & a_1\\
-		2 ≤ i ≤ m - 2 \quad & a_1 & … & a_{i+1} & a_m & a_i\\
-		m - 1 ≤ i ≤ n \quad & a_1 & … & a_{m-2} & a_m & a_{m-1}\\
-		\end{array}
-		$.
-	\end{center}
-}
-
-Among all the scoring rules for which Proposition \ref{prop:whenPCCfails} holds, of particular interest are the ones defined by a scoring vector $w$ such that $w_2<1$. Such SCRs include Borda count and Plurality. \commentRS{Delete this paragraph in order not to refer to plurality and Borda.}
-\commentOC{I’d say this can be kept as is, as I find this remark interesting.}
-
-\begin{proposition}
-Let $n\geq 3$ and $m\geq 3.$ For any score vector $w$ with $w_{2}<1$ \commentRS{this is redundant}, if $%
-\frac{n-1}{n}>w_{2}$ then $f^w_n$ fails PCC.
-\end{proposition}
-\begin{proof}
-\Cref{prop:whenPCCfails} can be applied by taking $k=m-2$ and observing that $n ≥ 3 ≥ \frac{m-1}{m-2}$.
-\end{proof}
-
-As a matter of fact, Proposition \ref{prop:whenPCCfails} paves the way the
-observe a very large class of scoring rules that fail PCC, when $n$ is
-sufficiently large.
-
-\begin{proposition}
-\label{nlargefailspcc} \bigskip Let $m$ $\geq 3.$ For any score vector $w$
-with $w_{m-k}<1$ for some $k\in \normalfont{\intvl{1, m-2}}$, there
-exist $n$ $\geq 3$ such that $f^w_n$ fails PCC.
-\end{proposition}
-\begin{proof}
-Take any $m$ $\geq 3$ and any $w$ with $w_{m-k}<1$ for some $k\in \intvl{1, m-2}$. Define $n = \max\set*{\ceil*{\frac{m-1}{k}}, \floor*{\frac{1}{1-w_{m-k}}}+1}$. \Cref{prop:whenPCCfails} then applies, because $n ≥ \frac{m-1}{k}$, and because $n > \frac{1}{1-w_{m-k}}$ which in turn implies $1-w_{m-k} > \frac{1}{n}$ and $1-\frac{1}{n} > w_{m-k}$.
-\end{proof}
-
-An immediate corollary to \cref{nlargefailspcc} is about the \textit{antiplurality score vector} $w$ which is defined as $w_i = 1, \forall i \in \intvl{1,m−1}$.
-\commentOC{This is actually an equivalent statement. And I find its interest clearer when written in the second way. Thus, I’d remove the previous proposition and directly prove it using the phrasing involving AP. And write it conversely: if  $f^w$ is PCC for any $n ≥ 3$, then $f^w$ is AP. Let’s write it $f^w_n$, by the way.}
-
-\begin{proposition}
-Let $m ≥ 3$. If $\forall n ≥ 3: f^w_n$ is PCC, then $w$ is the antiplurality score vector.
-\end{proposition}
-
-Thus among the class of scoring rules, the antiplurality family of rules $\set{f^w_n \suchthat n \in \N}$ is the only candidate to ensure the satisfaction of PCC which, in fact, is the case, as we state and show below.
-
-\commentRS{Thus, among all score vectors, antiplurality is the only candidate to induce a scoring rule (called “antipluralty rule” for each $f^w_n$) that satisfies PCC. This is, in fact, the case, as we state and show below.}
-
-\begin{proposition}
-Let $n\geq 3$ and $m\geq 3$ and let $w$ be the antiplurality score vector. The rule $f^w_n$ satisfies PCC but fails PC.
-\end{proposition}
-\begin{proof}
-\commentOC{Not checked.}
-Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...%
-\text{ }a_{m}\right\} $. The antiplurality rule $f^w$ is not Paretian,
-hence fails PC, which can bee seen by picking a unanimous profile $P\in
-L(A)^{N}$ with $a_{1}\succ _{i}a_{2}\succ _{i}...\succ _{i}a_{m}$ $\forall
-i\in N$ where $\mustar=\left\{ a_{1}\right\} $ $\forall
-\sigma \in \Sigma $ while $f^w(P)=A\diagdown \left\{ a_{m}\right\} $.
-
-To see that the antiplurality rule $f^w$ satisfies PCC, pick $\bar{%
-\sigma }\in \Sigma $ defined for each $(l_{1},...,$ \ $l_{n})$ $\in \left\{
-0,1,...,\text{ }m-1\right\} ^{N}$ as $\bar{\sigma }(l_{1},...,$ \ $%
-l_{n})=1$ if $l_{i}\neq l_{j}$ for some $i,j\in N$ and $\bar{\sigma }%
-(l_{1},...,$ \ $l_{n})=0$ otherwise. Suppose, for a contradiction, $f^w$
-fails PCC. So, $\mustar[\bar{\sigma }]\cap f^{w}(P)=\varnothing $ for some $P\in L(A)^{N}$. Note that $\bar{\sigma }(\lambda _{P}(x))=\bar{\sigma }(\lambda _{P}(y)) \forall x, y\in \mustar[\bar{\sigma }]$ holds by definition of $\mustar[\bar{\sigma }]$ and by the choice of $\bar{\sigma }$, for $x\in \mustar[\bar{\sigma }]$, either $\bar{\sigma } (\lambda _{P}(x))=1$ or $\bar{\sigma }(\lambda _{P}(x))=0$. In the
-former case, $\mustar[\bar{\sigma }]=PO(P)$, and $\mustar[\bar{\sigma }]\cap $ $f^w(P)=\varnothing $ cannot hold, as the antiplurality rule, although not Paretian, never picks only non-Pareto optimal alternatives. So we consider the case $\bar{\sigma } (\lambda _{P}(x))=0$ $\forall x\in \mustar[\bar{\sigma }]$.
-Take any $x\in \mustar[\bar{\sigma }]$. As $\bar{\sigma } (\lambda _{P}(x))=0,$ we have $\lambda _{i}^{P}(x)=\lambda _{i}^{P}(x) \forall i,j\in N$, hence $r_{\succ _{i}}(x)=r_{\succ _{j}}(x)$ $\forall
-i,j\in N$. However, in case $r_{\succ _{i}}(x)\in \intvl{1,m-1}$, we have $x\in f^w(P)$ and in case $r_{\succ _{i}}(x)=m$,
-we have $x\in f^w(P)$, both cases giving a contradiction.
-\end{proof}
-
-Our findings on scoring rules lead to the following theorem as a corollary.
+\commentBN{Define antiplurality score vector.}
 
 \begin{theorem}
-Let $m ≥ 3$. Take any score vector $w$. The scoring rule $f^w_n$ is PCC for any $n ≥ 3$ if and only if $w$ is the antiplurality score vector, i.e., if $f^w_n$ is the antiplurality family of rules.
+	Let $m\geq 3.$ Take an antiplurality score vector $w$. The SCR $f_{n}^{w}$ satisfies PCC for all $n\geq 3$.
 \end{theorem}
 
-\commentRS{New proposal:}
+\commentBN{Remark that antiplurality fails PC.}
 
 \begin{theorem}
-	Let $m\geq 3.$ Take any score vector $w.$ The SCR $f_{n}^{w}$ satisfies PCC for all $n\geq 3$ if and only if $w$ is the antiplurality score vector.
+	Let $m\geq 3.$ Take any score vector $w$ which is not the antiplurality score vector. The SCR $f_{n}^{w}$ fails PCC for some $n\geq 3$.
 \end{theorem}
 
+\commentBN{adjust the proof}
+
 \begin{proof}
-	Take any $m\geq 3$ and any score vector $w.$To show the "if" part, let $w$	be the antiplurality score vector and take any $n\geq 3.$CONTINUE\ WITH THE PROOF IN PROPOSITION 6. 
+	Take any $m\geq 3$ and any score vector $w.$To show the "if" part, let $w$	be the antiplurality score vector and take any $n\geq 3.$CONTINUE\ WITH THE PROOF IN PROPOSITION \ref{prop:antPCC}.
 	
 	To see the "only if" part, suppose $w$ is not the antiplurality score 	vector. So $w_{m-1}<1$. Observe the existence of two natural numbers $n_{1}$, $n_{2}\geq 3$ with $n_{1}\geq m-1$ and $\frac{n_{2}-1}{n_{2}}>w_{m-1}$.
-	Let $n^{\ast }=\max \left\{ n_{1,}n_{2}\right\} $ and take any $n\geq	n^{\ast }.$Let $A=\left\{ a_{1}, \dots, a_{m}\right\} $. Take some $P\in
-	L(A)^{N}$ with
+	Let $n=\max \left\{ n_{1,}n_{2}\right\} $.Let $A=\left\{ a_{1}, \dots, a_{m}\right\} $. Take some $P\in L(A)^{N}$ with
 	
 	\begin{center}
 		$
@@ -368,56 +270,21 @@ Let $m ≥ 3$. Take any score vector $w$. The scoring rule $f^w_n$ is PCC for an
 	\end{center}
 	
 	Note that for every $\sigma \in \Sigma $. we have $\sigma (\lambda_{P}(a_{m}))=0$ while $\sigma (\lambda _{P}(x))>0$ $\forall x\in A \setminus
-	\left\{ a_{m}\right\} $. Moreover, $a_{m}\in PO(P)$. Thus, $\mustar=\left\{ a_{m}\right\} $ $\forall \sigma \in \Sigma $. On the
+	\left\{ a_{m}\right\} $. Moreover, $a_{m}\in \paretopt(P)$. Thus, $\mustar=\left\{ a_{m}\right\} $ $\forall \sigma \in \Sigma $. On the
 	other hand, $s^{w}(a_{1}; P)=n-1$, $s^{w}(a_{m}; P)=n\cdot w_{m-1}$ and
 	as $\frac{n-1}{n}>w_{m-k}$, we have $s^{w}(a_{1}; P)>s^{w}(a_{m};$ $P)$,
-	establishing $a_{m}\notin f^{w}(P)$, thus $f^{w}(P)\cap \mustar=\varnothing $ $\forall \sigma \in \Sigma $.
+	establishing $a_{m}\notin f^{w}(P)$, thus $f^{w}(P)\cap \mustar=\emptyset $ $\forall \sigma \in \Sigma $.
 \end{proof}
 
-Remark that antiplurality fails PC.
+
 
 \subsection{BK-compromises}
 \label{sec:BKn3}
 Given any $k\in \intvl{1, m}$, we write $n_{k}(x,P)=\#\{i\in
-N\mid r_{\succ _{i}}(x)\leq k\}$ for the \emph{$k$-support} that $x$ gets at $P$, that is, the number of individuals for whom the rank of alternative $x\in A$ is lower than or equal to $k$ in the profile $P\in $ $L(A)^{N}$.
-Note that $n_{k}(x,P)\in \intvl{1, n}$ is non-decreasing on $k$ and $%
-n_{m}(x,P)=n.$ For each $q\in \left\{ 1,...,n\right\} $, we define $\rho
-_{q}(x,P)=\min \{k\in \{1,\ldots ,m\} \suchthat n_{k}(x,P)\geq q\}$ as the minimal
-rank $k$ at which the $k$-support that $x$ gets at $P$ is at least $q$. We
-write $\rho _{q}(P)=\min_{x\in A} \{\rho _{q}(x,P)\}$ for the minimal rank $k $ at which the $k$-support that some alternative gets at $P$ is at least $q$. \textit{A Brams and Kilgour (BK) compromise with threshold }$q$ is the
-SCR $f_{q}$ defined for each $P\in L(A)^{N}$ as $f_{q}(P)=\{x\in A\mid
-n_{\rho _{q}(P)}(x,P)\geq n_{\rho _{q}(P)}(y,P)$ $\forall y\in A\}.$
-
-\begin{theorem}
-	\label{th:BKthreshold}
-Let $n\geq 3$ and $m\geq 3.$ A BK compromise $f_{q}$ with threshold $q \in \intvl{1, n-1}$ is neither ECC nor PCC.
-\end{theorem}
-\begin{proof}
-%Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...
-%\text{ }a_{m}\right\} $. Pick some $q\in \left\{ 1,...,n\right\} $ and
-%consider the BK compromise $f_{q}$. 
-Consider the following profile $P$, where the dots represent the sequence $a_4$ to $a_m$ (also used in the proof of \cref{th:condorcet}):
-	\begin{center}
-		$
-		\begin{array}{cccccc}
-		\mathbf{n-1} \quad &a_1&a_2&a_3&\dots\\
-		\mathbf{1} \quad &a_3&a_2&\dots&a_1\\
-		\end{array}
-		$.
-	\end{center}
-We have that $f_{q}(P)=\{a_1\}$, and, because $\sigma(\lambda_P(a_2)) = 0$ and $\sigma(\lambda_P(a_1)) > 0$, neither $\musigma(P)$ nor $\mustar(P)$ contain $a_1$ for any $\sigma \in \Sigma$. 
-%Remzi's proof
-%Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...%
-%\text{ }a_{m}\right\} $. Pick some $q\in \left\{ 1,...,n\right\} $ and
-%consider the BK compromise $f_{q}$. Consider the profile $P\in L(A)^{N}$ such that 
-%$a_{1}\succ _{i}a_{2}\succ _{i}...\succ _{i}a_{m}$ $\forall i\in N\diagdown
-%\left\{ n\right\} $ and $a_{\pi (1)}\succ _{n}a_{\pi (2)}\succ _{n}...\succ
-%_{n}a_{\pi (m)}$ where $\pi $ is a bijection on $\left\{ 1,\text{ }2,...,%
-%\text{ }m\right\} $ with $\pi (1)=3$, $\pi (2)=2,\pi (3)=1$, $\pi (i)=i+1$ $%
-%\forall i\in \left\{ 4,...,\text{ }m-1\right\} $ and $\pi (m)=4 $, we have $%
-%f_{q}(P)=\left\{ a_{1}\right\} $ while $\mu _{\sigma }(P)=\mu _{\sigma
-%}^{\ast }(P)=\left\{ a_{2}\right\} $ $\forall \sigma \in \Sigma $.
-\end{proof}
+N\mid r_{\prefi}(x)\leq k\}$ for the \emph{$k$-support} that $x$ gets at $P$, that is, the number of individuals for whom the rank of alternative $x\in A$ is lower than or equal to $k$ in the profile $P\in $ $L(A)^{N}$.
+Note that $n_{k}(x,P)\in \intvl{1, n}$ is non-decreasing on $k$ and $n_{m}(x,P)=n.$ For each $q\in \intvl{1,n}$, we define $\rho_{q}(x,P)=\min \{k\in \intvl{1,m} \suchthat n_{k}(x,P)\geq q\}$ as the minimal rank $k$ at which the $k$-support that $x$ gets at $P$ is at least $q$. We
+write $\rho _{q}(P)=\min_{x\in A} \{\rho _{q}(x,P)\}$ for the minimal rank $k$ at which the $k$-support that some alternative gets at $P$ is at least $q$. \textit{A Brams and Kilgour (BK) compromise with threshold }$q$ is the
+SCR $f_{q}$ defined for each $P\in \linors^N$ as $f_{q}(P)=\{x\in A | n_{\rho _{q}(P)}(x,P)\geq n_{\rho _{q}(P)}(y,P)$ $\forall y\in A\}.$
 
 \begin{theorem}
 	\label{th:FBn3}
@@ -426,35 +293,50 @@ Let $n\geq 3$ and $m\geq 3.$ The BK compromise $f_{n}$ fails ECC but satisfies P
 
 \begin{proof}
 Take any $n\geq 3$ and $m\geq 3.$ As $f_{n}$ is Paretian, it fails ECC by
-Proposition 3.1. To see that $f_{n}$ satisfies PC, pick $\bar{\sigma }%
-\in \Sigma $ defined for each $(l_{1}, \dots ,l_{n})$ $\in \intvl{0,m-1}^N$ as $\bar{\sigma }(l_{1},...,l_{n})=1$ if 
+Proposition 3.1. To see that $f_{n}$ satisfies PC, pick $\bar{\sigma }\in \Sigma $ defined for each $(l_{1}, \dots ,l_{n}) \in \intvl{0,m-1}^N$ as $\bar{\sigma}(l_{1},...,l_{n})=1$ if 
 $l_{i}\neq l_{j}$ for some $i,j\in N$ and $\bar{\sigma }(l_{1},\dots,l_{n})=0$ otherwise. 
 
 Suppose, for a contradiction, $f_{n}$ fails PC. So,
-there exist some $P\in $ $L(A)^{N}$ for which $f_{n}(P) \setminus \mustar[\bar{\sigma }]\neq \emptyset$ . Pick some $x\in
-f_{n}(P) \setminus \mustar[\bar{\sigma }]$. As $x\in f_{n}(P)$, 
-$x\in PO(P)$ as well. Thus, $x\notin \mustar[\bar{\sigma }]$
-because there exists $y\in PO(P)\diagdown \left\{ x\right\} $ with  $%
-\bar{\sigma }(\lambda_{P}(y))<\bar{\sigma }(\lambda_{P}(x))$.
-Given the choice of $\bar{\sigma}$, we have  $\bar{\sigma}(\lambda_{P}(y))=0$ and $\bar{\sigma}(\lambda_{P}(x))=1$. Thus, $r_{\succ _{i}}(y)=r_{\succ _{j}}(y)$ $\forall i,j\in N$. As $x\in f_{n}(P)$,
-this contradicts $y\in PO(P)$.
+there exist some $P\in \linors^{N}$ for which $f_{n}(P) \setminus \mustar[\bar{\sigma }]\neq \emptyset$ . Pick some $x\in f_{n}(P) \setminus \mustar[\bar{\sigma }]$. As $x\in f_{n}(P)$, $x\in \paretopt(P)$ as well. Thus, $x\notin \mustar[\bar{\sigma }]$
+because there exists $y\in \paretopt(P)\setminus \left\{ x\right\} $ with  $\bar{\sigma}(\lambda_{P}(y)) < \bar{\sigma }(\lambda_{P}(x))$. Given the choice of $\bar{\sigma}$, we have  $\bar{\sigma}(\lambda_{P}(y))=0$ and $\bar{\sigma}(\lambda_{P}(x))=1$. Thus, $r_{\prefi}(y)=r_{\prefi[j]}(y)$ $\forall i,j\in N$. As $x\in f_{n}(P)$, this contradicts $y\in \paretopt(P)$.
 
 \commentOC{Is it obvious that $x \in f_n(P)$ contradicts $y$ being same-ranked and PO?}
-\commentBN{If such a $x$ exists, then the profile would be something like:
-	\begin{center}
-	$
-	\begin{array}{cccccccccc}
-	\mathbf{i_1} \quad &x&a_1&\dots&&a_k&y&b_1&\dots&b_k\\
-	\mathbf{i_2} \quad &b_1&\dots&b_{k-1}&x&b_k&y&a_1&\dots&a_k\\
-	\end{array}
-	$
-\end{center}
-and $y$ is Pareto dominated by $x$.
-}
+\commentBN{Add $\rho_n$ and let $k$ be the level of $y$, we show that $\rho_n < k$.}
 %I prefer Remzi's one this time
 %\commentOC{Again, a matter of style, but I prefer to avoid long contradictions, which leads to state a lot of things that may (in a sense) be false. Also, it seems to me that an elaboration for $y$ being not same-ranked would not be superfluous. I suggest this  alternative, as a remplacement of the second paragraph.}
 %Considering any $x \in f_n(P)$, let us show that $x \in \mu_{\bar{\sigma}}^*(P)$. Because $x \in \paretopt(P)$, suffices to show that $\forall y \in \paretopt(P)$, $\bar{\sigma}(\lambda_P(y)) ≥ \bar{\sigma}(\lambda_P(x))$. Equivalently, picking any $y$ such that $\bar{\sigma}(\lambda_P(y)) < \bar{\sigma}(\lambda_P(x))$, let us show that $y \notin \paretopt(P)$. Given the choice of $\bar{\sigma}$, we must have $\bar{\sigma}(\lambda_{P}(y))=0$. Thus, $\forall i,j\in N: r_{\succ _{i}}(y)=r_{\succ _{j}}(y)$. As $x\in f_{n}(P)$, this contradicts $y\in PO(P)$.
 %Because $\rho_n = \min_i r_{\prefi}(x)$, $\exists i \suchthat r_{\prefi}(y) > \rho_n$ (otherwise $\rho_n$ would be smaller). And, because $y \in \paretopt(P)$, $\exists j \suchthat \rho_n > r_{\pref_j}(y)$. We conclude that $\bar{\sigma}(\lambda_P(y)) ≠ 0$, thus $\bar{\sigma}(\lambda_P(y))  ≥ \bar{\sigma}(\lambda_P(x))$.
+\end{proof}
+
+\begin{theorem}
+	\label{th:BKthreshold}
+	Let $n\geq 3$ and $m\geq 3.$ A BK compromise $f_{q}$ with threshold $q \in \intvl{1, n-1}$ is neither ECC nor PCC.
+\end{theorem}
+\begin{proof}
+	%Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...
+	%\text{ }a_{m}\right\} $. Pick some $q\in \left\{ 1,...,n\right\} $ and
+	%consider the BK compromise $f_{q}$. 
+	Consider the following profile $P$, where the dots represent the sequence $a_4$ to $a_m$ (also used in the proof of \cref{th:condorcet}):
+	\begin{center}
+		$
+		\begin{array}{cccccc}
+		\mathbf{n-1} \quad &a_1&a_2&a_3&\dots\\
+		\mathbf{1} \quad &a_3&a_2&\dots&a_1\\
+		\end{array}
+		$.
+	\end{center}
+	We have that $f_{q}(P)=\{a_1\}$, and, because $\sigma(\lambda_P(a_2)) = 0$ and $\sigma(\lambda_P(a_1)) > 0$, neither $\musigma(P)$ nor $\mustar(P)$ contain $a_1$ for any $\sigma \in \Sigma$. 
+	%Remzi's proof
+	%Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...%
+	%\text{ }a_{m}\right\} $. Pick some $q\in \left\{ 1,...,n\right\} $ and
+	%consider the BK compromise $f_{q}$. Consider the profile $P\in L(A)^{N}$ such that 
+	%$a_{1}\succ _{i}a_{2}\succ _{i}...\succ _{i}a_{m}$ $\forall i\in N\diagdown
+	%\left\{ n\right\} $ and $a_{\pi (1)}\succ _{n}a_{\pi (2)}\succ _{n}...\succ
+	%_{n}a_{\pi (m)}$ where $\pi $ is a bijection on $\left\{ 1,\text{ }2,...,%
+	%\text{ }m\right\} $ with $\pi (1)=3$, $\pi (2)=2,\pi (3)=1$, $\pi (i)=i+1$ $%
+	%\forall i\in \left\{ 4,...,\text{ }m-1\right\} $ and $\pi (m)=4 $, we have $%
+	%f_{q}(P)=\left\{ a_{1}\right\} $ while $\mu _{\sigma }(P)=\mu _{\sigma
+	%}^{\ast }(P)=\left\{ a_{2}\right\} $ $\forall \sigma \in \Sigma $.
 \end{proof}
 
 \subsection{Restrictions on sigma}
@@ -467,7 +349,7 @@ The perfect equality recognition condition we adopt for spread measures, i.e., t
 %			$0,$ $\ 0)$.
 
 \commentOC{I find the profile totally convincing, but the proposed reasonability condition seems too strong, because it (needlessly, I think) requires to care only about the difference of ranks, and not about the ranks themselves.
-Here is an alternative proposal, but it is even more complex. Given a rank-vector $r \in \intvl{1, m}^N$ and $k \in \intvl{1, m}$, let $c^{r → k}_i = (r_i, k)$ if $r_i ≤ k$, and $c^{r → k}_i = (k, r_i)$ otherwise, denote the “$i$-th change to $k$”, representing (as a pair) the change required to bring the $i$th rank to $k$. Let $r → k$ denote the “change to $k$”, defined as the multiset of pairs $\left<c^{r → k}_i\right>_{i \in N}$, representing the changes required to bring $r$ to the constant rank-vector $(k)_{i \in N}$. Let $C$ be the set of multisets of $n$ pairs $(a, b)$ in $\intvl{1, m} × \intvl{1, m}$ such that $a ≤ b$. Given two such change multisets $c, c' \in C$, say that $c$ is a smaller change than $c'$ iff some bijection between $c$ and $c'$ is such that each pair $(a, b)$ in $c$ is included in its corresponding pair $(a', b')$ in $c'$, meaning that $a' ≤ a ≤ b ≤ b'$. Let $\rho(r) = \set{r → k}_{k \in N}$ associate to the rank-vector $r$ the set of “change to $k$” for each $k$. Say that $r$ is more equal than $r'$ iff $\forall c \in \rho(r), \exists c' \in \rho(r') \suchthat c \text{ is a smaller change than } c'$.
+Here is an alternative proposal, but it is even more complex. Given a rank-vector $r \in \intvl{1, m}^N$ and $k \in \intvl{1, m}$, let $c^{r → k}_i = (r_i, k)$ if $r_i ≤ k$, and $c^{r → k}_i = (k, r_i)$ otherwise, denote the “$i$-th change to $k$”, representing (as a pair) the change required to bring the $i$th rank to $k$. Let $r → k$ denote the “change to $k$”, defined as the multiset of pairs $\left<c^{r → k}_i\right>_{i \in N}$, representing the changes required to bring $r$ to the constant rank-vector $(k)_{i \in N}$. Let $C$ be the set of multisets of $n$ pairs $(a, b)$ in $\intvl{1, m} × \intvl{1, m}$ such that $a ≤ b$. Given two such change multisets $c, c' \in C$, say that $c$ is a smaller change than $c'$ iff some bijection between $c$ and $c'$ is such that each pair $(a, b)$ in $c$ is included in its corresponding pair $(a', b')$ in $c'$, meaning that $a' ≤ a ≤ b ≤ b'$. Let $\rho(r) = \set{r → k}_{k \in N}$ associate to the rank-vector $r$ the set of “change to $k$” for each $k$. Say that $r$ is more equal than $r'$ iff $\forall c \in \rho(r), \exists c' \in \rho(r') \suchthat c$ is a smaller change than $c'$.
 TODO get rid of this and rewrite in terms of dis-satifaction of going from some loss to $k$.}
 
 Given a rank vector $r\in \intvl{1,m}^\N$, we write $
@@ -484,24 +366,17 @@ A spread measure $\sigma $ is reasonable iff given any $l,l'\in
 (l')$ whenever $(l_{1}+1,\dots,l_{n}+1)$ is more equal than $(l_{1}'+1,\dots,l_{n}'+1)$.
 
 \begin{theorem}
-	Let $m\geq 3.$ When $\Sigma $ is furthermore reasonable, there exist $n\geq
-	3 $ such that both the antiplurality rule $f$ $^{w}$ and $f_{n}$ fail PCC.
+	Let $m\geq 3.$ When $\Sigma $ is furthermore reasonable, there exist $n\geq 3 $ such that both the antiplurality rule $f^{w}$ and $f_{n}$ fail PCC.
 	\end{theorem}
-	
+
 	\begin{proof}
 		Take any $m\geq 3$ and let $\Sigma $ be reasonable. Take any $n\geq m$, say $%
 		n=m$ without loss of generality. Take some $x,$ $y\in A$ and some $P\in
-		L(A)^{N}$ with $r_{\succ _{1}}(x)=m-2$, $r_{\succ _{2}}(x)=m,$ $r_{\succ
-			_{i}}(x)=m-1$ $\forall i\in N\diagdown \left\{ 1,\text{ }2\right\} ,$ $%
-			r_{\succ _{i}}(y)=m-i$ $\forall i\in N\diagdown \left\{ n\right\} ,$ $%
-			r_{\succ _{n}}(y)=1$. Moreover, for each $z\in A\diagdown \left\{ x,\text{ }%
-			y\right\} $, we have $r_{\succ _{1}}(z)=m$ for some $i\in N$. Note that both 
-			$f$ $^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda
-			^{P}(x)=(m-3,$ $m-1,m-2,...,$ $m-2)$ and $\lambda_{P}(y)=(m-2,$ $m-1,,...1,$
-			$0,$ $\ 0)$. As $\sigma $ is reasonable, $\sigma (\lambda_{P}(x))<$ $\sigma
-			(\lambda_{P}(y))$ $\forall \sigma \in \Sigma ,$ implying $y\notin \mustar[\bar{\sigma }]$ $\forall \sigma \in \Sigma .$
+		L(A)^{N}$ with $r_{\prefi[1]}(x)=m-2$, $r_{\prefi[2]}(x)=m,$ $r_{\prefi}(x)=m-1$ $\forall i\in N \setminus \left\{ 1, 2\right\}, r_{\prefi}(y)=m-i$ $\forall i\in N \setminus \left\{ n\right\}$,	$r_{\prefi[n]}(y)=1$. Moreover, for each $z\in A \setminus \left\{ x,y\right\} $, we have $r_{\prefi[1]}(z)=m$ for some $i\in N$. Note that both $f^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda^{P}(x)=(m-3, m-1,m-2,...,m-2)$ and $\lambda_{P}(y)=(m-2, m-1,,...1,0, 0)$. As $\sigma$ is reasonable, $\sigma(\lambda_{P}(x)) < \sigma(\lambda_{P}(y))$ $\forall \sigma \in \Sigma$, implying $y\notin \mustar[\bar{\sigma}]$ $\forall \sigma \in \Sigma$.
 	\end{proof}
 
+\commentBN{Define condition C.}
+\commentRS{Let’s say that a spread measure sigma satisfies condition C iff we have $\sigma(m-3, m-1. m-2, ....., m-2) < \sigma(m-2, m-3,..., 1, 0, 0)$ for some value of m and n. As such the condition is technical. We can motivate it through some arguments but more importantly, we should be able to show that several spread measures of the literature (which Beatrice is discovering) satisfy condition C. We can than take the subset of capital sigma that consists of spread measures that satisfy condition C and prove the theorem under this restriction.}
  
 \section{Two voters case}
 In \cref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in \cref{sec:notation}, we consider here the case $n=2$. Two agents express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems.
@@ -632,6 +507,110 @@ Definition of $\musigma$ and $\mustar$
 	In fact, considering \cref{th:nonParetian}, the existence of a spread measure $\sigma$ such that our SCR $f$ picks some alternatives which belong to the set $\musigma$ is not a guarantee that they are also Pareto optimal, thus belonging to the set $\mustar$ (and vice-versa).
 \end{remark}
 
+\section{Old scoring rules}
+
+We now analyze whether scoring rules satisfy PC or PCC. Our first result
+identifies, for a given score vector $w,$ properties for $n$ and $m$ that
+lead to a failure of PCC.
+
+\begin{proposition}
+	\label{prop:whenPCCfails} Let $n\geq 3$ and $m\geq 3.$ Take any score vector $w$.
+	If $k\cdot n\geq m-1$ for some $k\in \normalfont{\intvl{1, m-2}}$ and $\frac{n-1}{n}>w_{m-k}$ then $f^w_n$ fails PCC.
+	\end{proposition}
+	\commentOC{Is there hope of generalizing \cref{th:bound} so that $w_k < 1$ implies failure of PCC (in suppl to $w_2 < 1$ implying this failure)? Let’s try to simplify this result, under condition that this generalisation holds.}
+	\begin{proof}
+		Take any $n\geq 3$ and $m\geq 3$ with $k.n\geq m-1$ for some $k\in \intvl{1,m-2} $. Let $A=\left\{ a_{1},...,a_{m}\right\} $. Consider any score vector $w$ with $\frac{n-1}{n}>w_{m-k}$. Take some $P\in L(A)^{N}$ with $r_{\succ _{i}}(a_{1})=1$ $\forall i\in \left\{ 1,...,%
+		\text{ }n-1\right\} $, $r_{\succ _{n}}(a_{1})=m,$ $r_{\succ
+			_{i}}(a_{m-k})=m-k$ $\forall i\in N.$ Moreover, for every $x\in A\diagdown
+			\left\{ a_{m-k}\right\} $, $r_{\succ _{i}}(x)>m-k$ for some $i\in N$ and $%
+			r_{\succ _{j}}(x)\neq r_{\succ _{k}}(x)$ for some $j,k\in N$. \commentRS{Such a P exists but we should argue about this.} By construction of $P$, we have $%
+				\mustar=\left\{ a_{m-k}\right\} $ $\forall \sigma \in
+				\Sigma $. Note that $s^{w}(a_{1};$ $P)=n-1$ and $s^{w}(a_{m-k};$ $P)=n\cdot
+				w_{m-k}$. As $\frac{n-1}{n}>w_{m-k}$, we have $s^{w}(a_{1};$ $%
+				P)>s^{w}(a_{m-k};$ $P)$, establishing $a_{m-k}\notin f^{w}(P)$, thus $%
+				f^{w}(P)\cap $ $\mustar=\varnothing $ $\forall \sigma \in
+				\Sigma $.
+				\end{proof}
+				
+				\commentOC{%
+					We could focus on the following proposition (sketch). If $n ≥ m-1$ and $\frac{n-1}{n} > w_{m-1}$, then PCC fails. The proof (reusing the logic adopted by Remzi here above) may use the following profile $P$, if I am not mistaken. The number $i \in \intvl{1, n}$ of the left is the identifier of a voter, voters being numbered from $1$ to $n$. The dots represent the alternatives not displayed in the first and last three ranks (in some arbitrary ordering). We can argue (as done above) that $a_m \in f(P)$ is required to satisfy PCC but $a_m \notin f(P)$ as $s(a_1) = n-1 > s(a_m) = n w_{m-1}$.
+					\begin{center}
+						$
+						\begin{array}{ccccccc}
+						i = 1 \quad & a_2 & … & a_{m-1} & a_m & a_1\\
+						2 ≤ i ≤ m - 2 \quad & a_1 & … & a_{i+1} & a_m & a_i\\
+						m - 1 ≤ i ≤ n \quad & a_1 & … & a_{m-2} & a_m & a_{m-1}\\
+						\end{array}
+						$.
+						\end{center}
+						}
+						
+						Among all the scoring rules for which Proposition \ref{prop:whenPCCfails} holds, of particular interest are the ones defined by a scoring vector $w$ such that $w_2<1$. Such SCRs include Borda count and Plurality. \commentRS{Delete this paragraph in order not to refer to plurality and Borda.}
+						\commentOC{I’d say this can be kept as is, as I find this remark interesting.}
+						
+						\begin{proposition}
+							Let $n\geq 3$ and $m\geq 3.$ For any score vector $w$ with $w_{2}<1$ \commentRS{this is redundant}, if $%
+							\frac{n-1}{n}>w_{2}$ then $f^w_n$ fails PCC.
+							\end{proposition}
+							\begin{proof}
+								\Cref{prop:whenPCCfails} can be applied by taking $k=m-2$ and observing that $n ≥ 3 ≥ \frac{m-1}{m-2}$.
+								\end{proof}
+								
+								As a matter of fact, Proposition \ref{prop:whenPCCfails} paves the way the
+								observe a very large class of scoring rules that fail PCC, when $n$ is
+								sufficiently large.
+								
+								\begin{proposition}
+									\label{nlargefailspcc} \bigskip Let $m$ $\geq 3.$ For any score vector $w$
+									with $w_{m-k}<1$ for some $k\in \normalfont{\intvl{1, m-2}}$, there
+									exist $n$ $\geq 3$ such that $f^w_n$ fails PCC.
+									\end{proposition}
+									\begin{proof}
+										Take any $m$ $\geq 3$ and any $w$ with $w_{m-k}<1$ for some $k\in \intvl{1, m-2}$. Define $n = \max\set*{\ceil*{\frac{m-1}{k}}, \floor*{\frac{1}{1-w_{m-k}}}+1}$. \Cref{prop:whenPCCfails} then applies, because $n ≥ \frac{m-1}{k}$, and because $n > \frac{1}{1-w_{m-k}}$ which in turn implies $1-w_{m-k} > \frac{1}{n}$ and $1-\frac{1}{n} > w_{m-k}$.
+										\end{proof}
+										
+										An immediate corollary to \cref{nlargefailspcc} is about the \textit{antiplurality score vector} $w$ which is defined as $w_i = 1, \forall i \in \intvl{1,m−1}$.
+										\commentOC{This is actually an equivalent statement. And I find its interest clearer when written in the second way. Thus, I’d remove the previous proposition and directly prove it using the phrasing involving AP. And write it conversely: if  $f^w$ is PCC for any $n ≥ 3$, then $f^w$ is AP. Let’s write it $f^w_n$, by the way.}
+										
+										\begin{proposition}
+											Let $m ≥ 3$. If $\forall n ≥ 3: f^w_n$ is PCC, then $w$ is the antiplurality score vector.
+											\end{proposition}
+											
+											Thus among the class of scoring rules, the antiplurality family of rules $\set{f^w_n \suchthat n \in \N}$ is the only candidate to ensure the satisfaction of PCC which, in fact, is the case, as we state and show below.
+											
+											\commentRS{Thus, among all score vectors, antiplurality is the only candidate to induce a scoring rule (called “antipluralty rule” for each $f^w_n$) that satisfies PCC. This is, in fact, the case, as we state and show below.}
+											
+											\begin{proposition}
+												\label{prop:antPCC}
+												Let $n\geq 3$ and $m\geq 3$ and let $w$ be the antiplurality score vector. The rule $f^w_n$ satisfies PCC but fails PC.
+												\end{proposition}
+												\begin{proof}
+													\commentOC{Not checked.}
+													Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...%
+													\text{ }a_{m}\right\} $. The antiplurality rule $f^w$ is not Paretian,
+													hence fails PC, which can bee seen by picking a unanimous profile $P\in
+													L(A)^{N}$ with $a_{1}\succ _{i}a_{2}\succ _{i}...\succ _{i}a_{m}$ $\forall
+													i\in N$ where $\mustar=\left\{ a_{1}\right\} $ $\forall
+													\sigma \in \Sigma $ while $f^w(P)=A\diagdown \left\{ a_{m}\right\} $.
+													
+													To see that the antiplurality rule $f^w$ satisfies PCC, pick $\bar{%
+														\sigma }\in \Sigma $ defined for each $(l_{1},...,$ \ $l_{n})$ $\in \left\{
+														0,1,...,\text{ }m-1\right\} ^{N}$ as $\bar{\sigma }(l_{1},...,$ \ $%
+														l_{n})=1$ if $l_{i}\neq l_{j}$ for some $i,j\in N$ and $\bar{\sigma }%
+														(l_{1},...,$ \ $l_{n})=0$ otherwise. Suppose, for a contradiction, $f^w$
+														fails PCC. So, $\mustar[\bar{\sigma }]\cap f^{w}(P)=\varnothing $ for some $P\in L(A)^{N}$. Note that $\bar{\sigma }(\lambda _{P}(x))=\bar{\sigma }(\lambda _{P}(y)) \forall x, y\in \mustar[\bar{\sigma }]$ holds by definition of $\mustar[\bar{\sigma }]$ and by the choice of $\bar{\sigma }$, for $x\in \mustar[\bar{\sigma }]$, either $\bar{\sigma } (\lambda _{P}(x))=1$ or $\bar{\sigma }(\lambda _{P}(x))=0$. In the
+														former case, $\mustar[\bar{\sigma }]=PO(P)$, and $\mustar[\bar{\sigma }]\cap $ $f^w(P)=\emptyset $ cannot hold, as the antiplurality rule, although not Paretian, never picks only non-Pareto optimal alternatives. So we consider the case $\bar{\sigma } (\lambda _{P}(x))=0$ $\forall x\in \mustar[\bar{\sigma }]$.
+														Take any $x\in \mustar[\bar{\sigma }]$. As $\bar{\sigma } (\lambda _{P}(x))=0,$ we have $\lambda _{i}^{P}(x)=\lambda _{i}^{P}(x) \forall i,j\in N$, hence $r_{\succ _{i}}(x)=r_{\succ _{j}}(x)$ $\forall
+														i,j\in N$. However, in case $r_{\succ _{i}}(x)\in \intvl{1,m-1}$, we have $x\in f^w(P)$ and in case $r_{\succ _{i}}(x)=m$,
+														we have $x\in f^w(P)$, both cases giving a contradiction.
+														\end{proof}
+														
+														Our findings on scoring rules lead to the following theorem as a corollary.
+														
+														\begin{theorem}
+															Let $m ≥ 3$. Take any score vector $w$. The scoring rule $f^w_n$ is PCC for any $n ≥ 3$ if and only if $w$ is the antiplurality score vector, i.e., if $f^w_n$ is the antiplurality family of rules.
+															\end{theorem}
+															
 \section{Old section about which SCRs are compromises}
 \begin{proposition}
 	\commentBN{m,n}All Condorcet consistent rules, all BK compromises, all point runoff rules and all scoring rules fail ECC.
