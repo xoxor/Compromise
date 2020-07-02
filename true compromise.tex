@@ -344,6 +344,37 @@ Our findings on scoring rules lead to the following theorem as a corollary.
 Let $m ≥ 3$. Take any score vector $w$. The scoring rule $f^w_n$ is PCC for any $n ≥ 3$ if and only if $w$ is the antiplurality score vector, i.e., if $f^w_n$ is the antiplurality family of rules.
 \end{theorem}
 
+\commentRS{New proposal:}
+
+\begin{theorem}
+	Let $m\geq 3.$ Take any score vector $w.$ The SCR $f_{n}^{w}$ satisfies PCC for all $n\geq 3$ if and only if $w$ is the antiplurality score vector.
+\end{theorem}
+
+\begin{proof}
+	Take any $m\geq 3$ and any score vector $w.$To show the "if" part, let $w$	be the antiplurality score vector and take any $n\geq 3.$CONTINUE\ WITH THE PROOF IN PROPOSITION 6. 
+	
+	To see the "only if" part, suppose $w$ is not the antiplurality score 	vector. So $w_{m-1}<1$. Observe the existence of two natural numbers $n_{1}$, $n_{2}\geq 3$ with $n_{1}\geq m-1$ and $\frac{n_{2}-1}{n_{2}}>w_{m-1}$.
+	Let $n^{\ast }=\max \left\{ n_{1,}n_{2}\right\} $ and take any $n\geq	n^{\ast }.$Let $A=\left\{ a_{1}, \dots, a_{m}\right\} $. Take some $P\in
+	L(A)^{N}$ with
+	
+	\begin{center}
+		$
+		\begin{array}{ccccccc}
+		i = 1 \quad & a_2 & … & a_{m-1} & a_m & a_1\\
+		2 ≤ i ≤ m - 2 \quad & a_1 & … & a_{i+1} & a_m & a_i\\
+		m - 1 ≤ i ≤ n \quad & a_1 & … & a_{m-2} & a_m & a_{m-1}\\
+		\end{array}
+		$.
+	\end{center}
+	
+	Note that for every $\sigma \in \Sigma $. we have $\sigma (\lambda_{P}(a_{m}))=0$ while $\sigma (\lambda _{P}(x))>0$ $\forall x\in A \setminus
+	\left\{ a_{m}\right\} $. Moreover, $a_{m}\in PO(P)$. Thus, $\mustar=\left\{ a_{m}\right\} $ $\forall \sigma \in \Sigma $. On the
+	other hand, $s^{w}(a_{1}; P)=n-1$, $s^{w}(a_{m}; P)=n\cdot w_{m-1}$ and
+	as $\frac{n-1}{n}>w_{m-k}$, we have $s^{w}(a_{1}; P)>s^{w}(a_{m};$ $P)$,
+	establishing $a_{m}\notin f^{w}(P)$, thus $f^{w}(P)\cap \mustar=\varnothing $ $\forall \sigma \in \Sigma $.
+\end{proof}
+
+Remark that antiplurality fails PC.
 
 \subsection{BK-compromises}
 \label{sec:BKn3}
