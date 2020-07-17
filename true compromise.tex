@@ -31,8 +31,7 @@
 
 \section{Introduction}
 \label{sec:introduction}
-In a classical social choice scenario, several individuals express their preferences over a set of alternatives and there is no unique procedure for selecting a common agreement between them. Nevertheless, there is an accepted understanding that collective choices must reflect compromises. One of the first to explicitly refer to a social choice rule (SCR) as a compromise is \citet{Sertel1986} introducing the \textit{majoritarian compromise}. This SCR, further analyzed by \citet{Sertel1999}, is a rediscovery of a method suggested by James W. Bucklin \commentOC{Ref?} 
-\commentRS{ I remember an article by Bucklin which I cannot find. I think we cancite it as done in Section 2.1 of this paper: https://www.sciencedirect.com/science/article/pii/S0022000014001433\#br0490} \commentBN{The link they used doesn't exist anymore, I found this instead \url{https://www.electionscience.org/library/bucklin-voting/}} at the beginning of the 20th century. It falls back from considering everyone’s ideal alternative to considering the voters’ second, third and more generally k-\emph{th} best until one of the alternatives is among the first k best for a majority. \citet{Brams2001} generalize this concept and introduce a class of SCRs called $q-$\textit{approval fall-back bargaining }where $q$ is the level of required support which can vary from a single voter up to unanimity. Naturally, different choices of $q$ lead to different SCRs, such as $q=1$ giving the plurality rule; $q$ being majority giving the majoritarian compromise and $q$ being unanimity giving a bargaining procedure called \textit{fall-back bargaining} which has been further analyzed by \citet{Kibris2007} and \citet{Congar2012}. 
+In a classical social choice scenario, several individuals express their preferences over a set of alternatives and there is no unique procedure for selecting a common agreement between them. Nevertheless, there is an accepted understanding that collective choices must reflect compromises. One of the first to explicitly refer to a social choice rule (SCR) as a compromise is \citet{Sertel1986} introducing the \textit{majoritarian compromise}. This SCR, further analyzed by \citet{Sertel1999}, is a rediscovery of a method suggested by James W. Bucklin \commentRS{ cite this paper: https://www.sciencedirect.com/science/article/pii/S0022000014001433\#br0490} at the beginning of the 20th century. It falls back from considering everyone’s ideal alternative to considering the voters’ second, third and more generally k-\emph{th} best until one of the alternatives is among the first k best for a majority. \citet{Brams2001} generalize this concept and introduce a class of SCRs called $q-$\textit{approval fall-back bargaining }where $q$ is the level of required support which can vary from a single voter up to unanimity. Naturally, different choices of $q$ lead to different SCRs, such as $q=1$ giving the plurality rule; $q$ being majority giving the majoritarian compromise and $q$ being unanimity giving a bargaining procedure called \textit{fall-back bargaining} which has been further analyzed by \citet{Kibris2007} and \citet{Congar2012}. 
 
 As \citet{OezkalSanver2004} discuss, the concept of compromising is mostly understood as the trade off between the number of voters supporting an alternative (i.e., the quantity of support) and the distance of that alternative from the supporters' ideal alternative (i.e., the quality of support). This trade off, which is explicit for $q-$approval fall-back bargaining, is also the basis for several other SCRs such as the \textit{median voting rule} proposed by \citet{Bassett1999} and further analyzed by \citet{Gehrlein2003} or the \textit{Condorcet practical method }described by \citet{Nurmi1999}.
 
@@ -74,9 +73,10 @@ remain the collective choice even when the ignored group is much larger.
 It is important to observe that all these SCRs impose to voters a willingness to compromise which does not mean that under the collective choice that will be made, all voters will be effectively compromising. In other words, the term “compromise” in this literature refers to procedural or \textit{ex-ante} compromises, which is different than outcome oriented or \textit{ex-post} compromises, a conceptual distinction that seems to be overlooked in the literature.
 
 To define an ex-post compromise, we adopt to our framework a concept of equal losses that is prevalent in the literature that considers the allocation of continuous utilities. This principle is used for bargaining problems \citep{Chun1988}, \citep{Chun1991} as well as for bankruptcy problems \citep{Herrero2001}. 
-We introduce two definitions for being a compromise. In both of them, we pick a spread measure that determines how equally a given vector of real numbers is distributed and make a collective choice where voters give up from their ideal points “as equal as possible". \commentRS{Here, put a footnote where we verbally explain what a spread measure is, tell that we accept any spread measure that satisfies the very basic pure equality recognition condition and cite examples from the literature satisfying this condition.} However, one of them, called \textit{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \textit{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. 
+We introduce two definitions for being a compromise. In both of them, we pick a spread measure that determines how equally a given vector of real numbers is distributed and make a collective choice where voters give up from their ideal points “as equal as possible". \commentRS{Here, put a footnote where we verbally explain what a spread measure is, tell that we accept any spread measure that satisfies the very basic pure equality recognition condition and cite examples from the literature satisfying this condition.} \commentBN{Keep it as it is.} However, one of them, called \textit{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \textit{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. 
 The two concepts are logically incompatible. As a result, Pareto efficient SCRs cannot ensure egalitarian compromises and this is valid under any spread measure. Moreover, several well-knowm SCRs of the literature such as Condorcet extensions, scoring rules, $q-$approval fall-back bargaining, all fail to be Paretian compromises under any spread measure. In fact, we are able to observe the existence of instances where being a Paretian compromise necessitates to pick an alternative that is, although Pareto optimal, ranked so low by all voters that this alternative wouldn't be picked by any of the popular SCRs of the literature. All these observations make the equal-loss principle appear quite inadequate for collective choice problems, unless envy-freeness is a major concern.
-Collective choice models with two individuals present instances where envy-freeness matters. Here, the model is interpreted as a bargaining problem and bargaining procedures replace voting rules. As prominent examples, we have fallback bargaining proposed by \citet{Brams2001} and characterized by \citet{Congar2012}; the unanimity compromise and the rational compromise introduced by \citet{Kibris2007}; the veto-rank and short listing procedures analyzed by de \citet{Clippel2014} and the Pareto-and-veto rules analyzed by \citet{Laslier2020}. As is ours, these are all models with discrete alternatives which are not contained by the classical \citet{Nash1950} bargaining environment with convex utilities. However, as \citet{Mariotti1998} and \citet{Nagahisa2002} illustrate, the two worlds can be interconnected, as we do for the equal-loss princple of \citet{Chun1988} and \citet{Chun1991}.
+
+Collective choice models with two individuals present instances where envy-freeness matters. Here, the model is interpreted as a bargaining problem and bargaining procedures replace voting rules. As prominent examples, we have fallback bargaining proposed by \citet{Brams2001}; the unanimity compromise and the rational compromise introduced by \citet{Kibris2007}; the veto-rank and short listing procedures analyzed by \citet{Clippel2014} and the Pareto-and-veto rules analyzed by \citet{Laslier2020}. As is ours, these are all models with discrete alternatives which are not contained by the classical \citet{Nash1950} bargaining environment with convex utilities. However, as \citet{Mariotti1998} and \citet{Nagahisa2002} illustrate, the two worlds can be interconnected, as we do for the equal-loss principle of \citet{Chun1988} and \citet{Chun1991}.
 
 examples of envy-freeness 2-person
 \begin{example}
@@ -296,33 +296,11 @@ Let $n\geq 3$ and $m\geq 3.$ The BK compromise $f_{n}$ satisfies PC.
 \begin{proof}
 Take $\bar{\sigma }\in \Sigma $ defined for each $(l_{1}, \dots ,l_{n}) \in \intvl{0,m-1}^N$ as $\bar{\sigma}(l_{1},...,l_{n})=1$ if 
 $l_{i}\neq l_{j}$ for some $i,j\in N$ and $\bar{\sigma }(l_{1},\dots,l_{n})=0$ otherwise. 
-
-Suppose, for a contradiction, $f_{n}$ fails PC. So,
-there exist some $P\in \linors^{N}$ for which $f_{n}(P) \setminus \mustar[\bar{\sigma }]\neq \emptyset$ . Pick some $x\in f_{n}(P) \setminus \mustar[\bar{\sigma }]$. As $x\in f_{n}(P)$, $x\in \paretopt(P)$ as well. Thus, $x\notin \mustar[\bar{\sigma }]$
-because there exists $y\in \paretopt(P)\setminus \left\{ x\right\} $ with  $\bar{\sigma}(\lambda_{P}(y)) < \bar{\sigma }(\lambda_{P}(x))$. Given the choice of $\bar{\sigma}$, we have  $\bar{\sigma}(\lambda_{P}(y))=0$ and $\bar{\sigma}(\lambda_{P}(x))=1$. Thus, $r_{\prefi}(y)=r_{\prefi[j]}(y)$ $\forall i,j\in N$. As $x\in f_{n}(P)$, this contradicts $y\in \paretopt(P)$.
-
-\commentOC{Is it obvious that $x \in f_n(P)$ contradicts $y$ being same-ranked and PO?}
-TODO Olivier: Add $\rho_n$ and let $k$ be the level of $y$, we show that $\rho_n < k$.
-%I prefer Remzi's one this time
-\commentOC{I suggest this  alternative, as a remplacement of the second paragraph.}
-
-Considering any $x \in f_n(P)$, let us show that $x \in \mustar[\bar{\sigma}]$. Because $x \in \paretopt(P)$, suffices to show that $\forall y \in \paretopt(P)$, $\bar{\sigma}(\lambda_P(y)) ≥ \bar{\sigma}(\lambda_P(x))$. Given the choice of $\bar{\sigma}$, picking any $y \in \paretopt(P)$, suffices to show that $\bar{\sigma}(\lambda_P(y)) = 1$, equivalently, that $\exists i, j \in N \suchthat r_{\prefi}(y) ≠ r_{\pref_j}(y)$. 
-Because $x \in f_n(P)$, $\rho_n(P) = \rho_n(x, P) = \min_i r_{\prefi}(x)$.
-It follows from $\rho_n(P) = \min_{x \in A} \set{\rho_n(x, P)}$ that $\rho_n(y, P) ≥ \rho_n(x, P)$, thus, $\exists i \in N \suchthat r_{\prefi}(y) > \rho_n(P)$. 
+Considering any $x \in f_n(P)$, let us show that $x \in \mustar[\bar{\sigma}]$. Because $x \in f_n(P)$, $x \in \paretopt(P)$, and therefore, suffices to show that $\forall y \in \paretopt(P)$, $\bar{\sigma}(\lambda_P(y)) ≥ \bar{\sigma}(\lambda_P(x))$. Given the choice of $\bar{\sigma}$, picking any $y \in \paretopt(P)$ with $y≠x$, suffices to show that $\bar{\sigma}(\lambda_P(y)) = 1$, equivalently, that $\exists i, j \in N \suchthat r_{\prefi}(y) ≠ r_{\pref_j}(y)$. 
+Because $x \in f_n(P)$, $\rho_n(P) = \rho_n(x, P) = \max_{i \in N} r_{\prefi}(x)$.
+It follows from $\rho_n(P) = \min_{z \in A} \set{\rho_n(z, P)}$ that $\rho_n(y, P) ≥ \rho_n(x, P)$, thus, $\exists i \in N \suchthat r_{\prefi}(y) ≥ \rho_n(P)$. 
 Also, $y \in \paretopt(P)$ implies that $\exists j \in N \suchthat r_{\pref_j}(y) < r_{\pref_j}(x)$, thus $\exists j \in N \suchthat r_{\pref_j}(y) < \rho_n(P)$. 
 Therefore, $r_{\prefi}(y) ≠ r_{\pref_j}(y)$.
-
-\commentOC{Less direct version}
-
-Considering any $x \in f_n(P)$, let us show that $x \in \mustar[\bar{\sigma}]$. Because $x \in \paretopt(P)$, suffices to show that $\forall y \in \paretopt(P)$, $\bar{\sigma}(\lambda_P(y)) ≥ \bar{\sigma}(\lambda_P(x))$. Equivalently, picking any $y$ such that $\bar{\sigma}(\lambda_P(y)) < \bar{\sigma}(\lambda_P(x))$, let us show that $y \notin \paretopt(P)$. Given the choice of $\bar{\sigma}$, we must have $\bar{\sigma}(\lambda_{P}(y))=0$. Thus, $\forall i,j\in N: r_{\succ _{i}}(y)=r_{\succ _{j}}(y)$.
-Because $x \in f_n(P)$, $\rho_n(P) = \rho_n(x, P) = \min_i r_{\prefi}(x)$. 
-Also, it follows from $\rho_n(P) = \min_{x \in A} \set{\rho_n(x, P)}$ that $\rho_n(y, P) ≥ \rho_n(x, P)$, thus, $\exists i \in N \suchthat r_{\prefi}(y) > \rho_n(P)$. And because  $\forall i, j\in N: r_{\succ _{i}}(y)=r_{\succ _{j}}(y)$, $y$ is pareto-dominated by $x$.
-
-\commentOC{Verbose version}
-
-Considering any $x \in f_n(P)$, let us show that $x \in \mustar[\bar{\sigma}]$. Because $x \in \paretopt(P)$, suffices to show that $\forall y \in \paretopt(P)$, $\bar{\sigma}(\lambda_P(y)) ≥ \bar{\sigma}(\lambda_P(x))$. Given the choice of $\bar{\sigma}$, picking any $y \in \paretopt(P)$, suffices to show that $\bar{\sigma}(\lambda_P(y)) = 1$, equivalently, that $\exists i, j \in N \suchthat r_{\prefi}(y) ≠ r_{\pref_j}(y)$. 
-Because $x \in f_n(P)$, $\rho_n(P) = \min_i r_{\prefi}(x)$, the worst rank of $x$.
-Because $y \in \paretopt(P)$, $y$ is considered better than $x$ by some voter $i$, thus $y$ is ranked higher than $\rho_n(P)$ by $i$. But $y$ can’t be ranked unanimously higher than $\rho_n(P)$, thus, some voter $j$ ranks it lower than $\rho_n(P)$. Therefore, $r_{\prefi}(y) ≠ r_{\pref_j}(y)$. \commentOC{ (Formally, $\exists i \in N \suchthat r_{\prefi}(y) < \rho_n(P)$.) (Formally, $\exists j \in N \suchthat r_{\pref_j}(y) ≥ \rho_n(P)$.)}
 \end{proof}
 
 \begin{theorem}
@@ -365,8 +343,11 @@ Because $y \in \paretopt(P)$, $y$ is considered better than $x$ by some voter $i
 \end{proof}
 
 \subsection{Restrictions on sigma}
-The perfect equality recognition condition we adopt for spread measures, i.e., that the spread gets its lowest value $0$ in case of perfect equality and only in this case, is very basic. Unless this condition is violated, $\Sigma$ is the largest set of spread measures we could conceive. On the other hand, it is possible to let $\Sigma$ shrink by imposing additional conditions over spread measures. Nevertheless, as the satisfaction of PC, PCC, EC, or ECC requires the existence of a spread measure, all of our negative results, namely, those expressed by Theorems 1, 2, 3, 4, 5, and 6 prevail when $\Sigma$ is restricted. In a similar vein, the positive results in Theorems 5 and 7 risk to be lost with additional conditions over spread measures.
-
+The perfect equality recognition condition we adopt for spread measures, i.e., that the spread gets its lowest value $0$ in case of perfect equality and only in this case, is very basic. Unless this condition is violated, $\Sigma$ is the largest set of spread measures we could conceive. On the other hand, it is possible to let $\Sigma$ shrink by imposing additional conditions over spread measures. Nevertheless, as the satisfaction of PC, PCC, EC, or ECC requires the existence of a spread measure, all of our negative results, namely, those expressed by Theorems 1, 2, 3, 4, 6, 8 and 9 prevail when $\Sigma$ is restricted \commentBN{add references}. In a similar vein, the positive results in Theorems 5 and 7 \commentBN{add references} risk to be lost with additional conditions over spread measures.
+\begin{definition}
+	We say that a spread measure $\sigma$ satisfies condition C iff we have $\sigma(m-3, m-1, m-2, \dots, m-2) < \sigma(m-2, m-3, \dots, 1, 0, 0)$, for some $n\geq3$ and for some $m\geq3$.
+\end{definition}
+\commentBN{Summary of appendix, with spread m. that satisfy the cond C}
 %A \emph{spread measure} $\sigma: \alllosses → \R_{+}$ satisfies condition gamma iff  $\sigma (m-3,$ $m-1,m-2,...,$ $m-2)$ <$\sigma(m-2,$ $m-1,...1,$0, $\ 0)$.
 %			(\lambda_{P}(y))$ that associates a spread value to every possible loss
 %vector. We write On the other hand, $\lambda
@@ -391,7 +372,7 @@ A spread measure $\sigma $ is reasonable iff given any $l,l'\in
 (l')$ whenever $(l_{1}+1,\dots,l_{n}+1)$ is more equal than $(l_{1}'+1,\dots,l_{n}'+1)$.
 
 \begin{theorem}
-	Let $m\geq 3.$ When $\Sigma $ is furthermore reasonable, there exist $n\geq 3 $ such that both the antiplurality rule $f^{w}$ and $f_{n}$ fail PCC.
+	Let $m\geq 3.$ When $\Sigma $ is furthermore reasonable, there exist $n\geq 3 $ such that both the antiplurality rule $f_n^{w}$ and $f_{n}$ fail PCC.
 	\end{theorem}
 
 	\begin{proof}
@@ -400,9 +381,6 @@ A spread measure $\sigma $ is reasonable iff given any $l,l'\in
 		L(A)^{N}$ with $r_{\prefi[1]}(x)=m-2$, $r_{\prefi[2]}(x)=m,$ $r_{\prefi}(x)=m-1$ $\forall i\in N \setminus \left\{ 1, 2\right\}, r_{\prefi}(y)=m-i$ $\forall i\in N \setminus \left\{ n\right\}$,	$r_{\prefi[n]}(y)=1$. Moreover, for each $z\in A \setminus \left\{ x,y\right\} $, we have $r_{\prefi[1]}(z)=m$ for some $i\in N$. Note that both $f^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda^{P}(x)=(m-3, m-1,m-2,...,m-2)$ and $\lambda_{P}(y)=(m-2, m-1,,...1,0, 0)$. As $\sigma$ is reasonable, $\sigma(\lambda_{P}(x)) < \sigma(\lambda_{P}(y))$ $\forall \sigma \in \Sigma$, implying $y\notin \mustar[\bar{\sigma}]$ $\forall \sigma \in \Sigma$.
 	\end{proof}
 
-\begin{proposition}
-	We say that a spread measure $\sigma$ satisfies condition C iff we have $\sigma(m-3, m-1, m-2, \dots, m-2) < \sigma(m-2, m-3, \dots, 1, 0, 0)$ for some value of m and n.
-\end{proposition}
 
 \commentRS{ We can motivate it through some arguments but more importantly, we should be able to show that several spread measures of the literature (which Beatrice is discovering) satisfy condition C. We can than take the subset of capital sigma that consists of spread measures that satisfy condition C and prove the theorem under this restriction.}
  
