@@ -288,7 +288,7 @@ It is worth noting that the antiplurality rule $f_{n}^{w}$ is not Paretian, henc
 Given any $k\in \intvl{1, m}$, we write $n_{k}(x,P)=\#\{i\in
 N\mid r_{\prefi}(x)\leq k\}$ for the \emph{$k$-support} that $x$ gets at $P$, that is, the number of individuals for whom the rank of alternative $x\in A$ is lower than or equal to $k$ in the profile $P\in $ $L(A)^{N}$.
 Note that $n_{k}(x,P)\in \intvl{1, n}$ is non-decreasing on $k$ and $n_{m}(x,P)=n.$ For each $q\in \intvl{1,n}$, we define $\rho_{q}(x,P)=\min \{k\in \intvl{1,m} \suchthat n_{k}(x,P)\geq q\}$ as the minimal rank $k$ at which the $k$-support that $x$ gets at $P$ is at least $q$. We
-write $\rho _{q}(P)=\min_{x\in A} \{\rho _{q}(x,P)\}$ for the minimal rank $k$ at which the $k$-support that some alternative gets at $P$ is at least $q$. \textit{A Brams and Kilgour (BK) compromise with threshold }$q$ is the
+write $\rho _{q}(P) = \min_{x \in A} \set{\rho_{q}(x, P)}$ for the minimal rank $k$ at which the $k$-support that some alternative gets at $P$ is at least $q$. \textit{A Brams and Kilgour (BK) compromise with threshold }$q$ is the
 SCR $f_{q}$ defined for each $P\in \linors^N$ as $f_{q}(P)=\{x\in A | n_{\rho _{q}(P)}(x,P)\geq n_{\rho _{q}(P)}(y,P)$ $\forall y\in A\}.$
 
 \commentRS{ I think we can split Theorem 7 in two theorems, one for the failure of ECC, other for the satisfaction of PC}
@@ -310,9 +310,25 @@ because there exists $y\in \paretopt(P)\setminus \left\{ x\right\} $ with  $\bar
 \commentOC{Is it obvious that $x \in f_n(P)$ contradicts $y$ being same-ranked and PO?}
 \commentBN{Add $\rho_n$ and let $k$ be the level of $y$, we show that $\rho_n < k$.}
 %I prefer Remzi's one this time
-%\commentOC{Again, a matter of style, but I prefer to avoid long contradictions, which leads to state a lot of things that may (in a sense) be false. Also, it seems to me that an elaboration for $y$ being not same-ranked would not be superfluous. I suggest this  alternative, as a remplacement of the second paragraph.}
-%Considering any $x \in f_n(P)$, let us show that $x \in \mu_{\bar{\sigma}}^*(P)$. Because $x \in \paretopt(P)$, suffices to show that $\forall y \in \paretopt(P)$, $\bar{\sigma}(\lambda_P(y)) ≥ \bar{\sigma}(\lambda_P(x))$. Equivalently, picking any $y$ such that $\bar{\sigma}(\lambda_P(y)) < \bar{\sigma}(\lambda_P(x))$, let us show that $y \notin \paretopt(P)$. Given the choice of $\bar{\sigma}$, we must have $\bar{\sigma}(\lambda_{P}(y))=0$. Thus, $\forall i,j\in N: r_{\succ _{i}}(y)=r_{\succ _{j}}(y)$. As $x\in f_{n}(P)$, this contradicts $y\in PO(P)$.
-%Because $\rho_n = \min_i r_{\prefi}(x)$, $\exists i \suchthat r_{\prefi}(y) > \rho_n$ (otherwise $\rho_n$ would be smaller). And, because $y \in \paretopt(P)$, $\exists j \suchthat \rho_n > r_{\pref_j}(y)$. We conclude that $\bar{\sigma}(\lambda_P(y)) ≠ 0$, thus $\bar{\sigma}(\lambda_P(y))  ≥ \bar{\sigma}(\lambda_P(x))$.
+\commentOC{I suggest this  alternative, as a remplacement of the second paragraph.}
+
+Considering any $x \in f_n(P)$, let us show that $x \in \mustar[\bar{\sigma}]$. Because $x \in \paretopt(P)$, suffices to show that $\forall y \in \paretopt(P)$, $\bar{\sigma}(\lambda_P(y)) ≥ \bar{\sigma}(\lambda_P(x))$. Given the choice of $\bar{\sigma}$, picking any $y \in \paretopt(P)$, suffices to show that $\bar{\sigma}(\lambda_P(y)) = 1$, equivalently, that $\exists i, j \in N \suchthat r_{\prefi}(y) ≠ r_{\pref_j}(y)$. 
+Because $x \in f_n(P)$, $\rho_n(P) = \rho_n(x, P) = \min_i r_{\prefi}(x)$.
+It follows from $\rho_n(P) = \min_{x \in A} \set{\rho_n(x, P)}$ that $\rho_n(y, P) ≥ \rho_n(x, P)$, thus, $\exists i \in N \suchthat r_{\prefi}(y) > \rho_n(P)$. 
+Also, $y \in \paretopt(P)$ implies that $\exists j \in N \suchthat r_{\pref_j}(y) < r_{\pref_j}(x)$, thus $\exists j \in N \suchthat r_{\pref_j}(y) < \rho_n(P)$. 
+Therefore, $r_{\prefi}(y) ≠ r_{\pref_j}(y)$.
+
+\commentOC{Less direct version}
+
+Considering any $x \in f_n(P)$, let us show that $x \in \mustar[\bar{\sigma}]$. Because $x \in \paretopt(P)$, suffices to show that $\forall y \in \paretopt(P)$, $\bar{\sigma}(\lambda_P(y)) ≥ \bar{\sigma}(\lambda_P(x))$. Equivalently, picking any $y$ such that $\bar{\sigma}(\lambda_P(y)) < \bar{\sigma}(\lambda_P(x))$, let us show that $y \notin \paretopt(P)$. Given the choice of $\bar{\sigma}$, we must have $\bar{\sigma}(\lambda_{P}(y))=0$. Thus, $\forall i,j\in N: r_{\succ _{i}}(y)=r_{\succ _{j}}(y)$.
+Because $x \in f_n(P)$, $\rho_n(P) = \rho_n(x, P) = \min_i r_{\prefi}(x)$. 
+Also, it follows from $\rho_n(P) = \min_{x \in A} \set{\rho_n(x, P)}$ that $\rho_n(y, P) ≥ \rho_n(x, P)$, thus, $\exists i \in N \suchthat r_{\prefi}(y) > \rho_n(P)$. And because  $\forall i, j\in N: r_{\succ _{i}}(y)=r_{\succ _{j}}(y)$, $y$ is pareto-dominated by $x$.
+
+\commentOC{Verbose version}
+
+Considering any $x \in f_n(P)$, let us show that $x \in \mustar[\bar{\sigma}]$. Because $x \in \paretopt(P)$, suffices to show that $\forall y \in \paretopt(P)$, $\bar{\sigma}(\lambda_P(y)) ≥ \bar{\sigma}(\lambda_P(x))$. Given the choice of $\bar{\sigma}$, picking any $y \in \paretopt(P)$, suffices to show that $\bar{\sigma}(\lambda_P(y)) = 1$, equivalently, that $\exists i, j \in N \suchthat r_{\prefi}(y) ≠ r_{\pref_j}(y)$. 
+Because $x \in f_n(P)$, $\rho_n(P) = \min_i r_{\prefi}(x)$, the worst rank of $x$.
+Because $y \in \paretopt(P)$, $y$ is considered better than $x$ by some voter $i$, thus $y$ is ranked higher than $\rho_n(P)$ by $i$. But $y$ can’t be ranked unanimously higher than $\rho_n(P)$, thus, some voter $j$ ranks it lower than $\rho_n(P)$. Therefore, $r_{\prefi}(y) ≠ r_{\pref_j}(y)$. \commentOC{ (Formally, $\exists i \in N \suchthat r_{\prefi}(y) < \rho_n(P)$.) (Formally, $\exists j \in N \suchthat r_{\pref_j}(y) ≥ \rho_n(P)$.)}
 \end{proof}
 
 \begin{theorem}
