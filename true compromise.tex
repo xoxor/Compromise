@@ -31,13 +31,12 @@
 
 \section{Introduction}
 \label{sec:introduction}
-In a classical social choice scenario, several individuals express their preferences over a set of alternatives and there is no unique procedure for selecting a common agreement between them. Nevertheless, there is an accepted understanding that collective choices must reflect compromises. One of the first to explicitly refer to a social choice rule (SCR) as a compromise is \cite{Sertel1986} introducing the \textit{majoritarian compromise}. This SCR, further analyzed by \cite{Sertel1999}, is a rediscovery of a method suggested by James W. Bucklin \commentOC{Ref?} 
-\commentRS{ I remember an article by Bucklin which I cannot find. I think we cancite it as done in Section 2.1 of this paper: https://www.sciencedirect.com/science/article/pii/S0022000014001433\#br0490}
-at the beginning of the 20th century. It falls back from considering everyone’s ideal alternative to considering the voters’ second, third and more generally k-\emph{th} best until one of the alternatives is among the first k best for a majority. \cite{Brams2001} generalize this concept and introduce a class of SCRs called $q-$\textit{approval fall-back bargaining }where $q$ is the level of required support which can vary from a single voter up to unanimity. Naturally, different choices of $q$ lead to different SCRs, such as $q=1$ giving the plurality rule; $q$ being majority giving the majoritarian compromise and $q$ being unanimity giving a bargaining procedure called \textit{fall-back bargaining} which has been further analyzed by \cite{Kibris2007} and \cite{Congar2012}. 
+In a classical social choice scenario, several individuals express their preferences over a set of alternatives and there is no unique procedure for selecting a common agreement between them. Nevertheless, there is an accepted understanding that collective choices must reflect compromises. One of the first to explicitly refer to a social choice rule (SCR) as a compromise is \citet{Sertel1986} introducing the \textit{majoritarian compromise}. This SCR, further analyzed by \citet{Sertel1999}, is a rediscovery of a method suggested by James W. Bucklin \commentOC{Ref?} 
+\commentRS{ I remember an article by Bucklin which I cannot find. I think we cancite it as done in Section 2.1 of this paper: https://www.sciencedirect.com/science/article/pii/S0022000014001433\#br0490} \commentBN{The link they used doesn't exist anymore, I found this instead \url{https://www.electionscience.org/library/bucklin-voting/}} at the beginning of the 20th century. It falls back from considering everyone’s ideal alternative to considering the voters’ second, third and more generally k-\emph{th} best until one of the alternatives is among the first k best for a majority. \citet{Brams2001} generalize this concept and introduce a class of SCRs called $q-$\textit{approval fall-back bargaining }where $q$ is the level of required support which can vary from a single voter up to unanimity. Naturally, different choices of $q$ lead to different SCRs, such as $q=1$ giving the plurality rule; $q$ being majority giving the majoritarian compromise and $q$ being unanimity giving a bargaining procedure called \textit{fall-back bargaining} which has been further analyzed by \citet{Kibris2007} and \citet{Congar2012}. 
 
-As \cite{OezkalSanver2004} discuss, the concept of compromising is mostly understood as the trade off between the number of voters supporting an alternative (i.e., the quantity of support) and the distance of that alternative from the supporters' ideal alternative (i.e., the quality of support). This trade off, which is explicit for $q-$approval fall-back bargaining, is also the basis for several other SCRs such as the \textit{median voting rule} proposed by \cite{Bassett1999} and further analyzed by \cite{Gehrlein2003} or the \textit{Condorcet practical method }described by \cite{Nurmi1999}.
+As \citet{OezkalSanver2004} discuss, the concept of compromising is mostly understood as the trade off between the number of voters supporting an alternative (i.e., the quantity of support) and the distance of that alternative from the supporters' ideal alternative (i.e., the quality of support). This trade off, which is explicit for $q-$approval fall-back bargaining, is also the basis for several other SCRs such as the \textit{median voting rule} proposed by \citet{Bassett1999} and further analyzed by \citet{Gehrlein2003} or the \textit{Condorcet practical method }described by \citet{Nurmi1999}.
 
-\cite{Merlin2019} identify and analyze a large class of \textit{compromise rules} which are based on balancing the trade off between the quality and the quantity of support. On the other hand, as conflicting
+\citet{Merlin2019} identify and analyze a large class of \textit{compromise rules} which are based on balancing the trade off between the quality and the quantity of support. On the other hand, as conflicting
 individual preferences over the available alternatives makes impossible to ensure the best outcome for every member of the group, one can argue that making a collective choice \textit{per se} implies compromising. In that sense, every SCR incorporates some understanding of what a compromise means. To be sure, there are instances where this understanding may contradict common sense, such as dictatorships where one voter always ensures his best outcome whatever the others prefer. Nevertheless, interesting SCRs base the collective choice on the principle that all voters may have to fall back from their ideal position. Whether, at the end of the day, all voters do effectively fall back or not is another issue which is the subject matter of this paper.
 
 Sometimes, indeed, they do not. This observation was the basis for an objection made by Jean-François Laslier to the nomenclature on compromising.\footnote{This happened at a CNRS workshop on compromising hosted by Istanbul Bilgi University at Buyukada, Istanbul on fall 2018.} Consider the following example.
@@ -74,10 +73,10 @@ remain the collective choice even when the ignored group is much larger.
 
 It is important to observe that all these SCRs impose to voters a willingness to compromise which does not mean that under the collective choice that will be made, all voters will be effectively compromising. In other words, the term “compromise” in this literature refers to procedural or \textit{ex-ante} compromises, which is different than outcome oriented or \textit{ex-post} compromises, a conceptual distinction that seems to be overlooked in the literature.
 
-To define an ex-post compromise, we adopt to our framework a concept of equal losses that is prevalent in the literature that considers the allocation of continuous utilities. This principle is used for bargaining problems (\cite{Chun1988}, \cite{Chun1991}) \commentOC{TODO use citet and citep} as well as for bankruptcy problems (\cite{Herrero2001}).
+To define an ex-post compromise, we adopt to our framework a concept of equal losses that is prevalent in the literature that considers the allocation of continuous utilities. This principle is used for bargaining problems \citep{Chun1988}, \citep{Chun1991} as well as for bankruptcy problems \citep{Herrero2001}. 
 We introduce two definitions for being a compromise. In both of them, we pick a spread measure that determines how equally a given vector of real numbers is distributed and make a collective choice where voters give up from their ideal points “as equal as possible". \commentRS{Here, put a footnote where we verbally explain what a spread measure is, tell that we accept any spread measure that satisfies the very basic pure equality recognition condition and cite examples from the literature satisfying this condition.} However, one of them, called \textit{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \textit{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. 
 The two concepts are logically incompatible. As a result, Pareto efficient SCRs cannot ensure egalitarian compromises and this is valid under any spread measure. Moreover, several well-knowm SCRs of the literature such as Condorcet extensions, scoring rules, $q-$approval fall-back bargaining, all fail to be Paretian compromises under any spread measure. In fact, we are able to observe the existence of instances where being a Paretian compromise necessitates to pick an alternative that is, although Pareto optimal, ranked so low by all voters that this alternative wouldn't be picked by any of the popular SCRs of the literature. All these observations make the equal-loss principle appear quite inadequate for collective choice problems, unless envy-freeness is a major concern.
-Collective choice models with two individuals present instances where envy-freeness matters. Here, the model is interpreted as a bargaining problem and bargaining procedures replace voting rules. As prominent examples, we have fallback bargaining proposed by Brams and Kilgour (2001) and characterized by Congar and Merlin (2012); the unanimity compromise and the rational compromise introduced by Kibris and Sertel (2007); the veto-rank and short listing procedures analyzed by de Clippel, Eliaz, and Knight (2014) and the Pareto-and-veto rules analyzed by Laslier, Nunez and Sanver (2020). As is ours, these are all models with discrete alternatives which are not contained by the classical Nash (1950) bargaining environment with convex utilities. However, as Mariotti (1998) and Nagahisa and Tanaka (2002) illustrate, the two worlds can be interconnected, as we do for the equal-loss princple of Chun (1988) and Chun and Peters (1991).
+Collective choice models with two individuals present instances where envy-freeness matters. Here, the model is interpreted as a bargaining problem and bargaining procedures replace voting rules. As prominent examples, we have fallback bargaining proposed by \citet{Brams2001} and characterized by \citet{Congar2012}; the unanimity compromise and the rational compromise introduced by \citet{Kibris2007}; the veto-rank and short listing procedures analyzed by de \citet{Clippel2014} and the Pareto-and-veto rules analyzed by \citet{Laslier2020}. As is ours, these are all models with discrete alternatives which are not contained by the classical \citet{Nash1950} bargaining environment with convex utilities. However, as \citet{Mariotti1998} and \citet{Nagahisa2002} illustrate, the two worlds can be interconnected, as we do for the equal-loss princple of \citet{Chun1988} and \citet{Chun1991}.
 
 examples of envy-freeness 2-person
 \begin{example}
@@ -90,8 +89,6 @@ examples of envy-freeness 2-person
 		$
 	\end{center}
 \end{example}
-
-\commentRS{ I think the "removed material" at the end of the document can all go to trash, except section D on spread measures which we can exploit for the footnote I have suggested above as well as for section 4.4 of the paper.}
 
 computational?
 
@@ -229,8 +226,7 @@ Note that Condorcet consistent rules need not be Paretian so the fact that they 
 
 \subsection{Scoring rules}
 A \emph{score vector} is an $m-$tuple $w=(w_{1},\dots,$ $w_{m})\in \intvl{0, 1}^{m}$ with $w_{1}=1$, $w_{m}=0$ and $w_{i}\geq w_{i+1}$ $\forall
-i\in \intvl{1, m-1}$. A score vector $w$ is \emph{strict} iff $w_{i}>w_{i+1}$ $\forall i\in \intvl{1, m-1}$. \commentBN{Do we still need this? We only use it in the proof of \cref{th:srECC}} \commentRS{ I agree. We don't need to define it here. We can refer to the concept within the proof of Theorem 4.}
-Given a score vector $w$, we write $s^{w}(x,P)=\sum_{i\in N}w_{r_{\prefi}(x)}$ for the score of $x\in A$ at $P\in L(A)^{N}$. Every score vector $w$ identifies a \emph{scoring rule} $f^w_n$ defined as $f^w_n(P)=\left\{ x\in A:s^{w}(x,P)\geq s^{w}(y,P) \ \forall y\in A\right\}$ for every $P\in L(A)^{N}$. The score vector $w'$ formed such that $w'_{i}=1 \forall i\in \intvl{0, m-1}$ and $w'_{m}=0$ is called antiplurality score vector.\commentRS{I think we can carry the definition just before Theorem 5. I am not sure that we should put a special notation (prime) for it}
+i\in \intvl{1, m-1}$. Given a score vector $w$, we write $s^{w}(x,P)=\sum_{i\in N}w_{r_{\prefi}(x)}$ for the score of $x\in A$ at $P\in L(A)^{N}$. Every score vector $w$ identifies a \emph{scoring rule} $f^w_n$ defined as $f^w_n(P)=\left\{ x\in A:s^{w}(x,P)\geq s^{w}(y,P) \ \forall y\in A\right\}$ for every $P\in L(A)^{N}$.
 
 We first show that no scoring rule is ECC, for any value of $n$ and $m$ at least 3.
 
@@ -238,9 +234,10 @@ We first show that no scoring rule is ECC, for any value of $n$ and $m$ at least
 Let $n\geq 3$ and $m\geq 3.$ No score vector $w$ induces a scoring rule $f^w_n$ that is ECC.
 \end{theorem}
 \begin{proof}
-Take any score vector $w$. If $w$ is strict, then $f^w$ is Paretian and \cref{th:nonParetian} implies that $f^w$ is not ECC. Now, let $w$ be non-strict. Consider the profile $P$ of \cref{prop:muSigmaLast}. Observe that $\musigma=\{a_m\} \ \forall \sigma \in \Sigma $. However, as $w_{1}>w_{m}$, we have $s^{w}(a_{1},P)>s^{w}(a_{m},P)$ which implies $a_{m}\notin f^{w}(P)$.
+Take any score vector $w$. We say that $w$ is \emph{strict} iff $w_{i}>w_{i+1}$ $\forall i\in \intvl{1, m-1}$. If $w$ is strict, then $f^w$ is Paretian and \cref{th:nonParetian} implies that $f^w$ is not ECC. Now, let $w$ be non-strict. Consider the profile $P$ of \cref{prop:muSigmaLast}. Observe that $\musigma=\{a_m\} \ \forall \sigma \in \Sigma $. However, as $w_{1}>w_{m}$, we have $s^{w}(a_{1},P)>s^{w}(a_{m},P)$ which implies $a_{m}\notin f^{w}(P)$.
 \end{proof}
 
+We call antiplurality score vector the score vector $w$ formed such that $w_{i}=1 \forall i\in \intvl{0, m-1}$ and $w_{m}=0$.
 
 \begin{theorem}
 	Let $m\geq 3$ and let $w$ be the antiplurality score vector. The SCR $f_{n}^{w}$ satisfies PCC for all $n\geq 3$.
@@ -291,16 +288,13 @@ Note that $n_{k}(x,P)\in \intvl{1, n}$ is non-decreasing on $k$ and $n_{m}(x,P)=
 write $\rho _{q}(P) = \min_{x \in A} \set{\rho_{q}(x, P)}$ for the minimal rank $k$ at which the $k$-support that some alternative gets at $P$ is at least $q$. \textit{A Brams and Kilgour (BK) compromise with threshold }$q$ is the
 SCR $f_{q}$ defined for each $P\in \linors^N$ as $f_{q}(P)=\{x\in A | n_{\rho _{q}(P)}(x,P)\geq n_{\rho _{q}(P)}(y,P)$ $\forall y\in A\}.$
 
-\commentRS{ I think we can split Theorem 7 in two theorems, one for the failure of ECC, other for the satisfaction of PC}
-
 \begin{theorem}
-	\label{th:FBn3}
-Let $n\geq 3$ and $m\geq 3.$ The BK compromise $f_{n}$ fails ECC but satisfies PC.
+	\label{th:FBsatsPC}
+Let $n\geq 3$ and $m\geq 3.$ The BK compromise $f_{n}$ satisfies PC.
 \end{theorem}
 
 \begin{proof}
-Take any $n\geq 3$ and $m\geq 3.$ As $f_{n}$ is Paretian, it fails ECC by
-Proposition 3.1. To see that $f_{n}$ satisfies PC, pick $\bar{\sigma }\in \Sigma $ defined for each $(l_{1}, \dots ,l_{n}) \in \intvl{0,m-1}^N$ as $\bar{\sigma}(l_{1},...,l_{n})=1$ if 
+Take $\bar{\sigma }\in \Sigma $ defined for each $(l_{1}, \dots ,l_{n}) \in \intvl{0,m-1}^N$ as $\bar{\sigma}(l_{1},...,l_{n})=1$ if 
 $l_{i}\neq l_{j}$ for some $i,j\in N$ and $\bar{\sigma }(l_{1},\dots,l_{n})=0$ otherwise. 
 
 Suppose, for a contradiction, $f_{n}$ fails PC. So,
@@ -308,7 +302,7 @@ there exist some $P\in \linors^{N}$ for which $f_{n}(P) \setminus \mustar[\bar{\
 because there exists $y\in \paretopt(P)\setminus \left\{ x\right\} $ with  $\bar{\sigma}(\lambda_{P}(y)) < \bar{\sigma }(\lambda_{P}(x))$. Given the choice of $\bar{\sigma}$, we have  $\bar{\sigma}(\lambda_{P}(y))=0$ and $\bar{\sigma}(\lambda_{P}(x))=1$. Thus, $r_{\prefi}(y)=r_{\prefi[j]}(y)$ $\forall i,j\in N$. As $x\in f_{n}(P)$, this contradicts $y\in \paretopt(P)$.
 
 \commentOC{Is it obvious that $x \in f_n(P)$ contradicts $y$ being same-ranked and PO?}
-\commentBN{Add $\rho_n$ and let $k$ be the level of $y$, we show that $\rho_n < k$.}
+TODO Olivier: Add $\rho_n$ and let $k$ be the level of $y$, we show that $\rho_n < k$.
 %I prefer Remzi's one this time
 \commentOC{I suggest this  alternative, as a remplacement of the second paragraph.}
 
@@ -329,6 +323,14 @@ Also, it follows from $\rho_n(P) = \min_{x \in A} \set{\rho_n(x, P)}$ that $\rho
 Considering any $x \in f_n(P)$, let us show that $x \in \mustar[\bar{\sigma}]$. Because $x \in \paretopt(P)$, suffices to show that $\forall y \in \paretopt(P)$, $\bar{\sigma}(\lambda_P(y)) ≥ \bar{\sigma}(\lambda_P(x))$. Given the choice of $\bar{\sigma}$, picking any $y \in \paretopt(P)$, suffices to show that $\bar{\sigma}(\lambda_P(y)) = 1$, equivalently, that $\exists i, j \in N \suchthat r_{\prefi}(y) ≠ r_{\pref_j}(y)$. 
 Because $x \in f_n(P)$, $\rho_n(P) = \min_i r_{\prefi}(x)$, the worst rank of $x$.
 Because $y \in \paretopt(P)$, $y$ is considered better than $x$ by some voter $i$, thus $y$ is ranked higher than $\rho_n(P)$ by $i$. But $y$ can’t be ranked unanimously higher than $\rho_n(P)$, thus, some voter $j$ ranks it lower than $\rho_n(P)$. Therefore, $r_{\prefi}(y) ≠ r_{\pref_j}(y)$. \commentOC{ (Formally, $\exists i \in N \suchthat r_{\prefi}(y) < \rho_n(P)$.) (Formally, $\exists j \in N \suchthat r_{\pref_j}(y) ≥ \rho_n(P)$.)}
+\end{proof}
+
+\begin{theorem}
+	\label{th:FBfailsECC}
+	Let $n\geq 3$ and $m\geq 3.$ The BK compromise $f_{n}$ fails ECC. 
+\end{theorem}
+\begin{proof}
+	As $f_{n}$ is Paretian, the proof comes straightforward from \cref{th:nonParetian}.
 \end{proof}
 
 \begin{theorem}
@@ -414,7 +416,7 @@ Each of these theories, also called solutions, satisfies a specific set of axiom
 In other words, a solution can be seen as the recommendation that an impartial arbitrator would make, and the axioms represent properties (like fairness, monotonicity etc.) that this recommendation should embed. 
 \commentOC{May I argue for not jumping to next line without starting a new paragraph?}
 
-The best-known solution is the one introduced by \cite{Nash1950}, where the compromise is obtained by maximizing the product of utility gains from the disagreement point.
+The best-known solution is the one introduced by \citet{Nash1950}, where the compromise is obtained by maximizing the product of utility gains from the disagreement point.
 Consider the following axioms:
 \begin{itemize}
 	\item Pareto-optimality: no change could be made that would lead to an improvement for any voter;
@@ -441,7 +443,7 @@ Questions:
 \subsection{Which SCRs are still compromises?}
 
 \subsubsection{BK-compromises}
-In \cref{sec:introduction}, we use the \cref{ex:ex1} and the \cref{ex:ex2} to define what we call “ex-ante compromises”. We say that all BK-compromises, except fallback bargaining (FB) (where $q=n$), seem to pursuit a goal of compromising but they fail in ensuring an outcome where everyone has effectively compromised. In \cref{sec:BKn3}, we further investigate this matter for $n\geq3$ and $m\geq3$ by proving, in \cref{th:BKthreshold}, that any BK-compromises, except fallback bargaining, is neither ECC nor PCC. Morever, in \cref{th:FBn3}, we prove that fallback bargaining $f_{n}$ fails ECC but satisfies PC.
+In \cref{sec:introduction}, we use the \cref{ex:ex1} and the \cref{ex:ex2} to define what we call “ex-ante compromises”. We say that all BK-compromises, except fallback bargaining (FB) (where $q=n$), seem to pursuit a goal of compromising but they fail in ensuring an outcome where everyone has effectively compromised. In \cref{sec:BKn3}, we further investigate this matter for $n\geq3$ and $m\geq3$ by proving, in \cref{th:BKthreshold}, that any BK-compromises, except fallback bargaining, is neither ECC nor PCC. Morever, in \cref{FBfailsECC} and \cref{FBsatsPC}, we prove that fallback bargaining $f_{n}$ fails ECC but satisfies PC.
 
 \begin{Theorem}
 	Let $n=2$ and $m\geq3$. The BK-compromise $f_{n}$ is neither ECC nor PCC. 
@@ -475,261 +477,6 @@ Questions:
 
 \newpage
 \appendix
-\section{Removed Material}
-\subsection{Case m=2}
-
-\begin{remark} \label{rmk:ECCandPC}
-	\cref{th:nonParetian} does not hold for $m=2$: in that case, the largest Paretian SCR, $f(P) = \paretopt(P)$, is ECC. In fact, $\forall \sigma, P: \paretopt(P) \cap \musigma ≠ \emptyset$. This is because all profiles with two alternatives have this form, with $k < \frac{n}{2}$:
-	\begin{center}
-		$
-		\begin{array}{ccc}
-		\mathbf{k} \quad &a&b\\
-		\mathbf{n-k} \quad &b&a\\
-		\end{array}.
-		$
-		\end{center}
-		If $k ≥ 1$, there are no Pareto dominated alternatives, so $\paretopt(P) = A$, thus $\paretopt(P) \cap \musigma ≠ \emptyset$. And if $k = 0$, all alternatives are ranked at the same position by every voter, so $\forall \sigma \in \Sigma$, the spread of the loss vectors associated to each alternative is $0$, thus, $\musigma=A$ and, again, $\paretopt(P) \cap \musigma ≠ \emptyset$.
-		\end{remark}
-		
-		\begin{remark}\label{rmk:ECandPCC}
-			\cref{th:incompatibility} does not hold for $m=2$. Consider the same SCR of \cref*{rmk:ECCandPC}, $f(P) = \paretopt(P)$, and a spread measure $\sigma' \in \Sigma$ that assign $0$ to a loss vector $l \in \alllosses$ if all its components are equal, $1$ otherwise. Following the same reasoning of \cref*{rmk:ECCandPC}, all profiles with two alternatives have the same form. If $k ≥ 1$, then there are no Pareto dominated alternatives, therefore $f(P)=A$ and $\sigma'(\lambda_P(a))= \sigma'(\lambda_P(b))=1$, therefore  $\musigma[\sigma']=\mustar[\sigma']=A$. If $k = 0$, then $\sigma'(\lambda_P(a))= \sigma'(\lambda_P(b))=0$ so $\musigma[\sigma']=A$. Inevitably one of the two alternatives will be Pareto dominated by the other, but $f(P)\subseteq \musigma[\sigma']$ still holds, therefore $f$ is EC. Furthermore, $f(P) \subseteq \mustar[\sigma']$  so $f$ is also PCC.
-			\end{remark}
-			
-			\begin{remark} If $\sigma$ is reasonable then \cref{th:incompatibility} still does not hold for $m=2$. As we showed in \cref{rmk:ECCandPC}, all profiles with two alternatives have the same form. If $k ≥ 1$ then $\sigma(\lambda_P(a))=(0_1, \dots, 0_k, 1_{k+1}, \dots, 1_n )$ and $\sigma(\lambda_P(b))=(1_1, \dots, 1_k, 0_{k+1}, \dots, 0_n )$. Because $\sigma$ is reasonable then $\sigma(\lambda_{P}(a))< \sigma(\lambda_{P}(b))$ if $k>n-k$, vice-versa if $k<n-k$ \commentBN{not sure if k=n}. Consider $f$ the majority rule, then $f(P)=\{a\}$ if $k>n-k$, $f(P)=\{b\}$ otherwise. Thus, $f(P)\subseteq \musigma$ in both cases, and $\musigma=\mustar$. If $k=0$ then $\sigma(\lambda_{P}(b))< \sigma(\lambda_{P}(a))$, hence $f(P)=\musigma=\mustar$.
-			\end{remark}
-
-\subsection{Definitions}
-Definition of $\musigma$ and $\mustar$
-\[
-\musigma = \argmin_{x \in A} \sigma(\lambda_P(x)) = \set{ x \in A \suchthat \forall y \in A: \sigma(\lambda_P(x)) ≤ \sigma(\lambda_P(y)) }.
-\]
-\[	\mustar  = \argmin_{x \in \paretopt(P)} \sigma(\lambda_P(x)) = \{ x \in \paretopt(P) \ | \ \sigma (\lambda_P(x))\leq \sigma (\lambda_P(y)), \forall y \in \paretopt(P) \} \]
-
-\begin{corollary}
-	For $n\geq 2, \ m\geq3,$ $\exists P$ such that $\musigma$ and $\mustar$ are disjoint  $\forall \sigma \in \Sigma$.
-\end{corollary}
-
-\begin{definition} A SCR $f$ is an EC$^*$ iff \[f(P) \subseteq \musigma, \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
-\end{definition}
-
-\begin{definition} A SCR $f$ is an PC$^*$ iff \[f(P) \subseteq \mustar, \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
-\end{definition}
-
-\begin{definition} A SCR $f$ is ECC$^*$ iff \[f(P) \cap \musigma \neq 0, \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
-\end{definition}
-
-\begin{definition} A SCR $f$ is PCC$^*$ iff \[ f(P) \cap \mustar \neq 0, \ \forall P \in \linors^N, \forall \ \sigma \in \Sigma.\]
-\end{definition}
-
-\begin{proposition}
-	For $n=2, m=2$, no SCR is EC*, and no SCR is PC*.
-\end{proposition}
-\begin{proof}
-	Consider the profile such that voter $1$ prefers $a$ to $b$ and voter $2$ prefers $b$ to $a$. Observe that $\lambda(a) = (0, 1)$ and $\lambda(b) = (1, 0)$. Define $\sigma_1$ and $\sigma_2$ as ordering differently $\lambda(a)$ and $\lambda(b)$. To be EC*, $f$ must satisfy $f(P) \subseteq \set{a}$ and $f(P) \subseteq \set{b}$, which is impossible. The same constraints apply to be PC*.
-\end{proof}
-
-\begin{remark}
-	Observe that $\text{ECC} \centernot \implies \text{PCC}$ and $\text{PCC} \centernot \implies \text{ECC}$.
-	In fact, considering \cref{th:nonParetian}, the existence of a spread measure $\sigma$ such that our SCR $f$ picks some alternatives which belong to the set $\musigma$ is not a guarantee that they are also Pareto optimal, thus belonging to the set $\mustar$ (and vice-versa).
-\end{remark}
-
-\section{Old scoring rules}
-
-We now analyze whether scoring rules satisfy PC or PCC. Our first result
-identifies, for a given score vector $w,$ properties for $n$ and $m$ that
-lead to a failure of PCC.
-
-\begin{proposition}
-	\label{prop:whenPCCfails} Let $n\geq 3$ and $m\geq 3.$ Take any score vector $w$.
-	If $k\cdot n\geq m-1$ for some $k\in \normalfont{\intvl{1, m-2}}$ and $\frac{n-1}{n}>w_{m-k}$ then $f^w_n$ fails PCC.
-	\end{proposition}
-	\commentOC{Is there hope of generalizing \cref{th:bound} so that $w_k < 1$ implies failure of PCC (in suppl to $w_2 < 1$ implying this failure)? Let’s try to simplify this result, under condition that this generalisation holds.}
-	\begin{proof}
-		Take any $n\geq 3$ and $m\geq 3$ with $k.n\geq m-1$ for some $k\in \intvl{1,m-2} $. Let $A=\left\{ a_{1},...,a_{m}\right\} $. Consider any score vector $w$ with $\frac{n-1}{n}>w_{m-k}$. Take some $P\in L(A)^{N}$ with $r_{\succ _{i}}(a_{1})=1$ $\forall i\in \left\{ 1,...,%
-		\text{ }n-1\right\} $, $r_{\succ _{n}}(a_{1})=m,$ $r_{\succ
-			_{i}}(a_{m-k})=m-k$ $\forall i\in N.$ Moreover, for every $x\in A\diagdown
-			\left\{ a_{m-k}\right\} $, $r_{\succ _{i}}(x)>m-k$ for some $i\in N$ and $%
-			r_{\succ _{j}}(x)\neq r_{\succ _{k}}(x)$ for some $j,k\in N$. \commentRS{Such a P exists but we should argue about this.} By construction of $P$, we have $%
-			\mustar=\left\{ a_{m-k}\right\} $ $\forall \sigma \in
-			\Sigma $. Note that $s^{w}(a_{1};$ $P)=n-1$ and $s^{w}(a_{m-k};$ $P)=n\cdot
-			w_{m-k}$. As $\frac{n-1}{n}>w_{m-k}$, we have $s^{w}(a_{1};$ $%
-			P)>s^{w}(a_{m-k};$ $P)$, establishing $a_{m-k}\notin f^{w}(P)$, thus $%
-			f^{w}(P)\cap $ $\mustar=\varnothing $ $\forall \sigma \in
-			\Sigma $.
-			\end{proof}
-			
-			\commentOC{%
-			We could focus on the following proposition (sketch). If $n ≥ m-1$ and $\frac{n-1}{n} > w_{m-1}$, then PCC fails. The proof (reusing the logic adopted by Remzi here above) may use the following profile $P$, if I am not mistaken. The number $i \in \intvl{1, n}$ of the left is the identifier of a voter, voters being numbered from $1$ to $n$. The dots represent the alternatives not displayed in the first and last three ranks (in some arbitrary ordering). We can argue (as done above) that $a_m \in f(P)$ is required to satisfy PCC but $a_m \notin f(P)$ as $s(a_1) = n-1 > s(a_m) = n w_{m-1}$.
-			\begin{center}
-				$
-				\begin{array}{ccccccc}
-				i = 1 \quad & a_2 & … & a_{m-1} & a_m & a_1\\
-				2 ≤ i ≤ m - 2 \quad & a_1 & … & a_{i+1} & a_m & a_i\\
-				m - 1 ≤ i ≤ n \quad & a_1 & … & a_{m-2} & a_m & a_{m-1}\\
-				\end{array}
-				$.
-				\end{center}
-				}
-				
-			Among all the scoring rules for which Proposition \ref{prop:whenPCCfails} holds, of particular interest are the ones defined by a scoring vector $w$ such that $w_2<1$. Such SCRs include Borda count and Plurality. \commentRS{Delete this paragraph in order not to refer to plurality and Borda.}
-			\commentOC{I’d say this can be kept as is, as I find this remark interesting.}
-			
-			\begin{proposition}
-			Let $n\geq 3$ and $m\geq 3.$ For any score vector $w$ with $w_{2}<1$ \commentRS{this is redundant}, if $%
-			\frac{n-1}{n}>w_{2}$ then $f^w_n$ fails PCC.
-			\end{proposition}
-			\begin{proof}
-				\Cref{prop:whenPCCfails} can be applied by taking $k=m-2$ and observing that $n ≥ 3 ≥ \frac{m-1}{m-2}$.
-				\end{proof}
-				
-				As a matter of fact, Proposition \ref{prop:whenPCCfails} paves the way the
-				observe a very large class of scoring rules that fail PCC, when $n$ is
-				sufficiently large.
-				
-				\begin{proposition}
-					\label{nlargefailspcc} \bigskip Let $m$ $\geq 3.$ For any score vector $w$
-					with $w_{m-k}<1$ for some $k\in \normalfont{\intvl{1, m-2}}$, there
-					exist $n$ $\geq 3$ such that $f^w_n$ fails PCC.
-					\end{proposition}
-					\begin{proof}
-						Take any $m$ $\geq 3$ and any $w$ with $w_{m-k}<1$ for some $k\in \intvl{1, m-2}$. Define $n = \max\set*{\ceil*{\frac{m-1}{k}}, \floor*{\frac{1}{1-w_{m-k}}}+1}$. \Cref{prop:whenPCCfails} then applies, because $n ≥ \frac{m-1}{k}$, and because $n > \frac{1}{1-w_{m-k}}$ which in turn implies $1-w_{m-k} > \frac{1}{n}$ and $1-\frac{1}{n} > w_{m-k}$.
-						\end{proof}
-						
-						An immediate corollary to \cref{nlargefailspcc} is about the \textit{antiplurality score vector} $w$ which is defined as $w_i = 1, \forall i \in \intvl{1,m−1}$.
-						\commentOC{This is actually an equivalent statement. And I find its interest clearer when written in the second way. Thus, I’d remove the previous proposition and directly prove it using the phrasing involving AP. And write it conversely: if  $f^w$ is PCC for any $n ≥ 3$, then $f^w$ is AP. Let’s write it $f^w_n$, by the way.}
-						
-						\begin{proposition}
-							Let $m ≥ 3$. If $\forall n ≥ 3: f^w_n$ is PCC, then $w$ is the antiplurality score vector.
-							\end{proposition}
-							
-							Thus among the class of scoring rules, the antiplurality family of rules $\set{f^w_n \suchthat n \in \N}$ is the only candidate to ensure the satisfaction of PCC which, in fact, is the case, as we state and show below.
-							
-							\commentRS{Thus, among all score vectors, antiplurality is the only candidate to induce a scoring rule (called “antipluralty rule” for each $f^w_n$) that satisfies PCC. This is, in fact, the case, as we state and show below.}
-							
-							\begin{proposition}
-								\label{prop:antPCC}
-								Let $n\geq 3$ and $m\geq 3$ and let $w$ be the antiplurality score vector. The rule $f^w_n$ satisfies PCC but fails PC.
-								\end{proposition}
-								\begin{proof}
-									\commentOC{Not checked.}
-									Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...%
-									\text{ }a_{m}\right\} $. The antiplurality rule $f^w$ is not Paretian,
-									hence fails PC, which can bee seen by picking a unanimous profile $P\in
-									L(A)^{N}$ with $a_{1}\succ _{i}a_{2}\succ _{i}...\succ _{i}a_{m}$ $\forall
-									i\in N$ where $\mustar=\left\{ a_{1}\right\} $ $\forall
-									\sigma \in \Sigma $ while $f^w(P)=A\diagdown \left\{ a_{m}\right\} $.
-									
-									To see that the antiplurality rule $f^w$ satisfies PCC, pick $\bar{%
-										\sigma }\in \Sigma $ defined for each $(l_{1},...,$ \ $l_{n})$ $\in \left\{
-										0,1,...,\text{ }m-1\right\} ^{N}$ as $\bar{\sigma }(l_{1},...,$ \ $%
-										l_{n})=1$ if $l_{i}\neq l_{j}$ for some $i,j\in N$ and $\bar{\sigma }%
-										(l_{1},...,$ \ $l_{n})=0$ otherwise. Suppose, for a contradiction, $f^w$
-										fails PCC. So, $\mustar[\bar{\sigma }]\cap f^{w}(P)=\varnothing $ for some $P\in L(A)^{N}$. Note that $\bar{\sigma }(\lambda _{P}(x))=\bar{\sigma }(\lambda _{P}(y)) \forall x, y\in \mustar[\bar{\sigma }]$ holds by definition of $\mustar[\bar{\sigma }]$ and by the choice of $\bar{\sigma }$, for $x\in \mustar[\bar{\sigma }]$, either $\bar{\sigma } (\lambda _{P}(x))=1$ or $\bar{\sigma }(\lambda _{P}(x))=0$. In the
-										former case, $\mustar[\bar{\sigma }]=PO(P)$, and $\mustar[\bar{\sigma }]\cap $ $f^w(P)=\emptyset $ cannot hold, as the antiplurality rule, although not Paretian, never picks only non-Pareto optimal alternatives. So we consider the case $\bar{\sigma } (\lambda _{P}(x))=0$ $\forall x\in \mustar[\bar{\sigma }]$.
-										Take any $x\in \mustar[\bar{\sigma }]$. As $\bar{\sigma } (\lambda _{P}(x))=0,$ we have $\lambda _{i}^{P}(x)=\lambda _{i}^{P}(x) \forall i,j\in N$, hence $r_{\succ _{i}}(x)=r_{\succ _{j}}(x)$ $\forall
-										i,j\in N$. However, in case $r_{\succ _{i}}(x)\in \intvl{1,m-1}$, we have $x\in f^w(P)$ and in case $r_{\succ _{i}}(x)=m$,
-										we have $x\in f^w(P)$, both cases giving a contradiction.
-										\end{proof}
-										
-										Our findings on scoring rules lead to the following theorem as a corollary.
-										
-										\begin{theorem}
-											Let $m ≥ 3$. Take any score vector $w$. The scoring rule $f^w_n$ is PCC for any $n ≥ 3$ if and only if $w$ is the antiplurality score vector, i.e., if $f^w_n$ is the antiplurality family of rules.
-															\end{theorem}
-															
-\section{Old section about which SCRs are compromises}
-\begin{proposition}
-	\commentBN{m,n}All Condorcet consistent rules, all BK compromises, all point runoff rules and all scoring rules fail ECC.
-\end{proposition}
-\begin{proof}
-	For proving this proposition is enough to consider Corollary cref{cor:optECC}, and to observe that all these rules, except Anti-plurality, are Pareto optimal.
-	
-	In order to prove it for Anti-plurality, consider the profile described in the proof of \cref{th:nonParetian}, where the most equal alternative $z$ is ranked last by all voters. This alternative is the only element of the set $\musigma$ but it is not selected by anti-plurality. \commentBN{Change according to the new profile.}%profile st z is the last and the other are shifted by 1}
-\end{proof}
-
-\begin{proposition} For $n\geq3$, $m\geq3$ \commentBN{Generalize for n=2 (classical bargaining setting)} \label{prop:rulesnotPCC}
-	\begin{item}
-		\item[1)] Condorcet consistent rules are not $PCC$
-		\item[2)] BK compromise for $q \in \{1, \dots ,n-1\}$ are not $PCC$
-		\item[3)] Point runoff rules (like STV) are not $PCC$
-		%		\item[4)] Scoring rules (except Antiplurality) are not $PCC$
-	\end{item}
-\end{proposition}
-\begin{proof}
-	Consider the following profile $P$
-	\begin{center}
-		$
-		\begin{array}{ccccc}
-		\mathbf{1} \quad &c&b&\dots &a\\
-		\mathbf{n-1} \quad &a&b&\dots &c\\		
-		\end{array}
-		$
-	\end{center}
-	where we have $m$ alternatives disposed such that only one alternative $b$ is ranked at the same position by every voter, and it is ranked second.
-	We can see that, $\forall \sigma \in \Sigma$, $\musigma=\{b\}$, but all Condorcet consistent rules, BK compromise for $q \in \{1, \dots n-1\}$ and ranked runoff rules would select $a$ as the winner. Thus the propositions $1), 2) \text{ and } 3)$ are proved. 
-\end{proof}
-
-\noindent Note that these impossibility results prevail for any restrictions $D \subseteq \Sigma$. \commentBN{first comment Remzi}
-
-\begin{proposition}
-	\label{th:bound}
-	For $n>2$, $m\geq3$ some scoring rules are  $PCC$ \commentBN{Generalize for n=2}
-\end{proposition}
-\begin{proof}
-	\commentBN{proof olivier}
-	Let $(w_1, \dots, w_m)$ be a scoring vector such that $w_i$ represents the score given to an alternative ranked $i$-th in some preference order. Consider $1 = w_1 \geq w_2 \geq \dots \geq w_{m} = 0$. Let $s:\{1,\dots,m\}\rightarrow [0,1]$ be a scoring function that assigns to each alternative $x \in A$ a value depending on the rank obtained in each of the preference orders: 
-	\[ s(x) = \sum_{i=1}^{m} \alpha^{x}_i w_i \ ,\]
-	where $\alpha^{x}_i$ is the number of times that alternative $x$ was ranked in the $i$-th position. Let $f$ be the SCR that selects the alternatives with the highest score $f(P)=\{x \in A | s(x)\geq s(y), \ \forall y \in A\}$.
-	Consider again the profile $P$ defined in Proposition \ref{prop:rulesnotPCC}.
-	\begin{center}
-		$
-		\begin{array}{ccccc}
-		\mathbf{1} \quad &c&b&\dots &a\\
-		\mathbf{n-1} \quad &a&b&\dots &c\\		
-		\end{array}
-		$
-	\end{center}
-	We have that $s(a)=n-1$, $s(b)=n\cdot \lambda$, $s(c)=1$. We can observe that $s(a)$ is always greater than $s(c)$ since $n>2$, and that $s(b)\geq s(x)$ for any other alternative $x\in A \setminus \{a,c\}$. Recall that $b$ is the only alternative equally ranked by everyone, so $\sigma(\lambda_P(b))=0$ and $\sigma(\lambda_P(x))>0$, $\forall x \in A \ \{b\}$; thus, $\mustar=\{b\}$. In order for $f$ to be $PCC$, $f(P)$ must contain $b$. This happens if $s(b)\geq s(a)$, therefore if 
-	\begin{align}
-	n\cdot\lambda &\geq n-1 \\
-	\lambda &\geq \frac{n-1}{n} 
-	\end{align}
-	\commentBN{Can we generalize it for each possible profile P?}
-\end{proof}
-
-\begin{proposition}
-	\commentBN{for m n check} Anti-plurality is not $PC$ but it is $PCC$.
-\end{proposition}
-\begin{proof} 
-	In order to prove the first statement, consider the following profile $P$
-	\begin{center}
-		$
-		\begin{array}{cccc}
-		\mathbf{1} \quad &a&b&c\\
-		\mathbf{n-1} \quad &a&b&c\\
-		\end{array}
-		$
-	\end{center}
-	The only element of the set $\musigma$ is $a$, but anti-plurality selects $a$ and $b$. So it is not PC.
-	
-	For proving the second statement, take any profile $P$. Either
-	\begin{itemize}
-		\item[case 1.] there exists an alternative $x$ ranked at the same position by every voter and it is Pareto Optimal,
-		\item[case 2.] or not.
-	\end{itemize}
-	In the first case $x$ is never last, thus $x\in \mustar $ and $ x \in AP(P)$, where $AP(P)$ is the set of alternatives selected by anti-plurality.
-	
-	In the second case, consider a spread measure $\bar{\sigma} \in \Sigma$ such that \[
-	\bar{\sigma}(l_1, \dots,l_n)= \begin{cases}
-	0 \text{ if } l_i=l_j \ \forall i,j \\ 1 \text{ otherwise} \\
-	\end{cases}. \]
-	Then, $\exists \ y \in AP(P)$ and also $ y \in \mustar[\bar{\sigma}]$.
-\end{proof}
-
-\commentRS{ It is worth noting that the negative results are quite robust because they establish the non-existence of a spread measure within the very large class capital sigma. On the other hand, the positive result that anti plurality is PCC may not be very robust and could turn to be negative when capital sigma is restricted by some further conditions over spread measures. This is an issue to be explored. \\ Another issue to be explored is whether FB satisfies PC or PCC. In an earlier version, we had a nice 2-person example about FB, which seems to be lost in this version. Can we find it? Yes:	\bigskip \\ {\color{black}$x$ $a_{1}...a_{k}$ $y$ $b_{1}....b_{k}$ \\	$b_{1}....b_{k-1}$ $y$ $x$ $b_{k}$ $a_{1}...a_{k}$} \bigskip \\
-	A further question to explore is whether we can suggest interesting SCRs that satisfy PCC. The particular “bargaining” case of n=2 many deserve specific consideration. \bigskip \\
-	If our results don't hold for n=2 we can say that }
-
 
 \section{Spread Measures}
 In our idea of compromise, we aim to determine the “most equally distributed” vector within $\left\{ \lambda_P(x)\right\} _{x\in A}$. We thus need to adopt a spread measure which is a mapping $\sigma \in \SAll: \R_{+}^{N}\longrightarrow \R_{+}$ which satisfies $\sigma(r_i, \dots, r_n)=0 \iff r_i=r_j \forall i,j$. In what follows, we will consider various classes of possible spread measures.
