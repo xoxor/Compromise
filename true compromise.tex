@@ -32,7 +32,7 @@
 \section{Introduction}
 \label{sec:introduction}
 In a classical social choice scenario, several individuals express their preferences over a set of alternatives and there is no unique procedure for selecting a common agreement between them. Nevertheless, there is an accepted understanding that collective choices must reflect compromises. One of the first to explicitly refer to a social choice rule (SCR) as a compromise is \cite{Sertel1986} introducing the \textit{majoritarian compromise}. This SCR, further analyzed by \cite{Sertel1999}, is a rediscovery of a method suggested by James W. Bucklin \commentOC{Ref?} 
-\commentRS{ I remember an article by Bucklin which I cannot find. I think we cancite it as done in Section 2.1 of this paper: https://www.sciencedirect.com/science/article/pii/S0022000014001433#br0490}
+\commentRS{ I remember an article by Bucklin which I cannot find. I think we cancite it as done in Section 2.1 of this paper: https://www.sciencedirect.com/science/article/pii/S0022000014001433\#br0490}
 at the beginning of the 20th century. It falls back from considering everyone’s ideal alternative to considering the voters’ second, third and more generally k-\emph{th} best until one of the alternatives is among the first k best for a majority. \cite{Brams2001} generalize this concept and introduce a class of SCRs called $q-$\textit{approval fall-back bargaining }where $q$ is the level of required support which can vary from a single voter up to unanimity. Naturally, different choices of $q$ lead to different SCRs, such as $q=1$ giving the plurality rule; $q$ being majority giving the majoritarian compromise and $q$ being unanimity giving a bargaining procedure called \textit{fall-back bargaining} which has been further analyzed by \cite{Kibris2007} and \cite{Congar2012}. 
 
 As \cite{OezkalSanver2004} discuss, the concept of compromising is mostly understood as the trade off between the number of voters supporting an alternative (i.e., the quantity of support) and the distance of that alternative from the supporters' ideal alternative (i.e., the quality of support). This trade off, which is explicit for $q-$approval fall-back bargaining, is also the basis for several other SCRs such as the \textit{median voting rule} proposed by \cite{Bassett1999} and further analyzed by \cite{Gehrlein2003} or the \textit{Condorcet practical method }described by \cite{Nurmi1999}.
@@ -78,7 +78,7 @@ To define an ex-post compromise, we adopt to our framework a concept of equal lo
 We introduce two definitions for being a compromise. In both of them, we pick a spread measure that determines how equally a given vector of real numbers is distributed and make a collective choice where voters give up from their ideal points “as equal as possible". \commentRS{Here, put a footnote where we verbally explain what a spread measure is, tell that we accept any spread measure that satisfies the very basic pure equality recognition condition and cite examples from the literature satisfying this condition.} However, one of them, called \textit{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \textit{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. 
 The two concepts are logically incompatible. As a result, Pareto efficient SCRs cannot ensure egalitarian compromises and this is valid under any spread measure. Moreover, several well-knowm SCRs of the literature such as Condorcet extensions, scoring rules, $q-$approval fall-back bargaining, all fail to be Paretian compromises under any spread measure. In fact, we are able to observe the existence of instances where being a Paretian compromise necessitates to pick an alternative that is, although Pareto optimal, ranked so low by all voters that this alternative wouldn't be picked by any of the popular SCRs of the literature. All these observations make the equal-loss principle appear quite inadequate for collective choice problems, unless envy-freeness is a major concern.
 Collective choice models with two individuals present instances where envy-freeness matters. Here, the model is interpreted as a bargaining problem and bargaining procedures replace voting rules. As prominent examples, we have fallback bargaining proposed by Brams and Kilgour (2001) and characterized by Congar and Merlin (2012); the unanimity compromise and the rational compromise introduced by Kibris and Sertel (2007); the veto-rank and short listing procedures analyzed by de Clippel, Eliaz, and Knight (2014) and the Pareto-and-veto rules analyzed by Laslier, Nunez and Sanver (2020). As is ours, these are all models with discrete alternatives which are not contained by the classical Nash (1950) bargaining environment with convex utilities. However, as Mariotti (1998) and Nagahisa and Tanaka (2002) illustrate, the two worlds can be interconnected, as we do for the equal-loss princple of Chun (1988) and Chun and Peters (1991).
-\\ \\
+
 examples of envy-freeness 2-person
 \begin{example}
 	\begin{center}
@@ -90,8 +90,6 @@ examples of envy-freeness 2-person
 		$
 	\end{center}
 \end{example}
-.\\
-\\ \\
 
 \commentRS{ I think the "removed material" at the end of the document can all go to trash, except section D on spread measures which we can exploit for the footnote I have suggested above as well as for section 4.4 of the paper.}
 
@@ -413,11 +411,11 @@ The Nash solution is the only one satisfying Pareto-optimality, symmetry, scale 
 
 His characterization opened the door to several others. The solution proposed by \cite{Kalai1975}, for example, defines as a compromise the maximal point (above the disagreement point) which maintains the ratios of gains. In other words, the agreement point is defined as the highest utility any agent can obtain given that no agent should receive less than her coordinate of the disagreement point.
 The Kalai–Smorodinsky solution satisfies all the above mentioned axioms except for IIA. Instead, a monotonicity requirement is added, which says that no agent should lose from the increase in resources.
-\\
+
 A solution that includes both IIA and monotonicity, dropping the condition of scale invariance, is the Egalitarian solution (\cite{Kalai1977}), whose central idea is the one of equal gains.
-\newline
+
 Other solutions have been proposed in literature, and \cite{Thomson1994} collected most of them.
-\newline\\
+
 Questions:
 \begin{itemize}
 	\item Which axioms EC, ECC, PC and PCC satisfy?
