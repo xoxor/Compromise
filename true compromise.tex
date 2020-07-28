@@ -348,33 +348,11 @@ Therefore, $r_{\prefi}(y) ≠ r_{\pref_j}(y)$.
 \label{sec:RestrictionOnSigma}
 The perfect equality recognition condition we adopt for spread measures, i.e., that the spread gets its lowest value $0$ in case of perfect equality and only in this case, is very basic. Unless this condition is violated, $\Sigma$ is the largest set of spread measures we could conceive. On the other hand, it is possible to let $\Sigma$ shrink by imposing additional conditions over spread measures. Nevertheless, as the satisfaction of PC, PCC, EC, or ECC requires the existence of a spread measure, all of our negative results, namely, those expressed by Theorems \ref{th:nonParetian}, \ref{th:incompatibility}, \ref{th:condorcet}, \ref{th:srECC}, \ref{th:srPCC}, \ref{th:FBfailsECC} and \ref{th:BKthreshold} prevail when $\Sigma$ is restricted. In a similar vein, the positive results in Theorems \ref{th:AntSatsPCC} and \ref{th:FBsatsPC} risk to be lost with additional conditions over spread measures.
 \begin{definition}
-	We say that a spread measure $\sigma$ satisfies condition C iff we have $\sigma(m-3, m-1, m-2, \dots, m-2) < \sigma(m-2, m-3, \dots, 1, 0, 0)$, for some $n\geq3$ and for some $m\geq3$. \commentBN{Should this be for all $n$ in order to make our assertions in Theorems ?}
+	Give any $m\geq3$ and $n\geq3$, we say that a spread measure $\sigma$ satisfies condition $C_{m,n}$ iff we have $\sigma(m-3, m-1, m-2, \dots, m-2) < \sigma(m-2, m-3, \dots, 1, 0, 0)$.
 \end{definition}
 
-%A \emph{spread measure} $\sigma: \alllosses → \R_{+}$ satisfies condition gamma iff  $\sigma (m-3,$ $m-1,m-2,...,$ $m-2)$ <$\sigma(m-2,$ $m-1,...1,$0, $\ 0)$.
-%			(\lambda_{P}(y))$ that associates a spread value to every possible loss
-%vector. We write On the other hand, $\lambda
-%			^{P}(x)=(m-3,$ $m-1,m-2,...,$ $m-2)$ and $\lambda_{P}(y)=(m-2,$ $m-1,,...1,$
-%			$0,$ $\ 0)$.
-
-\begin{theorem}
-	Let $m\geq 3$ and take the antiplurality score vector $w$. If $\sigma$ satisfies condition C then there exist $n\geq 3$ such that $f_n^{w}$ fails PCC.
-\end{theorem}
-
-\begin{theorem}
-	Let $m\geq 3$. If $\sigma$ satisfies condition C then there exist $n\geq 3$ such that the BK compromise  $f_n$ fails PC.
-\end{theorem}
-
-\commentBN{adapt to Th. 10 and 11}
-	\begin{proof}
-		Take any $m\geq 3$ and let $\Sigma $ be reasonable. Take any $n\geq m$, say $%
-		n=m$ without loss of generality. Take some $x,$ $y\in A$ and some $P\in
-		L(A)^{N}$ with $r_{\prefi[1]}(x)=m-2$, $r_{\prefi[2]}(x)=m,$ $r_{\prefi}(x)=m-1$ $\forall i\in N \setminus \left\{ 1, 2\right\}, r_{\prefi}(y)=m-i$ $\forall i\in N \setminus \left\{ n\right\}$,	$r_{\prefi[n]}(y)=1$. Moreover, for each $z\in A \setminus \left\{ x,y\right\} $, we have $r_{\prefi[1]}(z)=m$ for some $i\in N$. Note that both $f^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda^{P}(x)=(m-3, m-1,m-2,...,m-2)$ and $\lambda_{P}(y)=(m-2, m-1,,...1,0, 0)$. As $\sigma$ is reasonable, $\sigma(\lambda_{P}(x)) < \sigma(\lambda_{P}(y))$ $\forall \sigma \in \Sigma$, implying $y\notin \mustar[\bar{\sigma}]$ $\forall \sigma \in \Sigma$.
-	\end{proof}
-
-
-\commentRS{We can than take the subset of capital sigma that consists of spread measures that satisfy condition C and prove the theorem under this restriction.}
-
+We define $\Sigma^{C_{m,n}} \subseteq \Sigma$ as the set of spread measures that satisfy condition $C_{m,n}$ .
+\commentRS{Discussion about the condition C that get stronger for larger m and n. Discuss the spread measures that exist in literature (this clarify why $\Sigma^{C_{m,n}}$ is never empty, $\sigma_{ad}$ is always there for $m,n \geq 3$).}
 \subsubsection{Spread Measures in Literature}
 The \textbf{Mean Absolute Difference} is a measure of dispersion calculated as the arithmetic mean of the absolute value of all possible differences. 
 \[\sigma_{mad}(r)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j| \]
@@ -400,6 +378,7 @@ The \textbf{Average Absolute Deviation} is a measure that consider the differenc
 \begin{theorem}
 	$\sigma_{ad}$ satisfies condition C $\forall n\geq 3$ and $\forall m \geq 3$.
 \end{theorem}
+\commentBN{For m=3 n=3 it doesn't work}
 \begin{proof} 
 	Consider again the two vectors $l_1=(m-3, m-1, m-2, m-2, m-2)$ and $l_2=(m-2, m-3, 1, 0, 0)$; the arithmetic mean of their values is $2$ for the first vector and $\frac{2(m-2)}{5}$ for the second one. The spread using the Average Absolute Deviation is therefore: 
 	\small{\[\sigma_{ad}(l_1)=\frac{2}{5}\]
@@ -409,32 +388,30 @@ The \textbf{Average Absolute Deviation} is a measure that consider the differenc
 	which is true for all $m\geq 3$.
 \end{proof}
 
-
-
-
-
-\commentOC{I find the profile totally convincing, but the proposed reasonability condition seems too strong, because it (needlessly, I think) requires to care only about the difference of ranks, and not about the ranks themselves.
-Here is an alternative proposal, but it is even more complex. Given a rank-vector $r \in \intvl{1, m}^N$ and $k \in \intvl{1, m}$, let $c^{r → k}_i = (r_i, k)$ if $r_i ≤ k$, and $c^{r → k}_i = (k, r_i)$ otherwise, denote the “$i$-th change to $k$”, representing (as a pair) the change required to bring the $i$th rank to $k$. Let $r → k$ denote the “change to $k$”, defined as the multiset of pairs $\left<c^{r → k}_i\right>_{i \in N}$, representing the changes required to bring $r$ to the constant rank-vector $(k)_{i \in N}$. Let $C$ be the set of multisets of $n$ pairs $(a, b)$ in $\intvl{1, m} × \intvl{1, m}$ such that $a ≤ b$. Given two such change multisets $c, c' \in C$, say that $c$ is a smaller change than $c'$ iff some bijection between $c$ and $c'$ is such that each pair $(a, b)$ in $c$ is included in its corresponding pair $(a', b')$ in $c'$, meaning that $a' ≤ a ≤ b ≤ b'$. Let $\rho(r) = \set{r → k}_{k \in N}$ associate to the rank-vector $r$ the set of “change to $k$” for each $k$. Say that $r$ is more equal than $r'$ iff $\forall c \in \rho(r), \exists c' \in \rho(r') \suchthat c$ is a smaller change than $c'$.
-TODO get rid of this and rewrite in terms of dis-satifaction of going from some loss to $k$.}
-
-\subsection{Old description of "reasonability"}
-Given a rank vector $r\in \intvl{1,m}^\N$, we write $
-\varepsilon ^{k}(r)=(\left\vert r_{i}-k\right\vert )_{i\in N}$ for the
-equalizing vector at level $k\in \intvl{1,m}$. We
-write $\bar{\varepsilon ^{k}}(r)$ for the vector obtained by reshuffling the entries of $\varepsilon ^{k}(r)$ in a non-decreasing order.
-Given any two rank vectors $r,q\in \intvl{1,m}^\N$ we
-say that $r$ is more equal than $q$ iff $\exists k^*\in \intvl{1,m} $ such that $\bar{\varepsilon _{i}^{k^*}}(r)\leq $ $\bar{\varepsilon _{i}^{k}}(q)$ $\forall i\in N$, $\forall
-k\in \intvl{1,m} $ while the inequality is strict for
-some $i\in N$ at some $k\in \intvl{1,m}$.
-
-A spread measure $\sigma $ is reasonable iff given any $l,l'\in
-\intvl{0,m-1}^\N$, we have $\sigma (l)<\sigma
-(l')$ whenever $(l_{1}+1,\dots,l_{n}+1)$ is more equal than $(l_{1}'+1,\dots,l_{n}'+1)$.
+%A \emph{spread measure} $\sigma: \alllosses → \R_{+}$ satisfies condition gamma iff  $\sigma (m-3,$ $m-1,m-2,...,$ $m-2)$ <$\sigma(m-2,$ $m-1,...1,$0, $\ 0)$.
+%			(\lambda_{P}(y))$ that associates a spread value to every possible loss
+%vector. We write On the other hand, $\lambda
+%			^{P}(x)=(m-3,$ $m-1,m-2,...,$ $m-2)$ and $\lambda_{P}(y)=(m-2,$ $m-1,,...1,$
+%			$0,$ $\ 0)$.
 
 \begin{theorem}
-	Let $m\geq 3.$ When $\Sigma $ is furthermore reasonable, there exist $n\geq 3 $ such that both the antiplurality rule $f_n^{w}$ and $f_{n}$ fail PCC.
-	\end{theorem}
+	For all $m\geq 3$, $n\geq 3$, under $\Sigma^{C_{m,n}}$,
+	\begin{itemize}
+	    \item [1)] $f_n^{w}$ fails PCC when $w$ is the antiplurality score vector;
+	    \item [2)] the BK compromise  $f_n$ fails PCC.
+	\end{itemize}
+\end{theorem}
 
+\commentBN{adapt the proof}
+	\begin{proof}
+		Take any $m\geq 3$ and let $\Sigma $ be reasonable. Take any $n\geq m$, say $%
+		n=m$ without loss of generality. Take some $x,$ $y\in A$ and some $P\in
+		L(A)^{N}$ with $r_{\prefi[1]}(x)=m-2$, $r_{\prefi[2]}(x)=m,$ $r_{\prefi}(x)=m-1$ $\forall i\in N \setminus \left\{ 1, 2\right\}, r_{\prefi}(y)=m-i$ $\forall i\in N \setminus \left\{ n\right\}$,	$r_{\prefi[n]}(y)=1$. Moreover, for each $z\in A \setminus \left\{ x,y\right\} $, we have $r_{\prefi[1]}(z)=m$ for some $i\in N$. Note that both $f^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda^{P}(x)=(m-3, m-1,m-2,...,m-2)$ and $\lambda_{P}(y)=(m-2, m-1,,...1,0, 0)$. As $\sigma$ is reasonable, $\sigma(\lambda_{P}(x)) < \sigma(\lambda_{P}(y))$ $\forall \sigma \in \Sigma$, implying $y\notin \mustar[\bar{\sigma}]$ $\forall \sigma \in \Sigma$.
+	\end{proof}
+
+\commentOC{Given a rule f, define property G as: if P has exactly one alternative that is never ranked last, f picks that alternative as a single winner. Theorem: Pick any m, n ≥ 3. There exists a profile P that has y as only alternative never ranked last, and under $Σ^C_{m, n}$, PCC requires that y be not a winner at P. Theorem 12 follows from this theorem because AP and FB satisfy G.}
+
+\commentRS{We can than take the subset of capital sigma that consists of spread measures that satisfy condition C and prove the theorem under this restriction.}
 
  
 \section{Two voters case}
