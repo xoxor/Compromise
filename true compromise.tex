@@ -365,6 +365,14 @@ The perfect equality recognition condition we adopt for spread measures, i.e., t
 	Let $m\geq 3$. If $\sigma$ satisfies condition C then there exist $n\geq 3$ such that the BK compromise  $f_n$ fails PC.
 \end{theorem}
 
+\commentBN{adapt to Th. 10 and 11}
+	\begin{proof}
+		Take any $m\geq 3$ and let $\Sigma $ be reasonable. Take any $n\geq m$, say $%
+		n=m$ without loss of generality. Take some $x,$ $y\in A$ and some $P\in
+		L(A)^{N}$ with $r_{\prefi[1]}(x)=m-2$, $r_{\prefi[2]}(x)=m,$ $r_{\prefi}(x)=m-1$ $\forall i\in N \setminus \left\{ 1, 2\right\}, r_{\prefi}(y)=m-i$ $\forall i\in N \setminus \left\{ n\right\}$,	$r_{\prefi[n]}(y)=1$. Moreover, for each $z\in A \setminus \left\{ x,y\right\} $, we have $r_{\prefi[1]}(z)=m$ for some $i\in N$. Note that both $f^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda^{P}(x)=(m-3, m-1,m-2,...,m-2)$ and $\lambda_{P}(y)=(m-2, m-1,,...1,0, 0)$. As $\sigma$ is reasonable, $\sigma(\lambda_{P}(x)) < \sigma(\lambda_{P}(y))$ $\forall \sigma \in \Sigma$, implying $y\notin \mustar[\bar{\sigma}]$ $\forall \sigma \in \Sigma$.
+	\end{proof}
+
+
 \commentRS{We can than take the subset of capital sigma that consists of spread measures that satisfy condition C and prove the theorem under this restriction.}
 
 \subsubsection{Spread Measures in Literature}
@@ -426,12 +434,6 @@ A spread measure $\sigma $ is reasonable iff given any $l,l'\in
 \begin{theorem}
 	Let $m\geq 3.$ When $\Sigma $ is furthermore reasonable, there exist $n\geq 3 $ such that both the antiplurality rule $f_n^{w}$ and $f_{n}$ fail PCC.
 	\end{theorem}
-
-	\begin{proof}
-		Take any $m\geq 3$ and let $\Sigma $ be reasonable. Take any $n\geq m$, say $%
-		n=m$ without loss of generality. Take some $x,$ $y\in A$ and some $P\in
-		L(A)^{N}$ with $r_{\prefi[1]}(x)=m-2$, $r_{\prefi[2]}(x)=m,$ $r_{\prefi}(x)=m-1$ $\forall i\in N \setminus \left\{ 1, 2\right\}, r_{\prefi}(y)=m-i$ $\forall i\in N \setminus \left\{ n\right\}$,	$r_{\prefi[n]}(y)=1$. Moreover, for each $z\in A \setminus \left\{ x,y\right\} $, we have $r_{\prefi[1]}(z)=m$ for some $i\in N$. Note that both $f^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda^{P}(x)=(m-3, m-1,m-2,...,m-2)$ and $\lambda_{P}(y)=(m-2, m-1,,...1,0, 0)$. As $\sigma$ is reasonable, $\sigma(\lambda_{P}(x)) < \sigma(\lambda_{P}(y))$ $\forall \sigma \in \Sigma$, implying $y\notin \mustar[\bar{\sigma}]$ $\forall \sigma \in \Sigma$.
-	\end{proof}
 
 
  
