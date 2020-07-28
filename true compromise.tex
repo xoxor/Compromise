@@ -31,7 +31,8 @@
 
 \section{Introduction}
 \label{sec:introduction}
-In a classical social choice scenario, several individuals express their preferences over a set of alternatives and there is no unique procedure for selecting a common agreement between them. Nevertheless, there is an accepted understanding that collective choices must reflect compromises. One of the first to explicitly refer to a social choice rule (SCR) as a compromise is \citet{Sertel1986} introducing the \textit{majoritarian compromise}. This SCR, further analyzed by \citet{Sertel1999}, is a rediscovery of a method suggested by James W. Bucklin \commentRS{ cite this paper: https://www.sciencedirect.com/science/article/pii/S0022000014001433\#br0490} at the beginning of the 20th century. It falls back from considering everyone’s ideal alternative to considering the voters’ second, third and more generally k-\emph{th} best until one of the alternatives is among the first k best for a majority. \citet{Brams2001} generalize this concept and introduce a class of SCRs called $q-$\textit{approval fall-back bargaining }where $q$ is the level of required support which can vary from a single voter up to unanimity. Naturally, different choices of $q$ lead to different SCRs, such as $q=1$ giving the plurality rule; $q$ being majority giving the majoritarian compromise and $q$ being unanimity giving a bargaining procedure called \textit{fall-back bargaining} which has been further analyzed by \citet{Kibris2007} and \citet{Congar2012}. 
+
+In a classical social choice scenario, several individuals express their preferences over a set of alternatives and there is no unique procedure for selecting a common agreement between them. Nevertheless, there is an accepted understanding that collective choices must reflect compromises. One of the first to explicitly refer to a social choice rule (SCR) as a compromise is \citet{Sertel1986} introducing the \textit{majoritarian compromise}. This SCR, further analyzed by \citet{Sertel1999}, is a rediscovery of a method suggested by James W. Bucklin at the beginning of the 20th century (for more details see \citet{Erdelyi2015}). It falls back from considering everyone’s ideal alternative to considering the voters’ second, third and more generally k-\emph{th} best until one of the alternatives is among the first k best for a majority. \citet{Brams2001} generalize this concept and introduce a class of SCRs called $q-$\textit{approval fall-back bargaining }where $q$ is the level of required support which can vary from a single voter up to unanimity. Naturally, different choices of $q$ lead to different SCRs, such as $q=1$ giving the plurality rule; $q$ being majority giving the majoritarian compromise and $q$ being unanimity giving a bargaining procedure called \textit{fall-back bargaining} which has been further analyzed by \citet{Kibris2007} and \citet{Congar2012}. 
 
 As \citet{OezkalSanver2004} discuss, the concept of compromising is mostly understood as the trade off between the number of voters supporting an alternative (i.e., the quantity of support) and the distance of that alternative from the supporters' ideal alternative (i.e., the quality of support). This trade off, which is explicit for $q-$approval fall-back bargaining, is also the basis for several other SCRs such as the \textit{median voting rule} proposed by \citet{Bassett1999} and further analyzed by \citet{Gehrlein2003} or the \textit{Condorcet practical method }described by \citet{Nurmi1999}.
 
@@ -73,7 +74,7 @@ remain the collective choice even when the ignored group is much larger.
 It is important to observe that all these SCRs impose to voters a willingness to compromise which does not mean that under the collective choice that will be made, all voters will be effectively compromising. In other words, the term “compromise” in this literature refers to procedural or \textit{ex-ante} compromises, which is different than outcome oriented or \textit{ex-post} compromises, a conceptual distinction that seems to be overlooked in the literature.
 
 To define an ex-post compromise, we adopt to our framework a concept of equal losses that is prevalent in the literature that considers the allocation of continuous utilities. This principle is used for bargaining problems \citep{Chun1988}, \citep{Chun1991} as well as for bankruptcy problems \citep{Herrero2001}. 
-We introduce two definitions for being a compromise. In both of them, we pick a spread measure that determines how equally a given vector of real numbers is distributed and make a collective choice where voters give up from their ideal points “as equal as possible". \commentRS{Here, put a footnote where we verbally explain what a spread measure is, tell that we accept any spread measure that satisfies the very basic pure equality recognition condition and cite examples from the literature satisfying this condition.} \commentBN{Keep it as it is.} However, one of them, called \textit{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \textit{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. 
+We introduce two definitions for being a compromise. In both of them, we pick a spread measure that determines how equally a given vector of real numbers is distributed and make a collective choice where voters give up from their ideal points “as equal as possible". \commentRS{Here, put a footnote where we verbally explain what a spread measure is, tell that we accept any spread measure that satisfies the very basic pure equality recognition condition and cite examples from the literature satisfying this condition.} \commentBN{Keep it as it is for now and add literature we need for \cref{sec:RestrictionOnSigma}.} However, one of them, called \textit{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \textit{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. 
 The two concepts are logically incompatible. As a result, Pareto efficient SCRs cannot ensure egalitarian compromises and this is valid under any spread measure. Moreover, several well-knowm SCRs of the literature such as Condorcet extensions, scoring rules, $q-$approval fall-back bargaining, all fail to be Paretian compromises under any spread measure. In fact, we are able to observe the existence of instances where being a Paretian compromise necessitates to pick an alternative that is, although Pareto optimal, ranked so low by all voters that this alternative wouldn't be picked by any of the popular SCRs of the literature. All these observations make the equal-loss principle appear quite inadequate for collective choice problems, unless envy-freeness is a major concern.
 
 Collective choice models with two individuals present instances where envy-freeness matters. Here, the model is interpreted as a bargaining problem and bargaining procedures replace voting rules. As prominent examples, we have fallback bargaining proposed by \citet{Brams2001}; the unanimity compromise and the rational compromise introduced by \citet{Kibris2007}; the veto-rank and short listing procedures analyzed by \citet{Clippel2014} and the Pareto-and-veto rules analyzed by \citet{Laslier2020}. As is ours, these are all models with discrete alternatives which are not contained by the classical \citet{Nash1950} bargaining environment with convex utilities. However, as \citet{Mariotti1998} and \citet{Nagahisa2002} illustrate, the two worlds can be interconnected, as we do for the equal-loss principle of \citet{Chun1988} and \citet{Chun1991}.
@@ -240,6 +241,7 @@ Take any score vector $w$. We say that $w$ is \emph{strict} iff $w_{i}>w_{i+1}$ 
 We call antiplurality score vector the score vector $w$ formed such that $w_{i}=1 \forall i\in \intvl{0, m-1}$ and $w_{m}=0$.
 
 \begin{theorem}
+	\label{th:AntSatsPCC}
 	Let $m\geq 3$ and let $w$ be the antiplurality score vector. The SCR $f_{n}^{w}$ satisfies PCC for all $n\geq 3$.
 \end{theorem}
 
@@ -252,8 +254,8 @@ We call antiplurality score vector the score vector $w$ formed such that $w_{i}=
 
 It is worth noting that the antiplurality rule $f_{n}^{w}$ is not Paretian, hence fails PC  for all $n\geq 3$. This, can bee seen by picking a unanimous profile $P\in \linors^{N}$ with $a_{1}\prefi a_{2}\prefi \dots \prefi a_{m}$ $\forall i\in N$, where $\mustar=\left\{ a_{1}\right\} \forall \sigma \in \Sigma $ while $f_{n}^{w}(P)=A \setminus \left\{ a_{m}\right\}$.
 
-
 \begin{theorem}
+	\label{th:srPCC}
 	Let $m\geq 3.$ Take any score vector $w$ which is not the antiplurality score vector. The SCR $f_{n}^{w}$ fails PCC for some $n\geq 3$.
 \end{theorem}
 
@@ -343,21 +345,71 @@ Therefore, $r_{\prefi}(y) ≠ r_{\pref_j}(y)$.
 \end{proof}
 
 \subsection{Restrictions on sigma}
-The perfect equality recognition condition we adopt for spread measures, i.e., that the spread gets its lowest value $0$ in case of perfect equality and only in this case, is very basic. Unless this condition is violated, $\Sigma$ is the largest set of spread measures we could conceive. On the other hand, it is possible to let $\Sigma$ shrink by imposing additional conditions over spread measures. Nevertheless, as the satisfaction of PC, PCC, EC, or ECC requires the existence of a spread measure, all of our negative results, namely, those expressed by Theorems 1, 2, 3, 4, 6, 8 and 9 prevail when $\Sigma$ is restricted \commentBN{add references}. In a similar vein, the positive results in Theorems 5 and 7 \commentBN{add references} risk to be lost with additional conditions over spread measures.
+\label{sec:RestrictionOnSigma}
+The perfect equality recognition condition we adopt for spread measures, i.e., that the spread gets its lowest value $0$ in case of perfect equality and only in this case, is very basic. Unless this condition is violated, $\Sigma$ is the largest set of spread measures we could conceive. On the other hand, it is possible to let $\Sigma$ shrink by imposing additional conditions over spread measures. Nevertheless, as the satisfaction of PC, PCC, EC, or ECC requires the existence of a spread measure, all of our negative results, namely, those expressed by Theorems \ref{th:nonParetian}, \ref{th:incompatibility}, \ref{th:condorcet}, \ref{th:srECC}, \ref{th:srPCC}, \ref{th:FBfailsECC} and \ref{th:BKthreshold} prevail when $\Sigma$ is restricted. In a similar vein, the positive results in Theorems \ref{th:AntSatsPCC} and \ref{th:FBsatsPC} risk to be lost with additional conditions over spread measures.
 \begin{definition}
-	We say that a spread measure $\sigma$ satisfies condition C iff we have $\sigma(m-3, m-1, m-2, \dots, m-2) < \sigma(m-2, m-3, \dots, 1, 0, 0)$, for some $n\geq3$ and for some $m\geq3$.
+	We say that a spread measure $\sigma$ satisfies condition C iff we have $\sigma(m-3, m-1, m-2, \dots, m-2) < \sigma(m-2, m-3, \dots, 1, 0, 0)$, for some $n\geq3$ and for some $m\geq3$. \commentBN{Should this be for all $n$ in order to make our assertions in Theorems ?}
 \end{definition}
-\commentBN{Summary of appendix, with spread m. that satisfy the cond C}
+
 %A \emph{spread measure} $\sigma: \alllosses → \R_{+}$ satisfies condition gamma iff  $\sigma (m-3,$ $m-1,m-2,...,$ $m-2)$ <$\sigma(m-2,$ $m-1,...1,$0, $\ 0)$.
 %			(\lambda_{P}(y))$ that associates a spread value to every possible loss
 %vector. We write On the other hand, $\lambda
 %			^{P}(x)=(m-3,$ $m-1,m-2,...,$ $m-2)$ and $\lambda_{P}(y)=(m-2,$ $m-1,,...1,$
 %			$0,$ $\ 0)$.
 
+\begin{theorem}
+	Let $m\geq 3$ and take the antiplurality score vector $w$. If $\sigma$ satisfies condition C then there exist $n\geq 3$ such that $f_n^{w}$ fails PCC.
+\end{theorem}
+
+\begin{theorem}
+	Let $m\geq 3$. If $\sigma$ satisfies condition C then there exist $n\geq 3$ such that the BK compromise  $f_n$ fails PC.
+\end{theorem}
+
+\commentRS{We can than take the subset of capital sigma that consists of spread measures that satisfy condition C and prove the theorem under this restriction.}
+
+\subsubsection{Spread Measures in Literature}
+The \textbf{Mean Absolute Difference} is a measure of dispersion calculated as the arithmetic mean of the absolute value of all possible differences. 
+\[\sigma_{mad}(r)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j| \]
+\begin{theorem}
+	$\sigma_{mad}$ satisfies condition C $\forall n\geq 3$ and $\forall m \geq 4$.
+\end{theorem}
+\begin{proof} 
+	Consider the two vectors $l_1=(m-3, m-1, m-2, m-2, m-2)$ and $l_2=(m-2, m-3, 1, 0, 0)$; their spread using the Mean Absolute Difference will be: 
+	\small{\[\sigma_{mad}(l_1)=\frac{|m-3-m+1|+|m-3-m+2|+\dots}{5^2}=\frac{18}{5^2}\]
+	\[\sigma_{mad}(l_2)=\frac{|m-2-m+3|+|m-2-1|+\dots}{5^2}=\frac{6+6|m-3|+4|m-2|+2|m-4|}{5^2}\]}
+	In order $\sigma_{mad}$ to satisfy condition C, must be $\sigma_{mad}(l_1) < \sigma_{mad}(l_2)$, so
+	\[18<6+6|m-3|+4|m-2|+2|m-4|\]
+	which is true for all $m\geq4$.
+\end{proof}
+\begin{example}
+	For $m=3$, $l_1=(0,2,1,1,1)$ and $l_2=(1,0,1,0,0)$. Therefore, $\sigma_{mad}(l_1)=\frac{22}{5^2}$ is greater than $\sigma_{mad}(l_2)=\frac{12}{5^2}$.
+	
+	For $m=4$, instead, $l_1=(1,3,2,2,2)$ and $l_2=(2,1,1,0,0)$. Resulting on $\sigma_{mad}(l_1)=\frac{16}{5^2}$ less than $\sigma_{mad}(l_2)=\frac{20}{5^2}$.
+\end{example}
+
+The \textbf{Average Absolute Deviation} is a measure that consider the differences between the values of the vector and their arithmetic mean $\bar{r}$.
+\[\sigma_{ad}(r)= \frac{\sum_{i=1}^{n}|r_i-\bar{r}|}{n}\]
+\begin{theorem}
+	$\sigma_{ad}$ satisfies condition C $\forall n\geq 3$ and $\forall m \geq 3$.
+\end{theorem}
+\begin{proof} 
+	Consider again the two vectors $l_1=(m-3, m-1, m-2, m-2, m-2)$ and $l_2=(m-2, m-3, 1, 0, 0)$; the arithmetic mean of their values is $2$ for the first vector and $\frac{2(m-2)}{5}$ for the second one. The spread using the Average Absolute Deviation is therefore: 
+	\small{\[\sigma_{ad}(l_1)=\frac{2}{5}\]
+		\[\sigma_{ad}(l_2)=\frac{\frac{1}{5}*(|3m-11|+|9-2m|+7|m-2|)}{5}\]}
+	In order for $\sigma_{ad}$ to satisfy condition C, must be $\sigma_{mad}(l_1) < \sigma_{mad}(l_2)$, so
+	\[2<\frac{1}{5}*(|3m-11|+|9-2m|+7|m-2|)\]
+	which is true for all $m\geq 3$.
+\end{proof}
+
+
+
+
+
 \commentOC{I find the profile totally convincing, but the proposed reasonability condition seems too strong, because it (needlessly, I think) requires to care only about the difference of ranks, and not about the ranks themselves.
 Here is an alternative proposal, but it is even more complex. Given a rank-vector $r \in \intvl{1, m}^N$ and $k \in \intvl{1, m}$, let $c^{r → k}_i = (r_i, k)$ if $r_i ≤ k$, and $c^{r → k}_i = (k, r_i)$ otherwise, denote the “$i$-th change to $k$”, representing (as a pair) the change required to bring the $i$th rank to $k$. Let $r → k$ denote the “change to $k$”, defined as the multiset of pairs $\left<c^{r → k}_i\right>_{i \in N}$, representing the changes required to bring $r$ to the constant rank-vector $(k)_{i \in N}$. Let $C$ be the set of multisets of $n$ pairs $(a, b)$ in $\intvl{1, m} × \intvl{1, m}$ such that $a ≤ b$. Given two such change multisets $c, c' \in C$, say that $c$ is a smaller change than $c'$ iff some bijection between $c$ and $c'$ is such that each pair $(a, b)$ in $c$ is included in its corresponding pair $(a', b')$ in $c'$, meaning that $a' ≤ a ≤ b ≤ b'$. Let $\rho(r) = \set{r → k}_{k \in N}$ associate to the rank-vector $r$ the set of “change to $k$” for each $k$. Say that $r$ is more equal than $r'$ iff $\forall c \in \rho(r), \exists c' \in \rho(r') \suchthat c$ is a smaller change than $c'$.
 TODO get rid of this and rewrite in terms of dis-satifaction of going from some loss to $k$.}
 
+\subsection{Old description of "reasonability"}
 Given a rank vector $r\in \intvl{1,m}^\N$, we write $
 \varepsilon ^{k}(r)=(\left\vert r_{i}-k\right\vert )_{i\in N}$ for the
 equalizing vector at level $k\in \intvl{1,m}$. We
@@ -382,7 +434,6 @@ A spread measure $\sigma $ is reasonable iff given any $l,l'\in
 	\end{proof}
 
 
-\commentRS{ We can motivate it through some arguments but more importantly, we should be able to show that several spread measures of the literature (which Beatrice is discovering) satisfy condition C. We can than take the subset of capital sigma that consists of spread measures that satisfy condition C and prove the theorem under this restriction.}
  
 \section{Two voters case}
 In \cref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in \cref{sec:notation}, we consider here the case $n=2$. Two agents express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems.
