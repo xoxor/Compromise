@@ -74,7 +74,7 @@ remain the collective choice even when the ignored group is much larger.
 It is important to observe that all these SCRs impose to voters a willingness to compromise which does not mean that under the collective choice that will be made, all voters will be effectively compromising. In other words, the term “compromise” in this literature refers to procedural or \textit{ex-ante} compromises, which is different than outcome oriented or \textit{ex-post} compromises, a conceptual distinction that seems to be overlooked in the literature.
 
 To define an ex-post compromise, we adopt to our framework a concept of equal losses that is prevalent in the literature that considers the allocation of continuous utilities. This principle is used for bargaining problems \citep{Chun1988}, \citep{Chun1991} as well as for bankruptcy problems \citep{Herrero2001}. 
-We introduce two definitions for being a compromise. In both of them, we pick a spread measure that determines how equally a given vector of real numbers is distributed and make a collective choice where voters give up from their ideal points “as equal as possible". \commentRS{Here, put a footnote where we say "A discussion of the literature on spread measures is given at the end of Section 4."} However, one of them, called \textit{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \textit{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. 
+We introduce two definitions for being a compromise. In both of them, we pick a spread measure that determines how equally a given vector of real numbers is distributed and make a collective choice where voters give up from their ideal points “as equal as possible". \footnote{A discussion of the literature on spread measures is given in \cref{sec:RestrictionOnSigma}.} However, one of them, called \textit{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \textit{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. 
 The two concepts are logically incompatible. As a result, Pareto efficient SCRs cannot ensure egalitarian compromises and this is valid under any spread measure. Moreover, several well-knowm SCRs of the literature such as Condorcet extensions, scoring rules, $q-$approval fall-back bargaining, all fail to be Paretian compromises under any spread measure. In fact, we are able to observe the existence of instances where being a Paretian compromise necessitates to pick an alternative that is, although Pareto optimal, ranked so low by all voters that this alternative wouldn't be picked by any of the popular SCRs of the literature. All these observations make the equal-loss principle appear quite inadequate for collective choice problems, unless envy-freeness is a major concern.
 
 Collective choice models with two individuals present instances where envy-freeness matters. Here, the model is interpreted as a bargaining problem and bargaining procedures replace voting rules. As prominent examples, we have fallback bargaining proposed by \citet{Brams2001}; the unanimity compromise and the rational compromise introduced by \citet{Kibris2007}; the veto-rank and short listing procedures analyzed by \citet{Clippel2014} and the Pareto-and-veto rules analyzed by \citet{Laslier2020}. As is ours, these are all models with discrete alternatives which are not contained by the classical \citet{Nash1950} bargaining environment with convex utilities. However, as \citet{Mariotti1998} and \citet{Nagahisa2002} illustrate, the two worlds can be interconnected, as we do for the equal-loss principle of \citet{Chun1988} and \citet{Chun1991}.
@@ -348,14 +348,39 @@ Therefore, $r_{\prefi}(y) ≠ r_{\pref_j}(y)$.
 \label{sec:RestrictionOnSigma}
 The perfect equality recognition condition we adopt for spread measures, i.e., that the spread gets its lowest value $0$ in case of perfect equality and only in this case, is very basic. Unless this condition is violated, $\Sigma$ is the largest set of spread measures we could conceive. On the other hand, it is possible to let $\Sigma$ shrink by imposing additional conditions over spread measures. Nevertheless, as the satisfaction of PC, PCC, EC, or ECC requires the existence of a spread measure, all of our negative results, namely, those expressed by Theorems \ref{th:nonParetian}, \ref{th:incompatibility}, \ref{th:condorcet}, \ref{th:srECC}, \ref{th:srPCC}, \ref{th:FBfailsECC} and \ref{th:BKthreshold} prevail when $\Sigma$ is restricted. In a similar vein, the positive results in Theorems \ref{th:AntSatsPCC} and \ref{th:FBsatsPC} risk to be lost with additional conditions over spread measures.
 \begin{definition}
+	\label{def:conditionC}
 	Give any $m\geq3$ and $n\geq3$, we say that a spread measure $\sigma$ satisfies condition $C_{m,n}$ iff we have $\sigma(m-3, m-1, m-2, \dots, m-2) < \sigma(m-2, m-3, \dots, 1, 0, 0)$.
 \end{definition}
 
 We define $\Sigma^{C_{m,n}} \subseteq \Sigma$ as the set of spread measures that satisfy condition $C_{m,n}$. As we discuss right away, this condition is satisfied by several spread measures of the literature. 
-\commentRS{Give formal references to the literature. Show which spread measures satisfy the condition. Discuss that condition C that get stronger for larger m and n.}
-\subsubsection{Spread Measures in Literature}
+
+Although measures of dispersion have been widely used as a measure of income distribution and economic inequality, for a long time it was unclear how to choose among the numerous measures existing. One of the first lamenting the absence of clear criteria for selecting the inequality measure to use was \citet{Dalton1920}. Even though it has been later reported high correlations among different measures \citep{Alker1964}, some works have shown how the use of different measure can lead to substantial differences in the outcome, as well as in the properties they satisfy (\cite{Atkinson1970}; \cite{Allison1978}; \cite{Yntema1933}; \cite{Sen1973}; \cite{Rothschild1973}).
+
+In the years many measures of inequality have been proposed (\cite{Jackman1974}; \cite{Rubinson1977}; \cite{Martin1971}; \cite{Ray1973}) but perhaps the most commonly used is the Gini coefficient, G, which is defined as the ratio of the area between the Lorenz curve and the diagonal (line of equality), over the total area under the line of equality.
+\[G(r)= \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|}{2 \cdot n \cdot \sum_{i=1}^{n} r_i}.\]
+
+On the same vein, \citet{Schutz1951} proposed a measure, also known as the Hoover index, that can be defined as the longest vertical distance between the Lorenz curve and the line of equality:
+\[S(r)= \frac{\sum_{i=1}^{n}|r_i-\bar{r}|}{2 \cdot \sum_{i=1}^{n} r_i},\]
+where $\bar{r}$ is the mean $\frac{\sum_{i=1}^{n}r_i}{n}$.
+
+Based on the entropy in information theory, \citet{Theil1967} proposed the following measure:
+\[T(r)= \frac{1}{n} \cdot \sum_{i=1}^{n}\frac{r_i}{\bar{r}} \cdot \log \frac{r_i}{\bar{r}}.\]
+
+
+Some other measures of dispersion are:
+\begin{itemize}
+	\item the variance $V^2$;
+	\item the standard deviation $sd(r)= \sqrt{\frac{\sum_{i=1}^{n}(r_i-\bar{r})^2}{n}}$
+	\item the coefficient of variation $V=\frac{\alpha}{\bar{r}}$;
+	\item the mean absolute difference $m(r)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|$
+	\item the average absolute deviation $\sigma_{ad}(r)= \frac{\sum_{i=1}^{n}|r_i-\bar{r}|}{n}$
+\end{itemize}
+  
+In what follows we investigate which of the spread measures just presented satisfy the condition of \cref{def:conditionC}.
+\subsubsection{Spread Measures and Condition C}
 The \textbf{Mean Absolute Difference} is a measure of dispersion calculated as the arithmetic mean of the absolute value of all possible differences. 
 \[\sigma_{mad}(r)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j| \]
+\commentBN{TO CHECK}
 \begin{theorem}
 	$\sigma_{mad}$ satisfies condition C $\forall n\geq 3$ and $\forall m \geq 4$.
 \end{theorem}
@@ -375,10 +400,10 @@ The \textbf{Mean Absolute Difference} is a measure of dispersion calculated as t
 
 The \textbf{Average Absolute Deviation} is a measure that consider the differences between the values of the vector and their arithmetic mean $\bar{r}$.
 \[\sigma_{ad}(r)= \frac{\sum_{i=1}^{n}|r_i-\bar{r}|}{n}\]
+\commentBN{TO CHECK (For m=3 n=3 it doesn't work)}
 \begin{theorem}
 	$\sigma_{ad}$ satisfies condition C $\forall n\geq 3$ and $\forall m \geq 3$.
 \end{theorem}
-\commentBN{For m=3 n=3 it doesn't work}
 \begin{proof} 
 	Consider again the two vectors $l_1=(m-3, m-1, m-2, m-2, m-2)$ and $l_2=(m-2, m-3, 1, 0, 0)$; the arithmetic mean of their values is $2$ for the first vector and $\frac{2(m-2)}{5}$ for the second one. The spread using the Average Absolute Deviation is therefore: 
 	\small{\[\sigma_{ad}(l_1)=\frac{2}{5}\]
@@ -394,6 +419,8 @@ The \textbf{Average Absolute Deviation} is a measure that consider the differenc
 %			^{P}(x)=(m-3,$ $m-1,m-2,...,$ $m-2)$ and $\lambda_{P}(y)=(m-2,$ $m-1,,...1,$
 %			$0,$ $\ 0)$.
 
+\commentRS{Discuss that condition C that get stronger for larger m and n.}
+
 \begin{theorem}
 	For all $m\geq 3$, $n\geq 3$, under $\Sigma^{C_{m,n}}$,
 	\begin{itemize}
@@ -402,14 +429,12 @@ The \textbf{Average Absolute Deviation} is a measure that consider the differenc
 	\end{itemize}
 \end{theorem}
 
-\commentBN{adapt the proof}
 	\begin{proof}
-		Take any $m\geq 3$ and let $\Sigma $ be reasonable. Take any $n\geq m$, say $%
-		n=m$ without loss of generality. Take some $x,$ $y\in A$ and some $P\in
-		L(A)^{N}$ with $r_{\prefi[1]}(x)=m-2$, $r_{\prefi[2]}(x)=m,$ $r_{\prefi}(x)=m-1$ $\forall i\in N \setminus \left\{ 1, 2\right\}, r_{\prefi}(y)=m-i$ $\forall i\in N \setminus \left\{ n\right\}$,	$r_{\prefi[n]}(y)=1$. Moreover, for each $z\in A \setminus \left\{ x,y\right\} $, we have $r_{\prefi[1]}(z)=m$ for some $i\in N$. Note that both $f^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda^{P}(x)=(m-3, m-1,m-2,...,m-2)$ and $\lambda_{P}(y)=(m-2, m-1,,...1,0, 0)$. As $\sigma$ is reasonable, $\sigma(\lambda_{P}(x)) < \sigma(\lambda_{P}(y))$ $\forall \sigma \in \Sigma$, implying $y\notin \mustar[\bar{\sigma}]$ $\forall \sigma \in \Sigma$.
+		Take any $m\geq 3$ and any $n\geq m$, say $		n=m$ without loss of generality. Consider $\Sigma^{C_{m,n}} \subseteq \Sigma$, the set of spread measures that satisfy condition $C_{m,n}$. Take some $x,y\in A$ and some $P\in
+		\linors^{N}$ with $r_{\prefi[1]}(x)=m-2$, $r_{\prefi[2]}(x)=m,$ $r_{\prefi}(x)=m-1$ $\forall i\in N \setminus \left\{ 1, 2\right\}, r_{\prefi}(y)=m-i$ $\forall i\in N \setminus \left\{ n\right\}$,	$r_{\prefi[n]}(y)=1$. Moreover, for each $z\in A \setminus \left\{ x,y\right\} $, we have $r_{\prefi[1]}(z)=m$ for some $i\in N$. Note that both $f_n^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda^{P}(x)=(m-3, m-1,m-2,\dots,m-2)$ and $\lambda_{P}(y)=(m-2, m-1,\dots,1,0, 0)$. As all the spread measure $\sigma \in \Sigma^{C_{m,n}}$ satisfy the condition $C_{m,n}$, then $\sigma(\lambda_{P}(x)) < \sigma(\lambda_{P}(y))$ $\forall \sigma \in \Sigma^{C_{m,n}}$, implying $y\notin \mustar[\bar{\sigma}]$ $\forall \sigma \in \Sigma^{C_{m,n}}$.
 	\end{proof}
 
-\commentOC{Given a rule f, define property G as: if P has exactly one alternative that is never ranked last, f picks that alternative as a single winner. Theorem: Pick any m, n ≥ 3. There exists a profile P that has y as only alternative never ranked last, and under $Σ^C_{m, n}$, PCC requires that y be not a winner at P. Theorem 12 follows from this theorem because AP and FB satisfy G.}
+\commentOC{Given a rule f, define property G as: if P has exactly one alternative that is never ranked last, f picks that alternative as a single winner. Theorem: Pick any $m, n ≥ 3$. There exists a profile P that has y as only alternative never ranked last, and under $\Sigma^C_{m, n}$, PCC requires that y be not a winner at P. Theorem 12 follows from this theorem because AP and FB satisfy G.}
 
 \commentRS{We can than take the subset of capital sigma that consists of spread measures that satisfy condition C and prove the theorem under this restriction.}
 
