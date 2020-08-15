@@ -114,6 +114,7 @@ A SCR $f$ is \emph{Paretian} iff $f(P)\subseteq\paretopt(P)$ $\forall P\in\linor
 \subsection{Egalitarian compromises}
 \label{sec:EgCompromise}
 We denote the minimal elements of $X\in2^{A}\setminus \{\emptyset\}$ according to $(\sigma\circ\lambda_{P})$ with $\min_{\sigma \circ \lambda_P} X = \set{x \in X \suchthat \forall y \in A: \sigma(\lambda_P(x)) ≤ \sigma(\lambda_P(y))}$. Thus, $\min_{\sigma\circ\lambda_{P}}(A)$ denotes the alternatives whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
+\commentOC{This should be $\min_{\sigma \circ \lambda_P} X = \set{x \in X \suchthat \forall y \in X: …}$, right?}
 
 In what follows, we define some classes of SCRs that we are interested in analyzing. 
 
@@ -149,6 +150,7 @@ Under a SCR that is EC (resp., ECC), \emph{all} (resp., \emph{some}) winners are
 	\end{cases}.
 	\]
 	In $P$, $a_m$ is the only alternative such that $r_{\prefi}(a_m)=m$, $\forall i \in N$; hence, $\sigma(\lambda_P(a)\geq 0$, $\forall a \in A\setminus \{a_m\}$, $\forall \sigma \in \Sigma$. Thus, the set $\musigma$ consists of the sole element $a_m$, and, because $a_m$ is Pareto dominated, $\musigma \cap \paretopt(P) = \emptyset$.
+	\commentOC{Do we mean that $\sigma(\lambda_P(a)) > 0$?}
 \end{proof}
 
 Our main result for \cref{sec:EgCompromise} follows easily.
@@ -236,9 +238,10 @@ Let $n\geq 3$ and $m\geq 3.$ No score vector $w$ induces a scoring rule $f^w_n$ 
 \end{theorem}
 \begin{proof}
 Take any score vector $w$. We say that $w$ is \emph{strict} iff $w_{i}>w_{i+1}$ $\forall i\in \intvl{1, m-1}$. If $w$ is strict, then $f^w$ is Paretian and \cref{th:nonParetian} implies that $f^w$ is not ECC. Now, let $w$ be non-strict. Consider the profile $P$ of \cref{prop:muSigmaLast}. Observe that $\musigma=\{a_m\} \ \forall \sigma \in \Sigma $. However, as $w_{1}>w_{m}$, we have $s^{w}(a_{1},P)>s^{w}(a_{m},P)$ which implies $a_{m}\notin f^{w}(P)$.
+	\commentOC{I suggest to remove “We say that $w$ is \emph{strict} iff $w_{i}>w_{i+1}$ $\forall i\in \intvl{1, m-1}$. If $w$ is strict, then $f^w$ is Paretian and \cref{th:nonParetian} implies that $f^w$ is not ECC. Now, let $w$ be non-strict.”}
 \end{proof}
 
-We call antiplurality score vector the score vector $w$ formed such that $w_{i}=1 \forall i\in \intvl{0, m-1}$ and $w_{m}=0$.
+We call antiplurality score vector the score vector $w$ formed such that $w_{i} = 1, \forall i \in \intvl{1, m-1}$ and $w_{m}=0$.
 
 \begin{theorem}
 	\label{th:AntSatsPCC}
@@ -252,7 +255,22 @@ We call antiplurality score vector the score vector $w$ formed such that $w_{i}=
 	i,j\in N$. However, in case $r_{\succ _{i}}(x)\in \intvl{1,m-1}$, we have $x\in f^w(P)$ and in case $r_{\succ _{i}}(x)=m$,we have $x\in f^w(P)$, both cases giving a contradiction.
 \end{proof}
 
-It is worth noting that the antiplurality rule $f_{n}^{w}$ is not Paretian, hence fails PC  for all $n\geq 3$. This, can bee seen by picking a unanimous profile $P\in \linors^{N}$ with $a_{1}\prefi a_{2}\prefi \dots \prefi a_{m}$ $\forall i\in N$, where $\mustar=\left\{ a_{1}\right\} \forall \sigma \in \Sigma $ while $f_{n}^{w}(P)=A \setminus \left\{ a_{m}\right\}$.
+\commentOC{I suggest this alternative wording, which seems more direct to me.}
+\begin{proof}
+	Define $\bar\sigma \in \Sigma$ as, $\forall l \in \intvl{0,m-1}^N$: $\bar\sigma(l) = 1$ iff $\exists i, j \in N \suchthat l_i ≠ l_j$; $\bar\sigma(l) = 0$ otherwise.
+	Given any profile $P$, let us exhibit some $x \in \alts$ such that $x \in f^w_n(P) \cap \mustar[\bar\sigma]$.
+	
+	Let $p = \min_{x \in \paretopt(P)} \set{(\bar\sigma \circ \lambda_P)(x)}$ be the minimal value attained by $\bar\sigma \circ \lambda_P$ over $\paretopt(P)$. 
+	
+	If $p = 1$, take any $x \in f^w_n(P) \cap \paretopt(P)$, which exists because the antiplurality rule, although not Paretian, never picks only non-Pareto optimal alternatives. 
+	By definition of $\bar\sigma$, $\bar\sigma(x) ≤ 1$, hence, $x \in \mustar[\bar\sigma]$.
+%	We then have that $x \in \mustar[\bar\sigma]$ as by definition of $\bar\sigma$, $\bar\sigma(x) ≤ 1$.
+	
+	If $p = 0$, take any $x \in \mustar[\bar\sigma]$. As $\bar\sigma (\lambda _{P}(x))=0$, we have, $\forall i, j \in N$: $\lambda_i^P(x) = \lambda_i^P(x)$, hence, $\forall i, j \in N$: $r_{\succ_i}(x) = r_{\succ_j}(x)$. 
+	The case $r_{\succ_i}(x) = m, \forall i \in N$ is ruled out by $x \in \paretopt(P)$. Hence, $r_{\succ_i}(x) ≤ m - 1, \forall i \in N$, hence, $x \in f^w_n(P)$.
+\end{proof}
+
+It is worth noting that the antiplurality rule $f_{n}^{w}$ is not Paretian, hence fails PC  for all $n\geq 3$. This, can be seen by picking a unanimous profile $P\in \linors^{N}$ with $a_{1}\prefi a_{2}\prefi \dots \prefi a_{m}$ $\forall i\in N$, where $\mustar=\left\{ a_{1}\right\} \forall \sigma \in \Sigma $ while $f_{n}^{w}(P)=A \setminus \left\{ a_{m}\right\}$.
 
 \begin{theorem}
 	\label{th:srPCC}
@@ -260,7 +278,7 @@ It is worth noting that the antiplurality rule $f_{n}^{w}$ is not Paretian, henc
 \end{theorem}
 
 \begin{proof}
-	Take any $n\geq 3$ and $m\geq 3$ and a score vector $w$ such that it is not the antiplurality score vector. Therefore, $w_{m-1}<1$. Observe the existence of two natural numbers $n_{1}$, $n_{2}\geq 3$ with $n_{1}\geq m-1$ and $\frac{n_{2}-1}{n_{2}}>w_{m-1}$.
+	Take any $m\geq 3$ and a score vector $w$ such that it is not the antiplurality score vector. Therefore, $w_{m-1}<1$. Observe the existence of two natural numbers $n_{1}$, $n_{2}\geq 3$ with $n_{1}\geq m-1$ and $\frac{n_{2}-1}{n_{2}}>w_{m-1}$.
 	Let $n=\max \left\{ n_{1,}n_{2}\right\} $ and let $A=\left\{ a_{1}, \dots, a_{m}\right\} $. Take some $P\in L(A)^{N}$ with
 	
 	\begin{center}
@@ -272,15 +290,14 @@ It is worth noting that the antiplurality rule $f_{n}^{w}$ is not Paretian, henc
 		\end{array}
 		$.
 	\end{center}
+	\commentOC{Thinking about it, I suggest to remove the column with $a_{m-1}, a_{i + 1}, …$ (contrary to my initial proposal, I think). I find it slightly confusing that with $m=3$, some alternatives appear twice in some preferences (which is not really a problem but might raise suspicion), and it might distract the reader, as only the first and last two columns are important to make our point, if I am not mistaken.}
 	
-	Note that for every $\sigma \in \Sigma $. we have $\sigma (\lambda_{P}(a_{m}))=0$ while $\sigma (\lambda _{P}(x))>0$ $\forall x\in A \setminus
+	Note that for every $\sigma \in \Sigma $, we have $\sigma (\lambda_{P}(a_{m}))=0$ while $\sigma (\lambda _{P}(x))>0$ $\forall x\in A \setminus
 	\left\{ a_{m}\right\} $. Moreover, $a_{m}\in \paretopt(P)$. Thus, $\mustar=\left\{ a_{m}\right\} $ $\forall \sigma \in \Sigma $. On the
 	other hand, $s^{w}(a_{1}; P)=n-1$, $s^{w}(a_{m}; P)=n\cdot w_{m-1}$ and
-	as $\frac{n-1}{n}>w_{m-k}$, we have $s^{w}(a_{1}; P)>s^{w}(a_{m};$ $P)$,
+	as $\frac{n-1}{n}>w_{m-1}$, we have $s^{w}(a_{1}; P)>s^{w}(a_{m};$ $P)$,
 	establishing $a_{m}\notin f^{w}(P)$, thus $f^{w}(P)\cap \mustar=\emptyset $ $\forall \sigma \in \Sigma $.
 \end{proof}
-
-
 
 \subsection{BK-compromises}
 \label{sec:BKn3}
@@ -296,8 +313,7 @@ Let $n\geq 3$ and $m\geq 3.$ The BK compromise $f_{n}$ satisfies PC.
 \end{theorem}
 
 \begin{proof}
-Take $\bar{\sigma }\in \Sigma $ defined for each $(l_{1}, \dots ,l_{n}) \in \intvl{0,m-1}^N$ as $\bar{\sigma}(l_{1},...,l_{n})=1$ if 
-$l_{i}\neq l_{j}$ for some $i,j\in N$ and $\bar{\sigma }(l_{1},\dots,l_{n})=0$ otherwise. 
+Define $\bar{\sigma } \in \Sigma$ as, $\forall l \in \intvl{0,m-1}^N$: $\bar\sigma(l) = 1$ iff $\exists i, j \in N \suchthat l_i ≠ l_j$; $\bar\sigma(l) = 0$ otherwise.
 Considering any $x \in f_n(P)$, let us show that $x \in \mustar[\bar{\sigma}]$. Because $x \in f_n(P)$, $x \in \paretopt(P)$, and therefore, suffices to show that $\forall y \in \paretopt(P)$, $\bar{\sigma}(\lambda_P(y)) ≥ \bar{\sigma}(\lambda_P(x))$. Given the choice of $\bar{\sigma}$, picking any $y \in \paretopt(P)$ with $y≠x$, suffices to show that $\bar{\sigma}(\lambda_P(y)) = 1$, equivalently, that $\exists i, j \in N \suchthat r_{\prefi}(y) ≠ r_{\pref_j}(y)$. 
 Because $x \in f_n(P)$, $\rho_n(P) = \rho_n(x, P) = \max_{i \in N} r_{\prefi}(x)$.
 It follows from $\rho_n(P) = \min_{z \in A} \set{\rho_n(z, P)}$ that $\rho_n(y, P) ≥ \rho_n(x, P)$, thus, $\exists i \in N \suchthat r_{\prefi}(y) ≥ \rho_n(P)$. 
@@ -347,16 +363,18 @@ Therefore, $r_{\prefi}(y) ≠ r_{\pref_j}(y)$.
 \subsection{Restrictions on sigma}
 \label{sec:RestrictionOnSigma}
 The perfect equality recognition condition we adopt for spread measures, i.e., that the spread gets its lowest value $0$ in case of perfect equality and only in this case, is very basic. Unless this condition is violated, $\Sigma$ is the largest set of spread measures we could conceive. On the other hand, it is possible to let $\Sigma$ shrink by imposing additional conditions over spread measures. Nevertheless, as the satisfaction of PC, PCC, EC, or ECC requires the existence of a spread measure, all of our negative results, namely, those expressed by Theorems \ref{th:nonParetian}, \ref{th:incompatibility}, \ref{th:condorcet}, \ref{th:srECC}, \ref{th:srPCC}, \ref{th:FBfailsECC} and \ref{th:BKthreshold} prevail when $\Sigma$ is restricted. In a similar vein, the positive results in Theorems \ref{th:AntSatsPCC} and \ref{th:FBsatsPC} risk to be lost with additional conditions over spread measures.
+
 \begin{definition}
 	\label{def:conditionC}
-	Give any $m\geq3$ and $n\geq3$, we say that a spread measure $\sigma$ satisfies condition $C_{m,n}$ iff we have $\sigma(m-3, m-1, m-2, \dots, m-2) < \sigma(m-2, m-3, \dots, 1, 0, 0)$.
+	Given any $m\geq3$ and $n\geq3$, we say that a spread measure $\sigma$ satisfies condition $C_{m,n}$ iff we have $\sigma(m-3, m-1, m-2, \dots, m-2) < \sigma(m-2, m-3, \dots, 1, 0, 0)$.
 \end{definition}
 
 We define $\Sigma^{C_{m,n}} \subseteq \Sigma$ as the set of spread measures that satisfy condition $C_{m,n}$. As we discuss right away, this condition is satisfied by several spread measures of the literature. 
 
-Although measures of dispersion have been widely used as a measure of income distribution and economic inequality, for a long time it was unclear how to choose among the numerous measures existing. One of the first lamenting the absence of clear criteria for selecting the inequality measure to use was \citet{Dalton1920}. Even though it has been later reported high correlations among different measures \citep{Alker1964}, some works have shown how the use of different measure can lead to substantial differences in the outcome, as well as in the properties they satisfy (\cite{Atkinson1970}; \cite{Allison1978}; \cite{Yntema1933}; \cite{Sen1973}; \cite{Rothschild1973}).
+Although measures of dispersion have been widely used as a measure of income distribution and economic inequality, for a long time it was unclear how to choose among the numerous measures existing. One of the first lamenting the absence of clear criteria for selecting the inequality measure to use was \citet{Dalton1920}. Even though it has been later reported high correlations among different measures \citep{Alker1964}, some works have shown how the use of different measure can lead to substantial differences in the outcome, as well as in the properties they satisfy \citep{Atkinson1970, Allison1978, Yntema1933, Sen1973, Rothschild1973}.
 
 In the years many measures of inequality have been proposed (\cite{Jackman1974}; \cite{Rubinson1977}; \cite{Martin1971}; \cite{Ray1973}) but perhaps the most commonly used is the Gini coefficient, G, which is defined as the ratio of the area between the Lorenz curve and the diagonal (line of equality), over the total area under the line of equality.
+\commentOC{I’d use citep here.}
 \[G(r)= \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|}{2 \cdot n \cdot \sum_{i=1}^{n} r_i}.\]
 
 On the same vein, \citet{Schutz1951} proposed a measure, also known as the Hoover index, that can be defined as the longest vertical distance between the Lorenz curve and the line of equality:
