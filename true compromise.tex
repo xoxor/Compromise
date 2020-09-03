@@ -262,7 +262,7 @@ We call antiplurality score vector the score vector $w$ formed such that $w_{i} 
 	By definition of $\bar\sigma$, $\bar\sigma(x) ≤ 1$, hence, $x \in \mustar[\bar\sigma]$.
 %	We then have that $x \in \mustar[\bar\sigma]$ as by definition of $\bar\sigma$, $\bar\sigma(x) ≤ 1$.
 	
-	If $p = 0$, take any $x \in \mustar[\bar\sigma]$. As $\bar\sigma (\lambda _{P}(x))=0$, we have, $\forall i, j \in N$: $\lambda_i^P(x) = \lambda_{i{{\color{magenta}[j?]}}}^P(x)$, hence, $\forall i, j \in N$: $r_{\succ_i}(x) = r_{\succ_j}(x)$. 
+	If $p = 0$, take any $x \in \mustar[\bar\sigma]$. As $\bar\sigma (\lambda _{P}(x))=0$, we have, $\forall i, j \in N$: $\lambda_i^P(x) = \lambda_{j}^P(x)$, hence, $\forall i, j \in N$: $r_{\succ_i}(x) = r_{\succ_j}(x)$. 
 	The case $r_{\succ_i}(x) = m, \forall i \in N$ is ruled out by $x \in \paretopt(P)$. Hence, $r_{\succ_i}(x) ≤ m - 1, \forall i \in N$, hence, $x \in f^w_n(P)$.
 \end{proof}
 
@@ -375,6 +375,7 @@ The perfect equality recognition condition we adopt for spread measures, i.e., t
 	\label{def:conditionC}
 	Given any $m\geq3$ and $n\geq3$, we say that a spread measure $\sigma$ satisfies condition $C_{m,n}$ iff we have $\sigma(m-3, m-1, m-2, \dots, m-2) < \sigma(m-2, m-3, \dots, 1, 0, 0)$.
 \end{definition}
+\commentBN{Is it clear that the first dots mean $m-2,m-2,m-2,m-2$ while the second ones $m-4,m-5,m-6...$? Also I think it should be $\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$?}
 
 We define $\Sigma^{C_{m,n}} \subseteq \Sigma$ as the set of spread measures that satisfy condition $C_{m,n}$. As we discuss right away, this condition is satisfied by several spread measures of the literature. 
 
@@ -404,23 +405,25 @@ In what follows we investigate which of the spread measures just presented satis
 \subsubsection{Spread Measures and Condition C}
 The \textbf{Mean Absolute Difference} is a measure of dispersion calculated as the arithmetic mean of the absolute value of all possible differences. 
 \[\sigma_{mad}(r)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j| \]
-\commentBN{TO CHECK}
+
 \begin{theorem}
-	$\sigma_{mad}$ satisfies condition C $\forall n\geq 3$ and $\forall m \geq 4$.
+	$\sigma_{mad}$ satisfies condition C for $\forall m\geq5$ and $n>\frac{2 \cdot m^3 - 15\cdot m^2 + 37\cdot m - 42}{3 (m^2 - 5 \cdot m + 2)}$.
 \end{theorem}
 \begin{proof} 
-	Consider the two vectors $l_1=(m-3, m-1, m-2, m-2, m-2)$ and $l_2=(m-2, m-3, 1, 0, 0)$; their spread using the Mean Absolute Difference will be: 
-	\small{\[\sigma_{mad}(l_1)=\frac{|m-3-m+1|+|m-3-m+2|+\dots}{5^2}=\frac{18}{5^2}\]
-	\[\sigma_{mad}(l_2)=\frac{|m-2-m+3|+|m-2-1|+\dots}{5^2}=\frac{6+6|m-3|+4|m-2|+2|m-4|}{5^2}\]}
-	In order $\sigma_{mad}$ to satisfy condition C, must be $\sigma_{mad}(l_1) < \sigma_{mad}(l_2)$, so
-	\[18<6+6|m-3|+4|m-2|+2|m-4|\]
-	which is true for all $m\geq4$.
-\end{proof}
-\begin{example}
-	For $m=3$, $l_1=(0,2,1,1,1)$ and $l_2=(1,0,1,0,0)$. Therefore, $\sigma_{mad}(l_1)=\frac{22}{5^2}$ is greater than $\sigma_{mad}(l_2)=\frac{12}{5^2}$.
+	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$; their spread using the Mean Absolute Difference will be: 
+	\begin{equation}
+		\begin{split}
+		\sigma_{mad}(l_1) &=\frac{1}{n^2} \cdot [2(2+(n-2)+(n-2)\cdot2)]= \frac{1}{n^2} \cdot [4(n-1)] \\ \\
+		\sigma_{mad}(l_2)&=\frac{1}{n^2} \cdot \{\sum_{j=0}^{m-4} \ [\sum_{i=0}^{m-4-j}i \ + \ (m-3-j)(n-(m-3)) \ + \ \sum_{i=0}^{j}i] + (n-(m-3))\cdot \sum_{j=0}^{m-3} j \}= \\ &= \frac{1}{n^2} \cdot [\frac{1}{3}\cdot(m-3)(m-2)(3n-2m+5)]
+		\end{split}
+	\end{equation}
 	
-	For $m=4$, instead, $l_1=(1,3,2,2,2)$ and $l_2=(2,1,1,0,0)$. Resulting on $\sigma_{mad}(l_1)=\frac{16}{5^2}$ less than $\sigma_{mad}(l_2)=\frac{20}{5^2}$.
-\end{example}
+	In order for $\sigma_{mad}$ to satisfy condition C, must be $\sigma_{mad}(l_1) < \sigma_{mad}(l_2)$, so
+	\[4(n-1)<\frac{1}{3}\cdot(m-3)(m-2)(3n-2m+5)\]
+	which is true for all $m> \frac{1}{2}(5+\sqrt{17})\approx 4.56$ and $n>\frac{2 \cdot m^3 - 15\cdot m^2 + 37\cdot m - 42}{3 (m^2 - 5 \cdot m + 2)}$.
+	\commentBN{The inequality works also for $m< \frac{1}{2}(5-\sqrt{17})\approx 0.44$ and $n>\frac{2 \cdot m^3 - 15\cdot m^2 + 37\cdot m - 42}{3 (m^2 - 5 \cdot m + 2)}$ but we don't admit value of $m<3$; and for $4.56 \approx \frac{1}{2}(5+\sqrt{17}) <m< \frac{1}{2}(5-\sqrt{17})\approx 0.44$ and $n<\frac{2 \cdot m^3 - 15\cdot m^2 + 37\cdot m - 42}{3 (m^2 - 5 \cdot m + 2)}$ but it leaves us with $m=3,4$ and $n<1$.}
+\end{proof}
+
 
 The \textbf{Average Absolute Deviation} is a measure that consider the differences between the values of the vector and their arithmetic mean $\bar{r}$.
 \[\sigma_{ad}(r)= \frac{\sum_{i=1}^{n}|r_i-\bar{r}|}{n}\]
