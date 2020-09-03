@@ -408,25 +408,27 @@ The \textbf{Mean Absolute Difference} is a measure of dispersion calculated as t
 \[\sigma_{mad}(r)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j| \]
 
 \begin{theorem}
-	$\sigma_{mad}$ satisfies condition C for $\forall m\geq5$ and $n>\frac{2 \cdot m^3 - 15\cdot m^2 + 37\cdot m - 42}{3 (m^2 - 5 \cdot m + 2)}$.
+	$\sigma_{mad}$ satisfies condition C for $\forall m\geq4$ and $n>\frac{2 \cdot m^3 - 9\cdot m^2 + 13\cdot m - 18}{3 (m^2 - 3 \cdot m - 2)}$.
 \end{theorem}
 \begin{proof} 
 	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$; their spread using the Mean Absolute Difference will be: 
 	\begin{equation}
 		\begin{split}
 		\sigma_{mad}(l_1) &=\frac{1}{n^2} \cdot [2(2+(n-2)+(n-2)\cdot2)]= \frac{1}{n^2} \cdot [4(n-1)] \\ \\
-		\sigma_{mad}(l_2)&=\frac{1}{n^2} \cdot \{\sum_{j=0}^{m-4} \ [\sum_{i=0}^{m-4-j}i \ + \ (m-3-j)(n-(m-3)) \ + \ \sum_{i=0}^{j}i] + (n-(m-3))\cdot \sum_{j=0}^{m-3} j \}= \\ &= \frac{1}{n^2} \cdot [\frac{1}{3}\cdot(m-3)(m-2)(3n-2m+5)]
+		\sigma_{mad}(l_2)&=\frac{1}{n^2} \cdot \{\sum_{j=0}^{m-3} \ [\sum_{i=0}^{m-3-j}i \ + \ (m-2-j)(n-(m-2)) \ + \ \sum_{i=0}^{j}i] + (n-(m-2))\cdot \sum_{j=0}^{m-2} j \}= \\ &= \frac{1}{n^2} \cdot [\frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3)]
 		\end{split}
 	\end{equation}
 	
 	In order for $\sigma_{mad}$ to satisfy condition C, must be $\sigma_{mad}(l_1) < \sigma_{mad}(l_2)$, so
-	\[4(n-1)<\frac{1}{3}\cdot(m-3)(m-2)(3n-2m+5)\]
-	which is true for all $m> \frac{1}{2}(5+\sqrt{17})\approx 4.56$ and $n>\frac{2 \cdot m^3 - 15\cdot m^2 + 37\cdot m - 42}{3 (m^2 - 5 \cdot m + 2)}$.
-	\commentBN{The inequality works also for $m< \frac{1}{2}(5-\sqrt{17})\approx 0.44$ and $n>\frac{2 \cdot m^3 - 15\cdot m^2 + 37\cdot m - 42}{3 (m^2 - 5 \cdot m + 2)}$ but we don't admit value of $m<3$; and for $4.56 \approx \frac{1}{2}(5+\sqrt{17}) <m< \frac{1}{2}(5-\sqrt{17})\approx 0.44$ and $n<\frac{2 \cdot m^3 - 15\cdot m^2 + 37\cdot m - 42}{3 (m^2 - 5 \cdot m + 2)}$ but it leaves us with $m=3,4$ and $n<1$.}
+	\[\frac{1}{n^2} \cdot 4(n-1)<\frac{1}{n^2} \cdot \frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3).\]
+	Since $\frac{1}{n^2}$ is a positive term equal on both sides, we limit our study to
+	\[4(n-1)<\frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3)\]
+	which is true for all $m> \frac{1}{2}(3+\sqrt{17})\approx 3.56$ and $n>\frac{2 \cdot m^3 - 9\cdot m^2 + 13\cdot m - 18}{3 (m^2 - 3 \cdot m - 2)}$.
+	\commentBN{The inequality works also for other values of m and n lower than $3$.}
 \end{proof}
 
 
-The \textbf{Average Absolute Deviation} is a measure that consider the differences between the values of the vector and their arithmetic mean $\bar{r}$.
+The \textbf{Average Absolute Deviation} \commentBN{maybe it is more known as Mean Absolute Deviation?} is a measure that consider the differences between the values of the vector and their arithmetic mean $\bar{r}$.
 \[\sigma_{ad}(r)= \frac{\sum_{i=1}^{n}|r_i-\bar{r}|}{n}\]
 \commentBN{TO CHECK (For m=3 n=3 it doesn't work)}
 \begin{theorem}
