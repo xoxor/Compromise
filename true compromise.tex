@@ -262,7 +262,7 @@ We call antiplurality score vector the score vector $w$ formed such that $w_{i} 
 	By definition of $\bar\sigma$, $\bar\sigma(x) ≤ 1$, hence, $x \in \mustar[\bar\sigma]$.
 %	We then have that $x \in \mustar[\bar\sigma]$ as by definition of $\bar\sigma$, $\bar\sigma(x) ≤ 1$.
 	
-	If $p = 0$, take any $x \in \mustar[\bar\sigma]$. As $\bar\sigma (\lambda _{P}(x))=0$, we have, $\forall i, j \in N$: $\lambda_i^P(x) = \lambda_{j}^P(x)$, hence, $\forall i, j \in N$: $r_{\succ_i}(x) = r_{\succ_j}(x)$. 
+	If $p = 0$, take any $x \in \mustar[\bar\sigma]$. As $\bar\sigma (\lambda _{P}(x))=0$, we have, $\forall i, j \in N$: $\lambda_i^P(x) = \lambda_j^P(x)$, hence, $\forall i, j \in N$: $r_{\succ_i}(x) = r_{\succ_j}(x)$. 
 	The case $r_{\succ_i}(x) = m, \forall i \in N$ is ruled out by $x \in \paretopt(P)$. Hence, $r_{\succ_i}(x) ≤ m - 1, \forall i \in N$, hence, $x \in f^w_n(P)$.
 \end{proof}
 
@@ -298,6 +298,7 @@ It is worth noting that the antiplurality rule $f_{n}^{w}$ is not Paretian, henc
 			$
 		\end{center}
 	}
+\commentOC{Indeed, if we relied on such a specific ordering of alternatives, we would need to spell it out. But I don’t think this is the case. The suggested profile is excluded by $n ≥ m - 1$. More generally, $P$ guarantees, looking only at the first and last two columns, that only $a_m$ is “same-ranked”, as all alternatives in $a_1, …, a_{m - 1}$ appear exactly once in the last rank.}
 	
 	Note that for every $\sigma \in \Sigma $, we have $\sigma (\lambda_{P}(a_{m}))=0$ while $\sigma (\lambda _{P}(x))>0$ $\forall x\in A \setminus
 	\left\{ a_{m}\right\} $. Moreover, $a_{m}\in \paretopt(P)$. Thus, $\mustar=\left\{ a_{m}\right\} $ $\forall \sigma \in \Sigma $. On the
