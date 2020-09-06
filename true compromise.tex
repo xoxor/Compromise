@@ -251,7 +251,7 @@ We call antiplurality score vector the score vector $w$ formed such that $w_{i} 
 	i,j\in N$. However, in case $r_{\succ _{i}}(x)\in \intvl{1,m-1}$, we have $x\in f^w(P)$ and in case $r_{\succ _{i}}(x)=m$,we have $x\in f^w(P)$, both cases giving a contradiction.
 \end{proof}
 
-\commentOC{I suggest this alternative wording, which seems more direct to me.} \commentBN{I still prefer the former one but I don't mind this either if you think it would be easier for the reader.}
+\commentOC{I suggest this alternative wording, which seems more direct to me.} \commentBN{I still prefer the former one but I don't mind this either if you think it would be easier for the reader.} \commentRS{Both are fine for me. Let's toss a coin!}
 \begin{proof}
 	Define $\bar\sigma \in \Sigma$ as, $\forall l \in \intvl{0,m-1}^N$: $\bar\sigma(l) = 1$ iff $\exists i, j \in N \suchthat l_i ≠ l_j$; $\bar\sigma(l) = 0$ otherwise.
 	Given any profile $P$, let us exhibit some $x \in \alts$ such that $x \in f^w_n(P) \cap \mustar[\bar\sigma]$.
@@ -299,6 +299,7 @@ It is worth noting that the antiplurality rule $f_{n}^{w}$ is not Paretian, henc
 		\end{center}
 	}
 \commentOC{Indeed, if we relied on such a specific ordering of alternatives, we would need to spell it out. But I don’t think this is the case. The suggested profile is excluded by $n ≥ m - 1$. More generally, $P$ guarantees, looking only at the first and last two columns, that only $a_m$ is “same-ranked”, as all alternatives in $a_1, …, a_{m - 1}$ appear exactly once in the last rank.}
+ \commentRS{I agree with what Olivier says. I think that column can and better be removed.}
 	
 	Note that for every $\sigma \in \Sigma $, we have $\sigma (\lambda_{P}(a_{m}))=0$ while $\sigma (\lambda _{P}(x))>0$ $\forall x\in A \setminus
 	\left\{ a_{m}\right\} $. Moreover, $a_{m}\in \paretopt(P)$. Thus, $\mustar=\left\{ a_{m}\right\} $ $\forall \sigma \in \Sigma $. On the
@@ -377,6 +378,7 @@ The perfect equality recognition condition we adopt for spread measures, i.e., t
 	Given any $m\geq3$ and $n\geq3$, we say that a spread measure $\sigma$ satisfies condition $C_{m,n}$ iff we have $\sigma(m-3, m-1, m-2, \dots, m-2) < \sigma(m-2, m-3, \dots, 1, 0, 0)$.
 \end{definition}
 \commentBN{Is it clear that the first dots mean $m-2,m-2,m-2,m-2$ while the second ones $m-4,m-5,m-6...$? Also I think it should be $\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$?}
+ \commentRS{I don't think there is anything unclear but we can discuss this on Monday. In any case, I don't think there are dots between the zeros.}
 
 We define $\Sigma^{C_{m,n}} \subseteq \Sigma$ as the set of spread measures that satisfy condition $C_{m,n}$. As we discuss right away, this condition is satisfied by several spread measures of the literature. 
 
