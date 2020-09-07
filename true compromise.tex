@@ -244,25 +244,18 @@ We call antiplurality score vector the score vector $w$ formed such that $w_{i} 
 	\label{th:AntSatsPCC}
 	Let $m\geq 3$ and let $w$ be the antiplurality score vector. The SCR $f_{n}^{w}$ satisfies PCC for all $n\geq 3$.
 \end{theorem}
-
-\begin{proof}
-	Define $\bar\sigma \in \Sigma$ as, $\forall l \in \intvl{0,m-1}^N$: $\bar\sigma(l) = 1$ iff $\exists i, j \in N \suchthat l_i ≠ l_j$; $\bar\sigma(l) = 0$ otherwise. Suppose, for a contradiction, $f^w_n$ fails PCC. So, $\mustar[\bar{\sigma }]\cap f^{w}_n(P)= \emptyset$ for some $P\in \linors^{N}$. Note that $\bar{\sigma }(\lambda _{P}(x))=\bar{\sigma }(\lambda _{P}(y)) \forall x, y\in \mustar[\bar{\sigma }]$ holds by definition of $\mustar[\bar{\sigma }]$, and that, because of the choice of $\bar{\sigma }$, for $x\in \mustar[\bar{\sigma }]$, either $\bar{\sigma } (\lambda _{P}(x))=1$ or $\bar{\sigma }(\lambda_{P}(x))=0$. In the former case, $\mustar[\bar{\sigma }]=\paretopt(P)$, and $\mustar[\bar{\sigma }]\cap $ $f^w(P)=\emptyset $ cannot hold, as the antiplurality rule, although not Paretian, never picks only non-Pareto optimal alternatives. So we consider the case $\bar{\sigma } (\lambda _{P}(x))=0$ $\forall x\in \mustar[\bar{\sigma }]$.
-	Take any $x\in \mustar[\bar{\sigma }]$. As $\bar{\sigma } (\lambda _{P}(x))=0,$ we have $\lambda _{i}^{P}(x)=\lambda _{j}^{P}(x) \forall i,j\in N$, hence $r_{\succ _{i}}(x)=r_{\succ _{j}}(x)$ $\forall
-	i,j\in N$. However, in case $r_{\succ _{i}}(x)\in \intvl{1,m-1}$, we have $x\in f^w(P)$ and in case $r_{\succ _{i}}(x)=m$,we have $x\in f^w(P)$, both cases giving a contradiction.
-\end{proof}
-
-\commentOC{I suggest this alternative wording, which seems more direct to me.} \commentBN{I still prefer the former one but I don't mind this either if you think it would be easier for the reader.} \commentRS{Both are fine for me. Let's toss a coin!}
 \begin{proof}
 	Define $\bar\sigma \in \Sigma$ as, $\forall l \in \intvl{0,m-1}^N$: $\bar\sigma(l) = 1$ iff $\exists i, j \in N \suchthat l_i ≠ l_j$; $\bar\sigma(l) = 0$ otherwise.
-	Given any profile $P$, let us exhibit some $x \in \alts$ such that $x \in f^w_n(P) \cap \mustar[\bar\sigma]$.
+	We show the non-emptyness of $f^w_n(P) \cap \mustar[\bar\sigma]$ for any profile $P$.
+
+	Let $k = \min_{x \in \paretopt(P)} \set{(\bar\sigma \circ \lambda_P)(x)}$ be the minimal value attained by $\bar\sigma \circ \lambda_P$ over $\paretopt(P)$.
+	By construction of $\bar\sigma$, $k$ equals either $0$ or $1$.
 	
-	Let $p = \min_{x \in \paretopt(P)} \set{(\bar\sigma \circ \lambda_P)(x)}$ be the minimal value attained by $\bar\sigma \circ \lambda_P$ over $\paretopt(P)$. 
-	
-	If $p = 1$, take any $x \in f^w_n(P) \cap \paretopt(P)$, which exists because the antiplurality rule, although not Paretian, never picks only non-Pareto optimal alternatives. 
+	For $k = 1$, take any $x \in f^w_n(P) \cap \paretopt(P)$, which exists because the antiplurality rule, although not Paretian, never picks only non-Pareto optimal alternatives. 
 	By definition of $\bar\sigma$, $\bar\sigma(x) ≤ 1$, hence, $x \in \mustar[\bar\sigma]$.
 %	We then have that $x \in \mustar[\bar\sigma]$ as by definition of $\bar\sigma$, $\bar\sigma(x) ≤ 1$.
 	
-	If $p = 0$, take any $x \in \mustar[\bar\sigma]$. As $\bar\sigma (\lambda _{P}(x))=0$, we have, $\forall i, j \in N$: $\lambda_i^P(x) = \lambda_j^P(x)$, hence, $\forall i, j \in N$: $r_{\succ_i}(x) = r_{\succ_j}(x)$. 
+	If $k = 0$, take any $x \in \mustar[\bar\sigma]$. As $\bar\sigma (\lambda _{P}(x))=0$, we have, $\forall i, j \in N$: $\lambda_i^P(x) = \lambda_j^P(x)$, hence, $\forall i, j \in N$: $r_{\succ_i}(x) = r_{\succ_j}(x)$. 
 	The case $r_{\succ_i}(x) = m, \forall i \in N$ is ruled out by $x \in \paretopt(P)$. Hence, $r_{\succ_i}(x) ≤ m - 1, \forall i \in N$, hence, $x \in f^w_n(P)$.
 \end{proof}
 
@@ -279,30 +272,19 @@ It is worth noting that the antiplurality rule $f_{n}^{w}$ is not Paretian, henc
 	
 	\begin{center}
 		$
-		\begin{array}{ccccccc}
-		i = 1 \quad & a_2 & … & a_{m-1} & a_m & a_1\\
-		2 ≤ i ≤ m - 2 \quad & a_1 & … & a_{i+1} & a_m & a_i\\
-		m - 1 ≤ i ≤ n \quad & a_1 & … & a_{m-2} & a_m & a_{m-1}\\
+		\begin{array}{cccccc}
+		i = 1 \quad & a_2 & … & a_m & a_1\\
+		2 ≤ i ≤ m - 2 \quad & a_1 & … & a_m & a_i\\
+		m - 1 ≤ i ≤ n \quad & a_1 & … & a_m & a_{m-1}\\
 		\end{array}
-		$.
+		$,
 	\end{center}
-	\commentOC{Thinking about it, I suggest to remove the column with $a_{m-1}, a_{i + 1}, …$ (contrary to my initial proposal, I think). I find it slightly confusing that with $m=3$, some alternatives appear twice in some preferences (which is not really a problem but might raise suspicion), and it might distract the reader, as only the first and last two columns are important to make our point, if I am not mistaken.}
-	\commentBN{In this case, would it be obvious that the dots represents the alphabetical completion of the rankings excluding the alternative in the last position? For example that, for $m=5$, in the third row, $a_1 \dots a_m \ a_{m-1}$ means $a_1, a_2, a_3, a_5, a_4$. If yes, then I agree to remove it. I believe we just want to avoid situations where there is another alternative whose  $\sigma$ value is 0.
-		\begin{center}
-			$
-			\begin{array}{ccccccc}
-			a_2 & a_3 & a_4 & a_5 & a_1\\
-			a_1 & a_3 & a_4 & a_5 & a_2\\
-			a_1 & a_3 & a_2 & a_5 & a_4\\
-			\end{array}
-			$
-		\end{center}
-	}
-\commentOC{Indeed, if we relied on such a specific ordering of alternatives, we would need to spell it out. But I don’t think this is the case. The suggested profile is excluded by $n ≥ m - 1$. More generally, $P$ guarantees, looking only at the first and last two columns, that only $a_m$ is “same-ranked”, as all alternatives in $a_1, …, a_{m - 1}$ appear exactly once in the last rank.}
- \commentRS{I agree with what Olivier says. I think that column can and better be removed.}
-	
-	Note that for every $\sigma \in \Sigma $, we have $\sigma (\lambda_{P}(a_{m}))=0$ while $\sigma (\lambda _{P}(x))>0$ $\forall x\in A \setminus
-	\left\{ a_{m}\right\} $. Moreover, $a_{m}\in \paretopt(P)$. Thus, $\mustar=\left\{ a_{m}\right\} $ $\forall \sigma \in \Sigma $. On the
+	where all alternatives except $a_m$ appear at least once in the last rank.
+	Thus, for every $\sigma \in \Sigma$, we have 
+	$\sigma (\lambda _{P}(x))>0$ $\forall x\in A \setminus \left\{ a_{m}\right\}$
+	while
+	$\sigma (\lambda_{P}(a_{m}))=0$. 
+	Moreover, $a_{m}\in \paretopt(P)$. Thus, $\mustar=\left\{ a_{m}\right\} $ $\forall \sigma \in \Sigma $. On the
 	other hand, $s^{w}(a_{1}; P)=n-1$, $s^{w}(a_{m}; P)=n\cdot w_{m-1}$ and
 	as $\frac{n-1}{n}>w_{m-1}$, we have $s^{w}(a_{1}; P)>s^{w}(a_{m};$ $P)$,
 	establishing $a_{m}\notin f^{w}(P)$, thus $f^{w}(P)\cap \mustar=\emptyset $ $\forall \sigma \in \Sigma $.
@@ -375,7 +357,7 @@ The perfect equality recognition condition we adopt for spread measures, i.e., t
 
 \begin{definition}
 	\label{def:conditionC}
-	Given any $m\geq3$ and $n\geq3$, we say that a spread measure $\sigma$ satisfies condition $C_{m,n}$ iff we have $\sigma(m-3, m-1, m-2, \dots, m-2) < \sigma(m-2, m-3, \dots, 1, 0, 0)$.
+	Given any $m\geq3$ and $n\geq \max\{3,m-1\}$, we say that a spread measure $\sigma$ satisfies condition $C_{m,n}$ iff we have $\sigma(m-3, m-1, m-2, \dots, m-2) < \sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$.
 \end{definition}
 \commentBN{Is it clear that the first dots mean $m-2,m-2,m-2,m-2$ while the second ones $m-4,m-5,m-6...$? Also I think it should be $\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$?}
  \commentRS{I don't think there is anything unclear but we can discuss this on Monday. In any case, I don't think there are dots between the zeros.}
@@ -462,8 +444,8 @@ The \textbf{Average Absolute Deviation} \commentBN{maybe it is more known as Mea
 \end{theorem}
 
 	\begin{proof}
-		Take any $m\geq 3$ and any $n\geq m$, say $		n=m$ without loss of generality. Consider $\Sigma^{C_{m,n}} \subseteq \Sigma$, the set of spread measures that satisfy condition $C_{m,n}$. Take some $x,y\in A$ and some $P\in
-		\linors^{N}$ with $r_{\prefi[1]}(x)=m-2$, $r_{\prefi[2]}(x)=m,$ $r_{\prefi}(x)=m-1$ $\forall i\in N \setminus \left\{ 1, 2\right\}, r_{\prefi}(y)=m-i$ $\forall i\in N \setminus \left\{ n\right\}$,	$r_{\prefi[n]}(y)=1$. Moreover, for each $z\in A \setminus \left\{ x,y\right\} $, we have $r_{\prefi[1]}(z)=m$ for some $i\in N$. Note that both $f_n^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda^{P}(x)=(m-3, m-1,m-2,\dots,m-2)$ and $\lambda_{P}(y)=(m-2, m-1,\dots,1,0, 0)$. As all the spread measure $\sigma \in \Sigma^{C_{m,n}}$ satisfy the condition $C_{m,n}$, then $\sigma(\lambda_{P}(x)) < \sigma(\lambda_{P}(y))$ $\forall \sigma \in \Sigma^{C_{m,n}}$, implying $y\notin \mustar[\bar{\sigma}]$ $\forall \sigma \in \Sigma^{C_{m,n}}$.
+		Take any $m\geq 3$ and any $n\geq m$ \commentBN{$n\geq m-1$}, say $n=m$ without loss of generality. Consider $\Sigma^{C_{m,n}} \subseteq \Sigma$, the set of spread measures that satisfy condition $C_{m,n}$. Take some $x,y\in A$ and some $P\in
+		\linors^{N}$ with $r_{\prefi[1]}(x)=m-2$, $r_{\prefi[2]}(x)=m,$ $r_{\prefi}(x)=m-1$ $\forall i\in N \setminus \left\{ 1, 2\right\}, r_{\prefi}(y)=m-i$ $\forall i\in N \setminus \left\{ n\right\}$,	$r_{\prefi[n]}(y)=1$. \commentBN{Check this.} Moreover, for each $z\in A \setminus \left\{ x,y\right\} $, we have $r_{\prefi[1]}(z)=m$ for some $i\in N$. Note that both $f_n^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda^{P}(x)=(m-3, m-1,m-2,\dots,m-2)$ and $\lambda_{P}(y)=(m-2, m-1,\dots,1,0, 0)$. As all the spread measure $\sigma \in \Sigma^{C_{m,n}}$ satisfy the condition $C_{m,n}$, then $\sigma(\lambda_{P}(x)) < \sigma(\lambda_{P}(y))$ $\forall \sigma \in \Sigma^{C_{m,n}}$, implying $y\notin \mustar[\bar{\sigma}]$ $\forall \sigma \in \Sigma^{C_{m,n}}$.
 	\end{proof}
 
 \commentOC{Given a rule f, define property G as: if P has exactly one alternative that is never ranked last, f picks that alternative as a single winner. Theorem: Pick any $m, n ≥ 3$. There exists a profile P that has y as only alternative never ranked last, and under $\Sigma^C_{m, n}$, PCC requires that y be not a winner at P. Theorem 12 follows from this theorem because AP and FB satisfy G.}
