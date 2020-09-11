@@ -392,7 +392,7 @@ The \textbf{Mean Absolute Difference} is a measure of dispersion calculated as t
 \[\sigma_{mad}(r)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j| \]
 
 \begin{theorem}
-	$\sigma_{mad}$ satisfies condition C for $\forall m\geq4$ and $n>\frac{2 \cdot m^3 - 9\cdot m^2 + 13\cdot m - 18}{3 (m^2 - 3 \cdot m - 2)}$.
+	$\sigma_{mad}$ satisfies condition C for $\forall m\geq4$ and $n\geq\max\{4,m-1\}$.
 \end{theorem}
 \begin{proof} 
 	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$; their spread using the Mean Absolute Difference will be: 
@@ -407,8 +407,8 @@ The \textbf{Mean Absolute Difference} is a measure of dispersion calculated as t
 	\[\frac{1}{n^2} \cdot 4(n-1)<\frac{1}{n^2} \cdot \frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3).\]
 	Since $\frac{1}{n^2}$ is a positive term equal on both sides, we limit our study to
 	\[4(n-1)<\frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3)\]
-	which is true for all $m> \frac{1}{2}(3+\sqrt{17})\approx 3.56$ and $n>\frac{2 \cdot m^3 - 9\cdot m^2 + 13\cdot m - 18}{3 (m^2 - 3 \cdot m - 2)}$.
-	\commentBN{The inequality works also for other values of m and n lower than $3$.}
+	which is true for all $m> \frac{1}{2}(3+\sqrt{17})\approx 3.56$ and $n>\frac{2 \cdot m^3 - 9\cdot m^2 + 13\cdot m - 18}{3 (m^2 - 3 \cdot m - 2)}$. Moreover, $m-1>\frac{2 \cdot m^3 - 9\cdot m^2 + 13\cdot m - 18}{3 (m^2 - 3 \cdot m - 2)}$ $\ \forall m>4$, therefore we can conclude that $\sigma_{mad}(l_1)<\sigma_{mad}(l_2)$ $\forall m\geq4$ and $n\geq\max\{4,m-1\}$.
+	\commentBN{The inequality works also for other values of m and n lower than $3$. Do we need to mention this?}
 \end{proof}
 
 
@@ -436,7 +436,7 @@ The \textbf{Average Absolute Deviation} \commentBN{maybe it is more known as Mea
 \commentRS{Discuss that condition C that get stronger for larger m and n.}
 
 \begin{theorem}
-	For all $m\geq 3$, $n\geq 3$, under $\Sigma^{C_{m,n}}$,
+	For all $m\geq 3$, $n\geq \max\{3,m-1\}$, under $\Sigma^{C_{m,n}}$,
 	\begin{itemize}
 	    \item [1)] $f_n^{w}$ fails PCC when $w$ is the antiplurality score vector;
 	    \item [2)] the BK compromise  $f_n$ fails PCC.
@@ -444,11 +444,10 @@ The \textbf{Average Absolute Deviation} \commentBN{maybe it is more known as Mea
 \end{theorem}
 
 	\begin{proof}
-		Take any $m\geq 3$ and any $n\geq m$ \commentBN{$n\geq m-1$}, say $n=m$ without loss of generality. Consider $\Sigma^{C_{m,n}} \subseteq \Sigma$, the set of spread measures that satisfy condition $C_{m,n}$. Take some $x,y\in A$ and some $P\in
-		\linors^{N}$ with $r_{\prefi[1]}(x)=m-2$, $r_{\prefi[2]}(x)=m,$ $r_{\prefi}(x)=m-1$ $\forall i\in N \setminus \left\{ 1, 2\right\}, r_{\prefi}(y)=m-i$ $\forall i\in N \setminus \left\{ n\right\}$,	$r_{\prefi[n]}(y)=1$. \commentBN{Check this.} Moreover, for each $z\in A \setminus \left\{ x,y\right\} $, we have $r_{\prefi[1]}(z)=m$ for some $i\in N$. Note that both $f_n^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda^{P}(x)=(m-3, m-1,m-2,\dots,m-2)$ and $\lambda_{P}(y)=(m-2, m-1,\dots,1,0, 0)$. As all the spread measure $\sigma \in \Sigma^{C_{m,n}}$ satisfy the condition $C_{m,n}$, then $\sigma(\lambda_{P}(x)) < \sigma(\lambda_{P}(y))$ $\forall \sigma \in \Sigma^{C_{m,n}}$, implying $y\notin \mustar[\bar{\sigma}]$ $\forall \sigma \in \Sigma^{C_{m,n}}$.
+		Take any $m\geq 3$ and any $n \geq \max\{3,m-1\}$ and consider $\Sigma^{C_{m,n}} \subseteq \Sigma$, the set of spread measures that satisfy condition $C_{m,n}$. Take some $x,y\in A$ and some $P\in \linors^{N}$ with $r_{\prefi[1]}(x)=m-2$, $r_{\prefi[2]}(x)=m,$ $r_{\prefi}(x)=m-1$ $\forall i\in N \setminus \left\{ 1, 2\right\}$, and $r_{\prefi}(y)=m-i$ $\forall i\in \intvl{1,m-1}$, $r_{\prefi[n]}(y)=1$ $\forall i\in \intvl{m,n}$. Moreover, for each $z\in A \setminus \left\{ x,y\right\} $, we have $r_{\prefi[1]}(z)=m$ for some $i\in N$. Note that both $f_n^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda^{P}(x)=(m-3, m-1,m-2,\dots,m-2)$ and $\lambda_{P}(y)=(m-2, m-1,\dots,1,0, \dots, 0)$. As all the spread measure $\sigma \in \Sigma^{C_{m,n}}$ satisfy the condition $C_{m,n}$, then $\sigma(\lambda_{P}(x)) < \sigma(\lambda_{P}(y))$ $\forall \sigma \in \Sigma^{C_{m,n}}$, implying $y\notin \mustar[\bar{\sigma}]$ $\forall \sigma \in \Sigma^{C_{m,n}}$.
 	\end{proof}
 
-\commentOC{Given a rule f, define property G as: if P has exactly one alternative that is never ranked last, f picks that alternative as a single winner. Theorem: Pick any $m, n ≥ 3$. There exists a profile P that has y as only alternative never ranked last, and under $\Sigma^C_{m, n}$, PCC requires that y be not a winner at P. Theorem 12 follows from this theorem because AP and FB satisfy G.}
+\commentOC{Given a rule f, define property G as: if P has exactly one alternative that is never ranked last, f picks that alternative as a single winner. Theorem: Pick any $m, n ≥ 3$. There exists a profile P that has y as only alternative never ranked last, and under $\Sigma^C_{m, n}$, PCC requires that y be not a winner at P. Theorem 12 follows from this theorem because AP and FB satisfy G.} \commentBN{That's also an alternative phrasing, maybe simpler, but I like the construction of a profile from which Definition 5 directly follows.}
 
 \commentRS{We can than take the subset of capital sigma that consists of spread measures that satisfy condition C and prove the theorem under this restriction.}
 
