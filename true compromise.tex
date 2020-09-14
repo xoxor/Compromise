@@ -359,8 +359,10 @@ The perfect equality recognition condition we adopt for spread measures, i.e., t
 	\label{def:conditionC}
 	Given any $m\geq3$ and $n\geq \max\{3,m-1\}$, we say that a spread measure $\sigma$ satisfies condition $C_{m,n}$ iff we have $\sigma(m-3, m-1, m-2, \dots, m-2) < \sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$.
 \end{definition}
-\commentBN{Is it clear that the first dots mean $m-2,m-2,m-2,m-2$ while the second ones $m-4,m-5,m-6...$? Also I think it should be $\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$?}
- \commentRS{I don't think there is anything unclear but we can discuss this on Monday. In any case, I don't think there are dots between the zeros.}
+
+\commentBN{Add that $m-2, m-3, \dots,1$ are $m-1$ values. The whole vector has $n$ values.}
+
+The condition is more reasonable for bigger values of $m$ and $n$. In fact asking for $\sigma(0,2,1)$ to be smaller than $\sigma(1,0,0)$ is not as convincing than asking for $\sigma(3,5,4,4,4)$ to be smaller than $\sigma(4,3,2,1)$.
 
 We define $\Sigma^{C_{m,n}} \subseteq \Sigma$ as the set of spread measures that satisfy condition $C_{m,n}$. As we discuss right away, this condition is satisfied by several spread measures of the literature. 
 
@@ -398,7 +400,7 @@ The \textbf{Mean Absolute Difference} is a measure of dispersion calculated as t
 	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$; their spread using the Mean Absolute Difference will be: 
 	\begin{equation}
 		\begin{split}
-		\sigma_{mad}(l_1) &=\frac{1}{n^2} \cdot [2(2+(n-2)+(n-2)\cdot2)]= \frac{1}{n^2} \cdot [4(n-1)] \\ \\
+		\sigma_{mad}(l_1) &=\frac{1}{n^2} \cdot [2(2+(n-2))+(n-2)\cdot2)]= \frac{1}{n^2} \cdot [4(n-1)] \\ \\
 		\sigma_{mad}(l_2)&=\frac{1}{n^2} \cdot \{\sum_{j=0}^{m-3} \ [\sum_{i=0}^{m-3-j}i \ + \ (m-2-j)(n-(m-2)) \ + \ \sum_{i=0}^{j}i] + (n-(m-2))\cdot \sum_{j=0}^{m-2} j \}= \\ &= \frac{1}{n^2} \cdot [\frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3)]
 		\end{split}
 	\end{equation}
@@ -414,9 +416,9 @@ The \textbf{Mean Absolute Difference} is a measure of dispersion calculated as t
 
 The \textbf{Average Absolute Deviation} \commentBN{maybe it is more known as Mean Absolute Deviation?} is a measure that consider the differences between the values of the vector and their arithmetic mean $\bar{r}$.
 \[\sigma_{ad}(r)= \frac{\sum_{i=1}^{n}|r_i-\bar{r}|}{n}\]
-\commentBN{TO CHECK (For m=3 n=3 it doesn't work)}
+
 \begin{theorem}
-	$\sigma_{ad}$ satisfies condition C $\forall n\geq 3$ and $\forall m \geq 3$.
+	$\sigma_{ad}$ satisfies condition C $\forall m \geq 4$ \commentBN{check $n$}.
 \end{theorem}
 \begin{proof} 
 	Consider again the two vectors $l_1=(m-3, m-1, m-2, m-2, m-2)$ and $l_2=(m-2, m-3, 1, 0, 0)$; the arithmetic mean of their values is $2$ for the first vector and $\frac{2(m-2)}{5}$ for the second one. The spread using the Average Absolute Deviation is therefore: 
@@ -433,7 +435,6 @@ The \textbf{Average Absolute Deviation} \commentBN{maybe it is more known as Mea
 %			^{P}(x)=(m-3,$ $m-1,m-2,...,$ $m-2)$ and $\lambda_{P}(y)=(m-2,$ $m-1,,...1,$
 %			$0,$ $\ 0)$.
 
-\commentRS{Discuss that condition C that get stronger for larger m and n.}
 
 \begin{theorem}
 	For all $m\geq 3$, $n\geq \max\{3,m-1\}$, under $\Sigma^{C_{m,n}}$,
@@ -444,10 +445,9 @@ The \textbf{Average Absolute Deviation} \commentBN{maybe it is more known as Mea
 \end{theorem}
 
 	\begin{proof}
-		Take any $m\geq 3$ and any $n \geq \max\{3,m-1\}$ and consider $\Sigma^{C_{m,n}} \subseteq \Sigma$, the set of spread measures that satisfy condition $C_{m,n}$. Take some $x,y\in A$ and some $P\in \linors^{N}$ with $r_{\prefi[1]}(x)=m-2$, $r_{\prefi[2]}(x)=m,$ $r_{\prefi}(x)=m-1$ $\forall i\in N \setminus \left\{ 1, 2\right\}$, and $r_{\prefi}(y)=m-i$ $\forall i\in \intvl{1,m-1}$, $r_{\prefi[n]}(y)=1$ $\forall i\in \intvl{m,n}$. Moreover, for each $z\in A \setminus \left\{ x,y\right\} $, we have $r_{\prefi[1]}(z)=m$ for some $i\in N$. Note that both $f_n^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda^{P}(x)=(m-3, m-1,m-2,\dots,m-2)$ and $\lambda_{P}(y)=(m-2, m-1,\dots,1,0, \dots, 0)$. As all the spread measure $\sigma \in \Sigma^{C_{m,n}}$ satisfy the condition $C_{m,n}$, then $\sigma(\lambda_{P}(x)) < \sigma(\lambda_{P}(y))$ $\forall \sigma \in \Sigma^{C_{m,n}}$, implying $y\notin \mustar[\bar{\sigma}]$ $\forall \sigma \in \Sigma^{C_{m,n}}$.
+		Take any $m\geq 3$ and any $n \geq \max\{3,m-1\}$ and consider $\Sigma^{C_{m,n}} \subseteq \Sigma$, the set of spread measures that satisfy condition $C_{m,n}$. Take some $x,y\in A$ and some $P\in \linors^{N}$ with $r_{\prefi[1]}(x)=m-2$, $r_{\prefi[2]}(x)=m,$ $r_{\prefi}(x)=m-1$ $\forall i\in N \setminus \left\{ 1, 2\right\}$, and $r_{\prefi}(y)=m-i$ $\forall i\in \intvl{1,m-1}$, $r_{\prefi[n]}(y)=1$ $\forall i\in \intvl{m,n}$. Moreover, for each $z\in A \setminus \left\{ x,y\right\} $, we have $r_{\prefi[1]}(z)=m$ for some $i\in N$. Note that both $f_n^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda^{P}(x)=(m-3, m-1,m-2,\dots,m-2)$ and $\lambda_{P}(y)=(m-2, m-3,\dots,1,0, \dots, 0)$. As all the spread measure $\sigma \in \Sigma^{C_{m,n}}$ satisfy the condition $C_{m,n}$, then $\sigma(\lambda_{P}(x)) < \sigma(\lambda_{P}(y))$ $\forall \sigma \in \Sigma^{C_{m,n}}$, implying $y\notin \mustar[\bar{\sigma}]$ $\forall \sigma \in \Sigma^{C_{m,n}}$.
 	\end{proof}
 
-\commentOC{Given a rule f, define property G as: if P has exactly one alternative that is never ranked last, f picks that alternative as a single winner. Theorem: Pick any $m, n ≥ 3$. There exists a profile P that has y as only alternative never ranked last, and under $\Sigma^C_{m, n}$, PCC requires that y be not a winner at P. Theorem 12 follows from this theorem because AP and FB satisfy G.} \commentBN{That's also an alternative phrasing, maybe simpler, but I like the construction of a profile from which Definition 5 directly follows.}
 
 \commentRS{We can than take the subset of capital sigma that consists of spread measures that satisfy condition C and prove the theorem under this restriction.}
 
