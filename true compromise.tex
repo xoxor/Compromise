@@ -360,7 +360,7 @@ The perfect equality recognition condition we adopt for spread measures, i.e., t
 	Given any $m\geq3$ and $n\geq \max\{3,m-1\}$, we say that a spread measure $\sigma$ satisfies condition $C_{m,n}$ iff we have $\sigma(m-3, m-1, m-2, \dots, m-2) < \sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$.
 \end{definition}
 
-\commentBN{Add that $m-2, m-3, \dots,1$ are $m-1$ values. The whole vector has $n$ values.}
+Note that both vectors consists of $n$ values, and that the terms $m-2, m-3, \dots,1$, of the second vector, represent the first $m-1$ components of that vector.
 
 The condition is more reasonable for bigger values of $m$ and $n$. In fact asking for $\sigma(0,2,1)$ to be smaller than $\sigma(1,0,0)$ is not as convincing than asking for $\sigma(3,5,4,4,4)$ to be smaller than $\sigma(4,3,2,1)$.
 
@@ -368,66 +368,52 @@ We define $\Sigma^{C_{m,n}} \subseteq \Sigma$ as the set of spread measures that
 
 Although measures of dispersion have been widely used as a measure of income distribution and economic inequality, for a long time it was unclear how to choose among the numerous measures existing. One of the first lamenting the absence of clear criteria for selecting the inequality measure to use was \citet{Dalton1920}. Even though it has been later reported high correlations among different measures \citep{Alker1964}, some works have shown how the use of different measure can lead to substantial differences in the outcome, as well as in the properties they satisfy \citep{Atkinson1970, Allison1978, Yntema1933, Sen1973, Rothschild1973}.
 
-In the years many measures of inequality have been proposed \citep{Jackman1974, Rubinson1977, Martin1971, Ray1973} but perhaps the most commonly used is the Gini coefficient, G, which is defined as the ratio of the area between the Lorenz curve and the diagonal (line of equality), over the total area under the line of equality.
-\[G(r)= \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|}{2 \cdot n \cdot \sum_{i=1}^{n} r_i}.\]
-
-On the same vein, \citet{Schutz1951} proposed a measure, also known as the Hoover index, that can be defined as the longest vertical distance between the Lorenz curve and the line of equality:
-\[S(r)= \frac{\sum_{i=1}^{n}|r_i-\bar{r}|}{2 \cdot \sum_{i=1}^{n} r_i},\]
-where $\bar{r}$ is the mean $\frac{\sum_{i=1}^{n}r_i}{n}$.
-
-Based on the entropy in information theory, \citet{Theil1967} proposed the following measure:
-\[T(r)= \frac{1}{n} \cdot \sum_{i=1}^{n}\frac{r_i}{\bar{r}} \cdot \log \frac{r_i}{\bar{r}}.\]
-
+In the years many measures of inequality have been proposed \citep{Jackman1974, Rubinson1977, Martin1971, Ray1973, Schutz1951, Theil1967} \commentBN{Do I remove the references as well?} but perhaps the most commonly used is the Gini coefficient, G, which is defined as the ratio of the area between the Lorenz curve and the diagonal (line of equality), over the total area under the line of equality.
+\[\sigma_{G}(r)= \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|}{2 \cdot n \cdot \sum_{i=1}^{n} r_i}.\]
 
 Some other measures of dispersion are:
 \begin{itemize}
-	\item the variance $V^2$;
-	\item the standard deviation $sd(r)= \sqrt{\frac{\sum_{i=1}^{n}(r_i-\bar{r})^2}{n}}$
-	\item the coefficient of variation $V=\frac{\alpha}{\bar{r}}$;
-	\item the mean absolute difference $m(r)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|$
+	\item the standard deviation $\sigma_{sd}(r)= \sqrt{\frac{\sum_{i=1}^{n}(r_i-\bar{r})^2}{n}}$
+	\item the mean absolute difference $\sigma_{mad}(r)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|$
 	\item the average absolute deviation $\sigma_{ad}(r)= \frac{\sum_{i=1}^{n}|r_i-\bar{r}|}{n}$
 \end{itemize}
-  
-In what follows we investigate which of the spread measures just presented satisfy the condition of \cref{def:conditionC}.
+\commentBN{Maybe we can remove the formulas from here since we show them later. Or we can move all this discussion about known spread measures in the next section.}  
+In what follows we investigate which of the spread measures just presented satisfy the condition of \cref{def:conditionC}. The proofs for the following theorems can be found in \cref{apdx:proofSM}.
 \subsubsection{Spread Measures and Condition C}
+\label{sec:spreadMeasures}
 The \textbf{Mean Absolute Difference} is a measure of dispersion calculated as the arithmetic mean of the absolute value of all possible differences. 
 \[\sigma_{mad}(r)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j| \]
 
 \begin{theorem}
+	\label{th:mad}
 	$\sigma_{mad}$ satisfies condition C for $\forall m\geq4$ and $n\geq\max\{4,m-1\}$.
 \end{theorem}
-\begin{proof} 
-	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$; their spread using the Mean Absolute Difference will be: 
-	\begin{equation}
-		\begin{split}
-		\sigma_{mad}(l_1) &=\frac{1}{n^2} \cdot [2(2+(n-2))+(n-2)\cdot2)]= \frac{1}{n^2} \cdot [4(n-1)] \\ \\
-		\sigma_{mad}(l_2)&=\frac{1}{n^2} \cdot \{\sum_{j=0}^{m-3} \ [\sum_{i=0}^{m-3-j}i \ + \ (m-2-j)(n-(m-2)) \ + \ \sum_{i=0}^{j}i] + (n-(m-2))\cdot \sum_{j=0}^{m-2} j \}= \\ &= \frac{1}{n^2} \cdot [\frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3)]
-		\end{split}
-	\end{equation}
-	
-	In order for $\sigma_{mad}$ to satisfy condition C, must be $\sigma_{mad}(l_1) < \sigma_{mad}(l_2)$, so
-	\[\frac{1}{n^2} \cdot 4(n-1)<\frac{1}{n^2} \cdot \frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3).\]
-	Since $\frac{1}{n^2}$ is a positive term equal on both sides, we limit our study to
-	\[4(n-1)<\frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3)\]
-	which is true for all $m> \frac{1}{2}(3+\sqrt{17})\approx 3.56$ and $n>\frac{2 \cdot m^3 - 9\cdot m^2 + 13\cdot m - 18}{3 (m^2 - 3 \cdot m - 2)}$. Moreover, $m-1>\frac{2 \cdot m^3 - 9\cdot m^2 + 13\cdot m - 18}{3 (m^2 - 3 \cdot m - 2)}$ $\ \forall m>4$, therefore we can conclude that $\sigma_{mad}(l_1)<\sigma_{mad}(l_2)$ $\forall m\geq4$ and $n\geq\max\{4,m-1\}$.
-	\commentBN{The inequality works also for other values of m and n lower than $3$. Do we need to mention this?}
-\end{proof}
 
 
-The \textbf{Average Absolute Deviation} \commentBN{maybe it is more known as Mean Absolute Deviation?} is a measure that consider the differences between the values of the vector and their arithmetic mean $\bar{r}$.
+
+The \textbf{Average Absolute Deviation} is a measure that consider the differences between the values of the vector and their arithmetic mean $\bar{r}= \frac{\sum_{i=1}^{n} r_i}{n}$.
 \[\sigma_{ad}(r)= \frac{\sum_{i=1}^{n}|r_i-\bar{r}|}{n}\]
 
 \begin{theorem}
-	$\sigma_{ad}$ satisfies condition C $\forall m \geq 4$ \commentBN{check $n$}.
+	\label{th:ad}
+	$\sigma_{ad}$ satisfies condition C $\forall m \geq 4 $ and $ n\geq 4$.
 \end{theorem}
-\begin{proof} 
-	Consider again the two vectors $l_1=(m-3, m-1, m-2, m-2, m-2)$ and $l_2=(m-2, m-3, 1, 0, 0)$; the arithmetic mean of their values is $2$ for the first vector and $\frac{2(m-2)}{5}$ for the second one. The spread using the Average Absolute Deviation is therefore: 
-	\small{\[\sigma_{ad}(l_1)=\frac{2}{5}\]
-		\[\sigma_{ad}(l_2)=\frac{\frac{1}{5}*(|3m-11|+|9-2m|+7|m-2|)}{5}\]}
-	In order for $\sigma_{ad}$ to satisfy condition C, must be $\sigma_{mad}(l_1) < \sigma_{mad}(l_2)$, so
-	\[2<\frac{1}{5}*(|3m-11|+|9-2m|+7|m-2|)\]
-	which is true for all $m\geq 3$.
-\end{proof}
+
+The \textbf{Standard Deviation} is a measure that indicates the dispersion of a set of data relatively to its mean.
+\[\sigma_{sd}(r)= \sqrt{\frac{\sum_{i=1}^{n}(r_i-\bar{r})^2}{n}}\]
+
+\begin{theorem}
+	\label{th:sd}
+	$\sigma_{sd}$ satisfies condition C $\forall m \geq 4 $ and $n\geq 4$.
+\end{theorem}
+
+The \textbf{Gini Coefficient} is a measure that aim to represent the degree of inequality in a distribution. Alternatively to the definition we gave above, based on the Lorenz curve, we can define it as half of the relative mean absolute difference. Where the relative mean absolute difference is the mean absolute difference divided by the average.
+\[\sigma_{G}(r)= \frac{\sigma_{mad}}{2\cdot\bar{r}}= \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|}{2 \cdot n \cdot \sum_{i=1}^{n} r_i}\]
+\begin{theorem}
+	\label{th:gini}
+	$\sigma_{G}$ satisfies condition C $\forall m \geq 4$ and $n\geq 4$.
+\end{theorem}
+\commentBN{To check again. I believe this is true but the computation doesn't give the same result.}
 
 %A \emph{spread measure} $\sigma: \alllosses → \R_{+}$ satisfies condition gamma iff  $\sigma (m-3,$ $m-1,m-2,...,$ $m-2)$ <$\sigma(m-2,$ $m-1,...1,$0, $\ 0)$.
 %			(\lambda_{P}(y))$ that associates a spread value to every possible loss
@@ -525,9 +511,61 @@ Questions:
 \appendix
 
 \section{Spread Measures}
-In our idea of compromise, we aim to determine the “most equally distributed” vector within $\left\{ \lambda_P(x)\right\} _{x\in A}$. We thus need to adopt a spread measure which is a mapping $\sigma \in \SAll: \R_{+}^{N}\longrightarrow \R_{+}$ which satisfies $\sigma(r_i, \dots, r_n)=0 \iff r_i=r_j \forall i,j$. In what follows, we will consider various classes of possible spread measures.
+\label{apdx:proofSM}
+In what follows are showed the proofs for the Theorems presented in \cref{sec:spreadMeasures}.
+\begin{proof} for \cref{th:mad}. \\
+	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$; their spread using the Mean Absolute Difference will be: 
+	\begin{equation}
+		\begin{split}
+			\sigma_{mad}(l_1) &=\frac{1}{n^2} \cdot [2(2+(n-2))+(n-2)\cdot2)]= \frac{1}{n^2} \cdot [4(n-1)] \\ \\
+			\sigma_{mad}(l_2)&=\frac{1}{n^2} \cdot \{\sum_{j=0}^{m-3} \ [\sum_{i=0}^{m-3-j}i \ + \ (m-2-j)(n-(m-2)) \ + \ \sum_{i=0}^{j}i] + (n-(m-2))\cdot \sum_{j=0}^{m-2} j \}= \\ &= \frac{1}{n^2} \cdot [\frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3)]
+		\end{split}
+	\end{equation}
+	
+	In order for $\sigma_{mad}$ to satisfy condition C, must be $\sigma_{mad}(l_1) < \sigma_{mad}(l_2)$, so
+	\[\frac{1}{n^2} \cdot 4(n-1)<\frac{1}{n^2} \cdot \frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3).\]
+	Since $\frac{1}{n^2}$ is a positive term equal on both sides, we limit our study to
+	\[4(n-1)<\frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3)\]
+	which is true for all $m> \frac{1}{2}(3+\sqrt{17})\approx 3.56$ and $n>\frac{2 \cdot m^3 - 9\cdot m^2 + 13\cdot m - 18}{3 (m^2 - 3 \cdot m - 2)}$. Moreover, $m-1>\frac{2 \cdot m^3 - 9\cdot m^2 + 13\cdot m - 18}{3 (m^2 - 3 \cdot m - 2)}$ $\ \forall m>4$, therefore we can conclude that $\sigma_{mad}(l_1)<\sigma_{mad}(l_2)$ $\forall m\geq4$ and $n\geq\max\{4,m-1\}$.
+	\commentBN{The inequality works also for other values of m and n lower than $3$. Do we need to mention this?}
+\end{proof}
 
-\begin{definition}[Pairwise Pareto dominance]
+\begin{proof} for \cref{th:ad}. \\
+	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=(m-2, m-3, \dots, 1, 0, \dots, 0)$. For $l_1$, the arithmetic mean of its values is $m-2$ and the spread using the Average Absolute Deviation is: 
+	\[\sigma_{ad}(l_1)=\frac{1}{n}[|m-3-m+2|+|m-1-m+2|+ 0 + \dots + 0]= \frac{2}{n}\]
+	While for $l_2$, the arithmetic mean is 
+	\[\bar{l_2}=m-2+m-3+\dots+m-(m-1)+0+\dots+0= \frac{1}{n}\sum_{i=2}^{m-1}{m-i}= \frac{m^2-3m+2}{2n}\]
+	\[\sigma_{ad}(l_2)=\frac{1}{n}[\sum_{i=2}^{m-1}{|(m-i)-\frac{m^2-3m+2}{2n}|+(n-(m-2))|\frac{m^2-3m+2}{2n}|}|]\]
+	I'm stuck with the computation because even if I use the triangular inequality to remove the absolute value, it gives me an upper bound which is not useful. 
+	\\\newline We can see that $\sigma_{ad}(3,1,2,2)<\sigma_{ad}(2,1,0,0)$ for $m=n=4$. We can also observe that the value of $\sigma_{ad}(l_1)$ depends only on $n$. So when increasing $m$ $\sigma_{ad}(l_1)$ does not change and $\sigma_{ad}(l_2)$ increases. When increasing $n$, both of the values decrease so the inequality is still satisfied. \commentBN{To be proved formally. I believe it's true because either we increment both m and n, then even if $\sigma_{ad}(l_2)$ decreases, it's bigger than $\sigma_{ad}(l_1)$ because of the increment of m; either we keep m constant but both of them decrease, and $\sigma_{ad}(l_1)$ decreases much faster. Maybe it can be proved by induction over two variables.}
+\end{proof}
+
+\begin{proof} for \cref{th:sd}. \\
+	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=(m-2, m-3, \dots, 1, 0, \dots, 0)$. For $l_1$, the arithmetic mean of its values is $m-2$ and the spread using the Standard Deviation is: 
+	\[\sigma_{sd}(l_1)=\sqrt{\frac{(m-3-m+2)^2+(m-1-m+2)^2+ 0 + \dots + 0}{n}}= \sqrt{\frac{2}{n}}\]
+	While for $l_2$, the arithmetic mean is 
+	\[\bar{l_2}=m-2+m-3+\dots+m-(m-1)+0+\dots+0= \frac{1}{n}\sum_{i=2}^{m-1}{m-i}= \frac{m^2-3m+2}{2n}\]
+	and the spread using the Standard Deviation is: 
+	\begin{align}
+		\sigma_{sd}(l_2)=&\sqrt{\frac{\sum_{i=2}^{m-1}{[(m-i)-\frac{m^2-3m+2}{2n}]^2+(n-(m-2))[0-\frac{m^2-3m+2}{2n}]^2}}{n}}= \\
+		& =\textstyle{\frac{1}{2 \sqrt{3}} \sqrt{\frac{(m - 2) (m - 1) (2 (2 m - 3) n^2 + 3 (m - 4) (m - 1) (m - 2) n - 3 (m - 3) (m - 1) (m - 2)^2}{n^3}}}
+	\end{align}
+	Therefore $\sigma_{sd}(l_1)<\sigma_{sd}(l_2)$ is true $\forall m \geq 4 n\geq 4$.
+\end{proof}
+
+\begin{proof} for \cref{th:gini}. \\
+	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$; their spread using the Gini Coefficient is: 
+	\begin{equation}
+		\begin{split}
+			\sigma_{G}(l_1) &=\frac{4(n-1)}{n^2\cdot 2 \cdot (m-2)}= \frac{2(n-2)}{(m-2)n^2} \\ \\
+			\sigma_{G}(l_2)&=\frac{\frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3)}{n^2\cdot 2 \cdot \frac{m^2-3m+2}{2n}}=\frac{3n-2m+3}{3\cdot n}
+		\end{split}
+	\end{equation}
+	\commentBN{I'm not convinced of this. The \href{https://bit.ly/3hSNvSM}{results} exclude some values for which is true instead.}
+\end{proof}
+
+
+\begin{definition}[OLD Definition: Pairwise Pareto dominance]
 	\label{def:PPD}
 	For all $r$, $s\in \R_{+}^{N}$: 
 	\[\left[\left\vert r_{i}-r_{j}\right\vert \leq \left\vert s_{i}-s_{j}\right\vert \forall i, j\in N\right] ⇒ \sigma (r)\leq \sigma (s).\] 
@@ -536,159 +574,5 @@ We write $\SPPd \subseteq \SAll$ for the class of spread measures that satisfy a
 Given a vector $r \in \R^N$ of $n$ elements, some examples of spread measures are the following.
 \commentOC{We dropped this because it says that $(0, 2)$ is more equal than $(10^6, 10^6 + 3)$.}
 
-\subsection{Mean Absolute Difference}
-\[\sigma_{mad}(r)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j| \]
-The mean absolute difference is a measure of dispersion calculated as the arithmetic mean of the absolute value of all possible differences. 
-\begin{proposition}
-	$\sigma_{mad}$ is a spread measure and it satisfies PPd.
-\end{proposition}
-\begin{proof} 
-	In order to be a spread measure as we defined $\sigma_{mad}$ should be zero when all the elements of $r$ are equals, $r_i-r_j = 0 \ \forall i,j\in {1, \dots, n}$. In this case the sum term $\sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|$ will always be zero, and thus $\sigma_{mad}(r)=0$ for such $r$. Hence $\sigma_{mad}$ is a spread measure.
-	In order to prove the satisfaction of PPd we can observe that, given two vectors $r,s \in \R^N$, if \mbox{$|r_{i}-r_{j}| \leq |s_{i}-s_{j}| \ \forall i,j \in N$} then also \[\sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j| \leq \sum_{i=1}^{n}\sum_{j=1}^{n}|s_i-s_j| \]
-	The remaining term $\frac{1}{n^2}$ is constant and it is equal for both sides, so $\sigma_{mad}(r) \leq \sigma_{mad}(s)$ and PPd is satisfied.
-\end{proof}
-\begin{example}
-	\label{ex:spreadVectors}
-	\begin{align}
-	s=(3,3,3,3) \\
-	t=(1,2,3,4) \\
-	w=(1,3,5,7) \\
-	\end{align}
-	In order for a function $\sigma$ to be a spread measure it must be that $\sigma(s)=0$, and to satisfy PPd it must be $\sigma(t)<\sigma(w)$.
-	
-	Compute now $\sigma_{mad}$ for these vectors, we have:
-	\begin{align}
-	\sigma_{mad}(s) &= \frac{1}{4^2} \cdot 0 =0 \\
-	\sigma_{mad}(t) &= \frac{1+2+3+1+1+2+2+1+1+3+2+1}{4^2}=\frac{20}{16} \\
-	\sigma_{mad}(w) &= \frac{2+4+6+2+2+4+4+2+2+6+4+2}{4^2}=\frac{40}{16} \\
-	\end{align}
-	\begin{align}
-	\sigma_{mad}(s) = 0 \ \surd \\
-	\sigma_{mad}(t) \leq \sigma_{mad}(w) \rightarrow PPd \ \surd \\
-	\end{align}
-\end{example}
-
-
-
-
-\subsection{Average Absolute Deviation}
-\[\sigma_{ad}(r)= \frac{\sum_{i=1}^{n}|r_i-\bar{r}|}{n}\]
-The average absolute deviation considers the differences between the values of the vector and their arithmetic mean $\bar{r}$.
-
-\begin{proposition}
-	\label{prop:ad}
-	$\sigma_{ad}$ is a spread measure and it satisfies PPd.
-\end{proposition}
-\begin{proof}
-	When $r_i=r_j \ \forall i,j\in {1, \dots, n}$ then $\bar{r}=\frac{\sum_{i=1}^{n}r_i}{n}=r_i$ for any $i \in N$. It follows that $\sum_{i=1}^{n}|r_i-\bar{r}|=0$ and $\sigma_{ad}(r)=0$.
-	
-	In order to prove that $\sigma_{ad}$ satisfies PPd we have to show that:
-	
-	\begin{align}
-	\sigma_{ad}(r) &\leq \sigma_{ad}(s) \\
-	\frac{\sum_{i=1}^{n}|r_i-\bar{r}|}{n} &\leq \frac{\sum_{i=1}^{n}|s_i-\bar{s}|}{n} \\
-	\sum_{i=1}^{n}|r_i-\bar{r}| &\leq \sum_{i=1}^{n}|s_i-\bar{s}| \\
-	\sum_{i=1}^{n}|r_i-\frac{\sum_{j=1}^{n}r_{j}}{n}| &\leq \sum_{i=1}^{n}|s_i-\frac{\sum_{j=1}^{n}s_{j}}{n}| \\
-	\sum_{i=1}^{n}|\frac{n \cdot r_i}{n}-\frac{\sum_{j=1}^{n}r_{j}}{n}| &\leq \sum_{i=1}^{n}|\frac{n \cdot s_i}{n}-\frac{\sum_{j=1}^{n}s_{j}}{n}| \\
-	\sum_{i=1}^{n}|\frac{\sum_{j=1}^{n}r_i}{n}-\frac{\sum_{j=1}^{n}r_{j}}{n}| &\leq \sum_{i=1}^{n}|\frac{\sum_{j=1}^{n}s_i}{n}-\frac{\sum_{j=1}^{n}s_{j}}{n}| \\
-	\sum_{i=1}^{n}|\frac{\sum_{j=1}^{n}r_i - r_j}{n}| &\leq \sum_{i=1}^{n}|\frac{\sum_{j=1}^{n}s_i - s_j}{n}| \\
-	\sum_{i=1}^{n}|\sum_{j=1}^{n}r_i - r_j| &\leq \sum_{i=1}^{n}|\sum_{j=1}^{n}s_i - s_j| \\
-	\end{align}
-	But we can consider that 
-	\begin{itemize}
-		\item $\sum_{i=1}^{n}|\sum_{j=1}^{n}r_i - r_j| \geq |\sum_{i=1}^{n}\sum_{j=1}^{n}r_i - r_j|$
-		\item $\sum_{i=1}^{n}|\sum_{j=1}^{n}s_i - s_j| \leq \sum_{i=1}^{n}\sum_{j=1}^{n}|s_i - s_j|$
-	\end{itemize}
-	and, therefore, go back to our proof showing that
-	\begin{align}
-	|\sum_{i=1}^{n}\sum_{j=1}^{n}r_i - r_j| \leq \sum_{i=1}^{n}|\sum_{j=1}^{n}r_i - r_j| &\leq \sum_{i=1}^{n}|\sum_{j=1}^{n}s_i - s_j| \leq \sum_{i=1}^{n}\sum_{j=1}^{n}|s_i - s_j| \\
-	|\sum_{i=1}^{n}\sum_{j=1}^{n}r_i - r_j| &\leq \sum_{i=1}^{n}\sum_{j=1}^{n}|s_i - s_j|
-	\end{align}
-	By assumption	
-	\begin{align}
-	|r_{i}-r_{j}| &\leq |s_{i}-s_{j}| \ \forall i,j \in N \\ \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j| &\leq \sum_{i=1}^{n}\sum_{j=1}^{n}|s_i-s_j| \\
-	\end{align}
-	and by triangle inequality
-	\begin{align}
-	|\sum_{i=1}^{n}\sum_{j=1}^{n}r_i-r_j| &\leq \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j| \\
-	\end{align}
-	it follows that 
-	\begin{align}
-	|\sum_{i=1}^{n}\sum_{j=1}^{n}r_i-r_j| \leq \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j| \leq \sum_{i=1}^{n}\sum_{j=1}^{n}|s_i-s_j| \\
-	\end{align}
-	This concludes the proof.
-\end{proof}
-
-Consider the vectors of the Example \ref{ex:spreadVectors}.
-If we compute $\sigma_{ad}$ for those vectors we have:
-\begin{align}
-\sigma_{ad}(s) &= \frac{\sum_{i=1}^{4} |3-3|}{4} =0 \\
-\sigma_{ad}(t) &= \frac{|1-2.5|+|2-2.5|+|3-2.5|+|4-2.5|}{4}=\frac{4}{4}=1 \\
-\sigma_{ad}(w) &= \frac{|1-4|+|3-4|+|5-4|+|7-4|}{4}=\frac{8}{4}=2 \\
-\end{align}
-\begin{align}
-\sigma_{ad}(s) = 0 \ \surd \\
-\sigma_{ad}(t) \leq \sigma_{ad}(w) \rightarrow PPd \ \surd \\
-\end{align}
-
-\subsection{Standard Deviation}
-\[\sigma_{sd}(r)= \sqrt{\frac{\sum_{i=1}^{n}(r_i-\bar{r})^2}{n}}\]
-\begin{proposition}
-	$\sigma_{sd}$ is a spread measure and it satisfies PPd.
-\end{proposition}
-\begin{proof}
-	If $r_i=r_j \ \forall i,j\in {1, \dots, n}$ then $\bar{r}=\frac{\sum_{i=1}^{n}r_i}{n}=r_i$ for any $i \in N$, thus the sum will be zero and $\sigma_{sd}(r)=0$.
-	\\ To prove that $\sigma_{sd}$ satisfies PPd we need to show that
-	\[\sum_{i=1}^{n}(r_i-\bar{r})^2 \leq \sum_{i=1}^{n}(s_i-\bar{s})^2\]
-	Since 
-	\[(r_i-\bar{r})^2 = |r_i-\bar{r}|^2 \text{ and } (s_i-\bar{s})^2 = |s_i-\bar{s}|^2 \] 
-	we can rewrite it as
-	\[\sum_{i=1}^{n}|r_i-\bar{r}|^2 \leq \sum_{i=1}^{n}|s_i-\bar{s}|^2\]
-	We know that 
-	\[ \sum_{i=1}^{n}|r_i-\bar{r}|^2 \leq (\sum_{i=1}^{n}|r_i-\bar{r}|)^2 \text{ and }
-	\sum_{i=1}^{n}|s_i-\bar{s}|^2 \leq (\sum_{i=1}^{n}|s_i-\bar{s}|)^2 \]
-	indeed, in case $n=2$, $(a-b)^2 = a^2+2ab+b^2$ so $(a-b)^2 \geq a^2+b^2$ only if $2ab > 0$; in our case $a$ and $b$ are the terms of the summation, respectively $|r_1-\bar{r}|$ and $|r_2-\bar{r}|$ (or $|s_1-\bar{s}|$ and $|s_2-\bar{s}|$) so they are always positive. So we can rewrite our expression as 
-	\[\sum_{i=1}^{n}|r_i-\bar{r}|^2 \leq \sum_{i=1}^{n}|s_i-\bar{s}|^2  \leq (\sum_{i=1}^{n}|s_i-\bar{s}|)^2 \]
-	and if we show that $\sum_{i=1}^{n}|r_i-\bar{r}|^2 \leq (\sum_{i=1}^{n}|s_i-\bar{s}|)^2 $ then the proof is concluded.
-	From the proof of Proposition \ref{prop:ad}, we know that
-	\begin{align}
-	\sum_{i=1}^{n}|r_i-\bar{r}| &\leq \sum_{i=1}^{n}|s_i-\bar{s}| \\
-	(\sum_{i=1}^{n}|r_i-\bar{r}|)^2 &\leq (\sum_{i=1}^{n}|s_i-\bar{s}|)^2
-	\end{align}
-	so we can affirm that 
-	\[\sum_{i=1}^{n}|r_i-\bar{r}|^2 \leq (\sum_{i=1}^{n}|r_i-\bar{r}|)^2 \leq (\sum_{i=1}^{n}|s_i-\bar{s}|)^2 \]
-	Therefore $\sum_{i=1}^{n}|r_i-\bar{r}|^2 \leq (\sum_{i=1}^{n}|s_i-\bar{s}|)^2 $ and this concludes the proof.
-\end{proof}
-Consider the vectors of Example \ref{ex:spreadVectors}.
-If we compute $\sigma_{sd}$ for those vectors we have:
-\begin{align}
-\sigma_{sd}(s) &= \sqrt{\frac{\sum_{i=1}^{4} (3-3)^2}{4}}=0 \\
-\sigma_{sd}(t) &= \sqrt{\frac{(1-2.5)^2+(2-2.5)^2+(3-2.5)^2+(4-2.5)^2}{4}}=\sqrt{\frac{5}{4}} \\
-\sigma_{sd}(w) &= \sqrt{\frac{(1-4)^2+(3-4)^2+(5-4)^2+(7-4)^2}{4}}=\sqrt{\frac{20}{4}}=\sqrt{5} \\
-\end{align}
-\begin{align}
-\sigma_{sd}(s) = 0 \ \surd \\
-\sigma_{sd}(t) \leq \sigma_{sd}(w) \rightarrow PPd \ \surd \\
-\end{align}
-
-\subsection{Gini Coefficient}
-\[\sigma_{G}(r)= \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|}{2 \cdot n \cdot \sum_{i=1}^{n} r_i}\]
-\begin{proposition}
-	$\sigma_{G}$ is a spread measure but it does not satisfy PPd.
-\end{proposition}
-\begin{proof}
-	When $r_i=r_j \ \forall i,j\in {1, \dots, n}$ then the numerator of $\sigma_{G}$ is $0$, thus $\sigma_{G}(r)=0$. When $|r_{i}-r_{j}| \leq |s_{i}-s_{j}| \ \forall i,j \in N $ then the numerator of $\sigma_{G}(r)$ is less than or equal to the numerator of $\sigma_{G}(s)$ but it could be that the sum of the elements of $s$ is bigger than the one of $r$, resulting into $\sigma_{G}(s)$ having a greater denominator than $\sigma_{G}(r)$ and therefore $\sigma_{G}(s) \leq \sigma_{G}(r)$. To see that consider the following vectors:
-	\begin{align}
-	t'=(1,1,2,2) \\
-	w'=(2,2,3,3) \\
-	\end{align}
-	\begin{align}
-	\sigma_{G}(t') &= \frac{(1+1)\cdot 4}{2 \cdot 4 \cdot 6}=\frac{1}{6} \\
-	\sigma_{G}(w') &= \frac{(1+1)\cdot 4}{2 \cdot 4 \cdot 10}=\frac{1}{10} \\
-	\end{align}
-	$|t'_{i}-t'_{j}| \leq |w'_{i}-w'_{j}| \forall i, j$ but $\sigma_{G}(t') \nleq \sigma_{G}(w')$
-\end{proof}
-
-TODO: Give reference to the relevant literature, also to the Pareto dominance condition.
 
 \end{document}
