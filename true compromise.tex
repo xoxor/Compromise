@@ -362,22 +362,21 @@ The perfect equality recognition condition we adopt for spread measures, i.e., t
 
 As both vectors are $n$ dimensional, the term $m-2$ repeats $n-2$ times in the first vector and the term $0$ repeats $n-m+2$ times in the second vector.
 
-The condition is more convincing for bigger values of $m$ and $n$. In fact, asking for $\sigma(0,2,1)$ to be smaller than $\sigma(1,0,0)$ is very demanding while asking for $\sigma(3,5,4,4,4,4,4)$ to be smaller than $\sigma(6,5,4,3,2,1,0)$ reflects a mild assumption. In any case, as we state below, several well-known spread measures of the literature (see xxx for a comprehensive account) such as the  
+The condition is more convincing for larger values of $m$ and $n$. In fact, asking for $\sigma(0,2,1)$ to be smaller than $\sigma(1,0,0)$ is very demanding while asking for $\sigma(3,5,4,4,4,4,4)$ to be smaller than $\sigma(6,5,4,3,2,1,0)$ reflects a mild assumption. In any case, as we state below, several well-known spread measures of the literature (see xxx for a comprehensive account) satisfy \cref{def:conditionC} for reasonably small values of $m$ and $n$. Letting $\bar{l}=\frac{\sum_{i=1}^{n}l_i}{n}$ denote the arithmetic mean of the values of $l = (l_1, …, l_n)$, we consider the following measures:
 
 \begin{itemize}
-	\item the Gini coefficient, \[\sigma_{G}(r)= \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|}{2 \cdot n \cdot \sum_{i=1}^{n} r_i}.\]
-	\item the standard deviation $\sigma_{sd}(r)= \sqrt{\frac{\sum_{i=1}^{n}(r_i-\bar{r})^2}{n}}$
-	\item the mean absolute difference $\sigma_{mad}(r)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|$
-	\item the average absolute deviation $\sigma_{ad}(r)= \frac{\sum_{i=1}^{n}|r_i-\bar{r}|}{n}$
+	\item the Gini coefficient $\sigma_{G}(l)= \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}|l_i-l_j|}{2 \cdot n \cdot \sum_{i=1}^{n} l_i}$;
+	\item the standard deviation $\sigma_{sd}(l)= \sqrt{\frac{\sum_{i=1}^{n}(l_i-\bar{l})^2}{n}}$;
+	\item the mean absolute difference $\sigma_{mad}(l)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|l_i-l_j|$;
+	\item the average absolute deviation $\sigma_{ad}(l)= \frac{\sum_{i=1}^{n}|l_i-\bar{l}|}{n}$.
 \end{itemize} 
-    all satisfy \cref{def:conditionC} for reasonably small values of m and n. 
-    
-    xxx
-    The proofs for the following theorems can be found in \cref{apdx:proofSM}.
 
 \begin{proposition}
-	$\sigma_{mad}$ satisfies condition C for $\forall m\geq4$ and $n\geq\max\{4,m-1\}$ and $\sigma_{ad}$, $\sigma_{sd}$ and $\sigma_{G}$ satisfy condition C $\forall m \geq 4 $ and $ n\geq 4$.
+\label{prop:spreadMeas}
+	$\sigma_{mad}$, $\sigma_{ad}$, $\sigma_{sd}$ and $\sigma_{G}$ all satisfy condition C $\forall m\geq4$ and $n\geq\max\{4,m-1\}$.
 \end{proposition}
+
+The proof of \cref{prop:spreadMeas} is given in \cref{apdx:proofSM}.
 
 %A \emph{spread measure} $\sigma: \alllosses → \R_{+}$ satisfies condition gamma iff  $\sigma (m-3,$ $m-1,m-2,...,$ $m-2)$ <$\sigma(m-2,$ $m-1,...1,$0, $\ 0)$.
 %			(\lambda_{P}(y))$ that associates a spread value to every possible loss
@@ -385,7 +384,7 @@ The condition is more convincing for bigger values of $m$ and $n$. In fact, aski
 %			^{P}(x)=(m-3,$ $m-1,m-2,...,$ $m-2)$ and $\lambda_{P}(y)=(m-2,$ $m-1,,...1,$
 %			$0,$ $\ 0)$.
 
-We define $\Sigma^{C_{m,n}} \subseteq \Sigma$ as the set of spread measures that satisfy condition $C_{m,n}$. 
+We write $\Sigma^{C_{m,n}} \subseteq \Sigma$ for the set of spread measures that satisfy condition $C_{m,n}$. 
 \begin{theorem}
 	For all $m\geq 3$, $n\geq \max\{3,m-1\}$, under $\Sigma^{C_{m,n}}$,
 	\begin{itemize}
@@ -399,11 +398,26 @@ We define $\Sigma^{C_{m,n}} \subseteq \Sigma$ as the set of spread measures that
 	\end{proof}
 
 
-\commentRS{We can than take the subset of capital sigma that consists of spread measures that satisfy condition C and prove the theorem under this restriction.}
-
  
 \section{Two voters case}
-In \cref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in \cref{sec:notation}, we consider here the case $n=2$. Two agents express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems.
+In \cref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in \cref{sec:notation}, we consider here the case $n=2$. Two agents express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems
+
+\commentBN{Discussion 23/09/2020}
+\begin{example} $2k+2$ alternatives
+	\begin{center}
+		$
+		\begin{array}{cccccccccc}
+		\mathbf{i_1} \quad &x&a_1&\dots&&a_k&y&b_1&\dots&b_k\\
+		\mathbf{i_2} \quad &b_1&\dots&b_{k-1}&y&x&b_k&a_1&\dots&a_k\\
+		\end{array}
+		$
+	\end{center}
+\end{example}
+FB picks x, what would our approach pick? The response is not immediate because even if y seems the most equal the spread is not 0. lambda(x)=(0,k), lambda(y)=(k-1,k+1). There are some values of k such that lambda(y)<lambda(x). Except y everything grows with k. A Th. would be that FB is not compatible with the compromise idea. What Clippel (paper "On the selection of arbitrators") would pick? Whoever starts to veto $k+1$ alternative it would pick $x$ again. Pareto and veto rule: the veto power is distributed such that $v_1+v_2=m-1$. I have to distribute a veto power of $2k+1$ to the two voters, so the best I can do is to give $k$ and $k+1$. If $i_1$ vetoes $k+1$ is FB, if she vetoes $k$ both $x$ and $y$ are elected.
+What happens if we have $2k+3$? then $x,y$ are both elected.
+We could have a result such that when we have an even number of alternatives there is a distribution of alternatives st is PCC.
+Clippel criticizes an approach and propose a new one, we take both, we take Pareto and veto and FB and we compare to our approach.
+
 \subsection{The Bargaining problem}
 Several authors, through the years, have proposed theories that would predict the compromise that the two voters would reach through negotiation. 
 \commentOC{Predict or recommend?}
