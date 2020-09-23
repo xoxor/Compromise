@@ -362,23 +362,18 @@ The perfect equality recognition condition we adopt for spread measures, i.e., t
 
 As both vectors are $n$ dimensional, the term $m-2$ repeats $n-2$ times in the first vector and the term $0$ repeats $n-m+2$ times in the second vector.
 
-The condition is more reasonable for bigger values of $m$ and $n$. In fact asking for $\sigma(0,2,1)$ to be smaller than $\sigma(1,0,0)$ is not as convincing than asking for $\sigma(3,5,4,4,4)$ to be smaller than $\sigma(4,3,2,1,0)$.
+The condition is more convincing for bigger values of $m$ and $n$. In fact, asking for $\sigma(0,2,1)$ to be smaller than $\sigma(1,0,0)$ is very demanding while asking for $\sigma(3,5,4,4,4,4,4)$ to be smaller than $\sigma(6,5,4,3,2,1,0)$ reflects a mild assumption. In any case, as we state below, several well-known spread measures of the literature (see xxx for a comprehensive account) such as the  
 
-We define $\Sigma^{C_{m,n}} \subseteq \Sigma$ as the set of spread measures that satisfy condition $C_{m,n}$. As we discuss right away, this condition is satisfied by several spread measures of the literature. 
-
-\commentBN{Summarize. Just say that we'll check some of the most used sp in inequality theory and reference them.}
-Although measures of dispersion have been widely used as a measure of income distribution and economic inequality, for a long time it was unclear how to choose among the numerous measures existing. One of the first lamenting the absence of clear criteria for selecting the inequality measure to use was \citet{Dalton1920}. Even though it has been later reported high correlations among different measures \citep{Alker1964}, some works have shown how the use of different measure can lead to substantial differences in the outcome, as well as in the properties they satisfy \citep{Atkinson1970, Allison1978, Yntema1933, Sen1973, Rothschild1973}.
-
-In the years many measures of inequality have been proposed \citep{Jackman1974, Rubinson1977, Martin1971, Ray1973, Schutz1951, Theil1967} but perhaps the most commonly used is the Gini coefficient, G, which is defined as the ratio of the area between the Lorenz curve and the diagonal (line of equality), over the total area under the line of equality.
-\[\sigma_{G}(r)= \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|}{2 \cdot n \cdot \sum_{i=1}^{n} r_i}.\]
-
-Some other measures of dispersion are:
 \begin{itemize}
+	\item the Gini coefficient, \[\sigma_{G}(r)= \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|}{2 \cdot n \cdot \sum_{i=1}^{n} r_i}.\]
 	\item the standard deviation $\sigma_{sd}(r)= \sqrt{\frac{\sum_{i=1}^{n}(r_i-\bar{r})^2}{n}}$
 	\item the mean absolute difference $\sigma_{mad}(r)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|$
 	\item the average absolute deviation $\sigma_{ad}(r)= \frac{\sum_{i=1}^{n}|r_i-\bar{r}|}{n}$
 \end{itemize} 
-In what follows we investigate which of the spread measures just presented satisfy the condition of \cref{def:conditionC}. The proofs for the following theorems can be found in \cref{apdx:proofSM}.
+    all satisfy \cref{def:conditionC} for reasonably small values of m and n. 
+    
+    xxx
+    The proofs for the following theorems can be found in \cref{apdx:proofSM}.
 
 \begin{proposition}
 	$\sigma_{mad}$ satisfies condition C for $\forall m\geq4$ and $n\geq\max\{4,m-1\}$ and $\sigma_{ad}$, $\sigma_{sd}$ and $\sigma_{G}$ satisfy condition C $\forall m \geq 4 $ and $ n\geq 4$.
@@ -390,7 +385,7 @@ In what follows we investigate which of the spread measures just presented satis
 %			^{P}(x)=(m-3,$ $m-1,m-2,...,$ $m-2)$ and $\lambda_{P}(y)=(m-2,$ $m-1,,...1,$
 %			$0,$ $\ 0)$.
 
-
+We define $\Sigma^{C_{m,n}} \subseteq \Sigma$ as the set of spread measures that satisfy condition $C_{m,n}$. 
 \begin{theorem}
 	For all $m\geq 3$, $n\geq \max\{3,m-1\}$, under $\Sigma^{C_{m,n}}$,
 	\begin{itemize}
