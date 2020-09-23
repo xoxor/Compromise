@@ -360,15 +360,16 @@ The perfect equality recognition condition we adopt for spread measures, i.e., t
 	Given any $m\geq3$ and $n\geq \max\{3,m-1\}$, we say that a spread measure $\sigma$ satisfies condition $C_{m,n}$ iff we have $\sigma(m-3, m-1, m-2, \dots, m-2) < \sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$.
 \end{definition}
 
-Note that both vectors consists of $n$ values, and that the terms $m-2, m-3, \dots,1$, of the second vector, represent the first $m-1$ components of that vector.
+As both vectors are $n$ dimensional, the term $m-2$ repeats $n-2$ times in the first vector and the term $0$ repeats $n-m+2$ times in the second vector.
 
-The condition is more reasonable for bigger values of $m$ and $n$. In fact asking for $\sigma(0,2,1)$ to be smaller than $\sigma(1,0,0)$ is not as convincing than asking for $\sigma(3,5,4,4,4)$ to be smaller than $\sigma(4,3,2,1)$.
+The condition is more reasonable for bigger values of $m$ and $n$. In fact asking for $\sigma(0,2,1)$ to be smaller than $\sigma(1,0,0)$ is not as convincing than asking for $\sigma(3,5,4,4,4)$ to be smaller than $\sigma(4,3,2,1,0)$.
 
 We define $\Sigma^{C_{m,n}} \subseteq \Sigma$ as the set of spread measures that satisfy condition $C_{m,n}$. As we discuss right away, this condition is satisfied by several spread measures of the literature. 
 
+\commentBN{Summarize. Just say that we'll check some of the most used sp in inequality theory and reference them.}
 Although measures of dispersion have been widely used as a measure of income distribution and economic inequality, for a long time it was unclear how to choose among the numerous measures existing. One of the first lamenting the absence of clear criteria for selecting the inequality measure to use was \citet{Dalton1920}. Even though it has been later reported high correlations among different measures \citep{Alker1964}, some works have shown how the use of different measure can lead to substantial differences in the outcome, as well as in the properties they satisfy \citep{Atkinson1970, Allison1978, Yntema1933, Sen1973, Rothschild1973}.
 
-In the years many measures of inequality have been proposed \citep{Jackman1974, Rubinson1977, Martin1971, Ray1973, Schutz1951, Theil1967} \commentBN{Do I remove the references as well?} but perhaps the most commonly used is the Gini coefficient, G, which is defined as the ratio of the area between the Lorenz curve and the diagonal (line of equality), over the total area under the line of equality.
+In the years many measures of inequality have been proposed \citep{Jackman1974, Rubinson1977, Martin1971, Ray1973, Schutz1951, Theil1967} but perhaps the most commonly used is the Gini coefficient, G, which is defined as the ratio of the area between the Lorenz curve and the diagonal (line of equality), over the total area under the line of equality.
 \[\sigma_{G}(r)= \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|}{2 \cdot n \cdot \sum_{i=1}^{n} r_i}.\]
 
 Some other measures of dispersion are:
@@ -376,44 +377,12 @@ Some other measures of dispersion are:
 	\item the standard deviation $\sigma_{sd}(r)= \sqrt{\frac{\sum_{i=1}^{n}(r_i-\bar{r})^2}{n}}$
 	\item the mean absolute difference $\sigma_{mad}(r)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|$
 	\item the average absolute deviation $\sigma_{ad}(r)= \frac{\sum_{i=1}^{n}|r_i-\bar{r}|}{n}$
-\end{itemize}
-\commentBN{Maybe we can remove the formulas from here since we show them later. Or we can move all this discussion about known spread measures in the next section.}  
+\end{itemize} 
 In what follows we investigate which of the spread measures just presented satisfy the condition of \cref{def:conditionC}. The proofs for the following theorems can be found in \cref{apdx:proofSM}.
-\subsubsection{Spread Measures and Condition C}
-\label{sec:spreadMeasures}
-The \textbf{Mean Absolute Difference} is a measure of dispersion calculated as the arithmetic mean of the absolute value of all possible differences. 
-\[\sigma_{mad}(r)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j| \]
 
-\begin{theorem}
-	\label{th:mad}
-	$\sigma_{mad}$ satisfies condition C for $\forall m\geq4$ and $n\geq\max\{4,m-1\}$.
-\end{theorem}
-
-
-
-The \textbf{Average Absolute Deviation} is a measure that consider the differences between the values of the vector and their arithmetic mean $\bar{r}= \frac{\sum_{i=1}^{n} r_i}{n}$.
-\[\sigma_{ad}(r)= \frac{\sum_{i=1}^{n}|r_i-\bar{r}|}{n}\]
-
-\begin{theorem}
-	\label{th:ad}
-	$\sigma_{ad}$ satisfies condition C $\forall m \geq 4 $ and $ n\geq 4$.
-\end{theorem}
-
-The \textbf{Standard Deviation} is a measure that indicates the dispersion of a set of data relatively to its mean.
-\[\sigma_{sd}(r)= \sqrt{\frac{\sum_{i=1}^{n}(r_i-\bar{r})^2}{n}}\]
-
-\begin{theorem}
-	\label{th:sd}
-	$\sigma_{sd}$ satisfies condition C $\forall m \geq 4 $ and $n\geq 4$.
-\end{theorem}
-
-The \textbf{Gini Coefficient} is a measure that aim to represent the degree of inequality in a distribution. Alternatively to the definition we gave above, based on the Lorenz curve, we can define it as half of the relative mean absolute difference. Where the relative mean absolute difference is the mean absolute difference divided by the average.
-\[\sigma_{G}(r)= \frac{\sigma_{mad}}{2\cdot\bar{r}}= \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}|r_i-r_j|}{2 \cdot n \cdot \sum_{i=1}^{n} r_i}\]
-\begin{theorem}
-	\label{th:gini}
-	$\sigma_{G}$ satisfies condition C $\forall m \geq 4$ and $n\geq 4$.
-\end{theorem}
-\commentBN{To check again. I believe this is true but the computation doesn't give the same result.}
+\begin{proposition}
+	$\sigma_{mad}$ satisfies condition C for $\forall m\geq4$ and $n\geq\max\{4,m-1\}$ and $\sigma_{ad}$, $\sigma_{sd}$ and $\sigma_{G}$ satisfy condition C $\forall m \geq 4 $ and $ n\geq 4$.
+\end{proposition}
 
 %A \emph{spread measure} $\sigma: \alllosses → \R_{+}$ satisfies condition gamma iff  $\sigma (m-3,$ $m-1,m-2,...,$ $m-2)$ <$\sigma(m-2,$ $m-1,...1,$0, $\ 0)$.
 %			(\lambda_{P}(y))$ that associates a spread value to every possible loss
