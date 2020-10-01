@@ -418,6 +418,28 @@ What happens if we have $2k+3$? then $x,y$ are both elected.
 We could have a result such that when we have an even number of alternatives there is a distribution of alternatives st is PCC.
 Clippel criticizes an approach and propose a new one, we take both, we take Pareto and veto and FB and we compare to our approach.
 
+\commentBN{Discussion 01/10/2020}
+\begin{theorem}
+    Take m odd, none FB VR SL and PV don't satisfy PCC
+\end{theorem}
+\begin{example} $2k+1$ alternatives
+	\begin{center}
+		$
+		\begin{array}{cccccccccc}
+			\mathbf{i_1} \quad &x&a_1&\dots&&a_k&y&b_1&\dots&b_{k-1}\\
+			\mathbf{i_2} \quad &b_1&\dots&b_{k-1}&y&x&a_1&\dots&&a_k\\
+		\end{array}
+		$
+	\end{center}
+\end{example}
+When $k$ grows (we add one more $a$ and one more $b$), the spread of $y$ doesn't change. 
+$\sigma(k+1,k-1)<\sigma(0,k)$ which is true for some k.
+With the VR rule, the last $k$ alternatives get vetoed and, among the $k+1$ remaining, $x$ has the highest Borda score. 
+The SL rule picks $x$.
+With PV, for each $v_1$ and $v_2$ there exist a profile such that $y$ is excluded. 
+
+Justification for the rule: ultimatum game. People are willing to give up even more than our rule.
+
 \subsection{The Bargaining problem}
 Several authors, through the years, have proposed theories that would predict the compromise that the two voters would reach through negotiation. 
 \commentOC{Predict or recommend?}
