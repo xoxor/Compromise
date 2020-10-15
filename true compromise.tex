@@ -400,107 +400,30 @@ We write $\Sigma^{C_{m,n}} \subseteq \Sigma$ for the set of spread measures that
 
  
 \section{Two voters case}
-In \cref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in \cref{sec:notation}, we consider here the case $n=2$. Two agents express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems
+In \cref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in \cref{sec:notation}, we consider here the case $n=2$. Two agents express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems.
+We recall from \cref{sec:introduction} the definition of \textit{fallback bargaining (FB)} \citet{Brams2001}, a procedure that, starting from the top choices of each voter, it descends ranks until a unanimity consensus is found. Such alternative is selected as winner. In the context of bargaining we introduce other procedures. \textit{Veto Ranking (VR)} is a commonly used mechanism in the selection of arbitrators \commentBN{add references}. Given a list of $m$ (odd) candidates, each of the two parties vetoes $\frac{m-1}{2}$ alternatives and rank the remaining ones. The selected alternative is the one ranked the best (summing ranks in the two preference orderings) among the ones who have not been vetoed. In case of ties, an alternative is randomly chosen among those. \textit{Shortlisting (SL)} \citet{Clippel2014} is another mechanism where one of the two parties selects $\frac{m+1}{2}$ alternatives (thus vetoing the remaining ones), and then the second party chooses an alternative out of this subset. \textit{Pareto-and-Veto (PV)} procedure \citet{Laslier2020} is a solution that distribute the veto powers among the voters. One of the two parties starts by vetoing $v_1$ alternatives, the other one proceeds then to vetoes $v_2$ alternatives, where $v_1+v_2=m-1$. The remaining candidate is elected.
 
-\commentBN{Discussion 23/09/2020}
-\begin{example} $2k+2$ alternatives
-	\begin{center}
-		$
-		\begin{array}{cccccccccc}
-		\mathbf{i_1} \quad &x&a_1&\dots&&a_k&y&b_1&\dots&b_k\\
-		\mathbf{i_2} \quad &b_1&\dots&b_{k-1}&y&x&b_k&a_1&\dots&a_k\\
-		\end{array}
-		$
-	\end{center}
-\end{example}
-FB picks x, what would our approach pick? The response is not immediate because even if y seems the most equal the spread is not 0. lambda(x)=(0,k), lambda(y)=(k-1,k+1). There are some values of k such that lambda(y)<lambda(x). Except y everything grows with k. A Th. would be that FB is not compatible with the compromise idea. What Clippel (paper "On the selection of arbitrators") would pick? Whoever starts to veto $k+1$ alternative it would pick $x$ again. Pareto and veto rule: the veto power is distributed such that $v_1+v_2=m-1$. I have to distribute a veto power of $2k+1$ to the two voters, so the best I can do is to give $k$ and $k+1$. If $i_1$ vetoes $k+1$ is FB, if she vetoes $k$ both $x$ and $y$ are elected.
-What happens if we have $2k+3$? then $x,y$ are both elected.
-We could have a result such that when we have an even number of alternatives there is a distribution of alternatives st is PCC.
-Clippel criticizes an approach and propose a new one, we take both, we take Pareto and veto and FB and we compare to our approach.
-
-\commentBN{Discussion 01/10/2020}
 \begin{theorem}
-    Take m odd, none FB VR SL and PV don't satisfy PCC
+	Let $m \geq 4$. FB, VR, SL, and PV fail PCC.
 \end{theorem}
-\begin{example} $2k+1$ alternatives
-	\begin{center}
-		$
-		\begin{array}{cccccccccc}
-			\mathbf{i_1} \quad &x&a_1&\dots&&a_k&y&b_1&\dots&b_{k-1}\\
-			\mathbf{i_2} \quad &b_1&\dots&b_{k-1}&y&x&a_1&\dots&&a_k\\
-		\end{array}
-		$
-	\end{center}
-\end{example}
-When $k$ grows (we add one more $a$ and one more $b$), the spread of $y$ doesn't change. 
-$\sigma(k+1,k-1)<\sigma(0,k)$ which is true for some k.
-With the VR rule, the last $k$ alternatives get vetoed and, among the $k+1$ remaining, $x$ has the highest Borda score. 
-The SL rule picks $x$.
-With PV, for each $v_1$ and $v_2$ there exist a profile such that $y$ is excluded. 
-
-Justification for the rule: ultimatum game. People are willing to give up even more than our rule.
-
-\subsection{The Bargaining problem}
-Several authors, through the years, have proposed theories that would predict the compromise that the two voters would reach through negotiation. 
-\commentOC{Predict or recommend?}
-Each of these theories, also called solutions, satisfies a specific set of axioms.
-\\ 
-In other words, a solution can be seen as the recommendation that an impartial arbitrator would make, and the axioms represent properties (like fairness, monotonicity etc.) that this recommendation should embed. 
-\commentOC{May I argue for not jumping to next line without starting a new paragraph?}
-
-The best-known solution is the one introduced by \citet{Nash1950}, where the compromise is obtained by maximizing the product of utility gains from the disagreement point.
-Consider the following axioms:
-\begin{itemize}
-	\item Pareto-optimality: no change could be made that would lead to an improvement for any voter;
-	\item Symmetry: the agreement is invariant under all permutations of the agents;
-	\item Scale invariance: a transformation of the utility function (that maintains the same preferences ordering) should not alter the outcome;
-	\item Independence of irrelevant alternatives (IIA): if an alternative is judged to be the best compromise for a problem, then it should still be judged best for any subproblem that contains it.
-\end{itemize}
-
-The Nash solution is the only one satisfying Pareto-optimality, symmetry, scale invariance, and independence of irrelevant alternatives.
-
-His characterization opened the door to several others. The solution proposed by \cite{Kalai1975}, for example, defines as a compromise the maximal point (above the disagreement point) which maintains the ratios of gains. In other words, the agreement point is defined as the highest utility any agent can obtain given that no agent should receive less than her coordinate of the disagreement point.
-The Kalai–Smorodinsky solution satisfies all the above mentioned axioms except for IIA. Instead, a monotonicity requirement is added, which says that no agent should lose from the increase in resources.
-
-A solution that includes both IIA and monotonicity, dropping the condition of scale invariance, is the Egalitarian solution (\cite{Kalai1977}), whose central idea is the one of equal gains.
-
-Other solutions have been proposed in literature, and \cite{Thomson1994} collected most of them.
-
-Questions:
-\begin{itemize}
-	\item Which axioms EC, ECC, PC and PCC satisfy?
-	\item Does this depend on $\sigma$? If yes, can we define classes of spreading measures?
-\end{itemize}
-
-\subsection{Which SCRs are still compromises?}
-
-\subsubsection{BK-compromises}
-In \cref{sec:introduction}, we use the \cref{ex:ex1} and the \cref{ex:ex2} to define what we call “ex-ante compromises”. We say that all BK-compromises, except fallback bargaining (FB) (where $q=n$), seem to pursuit a goal of compromising but they fail in ensuring an outcome where everyone has effectively compromised. In \cref{sec:BKn3}, we further investigate this matter for $n\geq3$ and $m\geq3$ by proving, in \cref{th:BKthreshold}, that any BK-compromises, except fallback bargaining, is neither ECC nor PCC. Morever, in \cref{FBfailsECC} and \cref{FBsatsPC}, we prove that fallback bargaining $f_{n}$ fails ECC but satisfies PC.
-
-\begin{Theorem}
-	Let $n=2$ and $m\geq3$. The BK-compromise $f_{n}$ is neither ECC nor PCC. 
-\end{Theorem}
-
 \begin{proof}
-	Since $f_{n}$ is Paretian, it fails ECC by \cref{th:nonParetian}. In order to prove that it also fails PCC, consider the following preference profile $P\in \linors^{N}$:
-\begin{center}
-	$
-	\begin{array}{cccccccccc}
-	\mathbf{i_1} \quad &x&a_1&\dots&a_k&y&b_1&\dots&b_k\\
-	\mathbf{i_2} \quad &b_1&\dots&b_{k}&x&y&a_1&\dots&a_k\\
-	\end{array}
-	$
-\end{center}
-Here, $f_n(P)=\{x\}$ while $\mustar=\{y\}$ $\forall \sigma \in \Sigma$. Therefore $\exists P \in  \linors^{N}$ such that $f_n(P) \cap \mustar = \emptyset$, $\forall \sigma \in \Sigma$.
+	Without loss of generality let us consider $m=2k+1$ an odd number of alternatives. Consider the following profile P:
+		\begin{center}
+			$
+			\begin{array}{cccccccccc}
+				\mathbf{i_1} \quad &x&a_1&\dots&&a_k&y&b_1&\dots&b_{k-1}\\
+				\mathbf{i_2} \quad &b_1&\dots&b_{k-1}&y&x&a_1&\dots&&a_k\\
+			\end{array}
+			$
+		\end{center}
+	We can note that $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$ $\forall \sigma \in \Sigma^{C_{m,2}}$ for some $k \in \N$. In fact, when $k$ gets incremented by one, an $a_{k+1}$ and a $b_{k+1}$ are added to the profile, thus not changing the spread of $y$. $\sigma(k+1,k-1)<\sigma(0,k)$ which is true for some k.
+	With the VR rule, the last $k$ alternatives get vetoed and, among the $k+1$ remaining, $x$ has the highest Borda score. 
+	The SL rule picks $x$.
+	With PV, for each $v_1$ and $v_2$ there exist a profile such that $y$ is excluded. \commentBN{phrase this better}
 \end{proof}
+ 
 
-
-Questions:
-\begin{itemize}
-	\item Let $n=2$ and $m\geq3$. No BK-compromise  is neither ECC nor PCC. [I suspect. ToProve]
-	\item Do the results we got for $n\geq3$ for the other SCR considered in section 4 still hold?
-\end{itemize}
-
+\commentOC{Justification for the rule: ultimatum game. People are willing to give up even more than our rule.}
 
 
 \newpage
