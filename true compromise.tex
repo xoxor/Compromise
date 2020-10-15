@@ -400,8 +400,15 @@ We write $\Sigma^{C_{m,n}} \subseteq \Sigma$ for the set of spread measures that
 
  
 \section{Two voters case}
-In \cref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in \cref{sec:notation}, we consider here the case $n=2$. Two agents express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems.
-We recall from \cref{sec:introduction} the definition of \textit{fallback bargaining (FB)} \citet{Brams2001}, a procedure that, starting from the top choices of each voter, it descends ranks until a unanimity consensus is found. Such alternative is selected as winner. In the context of bargaining we introduce other procedures. \textit{Veto Ranking (VR)} is a commonly used mechanism in the selection of arbitrators \commentBN{add references}. Given a list of $m$ (odd) candidates, each of the two parties vetoes $\frac{m-1}{2}$ alternatives and rank the remaining ones. The selected alternative is the one ranked the best (summing ranks in the two preference orderings) among the ones who have not been vetoed. In case of ties, an alternative is randomly chosen among those. \textit{Shortlisting (SL)} \citet{Clippel2014} is another mechanism where one of the two parties selects $\frac{m+1}{2}$ alternatives (thus vetoing the remaining ones), and then the second party chooses an alternative out of this subset. \textit{Pareto-and-Veto (PV)} procedure \citet{Laslier2020} is a solution that distribute the veto powers among the voters. One of the two parties starts by vetoing $v_1$ alternatives, the other one proceeds then to vetoes $v_2$ alternatives, where $v_1+v_2=m-1$. The remaining candidate is elected.
+In \cref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in \cref{sec:notation}, we consider here the case $n=2$. Two individuals express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems. We consider four prominent solutions of the literature:
+
+We recall from \cref{sec:introduction} the definition of \textit{fallback bargaining (FB)} \citep{Brams2001}, a procedure that, starting from the top choices of each voter, it descends ranks until a unanimity consensus is found. Such alternative is selected as winner.
+
+\textit{Veto Ranking (VR)} is commonly used in the selection of arbitrators (see \citep{Clippel2014}). Given a list of $m$ (odd) alternatives (that are candidates to be arbitrators), each of the two voters (that are the two parties that must agree on an arbitrator) simultaneously vetoes his worst $\frac{m-1}{2}$ alternatives. The selected alternatives are the ones with the highest Borda score among the non-vetoed alternatives, according to the voters' true preferences.
+
+Again within the context of selecting arbitrators,\citet{Clippel2014} propose and analyze \textit{Shortlisting (SL)} where one of the two parties starts by selecting $\frac{m+1}{2}$ alternatives (thus vetoing the remaining ones), and then the second party chooses an alternative out of this subset. As the outcome of the procedure depends on the party that starts, symmetry among players is ensured by defining the solution as the union of the two outcomes where one and the other party starts.
+
+\textit{Pareto-and-Veto (PV)} procedure \citep{Laslier2020} distributes a power to veto $v_1$ and $v_2$ alternatives to voters 1 and 2, respectively, with $v_1+v_2=m-1$. Every voter $v_i$ simultaneously vetoes his worst $v_i$ alternatives. The solution picks all non=vetoed and Pareto optimal alternatives.
 
 \begin{theorem}
 	Let $m \geq 4$. FB, VR, SL, and PV fail PCC.
@@ -416,7 +423,7 @@ We recall from \cref{sec:introduction} the definition of \textit{fallback bargai
 			\end{array}
 			$
 		\end{center}
-	We can note that $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$ $\forall \sigma \in \Sigma^{C_{m,2}}$ for some $k \in \N$. In fact, when $k$ gets incremented by one, an $a_{k+1}$ and a $b_{k+1}$ are added to the profile, thus not changing the spread of $y$. $\sigma(k+1,k-1)<\sigma(0,k)$ which is true for some k.
+	We can note that $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$ $\forall \sigma \in \Sigma^{C_{m,2}}$ for some $k \in \N$. In fact, when $k$ gets incremented by one, an $a_{k+1}$ and a $b_{k+1}$ are added to the profile, thus not changing the spread of $y$. Therefore any PC $\sigma(k+1,k-1)<\sigma(0,k)$ which is true for some k.
 	With the VR rule, the last $k$ alternatives get vetoed and, among the $k+1$ remaining, $x$ has the highest Borda score. 
 	The SL rule picks $x$.
 	With PV, for each $v_1$ and $v_2$ there exist a profile such that $y$ is excluded. \commentBN{phrase this better}
@@ -435,8 +442,8 @@ We recall from \cref{sec:introduction} the definition of \textit{fallback bargai
 
 \section{Spread Measures}
 \label{apdx:proofSM}
-In what follows are showed the proofs for the Theorems presented in \cref{sec:spreadMeasures}.
-\begin{proof} for \cref{th:mad}. \\
+In what follows are showed the proofs for the Theorems presented in \cref{sec:RestrictionOnSigma}.
+\begin{proof} for $\sigma_{mad}$. \\
 	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$; their spread using the Mean Absolute Difference will be: 
 	\begin{equation}
 		\begin{split}
@@ -453,7 +460,7 @@ In what follows are showed the proofs for the Theorems presented in \cref{sec:sp
 	\commentBN{The inequality works also for other values of m and n lower than $3$. Do we need to mention this?}
 \end{proof}
 
-\begin{proof} for \cref{th:ad}. \\
+\begin{proof} for $\sigma_{ad}$. \\
 	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=(m-2, m-3, \dots, 1, 0, \dots, 0)$. For $l_1$, the arithmetic mean of its values is $m-2$ and the spread using the Average Absolute Deviation is: 
 	\[\sigma_{ad}(l_1)=\frac{1}{n}[|m-3-m+2|+|m-1-m+2|+ 0 + \dots + 0]= \frac{2}{n}\]
 	While for $l_2$, the arithmetic mean is 
@@ -463,7 +470,7 @@ In what follows are showed the proofs for the Theorems presented in \cref{sec:sp
 	\\\newline We can see that $\sigma_{ad}(3,1,2,2)<\sigma_{ad}(2,1,0,0)$ for $m=n=4$. We can also observe that the value of $\sigma_{ad}(l_1)$ depends only on $n$. So when increasing $m$ $\sigma_{ad}(l_1)$ does not change and $\sigma_{ad}(l_2)$ increases. When increasing $n$, both of the values decrease so the inequality is still satisfied. \commentBN{To be proved formally. I believe it's true because either we increment both m and n, then even if $\sigma_{ad}(l_2)$ decreases, it's bigger than $\sigma_{ad}(l_1)$ because of the increment of m; either we keep m constant but both of them decrease, and $\sigma_{ad}(l_1)$ decreases much faster. Maybe it can be proved by induction over two variables.}
 \end{proof}
 
-\begin{proof} for \cref{th:sd}. \\
+\begin{proof} for $\sigma_{sd}$. \\
 	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=(m-2, m-3, \dots, 1, 0, \dots, 0)$. For $l_1$, the arithmetic mean of its values is $m-2$ and the spread using the Standard Deviation is: 
 	\[\sigma_{sd}(l_1)=\sqrt{\frac{(m-3-m+2)^2+(m-1-m+2)^2+ 0 + \dots + 0}{n}}= \sqrt{\frac{2}{n}}\]
 	While for $l_2$, the arithmetic mean is 
@@ -476,7 +483,7 @@ In what follows are showed the proofs for the Theorems presented in \cref{sec:sp
 	Therefore $\sigma_{sd}(l_1)<\sigma_{sd}(l_2)$ is true $\forall m \geq 4 n\geq 4$.
 \end{proof}
 
-\begin{proof} for \cref{th:gini}. \\
+\begin{proof} for $\sigma_{G}$. \\
 	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$; their spread using the Gini Coefficient is: 
 	\begin{equation}
 		\begin{split}
