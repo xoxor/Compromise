@@ -401,36 +401,13 @@ Again within the context of selecting arbitrators, \citet{Clippel2014} propose a
     $\sigma(\ceil{\frac{m}{2}}, \floor{\frac{m}{2}} - 1) < \sigma(0, \floor{\frac{m}{2}})$ and 
     $\sigma(\floor{\frac{m}{2}} - 1, \ceil{\frac{m}{2}}) < \sigma(\floor{\frac{m}{2}}, 0)$.
 \end{definition}
-\commentBN{I would change $k$, it can be confusing when we define $m=2k+1$ later. Also, I believe the condition should be defined for a specific k: $D_{m,k}$ iff we have $\sigma(k+1,k-1)<\sigma(0,k)$ for $k\in \intvl{1,m-1}$. See next comment for details.}
-
 We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that satisfy condition $D_{m}$. 
 
 \begin{theorem}
 	Let $m \geq 5$. Under $\Sigma^{D_{m}}$, FB and PV fail PCC. Furthermore, when $m$ is odd, VR and SL also fail PCC. 
 \end{theorem}
-\commentBN{I'm not sure the current definition of the condition D is enough to prove our point. In the profile we use as proof, we define $m=2k+1$. Therefore, for $k=1$, $m=3$, and the condition D is not defined. If it was, we would have had the profile
-	\begin{center}
-		$
-		\begin{array}{cccc}
-			\mathbf{i_1} \quad &x&a_1&y\\
-			\mathbf{i_2} \quad &y&x&a_1\\
-		\end{array}
-		$
-	\end{center}
-where $\sigma(\lambda_{P}(y)) = \sigma(2,0)$ and $\sigma(\lambda_{P}(x)) = \sigma(0,1)$. 
-\\ For $k=2$, then $m=5$ and the resulting profile is:
-\begin{center}
-	$
-	\begin{array}{cccccc}
-		\mathbf{i_1} \quad &x&a_1&a_2&y&b_1\\
-		\mathbf{i_2} \quad &b_1&y&x&a_1&a_2\\
-	\end{array}
-	$
-\end{center}
-In this case $\sigma(\lambda_{P}(y)) = \sigma(3,1)$ and $\sigma(\lambda_{P}(x)) = \sigma(0,2)$. Let's consider $\sigma_{sd}$, it satisfies condition $D_5$, indeed there exist a value $j<5$ such that $\sigma_{sd}(j+1,j-1)<\sigma_{sd}(0,j)$. Take for example $j=4$, then $1=\sigma_{sd}(5,3)<\sigma_{sd}(0,4)=2$. However, if we consider our example profile we have $1=\sigma_{sd}(3,1) \nless \sigma_{sd}(0,2)=1$.
-}
 \begin{proof}
-    Let $\sigma$ be any spread measure in $\Sigma^{D_m}$. Define $\alpha = \ceil{\frac{m}{2}} - 1$ and $\beta = \floor{\frac{m}{2}} - 1$. Note that $\sigma(\alpha + 1, \beta) < \sigma(0, \beta + 1)$ and $\sigma(\beta, \alpha + 1) < \sigma(\beta + 1, 0)$, and $\alpha + \beta + 2 = m$.
+    Take any $m \geq 5$ and any $\sigma$ in $\Sigma^{D_m}$. Define $\alpha = \ceil{\frac{m}{2}} - 1$ and $\beta = \floor{\frac{m}{2}} - 1$. Note that $\sigma(\alpha + 1, \beta) < \sigma(0, \beta + 1)$ and $\sigma(\beta, \alpha + 1) < \sigma(\beta + 1, 0)$, and $\alpha + \beta + 2 = m$.
     
 	Consider the following profile P:
 		\begin{center}
@@ -442,13 +419,11 @@ In this case $\sigma(\lambda_{P}(y)) = \sigma(3,1)$ and $\sigma(\lambda_{P}(x)) 
 			$
 		\end{center}
 	Note that $\sigma(\lambda_{P}(y)) = \sigma(\alpha + 1, \beta)$ and that $\sigma(\lambda_{P}(x)) = \sigma(0, \beta + 1)$. 
-	Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$. Because $y$ is not Pareto-dominated, any PCC rule will not pick $x$ at $P$.
-	Now consider the profile $P'$, the same as $P$ when inverting the preference of $i_1$ and $i_2$. 
-	By a similar argument, we see that any PCC rule will not pick $x$ at $P'$.
+	Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$. Because $y$ is not Pareto-dominated, an SCR that uniquely pick $x$ at $P$ cannot be PCC. In a similar vein, at the profile $P'$ which is an inversion of the preference of $i_1$ and $i_2$ at $P$, an SCR that is PCC cannot pick $x$ uniquely.
 	
 	The proof will be concluded by showing that FB, PV, and (when $m$ is odd) VR and SL all pick only $x$ at $P$ or at $P'$.
 	
-	We readily see that FB will pick only $x$ at $P$ (and at $P'$) since it is the first alternative which reaches the unanimous consent.
+	We readily see that FB will pick only $x$ at $P$ (and at $P'$) since $x$ is the first alternative which reaches the unanimous consent.
 	
 	About the PV rule, if $v1 ≥ v2$ (thus $v1 ≥ \frac{m-1}{2}$), consider the profile $P$. Observe that the first voter vetoes at least $y$ and all $b_j$ alternatives ($1 ≤ j ≤ \beta$), and that no voter veto $x$. Because $x$ Pareto-dominates all $a_j$ alternatives ($1 ≤ j ≤ \alpha$), PV picks only $x$ at $P$. If $v2 ≥ v1$, a similar reasoning yields that PV picks only $x$ at $P'$. 
 	
@@ -459,7 +434,7 @@ In this case $\sigma(\lambda_{P}(y)) = \sigma(3,1)$ and $\sigma(\lambda_{P}(x)) 
 	Finally, the SL rule would also pick $x$, as it is chosen no matter which voter starts the veto phase.
 \end{proof}
  
-Section 6: Concluding Remarks
+\section{Concluding remarks}
 
 We define an ex-post compromise as an outcome where individuals give up equally from their ideal points. With three or more individuals, several interesting SCRs of the literature (that can be interpreted as voting rules), namely Condorcet extensions, scoring rules (except antiplurality) and BK-compromises (except fallback bargaining where threshold is unanimity) fail to pick ex-post compromises, under any reasonable meaning attributed to “giving up equally”. This failure is valid whether Pareto optimality is adopted or not while the positive results for antiplurality and fallback bargaining quickly vanish when a mild condition is imposed over the definition of `giving up equally`. Thus, we can conclude that all these SCRs are not compatible with being ex-post compromises. Even BK-compromises are procedural or ex-ante compromises. They impose a willingness to compromise over individuals but they may eventually pick an outcome so that some individuals do not effectively compromise at all.
 These findings are rather expected, as voting rules are typically unconcerned about envy-freeness among voters while this is the underlying notion of an ex-post compromise. On the other hand, even with two individuals where the collective choice problem is interpreted as a bargaining problem that requires mutual consent, all well-known SCRs of the literature, namely fallback bargaining, Pareto and veto rules, short listing, veto rank, all fail to pick ex-post compromises. 
