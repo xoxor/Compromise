@@ -409,7 +409,7 @@ Again within the context of selecting arbitrators, \citet{Clippel2014} propose a
 \textit{Pareto-and-Veto (PV)} procedure \citep{Laslier2020} distributes a power to veto $v_1$ and $v_2$ alternatives to voters 1 and 2, respectively, with $v_1+v_2=m-1$. Every voter $v_i$ simultaneously vetoes his worst $v_i$ alternatives. The solution picks all non-vetoed and Pareto optimal alternatives.
 
 \begin{definition}
-    Given any $m \geq 4$ and $n=2$, we say that a spread measure $\sigma$ satisfies condition $D_m$ iff we have $\sigma(k+1,k-1)<\sigma(0,k)$ for some $k < m$.
+    Given any $m \geq 4$ and $n=2$, we say that a spread measure $\sigma$ satisfies condition $D_m$ iff we have $\sigma(k+1,k-1)<\sigma(0,k)$ for some $k ≤ m-2$.
 \end{definition}
 \commentBN{I would change $k$, it can be confusing when we define $m=2k+1$ later. Also, I believe the condition should be defined for a specific k: $D_{m,k}$ iff we have $\sigma(k+1,k-1)<\sigma(0,k)$ for $k\in \intvl{1,m-1}$. See next comment for details.}
 
