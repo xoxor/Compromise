@@ -416,7 +416,7 @@ Again within the context of selecting arbitrators, \citet{Clippel2014} propose a
 We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that satisfy condition $D_{m}$. 
 
 \begin{theorem}
-	Let $m \geq 5$. Under $\sigma \in \Sigma^{D_{m}}$, FB and PV fail PCC. Furthermore, when $m$ is odd, VR and SL also fail PCC. 
+	Let $m \geq 5$. Under $\Sigma^{D_{m}}$, FB and PV fail PCC. Furthermore, when $m$ is odd, VR and SL also fail PCC. 
 \end{theorem}
 \commentBN{I'm not sure the current definition of the condition D is enough to prove our point. In the profile we use as proof, we define $m=2k+1$. Therefore, for $k=1$, $m=3$, and the condition D is not defined. If it was, we would have had the profile
 	\begin{center}
@@ -440,7 +440,7 @@ where $\sigma(\lambda_{P}(y)) = \sigma(2,0)$ and $\sigma(\lambda_{P}(x)) = \sigm
 In this case $\sigma(\lambda_{P}(y)) = \sigma(3,1)$ and $\sigma(\lambda_{P}(x)) = \sigma(0,2)$. Let's consider $\sigma_{sd}$, it satisfies condition $D_5$, indeed there exist a value $j<5$ such that $\sigma_{sd}(j+1,j-1)<\sigma_{sd}(0,j)$. Take for example $j=4$, then $1=\sigma_{sd}(5,3)<\sigma_{sd}(0,4)=2$. However, if we consider our example profile we have $1=\sigma_{sd}(3,1) \nless \sigma_{sd}(0,2)=1$.
 }
 \begin{proof}
-    Let $\sigma$ be any spread measure in $D_m$, and let $k$ be any value for which $\sigma$ satisfies $D_m$.
+    Let $\sigma$ be any spread measure in $\Sigma^{D_m}$, and let $k$ be any value for which $\sigma$ satisfies condition $D_m$.
     
 	Without loss of generality let us consider $m=2k+1$ an odd number of alternatives. Consider the following profile P:
 		\begin{center}
