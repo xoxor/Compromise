@@ -397,7 +397,7 @@ Again within the context of selecting arbitrators, \citet{Clippel2014} propose a
 \textit{Pareto-and-Veto (PV)} procedure \citep{Laslier2020} distributes a power to veto $v_1$ and $v_2$ alternatives to voters 1 and 2, respectively, with $v_1+v_2=m-1$. Every voter $v_i$ simultaneously vetoes his worst $v_i$ alternatives. The solution picks all non-vetoed and Pareto optimal alternatives.
 
 \begin{definition}
-    Given any $m \geq 4$, a spread measure $\sigma$ satisfies condition $D_m$ iff 
+    Given any $m \geq 4$, a spread measure \sigma \in \Sigma\ satisfies condition $D_m$ iff 
     $\sigma(\ceil{\frac{m}{2}}, \floor{\frac{m}{2}} - 1) < \sigma(0, \floor{\frac{m}{2}})$ and 
     $\sigma(\floor{\frac{m}{2}} - 1, \ceil{\frac{m}{2}}) < \sigma(\floor{\frac{m}{2}}, 0)$.
 \end{definition}
@@ -419,17 +419,17 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 			$
 		\end{center}
 	Note that $\sigma(\lambda_{P}(y)) = \sigma(\alpha + 1, \beta)$ and that $\sigma(\lambda_{P}(x)) = \sigma(0, \beta + 1)$. 
-	Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$. Because $y$ is not Pareto-dominated, an SCR that uniquely pick $x$ at $P$ cannot be PCC. In a similar vein, at the profile $P'$ which is an inversion of the preference of $i_1$ and $i_2$ at $P$, an SCR that is PCC cannot pick $x$ uniquely.
+	Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$. As $y$ is not Pareto-dominated, an SCR that uniquely picks $x$ at $P$ cannot be PCC. In a similar vein, at the profile $P'$ which is obtained by the inversion of the preferences of $i_1$ and $i_2$ at $P$, an SCR that is PCC cannot pick $x$ uniquely.
 	
 	The proof will be concluded by showing that FB, PV, and (when $m$ is odd) VR and SL all pick only $x$ at $P$ or at $P'$.
 	
-	We readily see that FB will pick only $x$ at $P$ (and at $P'$) since $x$ is the first alternative which reaches the unanimous consent.
+	We readily see that FB picks only $x$ at $P$ (and at $P'$) since $x$ is the first alternative which reaches the unanimous consent.
 	
-	About the PV rule, if $v1 ≥ v2$ (thus $v1 ≥ \frac{m-1}{2}$), consider the profile $P$. Observe that the first voter vetoes at least $y$ and all $b_j$ alternatives ($1 ≤ j ≤ \beta$), and that no voter veto $x$. Because $x$ Pareto-dominates all $a_j$ alternatives ($1 ≤ j ≤ \alpha$), PV picks only $x$ at $P$. If $v2 ≥ v1$, a similar reasoning yields that PV picks only $x$ at $P'$. 
+	For PV, let $v_1 ≥ v_2$ (thus $v_1 ≥ \frac{m-1}{2}$), and consider the profile $P$. Observe that the first voter vetoes at least $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) while no voter vetoes $x$. As $x$ Pareto-dominates every $a_j$ ($1 ≤ j ≤ \alpha$), PV picks only $x$ at $P$. When $v_2 ≥ v_1$, a similar reasoning yields that PV picks only $x$ at $P'$. 
 	
-	Assume $m$ is odd.
+Now let $m$ be odd.
 	
-	The VR rule will pick only $x$ at $P$ by a reasoning similar to the one applied to PV: the last $\frac{m-1}{2}$ alternatives get vetoed and, among the $\frac{m-1}{2}$ ones remaining, $x$ has the highest Borda score, at it is the only non-dominated alternative of that set, so it would be selected as the sole winner.
+	For VR, a reasoning similar to the one applied to PV yields $x$ as the unique choice at $P$: the last $\frac{m-1}{2}$ alternatives get vetoed and among the $\frac{m-1}{2}$ ones remaining, $x$ has the highest Borda score, at it is the only non-dominated alternative of that set, so it would be selected as the sole winner.
 	
 	Finally, the SL rule would also pick $x$, as it is chosen no matter which voter starts the veto phase.
 \end{proof}
