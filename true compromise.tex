@@ -470,12 +470,23 @@ In this case $\sigma(\lambda_{P}(y)) = \sigma(3,1)$ and $\sigma(\lambda_{P}(x)) 
 
 \section{Spread Measures}
 \label{apdx:proofSM}
-In what follows are showed the proofs for the Theorems presented in \cref{sec:RestrictionOnSigma}.
+In what follows are showed the proofs for \cref{prop:spreadMeas}.
 \begin{proof} for $\sigma_{mad}$. \\
-	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$; their spread using the Mean Absolute Difference will be: 
+	Let us define $f_l(i)= \sum_{j}|l_i-l_j|$, thus $\sigma_{mad}(l) = frac{1}{n^2}\sum_{i} f_l(i)$
+	
+	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ (where $n-2$ terms are equal to $m-2$) and $l_2=\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$ (where $m-2$ terms going from $m-2$ to $1$, and $m-n+2$ terms equal to $0$). 
+		
+	Let us consider $l_1$ first: 
+	\begin{align}
+		&f_{l_1}(1)= 2+(n-2)=n \\
+		&f_{l_1}(2)= 2+(n-2)=n \\
+		&f_{l_1}(i)= 2 \quad \forall \ 3\leq i \leq n \\ 
+	\end{align}
+	In fact, considering the first term of $l_1$ ($m-3$), the difference between itself and the second term of the vector ($m-1$) is $2$; the difference between itself and any of the other $n-2$ terms of the vector ($m-2$) is $1$. The sum of these differences is represented by $f_{l_1}(1)$. The same argument holds for the second term ($m-1$). Any of the remaining $n-2$ terms ($m-2$) has a difference $1$ with the first and the second term and a difference $0$ with the rest. Therefore 
+	\[\sigma_{mad}(l_1) =\frac{1}{n^2} \cdot [2(2+(n-2))+(n-2)\cdot2)]= \frac{1}{n^2} \cdot [4(n-1)]\]
+	
 	\begin{equation}
 		\begin{split}
-			\sigma_{mad}(l_1) &=\frac{1}{n^2} \cdot [2(2+(n-2))+(n-2)\cdot2)]= \frac{1}{n^2} \cdot [4(n-1)] \\ \\
 			\sigma_{mad}(l_2)&=\frac{1}{n^2} \cdot \{\sum_{j=0}^{m-3} \ [\sum_{i=0}^{m-3-j}i \ + \ (m-2-j)(n-(m-2)) \ + \ \sum_{i=0}^{j}i] + (n-(m-2))\cdot \sum_{j=0}^{m-2} j \}= \\ &= \frac{1}{n^2} \cdot [\frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3)]
 		\end{split}
 	\end{equation}
