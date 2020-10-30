@@ -77,21 +77,9 @@ To define an ex-post compromise, we adopt to our framework a concept of equal lo
 We introduce two definitions for being a compromise. In both of them, we pick a spread measure that determines how equally a given vector of real numbers is distributed and make a collective choice where voters give up from their ideal points “as equal as possible". \footnote{A discussion of the literature on spread measures is given in \cref{sec:RestrictionOnSigma}.} However, one of them, called \textit{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \textit{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. 
 The two concepts are logically incompatible. As a result, Pareto efficient SCRs cannot ensure egalitarian compromises and this is valid under any spread measure. Moreover, several well-knowm SCRs of the literature such as Condorcet extensions, scoring rules, $q-$approval fall-back bargaining, all fail to be Paretian compromises under any spread measure. In fact, we are able to observe the existence of instances where being a Paretian compromise necessitates to pick an alternative that is, although Pareto optimal, ranked so low by all voters that this alternative wouldn't be picked by any of the popular SCRs of the literature. All these observations make the equal-loss principle appear quite inadequate for collective choice problems, unless envy-freeness is a major concern.
 
-Collective choice models with two individuals present instances where envy-freeness matters. Here, the model is interpreted as a bargaining problem and bargaining procedures replace voting rules. As prominent examples, we have fallback bargaining proposed by \citet{Brams2001}; the unanimity compromise and the rational compromise introduced by \citet{Kibris2007}; the veto-rank and short listing procedures analyzed by \citet{Clippel2014} and the Pareto-and-veto rules analyzed by \citet{Laslier2020}. As is ours, these are all models with discrete alternatives which are not contained by the classical \citet{Nash1950} bargaining environment with convex utilities. However, as \citet{Mariotti1998} and \citet{Nagahisa2002} illustrate, the two worlds can be interconnected, as we do for the equal-loss principle of \citet{Chun1988} and \citet{Chun1991}.
+Collective choice models with two individuals present instances where envy-freeness matters. Here, the model is interpreted as a bargaining problem and bargaining procedures replace voting rules. As prominent examples, we have fallback bargaining proposed by \citet{Brams2001}; the unanimity compromise and the rational compromise introduced by \citet{Kibris2007}; the veto-rank and short listing procedures analyzed by \citet{Clippel2014} and the Pareto-and-veto rules analyzed by \citet{Laslier2020}. As is ours, these are all models with discrete alternatives which are not contained by the classical \citet{Nash1950} bargaining environment with convex utilities. However, as \citet{Mariotti1998} and \citet{Nagahisa2002} illustrate, the two worlds can be interconnected, as we do for the equal-loss principle of \citet{Chun1988} and \citet{Chun1991}. As a rather surprising finding, several interesting SCRs used as a bargaining solution also fail to be Paretian compromises.
 
-examples of envy-freeness 2-person
-\begin{example}
-	\begin{center}
-		$
-		\begin{array}{cccccccccc}
-		\mathbf{i_1} \quad &x&a_1&\dots&&a_k&y&b_1&\dots&b_k\\
-		\mathbf{i_2} \quad &b_1&\dots&b_{k-1}&y&x&b_k&a_1&\dots&a_k\\
-		\end{array}
-		$
-	\end{center}
-\end{example}
-
-computational?
+Section 2 presents the basic notions and notation. Section 3 introduces egalitarian compromises and Paretian compromises, two concepts that turn out to be logically incompatible. Section 4 shows that with at least three individuals, several SCRs fail to pick a compromise. Section 5 considers the two-individual case, again showing that several SCRs of the literature fail to pick compromises. Section 6 makes some concluding remarks. 
 
 \section{Basic notions and notation}
 \label{sec:notation}
@@ -409,54 +397,47 @@ Again within the context of selecting arbitrators, \citet{Clippel2014} propose a
 \textit{Pareto-and-Veto (PV)} procedure \citep{Laslier2020} distributes a power to veto $v_1$ and $v_2$ alternatives to voters 1 and 2, respectively, with $v_1+v_2=m-1$. Every voter $v_i$ simultaneously vetoes his worst $v_i$ alternatives. The solution picks all non-vetoed and Pareto optimal alternatives.
 
 \begin{definition}
-    Given any $m \geq 4$ and $n=2$, we say that a spread measure $\sigma$ satisfies condition $D_m$ iff we have $\sigma(k+1,k-1)<\sigma(0,k)$ for some $k < m$.
+    Given any $m \geq 4$, a spread measure \sigma \in \Sigma\ satisfies condition $D_m$ iff 
+    $\sigma(\ceil{\frac{m}{2}}, \floor{\frac{m}{2}} - 1) < \sigma(0, \floor{\frac{m}{2}})$ and 
+    $\sigma(\floor{\frac{m}{2}} - 1, \ceil{\frac{m}{2}}) < \sigma(\floor{\frac{m}{2}}, 0)$.
 \end{definition}
-\commentBN{I would change $k$, it can be confusing when we define $m=2k+1$ later. Also, I believe the condition should be defined for a specific k: $D_{m,k}$ iff we have $\sigma(k+1,k-1)<\sigma(0,k)$ for $k\in \intvl{1,m-1}$. See next comment for details.}
-
 We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that satisfy condition $D_{m}$. 
 
 \begin{theorem}
-	Let $m \geq 5$ and $\sigma \in \Sigma^{D_{m}}$. FB and PV fail PCC. Furthermore, if $m$ is odd, VR and SL also fail PCC. 
+	Let $m \geq 5$. Under $\Sigma^{D_{m}}$, FB and PV fail PCC. Furthermore, when $m$ is odd, VR and SL also fail PCC. 
 \end{theorem}
-\commentBN{I'm not sure the current definition of the condition D is enough to prove our point. In the profile we use as proof, we define $m=2k+1$. Therefore, for $k=1$, $m=3$, and the condition D is not defined. If it was, we would have had the profile
-	\begin{center}
-		$
-		\begin{array}{cccc}
-			\mathbf{i_1} \quad &x&a_1&y\\
-			\mathbf{i_2} \quad &y&x&a_1\\
-		\end{array}
-		$
-	\end{center}
-where $\sigma(\lambda_{P}(y)) = \sigma(2,0)$ and $\sigma(\lambda_{P}(x)) = \sigma(0,1)$. 
-\\ For $k=2$, then $m=5$ and the resulting profile is:
-\begin{center}
-	$
-	\begin{array}{cccccc}
-		\mathbf{i_1} \quad &x&a_1&a_2&y&b_1\\
-		\mathbf{i_2} \quad &b_1&y&x&a_1&a_2\\
-	\end{array}
-	$
-\end{center}
-In this case $\sigma(\lambda_{P}(y)) = \sigma(3,1)$ and $\sigma(\lambda_{P}(x)) = \sigma(0,2)$. Let's consider $\sigma_{sd}$, it satisfies condition $D_5$, indeed there exist a value $j<5$ such that $\sigma_{sd}(j+1,j-1)<\sigma_{sd}(0,j)$. Take for example $j=4$, then $1=\sigma_{sd}(5,3)<\sigma_{sd}(0,4)=2$. However, if we consider our example profile we have $1=\sigma_{sd}(3,1) \nless \sigma_{sd}(0,2)=1$.
-}
 \begin{proof}
-	Without loss of generality let us consider $m=2k+1$ an odd number of alternatives. Consider the following profile P:
+    Take any $m \geq 5$ and any $\sigma$ in $\Sigma^{D_m}$. Define $\alpha = \ceil{\frac{m}{2}} - 1$ and $\beta = \floor{\frac{m}{2}} - 1$. Note that $\sigma(\alpha + 1, \beta) < \sigma(0, \beta + 1)$ and $\sigma(\beta, \alpha + 1) < \sigma(\beta + 1, 0)$, and $\alpha + \beta + 2 = m$.
+    
+	Consider the following profile P:
 		\begin{center}
 			$
 			\begin{array}{cccccccccc}
-				\mathbf{i_1} \quad &x&a_1&\dots&&a_k&y&b_1&\dots&b_{k-1}\\
-				\mathbf{i_2} \quad &b_1&\dots&b_{k-1}&y&x&a_1&\dots&&a_k\\
+				\mathbf{i_1} \quad &x&a_1&\dots&&a_\alpha&y&b_1&\dots&b_\beta\\
+				\mathbf{i_2} \quad &b_1&\dots&b_\beta&y&x&a_1&\dots&&a_\alpha\\
 			\end{array}
 			$
 		\end{center}
-	We can note that $\sigma(\lambda_{P}(y)) = \sigma(k+1,k-1)$ and that $\sigma(\lambda_{P}(x))=\sigma(0, k)$. Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$ $\forall \sigma \in \Sigma^{D_{m}}$ and $\forall m\geq4$. In fact, since $m$ is odd, when we increment it to the next odd value, $k$ gets incremented by one, and an alternative $a_{k+1}$ and $b_{k+1}$ are added to the profile. This does not change the spread of the loss vector of the alternative $y$, while it increases the one of the loss vector of $x$. Any rule satisfying PCC would select $y$ since $\sigma(k+1,k-1)<\sigma(0,k)$ is true for some k.
-	With the VR rule, the last $k$ alternatives get vetoed and, among the $k+1$ remaining, $x$ has the highest Borda score, so it would be selected as the sole winner. 
-	The SL rule would also pick $x$ no matter which voter starts the veto phase.
-	With PV, for any choice of $v_1$ and $v_2$ there exist a profile such that $y$ is vetoed by one of the two voters. \commentBN{Shouldn't we say instead that there is a choice of $v_1$ and $v_2$ such that in this specific profile $y$ is always vetoed?}
-	FB would always pick $x$ since it is the first alternative which reaches the unanimous consent. 
-	If $m$ is even we can consider to have an additional alternative $z$ ranked last by both voters. The same arguments for FB and PV hold.
+	Note that $\sigma(\lambda_{P}(y)) = \sigma(\alpha + 1, \beta)$ and that $\sigma(\lambda_{P}(x)) = \sigma(0, \beta + 1)$. 
+	Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$. As $y$ is not Pareto-dominated, an SCR that uniquely picks $x$ at $P$ cannot be PCC. In a similar vein, at the profile $P'$ which is obtained by the inversion of the preferences of $i_1$ and $i_2$ at $P$, an SCR that is PCC cannot pick $x$ uniquely.
+	
+	The proof will be concluded by showing that FB, PV, and (when $m$ is odd) VR and SL all pick only $x$ at $P$ or at $P'$.
+	
+	We readily see that FB picks only $x$ at $P$ (and at $P'$) since $x$ is the first alternative which reaches the unanimous consent.
+	
+	For PV, let $v_1 ≥ v_2$ (thus $v_1 ≥ \frac{m-1}{2}$), and consider the profile $P$. Observe that the first voter vetoes at least $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) while no voter vetoes $x$. As $x$ Pareto-dominates every $a_j$ ($1 ≤ j ≤ \alpha$), PV picks only $x$ at $P$. When $v_2 ≥ v_1$, a similar reasoning yields that PV picks only $x$ at $P'$. 
+	
+Now let $m$ be odd.
+	
+	For VR, a reasoning similar to the one applied to PV yields $x$ as the unique choice at $P$: the last $\frac{m-1}{2}$ alternatives get vetoed and among the $\frac{m-1}{2}$ ones remaining, $x$ has the highest Borda score, at it is the only non-dominated alternative of that set, so it would be selected as the sole winner.
+	
+	Finally, the SL rule would also pick $x$, as it is chosen no matter which voter starts the veto phase.
 \end{proof}
  
+\section{Concluding remarks}
+
+We define an ex-post compromise as an outcome where individuals give up equally from their ideal points. With three or more individuals, several interesting SCRs of the literature (that can be interpreted as voting rules), namely Condorcet extensions, scoring rules (except antiplurality) and BK-compromises (except fallback bargaining where threshold is unanimity) fail to pick ex-post compromises, under any reasonable meaning attributed to “giving up equally”. This failure is valid whether Pareto optimality is adopted or not while the positive results for antiplurality and fallback bargaining quickly vanish when a mild condition is imposed over the definition of `giving up equally`. Thus, we can conclude that all these SCRs are not compatible with being ex-post compromises. Even BK-compromises are procedural or ex-ante compromises. They impose a willingness to compromise over individuals but they may eventually pick an outcome so that some individuals do not effectively compromise at all.
+These findings are rather expected, as voting rules are typically unconcerned about envy-freeness among voters while this is the underlying notion of an ex-post compromise. On the other hand, even with two individuals where the collective choice problem is interpreted as a bargaining problem that requires mutual consent, all well-known SCRs of the literature, namely fallback bargaining, Pareto and veto rules, short listing, veto rank, all fail to pick ex-post compromises. 
 
 \commentOC{Justification for the rule: ultimatum game. People are willing to give up even more than our rule.}
 
@@ -467,6 +448,56 @@ In this case $\sigma(\lambda_{P}(y)) = \sigma(3,1)$ and $\sigma(\lambda_{P}(x)) 
 
 \newpage
 \appendix
+
+\section{Spread Measures (proposition)}
+\newcommand{\smad}{\sigma_\text{mad}}
+\begin{proof}[for $\smad$]
+	Recall that $\smad(l) = 1/n^2 \sum_{ij} |l_i - l_j|$.
+	Define $f_l(i) = \sum_j |l_i - l_j|$.
+	Define $s(l) = n^2 \smad(l)$. Thus: $n^2 \smad(l) = s(l) = \sum_i f_l(i)$.
+	Recall that $l_1 = (m-3, m-1, m-2, …)$, containing $n-2$ terms $m-2$, and $l2 = (m-2, m - 3, …, 1, 0, …)$, containing $m-2$ terms descending from $m-2$ to $1$, then $n - m + 2$ zeros.
+	The thesis is now that $s(l_1) < s(l_2)$.
+	
+	To compute $s(l_1)$, observe that $f_{l_1}(1) = 2 + (n - 2) = n$, $f_{l_1}(2) = 2 + (n - 2) = n$, and for $3 ≤ i ≤ n$, $f_{l_1}(i) = 1 + 1 = 2$. Thus, $s(l_1) = 2n + (n - 2) (2) = 4n - 4$.
+	
+	To compute $s(l_2)$, let us distinguish the cases $1 ≤ i ≤ m - 2$ and $m - 1 ≤ i$.
+	
+	For $1 ≤ i ≤ m - 2$, 
+	\begin{align}
+		f_{l_2}(i) &= [(i - 1) + (i - 2) + … + 0] + [1 + … + (m - 2 - i)] \\
+		&\quad + (m - 1 - i) (n - m + 2)\\
+	%	[that’s i terms, then m - 2 - i terms, then n - m + 2 terms]
+		&= \frac{(i - 1) i}{2} + \frac{(m - 2 - i) (m - 1 - i)}{2} + (m - 1 - i) (n - m + 2)\\
+		&= i^2 / 2 - i / 2 + \frac{(m - 2) (m - 1) - i (m - 2 + m - 1) + i^2}{2} \\
+		&\quad + (m - 1) (n - m + 2) - i (n - m + 2)\\
+		&= i^2 - i \frac{1 + 2m - 3 + 2(n - m + 2)}{2} + (m - 1) \frac{m - 2 + 2 (n - m + 2)}{2}\\
+		&= i^2 - i (n + 1) + (m - 1) \frac{-m + 2n + 2}{2}.
+	\end{align}
+	
+	For $m - 1 ≤ i$, $f_{l_2}(i) = m - 2 + m - 3 + … + 1 = (m - 2) (m - 1) / 2$.
+	
+	Thus, 
+	\begin{align}
+		s(l_2) &= \sum_{1 ≤ i ≤ m - 2}[i^2 - i (n + 1) + (m - 1) \frac{-m + 2n + 2}{2}] \\
+		&\quad + (n - (m - 2)) (m - 2) (m - 1) / 2\\
+		&= (m - 2) (m - 1) (2m - 3) / 6 - (n + 1) (m - 2) (m - 1) / 2 \\
+		&\quad + (m - 2) (m - 1) (- m + 2n + 2) / 2 \\
+		&\quad + (n - m + 2) (m - 2) (m - 1) / 2\\
+%		&\quad + n (m - 2) (m - 1) / 2 - (m - 2)^2 (m - 1) / 2\\
+		&= (m - 2) (m - 1) \left(\frac{2m - 3}{6} - \frac{n + 1}{2} + \frac{- m + 2n + 2}{2} + \frac{n - m + 2}{2}\right)\\
+		&= (m - 2) (m - 1) \left(\frac{2m - 3}{6} + \frac{- 2m + 3 + 2n}{2}\right)\\
+		&= (m - 2) (m - 1) \left(\frac{-2m + 3}{3} + n\right).
+	\end{align}
+		
+	Our thesis is now that $4n - 4 < (m - 2) (m - 1) [(-2m + 3) / 3 + n]$, or equivalently, that $(2m - 3) (m - 2) (m - 1) / 3 - 4 < n [(m - 2) (m - 1) - 4]$.
+	
+	When $m = 4$, using the fact that $4 ≤ n$, the inequality holds: $5 (2) (3) / 3 - 4 < 4 [2] ≤ n [2]$.
+	
+	Now assume that $m ≥ 5$. Using the fact that $m - 1 ≤ n$, suffices to show that
+	$(2m - 3) (m - 2) (m - 1) / 3 - 4 < (m - 1) [(m - 2) (m - 1) - 4]$, or equivalently, that
+	$-12 < (m - 1) [3 (m - 2) (m - 1) - 12 - (2m - 3) (m - 2)]$.
+	Note that the right hand side equals $(m - 1) [(m - 2) (3 (m - 1) - (2m - 3)) - 12] = (m - 1) (m^2 - 2m - 12) = (m - 1) (m - 1 + \sqrt{13}) (m - 1 - \sqrt{13})$. As all multiplicands are positive when $m ≥ 5$, the inequality is true when $m ≥ 5$.
+\end{proof}
 
 \section{Spread Measures}
 \label{apdx:proofSM}
