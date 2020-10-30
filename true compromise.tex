@@ -388,7 +388,7 @@ We write $\Sigma^{C_{m,n}} \subseteq \Sigma$ for the set of spread measures that
 
  
 \section{Two voters case}
-In \cref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in \cref{sec:notation}, we consider here the case $n=2$. Two individuals express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems. In addition to \textit{fallback bargaining (FB)} \citep{Brams2001} (defined in \cref{sec:BKn3}) we consider three prominent solutions of the literature:
+In \cref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in \cref{sec:notation}, we consider here the case $n=2$. Two individuals express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems. In addition to \textit{fallback bargaining (FB)} \citep{Brams2001} (defined in \cref{sec:BKn3}) we consider three prominent solutions of the literature.
 
 \textit{Veto Ranking (VR)} is commonly used in the selection of arbitrators \citep[see][]{Clippel2014}. Given a list of $m$ (odd) alternatives (that are candidates to be arbitrators), each of the two voters (that are the two parties that must agree on an arbitrator) simultaneously vetoes his worst $\frac{m-1}{2}$ alternatives. The selected alternatives are the ones with the highest Borda score among the non-vetoed alternatives.
 
@@ -397,17 +397,17 @@ Again within the context of selecting arbitrators, \citet{Clippel2014} propose a
 \textit{Pareto-and-Veto (PV)} procedure \citep{Laslier2020} distributes a power to veto $v_1$ and $v_2$ alternatives to voters 1 and 2, respectively, with $v_1+v_2=m-1$. Every voter $v_i$ simultaneously vetoes his worst $v_i$ alternatives. The solution picks all non-vetoed and Pareto optimal alternatives.
 
 \begin{definition}
-    Given any $m \geq 4$, a spread measure \sigma \in \Sigma\ satisfies condition $D_m$ iff 
+    Given any $m \geq 4$, a spread measure $\sigma \in \Sigma$ satisfies condition $D_m$ iff 
     $\sigma(\ceil{\frac{m}{2}}, \floor{\frac{m}{2}} - 1) < \sigma(0, \floor{\frac{m}{2}})$ and 
     $\sigma(\floor{\frac{m}{2}} - 1, \ceil{\frac{m}{2}}) < \sigma(\floor{\frac{m}{2}}, 0)$.
 \end{definition}
 We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that satisfy condition $D_{m}$. 
 
-\begin{theorem}
-	Let $m \geq 5$. Under $\Sigma^{D_{m}}$, FB and PV fail PCC. Furthermore, when $m$ is odd, VR and SL also fail PCC. 
+\begin{theorem} \label{th:2votPCC}
+	Let $m \geq 5$. Under $\Sigma^{D_{m}}$, FB and PV fail PCC. Furthermore, when $m$ is odd, VR and SL also fail PCC.
 \end{theorem}
 \begin{proof}
-    Take any $m \geq 5$ and any $\sigma$ in $\Sigma^{D_m}$. Define $\alpha = \ceil{\frac{m}{2}} - 1$ and $\beta = \floor{\frac{m}{2}} - 1$. Note that $\sigma(\alpha + 1, \beta) < \sigma(0, \beta + 1)$ and $\sigma(\beta, \alpha + 1) < \sigma(\beta + 1, 0)$, and $\alpha + \beta + 2 = m$.
+    Take any $m \geq 5$ and any $\sigma \in \Sigma^{D_m}$. Define $\alpha = \ceil{\frac{m}{2}} - 1$ and $\beta = \floor{\frac{m}{2}} - 1$. Note that $\sigma(\alpha + 1, \beta) < \sigma(0, \beta + 1)$ and $\sigma(\beta, \alpha + 1) < \sigma(\beta + 1, 0)$, and $\alpha + \beta + 2 = m$.
     
 	Consider the following profile P:
 		\begin{center}
@@ -419,20 +419,67 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 			$
 		\end{center}
 	Note that $\sigma(\lambda_{P}(y)) = \sigma(\alpha + 1, \beta)$ and that $\sigma(\lambda_{P}(x)) = \sigma(0, \beta + 1)$. 
-	Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$. As $y$ is not Pareto-dominated, an SCR that uniquely picks $x$ at $P$ cannot be PCC. In a similar vein, at the profile $P'$ which is obtained by the inversion of the preferences of $i_1$ and $i_2$ at $P$, an SCR that is PCC cannot pick $x$ uniquely.
+	Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$. As $y$ is not Pareto-dominated, an SCR that uniquely picks $x$ at $P$ cannot be PCC. In a similar vein, at the profile $P'$ which is obtained by the inversion of the preferences of $i_1$ and $i_2$ at $P$, an SCR that is PCC cannot pick $x$ uniquely. \commentBN{I'm a bit confused by this phrasing, it seems that an SCR which picks $x$ and $y$ can be PCC. But $\sigma(y)$ is strictly less than $\sigma(x)$ so a PCC rule wouldn't pick $x$ at all.}
 	
 	The proof will be concluded by showing that FB, PV, and (when $m$ is odd) VR and SL all pick only $x$ at $P$ or at $P'$.
 	
 	We readily see that FB picks only $x$ at $P$ (and at $P'$) since $x$ is the first alternative which reaches the unanimous consent.
 	
-	For PV, let $v_1 ≥ v_2$ (thus $v_1 ≥ \frac{m-1}{2}$), and consider the profile $P$. Observe that the first voter vetoes at least $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) while no voter vetoes $x$. As $x$ Pareto-dominates every $a_j$ ($1 ≤ j ≤ \alpha$), PV picks only $x$ at $P$. When $v_2 ≥ v_1$, a similar reasoning yields that PV picks only $x$ at $P'$. 
+	For PV, let $v_1 ≥ v_2$ (thus $v_1 ≥ \frac{m-1}{2}$), and consider the profile $P$. Observe that the first voter vetoes at least $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) while no voter vetoes $x$. As $x$ Pareto-dominates every $a_j$ ($1 ≤ j ≤ \alpha$), PV picks only $x$ at $P$. When $v_2 ≥ v_1$, a similar reasoning yields that PV picks only $x$ at $P'$. \commentBN{I don't get this, if we invert the veto power but we also invert the voters don't we reach the same situation? The voter whose top preference is $x$ is always the one having a greater veto power. What does this prove?}
 	
-Now let $m$ be odd.
+	Now let $m$ be odd.
 	
 	For VR, a reasoning similar to the one applied to PV yields $x$ as the unique choice at $P$: the last $\frac{m-1}{2}$ alternatives get vetoed and among the $\frac{m-1}{2}$ ones remaining, $x$ has the highest Borda score, at it is the only non-dominated alternative of that set, so it would be selected as the sole winner.
 	
-	Finally, the SL rule would also pick $x$, as it is chosen no matter which voter starts the veto phase.
+	Finally, the SL rule would also pick $x$, as it is chosen no matter which voter starts the veto phase. In fact if $i_1$ starts, she vetoes her worst $\frac{m-1}{2}$ alternatives, thus $y$ and every $b_j$ ($1 ≤ j ≤ \beta$), then $i_2$ chooses her best alternative out of the remaining ones which is $x$. If $i_2$ starts, she vetoes every $a_j$ ($1 ≤ j ≤ \alpha$), then $i_1$ chooses her best alternative which is $x$. 
 \end{proof}
+ 
+ \subsection{More on the two voters case}
+ \begin{definition}
+ 	 A SCR $f$ satisfies the condition \textit{First Half} if it always picks one \commentBN{or more?} alternative which is ranked among the first half of both voters' preferences.
+ \end{definition}
+Please note that such an alternative always exists.
+
+\begin{proposition} FB, PV (when the vetoes are equally distributed), SL and VR all satisfy \textit{First Half}.
+\end{proposition}
+\begin{proof}
+	For FB, it is straightforward to see that, even if the two voters have opposite preferences, when descending level to reach unanimity we reach at most rank $\ceil{\frac{m}{2}}$.
+	Consider now PV, if the vetoes are equally distributed then by definition PV picks all Pareto alternatives that are ranked among the first half of both voters' preferences. 
+	The same reasoning can be applied for VR, where both voters exclude their least preferred $\frac{m-1}{2}$ alternatives, and for SL where one of the voter vetoes the alternatives appearing in the second half of her preferences. In this latter case, as $m$ is considered to be odd, the second voter has at least one alternative appearing both in the first half of her preferences and among the non-vetoed alternatives.
+\end{proof}
+
+Thus a SCR f is first half and Pareto iff f is a sub correspondence of PV.
+FB, SL and VR are first half and Pareto, thus being (proper) sub correspondences of PV.
+
+\begin{proposition} Under $\Sigma^{D_m}$ a SCR $f$ which is PCC does not satisfy first half.
+\end{proposition}
+Consider, as an example, the profile $P$ we described in the proof of \cref{th:2votPCC}. We said that any PCC rule would pick $y$ as a winner. But for every $m\geq5$, the alternative $y$ is not in the first half of the voter $i_1$ preferences.
+\\\\
+\textbf{Consideration:}
+Now, suppose, under a given sigma, we pick the among the PV alternatIves the one with the smallest loss spread. For example, at the profile 
+\begin{center}
+	$
+	\begin{array}{cccccc}
+		\mathbf{i_1} \quad &a&b&c&d&e\\
+		\mathbf{i_2} \quad &d&c&a&b&e\\
+	\end{array}
+	$
+\end{center}
+
+PV would pick a-c and the approach suggest, under a reasonable sigma, would refine this to the singleton c (which is also a refinement of FB).
+
+Question: what is this new rule? It refines PV. It is not FB. At the profile
+
+\begin{center}
+	$
+	\begin{array}{cccccc}
+		\mathbf{i_1} \quad &a&b&c&d&e\\
+		\mathbf{i_2} \quad &c&b&a&d&e\\
+	\end{array}
+	$
+\end{center}
+
+PV picks a-b-c, this rule refines it to b (which is the FB outcome) while SL picks a-c.
  
 \section{Concluding remarks}
 
