@@ -394,7 +394,7 @@ In \cref{sec:more2voters} we focused on the analysis of voting rules when the nu
 
 Again within the context of selecting arbitrators, \citet{Clippel2014} propose and analyze \textit{Shortlisting (SL)} where one of the two parties starts by vetoing her worst $\frac{m-1}{2}$ alternatives ($m$ being odd), and then the second party chooses her best alternative out of the remaining ones. As the outcome of the procedure depends on the party that starts, symmetry among players is ensured by defining the solution as the union of the two outcomes where one and the other party starts.
 
-\textit{Pareto-and-Veto (PV)} procedure \citep{Laslier2020} distributes a power to veto $v_1$ and $v_2$ alternatives to voters 1 and 2, respectively, with $v_1+v_2=m-1$. Every voter $v_i$ simultaneously vetoes his worst $v_i$ alternatives. The solution picks all non-vetoed and Pareto optimal alternatives.
+\textit{Pareto-and-Veto rules (PV)} \citep{Laslier2020} distribute a veto power of $v_1$ and $v_2$ alternatives to voters 1 and 2, respectively, with $v_1+v_2=m-1$. So, every voter $i=1,2$ (simultaneously) vetoes his worst $v_i$ alternatives. The SCR picks all non-vetoed and Pareto optimal alternatives.
 
 \begin{definition}
     Given any $m \geq 4$, a spread measure $\sigma \in \Sigma$ satisfies condition $D_m$ iff 
@@ -420,18 +420,22 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 		\end{center}
 	Note that $\sigma(\lambda_{P}(y)) = \sigma(\alpha + 1, \beta)$ and that $\sigma(\lambda_{P}(x)) = \sigma(0, \beta + 1)$. 
 	Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$. As $y$ is not Pareto-dominated, an SCR that uniquely picks $x$ at $P$ cannot be PCC. In a similar vein, at the profile $P'$ which is obtained by the inversion of the preferences of $i_1$ and $i_2$ at $P$, an SCR that is PCC cannot pick $x$ uniquely. \commentBN{I'm a bit confused by this phrasing, it seems that an SCR which picks $x$ and $y$ can be PCC. But $\sigma(y)$ is strictly less than $\sigma(x)$ so a PCC rule wouldn't pick $x$ at all.}
+		\commentRS{As $\sigma(y)$ is strictly less than $\sigma(x)$, $x$ cannot be minimizing the loss vector. Thus, a SCR that uniquely picks $x$ cannot be PCC. Isn't this argument valid?}
+	
 	
 	The proof will be concluded by showing that FB, PV, and (when $m$ is odd) VR and SL all pick only $x$ at $P$ or at $P'$.
 	
 	We readily see that FB picks only $x$ at $P$ (and at $P'$) since $x$ is the first alternative which reaches the unanimous consent.
 	
 	For PV, let $v_1 ≥ v_2$ (thus $v_1 ≥ \frac{m-1}{2}$), and consider the profile $P$. Observe that the first voter vetoes at least $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) while no voter vetoes $x$. As $x$ Pareto-dominates every $a_j$ ($1 ≤ j ≤ \alpha$), PV picks only $x$ at $P$. When $v_2 ≥ v_1$, a similar reasoning yields that PV picks only $x$ at $P'$. \commentBN{I don't get this, if we invert the veto power but we also invert the voters don't we reach the same situation? The voter whose top preference is $x$ is always the one having a greater veto power. What does this prove?}
+	\commentRS{We invert the preferences of players and get another preference profile while we the veto powers are kept fixed. Does this answer your question? If this is not clear, let's clarify it.}
 	
 	Now let $m$ be odd.
 	
 	For VR, a reasoning similar to the one applied to PV yields $x$ as the unique choice at $P$: the last $\frac{m-1}{2}$ alternatives get vetoed and among the $\frac{m-1}{2}$ ones remaining, $x$ has the highest Borda score, at it is the only non-dominated alternative of that set, so it would be selected as the sole winner.
+	\commentRS{When $m$ is odd, y and the b alternatives are vetoed by voter 1 and the a alternatives are vetoed by voter 2, thus $x$ is the only non-vetoed alternative. Am I right? If yes, this would simplfy the above argument, as well as the argument below for SL.}
 	
-	Finally, the SL rule would also pick $x$, as it is chosen no matter which voter starts the veto phase. In fact if $i_1$ starts, she vetoes her worst $\frac{m-1}{2}$ alternatives, thus $y$ and every $b_j$ ($1 ≤ j ≤ \beta$), then $i_2$ chooses her best alternative out of the remaining ones which is $x$. If $i_2$ starts, she vetoes every $a_j$ ($1 ≤ j ≤ \alpha$), then $i_1$ chooses her best alternative which is $x$. 
+	Finally, SL would also pick $x$, as it is chosen no matter which voter starts the veto phase. In fact if $i_1$ starts, she vetoes her worst $\frac{m-1}{2}$ alternatives, thus $y$ and every $b_j$ ($1 ≤ j ≤ \beta$), then $i_2$ chooses her best alternative out of the remaining ones which is $x$. If $i_2$ starts, she vetoes every $a_j$ ($1 ≤ j ≤ \alpha$), then $i_1$ chooses her best alternative which is $x$. 
 \end{proof}
  
  \subsection{More on the two voters case}
