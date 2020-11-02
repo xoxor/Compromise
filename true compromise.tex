@@ -350,7 +350,7 @@ The perfect equality recognition condition we adopt for spread measures, i.e., t
 
 As both vectors are $n$ dimensional, the term $m-2$ repeats $n-2$ times in the first vector and the term $0$ repeats $n-m+2$ times in the second vector.
 
-The condition is more convincing for larger values of $m$ and $n$. In fact, asking for $\sigma(0,2,1)$ to be smaller than $\sigma(1,0,0)$ is very demanding while asking for $\sigma(3,5,4,4,4,4,4)$ to be smaller than $\sigma(6,5,4,3,2,1,0)$ reflects a mild assumption. In any case, as we state below, several well-known spread measures of the literature (see xxx for a comprehensive account) satisfy \cref{def:conditionC} for reasonably small values of $m$ and $n$. Letting $\bar{l}=\frac{\sum_{i=1}^{n}l_i}{n}$ denote the arithmetic mean of the values of $l = (l_1, …, l_n)$, we consider the following measures:
+The condition is more convincing for larger values of $m$ and $n$. In fact, asking for $\sigma(0,2,1)$ to be smaller than $\sigma(1,0,0)$ is very demanding while asking for $\sigma(3,5,4,4,4,4,4)$ to be smaller than $\sigma(6,5,4,3,2,1,0)$ reflects a mild assumption. In any case, as we state below, several well-known spread measures of the literature (see \citet{Allison1978} for a comprehensive account) satisfy \cref{def:conditionC} for reasonably small values of $m$ and $n$. Letting $\bar{l}=\frac{\sum_{i=1}^{n}l_i}{n}$ denote the arithmetic mean of the values of $l = (l_1, …, l_n)$, we consider the following measures:
 
 \begin{itemize}
 	\item the Gini coefficient $\sigma_{G}(l)= \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}|l_i-l_j|}{2 \cdot n \cdot \sum_{i=1}^{n} l_i}$;
@@ -390,7 +390,7 @@ We write $\Sigma^{C_{m,n}} \subseteq \Sigma$ for the set of spread measures that
 \section{Two voters case}
 In \cref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in \cref{sec:notation}, we consider here the case $n=2$. Two individuals express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems. In addition to \textit{fallback bargaining (FB)} \citep{Brams2001} (defined in \cref{sec:BKn3}) we consider three prominent solutions of the literature.
 
-\textit{Veto Ranking (VR)} is commonly used in the selection of arbitrators \citep[see][]{Clippel2014}. Given a list of $m$ (odd) alternatives (that are candidates to be arbitrators), each of the two voters (that are the two parties that must agree on an arbitrator) simultaneously vetoes his worst $\frac{m-1}{2}$ alternatives. The selected alternatives are the ones with the highest Borda score among the non-vetoed alternatives.
+The \textit{Veto-Rank mechanism (VR)} is commonly used in the selection of arbitrators \citep[see][]{Clippel2014}. Given a list of $m$ (odd) alternatives (that are candidates to be arbitrators), each of the two voters (that are the two parties that must agree on an arbitrator) simultaneously vetoes his worst $\frac{m-1}{2}$ alternatives. The selected alternatives are the ones with the highest Borda score among the non-vetoed alternatives.
 
 Again within the context of selecting arbitrators, \citet{Clippel2014} propose and analyze \textit{Shortlisting (SL)} where one of the two parties starts by vetoing her worst $\frac{m-1}{2}$ alternatives ($m$ being odd), and then the second party chooses her best alternative out of the remaining ones. As the outcome of the procedure depends on the party that starts, symmetry among players is ensured by defining the solution as the union of the two outcomes where one and the other party starts.
 
@@ -401,6 +401,8 @@ Again within the context of selecting arbitrators, \citet{Clippel2014} propose a
     $\sigma(\ceil{\frac{m}{2}}, \floor{\frac{m}{2}} - 1) < \sigma(0, \floor{\frac{m}{2}})$ and 
     $\sigma(\floor{\frac{m}{2}} - 1, \ceil{\frac{m}{2}}) < \sigma(\floor{\frac{m}{2}}, 0)$.
 \end{definition}
+For $m=4$ the condition requires $\sigma(2,1)$ to be smaller than $\sigma(0,2)$ which is reasonable when looking for a compromise. When the value of $m$ is larger, the condition appears even more convincing. As $m$ grows, the distance between $0$ and $\floor{\frac{m}{2}}$ grows, while the distance between $\ceil{\frac{m}{2}}$ and $\floor{\frac{m}{2}} - 1$ remains constant ($1$ if $m$ is even, $2$ otherwise). Requiring, for example, the spread of $(15,14)$ to be smaller than the spread of $(0,15)$ is very reasonable.
+
 We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that satisfy condition $D_{m}$. 
 
 \begin{theorem} \label{th:2votPCC}
@@ -419,23 +421,19 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 			$
 		\end{center}
 	Note that $\sigma(\lambda_{P}(y)) = \sigma(\alpha + 1, \beta)$ and that $\sigma(\lambda_{P}(x)) = \sigma(0, \beta + 1)$. 
-	Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$. As $y$ is not Pareto-dominated, an SCR that uniquely picks $x$ at $P$ cannot be PCC. In a similar vein, at the profile $P'$ which is obtained by the inversion of the preferences of $i_1$ and $i_2$ at $P$, an SCR that is PCC cannot pick $x$ uniquely. \commentBN{I'm a bit confused by this phrasing, it seems that an SCR which picks $x$ and $y$ can be PCC. But $\sigma(y)$ is strictly less than $\sigma(x)$ so a PCC rule wouldn't pick $x$ at all.}
-		\commentRS{As $\sigma(y)$ is strictly less than $\sigma(x)$, $x$ cannot be minimizing the loss vector. Thus, a SCR that uniquely picks $x$ cannot be PCC. Isn't this argument valid?}
-	
+	Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$. As $y$ is not Pareto-dominated, an SCR that uniquely picks $x$ at $P$ cannot be PCC. In a similar vein, at the profile $P'$ which is obtained by the inversion of the preferences of $i_1$ and $i_2$ at $P$, an SCR that is PCC cannot pick $x$ uniquely.	
 	
 	The proof will be concluded by showing that FB, PV, and (when $m$ is odd) VR and SL all pick only $x$ at $P$ or at $P'$.
 	
 	We readily see that FB picks only $x$ at $P$ (and at $P'$) since $x$ is the first alternative which reaches the unanimous consent.
 	
-	For PV, let $v_1 ≥ v_2$ (thus $v_1 ≥ \frac{m-1}{2}$), and consider the profile $P$. Observe that the first voter vetoes at least $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) while no voter vetoes $x$. As $x$ Pareto-dominates every $a_j$ ($1 ≤ j ≤ \alpha$), PV picks only $x$ at $P$. When $v_2 ≥ v_1$, a similar reasoning yields that PV picks only $x$ at $P'$. \commentBN{I don't get this, if we invert the veto power but we also invert the voters don't we reach the same situation? The voter whose top preference is $x$ is always the one having a greater veto power. What does this prove?}
-	\commentRS{We invert the preferences of players and get another preference profile while we the veto powers are kept fixed. Does this answer your question? If this is not clear, let's clarify it.}
+	For PV, let $v_1 ≥ v_2$ (thus $v_1 ≥ \frac{m-1}{2}$), and consider the profile $P$. Observe that the first voter vetoes at least $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) while no voter vetoes $x$. As $x$ Pareto-dominates every $a_j$ ($1 ≤ j ≤ \alpha$), PV picks only $x$ at $P$. When $v_2 ≥ v_1$, a similar reasoning yields that PV picks only $x$ at $P'$. \commentBN{I think I got it, $\forall \ v_1, v_2$ we want to find a profile for which it fails. Is it worth to add few words to clarify this? }
 	
 	Now let $m$ be odd.
 	
-	For VR, a reasoning similar to the one applied to PV yields $x$ as the unique choice at $P$: the last $\frac{m-1}{2}$ alternatives get vetoed and among the $\frac{m-1}{2}$ ones remaining, $x$ has the highest Borda score, at it is the only non-dominated alternative of that set, so it would be selected as the sole winner.
-	\commentRS{When $m$ is odd, y and the b alternatives are vetoed by voter 1 and the a alternatives are vetoed by voter 2, thus $x$ is the only non-vetoed alternative. Am I right? If yes, this would simplfy the above argument, as well as the argument below for SL.}
-	
-	Finally, SL would also pick $x$, as it is chosen no matter which voter starts the veto phase. In fact if $i_1$ starts, she vetoes her worst $\frac{m-1}{2}$ alternatives, thus $y$ and every $b_j$ ($1 ≤ j ≤ \beta$), then $i_2$ chooses her best alternative out of the remaining ones which is $x$. If $i_2$ starts, she vetoes every $a_j$ ($1 ≤ j ≤ \alpha$), then $i_1$ chooses her best alternative which is $x$. 
+	For VR, a reasoning similar to the one applied to PV yields $x$ as the unique choice at $P$: each voter vetoes her worst $\frac{m-1}{2}$ alternatives, thus $i_1$ vetoes $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) and $i_2$ vetoes every $a_j$ ($1 ≤ j ≤ \alpha$). The alternative $x$ is the only non-vetoed alternative, so it is selected as the sole winner.
+
+	Finally, SL also picks $x$, as it is chosen no matter which voter starts the veto phase. In fact if $i_1$ starts, $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) get vetoed, then $i_2$ chooses her best alternative out of the remaining ones which is $x$. If $i_2$ starts, every $a_j$ ($1 ≤ j ≤ \alpha$) get vetoed, then $i_1$ chooses her best alternative which is $x$. 
 \end{proof}
  
  \subsection{More on the two voters case}
@@ -444,7 +442,7 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
  \end{definition}
 Please note that such an alternative always exists.
 
-\begin{proposition} FB, PV (when the vetoes are equally distributed), SL and VR all satisfy \textit{First Half}.
+\begin{proposition} FB, PV (when the veto powers are equally distributed), SL and VR all satisfy \textit{First Half}.
 \end{proposition}
 \begin{proof}
 	For FB, it is straightforward to see that, even if the two voters have opposite preferences, when descending level to reach unanimity we reach at most rank $\ceil{\frac{m}{2}}$.
