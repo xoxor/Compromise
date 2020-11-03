@@ -317,7 +317,7 @@ Therefore, $r_{\prefi}(y) ≠ r_{\pref_j}(y)$.
 	%Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...
 	%\text{ }a_{m}\right\} $. Pick some $q\in \left\{ 1,...,n\right\} $ and
 	%consider the BK compromise $f_{q}$. 
-	Consider the following profile $P$, where the dots represent the sequence $a_4$ to $a_m$ (also used in the proof of \cref{th:condorcet}):
+	Consider the following profile $P$ (also used in the proof of \cref{th:condorcet}), where the dots represent the sequence $a_4$ to $a_m$:
 	\begin{center}
 		$
 		\begin{array}{cccccc}
@@ -326,7 +326,7 @@ Therefore, $r_{\prefi}(y) ≠ r_{\pref_j}(y)$.
 		\end{array}
 		$.
 	\end{center}
-	We have that $f_{q}(P)=\{a_1\}$, and, because $\sigma(\lambda_P(a_2)) = 0$ and $\sigma(\lambda_P(a_1)) > 0$, neither $\musigma(P)$ nor $\mustar(P)$ contain $a_1$ for any $\sigma \in \Sigma$. 
+	We have that $f_{q}(P)=\{a_1\}$, and, because $\sigma(\lambda_P(a_2)) = 0$ and $\sigma(\lambda_P(a_1)) > 0$, neither $\musigma$ nor $\mustar$ contain $a_1$ for any $\sigma \in \Sigma$. 
 	%Remzi's proof
 	%Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...%
 	%\text{ }a_{m}\right\} $. Pick some $q\in \left\{ 1,...,n\right\} $ and
@@ -488,7 +488,9 @@ PV picks a-b-c, this rule refines it to b (which is the FB outcome) while SL pic
 \section{Concluding remarks}
 
 We define an ex-post compromise as an outcome where individuals give up as equally as possible \commentOC{(suggestion)} from their ideal points. With three or more individuals, several interesting \acp{SCR} of the literature (that can be interpreted as voting rules), namely Condorcet extensions, scoring rules (except antiplurality) and BK-compromises (except fallback bargaining where threshold is unanimity) fail to pick ex-post compromises, under any reasonable meaning attributed to “giving up equally”. This failure is valid whether Pareto optimality is adopted or not while the positive results for antiplurality and fallback bargaining quickly vanish when a mild condition is imposed over the definition of “giving up equally”. Thus, we can conclude that all these \acp{SCR} are not compatible with being ex-post compromises. Even BK-compromises are procedural or ex-ante compromises. They impose a willingness to compromise over individuals but they may eventually pick an outcome so that some individuals do not effectively compromise at all.
-These findings are rather expected, as voting rules are typically unconcerned about envy-freeness among voters while this is the underlying notion of an ex-post compromise. On the other hand, even with two individuals where the collective choice problem is interpreted as a bargaining problem that requires mutual consent, all well-known \acp{SCR} of the literature, namely fallback bargaining, Pareto and veto rules, short listing, veto rank, all fail to pick ex-post compromises. 
+These findings are rather expected, as voting rules are typically unconcerned about envy-freeness among voters while this is the underlying notion of an ex-post compromise. 
+\commentOC{Can we find some way of saying essentially the same thing without using the envy-freeness terminology, which I find misleading?}
+On the other hand, this concern arguably should not weight much in the context of two individuals where the collective choice problem is interpreted as a bargaining problem that requires mutual consent. But all well-known \acp{SCR} of the literature, namely, fallback bargaining, Pareto and veto rules, short listing and veto rank, fail to pick ex-post compromises in this context. 
 
 \commentOC{Beatrice, can you please have a look at the refs? Each of them should have a DOI if possible, and should have an URL iff they do not have a DOI.}
 
