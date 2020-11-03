@@ -85,7 +85,8 @@ Section 2 presents the basic notions and notation. Section 3 introduces egalitar
 \label{sec:notation}
 Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 3$. We write $\linors$ for the set of linear orders over $A$.
 A generic element $\prefi$ of $\linors$ stands for a preference of $i\in N$.%
-\footnote{So given any $x ≠ y\in A$, precisely one of $x \prefi y$ and $y\prefi x$ holds while $x \prefi x$ holds for no $x\in A.$ Moreover, $x\prefi y$ and $y\prefi z$ implies $x\prefi z$ $\forall x,y,z\in A$.}
+\footnote{So given any $x ≠ y\in A$, precisely one of $x \prefi y$ and $y\prefi x$ holds while $x \prefi x$ holds for no $x\in A.$ Moreover, $x\prefi y$ and $y\prefi z$ implies $x\prefi z$ $\forall x,y,z\in A$.
+\commentOC{I’d like to suggest to integrate the footnotes in the text.}}
 A \emph{profile} $P: N → \linors$ associates with each individual $i \in N$ a preference order  $P(i) = {\prefi}$. A \emph{\acl{SCR}} (\acs{SCR}) is a mapping $f:\linors^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. 
 
 We write $r_{\prefi}(x)=\#\{y\in A \suchthat y \prefi x\}+1$ for the \emph{rank} of $x\in A$ at ${\prefi} \in \linors$. We denote by $\lambda_{\prefi}(x)=r_{\prefi}(x)-1$ the loss in terms of ranks for $i\in N$ with preference $\prefi$, when $x$ is elected instead of the best alternative
@@ -393,6 +394,7 @@ The \textit{Veto-Rank mechanism (VR)} is commonly used in the selection of arbit
 Again within the context of selecting arbitrators, \citet{Clippel2014} propose and analyze \textit{Shortlisting (SL)} where one of the two parties starts by vetoing her worst $\frac{m-1}{2}$ alternatives ($m$ being odd), and then the second party chooses her best alternative out of the remaining ones. As the outcome of the procedure depends on the party that starts, symmetry among players is ensured by defining the solution as the union of the two outcomes where one and the other party starts.
 
 \textit{Pareto-and-Veto rules (PV)} \citep{Laslier2020} distribute a veto power of $v_1$ and $v_2$ alternatives to voters 1 and 2, respectively, with $v_1+v_2=m-1$. So, every voter $i=1,2$ (simultaneously) vetoes his worst $v_i$ alternatives. The \ac{SCR} picks all non-vetoed and Pareto optimal alternatives.
+\commentOC{Perhaps we should move this § above, to present together the two rules that are defined for all $m$, then the two rules that are defined for $m$ odd; and to match the order used in the proof. Unless we find it more suitable to follow the chronological order.}
 
 \begin{definition}
     Given any $m \geq 4$, a spread measure $\sigma \in \Sigma$ satisfies condition $D_m$ iff 
@@ -416,8 +418,9 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 				\mathbf{i_1} \quad &x&a_1&\dots&&a_\alpha&y&b_1&\dots&b_\beta\\
 				\mathbf{i_2} \quad &b_1&\dots&b_\beta&y&x&a_1&\dots&&a_\alpha\\
 			\end{array}
-			$
+			$.
 		\end{center}
+	\commentOC{This display may be misleading, because this alignment of alternatives is only correct for $m$ even (that is, when $\alpha = \beta + 1$). I suggest to not display $P$, and write instead: Consider the profile $P$ where voter $1$ has the preference order $x > a_1 > … > a_\alpha > y > b_1 > … > b_\beta$ and voter $2$ has the preference order $b_1 > … > b_\beta > y > x > a_1 > … > a_\alpha$.}
 	Note that $\sigma(\lambda_{P}(y)) = \sigma(\alpha + 1, \beta)$ and that $\sigma(\lambda_{P}(x)) = \sigma(0, \beta + 1)$. 
 	Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$. As $y$ is not Pareto-dominated, an \ac{SCR} that uniquely picks $x$ at $P$ cannot be PCC. In a similar vein, at the profile $P'$ which is obtained by the inversion of the preferences of $i_1$ and $i_2$ at $P$, an \ac{SCR} that is PCC cannot pick $x$ uniquely.	
 	
@@ -425,25 +428,25 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 	
 	We readily see that FB picks only $x$ at $P$ (and at $P'$) since $x$ is the first alternative which reaches the unanimous consent.
 	
-	For PV, let $v_1 ≥ v_2$ (thus $v_1 ≥ \frac{m-1}{2}$), and consider the profile $P$. Observe that the first voter vetoes at least $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) while no voter vetoes $x$. As $x$ Pareto-dominates every $a_j$ ($1 ≤ j ≤ \alpha$), PV picks only $x$ at $P$. When $v_2 ≥ v_1$, a similar reasoning yields that PV picks only $x$ at $P'$. \commentBN{I think I got it, $\forall \ v_1, v_2$ we want to find a profile for which it fails. Is it worth to add few words to clarify this? }
+	For PV, let $v_{i_1} ≥ v_{i_2}$ (thus $v_{i_1} ≥ \ceil{\frac{m-1}{2}}$ and $v_{i_2} ≤ \floor{\frac{m - 1}{2}}$, or equivalently, $v_{i_1} ≥ \floor{\frac{m}{2}} = \beta + 1$ and $v_{i_2} ≤ \ceil{\frac{m - 2}{2}} = \alpha$) \commentOC{Modified this parenthesis.}, and consider the profile $P$. Observe that the first voter vetoes at least $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) while no voter vetoes $x$. As $x$ Pareto-dominates every $a_j$ ($1 ≤ j ≤ \alpha$), PV picks only $x$ at $P$. When $v_{i_2} ≥ v_{i_1}$, a similar reasoning yields that PV picks only $x$ at $P'$. \commentBN{I think I got it, $\forall \ v_1, v_2$ we want to find a profile for which it fails. Is it worth to add few words to clarify this? }
 	
 	Now let $m$ be odd.
 	
 	For VR, a reasoning similar to the one applied to PV yields $x$ as the unique choice at $P$: each voter vetoes her worst $\frac{m-1}{2}$ alternatives, thus $i_1$ vetoes $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) and $i_2$ vetoes every $a_j$ ($1 ≤ j ≤ \alpha$). The alternative $x$ is the only non-vetoed alternative, so it is selected as the sole winner.
 
-	Finally, SL also picks $x$, as it is chosen no matter which voter starts the veto phase. In fact if $i_1$ starts, $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) get vetoed, then $i_2$ chooses her best alternative out of the remaining ones which is $x$. If $i_2$ starts, every $a_j$ ($1 ≤ j ≤ \alpha$) get vetoed, then $i_1$ chooses her best alternative which is $x$. 
+	Finally, SL also picks $x$, as it is the unique winner no matter which voter starts the veto phase. If $i_1$ starts, $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) get vetoed, then $i_2$ chooses her best alternative out of the remaining ones which is $x$. If $i_2$ starts, every $a_j$ ($1 ≤ j ≤ \alpha$) get vetoed, then $i_1$ chooses her best alternative which is $x$. 
 \end{proof}
  
  \subsection{More on the two voters case}
  \begin{definition}
- 	 A \ac{SCR} $f$ satisfies the condition \textit{First Half} if it always picks one \commentBN{or more?} alternative which is ranked among the first half of both voters' preferences.
+ 	 A \ac{SCR} $f$ satisfies the condition \textit{First Half} if it always picks one \commentBN{or more?} alternative which is ranked among the first half of both voters’s preferences.
  \end{definition}
-Please note that such an alternative always exists.
+Please note that such an alternative always exists.\commentOC{Under condition that $m$ is odd and “the first half” is defined as the bigger half.}
 
 \begin{proposition} FB, PV (when the veto powers are equally distributed), SL and VR all satisfy \textit{First Half}.
 \end{proposition}
 \begin{proof}
-	For FB, it is straightforward to see that, even if the two voters have opposite preferences, when descending level to reach unanimity we reach at most rank $\ceil{\frac{m}{2}}$.
+	For FB, it is straightforward to see that, even if the two voters have opposite preferences, when descending level to reach unanimity we reach at most rank $\ceil{\frac{m}{2}}$ \commentOC{I’d say $\ceil{\frac{m + 1}{2}}$, which is equivalent when $m$ is odd but also works when $m$ is even}.
 	Consider now PV, if the vetoes are equally distributed then by definition PV picks all Pareto alternatives that are ranked among the first half of both voters' preferences. 
 	The same reasoning can be applied for VR, where both voters exclude their least preferred $\frac{m-1}{2}$ alternatives, and for SL where one of the voter vetoes the alternatives appearing in the second half of her preferences. In this latter case, as $m$ is considered to be odd, the second voter has at least one alternative appearing both in the first half of her preferences and among the non-vetoed alternatives.
 \end{proof}
