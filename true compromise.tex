@@ -512,7 +512,8 @@ These findings are rather expected, as voting rules are typically unconcerned ab
 	
 	For $1 ≤ i ≤ m - 2$, 
 	\begin{align}
-		f_{l_2}(i) &= [(i - 1) + (i - 2) + … + 0] + [1 + … + (m - 2 - i)] \\
+		f_{l_2}(i) &= \sum_{1 ≤ j ≤ i} |l_i - l_j| + \sum_{i < j ≤ m - 2} |l_i - l_j| + \sum_{m - 2 < j ≤ n} |l_i - l_j|\\
+		&= [(i - 1) + (i - 2) + … + 0] + [1 + … + (m - 2 - i)] \\
 		&\quad + (m - 1 - i) (n - m + 2)\\
 	%	[that’s i terms, then m - 2 - i terms, then n - m + 2 terms]
 		&= \frac{(i - 1) i}{2} + \frac{(m - 2 - i) (m - 1 - i)}{2} + (m - 1 - i) (n - m + 2)\\
@@ -533,7 +534,7 @@ These findings are rather expected, as voting rules are typically unconcerned ab
 		&\quad + (n - m + 2) (m - 2) (m - 1) / 2\\
 %		&\quad + n (m - 2) (m - 1) / 2 - (m - 2)^2 (m - 1) / 2\\
 		&= (m - 2) (m - 1) \left(\frac{2m - 3}{6} - \frac{n + 1}{2} + \frac{- m + 2n + 2}{2} + \frac{n - m + 2}{2}\right)\\
-		&= (m - 2) (m - 1) \left(\frac{2m - 3}{6} + \frac{- 2m + 3 + 2n}{2}\right)\\
+%		&= (m - 2) (m - 1) \left(\frac{2m - 3}{6} + \frac{- 2m + 3 + 2n}{2}\right)\\
 		&= (m - 2) (m - 1) \left(\frac{-2m + 3}{3} + n\right).
 	\end{align}
 		
