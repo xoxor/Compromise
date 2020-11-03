@@ -32,12 +32,12 @@
 \section{Introduction}
 \label{sec:introduction}
 
-In a classical social choice scenario, several individuals express their preferences over a set of alternatives and there is no unique procedure for selecting a common agreement between them. Nevertheless, there is an accepted understanding that collective choices must reflect compromises. One of the first to explicitly refer to a social choice rule (SCR) as a compromise is \citet{Sertel1986} introducing the \textit{majoritarian compromise}. This SCR, further analyzed by \citet{Sertel1999}, is a rediscovery of a method suggested by James W. Bucklin at the beginning of the 20th century (for more details see \citet{Erdelyi2015}). It falls back from considering everyone’s ideal alternative to considering the voters’ second, third and more generally k-\emph{th} best until one of the alternatives is among the first k best for a majority. \citet{Brams2001} generalize this concept and introduce a class of SCRs called $q-$\textit{approval fall-back bargaining }where $q$ is the level of required support which can vary from a single voter up to unanimity. Naturally, different choices of $q$ lead to different SCRs, such as $q=1$ giving the plurality rule; $q$ being majority giving the majoritarian compromise and $q$ being unanimity giving a bargaining procedure called \textit{fall-back bargaining} which has been further analyzed by \citet{Kibris2007} and \citet{Congar2012}. 
+In a classical social choice scenario, several individuals express their preferences over a set of alternatives and there is no unique procedure for selecting a common agreement between them. Nevertheless, there is an accepted understanding that collective choices must reflect compromises. One of the first to explicitly refer to a \ac{SCR} as a compromise is \citet{Sertel1986} introducing the \textit{majoritarian compromise}. This \ac{SCR}, further analyzed by \citet{Sertel1999}, is a rediscovery of a method suggested by James W. Bucklin at the beginning of the 20th century (for more details see \citet{Erdelyi2015}). It falls back from considering everyone’s ideal alternative to considering the voters’ second, third and more generally k-\emph{th} best until one of the alternatives is among the first k best for a majority. \citet{Brams2001} generalize this concept and introduce a class of \acp{SCR} called $q-$\textit{approval fall-back bargaining }where $q$ is the level of required support which can vary from a single voter up to unanimity. Naturally, different choices of $q$ lead to different \acp{SCR}, such as $q=1$ giving the plurality rule; $q$ being majority giving the majoritarian compromise and $q$ being unanimity giving a bargaining procedure called \textit{fall-back bargaining} which has been further analyzed by \citet{Kibris2007} and \citet{Congar2012}. 
 
-As \citet{OezkalSanver2004} discuss, the concept of compromising is mostly understood as the trade off between the number of voters supporting an alternative (i.e., the quantity of support) and the distance of that alternative from the supporters' ideal alternative (i.e., the quality of support). This trade off, which is explicit for $q-$approval fall-back bargaining, is also the basis for several other SCRs such as the \textit{median voting rule} proposed by \citet{Bassett1999} and further analyzed by \citet{Gehrlein2003} or the \textit{Condorcet practical method }described by \citet{Nurmi1999}.
+As \citet{OezkalSanver2004} discuss, the concept of compromising is mostly understood as the trade off between the number of voters supporting an alternative (i.e., the quantity of support) and the distance of that alternative from the supporters' ideal alternative (i.e., the quality of support). This trade off, which is explicit for $q-$approval fall-back bargaining, is also the basis for several other \acp{SCR} such as the \textit{median voting rule} proposed by \citet{Bassett1999} and further analyzed by \citet{Gehrlein2003} or the \textit{Condorcet practical method }described by \citet{Nurmi1999}.
 
 \citet{Merlin2019} identify and analyze a large class of \textit{compromise rules} which are based on balancing the trade off between the quality and the quantity of support. On the other hand, as conflicting
-individual preferences over the available alternatives makes impossible to ensure the best outcome for every member of the group, one can argue that making a collective choice \textit{per se} implies compromising. In that sense, every SCR incorporates some understanding of what a compromise means. To be sure, there are instances where this understanding may contradict common sense, such as dictatorships where one voter always ensures his best outcome whatever the others prefer. Nevertheless, interesting SCRs base the collective choice on the principle that all voters may have to fall back from their ideal position. Whether, at the end of the day, all voters do effectively fall back or not is another issue which is the subject matter of this paper.
+individual preferences over the available alternatives makes impossible to ensure the best outcome for every member of the group, one can argue that making a collective choice \textit{per se} implies compromising. In that sense, every \ac{SCR} incorporates some understanding of what a compromise means. To be sure, there are instances where this understanding may contradict common sense, such as dictatorships where one voter always ensures his best outcome whatever the others prefer. Nevertheless, interesting \acp{SCR} base the collective choice on the principle that all voters may have to fall back from their ideal position. Whether, at the end of the day, all voters do effectively fall back or not is another issue which is the subject matter of this paper.
 
 Sometimes, indeed, they do not. This observation was the basis for an objection made by Jean-François Laslier to the nomenclature on compromising.\footnote{This happened at a CNRS workshop on compromising hosted by Istanbul Bilgi University at Buyukada, Istanbul on fall 2018.} Consider the following example.
 \begin{example}
@@ -54,7 +54,7 @@ Sometimes, indeed, they do not. This observation was the basis for an objection 
 	which represents one individual who prefers $c$ to $b$, $b$ to $a$, hence $c$ to $a$; and $n-1$ individuals who prefer $a$ to $b$, $b$ to $c$, hence $a$ to $c$. At $P$, all BK-compromises, except fall-back bargaining i.e. when $q=n$, will ignore the single voter and will pick $a$ as the collective outcome.
 \end{example}
 
-As a matter of fact, almost every interesting SCR will ignore this “marginal minority” and choose $a$ in this situation. While this choice is defensible on the grounds of qualified majoritarianism, the presence of $b$, which receives unanimous support when each voter falls back one step from his ideal point, renders questionable whether $a$ can be qualified as a compromise. The question becomes even more acute for majoritarian SCRs, including the majoritarian compromise, where $a$ would
+As a matter of fact, almost every interesting \ac{SCR} will ignore this “marginal minority” and choose $a$ in this situation. While this choice is defensible on the grounds of qualified majoritarianism, the presence of $b$, which receives unanimous support when each voter falls back one step from his ideal point, renders questionable whether $a$ can be qualified as a compromise. The question becomes even more acute for majoritarian \acp{SCR}, including the majoritarian compromise, where $a$ would
 remain the collective choice even when the ignored group is much larger.
 
 \begin{example}
@@ -71,22 +71,22 @@ remain the collective choice even when the ignored group is much larger.
 	When $q\in \intvl{1,\frac{n}{2}+1} $, all BK-compromises pick $a$, and, again, it does not appear as a compromise as 51 voters reach their best alternative while the remaining 49 voters have to be contented with their worst one. Note that for $q\in \intvl{1,\frac{n}{2}-1} $ the set of possible common agreements determined by the fall-back bargaining procedure is $\{a,c\}$. Nevertheless, $a$ receives the highest support, thus it is elected.
 \end{example}
 
-It is important to observe that all these SCRs impose to voters a willingness to compromise which does not mean that under the collective choice that will be made, all voters will be effectively compromising. In other words, the term “compromise” in this literature refers to procedural or \textit{ex-ante} compromises, which is different than outcome oriented or \textit{ex-post} compromises, a conceptual distinction that seems to be overlooked in the literature.
+It is important to observe that all these \acp{SCR} impose to voters a willingness to compromise which does not mean that under the collective choice that will be made, all voters will be effectively compromising. In other words, the term “compromise” in this literature refers to procedural or \textit{ex-ante} compromises, which is different than outcome oriented or \textit{ex-post} compromises, a conceptual distinction that seems to be overlooked in the literature.
 
 To define an ex-post compromise, we adopt to our framework a concept of equal losses that is prevalent in the literature that considers the allocation of continuous utilities. This principle is used for bargaining problems \citep{Chun1988}, \citep{Chun1991} as well as for bankruptcy problems \citep{Herrero2001}. 
 We introduce two definitions for being a compromise. In both of them, we pick a spread measure that determines how equally a given vector of real numbers is distributed and make a collective choice where voters give up from their ideal points “as equal as possible". \footnote{A discussion of the literature on spread measures is given in \cref{sec:RestrictionOnSigma}.} However, one of them, called \textit{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \textit{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. 
-The two concepts are logically incompatible. As a result, Pareto efficient SCRs cannot ensure egalitarian compromises and this is valid under any spread measure. Moreover, several well-knowm SCRs of the literature such as Condorcet extensions, scoring rules, $q-$approval fall-back bargaining, all fail to be Paretian compromises under any spread measure. In fact, we are able to observe the existence of instances where being a Paretian compromise necessitates to pick an alternative that is, although Pareto optimal, ranked so low by all voters that this alternative wouldn't be picked by any of the popular SCRs of the literature. All these observations make the equal-loss principle appear quite inadequate for collective choice problems, unless envy-freeness is a major concern.
+The two concepts are logically incompatible. As a result, Pareto efficient \acp{SCR} cannot ensure egalitarian compromises and this is valid under any spread measure. Moreover, several well-known \acp{SCR} of the literature such as Condorcet extensions, scoring rules, $q-$approval fall-back bargaining, all fail to be Paretian compromises under any spread measure. In fact, we are able to observe the existence of instances where being a Paretian compromise necessitates to pick an alternative that is, although Pareto optimal, ranked so low by all voters that this alternative wouldn't be picked by any of the popular \acp{SCR} of the literature. All these observations make the equal-loss principle appear quite inadequate for collective choice problems, unless envy-freeness is a major concern.
 
-Collective choice models with two individuals present instances where envy-freeness matters. Here, the model is interpreted as a bargaining problem and bargaining procedures replace voting rules. As prominent examples, we have fallback bargaining proposed by \citet{Brams2001}; the unanimity compromise and the rational compromise introduced by \citet{Kibris2007}; the veto-rank and short listing procedures analyzed by \citet{Clippel2014} and the Pareto-and-veto rules analyzed by \citet{Laslier2020}. As is ours, these are all models with discrete alternatives which are not contained by the classical \citet{Nash1950} bargaining environment with convex utilities. However, as \citet{Mariotti1998} and \citet{Nagahisa2002} illustrate, the two worlds can be interconnected, as we do for the equal-loss principle of \citet{Chun1988} and \citet{Chun1991}. As a rather surprising finding, several interesting SCRs used as a bargaining solution also fail to be Paretian compromises.
+Collective choice models with two individuals present instances where envy-freeness matters. Here, the model is interpreted as a bargaining problem and bargaining procedures replace voting rules. As prominent examples, we have fallback bargaining proposed by \citet{Brams2001}; the unanimity compromise and the rational compromise introduced by \citet{Kibris2007}; the veto-rank and short listing procedures analyzed by \citet{Clippel2014} and the Pareto-and-veto rules analyzed by \citet{Laslier2020}. As is ours, these are all models with discrete alternatives which are not contained by the classical \citet{Nash1950} bargaining environment with convex utilities. However, as \citet{Mariotti1998} and \citet{Nagahisa2002} illustrate, the two worlds can be interconnected, as we do for the equal-loss principle of \citet{Chun1988} and \citet{Chun1991}. As a rather surprising finding, several interesting \acp{SCR} used as a bargaining solution also fail to be Paretian compromises.
 
-Section 2 presents the basic notions and notation. Section 3 introduces egalitarian compromises and Paretian compromises, two concepts that turn out to be logically incompatible. Section 4 shows that with at least three individuals, several SCRs fail to pick a compromise. Section 5 considers the two-individual case, again showing that several SCRs of the literature fail to pick compromises. Section 6 makes some concluding remarks. 
+Section 2 presents the basic notions and notation. Section 3 introduces egalitarian compromises and Paretian compromises, two concepts that turn out to be logically incompatible. Section 4 shows that with at least three individuals, several \acp{SCR} fail to pick a compromise. Section 5 considers the two-individual case, again showing that several \acp{SCR} of the literature fail to pick compromises. Section 6 makes some concluding remarks. 
 
 \section{Basic notions and notation}
 \label{sec:notation}
 Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 3$. We write $\linors$ for the set of linear orders over $A$.
 A generic element $\prefi$ of $\linors$ stands for a preference of $i\in N$.%
 \footnote{So given any $x ≠ y\in A$, precisely one of $x \prefi y$ and $y\prefi x$ holds while $x \prefi x$ holds for no $x\in A.$ Moreover, $x\prefi y$ and $y\prefi z$ implies $x\prefi z$ $\forall x,y,z\in A$.}
-A \emph{profile} $P: N → \linors$ associates with each individual $i \in N$ a preference order  $P(i) = {\prefi}$. A \emph{social choice rule} (SCR) is a mapping $f:\linors^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. 
+A \emph{profile} $P: N → \linors$ associates with each individual $i \in N$ a preference order  $P(i) = {\prefi}$. A \emph{\acl{SCR}} (\acs{SCR}) is a mapping $f:\linors^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. 
 
 We write $r_{\prefi}(x)=\#\{y\in A \suchthat y \prefi x\}+1$ for the \emph{rank} of $x\in A$ at ${\prefi} \in \linors$. We denote by $\lambda_{\prefi}(x)=r_{\prefi}(x)-1$ the loss in terms of ranks for $i\in N$ with preference $\prefi$, when $x$ is elected instead of the best alternative
 for $i$. The mapping $\lambda_P: A → \alllosses$ assigns to each $x\in A$ the loss vector $\lambda_{P}(x)=(\lambda_{\prefi}(x))_{i\in N}$ induced by the election of $x$.\footnote{We use double brackets to denote intervals in the integers.}
@@ -96,23 +96,23 @@ vector. We write $\Sigma$ for the set of spread measures $\sigma$ that satisfy f
 
 Given any distinct $x,y\in A$, we say that $x$ \emph{Pareto dominates} $y$ at $P \in\linors^{N}$ (or equivalenty $y$ is \emph{Pareto dominated} by $x $ at $P$) iff $x\prefi y,\forall i\in N$. We denote
 $\paretopt(P)= \set{x \in A \suchthat \forall y ≠ x \in A, \exists i \in N \suchthat x \pref_i y}$ the set of \emph{Pareto optimal} alternatives at $P$.
-A SCR $f$ is \emph{Paretian} iff $f(P)\subseteq\paretopt(P)$ $\forall P\in\linors^{N}$.
+A \ac{SCR} $f$ is \emph{Paretian} iff $f(P)\subseteq\paretopt(P)$ $\forall P\in\linors^{N}$.
 
 \section{Egalitarian versus Paretian compromises}
 \subsection{Egalitarian compromises}
 \label{sec:EgCompromise}
 We denote the minimal elements of $X\in2^{A}\setminus \{\emptyset\}$ according to $(\sigma\circ\lambda_{P})$ with $\min_{\sigma \circ \lambda_P} (X) = \set{x \in X \suchthat \forall y \in X: \sigma(\lambda_P(x)) ≤ \sigma(\lambda_P(y))}$. Thus, $\min_{\sigma\circ\lambda_{P}}(X)$ denotes the alternatives in X whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
 
-In what follows, we define some classes of SCRs that we are interested in analyzing. 
+In what follows, we define some classes of \acp{SCR} that we are interested in analyzing. 
 
 
-\begin{definition} A SCR $f$ is an \emph{Egalitarian Compromise} (EC) iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have }f(P) \subseteq \musigma.\]
+\begin{definition} A \ac{SCR} $f$ is an \emph{Egalitarian Compromise} (EC) iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have }f(P) \subseteq \musigma.\]
 \end{definition}
 
-\begin{definition} A SCR $f$ is \emph{Egalitarian Compromise Compatible} (ECC) iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \cap \musigma \neq \emptyset.\]
+\begin{definition} A \ac{SCR} $f$ is \emph{Egalitarian Compromise Compatible} (ECC) iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \cap \musigma \neq \emptyset.\]
 \end{definition}
 
-Under a SCR that is EC (resp., ECC), \emph{all} (resp., \emph{some}) winners are among the alternatives with most equally distributed losses. Clearly, EC is a subclass of ECC. Perhaps less obviously, being ECC (or EC) is incompatible with being Paretian. This will be deduced from the following proposition, which will also be useful to prove other theorems.% \cref{th:incompatibility}.
+Under a \ac{SCR} that is EC (resp., ECC), \emph{all} (resp., \emph{some}) winners are among the alternatives with most equally distributed losses. Clearly, EC is a subclass of ECC. Perhaps less obviously, being ECC (or EC) is incompatible with being Paretian. This will be deduced from the following proposition, which will also be useful to prove other theorems.% \cref{th:incompatibility}.
 
 
 \begin{proposition} \label{prop:muSigmaLast}
@@ -141,29 +141,29 @@ Under a SCR that is EC (resp., ECC), \emph{all} (resp., \emph{some}) winners are
 
 Our main result for \cref{sec:EgCompromise} follows easily.
 \begin{theorem} \label{th:nonParetian}
-	For $n\geq 2, \ m\geq3$, no Paretian SCR is ECC.
+	For $n\geq 2, \ m\geq3$, no Paretian \ac{SCR} is ECC.
 \end{theorem}
 \begin{proof}
 	Proving this amounts to show that $\forall \sigma \in \Sigma, \exists P \in \linors^N \suchthat \paretopt(P) \cap \musigma = \emptyset$. Suffices to use \cref{prop:muSigmaLast}, which asserts that there exists a profile $P$ such that $\forall \sigma \in \Sigma: \musigma \cap \paretopt(P) = \emptyset$.
 \end{proof}
 
 \subsection{Paretian compromises}
-Having seen the tension for a SCR being Paretian and ECC, we investigate the consequences of inverting the order of priorities by insisting that at least some of the winning alternatives are Pareto optimal, and considering the most equally distributed loss vectors among those.
+Having seen the tension for a \ac{SCR} being Paretian and ECC, we investigate the consequences of inverting the order of priorities by insisting that at least some of the winning alternatives are Pareto optimal, and considering the most equally distributed loss vectors among those.
 
-We consider two classes of SCRs. 
+We consider two classes of \acp{SCR}. 
 Observe that $\mustar$ denotes the set of Pareto optimal alternatives whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
 
-\begin{definition} A SCR $f$ is a \emph{Paretian Compromise} PC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \subseteq \mustar.\]
+\begin{definition} A \ac{SCR} $f$ is a \emph{Paretian Compromise} PC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \subseteq \mustar.\]
 \end{definition}
 
-\begin{definition} A SCR $f$ is \emph{Paretian Compromise Compatible} PCC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \cap \mustar \neq \emptyset.\]
+\begin{definition} A \ac{SCR} $f$ is \emph{Paretian Compromise Compatible} PCC iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have } f(P) \cap \mustar \neq \emptyset.\]
 \end{definition}
 
-Again, it is clear that PC is a subclass of PCC. It will also probably come with no surprise that for a SCR, being PC is incompatible with being ECC, as being PC requires to be Paretian, which permits to use \cref{th:nonParetian}. On the other hand, it is less immediate that being EC is incompatible with
+Again, it is clear that PC is a subclass of PCC. It will also probably come with no surprise that for a \ac{SCR}, being PC is incompatible with being ECC, as being PC requires to be Paretian, which permits to use \cref{th:nonParetian}. On the other hand, it is less immediate that being EC is incompatible with
 being PCC, because being PCC does not require to be Paretian. This is however true.
 
 \begin{theorem} \label{th:incompatibility} 
-	For $n ≥ 2, m ≥ 3$, no SCR is both EC and PCC.
+	For $n ≥ 2, m ≥ 3$, no \ac{SCR} is both EC and PCC.
 \end{theorem}
 \begin{proof}	
 	Letting $\Ptop$ denote the profile of \cref{prop:muSigmaLast}, with $a_m$ the alternative mentioned there, and considering any EC $f$ and any $\sigma \in \Sigma$, suffices to prove that $f(\Ptop) \cap {\mustar[\sigma][\Ptop]} = \emptyset$.
@@ -178,11 +178,11 @@ being PCC, because being PCC does not require to be Paretian. This is however tr
 It is interesting to note that the incompatibility is not complete, however.
 
 \begin{remark}
-	For $n ≥ 2$, $m ≥ 3$, there exist SCRs that are both ECC and PCC, such as the SCR that selects the whole set of alternatives at every profile. However, this SCR fails to be Paretian, as it must be for every SCR that is ECC.
+	For $n ≥ 2$, $m ≥ 3$, there exist \acp{SCR} that are both ECC and PCC, such as the \ac{SCR} that selects the whole set of alternatives at every profile. However, this \ac{SCR} fails to be Paretian, as it must be for every \ac{SCR} that is ECC.
 \end{remark}
 
 
-\section{Which SCRs are compromises?}
+\section{Which \acp{SCR} are compromises?}
 \label{sec:more2voters}
 In this section we assume $n\geq 3$ and leave the analysis of $n=2$ to the
 next section.
@@ -190,12 +190,12 @@ next section.
 \subsection{Condorcet consistent rules}
 
 An alternative $x\in A$ is a \textit{Condorcet winner} at $P\in L(A)^{N}$ iff for all $y\in A \setminus \set{x} $, $\#\set{i \in N \suchthat x \prefi y} >\#\set{i \in N \suchthat y \prefi x}$. So each profile admits
-either no or a unique Condorcet winner. An SCR $f$ is \textit{Condorcet
+either no or a unique Condorcet winner. An \ac{SCR} $f$ is \textit{Condorcet
 consistent} iff $f(P)=$ $\left\{ x\right\} $ at each $P\in L(A)^{N}$ that
 admits $x$ as the unique Condorcet winner.
 
 \begin{theorem} \label{th:condorcet}
-Let $n\geq 3$ and $m\geq 3$. A Condorcet consistent SCR $f$ is neither ECC nor PCC.
+Let $n\geq 3$ and $m\geq 3$. A Condorcet consistent \ac{SCR} $f$ is neither ECC nor PCC.
 \end{theorem}
 \begin{proof}
 Consider the following profile $P$, where the dots represent the sequence $a_4$ to $a_m$:
@@ -208,7 +208,7 @@ Consider the following profile $P$, where the dots represent the sequence $a_4$ 
 		$.
 	\end{center}
 
-Consider any Condorcet consistent SCR $f$, then $f(P)=\{a_1\}$. However, $\musigma=\mustar=\{a_2\}$ $\forall \sigma \in \Sigma$, so there exists a profile $P$ such that both $f(P)\cap \musigma$ and $f(P)\cap \mustar$ are empty.
+Consider any Condorcet consistent \ac{SCR} $f$, then $f(P)=\{a_1\}$. However, $\musigma=\mustar=\{a_2\}$ $\forall \sigma \in \Sigma$, so there exists a profile $P$ such that both $f(P)\cap \musigma$ and $f(P)\cap \mustar$ are empty.
 \end{proof}
 
 Note that Condorcet consistent rules need not be Paretian so the fact that they all fail ECC does not follow from \cref{th:nonParetian}. 
@@ -230,7 +230,7 @@ We call antiplurality score vector the score vector $w$ formed such that $w_{i} 
 
 \begin{theorem}
 	\label{th:AntSatsPCC}
-	Let $m\geq 3$ and let $w$ be the antiplurality score vector. The SCR $f_{n}^{w}$ satisfies PCC for all $n\geq 3$.
+	Let $m\geq 3$ and let $w$ be the antiplurality score vector. The \ac{SCR} $f_{n}^{w}$ satisfies PCC for all $n\geq 3$.
 \end{theorem}
 \begin{proof}
 	Define $\bar\sigma \in \Sigma$ as, $\forall l \in \intvl{0,m-1}^N$: $\bar\sigma(l) = 1$ iff $\exists i, j \in N \suchthat l_i ≠ l_j$; $\bar\sigma(l) = 0$ otherwise.
@@ -251,7 +251,7 @@ It is worth noting that the antiplurality rule $f_{n}^{w}$ is not Paretian, henc
 
 \begin{theorem}
 	\label{th:srPCC}
-	Let $m\geq 3.$ Take any score vector $w$ which is not the antiplurality score vector. The SCR $f_{n}^{w}$ fails PCC for some $n\geq 3$.
+	Let $m\geq 3.$ Take any score vector $w$ which is not the antiplurality score vector. The \ac{SCR} $f_{n}^{w}$ fails PCC for some $n\geq 3$.
 \end{theorem}
 
 \begin{proof}
@@ -284,7 +284,7 @@ Given any $k\in \intvl{1, m}$, we write $n_{k}(x,P)=\#\{i\in
 N\mid r_{\prefi}(x)\leq k\}$ for the \emph{$k$-support} that $x$ gets at $P$, that is, the number of individuals for whom the rank of alternative $x\in A$ is lower than or equal to $k$ in the profile $P\in $ $L(A)^{N}$.
 Note that $n_{k}(x,P)\in \intvl{1, n}$ is non-decreasing on $k$ and $n_{m}(x,P)=n.$ For each $q\in \intvl{1,n}$, we define $\rho_{q}(x,P)=\min \{k\in \intvl{1,m} \suchthat n_{k}(x,P)\geq q\}$ as the minimal rank $k$ at which the $k$-support that $x$ gets at $P$ is at least $q$. We
 write $\rho _{q}(P) = \min_{x \in A} \set{\rho_{q}(x, P)}$ for the minimal rank $k$ at which the $k$-support that some alternative gets at $P$ is at least $q$. \textit{A Brams and Kilgour (BK) compromise with threshold }$q$ is the
-SCR $f_{q}$ defined for each $P\in \linors^N$ as $f_{q}(P)=\{x\in A | n_{\rho _{q}(P)}(x,P)\geq n_{\rho _{q}(P)}(y,P)$ $\forall y\in A\}.$
+\ac{SCR} $f_{q}$ defined for each $P\in \linors^N$ as $f_{q}(P)=\{x\in A | n_{\rho _{q}(P)}(x,P)\geq n_{\rho _{q}(P)}(y,P)$ $\forall y\in A\}.$
 
 \begin{theorem}
 	\label{th:FBsatsPC}
@@ -388,11 +388,11 @@ We write $\Sigma^{C_{m,n}} \subseteq \Sigma$ for the set of spread measures that
 \section{Two voters case}
 In \cref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in \cref{sec:notation}, we consider here the case $n=2$. Two individuals express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems. In addition to \textit{fallback bargaining (FB)} \citep{Brams2001} (defined in \cref{sec:BKn3}) we consider three prominent solutions of the literature.
 
-The \textit{Veto-Rank mechanism (VR)} is commonly used in the selection of arbitrators \citep[see][]{Clippel2014}. Given a list of $m$ (odd) alternatives (that are candidates to be arbitrators), each of the two voters (that are the two parties that must agree on an arbitrator) simultaneously vetoes his worst $\frac{m-1}{2}$ alternatives. The selected alternatives are the ones with the highest Borda score among the non-vetoed alternatives.
+The \textit{Veto-Rank mechanism (VR)} is commonly used in the selection of arbitrators \citep{Clippel2014}. Given a list of $m$ (odd) alternatives (that are candidates to be arbitrators), each of the two voters (that are the two parties that must agree on an arbitrator) simultaneously vetoes his worst $\frac{m-1}{2}$ alternatives. The selected alternatives are the ones with the highest Borda score among the non-vetoed alternatives.
 
 Again within the context of selecting arbitrators, \citet{Clippel2014} propose and analyze \textit{Shortlisting (SL)} where one of the two parties starts by vetoing her worst $\frac{m-1}{2}$ alternatives ($m$ being odd), and then the second party chooses her best alternative out of the remaining ones. As the outcome of the procedure depends on the party that starts, symmetry among players is ensured by defining the solution as the union of the two outcomes where one and the other party starts.
 
-\textit{Pareto-and-Veto rules (PV)} \citep{Laslier2020} distribute a veto power of $v_1$ and $v_2$ alternatives to voters 1 and 2, respectively, with $v_1+v_2=m-1$. So, every voter $i=1,2$ (simultaneously) vetoes his worst $v_i$ alternatives. The SCR picks all non-vetoed and Pareto optimal alternatives.
+\textit{Pareto-and-Veto rules (PV)} \citep{Laslier2020} distribute a veto power of $v_1$ and $v_2$ alternatives to voters 1 and 2, respectively, with $v_1+v_2=m-1$. So, every voter $i=1,2$ (simultaneously) vetoes his worst $v_i$ alternatives. The \ac{SCR} picks all non-vetoed and Pareto optimal alternatives.
 
 \begin{definition}
     Given any $m \geq 4$, a spread measure $\sigma \in \Sigma$ satisfies condition $D_m$ iff 
@@ -419,7 +419,7 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 			$
 		\end{center}
 	Note that $\sigma(\lambda_{P}(y)) = \sigma(\alpha + 1, \beta)$ and that $\sigma(\lambda_{P}(x)) = \sigma(0, \beta + 1)$. 
-	Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$. As $y$ is not Pareto-dominated, an SCR that uniquely picks $x$ at $P$ cannot be PCC. In a similar vein, at the profile $P'$ which is obtained by the inversion of the preferences of $i_1$ and $i_2$ at $P$, an SCR that is PCC cannot pick $x$ uniquely.	
+	Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$. As $y$ is not Pareto-dominated, an \ac{SCR} that uniquely picks $x$ at $P$ cannot be PCC. In a similar vein, at the profile $P'$ which is obtained by the inversion of the preferences of $i_1$ and $i_2$ at $P$, an \ac{SCR} that is PCC cannot pick $x$ uniquely.	
 	
 	The proof will be concluded by showing that FB, PV, and (when $m$ is odd) VR and SL all pick only $x$ at $P$ or at $P'$.
 	
@@ -436,7 +436,7 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
  
  \subsection{More on the two voters case}
  \begin{definition}
- 	 A SCR $f$ satisfies the condition \textit{First Half} if it always picks one \commentBN{or more?} alternative which is ranked among the first half of both voters' preferences.
+ 	 A \ac{SCR} $f$ satisfies the condition \textit{First Half} if it always picks one \commentBN{or more?} alternative which is ranked among the first half of both voters' preferences.
  \end{definition}
 Please note that such an alternative always exists.
 
@@ -448,10 +448,10 @@ Please note that such an alternative always exists.
 	The same reasoning can be applied for VR, where both voters exclude their least preferred $\frac{m-1}{2}$ alternatives, and for SL where one of the voter vetoes the alternatives appearing in the second half of her preferences. In this latter case, as $m$ is considered to be odd, the second voter has at least one alternative appearing both in the first half of her preferences and among the non-vetoed alternatives.
 \end{proof}
 
-Thus a SCR f is first half and Pareto iff f is a sub correspondence of PV.
+Thus a \ac{SCR} f is first half and Pareto iff f is a sub correspondence of PV.
 FB, SL and VR are first half and Pareto, thus being (proper) sub correspondences of PV.
 
-\begin{proposition} Under $\Sigma^{D_m}$ a SCR $f$ which is PCC does not satisfy first half.
+\begin{proposition} Under $\Sigma^{D_m}$ a \ac{SCR} $f$ which is PCC does not satisfy first half.
 \end{proposition}
 Consider, as an example, the profile $P$ we described in the proof of \cref{th:2votPCC}. We said that any PCC rule would pick $y$ as a winner. But for every $m\geq5$, the alternative $y$ is not in the first half of the voter $i_1$ preferences.
 
@@ -484,8 +484,8 @@ PV picks a-b-c, this rule refines it to b (which is the FB outcome) while SL pic
  
 \section{Concluding remarks}
 
-We define an ex-post compromise as an outcome where individuals give up equally from their ideal points. With three or more individuals, several interesting SCRs of the literature (that can be interpreted as voting rules), namely Condorcet extensions, scoring rules (except antiplurality) and BK-compromises (except fallback bargaining where threshold is unanimity) fail to pick ex-post compromises, under any reasonable meaning attributed to “giving up equally”. This failure is valid whether Pareto optimality is adopted or not while the positive results for antiplurality and fallback bargaining quickly vanish when a mild condition is imposed over the definition of `giving up equally`. Thus, we can conclude that all these SCRs are not compatible with being ex-post compromises. Even BK-compromises are procedural or ex-ante compromises. They impose a willingness to compromise over individuals but they may eventually pick an outcome so that some individuals do not effectively compromise at all.
-These findings are rather expected, as voting rules are typically unconcerned about envy-freeness among voters while this is the underlying notion of an ex-post compromise. On the other hand, even with two individuals where the collective choice problem is interpreted as a bargaining problem that requires mutual consent, all well-known SCRs of the literature, namely fallback bargaining, Pareto and veto rules, short listing, veto rank, all fail to pick ex-post compromises. 
+We define an ex-post compromise as an outcome where individuals give up equally from their ideal points. With three or more individuals, several interesting \acp{SCR} of the literature (that can be interpreted as voting rules), namely Condorcet extensions, scoring rules (except antiplurality) and BK-compromises (except fallback bargaining where threshold is unanimity) fail to pick ex-post compromises, under any reasonable meaning attributed to “giving up equally”. This failure is valid whether Pareto optimality is adopted or not while the positive results for antiplurality and fallback bargaining quickly vanish when a mild condition is imposed over the definition of `giving up equally`. Thus, we can conclude that all these \acp{SCR} are not compatible with being ex-post compromises. Even BK-compromises are procedural or ex-ante compromises. They impose a willingness to compromise over individuals but they may eventually pick an outcome so that some individuals do not effectively compromise at all.
+These findings are rather expected, as voting rules are typically unconcerned about envy-freeness among voters while this is the underlying notion of an ex-post compromise. On the other hand, even with two individuals where the collective choice problem is interpreted as a bargaining problem that requires mutual consent, all well-known \acp{SCR} of the literature, namely fallback bargaining, Pareto and veto rules, short listing, veto rank, all fail to pick ex-post compromises. 
 
 \commentOC{Justification for the rule: ultimatum game. People are willing to give up even more than our rule.}
 
