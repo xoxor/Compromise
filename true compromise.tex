@@ -385,8 +385,6 @@ We write $\Sigma^{C_{m,n}} \subseteq \Sigma$ for the set of spread measures that
 		Take any $m\geq 3$ and any $n \geq \max\{3,m-1\}$ and consider $\Sigma^{C_{m,n}} \subseteq \Sigma$, the set of spread measures that satisfy condition $C_{m,n}$. Take some $x,y\in A$ and some $P\in \linors^{N}$ with $r_{\prefi[1]}(x)=m-2$, $r_{\prefi[2]}(x)=m,$ $r_{\prefi}(x)=m-1$ $\forall i\in N \setminus \left\{ 1, 2\right\}$, and $r_{\prefi}(y)=m-i$ $\forall i\in \intvl{1,m-1}$, $r_{\prefi[n]}(y)=1$ $\forall i\in \intvl{m,n}$. Moreover, for each $z\in A \setminus \left\{ x,y\right\} $, we have $r_{\prefi[1]}(z)=m$ for some $i\in N$. Note that both $f_n^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda^{P}(x)=(m-3, m-1,m-2,\dots,m-2)$ and $\lambda_{P}(y)=(m-2, m-3,\dots,1,0, \dots, 0)$. As all the spread measure $\sigma \in \Sigma^{C_{m,n}}$ satisfy the condition $C_{m,n}$, then $\sigma(\lambda_{P}(x)) < \sigma(\lambda_{P}(y))$ $\forall \sigma \in \Sigma^{C_{m,n}}$, implying $y\notin \mustar[\bar{\sigma}]$ $\forall \sigma \in \Sigma^{C_{m,n}}$.
 	\end{proof}
 
-
- 
 \section{Two voters case}
 In \cref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in \cref{sec:notation}, we consider here the case $n=2$. Two individuals express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems. In addition to \textit{fallback bargaining (FB)} \citep{Brams2001} (defined in \cref{sec:BKn3}) we consider three prominent solutions of the literature.
 
@@ -456,8 +454,8 @@ FB, SL and VR are first half and Pareto, thus being (proper) sub correspondences
 \begin{proposition} Under $\Sigma^{D_m}$ a SCR $f$ which is PCC does not satisfy first half.
 \end{proposition}
 Consider, as an example, the profile $P$ we described in the proof of \cref{th:2votPCC}. We said that any PCC rule would pick $y$ as a winner. But for every $m\geq5$, the alternative $y$ is not in the first half of the voter $i_1$ preferences.
-\\\\
-\textbf{Consideration:}
+
+\begin{remark}[Consideration]
 Now, suppose, under a given sigma, we pick the among the PV alternatIves the one with the smallest loss spread. For example, at the profile 
 \begin{center}
 	$
@@ -482,6 +480,7 @@ Question: what is this new rule? It refines PV. It is not FB. At the profile
 \end{center}
 
 PV picks a-b-c, this rule refines it to b (which is the FB outcome) while SL picks a-c.
+\end{remark}
  
 \section{Concluding remarks}
 
@@ -567,7 +566,8 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 	
 	\begin{equation}
 		\begin{split}
-			\sigma_{mad}(l_2)&=\frac{1}{n^2} \cdot \{\sum_{j=0}^{m-3} \ [\sum_{i=0}^{m-3-j}i \ + \ (m-2-j)(n-(m-2)) \ + \ \sum_{i=0}^{j}i] + (n-(m-2))\cdot \sum_{j=0}^{m-2} j \}= \\ &= \frac{1}{n^2} \cdot [\frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3)]
+%(Temporary comment to avoid warning)
+%			\sigma_{mad}(l_2)&=\frac{1}{n^2} \cdot \{\sum_{j=0}^{m-3} \ [\sum_{i=0}^{m-3-j}i \ + \ (m-2-j)(n-(m-2)) \ + \ \sum_{i=0}^{j}i] + (n-(m-2))\cdot \sum_{j=0}^{m-2} j \}= \\ &= \frac{1}{n^2} \cdot [\frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3)]
 		\end{split}
 	\end{equation}
 	
@@ -579,14 +579,17 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 	\commentBN{The inequality works also for other values of m and n lower than $3$. Do we need to mention this?}
 \end{proof}
 
-\begin{proof} for $\sigma_{ad}$. \\
+\begin{proof}[for $\sigma_{ad}$]
 	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=(m-2, m-3, \dots, 1, 0, \dots, 0)$. For $l_1$, the arithmetic mean of its values is $m-2$ and the spread using the Average Absolute Deviation is: 
 	\[\sigma_{ad}(l_1)=\frac{1}{n}[|m-3-m+2|+|m-1-m+2|+ 0 + \dots + 0]= \frac{2}{n}\]
 	While for $l_2$, the arithmetic mean is 
+(temporary comment to avoid warning)
 	\[\bar{l_2}=m-2+m-3+\dots+m-(m-1)+0+\dots+0= \frac{1}{n}\sum_{i=2}^{m-1}{m-i}= \frac{m^2-3m+2}{2n}\]
 	\[\sigma_{ad}(l_2)=\frac{1}{n}[\sum_{i=2}^{m-1}{|(m-i)-\frac{m^2-3m+2}{2n}|+(n-(m-2))|\frac{m^2-3m+2}{2n}|}|]\]
-	I'm stuck with the computation because even if I use the triangular inequality to remove the absolute value, it gives me an upper bound which is not useful. 
-	\\\newline We can see that $\sigma_{ad}(3,1,2,2)<\sigma_{ad}(2,1,0,0)$ for $m=n=4$. We can also observe that the value of $\sigma_{ad}(l_1)$ depends only on $n$. So when increasing $m$ $\sigma_{ad}(l_1)$ does not change and $\sigma_{ad}(l_2)$ increases. When increasing $n$, both of the values decrease so the inequality is still satisfied. \commentBN{To be proved formally. I believe it's true because either we increment both m and n, then even if $\sigma_{ad}(l_2)$ decreases, it's bigger than $\sigma_{ad}(l_1)$ because of the increment of m; either we keep m constant but both of them decrease, and $\sigma_{ad}(l_1)$ decreases much faster. Maybe it can be proved by induction over two variables.}
+	I'm stuck with the computation because even if I use the triangular inequality to remove the absolute value, it gives me an upper bound which is not useful.
+
+	\vspace{0.5cm}
+	We can see that $\sigma_{ad}(3,1,2,2)<\sigma_{ad}(2,1,0,0)$ for $m=n=4$. We can also observe that the value of $\sigma_{ad}(l_1)$ depends only on $n$. So when increasing $m$ $\sigma_{ad}(l_1)$ does not change and $\sigma_{ad}(l_2)$ increases. When increasing $n$, both of the values decrease so the inequality is still satisfied. \commentBN{To be proved formally. I believe it's true because either we increment both m and n, then even if $\sigma_{ad}(l_2)$ decreases, it's bigger than $\sigma_{ad}(l_1)$ because of the increment of m; either we keep m constant but both of them decrease, and $\sigma_{ad}(l_1)$ decreases much faster. Maybe it can be proved by induction over two variables.}
 \end{proof}
 
 \begin{proof} for $\sigma_{sd}$. \\
