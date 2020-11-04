@@ -389,12 +389,12 @@ We write $\Sigma^{C_{m,n}} \subseteq \Sigma$ for the set of spread measures that
 \section{Two voters case}
 In \cref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in \cref{sec:notation}, we consider here the case $n=2$. Two individuals express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems. In addition to \textit{fallback bargaining (FB)} \citep{Brams2001} (defined in \cref{sec:BKn3}) we consider three prominent solutions of the literature.
 
+\textit{Pareto-and-Veto rules (PV)} \citep{Laslier2020} distribute a veto power of $v_1$ and $v_2$ alternatives to voters 1 and 2, respectively, with $v_1+v_2=m-1$. So, every voter $i=1,2$ (simultaneously) vetoes his worst $v_i$ alternatives. The \ac{SCR} picks all non-vetoed and Pareto optimal alternatives. \commentBN{Moved this to: }\commentOC{ to present together the two rules that are defined for all $m$, then the two rules that are defined for $m$ odd; and to match the order used in the proof. Unless we find it more suitable to follow the chronological order.}
+
 The \textit{Veto-Rank mechanism (VR)} is commonly used in the selection of arbitrators \citep{Clippel2014}. Given a list of $m$ (odd) alternatives (that are candidates to be arbitrators), each of the two voters (that are the two parties that must agree on an arbitrator) simultaneously vetoes his worst $\frac{m-1}{2}$ alternatives. The selected alternatives are the ones with the highest Borda score among the non-vetoed alternatives.
 
 Again within the context of selecting arbitrators, \citet{Clippel2014} propose and analyze \textit{Shortlisting (SL)} where one of the two parties starts by vetoing her worst $\frac{m-1}{2}$ alternatives ($m$ being odd), and then the second party chooses her best alternative out of the remaining ones. As the outcome of the procedure depends on the party that starts, symmetry among players is ensured by defining the solution as the union of the two outcomes where one and the other party starts.
 
-\textit{Pareto-and-Veto rules (PV)} \citep{Laslier2020} distribute a veto power of $v_1$ and $v_2$ alternatives to voters 1 and 2, respectively, with $v_1+v_2=m-1$. So, every voter $i=1,2$ (simultaneously) vetoes his worst $v_i$ alternatives. The \ac{SCR} picks all non-vetoed and Pareto optimal alternatives.
-\commentOC{Perhaps we should move this § above, to present together the two rules that are defined for all $m$, then the two rules that are defined for $m$ odd; and to match the order used in the proof. Unless we find it more suitable to follow the chronological order.}
 
 \begin{definition}
     Given any $m \geq 4$, a spread measure $\sigma \in \Sigma$ satisfies condition $D_m$ iff 
@@ -410,7 +410,9 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 \end{theorem}
 \begin{proof}
     Take any $m \geq 5$ and any $\sigma \in \Sigma^{D_m}$. Define $\alpha = \ceil{\frac{m}{2}} - 1$ and $\beta = \floor{\frac{m}{2}} - 1$. Note that $\sigma(\alpha + 1, \beta) < \sigma(0, \beta + 1)$ and $\sigma(\beta, \alpha + 1) < \sigma(\beta + 1, 0)$, and $\alpha + \beta + 2 = m$.
-    
+    Consider the profile $P$ where voter $i_1$ has the preference order $x > a_1 > … > a_\alpha > y > b_1 > … > b_\beta$ and voter $i_2$ has the preference order $b_1 > … > b_\beta > y > x > a_1 > … > a_\alpha$. \commentBN{Don't we want to use $\succ$?}
+	
+	\commentBN{Changed from this: 
 	Consider the following profile P:
 		\begin{center}
 			$
@@ -420,7 +422,8 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 			\end{array}
 			$.
 		\end{center}
-	\commentOC{This display may be misleading, because this alignment of alternatives is only correct for $m$ even (that is, when $\alpha = \beta + 1$). I suggest to not display $P$, and write instead: Consider the profile $P$ where voter $1$ has the preference order $x > a_1 > … > a_\alpha > y > b_1 > … > b_\beta$ and voter $2$ has the preference order $b_1 > … > b_\beta > y > x > a_1 > … > a_\alpha$.}
+	because: }
+	\commentOC{This display may be misleading, because this alignment of alternatives is only correct for $m$ even (that is, when $\alpha = \beta + 1$).}
 	Note that $\sigma(\lambda_{P}(y)) = \sigma(\alpha + 1, \beta)$ and that $\sigma(\lambda_{P}(x)) = \sigma(0, \beta + 1)$. 
 	Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$. As $y$ is not Pareto-dominated, an \ac{SCR} that uniquely picks $x$ at $P$ cannot be PCC. In a similar vein, at the profile $P'$ which is obtained by the inversion of the preferences of $i_1$ and $i_2$ at $P$, an \ac{SCR} that is PCC cannot pick $x$ uniquely.	
 	
@@ -437,16 +440,17 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 	Finally, SL also picks $x$, as it is the unique winner no matter which voter starts the veto phase. If $i_1$ starts, $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) get vetoed, then $i_2$ chooses her best alternative out of the remaining ones which is $x$. If $i_2$ starts, every $a_j$ ($1 ≤ j ≤ \alpha$) get vetoed, then $i_1$ chooses her best alternative which is $x$. 
 \end{proof}
  
- \subsection{More on the two voters case}
+\subsection{More on the two voters case}
+ We say that an alternative $x$ is ranked among the first half of a preference ranking $\succ_i$ if $r_{\succ_i}(x) \leq \ceil{\frac{m+1}{2}}$.
  \begin{definition}
  	 A \ac{SCR} $f$ satisfies the condition \textit{First Half} if it always picks one \commentBN{or more?} alternative which is ranked among the first half of both voters’s preferences.
  \end{definition}
-Please note that such an alternative always exists.\commentOC{Under condition that $m$ is odd and “the first half” is defined as the bigger half.}
+Please note that if $m$ is odd such an alternative always exists.
 
 \begin{proposition} FB, PV (when the veto powers are equally distributed), SL and VR all satisfy \textit{First Half}.
 \end{proposition}
 \begin{proof}
-	For FB, it is straightforward to see that, even if the two voters have opposite preferences, when descending level to reach unanimity we reach at most rank $\ceil{\frac{m}{2}}$ \commentOC{I’d say $\ceil{\frac{m + 1}{2}}$, which is equivalent when $m$ is odd but also works when $m$ is even}.
+	For FB, it is straightforward to see that, even if the two voters have opposite preferences, when descending level to reach unanimity we reach at most rank $\ceil{\frac{m+1}{2}}$.
 	Consider now PV, if the vetoes are equally distributed then by definition PV picks all Pareto alternatives that are ranked among the first half of both voters' preferences. 
 	The same reasoning can be applied for VR, where both voters exclude their least preferred $\frac{m-1}{2}$ alternatives, and for SL where one of the voter vetoes the alternatives appearing in the second half of her preferences. In this latter case, as $m$ is considered to be odd, the second voter has at least one alternative appearing both in the first half of her preferences and among the non-vetoed alternatives.
 \end{proof}
@@ -459,7 +463,7 @@ FB, SL and VR are first half and Pareto, thus being (proper) sub correspondences
 Consider, as an example, the profile $P$ we described in the proof of \cref{th:2votPCC}. We said that any PCC rule would pick $y$ as a winner. But for every $m\geq5$, the alternative $y$ is not in the first half of the voter $i_1$ preferences.
 
 \begin{remark}[Consideration]
-Now, suppose, under a given sigma, we pick the among the PV alternatIves the one with the smallest loss spread. For example, at the profile 
+Now, suppose, under a given sigma, we pick among the PV alternatives the one with the smallest loss spread. For example, at the profile 
 \begin{center}
 	$
 	\begin{array}{cccccc}
@@ -491,8 +495,6 @@ We define an ex-post compromise as an outcome where individuals give up as equal
 These findings are rather expected, as voting rules are typically unconcerned about envy-freeness among voters while this is the underlying notion of an ex-post compromise. 
 \commentOC{Can we find some way of saying essentially the same thing without using the envy-freeness terminology, which I find misleading?}
 On the other hand, this concern arguably should not weight much in the context of two individuals where the collective choice problem is interpreted as a bargaining problem that requires mutual consent. But all well-known \acp{SCR} of the literature, namely, fallback bargaining, Pareto and veto rules, short listing and veto rank, fail to pick ex-post compromises in this context. 
-
-\commentOC{Beatrice, can you please have a look at the refs? Each of them should have a DOI if possible, and should have an URL iff they do not have a DOI.}
 
 \bibliography{biblio}
 
