@@ -500,16 +500,25 @@ On the other hand, this concern arguably should not weight much in the context o
 
 \appendix
 
-\section{Spread Measures (proposition)}
 \newcommand{\smad}{\sigma_\text{mad}}
-\begin{proof}[for $\smad$]
-	Recall that $\smad(l) = 1/n^2 \sum_{ij} |l_i - l_j|$.
-	Define $f_l(i) = \sum_j |l_i - l_j|$.
-	Define $s(l) = n^2 \smad(l)$. Thus: $n^2 \smad(l) = s(l) = \sum_i f_l(i)$.
-	Recall that $l_1 = (m-3, m-1, m-2, …)$, containing $n-2$ terms $m-2$, and $l2 = (m-2, m - 3, …, 1, 0, …)$, containing $m-2$ terms descending from $m-2$ to $1$, then $n - m + 2$ zeros.
+
+\section{Spread Measures}
+\label{apdx:proofSM}
+In what follows are showed the proofs for \cref{prop:spreadMeas}.
+\begin{proof} for $\sigma_{mad}$. \\
+	Let us define $f_l(i)= \sum_{j}|l_i-l_j|$ and $s(l) = n^2 \smad(l)$. Thus $n^2 \cdot \sigma_{mad}(l) = s(l)= \sum_{i} f_l(i)$.
+	
+	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ (where $n-2$ terms are equal to $m-2$) and $l_2=\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$ (where $m-2$ terms go from $m-2$ to $1$, and $m-n+2$ terms are equal to $0$). 
 	The thesis is now that $s(l_1) < s(l_2)$.
 	
-	To compute $s(l_1)$, observe that $f_{l_1}(1) = 2 + (n - 2) = n$, $f_{l_1}(2) = 2 + (n - 2) = n$, and for $3 ≤ i ≤ n$, $f_{l_1}(i) = 1 + 1 = 2$. Thus, $s(l_1) = 2n + (n - 2) (2) = 4n - 4$.
+	Let us consider $l_1$ first: 
+	\begin{align}
+		&f_{l_1}(1)= 2+(n-2)=n \\
+		&f_{l_1}(2)= 2+(n-2)=n \\
+		&f_{l_1}(i)= 2 \quad \forall \ 3\leq i \leq n \\ 
+	\end{align}
+	In fact, considering the first term of $l_1$ ($m-3$), the difference between itself and the second term of the vector ($m-1$) is $2$; the difference between itself and any of the other $n-2$ terms of the vector ($m-2$) is $1$. The sum of these differences is represented by $f_{l_1}(1)$. The same argument holds for the second term ($m-1$). Any of the remaining $n-2$ terms ($m-2$) has a difference $1$ with the first and the second term and a difference $0$ with the rest. Therefore 
+	\[s(l_1) =2(2+(n-2))+(n-2)\cdot2)= 4(n-1)\]
 	
 	To compute $s(l_2)$, let us distinguish the cases $1 ≤ i ≤ m - 2$ and $m - 1 ≤ i$.
 	
@@ -518,7 +527,7 @@ On the other hand, this concern arguably should not weight much in the context o
 		f_{l_2}(i) &= \sum_{1 ≤ j ≤ i} |l_i - l_j| + \sum_{i < j ≤ m - 2} |l_i - l_j| + \sum_{m - 2 < j ≤ n} |l_i - l_j|\\
 		&= [(i - 1) + (i - 2) + … + 0] + [1 + … + (m - 2 - i)] \\
 		&\quad + (m - 1 - i) (n - m + 2)\\
-	%	[that’s i terms, then m - 2 - i terms, then n - m + 2 terms]
+		%	[that’s i terms, then m - 2 - i terms, then n - m + 2 terms]
 		&= \frac{(i - 1) i}{2} + \frac{(m - 2 - i) (m - 1 - i)}{2} + (m - 1 - i) (n - m + 2)\\
 		&= i^2 / 2 - i / 2 + \frac{(m - 2) (m - 1) - i (m - 2 + m - 1) + i^2}{2} \\
 		&\quad + (m - 1) (n - m + 2) - i (n - m + 2)\\
@@ -535,53 +544,26 @@ On the other hand, this concern arguably should not weight much in the context o
 		&= (m - 2) (m - 1) (2m - 3) / 6 - (n + 1) (m - 2) (m - 1) / 2 \\
 		&\quad + (m - 2) (m - 1) (- m + 2n + 2) / 2 \\
 		&\quad + (n - m + 2) (m - 2) (m - 1) / 2\\
-%		&\quad + n (m - 2) (m - 1) / 2 - (m - 2)^2 (m - 1) / 2\\
+		%		&\quad + n (m - 2) (m - 1) / 2 - (m - 2)^2 (m - 1) / 2\\
 		&= (m - 2) (m - 1) \left(\frac{2m - 3}{6} - \frac{n + 1}{2} + \frac{- m + 2n + 2}{2} + \frac{n - m + 2}{2}\right)\\
-%		&= (m - 2) (m - 1) \left(\frac{2m - 3}{6} + \frac{- 2m + 3 + 2n}{2}\right)\\
+		%		&= (m - 2) (m - 1) \left(\frac{2m - 3}{6} + \frac{- 2m + 3 + 2n}{2}\right)\\
 		&= (m - 2) (m - 1) \left(\frac{-2m + 3}{3} + n\right).
 	\end{align}
-		
-	Our thesis is now that $4n - 4 < (m - 2) (m - 1) [(-2m + 3) / 3 + n]$, or equivalently, that $(2m - 3) (m - 2) (m - 1) / 3 - 4 < n [(m - 2) (m - 1) - 4]$.
 	
+	Our thesis is now that 
+	\[4n - 4 < (m - 2) (m - 1)(\frac{-2m + 3}{3} + n)\]
+	or equivalently, that 
+	$(2m - 3) (m - 2) (m - 1) / 3 - 4 < n [(m - 2) (m - 1) - 4]$.
+	\commentBN{I don't get this step.}	
+
 	When $m = 4$, using the fact that $4 ≤ n$, the inequality holds: $5 (2) (3) / 3 - 4 < 4 [2] ≤ n [2]$.
-	
+
 	Now assume that $m ≥ 5$. Using the fact that $m - 1 ≤ n$, suffices to show that
 	$(2m - 3) (m - 2) (m - 1) / 3 - 4 < (m - 1) [(m - 2) (m - 1) - 4]$, or equivalently, that
 	$-12 < (m - 1) [3 (m - 2) (m - 1) - 12 - (2m - 3) (m - 2)]$.
 	Note that the right hand side equals $(m - 1) [(m - 2) (3 (m - 1) - (2m - 3)) - 12] = (m - 1) (m^2 - 2m - 12) = (m - 1) (m - 1 + \sqrt{13}) (m - 1 - \sqrt{13})$. As all multiplicands are positive when $m ≥ 5$, the inequality is true when $m ≥ 5$.
-\end{proof}
+\end{proof}		
 
-\section{Spread Measures}
-\label{apdx:proofSM}
-In what follows are showed the proofs for \cref{prop:spreadMeas}.
-\begin{proof} for $\sigma_{mad}$. \\
-	Let us define $f_l(i)= \sum_{j}|l_i-l_j|$, thus $\sigma_{mad}(l) = frac{1}{n^2}\sum_{i} f_l(i)$
-	
-	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ (where $n-2$ terms are equal to $m-2$) and $l_2=\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$ (where $m-2$ terms going from $m-2$ to $1$, and $m-n+2$ terms equal to $0$). 
-		
-	Let us consider $l_1$ first: 
-	\begin{align}
-		&f_{l_1}(1)= 2+(n-2)=n \\
-		&f_{l_1}(2)= 2+(n-2)=n \\
-		&f_{l_1}(i)= 2 \quad \forall \ 3\leq i \leq n \\ 
-	\end{align}
-	In fact, considering the first term of $l_1$ ($m-3$), the difference between itself and the second term of the vector ($m-1$) is $2$; the difference between itself and any of the other $n-2$ terms of the vector ($m-2$) is $1$. The sum of these differences is represented by $f_{l_1}(1)$. The same argument holds for the second term ($m-1$). Any of the remaining $n-2$ terms ($m-2$) has a difference $1$ with the first and the second term and a difference $0$ with the rest. Therefore 
-	\[\sigma_{mad}(l_1) =\frac{1}{n^2} \cdot [2(2+(n-2))+(n-2)\cdot2)]= \frac{1}{n^2} \cdot [4(n-1)]\]
-	
-	\begin{equation}
-		\begin{split}
-%(Temporary comment to avoid warning)
-%			\sigma_{mad}(l_2)&=\frac{1}{n^2} \cdot \{\sum_{j=0}^{m-3} \ [\sum_{i=0}^{m-3-j}i \ + \ (m-2-j)(n-(m-2)) \ + \ \sum_{i=0}^{j}i] + (n-(m-2))\cdot \sum_{j=0}^{m-2} j \}= \\ &= \frac{1}{n^2} \cdot [\frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3)]
-		\end{split}
-	\end{equation}
-	
-	In order for $\sigma_{mad}$ to satisfy condition C, must be $\sigma_{mad}(l_1) < \sigma_{mad}(l_2)$, so
-	\[\frac{1}{n^2} \cdot 4(n-1)<\frac{1}{n^2} \cdot \frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3).\]
-	Since $\frac{1}{n^2}$ is a positive term equal on both sides, we limit our study to
-	\[4(n-1)<\frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3)\]
-	which is true for all $m> \frac{1}{2}(3+\sqrt{17})\approx 3.56$ and $n>\frac{2 \cdot m^3 - 9\cdot m^2 + 13\cdot m - 18}{3 (m^2 - 3 \cdot m - 2)}$. Moreover, $m-1>\frac{2 \cdot m^3 - 9\cdot m^2 + 13\cdot m - 18}{3 (m^2 - 3 \cdot m - 2)}$ $\ \forall m>4$, therefore we can conclude that $\sigma_{mad}(l_1)<\sigma_{mad}(l_2)$ $\forall m\geq4$ and $n\geq\max\{4,m-1\}$.
-	\commentBN{The inequality works also for other values of m and n lower than $3$. Do we need to mention this?}
-\end{proof}
 
 \begin{proof}[for $\sigma_{ad}$]
 	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=(m-2, m-3, \dots, 1, 0, \dots, 0)$. For $l_1$, the arithmetic mean of its values is $m-2$ and the spread using the Average Absolute Deviation is: 
