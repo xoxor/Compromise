@@ -389,7 +389,7 @@ We write $\Sigma^{C_{m,n}} \subseteq \Sigma$ for the set of spread measures that
 \section{Two voters case}
 In \cref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in \cref{sec:notation}, we consider here the case $n=2$. Two individuals express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems. In addition to \textit{fallback bargaining (FB)} \citep{Brams2001} (defined in \cref{sec:BKn3}) we consider three prominent solutions of the literature.
 
-\textit{Pareto-and-Veto rules (PV)} \citep{Laslier2020} distribute a veto power of $v_1$ and $v_2$ alternatives to voters 1 and 2, respectively, with $v_1+v_2=m-1$. So, every voter $i=1,2$ (simultaneously) vetoes his worst $v_i$ alternatives. The \ac{SCR} picks all non-vetoed and Pareto optimal alternatives. \commentBN{Moved this to: }\commentOC{ to present together the two rules that are defined for all $m$, then the two rules that are defined for $m$ odd; and to match the order used in the proof. Unless we find it more suitable to follow the chronological order.}
+\textit{Pareto-and-Veto rules (PV)} \citep{Laslier2020} distribute a veto power of $v_1$ and $v_2$ alternatives to voters 1 and 2, respectively, with $v_1+v_2=m-1$. So, every voter $i=1,2$ (simultaneously) vetoes his worst $v_i$ alternatives. The \ac{SCR} picks all non-vetoed and Pareto optimal alternatives.
 
 The \textit{Veto-Rank mechanism (VR)} is commonly used in the selection of arbitrators \citep{Clippel2014}. Given a list of $m$ (odd) alternatives (that are candidates to be arbitrators), each of the two voters (that are the two parties that must agree on an arbitrator) simultaneously vetoes his worst $\frac{m-1}{2}$ alternatives. The selected alternatives are the ones with the highest Borda score among the non-vetoed alternatives.
 
@@ -401,7 +401,7 @@ Again within the context of selecting arbitrators, \citet{Clippel2014} propose a
     $\sigma(\ceil{\frac{m}{2}}, \floor{\frac{m}{2}} - 1) < \sigma(0, \floor{\frac{m}{2}})$ and 
     $\sigma(\floor{\frac{m}{2}} - 1, \ceil{\frac{m}{2}}) < \sigma(\floor{\frac{m}{2}}, 0)$.
 \end{definition}
-For $m=4$ the condition requires $\sigma(2,1)$ to be smaller than $\sigma(0,2)$ which is reasonable when looking for a compromise. When the value of $m$ is larger, the condition appears even more convincing. As $m$ grows, the distance between $0$ and $\floor{\frac{m}{2}}$ grows, while the distance between $\ceil{\frac{m}{2}}$ and $\floor{\frac{m}{2}} - 1$ remains constant ($1$ if $m$ is even, $2$ otherwise). Requiring, for example, the spread of $(15,14)$ to be smaller than the spread of $(0,15)$ is very reasonable.
+For $m=4$ the condition requires $\sigma(2,1) < \sigma(0,2)$ and $\sigma(0,2) < \sigma(2,1)$ which is reasonable in our context. When the value of $m$ is larger, the condition appears even more convincing. As $m$ grows, the distance between $0$ and $\floor{\frac{m}{2}}$ grows, while the distance between $\ceil{\frac{m}{2}}$ and $\floor{\frac{m}{2}} - 1$ remains constant ($1$ if $m$ is even, $2$ otherwise). Requiring, for example, the spread of $(15,14)$ to be smaller than the spread of $(0,15)$ is very reasonable.
 
 We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that satisfy condition $D_{m}$. 
 
@@ -410,20 +410,7 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 \end{theorem}
 \begin{proof}
     Take any $m \geq 5$ and any $\sigma \in \Sigma^{D_m}$. Define $\alpha = \ceil{\frac{m}{2}} - 1$ and $\beta = \floor{\frac{m}{2}} - 1$. Note that $\sigma(\alpha + 1, \beta) < \sigma(0, \beta + 1)$ and $\sigma(\beta, \alpha + 1) < \sigma(\beta + 1, 0)$, and $\alpha + \beta + 2 = m$.
-    Consider the profile $P$ where voter $i_1$ has the preference order $x > a_1 > … > a_\alpha > y > b_1 > … > b_\beta$ and voter $i_2$ has the preference order $b_1 > … > b_\beta > y > x > a_1 > … > a_\alpha$. \commentBN{Don't we want to use $\succ$?}
-	
-	\commentBN{Changed from this: 
-	Consider the following profile P:
-		\begin{center}
-			$
-			\begin{array}{cccccccccc}
-				\mathbf{i_1} \quad &x&a_1&\dots&&a_\alpha&y&b_1&\dots&b_\beta\\
-				\mathbf{i_2} \quad &b_1&\dots&b_\beta&y&x&a_1&\dots&&a_\alpha\\
-			\end{array}
-			$.
-		\end{center}
-	because: }
-	\commentOC{This display may be misleading, because this alignment of alternatives is only correct for $m$ even (that is, when $\alpha = \beta + 1$).}
+    Consider the profile $P$ where voter $i_1$ has the preference order $x \succ a_1 \succ … \succ a_\alpha \succ y \succ b_1 \succ … \succ b_\beta$ and voter $i_2$ has the preference order $b_1 \succ … \succ b_\beta \succ y \succ x \succ a_1 \succ … \succ a_\alpha$. 
 	Note that $\sigma(\lambda_{P}(y)) = \sigma(\alpha + 1, \beta)$ and that $\sigma(\lambda_{P}(x)) = \sigma(0, \beta + 1)$. 
 	Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$. As $y$ is not Pareto-dominated, an \ac{SCR} that uniquely picks $x$ at $P$ cannot be PCC. In a similar vein, at the profile $P'$ which is obtained by the inversion of the preferences of $i_1$ and $i_2$ at $P$, an \ac{SCR} that is PCC cannot pick $x$ uniquely.	
 	
@@ -431,7 +418,7 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 	
 	We readily see that FB picks only $x$ at $P$ (and at $P'$) since $x$ is the first alternative which reaches the unanimous consent.
 	
-	For PV, let $v_{i_1} ≥ v_{i_2}$ (thus $v_{i_1} ≥ \ceil{\frac{m-1}{2}}$ and $v_{i_2} ≤ \floor{\frac{m - 1}{2}}$, or equivalently, $v_{i_1} ≥ \floor{\frac{m}{2}} = \beta + 1$ and $v_{i_2} ≤ \ceil{\frac{m - 2}{2}} = \alpha$) \commentOC{Modified this parenthesis.}, and consider the profile $P$. Observe that the first voter vetoes at least $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) while no voter vetoes $x$. As $x$ Pareto-dominates every $a_j$ ($1 ≤ j ≤ \alpha$), PV picks only $x$ at $P$. When $v_{i_2} ≥ v_{i_1}$, a similar reasoning yields that PV picks only $x$ at $P'$. \commentBN{I think I got it, $\forall \ v_1, v_2$ we want to find a profile for which it fails. Is it worth to add few words to clarify this? }
+	For PV, let $v_{i_1} ≥ v_{i_2}$ (thus $v_{i_1} ≥ \ceil{\frac{m-1}{2}}$ and $v_{i_2} ≤ \floor{\frac{m - 1}{2}}$, or equivalently, $v_{i_1} ≥ \floor{\frac{m}{2}} = \beta + 1$ and $v_{i_2} ≤ \ceil{\frac{m - 2}{2}} = \alpha$), and consider the profile $P$. Observe that the first voter vetoes at least $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) while no voter vetoes $x$. As $x$ Pareto-dominates every $a_j$ ($1 ≤ j ≤ \alpha$), PV picks only $x$ at $P$. When $v_{i_2} ≥ v_{i_1}$, a similar reasoning yields that PV picks only $x$ at $P'$.
 	
 	Now let $m$ be odd.
 	
@@ -551,10 +538,9 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 	\end{align}
 	
 	Our thesis is now that 
-	\[4n - 4 < (m - 2) (m - 1)(\frac{-2m + 3}{3} + n)\]
+	\[4n - 4 < \frac{-2m + 3}{3} (m - 2) (m - 1) + n (m - 2) (m - 1)\]
 	or equivalently, that 
 	$(2m - 3) (m - 2) (m - 1) / 3 - 4 < n [(m - 2) (m - 1) - 4]$.
-	\commentBN{I don't get this step.}	
 
 	When $m = 4$, using the fact that $4 ≤ n$, the inequality holds: $5 (2) (3) / 3 - 4 < 4 [2] ≤ n [2]$.
 
