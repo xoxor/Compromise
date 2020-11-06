@@ -74,7 +74,7 @@ remain the collective choice even when the ignored group is much larger.
 It is important to observe that all these \acp{SCR} impose to voters a willingness to compromise which does not mean that under the collective choice that will be made, all voters will be effectively compromising. In other words, the term “compromise” in this literature refers to procedural or \textit{ex-ante} compromises, which is different than outcome oriented or \textit{ex-post} compromises, a conceptual distinction that seems to be overlooked in the literature.
 
 To define an ex-post compromise, we adopt to our framework a concept of equal losses that is prevalent in the literature that considers the allocation of continuous utilities. This principle is used for bargaining problems \citep{Chun1988}, \citep{Chun1991} as well as for bankruptcy problems \citep{Herrero2001}. 
-We introduce two definitions for being a compromise. In both of them, we pick a spread measure that determines how equally a given vector of real numbers is distributed and make a collective choice where voters give up from their ideal points “as equal as possible". \footnote{A discussion of the literature on spread measures is given in \cref{sec:RestrictionOnSigma}.} However, one of them, called \textit{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \textit{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. 
+We introduce two definitions for being a compromise. In both of them, we pick a spread measure that determines how equally a given vector of real numbers is distributed and make a collective choice where voters give up from their ideal points “as equal as possible" (see \cref{sec:RestrictionOnSigma} for a literature review). However, one of them, called \textit{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \textit{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. 
 The two concepts are logically incompatible. As a result, Pareto efficient \acp{SCR} cannot ensure egalitarian compromises and this is valid under any spread measure. Moreover, several well-known \acp{SCR} of the literature such as Condorcet extensions, scoring rules, $q-$approval fall-back bargaining, all fail to be Paretian compromises under any spread measure. In fact, we are able to observe the existence of instances where being a Paretian compromise necessitates to pick an alternative that is, although Pareto optimal, ranked so low by all voters that this alternative wouldn't be picked by any of the popular \acp{SCR} of the literature. All these observations make the equal-loss principle appear quite inadequate for collective choice problems, unless envy-freeness is a major concern.
 
 Collective choice models with two individuals present instances where envy-freeness matters. Here, the model is interpreted as a bargaining problem and bargaining procedures replace voting rules. As prominent examples, we have fallback bargaining proposed by \citet{Brams2001}; the unanimity compromise and the rational compromise introduced by \citet{Kibris2007}; the veto-rank and short listing procedures analyzed by \citet{Clippel2014} and the Pareto-and-veto rules analyzed by \citet{Laslier2020}. As is ours, these are all models with discrete alternatives which are not contained by the classical \citet{Nash1950} bargaining environment with convex utilities. However, as \citet{Mariotti1998} and \citet{Nagahisa2002} illustrate, the two worlds can be interconnected, as we do for the equal-loss principle of \citet{Chun1988} and \citet{Chun1991}. As a rather surprising finding, several interesting \acp{SCR} used as a bargaining solution also fail to be Paretian compromises.
@@ -84,13 +84,12 @@ Section 2 presents the basic notions and notation. Section 3 introduces egalitar
 \section{Basic notions and notation}
 \label{sec:notation}
 Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 3$. We write $\linors$ for the set of linear orders over $A$.
-A generic element $\prefi$ of $\linors$ stands for a preference of $i\in N$.%
-\footnote{So given any $x ≠ y\in A$, precisely one of $x \prefi y$ and $y\prefi x$ holds while $x \prefi x$ holds for no $x\in A.$ Moreover, $x\prefi y$ and $y\prefi z$ implies $x\prefi z$ $\forall x,y,z\in A$.
-\commentOC{I’d like to suggest to integrate the footnotes in the text.}}
+A generic element $\prefi$ of $\linors$ stands for a preference of $i\in N$. This implies that, given any $x ≠ y\in A$, precisely one of $x \prefi y$ and $y\prefi x$ holds while $x \prefi x$ holds for no $x\in A.$ Moreover, $x\prefi y$ and $y\prefi z$ implies $x\prefi z$ $\forall x,y,z\in A$.
+
 A \emph{profile} $P: N → \linors$ associates with each individual $i \in N$ a preference order  $P(i) = {\prefi}$. A \emph{\acl{SCR}} (\acs{SCR}) is a mapping $f:\linors^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. 
 
 We write $r_{\prefi}(x)=\#\{y\in A \suchthat y \prefi x\}+1$ for the \emph{rank} of $x\in A$ at ${\prefi} \in \linors$. We denote by $\lambda_{\prefi}(x)=r_{\prefi}(x)-1$ the loss in terms of ranks for $i\in N$ with preference $\prefi$, when $x$ is elected instead of the best alternative
-for $i$. The mapping $\lambda_P: A → \alllosses$ assigns to each $x\in A$ the loss vector $\lambda_{P}(x)=(\lambda_{\prefi}(x))_{i\in N}$ induced by the election of $x$.\footnote{We use double brackets to denote intervals in the integers.}
+for $i$. The mapping $\lambda_P: A → \alllosses$ assigns to each $x\in A$ the loss vector $\lambda_{P}(x)=(\lambda_{\prefi}(x))_{i\in N}$ induced by the election of $x$. The use of double brackets denotes intervals in the integers.
 
 We are interested in measuring the spread of loss vectors. To this end, we adopt a \emph{spread measure} $\sigma: \alllosses → \R_{+}$ that associates a spread value to every possible loss
 vector. We write $\Sigma$ for the set of spread measures $\sigma$ that satisfy for every $l\in\alllosses$, $\sigma(l)=0\iff l_{i}=l_{j}$ $\forall i,j\in N$. Thus, the spread of $l$ gets its lowest value $0$ in case of perfect equality and only in this case. 
@@ -478,8 +477,8 @@ PV picks a-b-c, this rule refines it to b (which is the FB outcome) while SL pic
  
 \section{Concluding remarks}
 
-We define an ex-post compromise as an outcome where individuals give up as equally as possible from their ideal points. With three or more individuals, several interesting \acp{SCRs} of the literature fail to pick ex-post compromises, under any reasonable meaning attributed to “giving up equally”. This failure is valid whether Pareto optimality is adopted or not. Our findings cover Condorcet extensions and scoring rules but also BK-compromises which impose a willingness to compromise over individuals but may eventually pick an outcome so that some individuals do not effectively compromise at all. This failure prevails for social choice problems with two individuals: all well-known two-person \acp{SCRs} of the literature, namely, fallback bargaining, Pareto and veto rules, short listing and veto rank, fail to pick ex-post compromises. 
-The exclusion of the equal-loss principle by almost all \acp{SCRs} of the literature questions whether the principle is uninteresting in a discrete social choice context. We think so, when there are three or more individuals which present voting contexts where the number of voters usually exceeds the number of candidates by far and every candidate is ranked last by at least one voter. In such situations, picking an alternative whose "average rank" is highest is more of a concern than every voter giving up "equally". On the other hand, this latter concern appears to be much more valid in two-person collective choice problems which are typically interpreted as bargaining situations which require mutual consent, a fact which is strongly justified by the vast literature on the ultimatum game (https://www.sciencedirect.com/science/article/abs/pii/S0167268114001759). Thus, our analysis raises the question of designing new discrete bargaining solutions compatible with the equal-loss principle.   
+We define an ex-post compromise as an outcome where individuals give up as equally as possible from their ideal points. With three or more individuals, several interesting \acp{SCR} of the literature fail to pick ex-post compromises, under any reasonable meaning attributed to “giving up equally”. This failure is valid whether Pareto optimality is adopted or not. Our findings cover Condorcet extensions and scoring rules but also BK-compromises which impose a willingness to compromise over individuals but may eventually pick an outcome so that some individuals do not effectively compromise at all. This failure prevails for social choice problems with two individuals: all well-known two-person \acp{SCR} of the literature, namely, fallback bargaining, Pareto and veto rules, short listing and veto rank, fail to pick ex-post compromises. 
+The exclusion of the equal-loss principle by almost all \acp{SCR} of the literature questions whether the principle is uninteresting in a discrete social choice context. We think so, when there are three or more individuals which present voting contexts where the number of voters usually exceeds the number of candidates by far and every candidate is ranked last by at least one voter. In such situations, picking an alternative whose "average rank" is highest is more of a concern than every voter giving up "equally". On the other hand, this latter concern appears to be much more valid in two-person collective choice problems which are typically interpreted as bargaining situations which require mutual consent, a fact which is strongly justified by the vast literature on the ultimatum game (https://www.sciencedirect.com/science/article/abs/pii/S0167268114001759). Thus, our analysis raises the question of designing new discrete bargaining solutions compatible with the equal-loss principle.   
 
 \bibliography{biblio}
 
@@ -491,7 +490,9 @@ The exclusion of the equal-loss principle by almost all \acp{SCRs} of the litera
 \label{apdx:proofSM}
 In what follows are showed the proofs for \cref{prop:spreadMeas}.
 \begin{proof} for $\sigma_{mad}$. \\
-	Let us define $f_l(i)= \sum_{j}|l_i-l_j|$ and $s(l) = n^2 \smad(l)$. Thus $n^2 \cdot \sigma_{mad}(l) = s(l)= \sum_{i} f_l(i)$.
+	Recall that 
+	\[\sigma_{mad}(l)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|l_i-l_j|.\]
+	Let us define $f_l(i)= \sum_{j}|l_i-l_j|$ and $s(l) = n^2 \smad(l)$. Thus $n^2 \sigma_{mad}(l) = s(l)= \sum_{i} f_l(i)$.
 	
 	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ (where $n-2$ terms are equal to $m-2$) and $l_2=\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$ (where $m-2$ terms go from $m-2$ to $1$, and $m-n+2$ terms are equal to $0$). 
 	The thesis is now that $s(l_1) < s(l_2)$.
@@ -503,7 +504,7 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 		&f_{l_1}(i)= 2 \quad \forall \ 3\leq i \leq n \\ 
 	\end{align}
 	In fact, considering the first term of $l_1$ ($m-3$), the difference between itself and the second term of the vector ($m-1$) is $2$; the difference between itself and any of the other $n-2$ terms of the vector ($m-2$) is $1$. The sum of these differences is represented by $f_{l_1}(1)$. The same argument holds for the second term ($m-1$). Any of the remaining $n-2$ terms ($m-2$) has a difference $1$ with the first and the second term and a difference $0$ with the rest. Therefore 
-	\[s(l_1) =2(2+(n-2))+(n-2)\cdot2)= 4(n-1)\]
+	\[s(l_1) =2(2+(n-2))+(n-2)\cdot2)= 4n-4\]
 	
 	To compute $s(l_2)$, let us distinguish the cases $1 ≤ i ≤ m - 2$ and $m - 1 ≤ i$.
 	
@@ -520,7 +521,7 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 		&= i^2 - i (n + 1) + (m - 1) \frac{-m + 2n + 2}{2}.
 	\end{align}
 	
-	For $m - 1 ≤ i$, $f_{l_2}(i) = m - 2 + m - 3 + … + 1 = (m - 2) (m - 1) / 2$.
+	For $m - 1 ≤ i$, $f_{l_2}(i) = m - 2 + m - 3 + … + 1 = \frac{(m - 2) (m - 1)}{2}$.
 	
 	Thus, 
 	\begin{align}
@@ -538,7 +539,7 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 	Our thesis is now that 
 	\[4n - 4 < \frac{-2m + 3}{3} (m - 2) (m - 1) + n (m - 2) (m - 1)\]
 	or equivalently, that 
-	$(2m - 3) (m - 2) (m - 1) / 3 - 4 < n [(m - 2) (m - 1) - 4]$.
+	\[\frac{(2m - 3) (m - 2) (m - 1)}{3} - 4 < n [(m - 2) (m - 1) - 4].\]
 
 	When $m = 4$, using the fact that $4 ≤ n$, the inequality holds: $5 (2) (3) / 3 - 4 < 4 [2] ≤ n [2]$.
 
@@ -549,17 +550,27 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 \end{proof}		
 
 
-\begin{proof}[for $\sigma_{ad}$]
-	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=(m-2, m-3, \dots, 1, 0, \dots, 0)$. For $l_1$, the arithmetic mean of its values is $m-2$ and the spread using the Average Absolute Deviation is: 
-	\[\sigma_{ad}(l_1)=\frac{1}{n}[|m-3-m+2|+|m-1-m+2|+ 0 + \dots + 0]= \frac{2}{n}\]
-	While for $l_2$, the arithmetic mean is 
-(temporary comment to avoid warning)
-	\[\bar{l_2}=m-2+m-3+\dots+m-(m-1)+0+\dots+0= \frac{1}{n}\sum_{i=2}^{m-1}{m-i}= \frac{m^2-3m+2}{2n}\]
-	\[\sigma_{ad}(l_2)=\frac{1}{n}[\sum_{i=2}^{m-1}{|(m-i)-\frac{m^2-3m+2}{2n}|+(n-(m-2))|\frac{m^2-3m+2}{2n}|}|]\]
-	I'm stuck with the computation because even if I use the triangular inequality to remove the absolute value, it gives me an upper bound which is not useful.
+\begin{proof} for $\sigma_{ad}$. \\
+	Recall that 
+	\[\sigma_{ad}(l)= \frac{\sum_{i=1}^{n}|l_i-\bar{l}|}{n}.\]
+	Let us define $s_l= \sum_{i}|l_i-\bar{l}|$, so that $s(l) = n \smad(l)$.
+	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=(m-2, m-3, \dots, 1, 0, \dots, 0)$. The thesis is now that $s(l_1) < s(l_2)$.
+	
+	For $l_1$, the arithmetic mean of its values is $m-2$, so 
+	\[s(l)=[|m-3-m+2|+|m-1-m+2|+ 0 + \dots + 0]= \frac{2}{n}\] 
 
-	\vspace{0.5cm}
-	We can see that $\sigma_{ad}(3,1,2,2)<\sigma_{ad}(2,1,0,0)$ for $m=n=4$. We can also observe that the value of $\sigma_{ad}(l_1)$ depends only on $n$. So when increasing $m$ $\sigma_{ad}(l_1)$ does not change and $\sigma_{ad}(l_2)$ increases. When increasing $n$, both of the values decrease so the inequality is still satisfied. \commentBN{To be proved formally. I believe it's true because either we increment both m and n, then even if $\sigma_{ad}(l_2)$ decreases, it's bigger than $\sigma_{ad}(l_1)$ because of the increment of m; either we keep m constant but both of them decrease, and $\sigma_{ad}(l_1)$ decreases much faster. Maybe it can be proved by induction over two variables.}
+	For $l_2$, the arithmetic mean is 
+	\[\bar{l_2}= \frac{1}{n}\sum_{i=2}^{m-1}{m-i}= \frac{(m-2)(m-1)}{2n}\]
+	\begin{align}
+		s(l_2)&= \sum_{i=2}^{m-1}{|(m-i)-\frac{(m-2)(m-1)}{2n}|+(n-(m-2))|\frac{(m-2)(m-1)}{2n}|} \\
+		&= \sum_{i=2}^{m-1}{|(m-i)-\frac{(m-2)(m-1)}{2n}|-(n-m+2)\frac{(m-2)(m-1)}{2n}}\\
+		&=\sum_{i=2}^{\ceil{\bar(l)}}{((m-i)-\frac{(m-2)(m-1)}{2n})} - \sum_{i=\floor{\bar(l)}}^{m-1}{((m-i)-\frac{(m-2)(m-1)}{2n})} \\ &-(n-m+2)\frac{(m-2)(m-1)}{2n}\\
+	\end{align}
+
+%	I'm stuck with the computation because even if I use the triangular inequality to remove the absolute value, it gives me an upper bound which is not useful.
+%
+%	\vspace{0.5cm}
+%	We can see that $\sigma_{ad}(3,1,2,2)<\sigma_{ad}(2,1,0,0)$ for $m=n=4$. We can also observe that the value of $\sigma_{ad}(l_1)$ depends only on $n$. So when increasing $m$ $\sigma_{ad}(l_1)$ does not change and $\sigma_{ad}(l_2)$ increases. When increasing $n$, both of the values decrease so the inequality is still satisfied. \commentBN{To be proved formally. I believe it's true because either we increment both m and n, then even if $\sigma_{ad}(l_2)$ decreases, it's bigger than $\sigma_{ad}(l_1)$ because of the increment of m; either we keep m constant but both of them decrease, and $\sigma_{ad}(l_1)$ decreases much faster. Maybe it can be proved by induction over two variables.}
 \end{proof}
 
 \begin{proof} for $\sigma_{sd}$. \\
