@@ -563,10 +563,42 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 	For $l_2$, the arithmetic mean is 
 	\[\bar{l_2}=\frac{1}{n}\sum_{i=2}^{m-2}{i}= \frac{(m-2)(m-1)}{2n}\]
 	\begin{align}
-		s(l_2)&= \sum_{i=1}^{m-2}{|i-\frac{(m-2)(m-1)}{2n}|+(n-(m-2))|\frac{(m-2)(m-1)}{2n}|} \\
-		&= \sum_{i=1}^{m-2}{|i-\frac{(m-2)(m-1)}{2n}|+(n-m+2)\frac{(m-2)(m-1)}{2n}}\\
-		&=\sum_{i=1}^{\ceil{\bar{l_2}}}{(i-\frac{(m-2)(m-1)}{2n})} + \sum_{i=\floor{\bar{l_2}}}^{m-1}{(i-\frac{(m-2)(m-1)}{2n})} \\ &+(n-m+2)\frac{(m-2)(m-1)}{2n}\\
+		s(l_2)&= \sum_{i=1}^{m-2}{|i-\bar{l_2}|+(n-(m-2))|0-\bar{l_2}|}\\
+		&= \sum_{i=1}^{m-2}{|i-\bar{l_2}|+(n-m+2)\bar{l_2}}\\
+		&=\sum_{i=\floor{\bar{l_2}}+1}^{m-1}{(i-\bar{l_2})}-\sum_{i=1}^{\floor{\bar{l_2}}}{(i-\bar{l_2})} +(n-m+2)\bar{l_2}\\
+		&=\sum_{i=\floor{\bar{l_2}}+1}^{m-1}{i}-(m - \floor{\bar{l_2}} - 1) \bar{l_2} - (\sum_{i=1}^{\floor{\bar{l_2}}}{i} - \floor{\bar{l_2}}\bar{l_2}) +(n-m+2)\bar{l_2}\\
+		&=\sum_{i=\floor{\bar{l_2}}+1}^{m-1}{i} - \sum_{i=1}^{\floor{\bar{l_2}}}{i} + \bar{l_2}(\floor{\bar{l_2}}-(m - \floor{\bar{l_2}} - 1)) +(n-m+2)\bar{l_2}\\
+		&=-1/2(\floor{\bar{l_2}}+1-m)(\floor{\bar{l_2}}+m)-1/2(\floor{\bar{l_2}})(\floor{\bar{l_2}}+1) \tag{1}\\
+		&+\bar{l_2}(2\floor{\bar{l_2}}-2m+n+3) 
 	\end{align}
+	If $m$ is even then $\floor{\bar{l_2}}=\bar{l_2}$
+	\begin{align}
+		&=-1/2(\bar{l_2}+1-m)(\bar{l_2}+m)-1/2(\bar{l_2})(\bar{l_2}+1)\\
+		&+\bar{l_2}(2\bar{l_2}-2m+n+3)\\
+		&=-1/2\bar{l_2}(2\bar{l_2}+2-m)-1/2m(1-m)+\bar{l_2}(2\bar{l_2}-2m+n+3)\\
+		&=1/2\bar{l_2}(2\bar{l_2}+2-m+2\bar{l_2}-2m+n+3)-1/2m(1-m)\\
+		&=1/2\bar{l_2}(4\bar{l_2}+5-3m+n)+1/2m(m-1)\\
+		&=\frac{(m-2)(m-1)}{4n}(4\frac{(m-2)(m-1)}{2n}+5-3m+n)+\frac{1}{2}m(m-1)\\
+%		&=\frac{(m-1)}{2}[(\frac{(m-2)}{2n})(\frac{2(m-2)(m-1)}{n}+5-3m+n)+m]
+	\end{align}
+if $m=4$ then $n=4$ and $s(l_2)=6$. Recalling that now our thesis is $s(l_1)<s(l_2)$, $2<6$ is true for $m=n=4$.
+
+If $m>4$ then $n=m-1$ and we can rewrite the last equation as
+	\begin{align}
+		&=\frac{(m-2)}{4}(2(m-2)+5-3m+(m-1))+\frac{1}{2}m(m-1)\\
+		&=\frac{(m-2)}{4}(2m-4+5-4m+m-1)+\frac{1}{2}m(m-1)=\frac{1}{2}m(m-1)\\
+	\end{align}
+and we can conclude that $2<\frac{1}{2}m(m-1)$ is always true for $m>4$.
+
+We still need to consider the case where $m$ is odd. In this case we can say that $\floor{\bar{l_2}}>\bar{l_2}-1$, so we can continue from Equation $(1)$ 
+	\begin{align}
+		(1)&>-1/2(\bar{l_2}-1+1-m)(\bar{l_2}-1+m)-1/2(\bar{l_2}-1)(\bar{l_2}-1+1)\\
+		&+(\bar{l_2}-1)(2(\bar{l_2}-1)-2m+n+3)\\
+		&=-1/2(\bar{l_2}-m)(\bar{l_2}-1+m)-1/2(\bar{l_2}-1)(\bar{l_2})\\
+		&+(\bar{l_2}-1)(2\bar{l_2}-2m+n+1)	
+	\end{align}
+
+\commentBN{Is it worth it to continue in this way? It seems a bit too complicated}
 
 %	I'm stuck with the computation because even if I use the triangular inequality to remove the absolute value, it gives me an upper bound which is not useful.
 %
