@@ -549,11 +549,14 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 	Note that the right hand side equals $(m - 1) [(m - 2) (3 (m - 1) - (2m - 3)) - 12] = (m - 1) (m^2 - 2m - 12) = (m - 1) (m - 1 + \sqrt{13}) (m - 1 - \sqrt{13})$. As all multiplicands are positive when $m ≥ 5$, the inequality is true when $m ≥ 5$.
 \end{proof}		
 
+\commentOC{Please insert subsections for easier browsing.}
 \begin{proof} for $\sigma_{ad}$. \\
 	Recall that 
 	\[\sigma_{ad}(l)= \frac{\sum_{i=1}^{n}|l_i-\bar{l}|}{n},\] 
 	where $\bar{l}=\frac{\sum_{i=1}^{n}l_i}{n}$.
 	Let us define $s_l= \sum_{i}|l_i-\bar{l}|$, so that $s(l) = n \smad(l)$.
+	\commentOC{ad}
+	\commentOC{$s_l$ or $s(l)$?}
 	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=(m-2, m-3, \dots, 1, 0, \dots, 0)$. The thesis is now that $s(l_1) < s(l_2)$.
 	
 	For $l_1$, the arithmetic mean of its values is $m-2$, so 
@@ -561,7 +564,9 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 
 	For $l_2$, the arithmetic mean is 
 	\[\bar{l_2}=\frac{1}{n}\sum_{i=2}^{m-2}{i}= \frac{(m-2)(m-1)}{2n}.\]
+	\commentOC{from $i=1$}
 	Recall that 
+	\commentOC{$i$, not $x$. I think only the middle one is needed, and I suggest to write it $(m + 1 - k)$ in the first $()$ and remove the negative sign, that seems much more understandable to me.}
 	\begin{align}
 		\sum_{i=k}^{m}{x} &= (m-k+1)x \\
 		\sum_{i=k}^{m}{x} &= - \frac{(k-m-1)(k+m)}{2} \\
@@ -598,6 +603,7 @@ Recall that now our thesis is $s(l_1)<s(l_2)$, or in this case that
 		&8n^2<(m-2)^2(m-1)^2 + 2n(m-2)(m-1)(2n-2m+3) \\
 	\end{align}
 If $m=4$ then $n\geq 4$, so if we prove that $s(l_1)<s(l_2)$ for $n=4$ then it is also true for any $n>4$.
+\commentOC{I don’t see why “$s(l_1)<s(l_2)$ for any $n>4$” follows from “$s(l_1)<s(l_2)$ for $n=4$”. In general (for any expression on the LHS and RHS), it is false, so the reasoning must involve the specific expressions we got for $s$. For example, one can say, looking at $4n^2 < n + 100$, that this is true for $n = 4$, but it does not follow that it is true for all $n > 4$ as it fails for example for $n = 10$. I suggest to try to put all the terms that depend on $n$ on one side and proceed similarly as in the previous proof.}
 \begin{align}
 	&8(4)^2<(4-2)^2(4-1)^2 + 2(4)(4-2)(4-1)(2(4)-2(4)+3) \\
 	&128<180.
