@@ -5,16 +5,46 @@ def main():
     rq=[8,7,6,5,4,3,2,1,0,0,0,0,0,0]
     r=[3,2,1,0,0,0]
 #   print (meanAbsDiff(r)==myMeanAbsDiffY(r,4))
-    print (avgAbsDev(rq))
-    print (avgAbsDevComputation(rq))
-    print (test(rq))
-    print (avgAbsDev(rq)==avgAbsDevComputation(rq))
+#   print (avgAbsDev(rq)==avgAbsDevComputation(rq))
+#   print (math.sqrt(sumStDev(rq)/len(rq)))
+    print (sumStDev(rq))
+    print (mySumStDev(rq))
+    print (stComput(rq))
 
 def getMofY(rY):
     return rY[0]+2
 
+def sumStDev(r):
+    n = len(r)
+    avg = statistics.mean(r)
+    sd = 0
+    for i in range(n):
+        sd = sd + math.pow(r[i] - avg,2)
+    return sd
+
+def mySumStDev(r):
+    n = len(r)
+    m = getMofY(r)
+    avg = statistics.mean(r)
+    sd = 0
+    for i in range(1,m-2+1):
+        sd = sd + math.pow(i,2)
+    for i in range(1,m-2+1):
+        sd = sd - 2*avg*i
+    sd = sd + (m-2)*(math.pow(avg,2))
+    sd = sd + (n-m+2)*(math.pow(avg,2))
+    return sd
+
+def stComput(r):
+    n = len(r)
+    m = getMofY(r)
+    avg = statistics.mean(r)
+    sd = (m-2)*(m-1)*(2*m-3)/6 - avg*(m-2)*(m-1)+ avg**2*(m-2)+(n-m+2)*avg**2
+    sd = (m-2)*(m-1)*(2*m-3)/6 - (m-2)**2*(m-1)**2/(4*n)
+    return sd
+
 def avgAbsDev(r):
-    n=len(r)
+    n = len(r)
     avg = statistics.mean(r)
     ad=0
     for i in range(n):
@@ -77,6 +107,8 @@ def myMeanAbsDiffY(r,m):
         temp = temp + j
     sum = sum + (temp * (n-m+2) )
     return sum
+
+
 
 
 if __name__ == "__main__":
