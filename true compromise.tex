@@ -353,10 +353,10 @@ As both vectors are $n$ dimensional, the term $m-2$ repeats $n-2$ times in the f
 The condition is more convincing for larger values of $m$ and $n$. In fact, asking for $\sigma(0,2,1)$ to be smaller than $\sigma(1,0,0)$ is very demanding while asking for $\sigma(3,5,4,4,4,4,4)$ to be smaller than $\sigma(6,5,4,3,2,1,0)$ reflects a mild assumption. In any case, as we state below, several well-known spread measures of the literature (see \citet{Allison1978} for a comprehensive account) satisfy \cref{def:conditionC} for reasonably small values of $m$ and $n$. Letting $\bar{l}=\frac{\sum_{i=1}^{n}l_i}{n}$ denote the arithmetic mean of the values of $l = (l_1, …, l_n)$, we consider the following measures:
 
 \begin{itemize}
-	\item the Gini coefficient $\sigma_{G}(l)= \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}|l_i-l_j|}{2 \cdot n \cdot \sum_{i=1}^{n} l_i}$;
-	\item the standard deviation $\sigma_{sd}(l)= \sqrt{\frac{\sum_{i=1}^{n}(l_i-\bar{l})^2}{n}}$;
 	\item the mean absolute difference $\sigma_{mad}(l)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|l_i-l_j|$;
-	\item the average absolute deviation $\sigma_{ad}(l)= \frac{\sum_{i=1}^{n}|l_i-\bar{l}|}{n}$.
+	\item the average absolute deviation $\sigma_{ad}(l)= \frac{\sum_{i=1}^{n}|l_i-\bar{l}|}{n}$;
+	\item the standard deviation $\sigma_{sd}(l)= \sqrt{\frac{\sum_{i=1}^{n}(l_i-\bar{l})^2}{n}}$;
+	\item the Gini coefficient $\sigma_{G}(l)= \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}|l_i-l_j|}{2 \cdot n \cdot \sum_{i=1}^{n} l_i}$.
 \end{itemize} 
 
 \begin{proposition}
@@ -569,13 +569,13 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 	\commentOC{$i$, not $x$. I think only the middle one is needed, and I suggest to write it $(m + 1 - k)$ in the first $()$ and remove the negative sign, that seems much more understandable to me.}
 	\begin{align}
 		\sum_{i=k}^{m}{x} &= (m-k+1)x \\
-		\sum_{i=k}^{m}{x} &= - \frac{(k-m-1)(k+m)}{2} \\
-		\sum_{i=1}^{m}{x} &= \frac{m(m+1)}{2}
+		\sum_{i=k}^{m}{i} &= - \frac{(k-m-1)(k+m)}{2} \\
+		\sum_{i=1}^{m}{i} &= \frac{m(m+1)}{2}
 	\end{align}
 	We can write $s(l_2)$ as:
 	\begin{align}
-		s(l_2)&= \sum_{i=1}^{m-2}{|i-\bltwo|+(n-(m-2))|0-\bltwo|}=\\
-		&= \sum_{i=1}^{m-2}{|i-\bltwo|+(n-m+2)\bltwo}=\\
+		s(l_2)&= \sum_{i=1}^{m-2}{|i-\bltwo|}+(n-(m-2))|0-\bltwo|=\\
+		&= \sum_{i=1}^{m-2}{|i-\bltwo|}+(n-m+2)\bltwo=\\
 		&=\sum_{i=\fltwo+1}^{m-2}{(i-\bltwo)}-\sum_{i=1}^{\fltwo}{(i-\bltwo)} +(n-m+2)\bltwo=\\
 		&=\sum_{i=\fltwo+1}^{m-2}{i}-\sum_{i=\fltwo+1}^{m-2}{\bltwo}-\sum_{i=1}^{\fltwo}{i} +\sum_{i=1}^{\fltwo}{\bltwo}+(n-m+2)\bltwo=\\
 		&= -\frac{(\fltwo+1-m+2-1)(\fltwo+1+m-2)}{\fltwo}-(m-2-\fltwo-1+1)\bltwo\\ &-\frac{\fltwo(\fltwo+1)}{2}+\fltwo \bltwo + (n-m+2)\bltwo=\\
@@ -628,16 +628,31 @@ The right side of this inequality is the same equation $(2)$ obtained for the ca
 \end{proof}
 
 \begin{proof} for $\sigma_{sd}$. \\
-	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=(m-2, m-3, \dots, 1, 0, \dots, 0)$. For $l_1$, the arithmetic mean of its values is $m-2$ and the spread using the Standard Deviation is: 
-	\[\sigma_{sd}(l_1)=\sqrt{\frac{(m-3-m+2)^2+(m-1-m+2)^2+ 0 + \dots + 0}{n}}= \sqrt{\frac{2}{n}}\]
-	While for $l_2$, the arithmetic mean is 
-	\[\bar{l_2}=m-2+m-3+\dots+m-(m-1)+0+\dots+0= \frac{1}{n}\sum_{i=2}^{m-1}{m-i}= \frac{m^2-3m+2}{2n}\]
-	and the spread using the Standard Deviation is: 
+	Recall that 
+	\[\sigma_{sd}(l)= \sqrt{\frac{\sum_{i=1}^{n}(l_i-\bar{l})^2}{n}}\]	
+	where $\bar{l}=\frac{\sum_{i=1}^{n}l_i}{n}$.
+	Let us define $s_l= \sum_{i}|l_i-\bar{l}|$, so that $s(l) = n \smad(l)^2$.
+	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=(m-2, m-3, \dots, 1, 0, \dots, 0)$. The thesis is now that $s(l_1) < s(l_2)$.
+	
+	For $l_1$, the arithmetic mean of its values is $m-2$ so $s(l_1)$: 
+	\[s(l_1)=(m-3-m+2)^2+(m-1-m+2)^2+ 0 + \dots + 0= 2\]
+	For $l_2$, the arithmetic mean is 
+	\[\bar{l_2}=\frac{1}{n}\sum_{i=2}^{m-2}{i}= \frac{(m-2)(m-1)}{2n}.\]
+	Recall that 
 	\begin{align}
-		\sigma_{sd}(l_2)=&\sqrt{\frac{\sum_{i=2}^{m-1}{[(m-i)-\frac{m^2-3m+2}{2n}]^2+(n-(m-2))[0-\frac{m^2-3m+2}{2n}]^2}}{n}}= \\
-		& =\textstyle{\frac{1}{2 \sqrt{3}} \sqrt{\frac{(m - 2) (m - 1) (2 (2 m - 3) n^2 + 3 (m - 4) (m - 1) (m - 2) n - 3 (m - 3) (m - 1) (m - 2)^2}{n^3}}}
+		\sum_{i=k}^{m}{x} &= (m-k+1)x \\
+		\sum_{i=1}^{m}{i} &= \frac{m(m+1)}{2}\\
+		\sum_{i=1}^{m}{i^2} &= \frac{m(m+1)(2m+1)}{6}
 	\end{align}
-	Therefore $\sigma_{sd}(l_1)<\sigma_{sd}(l_2)$ is true $\forall m \geq 4 n\geq 4$.
+	We can write $s(l_2)$ as:
+	\begin{align}
+		s(l_2)&= \sum_{i=1}^{m-2}{(i-\bltwo)^2}+(n-(m-2))(0-\bltwo)^2=\\
+		&= \sum_{i=1}^{m-2}{(i^2-2i\bltwo+\bltwo^2)}+(n-m+2)\bltwo^2=\\
+		&= \sum_{i=1}^{m-2}{i^2}-\sum_{i=1}^{m-2}{2i\bltwo}+ \sum_{i=1}^{m-2}{\bltwo^2}+(n-m+2)\bltwo^2=\\
+		&=\frac{(m-2)(m-2+1)(2m-4+1)}{6}-2\bltwo\frac{(m-2)(m-2+1)}{2} \\
+		& +(m-2)\bltwo^2 +(n-m+2)\bltwo^2= \\
+	\end{align} 
+
 \end{proof}
 
 \begin{proof} for $\sigma_{G}$. \\
