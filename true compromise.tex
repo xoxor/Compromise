@@ -549,7 +549,6 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 	Note that the right hand side equals $(m - 1) [(m - 2) (3 (m - 1) - (2m - 3)) - 12] = (m - 1) (m^2 - 2m - 12) = (m - 1) (m - 1 + \sqrt{13}) (m - 1 - \sqrt{13})$. As all multiplicands are positive when $m ≥ 5$, the inequality is true when $m ≥ 5$.
 \end{proof}		
 
-
 \begin{proof} for $\sigma_{ad}$. \\
 	Recall that 
 	\[\sigma_{ad}(l)= \frac{\sum_{i=1}^{n}|l_i-\bar{l}|}{n},\] 
@@ -561,49 +560,63 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 	\[s(l_1)=[|m-3-m+2|+|m-1-m+2|+ 0 + \dots + 0]= 2.\]
 
 	For $l_2$, the arithmetic mean is 
-	\[\bar{l_2}=\frac{1}{n}\sum_{i=2}^{m-2}{i}= \frac{(m-2)(m-1)}{2n}\]
+	\[\bar{l_2}=\frac{1}{n}\sum_{i=2}^{m-2}{i}= \frac{(m-2)(m-1)}{2n}.\]
+	Recall that 
 	\begin{align}
-		s(l_2)&= \sum_{i=1}^{m-2}{|i-\bar{l_2}|+(n-(m-2))|0-\bar{l_2}|}\\
-		&= \sum_{i=1}^{m-2}{|i-\bar{l_2}|+(n-m+2)\bar{l_2}}\\
-		&=\sum_{i=\floor{\bar{l_2}}+1}^{m-1}{(i-\bar{l_2})}-\sum_{i=1}^{\floor{\bar{l_2}}}{(i-\bar{l_2})} +(n-m+2)\bar{l_2}\\
-		&=\sum_{i=\floor{\bar{l_2}}+1}^{m-1}{i}-(m - \floor{\bar{l_2}} - 1) \bar{l_2} - (\sum_{i=1}^{\floor{\bar{l_2}}}{i} - \floor{\bar{l_2}}\bar{l_2}) +(n-m+2)\bar{l_2}\\
-		&=\sum_{i=\floor{\bar{l_2}}+1}^{m-1}{i} - \sum_{i=1}^{\floor{\bar{l_2}}}{i} + \bar{l_2}(\floor{\bar{l_2}}-(m - \floor{\bar{l_2}} - 1)) +(n-m+2)\bar{l_2}\\
-		&=-1/2(\floor{\bar{l_2}}+1-m)(\floor{\bar{l_2}}+m)-1/2(\floor{\bar{l_2}})(\floor{\bar{l_2}}+1) \tag{1}\\
-		&+\bar{l_2}(2\floor{\bar{l_2}}-2m+n+3) 
+		\sum_{i=k}^{m}{x} &= (m-k+1)x \\
+		\sum_{i=k}^{m}{x} &= - \frac{(k-m-1)(k+m)}{2} \\
+		\sum_{i=1}^{m}{x} &= \frac{m(m+1)}{2}
+	\end{align}
+	We can write $s(l_2)$ as:
+	\begin{align}
+		s(l_2)&= \sum_{i=1}^{m-2}{|i-\bltwo|+(n-(m-2))|0-\bltwo|}=\\
+		&= \sum_{i=1}^{m-2}{|i-\bltwo|+(n-m+2)\bltwo}=\\
+		&=\sum_{i=\fltwo+1}^{m-2}{(i-\bltwo)}-\sum_{i=1}^{\fltwo}{(i-\bltwo)} +(n-m+2)\bltwo=\\
+		&=\sum_{i=\fltwo+1}^{m-2}{i}-\sum_{i=\fltwo+1}^{m-2}{\bltwo}-\sum_{i=1}^{\fltwo}{i} +\sum_{i=1}^{\fltwo}{\bltwo}+(n-m+2)\bltwo=\\
+		&= -\frac{(\fltwo+1-m+2-1)(\fltwo+1+m-2)}{\fltwo}-(m-2-\fltwo-1+1)\bltwo\\ &-\frac{\fltwo(\fltwo+1)}{2}+\fltwo \bltwo + (n-m+2)\bltwo=\\
+		&=-\frac{(\fltwo-m+2)(\fltwo+m-1)}{2}-(m-2-\fltwo)\bltwo-\frac{\fltwo(\fltwo+1)}{2} \\
+		&+ \fltwo \bltwo + (n-m+2)\bltwo=\\
+		&=-\frac{(\fltwo)(\fltwo+m-1)}{2}+\frac{(m-2)(\fltwo+m-1)}{2} -(m-2)\bltwo+(\fltwo)\bltwo \\ &-\frac{\fltwo(\fltwo+1)}{2}+ \fltwo \bltwo + (n-m+2)\bltwo=\\
+		&=-\frac{(\fltwo)(\fltwo+m-1)}{2}+\frac{(m-2)\fltwo}{2}+\underbrace{\frac{(m-2)(m-1)}{2}}_{=n \bltwo} -(m-2)\bltwo \\ &-\frac{\fltwo(\fltwo+1)}{2}+ 2\fltwo \bltwo + (n-m+2)\bltwo=\\
+		&=\fltwo(-\frac{\fltwo+m-1}{2}+\frac{m-2}{2}-\frac{\fltwo +1}{2}+2\bltwo)+
+		2\bltwo(n-m+2)=\\
+		&=\fltwo(\frac{-\fltwo-m+1+m-2+4\bltwo-\fltwo-1}{2})+2\bltwo(n-m+2)=\\
+		&=\fltwo(\frac{4\bltwo-2\fltwo-2}{2})+2\bltwo(n-m+2)=\\
+		&=\fltwo(2\bltwo-\fltwo-1)+2\bltwo(n-m+2) \tag{1}\\
 	\end{align}
 	If $m$ is even then $\floor{\bar{l_2}}=\bar{l_2}$
-	\begin{align}
-		&=-1/2(\bar{l_2}+1-m)(\bar{l_2}+m)-1/2(\bar{l_2})(\bar{l_2}+1)\\
-		&+\bar{l_2}(2\bar{l_2}-2m+n+3)\\
-		&=-1/2\bar{l_2}(2\bar{l_2}+2-m)-1/2m(1-m)+\bar{l_2}(2\bar{l_2}-2m+n+3)\\
-		&=1/2\bar{l_2}(2\bar{l_2}+2-m+2\bar{l_2}-2m+n+3)-1/2m(1-m)\\
-		&=1/2\bar{l_2}(4\bar{l_2}+5-3m+n)+1/2m(m-1)\\
-		&=\frac{(m-2)(m-1)}{4n}(4\frac{(m-2)(m-1)}{2n}+5-3m+n)+\frac{1}{2}m(m-1)\\
-%		&=\frac{(m-1)}{2}[(\frac{(m-2)}{2n})(\frac{2(m-2)(m-1)}{n}+5-3m+n)+m]
-	\end{align}
-if $m=4$ then $n=4$ and $s(l_2)=6$. Recalling that now our thesis is $s(l_1)<s(l_2)$, $2<6$ is true for $m=n=4$.
 
-If $m>4$ then $n=m-1$ and we can rewrite the last equation as
 	\begin{align}
-		&=\frac{(m-2)}{4}(2(m-2)+5-3m+(m-1))+\frac{1}{2}m(m-1)\\
-		&=\frac{(m-2)}{4}(2m-4+5-4m+m-1)+\frac{1}{2}m(m-1)=\frac{1}{2}m(m-1)\\
+		&=\bltwo(2\bltwo-\bltwo-1)+2\bltwo(n-m+2)=\\
+		&=\bltwo(\bltwo-1 +2(n-m+2))=\\
+		&=\frac{(m-2)(m-1)}{2n}(\frac{(m-2)(m-1)}{2n} +2n-2m+3)
 	\end{align}
-and we can conclude that $2<\frac{1}{2}m(m-1)$ is always true for $m>4$.
+Recall that now our thesis is $s(l_1)<s(l_2)$, or equivalently that
+	\begin{align}
+		&2<\frac{(m-2)(m-1)}{2n}(\frac{(m-2)(m-1)}{2n} +2n-2m+3)\\
+		&4n<(m-2)(m-1)(\frac{(m-2)(m-1)}{2n} +2n-2m+3) \\
+		&4n<\frac{(m-2)^2(m-1)^2}{2n} + (m-2)(m-1)(2n-2m+3) \\
+		&8n^2<(m-2)^2(m-1)^2 + 2n(m-2)(m-1)(2n-2m+3) \\
+	\end{align}
+If $m=4$ then $n\geq 4$, so if we prove that $s(l_1)<s(l_2)$ for $n=4$ then it is also true for any $n>4$.
+\begin{align}
+	&8(4)^2<(4-2)^2(4-1)^2 + 2(4)(4-2)(4-1)(2(4)-2(4)+3) \\
+	&128<180.
+\end{align}
+ 
+If $m>4$ then $n\geq m-1$, so if we prove that $s(l_1)<s(l_2)$ for $n=m-1$ then it is also true for any $n>m-1$.
+\begin{align}
+	&8(m-1)^2<(m-2)^2(m-1)^2 + 2(m-2)(m-1)^2(2(m-1)-2m+3) \\
+	&8(m-1)^2<(m-2)(m-1)^2 ( (m-2) + 2(2m-2-2m+3)) \\
+	&8(m-1)^2<(m-2)(m-1)^2 ( m-2 + 2) \\
+	&8(m-1)^2<m(m-2)(m-1)^2\\
+\end{align}
+Which is always true for $m>4$.
+
 
 We still need to consider the case where $m$ is odd. In this case we can say that $\floor{\bar{l_2}}>\bar{l_2}-1$, so we can continue from Equation $(1)$ 
-	\begin{align}
-		(1)&>-1/2(\bar{l_2}-1+1-m)(\bar{l_2}-1+m)-1/2(\bar{l_2}-1)(\bar{l_2}-1+1)\\
-		&+(\bar{l_2}-1)(2(\bar{l_2}-1)-2m+n+3)\\
-		&=-1/2(\bar{l_2}-m)(\bar{l_2}-1+m)-1/2(\bar{l_2}-1)(\bar{l_2})\\
-		&+(\bar{l_2}-1)(2\bar{l_2}-2m+n+1)	
-	\end{align}
 
-\commentBN{Is it worth it to continue in this way? It seems a bit too complicated}
 
-%	I'm stuck with the computation because even if I use the triangular inequality to remove the absolute value, it gives me an upper bound which is not useful.
-%
-%	\vspace{0.5cm}
-%	We can see that $\sigma_{ad}(3,1,2,2)<\sigma_{ad}(2,1,0,0)$ for $m=n=4$. We can also observe that the value of $\sigma_{ad}(l_1)$ depends only on $n$. So when increasing $m$ $\sigma_{ad}(l_1)$ does not change and $\sigma_{ad}(l_2)$ increases. When increasing $n$, both of the values decrease so the inequality is still satisfied. \commentBN{To be proved formally. I believe it's true because either we increment both m and n, then even if $\sigma_{ad}(l_2)$ decreases, it's bigger than $\sigma_{ad}(l_1)$ because of the increment of m; either we keep m constant but both of them decrease, and $\sigma_{ad}(l_1)$ decreases much faster. Maybe it can be proved by induction over two variables.}
 \end{proof}
 
 \begin{proof} for $\sigma_{sd}$. \\
