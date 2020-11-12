@@ -1,12 +1,17 @@
-import sys, os
-import statistics
+import sys, os, statistics, math
 
 def main():
     rr=[0,2,1,1,1,1]
     rq=[8,7,6,5,4,3,2,1,0,0,0,0,0,0]
-    r=[3,1,2]
-    print (meanAbsDiff(r)==myMeanAbsDiffY(r,4))
-    print (avgAbsDev(r)==myAvgAbsDevY(r,4))
+    r=[3,2,1,0,0,0]
+#   print (meanAbsDiff(r)==myMeanAbsDiffY(r,4))
+    print (avgAbsDev(rq))
+    print (avgAbsDevComputation(rq))
+    print (test(rq))
+    print (avgAbsDev(rq)==avgAbsDevComputation(rq))
+
+def getMofY(rY):
+    return rY[0]+2
 
 def avgAbsDev(r):
     n=len(r)
@@ -27,6 +32,28 @@ def myAvgAbsDevY(r,m):
         ad = ad + abs((m-i)- avg)
     ad = ad + (n-m+2)*(avg)
     return ad
+
+def avgAbsDevComputation(r):
+    n = len(r)
+    m = getMofY(r)
+    ad = 0
+    avg = statistics.mean(r)
+    floor = math.floor(avg)
+    for i in range(floor+1,m-2+1):
+        ad = ad + (i-avg)
+    for i in range(1,floor+1):
+        ad = ad - (i-avg)
+    ad = ad + (n-m+2)*(avg)
+    return ad
+
+def testMathAd(r):
+    n = len(r)
+    m = getMofY(r)
+    avg = statistics.mean(r)
+    floor = math.floor(avg)
+    x = (-((floor-m+2)*(floor+m-1)/2)-(m-2-floor)*avg-((floor*(floor+1))/2) + floor*avg+(n-m+2)*avg)
+    x = floor*(-(floor+m-1)/2+(m-2)/2+2*avg-(floor+1)/2)+2*avg*(n-m+2)
+    return floor*(2*avg-floor-1)+ 2*avg*(n-m+2)
 
 def meanAbsDiff(r):
     n=len(r)
