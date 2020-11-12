@@ -584,14 +584,13 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 		&=\fltwo(\frac{4\bltwo-2\fltwo-2}{2})+2\bltwo(n-m+2)=\\
 		&=\fltwo(2\bltwo-\fltwo-1)+2\bltwo(n-m+2) \tag{1}\\
 	\end{align}
-	If $m$ is even then $\floor{\bar{l_2}}=\bar{l_2}$
-
+	If $m$ is even then $\floor{\bar{l_2}}=\bar{l_2}$ and we can write $s(l_{2 ev})$
 	\begin{align}
 		&=\bltwo(2\bltwo-\bltwo-1)+2\bltwo(n-m+2)=\\
-		&=\bltwo(\bltwo-1 +2(n-m+2))=\\
+		&=\bltwo(\bltwo-1 +2(n-m+2))= \tag{2}\\
 		&=\frac{(m-2)(m-1)}{2n}(\frac{(m-2)(m-1)}{2n} +2n-2m+3)
 	\end{align}
-Recall that now our thesis is $s(l_1)<s(l_2)$, or equivalently that
+Recall that now our thesis is $s(l_1)<s(l_2)$, or in this case that
 	\begin{align}
 		&2<\frac{(m-2)(m-1)}{2n}(\frac{(m-2)(m-1)}{2n} +2n-2m+3)\\
 		&4n<(m-2)(m-1)(\frac{(m-2)(m-1)}{2n} +2n-2m+3) \\
@@ -609,14 +608,17 @@ If $m>4$ then $n\geq m-1$, so if we prove that $s(l_1)<s(l_2)$ for $n=m-1$ then 
 	&8(m-1)^2<(m-2)^2(m-1)^2 + 2(m-2)(m-1)^2(2(m-1)-2m+3) \\
 	&8(m-1)^2<(m-2)(m-1)^2 ( (m-2) + 2(2m-2-2m+3)) \\
 	&8(m-1)^2<(m-2)(m-1)^2 ( m-2 + 2) \\
-	&8(m-1)^2<m(m-2)(m-1)^2\\
+	&8(m-1)^2<m(m-2)(m-1)^2
 \end{align}
 Which is always true for $m>4$.
 
-
-We still need to consider the case where $m$ is odd. In this case we can say that $\floor{\bar{l_2}}>\bar{l_2}-1$, so we can continue from Equation $(1)$ 
-
-
+We still need to consider the case where $m$ is odd. In this case we can say that $\fltwo>\bltwo-1$, so we can continue from Equation $(1)$ 
+\begin{align}
+	&(1)>(\bltwo-1)(2\bltwo-(\bltwo-1)-1)+2\bltwo(n-m+2)\\
+	&(1)>(\bltwo-1)(2\bltwo-\bltwo+1-1)+2\bltwo(n-m+2)\\
+	&(1)>\bltwo(\bltwo-1)+2\bltwo(n-m+2)\\
+\end{align}
+The right side of this inequality is the same equation $(2)$ obtained for the case $m$ even. Thus, since we proved that $s(l_1)<s(l_{1 ev})$ we can conclude that $s(l_1)<s(l_{2 ev})<s(l_{2 odd})$.
 \end{proof}
 
 \begin{proof} for $\sigma_{sd}$. \\
