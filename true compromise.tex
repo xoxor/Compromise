@@ -424,6 +424,8 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 	
 	We readily see that FB picks only $x$ at $P$ (and at $P'$) since $x$ is the first alternative which reaches the unanimous consent.
 	\commentOC{This seems mistaken to me. When $m = 6$, $\alpha = \beta = 2$, and FB picks $\set{x, y}$, unless I am missing something.}
+	\commentBN{Consider $m \geq 7$. Define $\alpha = \ceil{\frac{m}{2}} - 1$, $\beta = \floor{\frac{m-1}{2}} - 1$ and $\gamma = m - (\alpha+\beta+2)$. If $\gamma=0$ the alternative $c$ is not present (I'm not sure how to formalize this). Consider the profile $P$ where voter $i_1$ has the preference order $x \succ a_1 \succ … \succ a_\alpha \succ y \succ b_1 \succ … \succ b_\beta \succ c_\gamma$ and voter $i_2$ has the preference order $b_1 \succ … \succ b_\beta \succ y \succ x \succ a_1 \succ … \succ a_\alpha \succ c_\gamma$.}
+	
 	
 	For PV, let $v_{i_1} ≥ v_{i_2}$ (thus $v_{i_1} ≥ \ceil{\frac{m-1}{2}}$ and $v_{i_2} ≤ \floor{\frac{m - 1}{2}}$, or equivalently, $v_{i_1} ≥ \floor{\frac{m}{2}} = \beta + 1$ and $v_{i_2} ≤ \ceil{\frac{m - 2}{2}} = \alpha$), and consider the profile $P$. Observe that the first voter vetoes at least $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) while no voter vetoes $x$. As $x$ Pareto-dominates every $a_j$ ($1 ≤ j ≤ \alpha$), PV picks only $x$ at $P$. When $v_{i_2} ≥ v_{i_1}$, a similar reasoning yields that PV picks only $x$ at $P'$.
 	
