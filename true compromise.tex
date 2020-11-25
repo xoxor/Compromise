@@ -564,12 +564,8 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 	For $l_2$, the arithmetic mean is 
 	\[\bar{l_2}=\frac{1}{n}\sum_{i=1}^{m-2}{i}= \frac{(m-2)(m-1)}{2n}.\]
 	Recall that 
-	\commentOC{$i$, not $x$. I think only the middle one is needed, and I suggest to write it $(m + 1 - k)$ in the first $()$ and remove the negative sign, that seems much more understandable to me.}\commentBN{Why not $x$? Do you think changing the sign makes a substantial difference or it is only to be visually more appealing? To be honest I don't think it's worth going through the proof again to make sure we are consistent with the definition.}
-	\commentOC{$x$ → $i$ is now correct. It’s just that the formula with $(m + 1 - k)$ is easily checked to be plausible, whereas for understanding the other one, you first need to realize that it is equivalent to the one with the $(m + 1 - k)$ term (unless there is another way of understanding it which currently escapes me). Anyway, if we do not include these proofs in our article, it is not very important to write them in an understandable way, as long as we are sure we understand them. In any case, there is no (immediate) need to re-write the development, even if changing the expression below.}
 	\begin{align}
-		\sum_{i=k}^{m}{x} &= (m-k+1)x \\
-		\sum_{i=k}^{m}{i} &= - \frac{(k-m-1)(k+m)}{2} \\
-		\sum_{i=1}^{m}{i} &= \frac{m(m+1)}{2}
+		\sum_{i=k}^{m}{i} &= \frac{(m+1-k)(m+k)}{2} \\
 	\end{align}
 	We can write $s(l_2)$ as:
 	\begin{align}
