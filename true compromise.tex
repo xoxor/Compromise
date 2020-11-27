@@ -403,46 +403,20 @@ Again within the context of selecting arbitrators, \citet{Clippel2014} propose a
 
 
 \begin{definition}
-    Given any $m \geq 6$, a spread measure $\sigma \in \Sigma$ satisfies condition $D_m$ iff 
-    $\sigma(\ceil{\frac{m}{2}}, \floor{\frac{m}{2}} - 1) < \sigma(0, \floor{\frac{m}{2}})$,
-    $\sigma(\floor{\frac{m}{2}} - 1, \ceil{\frac{m}{2}}) < \sigma(\floor{\frac{m}{2}}, 0)$,
-    $\sigma(\floor{\frac{m}{2}} + 1, \floor{\frac{m}{2}} - 1) < \sigma(0, \floor{\frac{m}{2}})$ and
-    $\sigma(\floor{\frac{m}{2}} - 1, \floor{\frac{m}{2}} + 1) < \sigma(\floor{\frac{m}{2}}, 0)$.
+    Given any $m \geq 4$, a spread measure $\sigma \in \Sigma$ satisfies condition $D_m$ iff 
+    $\sigma(\ceil{\frac{m}{2}}, \floor{\frac{m}{2}} - 1) < \sigma(0, \floor{\frac{m}{2}})$ and 
+    $\sigma(\floor{\frac{m}{2}} - 1, \ceil{\frac{m}{2}}) < \sigma(\floor{\frac{m}{2}}, 0)$.
 \end{definition}
-For $m=6$ the condition requires $\sigma(3, 2) < \sigma(0, 3)$, $\sigma(2, 3) < \sigma(3, 0)$, $\sigma(4, 2) < \sigma(0, 3)$ and $\sigma(2, 4) < \sigma(3, 0)$, which is reasonable in our context. When the value of $m$ is larger, the condition appears even more convincing. As $m$ grows, the distance between $0$ and $\floor{\frac{m}{2}}$ grows, while the distance between $\ceil{\frac{m}{2}}$ and $\floor{\frac{m}{2}} - 1$, or between $\floor{\frac{m}{2}} + 1$ and $\floor{\frac{m}{2}} - 1$, remains constant. Requiring, for example, the spread of $(15, 14)$ to be smaller than the spread of $(0, 15)$ is very reasonable.
-\commentOC{This is becoming absurd. I suggest to request that $\forall \abs{k - k'} ≤ 2: \sigma(k, k') < \sigma(0, \floor{\frac{m}{2}})$ and $\sigma(k, k') < \sigma(\floor{\frac{m}{2}}, 0)$.}
+For $m=4$ the condition requires $\sigma(2,1) < \sigma(0,2)$ and $\sigma(0,2) < \sigma(2,1)$ which is reasonable in our context. When the value of $m$ is larger, the condition appears even more convincing. As $m$ grows, the distance between $0$ and $\floor{\frac{m}{2}}$ grows, while the distance between $\ceil{\frac{m}{2}}$ and $\floor{\frac{m}{2}} - 1$ remains constant ($1$ if $m$ is even, $2$ otherwise). Requiring, for example, the spread of $(15,14)$ to be smaller than the spread of $(0,15)$ is very reasonable.
 
 We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that satisfy condition $D_{m}$. 
 
-\begin{figure}
-	\caption{The profile $P^\text{FB}$ as used in the proof of \cref{th:2votPCC}, for $m = 6$.}
-	\label{fig:Pfb6}
-	$\begin{array}{llllll}
-		x & a_1 & a_2 & b_1 & y & b_2\\
-		b_1 & b_2 & y & x & a_1 & a_2\\
-	\end{array}$
-\end{figure}
-\begin{figure}
-	\caption{The profile $P^\text{FB}$ as used in the proof of \cref{th:2votPCC}, for $m = 7$.}
-	\label{fig:Pfb7}
-	$\begin{array}{lllllll}
-		x & a_1 & a_2 & a_3 & y & b_1 & b_2\\
-		b_1 & b_2 & y & x & a_1 & a_2 & a_3\\
-	\end{array}$
-\end{figure}
-
-\begin{theorem} 
-	\label{th:2votPCC}
-	Let $m \geq 6$. Under $\Sigma^{D_{m}}$, FB and PV fail PCC. Furthermore, when $m$ is odd, VR and SL also fail PCC.
+\begin{theorem} \label{th:2votPCC}
+	Let $m \geq 5$. Under $\Sigma^{D_{m}}$, FB and PV fail PCC. Furthermore, when $m$ is odd, VR and SL also fail PCC.
 \end{theorem}
 \begin{proof}
-	Take any $m \geq 6$ and any $\sigma \in \Sigma^{D_m}$. Define $\alpha = \ceil{\frac{m}{2}} - 1$ and $\beta = \floor{\frac{m}{2}} - 1$. Note that $\sigma(\alpha + 1, \beta) < \sigma(0, \beta + 1)$ and $\sigma(\beta, \alpha + 1) < \sigma(\beta + 1, 0)$, and $\alpha + \beta + 2 = m$.
-	Define $\succ^m_1$ as the preference order $x \succ a_1 \succ … \succ a_\alpha \succ y \succ b_1 \succ … \succ b_\beta$, $\succ^{m\text{-rev}}_1$ as the preference order $x \succ a_1 \succ … \succ a_\alpha \succ b_1 \succ y \succ b_2 \succ … \succ b_\beta$ (thus with the order of $b_1$ and $y$ reverted compared to $\succ^m_1$), and $\succ^m_2$ as the preference order $b_1 \succ … \succ b_\beta \succ y \succ x \succ a_1 \succ … \succ a_\alpha$. 
-	
-	Consider the profile $P^\text{FB}$ where voter $1$ has the preference $\succ^m_1$ if $m$ is odd and the preference $\succ^{m\text{-rev}}_1$ if $m$ is even; and where voter $2$ has the preference $\succ^m_2$. \Cref{fig:Pfb6} displays $P^\text{FB}$ for $m = 6$ and \cref{fig:Pfb7} for $m = 7$.
-	
-	Note that $\lambda_{P^\text{FB}}(y) = (\floor{\frac{m}{2}} + 1, \beta)$, $\lambda_{P^\text{FB}}(x) = (0, \beta + 1)$ and, if $m$ is even, $\lambda_{P^\text{FB}}(b_1) = (\alpha + 1, 0)$. We see that FB picks $x$, together with $b_1$ when $m$ is even, as winners, whereas none of these minimize $\sigma \circ \lprof$ among the Pareto optimal alternatives, $y$ reaching a lower inequality value thanks to condition $D_m$. Thus, FB is not PCC. BUT $y$ is not PO!
-	
+    Take any $m \geq 5$ and any $\sigma \in \Sigma^{D_m}$. Define $\alpha = \ceil{\frac{m}{2}} - 1$ and $\beta = \floor{\frac{m}{2}} - 1$. Note that $\sigma(\alpha + 1, \beta) < \sigma(0, \beta + 1)$ and $\sigma(\beta, \alpha + 1) < \sigma(\beta + 1, 0)$, and $\alpha + \beta + 2 = m$.
+    Consider the profile $P$ where voter $i_1$ has the preference order $x \succ a_1 \succ … \succ a_\alpha \succ y \succ b_1 \succ … \succ b_\beta$ and voter $i_2$ has the preference order $b_1 \succ … \succ b_\beta \succ y \succ x \succ a_1 \succ … \succ a_\alpha$. 
 	Note that $\sigma(\lambda_{P}(y)) = \sigma(\alpha + 1, \beta)$ and that $\sigma(\lambda_{P}(x)) = \sigma(0, \beta + 1)$. 
 	Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$. As $y$ is not Pareto-dominated, an \ac{SCR} that uniquely picks $x$ at $P$ cannot be PCC. In a similar vein, at the profile $P'$ which is obtained by the inversion of the preferences of $i_1$ and $i_2$ at $P$, an \ac{SCR} that is PCC cannot pick $x$ uniquely.	
 	
