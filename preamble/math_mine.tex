@@ -7,7 +7,13 @@
 \NewDocumentCommand{\allvoters}{}{\mathscr{N}}
 \NewDocumentCommand{\voters}{}{N}
 \NewDocumentCommand{\allprofs}{}{\boldsymbol{\mathcal{R}}}
-\NewDocumentCommand{\prof}{}{\boldsymbol{R}}
+\NewDocumentCommand{\prof}{}{P}
+\NewDocumentCommand{\ibar}{}{\overline{i}}
+\NewDocumentCommand{\lprof}{}{\lambda_P}
+\NewDocumentCommand{\lprofi}{O{x}}{\lambda_P(#1)_i}
+\NewDocumentCommand{\lprofibar}{O{x}}{\lambda_P(#1)_{\overline{i}}}
+\NewDocumentCommand{\ineq}{}{(\sigma \circ \lambda_P)}
+
 \NewDocumentCommand{\linors}{}{\mathcal{L}(\allalts)}
 %Thanks to https://tex.stackexchange.com/q/154549
 	%\makeatletter
@@ -24,6 +30,9 @@
 
 \NewDocumentCommand{\musigma}{O{\sigma}O{P}}{\min_{{#1}\circ\lambda_{{#2}}}(A)}
 \NewDocumentCommand{\mustar}{O{\sigma}O{P}}{\min_{{#1} \circ \lambda_{#2}} (\paretopt({#2}))}
+\NewDocumentCommand{\minineq}{O{\allalts}}{\min_{#1}(\sigma \circ \lambda)}
+\NewDocumentCommand{\FBP}{}{\text{FB}(P)}
+\NewDocumentCommand{\POP}{}{\text{PO}(P)}
 
 \NewDocumentCommand{\alllosses}{}{\intvl{0, m-1}^N}
 

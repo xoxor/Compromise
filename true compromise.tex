@@ -425,8 +425,7 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 	We readily see that FB picks only $x$ at $P$ (and at $P'$) since $x$ is the first alternative which reaches the unanimous consent.
 	\commentOC{This seems mistaken to me. When $m = 6$, $\alpha = \beta = 2$, and FB picks $\set{x, y}$, unless I am missing something.}
 	\commentBN{Consider $m \geq 7$. Define $\alpha = \ceil{\frac{m}{2}} - 1$, $\beta = \floor{\frac{m-1}{2}} - 1$ and $\gamma = m - (\alpha+\beta+2)$. If $\gamma=0$ the alternative $c$ is not present (I'm not sure how to formalize this). Consider the profile $P$ where voter $i_1$ has the preference order $x \succ a_1 \succ … \succ a_\alpha \succ y \succ b_1 \succ … \succ b_\beta \succ c_\gamma$ and voter $i_2$ has the preference order $b_1 \succ … \succ b_\beta \succ y \succ x \succ a_1 \succ … \succ a_\alpha \succ c_\gamma$.}
-	
-	
+		
 	For PV, let $v_{i_1} ≥ v_{i_2}$ (thus $v_{i_1} ≥ \ceil{\frac{m-1}{2}}$ and $v_{i_2} ≤ \floor{\frac{m - 1}{2}}$, or equivalently, $v_{i_1} ≥ \floor{\frac{m}{2}} = \beta + 1$ and $v_{i_2} ≤ \ceil{\frac{m - 2}{2}} = \alpha$), and consider the profile $P$. Observe that the first voter vetoes at least $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) while no voter vetoes $x$. As $x$ Pareto-dominates every $a_j$ ($1 ≤ j ≤ \alpha$), PV picks only $x$ at $P$. When $v_{i_2} ≥ v_{i_1}$, a similar reasoning yields that PV picks only $x$ at $P'$.
 	
 	Now let $m$ be odd.
@@ -436,6 +435,53 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 	Finally, SL also picks $x$, as it is the unique winner no matter which voter starts the veto phase. If $i_1$ starts, $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) get vetoed, then $i_2$ chooses her best alternative out of the remaining ones which is $x$. If $i_2$ starts, every $a_j$ ($1 ≤ j ≤ \alpha$) get vetoed, then $i_1$ chooses her best alternative which is $x$. 
 \end{proof}
  
+\begin{theorem}
+ 	For $m ≤ 6$, FB satisfies PCC for $\sigma(l_1, l_2) = \abs{l_1 - l_2}$.
+\end{theorem}
+\begin{proof}
+	Consider any profile $P$.
+	Let $\min\lprof(x)(N)$ and $\max\lprof(x)(N)$ designate the minimal and maximal value of the loss vector of $x$.
+	Define $\rho = \min\set{l \in \intvl{0, m - 1} \suchthat \exists x \suchthat \max\lprof(x)(N) = l}$. 
+	Thus, $\nexists x \suchthat \max\lprof(x)(N) < \rho$.
+	Recall that, by definition, $\FBP = \set{x \suchthat \max\lprof(x)(N) ≤ \rho}$, or equivalently, $\FBP = \set{x \suchthat \max\lprof(x)(N) = \rho}$.
+	
+	Pick any $x \in \FBP$. 
+	Pick any $i \in N$ such that $\lprofi[x] = \min\lprof(N)$ and define $\ibar$ as the other individual, thus with $\lprofibar[x] = \max\lprof(N) = \rho$. Define $z$ as the alternative such that $\lprofi[z] = \rho$.
+	
+ 	We show four facts that are true for any value of $m$, with the definitions so far and $\sigma(l_1, l_2) = \abs{l_1 - l_2}$, and which together prove the statement. First, $\minineq[\FBP] ≤ \frac{m}{2}$. Second, if $\minineq[\FBP] = \frac{m}{2}$, then $\FBP = \set{x, z}$. Third, if $\FBP = \set{x, z}$, then $\minineq[\FBP] = \minineq[\POP]$. Fourth, if $\minineq[\FBP] ≤ 2$, then $\minineq[\FBP] = \minineq[\POP]$. 
+
+	When $m ≤ 6$, using the first fact, $\minineq[\FBP] ≤ 3$, and suffices then to use either, if $\minineq[\FBP] = 3$, the second and the third facts, or otherwise, the fourth fact, to prove as required that some alternative in $\FBP$ reaches the required minimal inequality over the Pareto optimal alternatives.
+ 	
+ 	\emph{First fact}
+ 	
+	Define $S_1 = \set{y ≠ x \suchthat 0 ≤ \lprofi[y] < \rho}$ and $S_2 = \set{y \suchthat \rho < \lprofibar[y] ≤ m - 1}$.
+ 	By definition of $\rho$, $\nexists y \suchthat \max\lprof(y)(N) < \rho$,
+	thus, $\forall y: [\lprofi[y] < \rho \land \lprofibar[y] ≠ \rho] ⇒ \rho < \lprofibar[y]$.
+	Because $x ≠ y ⇒ \lprofibar[y] ≠ \rho$ (as $\lprofibar[x] = \rho$), we obtain that $S_1 \subseteq S_2$.
+	Because $\card{\set{y \suchthat 0 ≤ \lprofi[y] < \rho}} = \rho$, $\card{S_1} ≥ \rho - 1$.
+	It follows that $\card{S_2} ≥ \rho - 1$.
+	Also, $\card{S_2} = m - 1 - \rho$. We obtain $m - 1 - \rho ≥ \rho - 1$, thus $\rho ≤ \frac{m}{2}$. And by definition of $\rho$, $\minineq[\FBP] ≤ \rho$.
+	
+	\emph{Second fact}
+	
+	Pursuing with $S_1$ and $S_2$ as defined above, and assuming further that $\rho = \frac{m}{2}$, or equivalently $m - \rho = \rho$, we see that $S_1$ and $S_2$ have the same cardinalities, hence, are equal. By definition of $z$, $z \notin S_1$. Thus, $z \notin S_2$. Therefore, $\lprofibar[z] ≤ \rho$, and as $\lprofi[z] = \rho$, $z \in \FBP$. As $\FBP = \set{y \suchthat \max\lprof(y)(N) = \rho}$, $y \in \FBP$ requires that $\lprofi[y] = \rho$ or $\lprofibar[y] = \rho$, thus, no alternative but $x$ and $z$ may be in $\FBP$.
+	
+	\emph{Third fact}
+	
+	Assuming now that $\FBP = \set{x, z}$, and picking any $y \in \POP$, let us show that $\ineq(y) ≥ \minineq[\FBP]$.
+	By hypothesis, $\lprofibar[z] ≤ \rho$ and $\lprofi[x] ≤ \rho$.
+	Now if $\rho < \lprofi[y]$, then $\lprofibar[y] < \lprofibar[z]$ (otherwise $z$ Pareto dominates $y$, as $\lprofi[z] = \rho$), whence $\ineq(y) > \ineq(z)$ as $\lprofibar[y] < \lprofibar[z] ≤ \lprofi[z] = \rho < \lprofi[y]$.
+	Similarly, assuming that $\rho < \lprofibar[y]$ yields that $\ineq(y) > \ineq(x)$.
+	The only remaining possibility is that $\lprofi[y] ≤ \rho$ and $\lprofibar[y] ≤ \rho$, in which case $y \in \FBP$.
+	
+	\emph{Fourth fact}
+	
+	Assuming that $\minineq[\FBP] ≤ 2$, and picking any $y \in \POP$, let us show that $\ineq(y) ≥ \minineq[\FBP]$.
+	If $\rho < \lprofi[y]$, then $\lprofi[x] < \lprofi[y]$ and $\lprofibar[x] < \lprofi[y]$, thus $\lprofibar[y] < \lprofibar[x]$ (otherwise $x$ Pareto dominates $y$), thus $\lprofibar[y] < \lprofibar[x] < \lprofi[y]$, thus $\ineq(y) ≥ 2$.
+	If $\rho < \lprofibar[y]$, an identical reasoning, exchanging $i$ and $\ibar$, concludes identically.
+	Otherwise, $y \in \FBP$.
+ \end{proof}
+
 \subsection{More on the two voters case}
  We say that an alternative $x$ is ranked among the first half of a preference ranking $\succ_i$ if $r_{\succ_i}(x) \leq \ceil{\frac{m+1}{2}}$.
  \begin{definition}
