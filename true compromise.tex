@@ -4,7 +4,7 @@
 \input{preamble/redac}
 \input{preamble/math_basics}
 \input{preamble/math_mine}
-
+\usepackage{physics}
 %I find these settings useful in draft mode. Should be removed for final versions.
 	%Which line breaks are chosen: accept worse lines, therefore reducing risk of overfull lines. Default = 200.
 		\tolerance=2000
@@ -462,7 +462,7 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
  	By definition of $\rho$, $\nexists y \suchthat \max\lprof(y) < \rho$,
 	thus, $\forall y: [\lprofi[y] < \rho \land \lprofibar[y] ≠ \rho] ⇒ \rho < \lprofibar[y]$.
 	Because $x ≠ y ⇒ \lprofibar[y] ≠ \rho$ (as $\lprofibar[x] = \rho$), we obtain that $S_1 \subseteq S_2$.
-	Because $\card{\set{y \suchthat 0 ≤ \lprofi[y] < \rho}} = \rho$, $\card{S_1} ≥ \rho - 1$ \commentBN{$<$}.
+	Because $\card{\set{y \suchthat 0 ≤ \lprofi[y] < \rho}} = \rho$, $\card{S_1} ≥ \rho - 1$.
 	It follows that $\card{S_2} ≥ \rho - 1$.
 	Also, $\card{S_2} = m - 1 - \rho$. We obtain $m - 1 - \rho ≥ \rho - 1$, thus $\rho ≤ \frac{m}{2}$.
 	
@@ -658,20 +658,70 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 	Define $\delta=\epsilon-\epsilon^2$ and recall that our thesis is now that $s(l_1)<s(l_2)$:
 	\begin{align}
 		2&< \bltwo^2+2\bltwo n-2\bltwo m+3\bltwo+\delta\\
-		2- \delta &< \textstyle{\frac{(m-2)^2(m-1)^2}{4n^2}+2n \frac{(m-2)(m-1)}{2n} -2m\frac{(m-2)(m-1)}{2n}+3\frac{(m-2)(m-1)}{2n}}\\
-		2-\delta&< \textstyle{\frac{(m-2)^2(m-1)^2}{4n^2}+(m-2)(m-1) -m\frac{(m-2)(m-1)}{n}+3\frac{(m-2)(m-1)}{2n}}\\
-		2-\delta - (m-2)(m-1) &< \textstyle{\frac{(m-2)^2(m-1)^2}{4n^2} -m\frac{(m-2)(m-1)}{n}+3\frac{(m-2)(m-1)}{2n}}\\
-		2n- n \delta - n (m-2)(m-1) &< \textstyle{\frac{(m-2)^2(m-1)^2}{4n} -m (m-2)(m-1)+3\frac{(m-2)(m-1)}{2}}\\
-		\scriptstyle{2n- n \delta - n (m-2)(m-1) - \frac{(m-2)^2(m-1)^2}{4n}} &<  \textstyle{-m (m-2)(m-1)+3\frac{(m-2)(m-1)}{2}}\\
-		\scriptstyle{4 n (2- \delta - (m-2)(m-1)) - \frac{(m-2)^2(m-1)^2}{n}} &<  \textstyle{- 2m (m-2)(m-1)+3 (m-2)(m-1)}\\
+		0&< \bltwo^2+2\bltwo n-2\bltwo m+3\bltwo+\delta-2\\
+		0&< \bltwo^2 n^2+2\bltwo n^3-2\bltwo m n^2+3\bltwo n^2+\delta n^2-2 n^2\\
 	\end{align}
+	Define $p=\frac{(m-2)(m-1)}{2}=\bltwo n$, we can rewrite the inequality as: 
+	\begin{align}
+		0&< p^2+2p n^2-2p m n+3p n+\delta n^2-2 n^2\\
+	\end{align}
+	For $m=4$, $p=3$ and $n\geq4$
+	\begin{align}
+		0&< 3^2+2 \cdot 3 \cdot n^2-2 \cdot 3 \cdot 4 \cdot n+3 \cdot 3 \cdot n+\delta n^2-2 n^2\\
+		0&< 9+6 n^2-24 n+9n+ \delta n^2-2 n^2 \\
+		0&<(4+\delta)n^2-15n+9
+	\end{align}
+	Because $0 \leq \delta < 1$ then $4 \leq 4+\delta < 5$, showing that the inequality holds for $\delta=0$  proves it for all $\delta$.
+	\begin{align}
+		4n^2-15n+9>0 \\
+		n(4n-15)+9>0 
+	\end{align}
+	$4n-15$ is always positive for $n\geq4$. 
 	
+	In order to prove the case $m\geq5$, we show that the inequality holds for $m=5$ and that its derivative is positive for $m\geq5$.
+	For $m=5$, $p=6$ and $n\geq4$
+	\begin{align}
+		0&< 6^2+2 \cdot 6 \cdot n^2-2 \cdot 6 \cdot 5 \cdot n+3 \cdot 6 \cdot n+\delta n^2-2 n^2\\
+		0&< 36+12 n^2-60 n+18n+ \delta n^2-2 n^2 \\
+		0&<(10+\delta)n^2-42n+36
+	\end{align}
+	Because $0 \leq \delta < 1$ then $10 \leq 10+\delta < 11$, showing that the inequality holds for $\delta=0$ proves it for all $\delta$.
+	\begin{align}
+		10n^2-42n+36>0 \\
+		(n - 3) (5n - 6)>0
+	\end{align}
+	this is always positive for $n\geq4$.
 	
-	
-%I suppose that it will appear that epsilon is small enough to not matter.
-%\commentOC{Nope: this is mathematics, not guesswork. I suggest the following (ignoring the problem with $\overline{l_2}$ which I realized afterwards, but the idea will be the same I suppose). Grouping terms that depend on $n$ on the RHS, we obtain as thesis that $-(m - 2)^2 (m - 1)^2 < - 8 n^2 + 2n (2n - 2m + 3) (m - 2) (m - 1)$, which equals $2n [-4n + (2n - 2m + 3) (m - 2) (m - 1)]$. Because the LHS is negative, and $2n > 0$ when $n ≥ 4$, it is enough to prove that the expression in square brackets is positive. When $m = 4$, we get in the square brackets: $-4n + (2n - 8 + 3) (2) (3) = 8n - 30$. If $m = 4$, then $n ≥ 4$, and then indeed $8n - 30 ≥ 0$. When $m ≥ 5$, the expression in the square brackets is at least $-4n + (2n - 2m + 3) (3) (4) = 20n - 2m + 3$. In that case, $n ≥ m - 1$ thus that expression is at least $18m -17$, indeed positive when $m ≥ 5$. (Please check my maths!)}
-
+	Now consider $m\geq5$ and $n\geq m-1$, if we show that the derivative of the function for $n=m-1$ is positive then is also positive for $n>m-1$: 
+	\begin{align}
+		&\dv{m}[p^2+2p n^2-2p m n+3p n+\delta n^2-2 n^2]>0 \\
+		&\dv{m}[p^2+2p (m-1)^2-2p m (m-1)+3p (m-1)+\delta (m-1)^2-2 (m-1)^2]>0 \\
+		&\dv{m}[p (p+2(m-1)^2-2m(m-1)+3(m-1))+(m-1)^2(\delta-2)]>0\\
+		&\dv{m}[p (p+(m-1)(2(m-1)-2m+3))]+\dv{m}[(m-1)^2(\delta-2)]>0\\
+		&\dv{m}[p (p+(m-1)(2m-2-2m+3))]+\dv{m}[(m-1)^2(\delta-2)]>0\\
+		&\dv{m}[p (p+m-1)]+\dv{m}[(m-1)^2(\delta-2)]>0\\
+	\end{align}
+	Recall that $p=\frac{(m-2)(m-1)}{2}=\frac{m^2}{2}-\frac{3}{2}m+1$; then $\dv{p}{m}=m-\frac{3}{2}$. 
+	Recall also that $\dv{f(x)\cdot g(x)}{x}=\dv{f(x)}{x}\cdot g(x) + f(x) \cdot \dv{g(x)}{x}$. Thus:
+	\begin{align}
+		&\dv{\ p}{m}(p+m-1)+p\dv{\ (p+m-1)}{m} +\dv{\ (m^2-2m+1)}{m}(\delta-2)>0\\
+		&(m-\frac{3}{2})(p+m-1)+p(m-\frac{3}{2}+1)+(\delta-2)(2m-2)>0\\
+	\end{align}
+	Consider for the same reasons as before $\delta=0$:
+	\begin{align}
+		&mp+m^2-m-\frac{3}{2}p-\frac{3}{2}m+\frac{3}{2}+mp-\frac{3}{2}p+p-4m+4>0 \\
+		&2mp+m^2-m-3p-\frac{3}{2}m+\frac{3}{2}+p-4m+4>0 \\
+		&4mp+2m^2-2m-6p-3m+3+2p-8m+8>0 \\
+		&4mp+2m^2-16m-4p+11>0 \\
+		&2(m-1)^2(m-2)+2m^2-16m-4p+11>0\\
+		&(2m^2-4m+2)(m-2)+2m^2-16m-4p+11>0\\
+		&2m^3-4m^2+2m-4m^2+8m-4+2m^2-16m-4p+11>0\\
+		&2m^3-6m^2-6m+7>0\\
+		&2m(m^2-3m-3)+7>0\\
+	\end{align}
+	Note that $m^2-3m-3=m(m-3)-3$ which is always positive for $m\geq 5$.
 \end{proof}
+
 
 \subsection{Standard Deviation}
 \begin{proof} for $\sigma_{sd}$. \\
