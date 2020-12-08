@@ -38,6 +38,8 @@
 
 \section{Introduction}
 \label{sec:introduction}
+\commentOC{Matías notes that Ex-ante: ça fait penser aux lotteries. Voir exposé de Moulin dans ComSoc. Le titre devrait peut-être être ex-post compromises tout court.}
+
 In a classical social choice scenario, several individuals express their preferences over a set of alternatives and there is no unique procedure for selecting a common agreement between them. Nevertheless, there is an accepted understanding that collective choices must reflect compromises. One of the first to explicitly refer to a \ac{SCR} as a compromise is \citet{Sertel1986} introducing the \textit{majoritarian compromise}. This \ac{SCR}, further analyzed by \citet{Sertel1999}, is a rediscovery of a method suggested by James W. Bucklin at the beginning of the 20th century (for more details see \citet{Erdelyi2015}). It falls back from considering everyone’s ideal alternative to considering the voters’ second, third and more generally k-\emph{th} best until one of the alternatives is among the first k best for a majority. \citet{Brams2001} generalize this concept and introduce a class of \acp{SCR} called $q-$\textit{approval fall-back bargaining }where $q$ is the required quantity of support which can vary from a single voter up to unanimity. Naturally, different choices of $q$ lead to different \acp{SCR}, such as $q=1$ giving the plurality rule; $q$ being majority giving the majoritarian compromise and $q$ being unanimity giving a bargaining procedure called \textit{fall-back bargaining} which has been further analyzed by \citet{Kibris2007} and \citet{Congar2012}. 
 
 As \citet{OezkalSanver2004} discuss, the concept of compromising is mostly understood as the trade off between the number of voters supporting an alternative (i.e., the quantity of support) and the distance of that alternative from the supporters' ideal alternative (i.e., the quality of support). This trade off, which is explicit for $q-$approval fall-back bargaining, is also the basis for several other \acp{SCR} such as the \textit{median voting rule} proposed by \citet{Bassett1999} and further analyzed by \citet{Gehrlein2003} or the \textit{Condorcet practical method }described by \citet{Nurmi1999}.
@@ -442,31 +444,31 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 \end{theorem}
 \begin{proof}
 	Consider any profile $P$.
-	Let $\min\lprof(x)(N)$ and $\max\lprof(x)(N)$ designate the minimal and maximal value of the loss vector of $x$.\commentBN{Why (N) ?}
-	Define $\rho = \min\set{l \in \intvl{0, m - 1} \suchthat \exists x \suchthat \max\lprof(x)(N) = l}$. 
-	Thus, $\nexists x \suchthat \max\lprof(x)(N) < \rho$.
-	Recall that, by definition, $\FBP = \set{x \suchthat \max\lprof(x)(N) ≤ \rho}$, or equivalently, $\FBP = \set{x \suchthat \max\lprof(x)(N) = \rho}$.
+	Let $\min\lprof(x) = \min_{i \in N}{\lprof(x)_i}$ and $\max\lprof(x) = \max_{i \in N}{\lprof(x)_i}$ designate the minimal and maximal value of the loss vector of $x$.
+	Define $\rho = \min\set{l \in \intvl{0, m - 1} \suchthat \exists x \suchthat \max\lprof(x) = l}$. 
+	Thus, $\nexists x \suchthat \max\lprof(x) < \rho$.
+	Recall that, by definition, $\FBP = \set{x \suchthat \max\lprof(x) ≤ \rho}$, or equivalently, $\FBP = \set{x \suchthat \max\lprof(x) = \rho}$.
 	
 	Pick any $x \in \FBP$. 
-	Pick any $i \in N$ such that $\lprofi[x] = \min\lprof(N)$ \commentBN{$\lprof(x)(N)$?} and define $\ibar$ as the other individual, thus with $\lprofibar[x] = \max\lprof(N) = \rho$. Define $z$ as the alternative such that $\lprofi[z] = \rho$.
+	Pick any $i \in N$ such that $\lprofi[x] = \min\lprof(x)$ and define $\ibar$ as the other individual, thus with $\lprofibar[x] = \max\lprof(x) = \rho$. Define $z$ as the alternative such that $\lprofi[z] = \rho$.
 	
- 	We show four facts that are true for any value of $m$, with the definitions so far and $\sigma(l_1, l_2) = \abs{l_1 - l_2}$, and which together prove the statement. First, $\minineq[\FBP] ≤ \frac{m}{2}$. Second, if $\minineq[\FBP] = \frac{m}{2}$, then $\FBP = \set{x, z}$. Third, if $\FBP = \set{x, z}$, then $\minineq[\FBP] = \minineq[\POP]$. Fourth, if $\minineq[\FBP] ≤ 2$, then $\minineq[\FBP] = \minineq[\POP]$. \commentBN{$\minineq[x \in \FBP]$?}
+ 	We show four facts that are true for any value of $m$, with the definitions so far and $\sigma(l_1, l_2) = \abs{l_1 - l_2}$, and which together prove the statement. First, $\rho ≤ \frac{m}{2}$. Second, if $\rho = \frac{m}{2}$, then $\FBP = \set{x, z}$. Third, if $\FBP = \set{x, z}$, then $\minineq[\FBP] = \minineq[\POP]$. Fourth, if $\minineq[\FBP] ≤ 2$, then $\minineq[\FBP] = \minineq[\POP]$. \commentBN{$\minineq[x \in \FBP]$?}
 
-	When $m ≤ 6$, using the first fact, $\minineq[\FBP] ≤ 3$, and suffices then to use either, if $\minineq[\FBP] = 3$, the second and the third facts, or otherwise, the fourth fact, to prove as required that some alternative in $\FBP$ reaches the required minimal inequality over the Pareto optimal alternatives.
+	When $m ≤ 6$, using the first fact, $\rho ≤ 3$, and suffices then to use either, if $\rho = 3$, the second and the third facts, or otherwise, the fourth fact (because $\minineq[\FBP] ≤ \rho$) to prove as required that some alternative in $\FBP$ reaches the required minimal inequality over the Pareto optimal alternatives.
  	
  	\emph{First fact}
  	
 	Define $S_1 = \set{y ≠ x \suchthat 0 ≤ \lprofi[y] < \rho}$ and $S_2 = \set{y \suchthat \rho < \lprofibar[y] ≤ m - 1}$.
- 	By definition of $\rho$, $\nexists y \suchthat \max\lprof(y)(N) < \rho$,
+ 	By definition of $\rho$, $\nexists y \suchthat \max\lprof(y) < \rho$,
 	thus, $\forall y: [\lprofi[y] < \rho \land \lprofibar[y] ≠ \rho] ⇒ \rho < \lprofibar[y]$.
 	Because $x ≠ y ⇒ \lprofibar[y] ≠ \rho$ (as $\lprofibar[x] = \rho$), we obtain that $S_1 \subseteq S_2$.
 	Because $\card{\set{y \suchthat 0 ≤ \lprofi[y] < \rho}} = \rho$, $\card{S_1} ≥ \rho - 1$ \commentBN{$<$}.
 	It follows that $\card{S_2} ≥ \rho - 1$.
-	Also, $\card{S_2} = m - 1 - \rho$. We obtain $m - 1 - \rho ≥ \rho - 1$, thus $\rho ≤ \frac{m}{2}$. And by definition of $\rho$, $\minineq[\FBP] ≤ \rho$. \commentBN{Why by definition of $\rho$?}
+	Also, $\card{S_2} = m - 1 - \rho$. We obtain $m - 1 - \rho ≥ \rho - 1$, thus $\rho ≤ \frac{m}{2}$.
 	
 	\emph{Second fact}
 	
-	Pursuing with $S_1$ and $S_2$ as defined above, and assuming further that $\rho = \frac{m}{2}$, or equivalently $m - \rho = \rho$, we see that $S_1$ and $S_2$ have the same cardinalities, hence, are equal. By definition of $z$, $z \notin S_1$. Thus, $z \notin S_2$. Therefore, $\lprofibar[z] ≤ \rho$, and as $\lprofi[z] = \rho$, $z \in \FBP$. As $\FBP = \set{y \suchthat \max\lprof(y)(N) = \rho}$, $y \in \FBP$ requires that $\lprofi[y] = \rho$ or $\lprofibar[y] = \rho$, thus, no alternative but $x$ and $z$ may be in $\FBP$.
+	Pursuing with $S_1$ and $S_2$ as defined above, and assuming further that $\rho = \frac{m}{2}$, or equivalently $m - \rho = \rho$, we see that $S_1$ and $S_2$ have the same cardinalities, hence, are equal. By definition of $z$, $z \notin S_1$. Thus, $z \notin S_2$. Therefore, $\lprofibar[z] ≤ \rho$, and as $\lprofi[z] = \rho$, $z \in \FBP$. As $\FBP = \set{y \suchthat \max\lprof(y) = \rho}$, $y \in \FBP$ requires that $\lprofi[y] = \rho$ or $\lprofibar[y] = \rho$, thus, no alternative but $x$ and $z$ may be in $\FBP$.
 	
 	\emph{Third fact}
 	
@@ -652,6 +654,7 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 		&= \bltwo^2-\epsilon^2-\bltwo+\epsilon+2\bltwo n-2\bltwo m+4\bltwo=\\
 		&= \bltwo^2+2\bltwo n-2\bltwo m+3\bltwo+\epsilon-\epsilon^2\\
 	\end{align}
+	\hfuzz=4cm
 	Define $\delta=\epsilon-\epsilon^2$ and recall that our thesis is now that $s(l_1)<s(l_2)$:
 	\begin{align}
 		2&< \bltwo^2+2\bltwo n-2\bltwo m+3\bltwo+\delta\\
@@ -711,7 +714,6 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 	\commentBN{I'm not convinced of this. The \href{https://bit.ly/3hSNvSM}{results} exclude some values for which is true instead.}
 \end{proof}
 
-
 \begin{definition}[OLD Definition: Pairwise Pareto dominance]
 	\label{def:PPD}
 	For all $r$, $s\in \R_{+}^{N}$: 
@@ -720,6 +722,4 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 We write $\SPPd \subseteq \SAll$ for the class of spread measures that satisfy also PPd.
 Given a vector $r \in \R^N$ of $n$ elements, some examples of spread measures are the following.
 \commentOC{We dropped this because it says that $(0, 2)$ is more equal than $(10^6, 10^6 + 3)$.}
-
-
 \end{document}
