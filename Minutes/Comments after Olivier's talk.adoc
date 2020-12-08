@@ -1,0 +1,21 @@
+Jobst Heitzig:
+*Cardinal utility framework in bargaining seems more natural because it can be compared with Nash bargaining solution etc.
+
+Marcus Pivato:
+* Related literature against Pareto principle:
+** Sen's Liberal Paradox;
+** Spurious Unanimity;
+** Ex-Ante and Ex-Post Egalitarianism
+
+* Choosing an alternative which in not Pareto leads to an outcome that is not stable under renegotiation by the agents. Instead of applying the Pareto principle first and then equalizing losses, it can be done conversely. This because if the agents are able to renegotiate they will achieve a Pareto efficient outcome.
+
+Arkadii Slinko: 
+* Relation between our approach and distance rationalizability.
+* Aleskerov, Fuad & Chistyakov, Vyacheslav & Kalyagin, Valery. (2010). The threshold aggregation. Economics Letters. 107. 261-262. 
+
+Danilo Coelho:
+* 3 voters case 
+* Kıbrıs, Özgür & Sertel, Murat. (2007). Bargaining over a finite set of alternatives. Social Choice and Welfare. 28. 421-437. 10.1007/s00355-006-0178-z. 
+
+Simona Fabrizi:
+* Repetitive games.
