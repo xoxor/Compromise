@@ -15,7 +15,7 @@
 	%Reduces verbosity about the underful vboxes.
 		\vbadness=1300
 
-\title{Ex-Ante versus Ex-Post Compromise}
+\title{Compromise as an equal loss principle}
 \author{Beatrice Napolitano}
 \author{Olivier Cailloux}
 \author{Remzi Sanver}
@@ -33,13 +33,11 @@
 \maketitle
 
 \begin{abstract}
-	A classical social choice setting is composed of a group of individuals, or voters, that express their preferences over a set of alternatives. The social choice problem consists in defining a procedure able to determine a collective choice for this group of voters, starting from their individual preferences. Such procedure is called social choice rule and it can be defined as a function mapping preference profiles to alternatives. Depending on the properties that this function satisfies, very different outcomes can be produced starting from the same initial profile. The plurality rule is one of the most common social choice rule and it consists in selecting, as a winner, the alternative that is considered the best by the largest number of voters forming the society. Yet, this rule can pick, as a winner, an alternative that is considered the worst by a strict majority of voters. Such outcome may be undesirable. Several procedures, the so-called compromise rules, have been proposed in the literature that aim to find a compromise. Nevertheless, all those rules can be defined as \emph{ex-ante compromises} or \emph{procedural compromises}, i.e., they impose over individuals a willingness to compromise but they do not ensure an outcome where everyone has effectively compromised. In this work, we approach the problem of compromise from an \emph{ex-post} perspective, favoring an outcome where every voter gives up her most preferred positions if this increases equality. We propose a new notion of compromise in the social choice context, considering ordinal utilities.
+	A classical social choice setting is composed of a group of individuals, or voters, that express their preferences over a set of alternatives. The social choice problem consists in defining a procedure able to determine a collective choice for this group of voters, starting from their individual preferences. Such procedure is called social choice rule and it can be defined as a function mapping preference profiles to alternatives. Depending on the properties that this function satisfies, very different outcomes can be produced starting from the same initial profile. The plurality rule is one of the most common social choice rule and it consists in selecting, as a winner, the alternative that is considered the best by the largest number of voters forming the society. Yet, this rule can pick, as a winner, an alternative that is considered the worst by a strict majority of voters. Such outcome may be undesirable. Several procedures that aim to find a compromise, the so-called compromise rules, have been proposed in the literature. Nevertheless, all those rules can be defined as \emph{procedural compromises}, i.e., they impose over individuals a willingness to compromise but they do not ensure an outcome where everyone has effectively compromised. We view the concept of compromise from an \emph{equal loss} perspective, favoring an outcome where every voter concedes as equally as possible.
 \end{abstract}
 
 \section{Introduction}
 \label{sec:introduction}
-\commentOC{Matías notes that Ex-ante: ça fait penser aux lotteries. Voir exposé de Moulin dans ComSoc. Le titre devrait peut-être être ex-post compromises tout court.}
-
 In a classical social choice scenario, several individuals express their preferences over a set of alternatives and there is no unique procedure for selecting a common agreement between them. Nevertheless, there is an accepted understanding that collective choices must reflect compromises. One of the first to explicitly refer to a \ac{SCR} as a compromise is \citet{Sertel1986} introducing the \textit{majoritarian compromise}. This \ac{SCR}, further analyzed by \citet{Sertel1999}, is a rediscovery of a method suggested by James W. Bucklin at the beginning of the 20th century (for more details see \citet{Erdelyi2015}). It falls back from considering everyone’s ideal alternative to considering the voters’ second, third and more generally k-\emph{th} best until one of the alternatives is among the first k best for a majority. \citet{Brams2001} generalize this concept and introduce a class of \acp{SCR} called $q-$\textit{approval fall-back bargaining }where $q$ is the required quantity of support which can vary from a single voter up to unanimity. Naturally, different choices of $q$ lead to different \acp{SCR}, such as $q=1$ giving the plurality rule; $q$ being majority giving the majoritarian compromise and $q$ being unanimity giving a bargaining procedure called \textit{fall-back bargaining} which has been further analyzed by \citet{Kibris2007} and \citet{Congar2012}. 
 
 As \citet{OezkalSanver2004} discuss, the concept of compromising is mostly understood as the trade off between the number of voters supporting an alternative (i.e., the quantity of support) and the distance of that alternative from the supporters' ideal alternative (i.e., the quality of support). This trade off, which is explicit for $q-$approval fall-back bargaining, is also the basis for several other \acp{SCR} such as the \textit{median voting rule} proposed by \citet{Bassett1999} and further analyzed by \citet{Gehrlein2003} or the \textit{Condorcet practical method }described by \citet{Nurmi1999}.
@@ -76,14 +74,15 @@ remain the collective choice even when the ignored group is much larger.
 		\end{array}.
 		$
 	\end{center}
-	When $q\in \intvl{1,\frac{n}{2}+1} $, all BK-compromises pick $a$, and, again, it does not appear as a compromise as 51 voters reach their best alternative while the remaining 49 voters have to be contented with their worst one \commentOC{I’d write: as nobody actually conceded anything}. Note that for $q\in \intvl{1,\frac{n}{2}-1} $ the set of possible common agreements determined by the fall-back bargaining procedure is $\{a,c\}$. Nevertheless, $a$ receives the highest support, thus it is elected.
+	When $q\in \intvl{1,\frac{n}{2}+1} $, all BK-compromises pick $a$, and, again, it does not appear as a compromise as 51 voters reach their best alternative while the remaining 49 voters have to be contented with their worst one. Note that for $q\in \intvl{1,\frac{n}{2}-1} $ the set of possible common agreements determined by the fall-back bargaining procedure is $\{a,c\}$. Nevertheless, $a$ receives the highest support, thus it is elected.
 \end{example}
 
-It is important to observe that all these \acp{SCR} impose to voters a willingness to compromise which does not mean that under the collective choice that will be made, all voters will be effectively compromising. In other words, the term “compromise” in this literature refers to procedural or \textit{ex-ante} compromises, which is different than outcome oriented or \textit{ex-post} compromises, a conceptual distinction that seems to be overlooked in the literature.
+It is important to observe that all these \acp{SCR} impose to voters a willingness to compromise which does not mean that under the collective choice that will be made, all voters will be effectively compromising. In other words, the term “compromise” in this literature refers to procedural compromises, which is different than outcome oriented compromises, a conceptual distinction that seems to be overlooked in the literature.
+This can also be viewed as a distinction between ex-ante and ex-post compromises, where the profile is the source of uncertainty.
 
 To define an ex-post compromise, we adopt to our framework a concept of equal losses that is prevalent in the literature that considers the allocation of continuous utilities. This principle is used for bargaining problems \citep{Chun1988}, \citep{Chun1991} as well as for bankruptcy problems \citep{Herrero2001}. 
 We introduce two definitions for being a compromise. In both of them, we pick a spread measure that determines how equally a given vector of real numbers is distributed and make a collective choice where voters give up from their ideal points “as equal as possible" (see \cref{sec:RestrictionOnSigma} for a literature review). However, one of them, called \textit{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \textit{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. 
-The two concepts are logically incompatible. As a result, Pareto efficient \acp{SCR} cannot ensure egalitarian compromises and this is valid under any spread measure. Moreover, several well-known \acp{SCR} of the literature such as Condorcet extensions, scoring rules, $q-$approval fall-back bargaining, all fail to be Paretian compromises under any spread measure. In fact, we are able to observe the existence of instances where being a Paretian compromise necessitates to pick an alternative that is, although Pareto optimal, ranked so low by all voters that this alternative wouldn't be picked by any of the popular \acp{SCR} of the literature. All these observations make the equal-loss principle appear quite inadequate for collective choice problems, unless envy-freeness is a major concern \commentOC{I’d write: appear adequate for collective choice problems only when egalitarianism, in the sense of conceding equally, is a major concern}.
+The two concepts are logically incompatible. As a result, Pareto efficient \acp{SCR} cannot ensure egalitarian compromises and this is valid under any spread measure. Moreover, several well-known \acp{SCR} of the literature such as Condorcet extensions, scoring rules, $q-$approval fall-back bargaining, all fail to be Paretian compromises under any spread measure. In fact, we are able to observe the existence of instances where being a Paretian compromise necessitates to pick an alternative that is, although Pareto optimal, ranked so low by all voters that this alternative wouldn't be picked by any of the popular \acp{SCR} of the literature. All these observations make the equal-loss principle appear adequate for collective choice problems only when egalitarianism, in the sense of conceding equally, is a major concern.
 
 Collective choice models with two individuals present instances where envy-freeness matters. Here, the model is interpreted as a bargaining problem and bargaining procedures replace voting rules. As prominent examples, we have fallback bargaining proposed by \citet{Brams2001}; the unanimity compromise and the rational compromise introduced by \citet{Kibris2007}; the veto-rank and short listing procedures analyzed by \citet{Clippel2014} and the Pareto-and-veto rules analyzed by \citet{Laslier2020}. As is ours, these are all models with discrete alternatives which are not contained by the classical \citet{Nash1950} bargaining environment with convex utilities. However, as \citet{Mariotti1998} and \citet{Nagahisa2002} illustrate, the two worlds can be interconnected, as we do for the equal-loss principle of \citet{Chun1988} and \citet{Chun1991}. As a rather surprising finding, several interesting \acp{SCR} used as a bargaining solution also fail to be Paretian compromises.
 
@@ -186,7 +185,7 @@ being PCC, because being PCC does not require to be Paretian. This is however tr
 It is interesting to note that the incompatibility is not complete, however.
 
 \begin{remark}
-	For $n ≥ 2$, $m ≥ 3$, there exist \acp{SCR} that are both ECC and PCC, such as the \ac{SCR} that selects the whole set of alternatives at every profile. However, this \ac{SCR} fails to be Paretian, as it must be for every \ac{SCR} that is ECC. \commentOC{We might have to rephrase the remark about logical incompatibility in the introduction, perhaps.}
+	For $n ≥ 2$, $m ≥ 3$, there exist \acp{SCR} that are both ECC and PCC, such as the \ac{SCR} that selects the whole set of alternatives at every profile. However, this \ac{SCR} fails to be Paretian, as it must be for every \ac{SCR} that is ECC.
 \end{remark}
 
 
@@ -354,13 +353,12 @@ The perfect equality recognition condition we adopt for spread measures, i.e., t
 
 \begin{definition}
 	\label{def:conditionC}
-	Given any $m\geq3$ and $n\geq \max\{3,m-1\}$, we say that a spread measure $\sigma$ satisfies condition $C_{m,n}$ iff we have $\sigma(m-3, m-1, m-2, \dots, m-2) < \sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$.
-	\commentOC{Even though the condition is indeed well-defined for $m = 3$, and technically the theorem of interest can be proven for $m = 3$, I think we should start at $m = 4$. Because the condition is not reasonable to impose for $m = 3$. This then opens a question about the case $m = 3$.} \commentBN{For $m=4$ and $n=3$ it requires $\sigma(1,3,2)< \sigma(2,1,0)$, I think we need to exclude this case as well. \textbf{Definition 5} Given any $m\geq4$ and $n\geq \max\{4,m-1\}$ $\dots$}
+	Given any $m\geq4$ and $n\geq \max\{4,m-1\}$, we say that a spread measure $\sigma$ satisfies condition $C_{m,n}$ iff we have $\sigma(m-3, m-1, m-2, \dots, m-2) < \sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$.
 \end{definition}
 
 As both vectors are $n$ dimensional, the term $m-2$ repeats $n-2$ times in the first vector and the term $0$ repeats $n-m+2$ times in the second vector.
 
-The condition is more convincing for larger values of $m$ and $n$. In fact, asking for $\sigma(0,2,1)$ to be smaller than $\sigma(1,0,0)$ is very demanding while asking for $\sigma(3,5,4,4,4,4,4)$ to be smaller than $\sigma(6,5,4,3,2,1,0)$ reflects a mild assumption. In any case, as we state below, several well-known spread measures of the literature (see \citet{Allison1978} for a comprehensive account) satisfy \cref{def:conditionC} for reasonably small values of $m$ and $n$. Letting $\bar{l}=\frac{\sum_{i=1}^{n}l_i}{n}$ denote the arithmetic mean of the values of $l = (l_1, …, l_n)$, we consider the following measures:
+The condition is more convincing for larger values of $m$ and $n$. Asking for $\sigma(1,3,2,2)$ to be smaller than $\sigma(2,1,0,0)$ is demanding while asking for $\sigma(3,5,4,4,4,4,4)$ to be smaller than $\sigma(6,5,4,3,2,1,0)$ reflects a mild assumption. In any case, as we state below, several well-known spread measures of the literature (see \citet{Allison1978} for a comprehensive account) satisfy \cref{def:conditionC}. Letting $\bar{l}=\frac{\sum_{i=1}^{n}l_i}{n}$ denote the arithmetic mean of the values of $l = (l_1, …, l_n)$, we consider the following measures:
 
 \begin{itemize}
 	\item the mean absolute difference $\sigma_{mad}(l)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|l_i-l_j|$;
@@ -371,8 +369,9 @@ The condition is more convincing for larger values of $m$ and $n$. In fact, aski
 
 \begin{proposition}
 \label{prop:spreadMeas}
-	$\sigma_{mad}$, $\sigma_{ad}$, $\sigma_{sd}$ and $\sigma_{G}$ all satisfy condition $C_{m,n}$ $\forall m\geq4$ and $n\geq\max\{4,m-1\}$. \commentBN{This is now consistent with condition C.}
+	$\sigma_{mad}$, $\sigma_{ad}$, $\sigma_{sd}$ and $\sigma_{G}$ all satisfy condition $C_{m,n}$ $\forall m\geq4$ and $n\geq\max\{4,m-1\}$. 
 \end{proposition}
+\commentBN{We checked experimentally and analytically.}
 
 The proof of \cref{prop:spreadMeas} is given in \cref{apdx:proofSM}.
 
@@ -384,7 +383,7 @@ The proof of \cref{prop:spreadMeas} is given in \cref{apdx:proofSM}.
 
 We write $\Sigma^{C_{m,n}} \subseteq \Sigma$ for the set of spread measures that satisfy condition $C_{m,n}$. 
 \begin{theorem}
-	For all $m\geq 3$, $n\geq \max\{3,m-1\}$, \commentBN{$m\geq 4$, $n\geq \max\{4,m-1\}$} under $\Sigma^{C_{m,n}}$,
+	For all $m\geq 4$, $n\geq \max\{4,m-1\}$, under $\Sigma^{C_{m,n}}$,
 	\begin{itemize}
 	    \item [1)] $f_n^{w}$ fails PCC when $w$ is the antiplurality score vector;
 	    \item [2)] the BK compromise  $f_n$ fails PCC.
@@ -392,11 +391,13 @@ We write $\Sigma^{C_{m,n}} \subseteq \Sigma$ for the set of spread measures that
 \end{theorem}
 
 	\begin{proof}
-		Take any $m\geq 3$ and any $n \geq \max\{3,m-1\}$ and consider $\Sigma^{C_{m,n}} \subseteq \Sigma$, the set of spread measures that satisfy condition $C_{m,n}$. Take some $x,y\in A$ and some $P\in \linors^{N}$ with $r_{\prefi[1]}(x)=m-2$, $r_{\prefi[2]}(x)=m,$ $r_{\prefi}(x)=m-1$ $\forall i\in N \setminus \left\{ 1, 2\right\}$, and $r_{\prefi}(y)=m-i$ $\forall i\in \intvl{1,m-1}$, $r_{\prefi[n]}(y)=1$ $\forall i\in \intvl{m,n}$. Moreover, for each $z\in A \setminus \left\{ x,y\right\} $, we have $r_{\prefi[1]}(z)=m$ for some $i\in N$. Note that both $f_n^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda^{P}(x)=(m-3, m-1,m-2,\dots,m-2)$ and $\lambda_{P}(y)=(m-2, m-3,\dots,1,0, \dots, 0)$. As all the spread measure $\sigma \in \Sigma^{C_{m,n}}$ satisfy the condition $C_{m,n}$, then $\sigma(\lambda_{P}(x)) < \sigma(\lambda_{P}(y))$ $\forall \sigma \in \Sigma^{C_{m,n}}$, implying $y\notin \mustar[\bar{\sigma}]$ $\forall \sigma \in \Sigma^{C_{m,n}}$.
+		Take any $m\geq 3$ and any $n \geq \max\{3,m-1\}$ and consider $\Sigma^{C_{m,n}} \subseteq \Sigma$, the set of spread measures that satisfy condition $C_{m,n}$. Take some $x,y\in A$ and some $P\in \linors^{N}$ with $r_{\prefi[1]}(x)=m-2$, $r_{\prefi[2]}(x)=m,$ $r_{\prefi}(x)=m-1$ $\forall i\in N \setminus \left\{ 1, 2\right\}$, and $r_{\prefi}(y)=m-i$ $\forall i\in \intvl{1,m-1}$, $r_{\prefi[n]}(y)=1$ $\forall i\in \intvl{m,n}$. Moreover, for each $z\in A \setminus \left\{ x,y\right\} $, we have $r_{\prefi[1]}(z)=m$ for some $i\in N$. Note that both $f_n^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda^{P}(x)=(m-3, m-1,m-2,\dots,m-2)$ and $\lambda_{P}(y)=(m-2, m-3,\dots,1,0, \dots, 0)$. As all the spread measures $\sigma \in \Sigma^{C_{m,n}}$ satisfy the condition $C_{m,n}$, then $\sigma(\lambda_{P}(x)) < \sigma(\lambda_{P}(y))$ $\forall \sigma \in \Sigma^{C_{m,n}}$, implying $y\notin \mustar[\bar{\sigma}]$ $\forall \sigma \in \Sigma^{C_{m,n}}$.
 	\end{proof}
-\commentBN{For $m\geq 3$ and $n\geq 3$ the condition C does not apply and the cases are treated in \cref{sec:scoringrules} and \cref{sec:BKn3}}
+
+\commentBN{What happens for $m=3$?}
 
 \section{Two voters case}
+\commentBN{This is often referred to as bargaining or arbitration problem. In some of them is precisely defined a disagreement point ["Bargaining over a finite set of alternatives."], some do not and we consider this.}
 In \cref{sec:more2voters} we focused on the analysis of voting rules when the number of voters involved into the decision process is greater than two. Keeping the notation introduced in \cref{sec:notation}, we consider here the case $n=2$. Two individuals express their preference over a set of alternatives $A$, and the goal is to find a common agreement on the alternative to select. This class of problems is often referred to as bargaining problems. In addition to \textit{fallback bargaining (FB)} \citep{Brams2001} (defined in \cref{sec:BKn3}) we consider three prominent solutions of the literature.
 
 \textit{Pareto-and-Veto rules (PV)} \citep{Laslier2020} distribute a veto power of $v_1$ and $v_2$ alternatives to voters 1 and 2, respectively, with $v_1+v_2=m-1$. So, every voter $i=1,2$ (simultaneously) vetoes his worst $v_i$ alternatives. The \ac{SCR} picks all non-vetoed and Pareto optimal alternatives.
@@ -407,19 +408,19 @@ Again within the context of selecting arbitrators, \citet{Clippel2014} propose a
 
 
 \begin{definition}
-    Given any $m \geq 4$, a spread measure $\sigma \in \Sigma$ satisfies condition $D_m$ iff 
+    Given any $m \geq 7$, a spread measure $\sigma \in \Sigma$ satisfies condition $D_m$ iff 
     $\sigma(\ceil{\frac{m}{2}}, \floor{\frac{m}{2}} - 1) < \sigma(0, \floor{\frac{m}{2}})$ and 
     $\sigma(\floor{\frac{m}{2}} - 1, \ceil{\frac{m}{2}}) < \sigma(\floor{\frac{m}{2}}, 0)$.
 \end{definition}
-For $m=4$ the condition requires $\sigma(2,1) < \sigma(0,2)$ and $\sigma(0,2) < \sigma(2,1)$ which is reasonable in our context. When the value of $m$ is larger, the condition appears even more convincing. As $m$ grows, the distance between $0$ and $\floor{\frac{m}{2}}$ grows, while the distance between $\ceil{\frac{m}{2}}$ and $\floor{\frac{m}{2}} - 1$ remains constant ($1$ if $m$ is even, $2$ otherwise). Requiring, for example, the spread of $(15,14)$ to be smaller than the spread of $(0,15)$ is very reasonable.
+For $m=7$ the condition requires $\sigma(4,2) < \sigma(0,3)$ and $\sigma(0,3) < \sigma(4,2)$ which is reasonable in our context. When the value of $m$ is larger, the condition appears even more convincing. As $m$ grows, the distance between $0$ and $\floor{\frac{m}{2}}$ grows, while the distance between $\ceil{\frac{m}{2}}$ and $\floor{\frac{m}{2}} - 1$ remains constant ($1$ if $m$ is even, $2$ otherwise). Requiring, for example, the spread of $(15,14)$ to be smaller than the spread of $(0,15)$ is very reasonable.
 
 We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that satisfy condition $D_{m}$. 
 
 \begin{theorem} \label{th:2votPCC}
-	Let $m \geq 5$. Under $\Sigma^{D_{m}}$, FB and PV fail PCC. Furthermore, when $m$ is odd, VR and SL also fail PCC.
+	Let $m \geq 7$. Under $\Sigma^{D_{m}}$, FB and PV fail PCC. Furthermore, when $m$ is odd, VR and SL also fail PCC.
 \end{theorem}
 \begin{proof}
-    Take any $m \geq 5$ and any $\sigma \in \Sigma^{D_m}$. Define $\alpha = \ceil{\frac{m}{2}} - 1$ and $\beta = \floor{\frac{m}{2}} - 1$. Note that $\sigma(\alpha + 1, \beta) < \sigma(0, \beta + 1)$ and $\sigma(\beta, \alpha + 1) < \sigma(\beta + 1, 0)$, and $\alpha + \beta + 2 = m$.
+    Take any $m \geq 7$ and any $\sigma \in \Sigma^{D_m}$. Define $\alpha = \ceil{\frac{m}{2}} - 1$ and $\beta = \floor{\frac{m}{2}} - 1$. Note that $\sigma(\alpha + 1, \beta) < \sigma(0, \beta + 1)$ and $\sigma(\beta, \alpha + 1) < \sigma(\beta + 1, 0)$, and $\alpha + \beta + 2 = m$.
     Consider the profile $P$ where voter $i_1$ has the preference order $x \succ a_1 \succ … \succ a_\alpha \succ y \succ b_1 \succ … \succ b_\beta$ and voter $i_2$ has the preference order $b_1 \succ … \succ b_\beta \succ y \succ x \succ a_1 \succ … \succ a_\alpha$. 
 	Note that $\sigma(\lambda_{P}(y)) = \sigma(\alpha + 1, \beta)$ and that $\sigma(\lambda_{P}(x)) = \sigma(0, \beta + 1)$. 
 	Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$. As $y$ is not Pareto-dominated, an \ac{SCR} that uniquely picks $x$ at $P$ cannot be PCC. In a similar vein, at the profile $P'$ which is obtained by the inversion of the preferences of $i_1$ and $i_2$ at $P$, an \ac{SCR} that is PCC cannot pick $x$ uniquely.	
@@ -427,9 +428,6 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 	The proof will be concluded by showing that FB, PV, and (when $m$ is odd) VR and SL all pick only $x$ at $P$ or at $P'$.
 	
 	We readily see that FB picks only $x$ at $P$ (and at $P'$) since $x$ is the first alternative which reaches the unanimous consent.
-	\commentOC{This seems mistaken to me. When $m = 6$, $\alpha = \beta = 2$, and FB picks $\set{x, y}$, unless I am missing something.}
-	\commentBN{Consider $m \geq 7$. Define $\alpha = \ceil{\frac{m}{2}} - 1$, $\beta = \floor{\frac{m-1}{2}} - 1$ and $\gamma = m - (\alpha+\beta+2)$. If $\gamma=0$ the alternative $c$ is not present (I'm not sure how to formalize this). Consider the profile $P$ where voter $i_1$ has the preference order $x \succ a_1 \succ … \succ a_\alpha \succ y \succ b_1 \succ … \succ b_\beta \succ c_\gamma$ and voter $i_2$ has the preference order $b_1 \succ … \succ b_\beta \succ y \succ x \succ a_1 \succ … \succ a_\alpha \succ c_\gamma$.}
-		
 	For PV, let $v_{i_1} ≥ v_{i_2}$ (thus $v_{i_1} ≥ \ceil{\frac{m-1}{2}}$ and $v_{i_2} ≤ \floor{\frac{m - 1}{2}}$, or equivalently, $v_{i_1} ≥ \floor{\frac{m}{2}} = \beta + 1$ and $v_{i_2} ≤ \ceil{\frac{m - 2}{2}} = \alpha$), and consider the profile $P$. Observe that the first voter vetoes at least $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) while no voter vetoes $x$. As $x$ Pareto-dominates every $a_j$ ($1 ≤ j ≤ \alpha$), PV picks only $x$ at $P$. When $v_{i_2} ≥ v_{i_1}$, a similar reasoning yields that PV picks only $x$ at $P'$.
 	
 	Now let $m$ be odd.
@@ -437,6 +435,8 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 	For VR, a reasoning similar to the one applied to PV yields $x$ as the unique choice at $P$: each voter vetoes her worst $\frac{m-1}{2}$ alternatives, thus $i_1$ vetoes $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) and $i_2$ vetoes every $a_j$ ($1 ≤ j ≤ \alpha$). The alternative $x$ is the only non-vetoed alternative, so it is selected as the sole winner.
 
 	Finally, SL also picks $x$, as it is the unique winner no matter which voter starts the veto phase. If $i_1$ starts, $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) get vetoed, then $i_2$ chooses her best alternative out of the remaining ones which is $x$. If $i_2$ starts, every $a_j$ ($1 ≤ j ≤ \alpha$) get vetoed, then $i_1$ chooses her best alternative which is $x$. 
+	
+	\commentBN{Add that when m is even the proof works by adding an alternative c at the end.}
 \end{proof}
  
 \begin{theorem}
@@ -452,7 +452,7 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 	Pick any $x \in \FBP$. 
 	Pick any $i \in N$ such that $\lprofi[x] = \min\lprof(x)$ and define $\ibar$ as the other individual, thus with $\lprofibar[x] = \max\lprof(x) = \rho$. Define $z$ as the alternative such that $\lprofi[z] = \rho$.
 	
- 	We show four facts that are true for any value of $m$, with the definitions so far and $\sigma(l_1, l_2) = \abs{l_1 - l_2}$, and which together prove the statement. First, $\rho ≤ \frac{m}{2}$. Second, if $\rho = \frac{m}{2}$, then $\FBP = \set{x, z}$. Third, if $\FBP = \set{x, z}$, then $\minineq[\FBP] = \minineq[\POP]$. Fourth, if $\minineq[\FBP] ≤ 2$, then $\minineq[\FBP] = \minineq[\POP]$. \commentBN{$\minineq[x \in \FBP]$?}
+ 	We show four facts that are true for any value of $m$, with the definitions so far and $\sigma(l_1, l_2) = \abs{l_1 - l_2}$, and which together prove the statement. First, $\rho ≤ \frac{m}{2}$. Second, if $\rho = \frac{m}{2}$, then $\FBP = \set{x, z}$. Third, if $\FBP = \set{x, z}$, then $\minineq[\FBP] = \minineq[\POP]$. Fourth, if $\minineq[\FBP] ≤ 2$, then $\minineq[\FBP] = \minineq[\POP]$. \commentBN{Change $\minineq[x \in \FBP]$}
 
 	When $m ≤ 6$, using the first fact, $\rho ≤ 3$, and suffices then to use either, if $\rho = 3$, the second and the third facts, or otherwise, the fourth fact (because $\minineq[\FBP] ≤ \rho$) to prove as required that some alternative in $\FBP$ reaches the required minimal inequality over the Pareto optimal alternatives.
  	
@@ -486,54 +486,6 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 	Otherwise, $y \in \FBP$.
  \end{proof}
 
-\subsection{More on the two voters case}
- We say that an alternative $x$ is ranked among the first half of a preference ranking $\succ_i$ if $r_{\succ_i}(x) \leq \ceil{\frac{m+1}{2}}$.
- \begin{definition}
- 	 A \ac{SCR} $f$ satisfies the condition \textit{First Half} if it always picks one \commentBN{or more?} alternative which is ranked among the first half of both voters’s preferences.
- \end{definition}
-Please note that if $m$ is odd such an alternative always exists.
-
-\begin{proposition} FB, PV (when the veto powers are equally distributed), SL and VR all satisfy \textit{First Half}.
-\end{proposition}
-\begin{proof}
-	For FB, it is straightforward to see that, even if the two voters have opposite preferences, when descending level to reach unanimity we reach at most rank $\ceil{\frac{m+1}{2}}$.
-	Consider now PV, if the vetoes are equally distributed then by definition PV picks all Pareto alternatives that are ranked among the first half of both voters' preferences. 
-	The same reasoning can be applied for VR, where both voters exclude their least preferred $\frac{m-1}{2}$ alternatives, and for SL where one of the voter vetoes the alternatives appearing in the second half of her preferences. In this latter case, as $m$ is considered to be odd, the second voter has at least one alternative appearing both in the first half of her preferences and among the non-vetoed alternatives.
-\end{proof}
-
-Thus a \ac{SCR} f is first half and Pareto iff f is a sub correspondence of PV.
-FB, SL and VR are first half and Pareto, thus being (proper) sub correspondences of PV.
-
-\begin{proposition} Under $\Sigma^{D_m}$ a \ac{SCR} $f$ which is PCC does not satisfy first half.
-\end{proposition}
-Consider, as an example, the profile $P$ we described in the proof of \cref{th:2votPCC}. We said that any PCC rule would pick $y$ as a winner. But for every $m\geq5$, the alternative $y$ is not in the first half of the voter $i_1$ preferences.
-
-\begin{remark}[Consideration]
-Now, suppose, under a given sigma, we pick among the PV alternatives the one with the smallest loss spread. For example, at the profile 
-\begin{center}
-	$
-	\begin{array}{cccccc}
-		\mathbf{i_1} \quad &a&b&c&d&e\\
-		\mathbf{i_2} \quad &d&c&a&b&e\\
-	\end{array}
-	$
-\end{center}
-
-PV would pick a-c and the approach suggest, under a reasonable sigma, would refine this to the singleton c (which is also a refinement of FB).
-
-Question: what is this new rule? It refines PV. It is not FB. At the profile
-
-\begin{center}
-	$
-	\begin{array}{cccccc}
-		\mathbf{i_1} \quad &a&b&c&d&e\\
-		\mathbf{i_2} \quad &c&b&a&d&e\\
-	\end{array}
-	$
-\end{center}
-
-PV picks a-b-c, this rule refines it to b (which is the FB outcome) while SL picks a-c.
-\end{remark}
  
 \section{Concluding remarks}
 
