@@ -413,7 +413,7 @@ Again within the context of selecting arbitrators, \citet{Clippel2014} propose a
     $\sigma(\ceil{\frac{m}{2}}, \floor{\frac{m}{2}} - 1) < \sigma(0, \floor{\frac{m}{2}})$ and 
     $\sigma(\floor{\frac{m}{2}} - 1, \ceil{\frac{m}{2}}) < \sigma(\floor{\frac{m}{2}}, 0)$.
 \end{definition}
-For $m=7$ the condition requires $\sigma(4,2) < \sigma(0,3)$ and $\sigma(0,3) < \sigma(4,2)$ which is reasonable in our context. When the value of $m$ is larger, the condition appears even more convincing. As $m$ grows, the distance between $0$ and $\floor{\frac{m}{2}}$ grows, while the distance between $\ceil{\frac{m}{2}}$ and $\floor{\frac{m}{2}} - 1$ remains constant ($1$ if $m$ is even, $2$ otherwise). Requiring, for example, the spread of $(15,14)$ to be smaller than the spread of $(0,15)$ is very reasonable.
+For $m=7$ the condition requires $\sigma(4,2) < \sigma(0,3)$ and $\sigma(2,4) < \sigma(3,0)$ which is reasonable in our context. \commentRS{I made a correction in the preceding sentence, please check} When the value of $m$ is larger, the condition appears even more convincing. As $m$ grows, the distance between $0$ and $\floor{\frac{m}{2}}$ grows, while the distance between $\ceil{\frac{m}{2}}$ and $\floor{\frac{m}{2}} - 1$ remains constant ($1$ if $m$ is even, $2$ otherwise). Requiring, for example, the spread of $(15,14)$ to be smaller than the spread of $(0,15)$ is very reasonable.
 
 We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that satisfy condition $D_{m}$. 
 
@@ -439,7 +439,7 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 	
 	\commentBN{Add that when m is even the proof works by adding an alternative c at the end.}
 \end{proof}
- 
+ \commentRS{I feel uncomfortable with what we do below - not the proof but the approach. Why we use that particular sigma? Why we consider only FB? I have a proposal that I will tell once we meet.}
 \begin{theorem}
  	For $m ≤ 6$, FB satisfies PCC for $\sigma(l_1, l_2) = \abs{l_1 - l_2}$.
 \end{theorem}
