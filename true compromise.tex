@@ -15,8 +15,7 @@
 	%Reduces verbosity about the underful vboxes.
 		\vbadness=1300
 
-\title{Compromise as an equal loss principle}
-\commentRS{In the title, should we replace "compromise" with "compromising".}
+\title{Compromising as an equal loss principle}
 \author{Olivier Cailloux}
 \author{Beatrice Napolitano}
 \author{M. Remzi Sanver}
@@ -34,8 +33,9 @@
 \maketitle
 
 \begin{abstract}
-\commentRS{I also made some changes.}
-	A social choice rule aggregates the preferences of a group of individuals over a set of alternatives into a collective choice. The literature admits several social choice rules whose recommendations are supposed to reflect a compromise among individuals. We observe that all these \textit{compromise rules} can be better described as \emph{procedural compromises}, i.e., they impose over individuals a willingness to compromise but they do not ensure an outcome where everyone has effectively compromised. We revisit the concept of a compromise in a collective choice environment with at least three individuals having strict preferences over a finite set of alternatives. Referring to a large class of spread measures, we view the concept of compromise from an \emph{equal loss} perspective, favoring an outcome where every voter concedes as equally as possible. As such, being a compromise may fail Pareto efficiency, which we ensure by asking voters to concede as equally as possible among the Pareto efficient alternatives. We show that Condorcet consistent rules, scoring rules (except antiplurality) and Brams-Kilgour compromises (except fallback bargaining) all fail to ascertain an outcome which is a compromise. The positive results about antiplurality and fallback bargaining vanish when the class of spread measures is mildly restricted. Our analysis leads us to conclude that when there are at least three individuals, the equal-loss principle appears inadequate for collective choice problems, unless egalitarianism, in the sense of conceding equally, is a major concern. We also analyze an arbitration/bargaining environment with two individuals where the equal-loss principle turns out to be appealing for a larger class of collective choice rules.
+	A social choice rule aggregates the preferences of a group of individuals over a set of alternatives into a collective choice. The literature admits several social choice rules whose recommendations are supposed to reflect a compromise among individuals. We observe that all these \textit{compromise rules} can be better described as \emph{procedural compromises}, i.e., they impose over individuals a willingness to compromise but they do not ensure an outcome where everyone has effectively compromised. We revisit the concept of a compromise in a collective choice environment with at least three individuals having strict preferences over a finite set of alternatives. Referring to a large class of spread measures, we view the concept of compromise from an \emph{equal loss} perspective, favoring an outcome where every voter concedes as equally as possible. As such, being a compromise may fail Pareto efficiency, which we ensure by asking voters to concede as equally as possible among the Pareto efficient alternatives. We show that Condorcet consistent rules, scoring rules (except antiplurality) and Brams-Kilgour compromises (except fallback bargaining) all fail to ascertain an outcome which is a compromise. The positive results about antiplurality and fallback bargaining vanish when the class of spread measures is mildly restricted. \commentOC{IMHO we could be more brief here.}
+	Our analysis leads us to conclude that when there are at least three individuals, the equal-loss principle appears inadequate for collective choice problems, unless egalitarianism, in the sense of conceding equally, is a major concern. \commentOC{I wouldn’t write this in the abstract; I do not want to back up this negative recommendation.}
+	We also analyze an arbitration/bargaining environment with two individuals where the equal-loss principle turns out to be appealing for a larger class of collective choice rules.
 \end{abstract}
 
 \section{Introduction}
@@ -79,7 +79,7 @@ remain the collective choice even when the ignored group is much larger.
 	When $q\in \intvl{1,\frac{n}{2}+1} $, all BK-compromises pick $a$, and, again, it does not appear as a compromise as 51 voters reach their best alternative while the remaining 49 voters have to be contented with their worst one. Note that for $q\in \intvl{1,\frac{n}{2}-1} $ the set of possible common agreements determined by the fall-back bargaining procedure is $\{a,c\}$. Nevertheless, $a$ receives the highest support, thus it is elected.
 \end{example}
 
-It is important to observe that all these \acp{SCR} impose to voters a willingness to compromise which does not mean that under the collective choice that will be made, all voters will be effectively compromising. In other words, the term “compromise” in this literature refers to procedural compromises, which is different than outcome oriented compromises, a conceptual distinction that seems to be overlooked in the literature.
+It is important to observe that all these \acp{SCR} impose to voters a willingness to compromise, which does not mean that under the collective choice that will be made, all voters will be effectively compromising. In other words, the term “compromise” in this literature refers to procedural compromises, which differ from outcome oriented compromises, a conceptual distinction that seems to be overlooked in the literature.
 This can also be viewed as a distinction between ex-ante and ex-post compromises, where the profile is the source of uncertainty.
 
 To define an ex-post compromise, we adopt to our framework a concept of equal losses, prevalent in the literature, that considers the allocation of continuous utilities. This principle is used for bargaining problems \citep{Chun1988}, \citep{Chun1991} as well as for bankruptcy problems \citep{Herrero2001}. 
