@@ -625,6 +625,9 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 	\begin{align}
 		0&< p^2+2p n^2-2p m n+3p n+\delta n^2-2 n^2\\
 	\end{align}
+	\commentOC{
+	Suffices to prove the thesis when $\delta = 0$. We can view the RHS as a function of $n$ (fixing $m$ and $p$) and solve for $n$. Observe also that $2p - 2 = m^2 - 3m = m (m - 3)$. We obtain: $f(n) = m (m - 3) n^2 - p (2 m - 3) n + p^2 = m (m - 3) n^2 - p (m - 3 + m) n + p^2 = (m n - p) [(m - 3) n - p]$. When $n ≥ m - 1$, each of these multiplicands are strictly positive in the range of $m$ of interest. (I let you prove this.)
+	}
 	For $m=4$, $p=3$ and $n\geq4$
 	\begin{align}
 		0&< 3^2+2 \cdot 3 \cdot n^2-2 \cdot 3 \cdot 4 \cdot n+3 \cdot 3 \cdot n+\delta n^2-2 n^2\\
