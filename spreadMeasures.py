@@ -1,26 +1,85 @@
 import sys, os, statistics, math
 
 def main():
-    rr=[0,2,1,1,1,1]
-    rq=[8,7,6,5,4,3,2,1,0,0,0,0,0,0]
-    r=[3,2,1,0,0,0]
-#   print (meanAbsDiff(r)==myMeanAbsDiffY(r,4))
-#   print (avgAbsDev(rq)==avgAbsDevComputation(rq))
-#   print (math.sqrt(sumStDev(rq)/len(rq)))
-    print (sumStDev(rq))
-    print (mySumStDev(rq))
-    print (stComput(rq))
+    proposition = True
+    for m in range(4,1000):
+        low = max(4,m-1)
+        print(m,low)
+        for n in range (low,1000):
+            x = generateX(m,n)
+            y = generateY(m,n)
+            proposition = checkProposition(x,y)
+    print(proposition)
 
-def getMofY(rY):
-    return rY[0]+2
+def meanAbsDiff(r):
+    n=len(r)
+    mad=0
+    for i in range(n):
+        for j in range(n):
+            mad = mad + abs(r[i] - r[j])
+    return mad/(n^2)
 
-def sumStDev(r):
+def avgAbsDev(r):
+    n = len(r)
+    avg = statistics.mean(r)
+    ad=0
+    for i in range(n):
+        ad = ad + abs(r[i] - avg)
+    return ad/n
+
+def stDev(r):
     n = len(r)
     avg = statistics.mean(r)
     sd = 0
     for i in range(n):
         sd = sd + math.pow(r[i] - avg,2)
-    return sd
+    return math.sqrt(sd/n)
+
+def gini(r):
+    n = len(r)
+    summ = sum(r)
+    g = 0
+    for i in range(n):
+        for j in range(n):
+            g = g + abs(r[i] - r[j])
+    return g/(2*n*summ)
+
+def checkProposition(x,y):
+    flag = True
+    if (meanAbsDiff(x)>meanAbsDiff(y)):
+        print(x,y,"meanAbsDiff")
+        flag = False
+    if (avgAbsDev(x)>avgAbsDev(y)):
+        print(x,y,"avgAbsDev")
+        flag = False
+    if (stDev(x)>stDev(y)):
+        print(x,y,"stDev")
+        flag = False
+    if (gini(x)>gini(y)):
+        print(x,y,"gini")
+        flag = False
+    return flag
+
+def generateX(m,n):
+    r=[]
+    r.append(m-3)
+    r.append(m-1)
+    for i in range(n-2): 
+        r.append(m-2)
+    return r
+
+
+def generateY(m,n):
+    r=[]
+    for i in range(m-2): 
+        r.append(m-2-i)
+    for i in range(n-m+2): 
+        r.append(0)
+    return r
+
+# old utility methods 
+def getMofY(rY):
+    return rY[0]+2
 
 def mySumStDev(r):
     n = len(r)
@@ -42,14 +101,6 @@ def stComput(r):
     sd = (m-2)*(m-1)*(2*m-3)/6 - avg*(m-2)*(m-1)+ avg**2*(m-2)+(n-m+2)*avg**2
     sd = (m-2)*(m-1)*(2*m-3)/6 - (m-2)**2*(m-1)**2/(4*n)
     return sd
-
-def avgAbsDev(r):
-    n = len(r)
-    avg = statistics.mean(r)
-    ad=0
-    for i in range(n):
-        ad = ad + abs(r[i] - avg)
-    return ad
 
 def myAvgAbsDevY(r,m):
     n=len(r)
@@ -85,14 +136,6 @@ def testMathAd(r):
     x = floor*(-(floor+m-1)/2+(m-2)/2+2*avg-(floor+1)/2)+2*avg*(n-m+2)
     return floor*(2*avg-floor-1)+ 2*avg*(n-m+2)
 
-def meanAbsDiff(r):
-    n=len(r)
-    mad=0
-    for i in range(n):
-        for j in range(n):
-            mad = mad + abs(r[i] - r[j])
-    return mad
-
 def myMeanAbsDiffY(r,m):
     n=len(r)
     sum = 0
@@ -106,7 +149,7 @@ def myMeanAbsDiffY(r,m):
     for j in range(m-2+1):
         temp = temp + j
     sum = sum + (temp * (n-m+2) )
-    return sum
+    return sum/(n^2)
 
 
 

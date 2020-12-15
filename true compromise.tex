@@ -19,8 +19,8 @@
 \author{Olivier Cailloux}
 \author{Beatrice Napolitano}
 \author{M. Remzi Sanver}
-\affil{Université Paris-Dauphine, PSL Research University, CNRS, LAMSADE, 75016 PARIS, FRANCE\\
-	\href{mailto:@dauphine.fr}{@dauphine.fr}
+\affil{Université Paris-Dauphine, Université PSL, CNRS, LAMSADE\\
+	\href{mailto:@dauphine.fr}{name.lastname@dauphine.fr}
 }
 \hypersetup{
 	pdfsubject={Social choice},
@@ -361,7 +361,7 @@ The perfect equality recognition condition we adopt for spread measures, i.e., t
 
 As both vectors are $n$ dimensional, the term $m-2$ repeats $n-2$ times in the first vector and the term $0$ repeats $n-m+2$ times in the second vector.
 
-The condition is more convincing for larger values of $m$ and $n$. Asking for $\sigma(1,3,2,2)$ to be smaller than $\sigma(2,1,0,0)$ is demanding while asking for $\sigma(3,5,4,4,4,4,4)$ to be smaller than $\sigma(6,5,4,3,2,1,0)$ reflects a mild assumption. In any case, as we state below, several well-known spread measures of the literature (see \citet{Allison1978} for a comprehensive account) satisfy \cref{def:conditionC}. Letting $\bar{l}=\frac{\sum_{i=1}^{n}l_i}{n}$ denote the arithmetic mean of the values of $l = (l_1, …, l_n)$, we consider the following measures:
+The condition is more convincing for larger values of $m$ and $n$. Asking for $\sigma(1,3,2,2)$ to be smaller than $\sigma(2,1,0,0)$ is demanding while asking for $\sigma(5,7,6,6,6,6,6)$ to be smaller than $\sigma(6,5,4,3,2,1,0)$ reflects a mild assumption. In any case, as we state below, several well-known spread measures of the literature (see \citet{Allison1978} for a comprehensive account) satisfy \cref{def:conditionC}. Letting $\bar{l}=\frac{\sum_{i=1}^{n}l_i}{n}$ denote the arithmetic mean of the values of $l = (l_1, …, l_n)$, we consider the following measures:
 
 \begin{itemize}
 	\item the mean absolute difference $\sigma_{mad}(l)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|l_i-l_j|$;
@@ -374,8 +374,8 @@ The condition is more convincing for larger values of $m$ and $n$. Asking for $\
 \label{prop:spreadMeas}
 	$\sigma_{mad}$, $\sigma_{ad}$, $\sigma_{sd}$ and $\sigma_{G}$ all satisfy condition $C_{m,n}$ $\forall m\geq4$ and $n\geq\max\{4,m-1\}$. 
 \end{proposition}
-We checked experimentally for $x\leq m,n \leq y$, and we also proved it analytically.
-\commentBN{Could we add a link to an external document where we write the full proofs? (For example in GitHub.)} \commentBN{$x,y$ because I haven't finish the experiments yet.}
+We checked experimentally for $4 \leq m \leq 1000$ and for $\max\{4,m-1\} \leq n \leq 1000$, and we also proved it analytically.
+\commentBN{Could we add a link to an external document where we write the full proofs? (For example in GitHub.)}
 
 The proof of \cref{prop:spreadMeas} is given in \cref{apdx:proofSM}.
 
