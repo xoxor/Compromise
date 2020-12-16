@@ -82,8 +82,7 @@ This can also be viewed as a distinction between ex-ante and ex-post compromises
 
 To define an ex-post compromise, we adopt to our framework a concept of equal losses, prevalent in the literature, that considers the allocation of continuous utilities. This principle is used for bargaining problems \citep{Chun1988}, \citep{Chun1991} as well as for bankruptcy problems \citep{Herrero2001}. 
 We introduce two definitions of compromise. In both of them, we pick a spread measure that determines how equally a given vector of real numbers is distributed and make a collective choice where voters give up from their ideal points “as equally as possible" (see \cref{sec:RestrictionOnSigma} for a literature review). However, one of them, called \textit{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \textit{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. 
-The two concepts are logically incompatible. As a result, Pareto efficient \acp{SCR} cannot ensure egalitarian compromises and this is valid under any spread measure. Moreover, several well-known \acp{SCR} of the literature such as Condorcet extensions, scoring rules, $q-$approval fall-back bargaining, all fail to be Paretian compromises under any spread measure. In fact, we are able to observe the existence of instances where being a Paretian compromise necessitates to pick an alternative that is, although Pareto optimal, ranked so low by all voters that this alternative wouldn't be picked by any of the popular \acp{SCR} of the literature. All these observations make the equal-loss principle appear adequate for collective choice problems with at least three individuals, only when egalitarianism, in the sense of conceding equally, is a major concern. \commentBN{I would remove "only" to have a more positive sentence without changing the intrinsic meaning. I already removed it from the abstract so if you don't agree please change that back.}
-\commentRS{I revised the abstract. Let's first agree on that and then see what to do here.}
+The two concepts are logically incompatible. As a result, Pareto efficient \acp{SCR} cannot ensure egalitarian compromises and this is valid under any spread measure. Moreover, several well-known \acp{SCR} of the literature such as Condorcet extensions, scoring rules, $q-$approval fall-back bargaining, all fail to be Paretian compromises under any spread measure. In fact, we are able to observe the existence of instances where being a Paretian compromise necessitates to pick an alternative that is, although Pareto optimal, ranked so low by all voters that this alternative wouldn't be picked by any of the popular \acp{SCR} of the literature. All these observations make the equal-loss principle appear adequate for collective choice problems with at least three individuals, when egalitarianism, in the sense of conceding equally, is a major concern.
 
 Collective choice models with two individuals present instances where envy-freeness matters. Here, the model is interpreted as a bargaining problem and bargaining procedures replace voting rules. As prominent examples, we have fallback bargaining proposed by \citet{Brams2001}; the unanimity compromise and the rational compromise introduced by \citet{Kibris2007}; the veto-rank and short listing procedures analyzed by \citet{Clippel2014} and the Pareto-and-veto rules analyzed by \citet{Laslier2020}. As is ours, these are all models with discrete alternatives which are not contained by the classical \citet{Nash1950} bargaining environment with convex utilities. However, as \citet{Mariotti1998} and \citet{Nagahisa2002} illustrate, the two worlds can be interconnected, as we do for the equal-loss principle of \citet{Chun1988} and \citet{Chun1991}. As a rather surprising finding, several interesting \acp{SCR} used as a bargaining solution also fail to be Paretian compromises.
 
@@ -368,14 +367,12 @@ The condition is more convincing for larger values of $m$ and $n$. Asking for $\
 	\item the Gini coefficient $\sigma_{G}(l)= \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}|l_i-l_j|}{2 \cdot n \cdot \sum_{i=1}^{n} l_i}$.
 \end{itemize} 
 
-\begin{proposition}
+\begin{remark}
 \label{prop:spreadMeas}
 	$\sigma_{mad}$, $\sigma_{ad}$, $\sigma_{sd}$ and $\sigma_{G}$ all satisfy condition $C_{m,n}$ $\forall m\geq4$ and $n\geq\max\{4,m-1\}$. 
-\end{proposition}
-We checked experimentally for $4 \leq m \leq 1000$ and for $\max\{4,m-1\} \leq n \leq 1000$, and we also proved it analytically.
-\commentBN{Could we add a link to an external document where we write the full proofs? (For example in GitHub.)}
-
-The proof of \cref{prop:spreadMeas} is given in \cref{apdx:proofSM}.
+\end{remark}
+\commentBN{Add more on the experiments}
+We checked experimentally for $4 \leq m \leq 1000$ and for $\max\{4,m-1\} \leq n \leq 1000$. 
 
 %A \emph{spread measure} $\sigma: \alllosses → \R_{+}$ satisfies condition gamma iff  $\sigma (m-3,$ $m-1,m-2,...,$ $m-2)$ <$\sigma(m-2,$ $m-1,...1,$0, $\ 0)$.
 %			(\lambda_{P}(y))$ that associates a spread value to every possible loss
@@ -393,16 +390,22 @@ We write $\Sigma^{C_{m,n}} \subseteq \Sigma$ for the set of spread measures that
 \end{theorem}
 
 	\begin{proof}
-		Take any $m\geq 3$ and any $n \geq \max\{3,m-1\}$ and consider $\Sigma^{C_{m,n}} \subseteq \Sigma$, the set of spread measures that satisfy condition $C_{m,n}$. Take some $x,y\in A$ and some $P\in \linors^{N}$ with $r_{\prefi[1]}(x)=m-2$, $r_{\prefi[2]}(x)=m,$ $r_{\prefi}(x)=m-1$ $\forall i\in N \setminus \left\{ 1, 2\right\}$, and $r_{\prefi}(y)=m-i$ $\forall i\in \intvl{1,m-1}$, $r_{\prefi[n]}(y)=1$ $\forall i\in \intvl{m,n}$. Moreover, for each $z\in A \setminus \left\{ x,y\right\} $, we have $r_{\prefi[1]}(z)=m$ for some $i\in N$. Note that both $f_n^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda^{P}(x)=(m-3, m-1,m-2,\dots,m-2)$ and $\lambda_{P}(y)=(m-2, m-3,\dots,1,0, \dots, 0)$. As all the spread measures $\sigma \in \Sigma^{C_{m,n}}$ satisfy the condition $C_{m,n}$, then $\sigma(\lambda_{P}(x)) < \sigma(\lambda_{P}(y))$ $\forall \sigma \in \Sigma^{C_{m,n}}$, implying $y\notin \mustar[\bar{\sigma}]$ $\forall \sigma \in \Sigma^{C_{m,n}}$.
+		Take any $m\geq 4$ and any $n \geq \max\{4,m-1\}$ and consider $\Sigma^{C_{m,n}} \subseteq \Sigma$, the set of spread measures that satisfy condition $C_{m,n}$. Take some $x,y\in A$ and some $P\in \linors^{N}$ with $r_{\prefi[1]}(x)=m-2$, $r_{\prefi[2]}(x)=m,$ $r_{\prefi}(x)=m-1$ $\forall i\in N \setminus \left\{ 1, 2\right\}$, and $r_{\prefi}(y)=m-i$ $\forall i\in \intvl{1,m-1}$, $r_{\prefi[n]}(y)=1$ $\forall i\in \intvl{m,n}$. Moreover, for each $z\in A \setminus \left\{ x,y\right\} $, we have $r_{\prefi[1]}(z)=m$ for some $i\in N$. Note that both $f_n^{w}$ and $f_{n}$ pick only $y$ at $P$. On the other hand, $\lambda^{P}(x)=(m-3, m-1,m-2,\dots,m-2)$ and $\lambda_{P}(y)=(m-2, m-3,\dots,1,0, \dots, 0)$. As all the spread measures $\sigma \in \Sigma^{C_{m,n}}$ satisfy the condition $C_{m,n}$, then $\sigma(\lambda_{P}(x)) < \sigma(\lambda_{P}(y))$ $\forall \sigma \in \Sigma^{C_{m,n}}$, implying $y\notin \mustar[\bar{\sigma}]$ $\forall \sigma \in \Sigma^{C_{m,n}}$.
 	\end{proof}
 
-\commentBN{What happens for $m=3$?}
-\commentRS{I have a trivial answer: Our condition in Definition 5 is not defined for $m=3$. So for $m=3$, the set of spread measures is unrestricted. Thus, Theorems 5 and 7 apply. Does this make sense?} \commentBN{I made the same comment, to which Olivier replied that it would be better to prove it for a reasonable spread measure. Similarly at Theorem 12.}
-\commentRS{I see his point. Let's discuss this face-to-face.}
+\commentBN{What happens for $m=3$?
+m=3\\
+x z x y x y \\
+y x y x y x \\
+z y z z z z \\
+FB and AP pick x 
+}
+
+
 
 \section{Two-voters case}
-\commentRS{I changed the introductory paragraph of this section. I am not super happy with it. Let's discuss later.}
-Collective choice environments with two-individuals are usually viewed as arbitration or bargaining problems. \commentRS{We need one or more adequate citations here. Also, I suggest to place here a footnote which says "There are analyses of these problems, such as \citep{Kibris2007}, where the model admits an explicit disagreement outcome. We remain in the classical collective choice environment with no explicit disagreement alternative.} 
+\commentBN{Read papers \citep{Sprumont1993} and \citep{Barbera2020} and cite them.}
+Collective choice environments with two-individuals are usually viewed as arbitration or bargaining problems.There are analyses of these problems, such as \citep{Kibris2007}, where the model admits an explicit disagreement outcome. We remain in the classical collective choice environment with no explicit disagreement alternative.
 
 
 In addition to \textit{fallback bargaining (FB)} \citep{Brams2001} (defined in \cref{sec:BKn3}) we consider three prominent solutions of the literature.
@@ -419,6 +422,7 @@ Again within the context of selecting arbitrators, \citet{Clippel2014} propose a
     $\sigma(\ceil{\frac{m}{2}}, \floor{\frac{m}{2}} - 1) < \sigma(0, \floor{\frac{m}{2}})$ and 
     $\sigma(\floor{\frac{m}{2}} - 1, \ceil{\frac{m}{2}}) < \sigma(\floor{\frac{m}{2}}, 0)$.
 \end{definition}
+\commentBN{Do we start at $m=6$?}
 For $m=7$ the condition requires $\sigma(4,2) < \sigma(0,3)$ and $\sigma(2,4) < \sigma(3,0)$ which is reasonable in our context. When the value of $m$ is larger, the condition appears even more convincing. As $m$ grows, the distance between $0$ and $\floor{\frac{m}{2}}$ grows, while the distance between $\ceil{\frac{m}{2}}$ and $\floor{\frac{m}{2}} - 1$ remains constant ($1$ if $m$ is even, $2$ otherwise). Requiring, for example, the spread of $(15,14)$ to be smaller than the spread of $(0,15)$ is very reasonable.
 
 We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that satisfy condition $D_{m}$. 
@@ -444,6 +448,16 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 
 	Finally, SL also picks $x$, as it is the unique winner no matter which voter starts the veto phase. If $i_1$ starts, $y$ and every $b_j$ ($1 ≤ j ≤ \beta$) get vetoed, then $i_2$ chooses her best alternative out of the remaining ones which is $x$. If $i_2$ starts, every $a_j$ ($1 ≤ j ≤ \alpha$) get vetoed, then $i_1$ chooses her best alternative which is $x$. 
 \end{proof}
+
+\begin{remark}
+Note that PV fails PCC when $m=6$.
+\end{remark}
+\commentBN{ P\\
+ x   a1  a2   y   b1  b2 \\
+b1   b2  y    x   a1  a2 
+}
+
+\commentOC{PV may satisfy PCC for $\sigma(l_1, l_2) = \abs{l_1 - l_2}$ for $m\leq5$}
  \commentRS{I feel uncomfortable with what we do below - not the proof but the approach. Why we use that particular sigma? Why we consider only FB? I have a proposal that I will tell once we meet.}
 \begin{theorem}
  	For $m ≤ 6$, FB satisfies PCC for $\sigma(l_1, l_2) = \abs{l_1 - l_2}$.
