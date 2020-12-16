@@ -56,7 +56,7 @@
 \newtheorem{claim}{Claim}[section]
 \newtheorem{conclusion}{Conclusion}[section]
 \newtheorem{condition}{Condition}[section]
-\newtheorem{conjecture}{Conjecture}[section]
+
 %\newtheorem{corollary}{Corallary}[section]
 \newtheorem{criterion}{Criterion}[section]
 %\newtheorem{definition}{Definition}[section]
@@ -78,14 +78,6 @@
 \title{Ex-Ante versus Ex-Post \\ Compromise}
 \author{}
 \date{}
-
-\newcommand{\commentBN}[1]{\textcolor{magenta}{\small$\big[$BN: #1$\big]$}}
-\newcommand{\commentRS}[1]{\textcolor{red}{\small$\big[$RS: #1$\big]$}}
-\newcommand{\paretopt}{\mathit{PO}}
-\newcommand{\SPPd}{\Sigma^\text{PPd}}
-\newcommand{\SAll}{\Sigma^\text{All}}
-\newcommand{\SThreshold}{\Sigma_\text{threshold}}
-\newcommand{\vpr}{\mathbf{v}}
 
 \begin{document}
 
@@ -470,5 +462,71 @@ We say that \emph{$G$ can compensate for $V$-transformations} iff $\forall v, v'
 \end{lemma}
 \begin{proof}
 	We know that $\forall v, g: [\forall v', \exists g' \suchthat g' \circ v' = g \circ v]$. We have to show that $\forall v, v', g: \exists g' \suchthat g' \circ v' = g \circ v$, which is the same thing.
+\end{proof}
+
+
+\section{Small Sizes}
+\commentBN{What happens for $m=3$?
+	m=3\\
+	x z x y x y \\
+	y x y x y x \\
+	z y z z z z \\
+	FB and AP pick x 
+}
+\subsection{Two Voters}
+\begin{remark}
+	Note that PV fails PCC when $m=6$.
+\end{remark}
+\commentBN{ P\\
+	x   a1  a2   y   b1  b2 \\
+	b1   b2  y    x   a1  a2 
+}
+
+\commentOC{PV may satisfy PCC for $\sigma(l_1, l_2) = \abs{l_1 - l_2}$ for $m\leq5$}
+\begin{theorem}
+	For $m ≤ 6$, FB satisfies PCC for $\sigma(l_1, l_2) = \abs{l_1 - l_2}$.
+\end{theorem}
+\begin{proof}
+	Consider any profile $P$.
+	Let $\min\lprof(x) = \min_{N}{\lprof(x)_i}$ and $\max\lprof(x) = \max_{N}{\lprof(x)_i}$ designate the minimal and maximal value of the loss vector of $x$.
+	Define $\rho = \min\set{l \in \intvl{0, m - 1} \suchthat \exists x \suchthat \max\lprof(x) = l}$. 
+	Thus, $\nexists x \suchthat \max\lprof(x) < \rho$.
+	Recall that, by definition, $\FBP = \set{x \suchthat \max\lprof(x) ≤ \rho}$, or equivalently, $\FBP = \set{x \suchthat \max\lprof(x) = \rho}$.
+	
+	Pick any $x \in \FBP$. 
+	Pick any $i \in N$ such that $\lprofi[x] = \min\lprof(x)$ and define $\ibar$ as the other individual, thus with $\lprofibar[x] = \max\lprof(x) = \rho$. Define $z$ as the alternative such that $\lprofi[z] = \rho$.
+	
+	We show four facts that are true for any value of $m$, with the definitions so far and $\sigma(l_1, l_2) = \abs{l_1 - l_2}$, and which together prove the statement. First, $\rho ≤ \frac{m}{2}$. Second, if $\rho = \frac{m}{2}$, then $\FBP = \set{x, z}$. Third, if $\FBP = \set{x, z}$, then $\minineq[\FBP] = \minineq[\POP]$. Fourth, if $\minineq[\FBP] ≤ 2$, then $\minineq[\FBP] = \minineq[\POP]$.
+	
+	When $m ≤ 6$, using the first fact, $\rho ≤ 3$, and suffices then to use either, if $\rho = 3$, the second and the third facts, or otherwise, the fourth fact (because $\minineq[\FBP] ≤ \rho$) to prove as required that some alternative in $\FBP$ reaches the required minimal inequality over the Pareto optimal alternatives.
+	
+	\emph{First fact}
+	
+	Define $S_1 = \set{y ≠ x \suchthat 0 ≤ \lprofi[y] < \rho}$ and $S_2 = \set{y \suchthat \rho < \lprofibar[y] ≤ m - 1}$.
+	By definition of $\rho$, $\nexists y \suchthat \max\lprof(y) < \rho$,
+	thus, $\forall y: [\lprofi[y] < \rho \land \lprofibar[y] ≠ \rho] ⇒ \rho < \lprofibar[y]$.
+	Because $x ≠ y ⇒ \lprofibar[y] ≠ \rho$ (as $\lprofibar[x] = \rho$), we obtain that $S_1 \subseteq S_2$.
+	Because $\card{\set{y \suchthat 0 ≤ \lprofi[y] < \rho}} = \rho$, $\card{S_1} ≥ \rho - 1$.
+	It follows that $\card{S_2} ≥ \rho - 1$.
+	Also, $\card{S_2} = m - 1 - \rho$. We obtain $m - 1 - \rho ≥ \rho - 1$, thus $\rho ≤ \frac{m}{2}$.
+	
+	\emph{Second fact}
+	
+	Pursuing with $S_1$ and $S_2$ as defined above, and assuming further that $\rho = \frac{m}{2}$, or equivalently $m - \rho = \rho$, we see that $S_1$ and $S_2$ have the same cardinalities, hence, are equal. By definition of $z$, $z \notin S_1$. Thus, $z \notin S_2$. Therefore, $\lprofibar[z] ≤ \rho$, and as $\lprofi[z] = \rho$, $z \in \FBP$. As $\FBP = \set{y \suchthat \max\lprof(y) = \rho}$, $y \in \FBP$ requires that $\lprofi[y] = \rho$ or $\lprofibar[y] = \rho$, thus, no alternative but $x$ and $z$ may be in $\FBP$.
+	
+	\emph{Third fact}
+	
+	Assuming now that $\FBP = \set{x, z}$, and picking any $y \in \POP$, let us show that $\ineq(y) ≥ \minineq[\FBP]$.
+	By hypothesis, $\lprofibar[z] ≤ \rho$ and $\lprofi[x] ≤ \rho$.
+	Now if $\rho < \lprofi[y]$, then $\lprofibar[y] < \lprofibar[z]$ (otherwise $z$ Pareto dominates $y$, as $\lprofi[z] = \rho$), whence $\ineq(y) > \ineq(z)$ as $\lprofibar[y] < \lprofibar[z] ≤ \lprofi[z] = \rho < \lprofi[y]$.
+	Similarly, assuming that $\rho < \lprofibar[y]$ yields that $\ineq(y) > \ineq(x)$.
+	The only remaining possibility is that $\lprofi[y] ≤ \rho$ and $\lprofibar[y] ≤ \rho$, in which case $y \in \FBP$.
+	
+	\emph{Fourth fact}
+	
+	Assuming that $\minineq[\FBP] ≤ 2$, and picking any $y \in \POP$, let us show that $\ineq(y) ≥ \minineq[\FBP]$.
+	If $\rho < \lprofi[y]$, then $\lprofi[x] < \lprofi[y]$ and $\lprofibar[x] < \lprofi[y]$, thus $\lprofibar[y] < \lprofibar[x]$ (otherwise $x$ Pareto dominates $y$), thus $\lprofibar[y] < \lprofibar[x] < \lprofi[y]$, thus $\ineq(y) ≥ 2$.
+	If $\rho < \lprofibar[y]$, an identical reasoning, exchanging $i$ and $\ibar$, concludes identically.
+	Otherwise, $y \in \FBP$.
 \end{proof}
 \end{document}
