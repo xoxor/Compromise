@@ -28,8 +28,8 @@
 \NewDocumentCommand{\SThreshold}{}{\Sigma_\text{threshold}}
 \NewDocumentCommand{\vpr}{}{\boldsymbol{v}}
 
-\NewDocumentCommand{\musigma}{O{\sigma}O{P}}{\min_{{#1}\circ\lambda_{{#2}}}(A)}
-\NewDocumentCommand{\mustar}{O{\sigma}O{P}}{\min_{{#1} \circ \lambda_{#2}} (\paretopt({#2}))}
+\NewDocumentCommand{\musigma}{O{\sigma}O{P}}{\min_{A}({#1}\circ\lambda_{{#2}})}
+\NewDocumentCommand{\mustar}{O{\sigma}O{P}}{\min_{\paretopt({#2})} ({#1} \circ \lambda_{#2})}
 \NewDocumentCommand{\minineq}{O{\allalts}}{\min_{#1}(\sigma \circ \lambda)}
 \NewDocumentCommand{\FBP}{}{\text{FB}(P)}
 \NewDocumentCommand{\POP}{}{\text{PO}(P)}

@@ -111,7 +111,7 @@ A \ac{SCR} $f$ is \emph{Paretian} iff $f(P)\subseteq\paretopt(P)$ $\forall P\in\
 \section{Egalitarian versus Paretian compromises}
 \subsection{Egalitarian compromises}
 \label{sec:EgCompromise}
-We denote the minimal elements of $X\in2^{A}\setminus \{\emptyset\}$ according to $(\sigma\circ\lambda_{P})$ with $\min_{\sigma \circ \lambda_P} (X) = \set{x \in X \suchthat \forall y \in X: \sigma(\lambda_P(x)) ≤ \sigma(\lambda_P(y))}$. Thus, $\min_{\sigma\circ\lambda_{P}}(X)$ denotes the alternatives in X whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
+We denote the minimal elements of $X\in2^{A}\setminus \{\emptyset\}$ according to $(\sigma\circ\lambda_{P})$ with $\min_{X} (\sigma \circ \lambda_P) = \set{x \in X \suchthat \forall y \in X: \sigma(\lambda_P(x)) ≤ \sigma(\lambda_P(y))}$. Thus, $\min_{X}(\sigma\circ\lambda_{P})$ denotes the alternatives in X whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
 
 In what follows, we define some classes of \acp{SCR} that we are interested in analyzing. 
 
@@ -258,7 +258,7 @@ We call antiplurality score vector the score vector $w$ formed such that $w_{i} 
 	The case $r_{\succ_i}(x) = m, \forall i \in N$ is ruled out by $x \in \paretopt(P)$. Hence, $r_{\succ_i}(x) ≤ m - 1, \forall i \in N$, hence, $x \in f^w_n(P)$.
 \end{proof}
 
-It is worth noting that the antiplurality rule $f_{n}^{w}$ is not Paretian, hence fails PC  for all $n\geq 3$. This, can be seen by picking a unanimous profile $P\in \linors^{N}$ with $a_{1}\prefi a_{2}\prefi \dots \prefi a_{m}$ $\forall i\in N$, where $\mustar=\left\{ a_{1}\right\} \forall \sigma \in \Sigma $ while $f_{n}^{w}(P)=A \setminus \left\{ a_{m}\right\}$.
+It is worth noting that the antiplurality rule $f_{n}^{w}$ is not Paretian, hence fails PC  for all $n\geq 3$. This can be seen by picking a unanimous profile $P\in \linors^{N}$ with $a_{1}\prefi a_{2}\prefi \dots \prefi a_{m}$ $\forall i\in N$, where $\mustar=\left\{ a_{1}\right\} \forall \sigma \in \Sigma $ while $f_{n}^{w}(P)=A \setminus \left\{ a_{m}\right\}$.
 
 \begin{theorem}
 	\label{th:srPCC}
@@ -294,7 +294,7 @@ It is worth noting that the antiplurality rule $f_{n}^{w}$ is not Paretian, henc
 Given any $k\in \intvl{1, m}$, we write $n_{k}(x,P)=\#\{i\in
 N\mid r_{\prefi}(x)\leq k\}$ for the \emph{$k$-support} that $x$ gets at $P$, that is, the number of individuals for whom the rank of alternative $x\in A$ is lower than or equal to $k$ in the profile $P\in $ $L(A)^{N}$.
 Note that $n_{k}(x,P)\in \intvl{1, n}$ is non-decreasing on $k$ and $n_{m}(x,P)=n.$ For each $q\in \intvl{1,n}$, we define $\rho_{q}(x,P)=\min \{k\in \intvl{1,m} \suchthat n_{k}(x,P)\geq q\}$ as the minimal rank $k$ at which the $k$-support that $x$ gets at $P$ is at least $q$. We
-write $\rho _{q}(P) = \min_{A} \set{\rho_{q}(x, P)}$ for the minimal rank $k$ at which the $k$-support that some alternative gets at $P$ is at least $q$. \textit{A Brams and Kilgour (BK) compromise with threshold }$q$ is the
+write $\rho _{q}(P) = \min_{x \in A} \set{\rho_{q}(x, P)}$ for the minimal rank $k$ at which the $k$-support that some alternative gets at $P$ is at least $q$. \textit{A Brams and Kilgour (BK) compromise with threshold }$q$ is the
 \ac{SCR} $f_{q}$ defined for each $P\in \linors^N$ as $f_{q}(P)=\{x\in A | n_{\rho _{q}(P)}(x,P)\geq n_{\rho _{q}(P)}(y,P)$ $\forall y\in A\}.$
 
 \begin{theorem}
@@ -306,7 +306,7 @@ Let $n\geq 3$ and $m\geq 3.$ The BK compromise $f_{n}$ satisfies PC.
 Define $\bar{\sigma } \in \Sigma$ as, $\forall l \in \intvl{0,m-1}^N$: $\bar\sigma(l) = 1$ iff $\exists i, j \in N \suchthat l_i ≠ l_j$; $\bar\sigma(l) = 0$ otherwise.
 Considering any $x \in f_n(P)$, let us show that $x \in \mustar[\bar{\sigma}]$. Because $x \in f_n(P)$, $x \in \paretopt(P)$, and therefore, suffices to show that $\forall y \in \paretopt(P)$, $\bar{\sigma}(\lambda_P(y)) ≥ \bar{\sigma}(\lambda_P(x))$. Given the choice of $\bar{\sigma}$, picking any $y \in \paretopt(P)$ with $y≠x$, suffices to show that $\bar{\sigma}(\lambda_P(y)) = 1$, equivalently, that $\exists i, j \in N \suchthat r_{\prefi}(y) ≠ r_{\pref_j}(y)$. 
 Because $x \in f_n(P)$, $\rho_n(P) = \rho_n(x, P) = \max_{N} r_{\prefi}(x)$.
-It follows from $\rho_n(P) = \min_{A} \set{\rho_n(z, P)}$ that $\rho_n(y, P) ≥ \rho_n(x, P)$, thus, $\exists i \in N \suchthat r_{\prefi}(y) ≥ \rho_n(P)$. 
+It follows from $\rho_n(P) = \min_{z \in A} \set{\rho_n(z, P)}$ that $\rho_n(y, P) ≥ \rho_n(x, P)$, thus, $\exists i \in N \suchthat r_{\prefi}(y) ≥ \rho_n(P)$. 
 Also, $y \in \paretopt(P)$ implies that $\exists j \in N \suchthat r_{\pref_j}(y) < r_{\pref_j}(x)$, thus $\exists j \in N \suchthat r_{\pref_j}(y) < \rho_n(P)$. 
 Therefore, $r_{\prefi}(y) ≠ r_{\pref_j}(y)$.
 \end{proof}
