@@ -374,8 +374,8 @@ The condition is more convincing for larger values of $m$ and $n$. Asking for $\
 \label{prop:spreadMeas}
 	$\sigma_{mad}$, $\sigma_{ad}$, $\sigma_{sd}$ and $\sigma_{G}$ all satisfy condition $C_{m,n}$ $\forall m\geq4$ and $n\geq\max\{4,m-1\}$. 
 \end{remark}
-\commentBN{Add more on the experiments}
-We checked experimentally for $4 \leq m \leq 1000$ and for $\max\{4,m-1\} \leq n \leq 1000$. 
+
+We analysed this remark experimentally. For each pair of $m \in \intvl{4,1000}$ and $n \in \intvl{l,1000}$, where $l=\max\{4,m-1\}$, we generated two vectors $v_1$ and $v_2$, of $n$ elements, of the form respectively $(m-3, m-1, m-2, \dots, m-2)$ and $(m-2, m-3, \dots, 1, 0, \dots, 0)$. We then computed their spread with the measures described above and made sure that $\sigma(v_1)<\sigma(v_2)$ for all $\sigma_{mad},\sigma_{ad},\sigma_{sd},\sigma_{G}$.
 
 %A \emph{spread measure} $\sigma: \alllosses → \R_{+}$ satisfies condition gamma iff  $\sigma (m-3,$ $m-1,m-2,...,$ $m-2)$ <$\sigma(m-2,$ $m-1,...1,$0, $\ 0)$.
 %			(\lambda_{P}(y))$ that associates a spread value to every possible loss
@@ -398,7 +398,7 @@ We write $\Sigma^{C_{m,n}} \subseteq \Sigma$ for the set of spread measures that
 \section{Two-voters case}
 In addition to \textit{fallback bargaining (FB)} \citep{Brams2001} (defined in \cref{sec:BKn3}) we consider three prominent solutions of the literature.
 
-\textit{Pareto-and-Veto rules (PV)} \citep{Laslier2020} distribute a veto power of $v_1$ and $v_2$ alternatives to voters 1 and 2, respectively, with $v_1+v_2=m-1$. So, every voter $i=1,2$ (simultaneously) vetoes his worst $v_i$ alternatives. The \ac{SCR} picks all non-vetoed and Pareto optimal alternatives.
+\textit{Pareto-and-Veto rules (PV)} \citep{Moulin1983, Abreu1991, Laslier2020} distribute a veto power of $v_1$ and $v_2$ alternatives to voters 1 and 2, respectively, with $v_1+v_2=m-1$. So, every voter $i=1,2$ (simultaneously) vetoes his worst $v_i$ alternatives. The \ac{SCR} picks all non-vetoed and Pareto optimal alternatives.
 
 The \textit{Veto-Rank mechanism (VR)} is commonly used in the selection of arbitrators \citep{Clippel2014}. Given a list of $m$ (odd) alternatives (that are candidates to be arbitrators), each of the two voters (that are the two parties that must agree on an arbitrator) simultaneously vetoes his worst $\frac{m-1}{2}$ alternatives. The selected alternatives are the ones with the highest Borda score among the non-vetoed alternatives.
 
@@ -420,7 +420,7 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 \end{theorem}
 \begin{proof}
     Take any $m \geq 7$ and any $\sigma \in \Sigma^{D_m}$. Define $\alpha = \ceil{\frac{m}{2}} - 1$ and $\beta = \ceil{\frac{m}{2}} - 2$. Note that $\sigma(\alpha + 1, \beta) < \sigma(0, \beta + 1)$ and $\sigma(\beta, \alpha + 1) < \sigma(\beta + 1, 0)$.
-    For $m$ odd, note that $\alpha + \beta + 2 = m$ and consider the profile $P$ where voter $i_1$ has the preference order $x \succ a_1 \succ … \succ a_\alpha \succ y \succ b_1 \succ … \succ b_\beta$ and voter $i_2$ has the preference order $b_1 \succ … \succ b_\beta \succ y \succ x \succ a_1 \succ … \succ a_\alpha$. For $m$ even, note that $\alpha + \beta + 3 = m$ and define the profile $P$ in the same way, except that a supplementary alternative $z$ is added at the bottom of both rankings.
+    For $m$ odd, note that $\alpha + \beta + 2 = m$ and consider the profile $P$ where voter $i_1$ has the preference order $x \succ a_1 \succ … \succ a_\alpha \succ y \succ b_1 \succ … \succ b_\beta$ and voter $i_2$ has the preference order $b_1 \succ … \succ b_\beta \succ y \succ x \succ a_1 \succ … \succ a_\alpha$. For $m$ even define the profile $P$ in the same way, except that a supplementary alternative $z$ is added at the bottom of both rankings; note that $\alpha + \beta + 2 + 1 = m$.
 	
 	Note that $\sigma(\lambda_{P}(y)) = \sigma(\alpha + 1, \beta)$ and that $\sigma(\lambda_{P}(x)) = \sigma(0, \beta + 1)$. 
 	Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$. As $y$ is not Pareto-dominated, an \ac{SCR} that uniquely picks $x$ at $P$ cannot be PCC. In a similar vein, at the profile $P'$ which is obtained by the inversion of the preferences of $i_1$ and $i_2$ at $P$, an \ac{SCR} that is PCC cannot pick $x$ uniquely.	
