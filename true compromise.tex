@@ -96,7 +96,7 @@ The rest of the paper is organized as follows. Section 2 presents the basic noti
 Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 3$. We write $\linors$ for the set of linear orders over $A$.
 A generic element $\prefi$ of $\linors$ stands for a preference of $i\in N$. This implies that, given any $x ≠ y\in A$, precisely one of $x \prefi y$ and $y\prefi x$ holds while $x \prefi x$ holds for no $x\in A.$ Moreover, $x\prefi y$ and $y\prefi z$ implies $x\prefi z$ $\forall x,y,z\in A$.
 
-A \emph{profile} $P: N → \linors$ associates with each individual $i \in N$ a preference order  $P(i) = {\prefi}$. A \emph{\acl{SCR}} (\acs{SCR}) is a mapping $f:\linors^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. 
+A \emph{profile} $P: N → \linors$ associates with each individual $i \in N$ a preference $P(i) = {\prefi}$. A \emph{\acl{SCR}} (\acs{SCR}) is a mapping $f:\linors^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. 
 
 We write $r_{\prefi}(x)=\#\{y\in A \suchthat y \prefi x\}+1$ for the \emph{rank} of $x\in A$ at ${\prefi} \in \linors$. We denote by $\lambda_{\prefi}(x)=r_{\prefi}(x)-1$ the loss in terms of ranks for $i\in N$ with preference $\prefi$, when $x$ is elected instead of the best alternative
 for $i$. The mapping $\lambda_P: A → \alllosses$ assigns to each $x\in A$ the loss vector $\lambda_{P}(x)=(\lambda_{\prefi}(x))_{i\in N}$ induced by the election of $x$. The double brackets denote intervals in the integers.
@@ -372,10 +372,8 @@ The condition is more convincing for larger values of $m$ and $n$. Asking for $\
 
 \begin{remark}
 \label{prop:spreadMeas}
-	$\sigma_{mad}$, $\sigma_{ad}$, $\sigma_{sd}$ and $\sigma_{G}$ all satisfy condition $C_{m,n}$ $\forall m\geq4$ and $n\geq\max\{4,m-1\}$. 
+	We checked experimentally that $\sigma_{mad}$, $\sigma_{ad}$, $\sigma_{sd}$ and $\sigma_{G}$ all satisfy condition $C_{m,n}$, for $m \in \intvl{4,1000}$ and $n \in \intvl{l,1000}$ where $l=\max\{4,m-1\}$.
 \end{remark}
-
-We analysed this remark experimentally. For each pair of $m \in \intvl{4,1000}$ and $n \in \intvl{l,1000}$, where $l=\max\{4,m-1\}$, we generated two vectors $v_1$ and $v_2$, of $n$ elements, of the form respectively $(m-3, m-1, m-2, \dots, m-2)$ and $(m-2, m-3, \dots, 1, 0, \dots, 0)$. We then computed their spread with the measures described above and made sure that $\sigma(v_1)<\sigma(v_2)$ for all $\sigma_{mad},\sigma_{ad},\sigma_{sd},\sigma_{G}$.
 
 %A \emph{spread measure} $\sigma: \alllosses → \R_{+}$ satisfies condition gamma iff  $\sigma (m-3,$ $m-1,m-2,...,$ $m-2)$ <$\sigma(m-2,$ $m-1,...1,$0, $\ 0)$.
 %			(\lambda_{P}(y))$ that associates a spread value to every possible loss
@@ -419,8 +417,8 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 	Let $m \geq 7$. Under $\Sigma^{D_{m}}$, FB and PV fail PCC. Furthermore, when $m$ is odd, VR and SL also fail PCC.
 \end{theorem}
 \begin{proof}
-    Take any $m \geq 7$ and any $\sigma \in \Sigma^{D_m}$. Define $\alpha = \ceil{\frac{m}{2}} - 1$ and $\beta = \ceil{\frac{m}{2}} - 2$. Note that $\sigma(\alpha + 1, \beta) < \sigma(0, \beta + 1)$ and $\sigma(\beta, \alpha + 1) < \sigma(\beta + 1, 0)$.
-    For $m$ odd, note that $\alpha + \beta + 2 = m$ and consider the profile $P$ where voter $i_1$ has the preference order $x \succ a_1 \succ … \succ a_\alpha \succ y \succ b_1 \succ … \succ b_\beta$ and voter $i_2$ has the preference order $b_1 \succ … \succ b_\beta \succ y \succ x \succ a_1 \succ … \succ a_\alpha$. For $m$ even define the profile $P$ in the same way, except that a supplementary alternative $z$ is added at the bottom of both rankings; note that $\alpha + \beta + 2 + 1 = m$.
+    Take any $m \geq 7$ and any $\sigma \in \Sigma^{D_m}$. Define $\alpha = \ceil{\frac{m}{2}} - 1$ and $\beta = \ceil{\frac{m}{2}} - 2$. It follows from $\sigma \in \Sigma^{D_{m}}$, that $\sigma(\alpha + 1, \beta) < \sigma(0, \beta + 1)$ and $\sigma(\beta, \alpha + 1) < \sigma(\beta + 1, 0)$.
+    For $m$ odd, note that $\alpha + \beta + 2 = m$ and consider the profile $P$ where voter $i_1$ has the preference $x \succ a_1 \succ … \succ a_\alpha \succ y \succ b_1 \succ … \succ b_\beta$ and voter $i_2$ has the preference $b_1 \succ … \succ b_\beta \succ y \succ x \succ a_1 \succ … \succ a_\alpha$. For $m$ even, note that $\alpha + \beta + 3= m$, and define the profile $P$ in the same way, except that a supplementary alternative $z$ is added at the bottom of both rankings.
 	
 	Note that $\sigma(\lambda_{P}(y)) = \sigma(\alpha + 1, \beta)$ and that $\sigma(\lambda_{P}(x)) = \sigma(0, \beta + 1)$. 
 	Therefore, $\sigma(\lambda_{P}(y)) < \sigma(\lambda_{P}(x))$. As $y$ is not Pareto-dominated, an \ac{SCR} that uniquely picks $x$ at $P$ cannot be PCC. In a similar vein, at the profile $P'$ which is obtained by the inversion of the preferences of $i_1$ and $i_2$ at $P$, an \ac{SCR} that is PCC cannot pick $x$ uniquely.	
