@@ -33,17 +33,16 @@
 \maketitle
 
 \begin{abstract}
-	A social choice rule aggregates the preferences of a group of individuals over a set of alternatives into a collective choice. The literature admits several social choice rules whose recommendations are supposed to reflect a compromise among individuals. We observe that all these \textit{compromise rules} can be better described as \emph{procedural compromises}, i.e., they impose over individuals a willingness to compromise but they do not ensure an outcome where everyone has effectively compromised. We revisit the concept of a compromise in a collective choice environment with at least three individuals having strict preferences over a finite set of alternatives. Referring to a large class of spread measures, we view the concept of compromise from an \emph{equal loss} perspective, favoring an outcome where every voter concedes as equally as possible. As such, being a compromise may fail Pareto efficiency, which we ensure by asking voters to concede as equally as possible among the Pareto efficient alternatives. We show that Condorcet consistent rules, scoring rules and Brams-Kilgour compromises all fail to ascertain an outcome which is a compromise. This failure prevails for social choice problems with two individuals: all well-known two-person \acp{SCR} of the literature, namely, fallback bargaining, Pareto and veto rules, short listing and veto rank, fail to pick ex-post compromises. 
+	A social choice rule aggregates the preferences of a group of individuals over a set of alternatives into a collective choice. The literature admits several social choice rules whose recommendations are supposed to reflect a compromise among individuals. We observe that all these \textit{compromise rules} can be better described as \emph{procedural compromises}, i.e., they impose over individuals a willingness to compromise but they do not ensure an outcome where everyone has effectively compromised. We revisit the concept of a compromise in a collective choice environment with at least three individuals having strict preferences over a finite set of alternatives. Referring to a large class of spread measures, we view the concept of compromise from an \emph{equal loss} perspective, favoring an outcome where every voter concedes as equally as possible. As such, being a compromise may fail Pareto efficiency, which we ensure by asking voters to concede as equally as possible among the Pareto efficient alternatives. We show that Condorcet consistent rules, scoring rules and Brams-Kilgour compromises all fail to ascertain an outcome which is a compromise. This failure prevails for social choice problems with two individuals: all well-known two-person social choice rules of the literature, namely, fallback bargaining, Pareto and veto rules, short listing and veto rank, fail to pick ex-post compromises. 
 \end{abstract}
 
 \section{Introduction}
 \label{sec:introduction}
-In a typical social choice problem, several individuals express their preferences over a set of alternatives among which, one shall be picked as the collective outcome. Although the literature admits several social choice rules (SCRs) with different properties, there is a common understanding that collective choices must reflect "compromises". One of the first to explicitly refer to a \ac{SCR} as a compromise is \citet{Sertel1986} introducing the \textit{majoritarian compromise}. This \ac{SCR}, further analyzed by \citet{Sertel1999}, is a rediscovery of a method suggested by James W. Bucklin at the beginning of the 20th century (for more details see \citet{Erdelyi2015}). It falls back from considering everyone’s ideal alternative to considering the voters’ second, third and more generally k-\emph{th} best, until one of the alternatives is among the first k best for a majority. \citet{Brams2001} generalize this concept and introduce a class of \acp{SCR} called $q-$\textit{approval fall-back bargaining }where $q$ is the required quantity of support which can vary from a single voter up to unanimity. Naturally, different choices of $q$ lead to different \acp{SCR}, such as $q=1$ giving the plurality rule; $q$ being majority giving the majoritarian compromise and $q$ being unanimity giving a bargaining procedure called \textit{fall-back bargaining} which has been further analyzed by \citet{Kibris2007} and \citet{Congar2012}. 
+In a typical social choice problem, several individuals express their preferences over a set of alternatives and one shall be picked as the collective outcome. Although the literature admits several \acp{SCR} with different properties, there is a common understanding that collective choices must reflect "compromises". One of the first to explicitly refer to a \ac{SCR} as a compromise is \citet{Sertel1986} introducing the \textit{majoritarian compromise}. This \ac{SCR}, further analysed by \citet{Sertel1999}, is a rediscovery of a method suggested by James W. Bucklin at the beginning of the 20th century (for more details see \citet{Erdelyi2015}). Starting from everyone’s ideal alternative, it falls back to the voters’ second, third and more generally k-\emph{th} best, until one of the alternatives considered appears among the first k best for a majority. \citet{Brams2001} generalise this concept and introduce a class of \acp{SCR} called $q-$\emph{approval fall-back bargaining}, where $q$ is the required quantity of support that can vary from a single voter up to unanimity. Different choices of $q$ lead to different \acp{SCR}. Considering $m$ alternatives, the choice of $q=1$ corresponds to the plurality rule, $q=\frac{m}{2}+1$ coincides with the majoritarian compromise and $q=m$ represents a bargaining procedure called \textit{fall-back bargaining}, which has been further analysed by \citet{Kibris2007} and \citet{Congar2012}. 
 
-As \citet{OezkalSanver2004} discuss, the concept of compromising is mostly understood as the trade off between the number of voters supporting an alternative (i.e., the quantity of support) and the distance of that alternative from the supporters' ideal alternative (i.e., the quality of support). This trade off, which is explicit for $q-$approval fall-back bargaining, is also the basis for several other \acp{SCR} such as the \textit{median voting rule} proposed by \citet{Bassett1999} and further analyzed by \citet{Gehrlein2003} or the \textit{Condorcet practical method }described by \citet{Nurmi1999}.
+As \citet{OezkalSanver2004} discuss, the concept of compromising is mostly understood as the trade off between the number of voters supporting an alternative (i.e., the quantity of support) and the distance of that alternative from the supporters' ideal alternative (i.e., the quality of support). This trade off, which is explicit for $q-$approval fall-back bargaining, is also the basis for several other \acp{SCR} such as the \textit{median voting rule} proposed by \citet{Bassett1999} and further analysed by \citet{Gehrlein2003} or the \textit{Condorcet practical method }described by \citet{Nurmi1999}. \citet{Merlin2019} identify and analyse a large class of \textit{compromise rules} that balance this trade off.
 
-\citet{Merlin2019} identify and analyze a large class of \textit{compromise rules} which are based on balancing the trade off between the quality and the quantity of support. On the other hand, as conflicting
-individual preferences over the available alternatives makes impossible to ensure the best outcome for every member of the group, one can argue that making a collective choice \textit{per se} implies compromising. In that sense, every \ac{SCR} incorporates some understanding of what a compromise means. There are instances where this understanding may contradict common sense, such as dictatorships where one voter always ensures his best outcome whatever the others prefer. Nevertheless, interesting \acp{SCR} base the collective choice on the principle that all voters may have to fall back from their ideal position. Whether, at the end of the day, all voters do effectively fall back or not is another issue which is the subject matter of this paper. The observation that sometimes they do not was the basis for an objection made by Jean-François Laslier to the nomenclature on compromising.\footnote{This happened at a CNRS workshop on compromising hosted by Istanbul Bilgi University at Buyukada, Istanbul on fall 2018.}.
+One can argue that a collective choice \textit{per se} implies a compromise. Individuals may have conflicting preferences and the final outcome hardly represents the best choice for every member of the group. But, even though all \acp{SCR} carry meanings of compromise, sometimes their result contradicts common sense. If we consider dictatorship, we observe that one voter always ensures his best outcome regardless of others preferences. Most \acp{SCR} base their idea of compromise on the principle that all voters should fall back from their ideal position. Whether all voters do effectively fall back is the subject of our analysis. In what follows, we will present examples where they do not. This objection to the compromise nomenclature was raised by Jean-François Laslier during a CNRS workshop on compromising hosted by Istanbul Bilgi University [Buyukada, Istanbul. 2018].
 
 Consider the following example.
 \begin{example}
@@ -57,11 +56,10 @@ Consider the following example.
 		\end{array},
 		$
 	\end{center}
-	which represents one individual who prefers $c$ to $b$, $b$ to $a$, hence $c$ to $a$; and $n-1$ individuals who prefer $a$ to $b$, $b$ to $c$, hence $a$ to $c$. At $P$, all BK-compromises, except fall-back bargaining i.e. when $q=n$, will ignore the single voter and will pick $a$ as the collective outcome.
+	which represents one individual who prefers $c$ to $b$, $b$ to $a$, hence $c$ to $a$; and $n-1$ individuals who prefer $a$ to $b$, $b$ to $c$, hence $a$ to $c$. At $P$, all BK-compromises, except when $q=n$ (i.e. fall-back bargaining), will ignore the single voter and will pick $a$ as the collective outcome.
 \end{example}
 
-As a matter of fact, almost every interesting \ac{SCR} will ignore this “marginal minority” and choose $a$ in this situation. While this choice is defensible on the grounds of qualified majoritarianism, the presence of $b$, which receives unanimous support when each voter falls back one step from his ideal point, renders questionable whether $a$ can be qualified as a compromise. The question becomes even more acute for majoritarian \acp{SCR}, including the majoritarian compromise, where $a$ would
-remain the collective choice even when the ignored group is much larger.
+As a matter of fact, almost every \ac{SCR} will ignore this “marginal minority” and choose $a$ in this situation. While this choice is defensible on the grounds of qualified majoritarianism, it is questionable whether $a$ can be qualified as a compromise. Observe that $b$ receives unanimous support when each voter falls back one step from his ideal point. The question becomes more compelling when $a$ remains the collective choice even if the ignored group is much larger.
 
 \begin{example}
 	\label{ex:ex2}
@@ -77,17 +75,20 @@ remain the collective choice even when the ignored group is much larger.
 	When $q\in \intvl{1,\frac{n}{2}+1} $, all BK-compromises pick $a$, and, again, it does not appear as a compromise as 51 voters reach their best alternative while the remaining 49 voters have to be contented with their worst one. Note that for $q\in \intvl{1,\frac{n}{2}-1} $ the set of possible common agreements determined by the fall-back bargaining procedure is $\{a,c\}$. Nevertheless, $a$ receives the highest support, thus it is elected.
 \end{example}
 
-It is important to observe that all these \acp{SCR} impose to voters a willingness to compromise, which does not mean that under the collective choice that will be made, all voters will be effectively compromising. In other words, the term “compromise” in this literature refers to procedural compromises, which differ from outcome oriented compromises, a conceptual distinction that seems to be overlooked in the literature.
+Observe that all these \acp{SCR} impose to voters a willingness to compromise, but do not ensure an effective compromise when selecting the collective choice. The term “compromise” in this literature refers to procedural compromises that differ from outcome oriented compromises, a conceptual distinction that seems to be overlooked in the literature.
 This can also be viewed as a distinction between ex-ante and ex-post compromises, where the profile is the source of uncertainty.
 
-To define an ex-post compromise, we adopt to our framework a concept of equal losses, prevalent in the literature, that considers the allocation of continuous utilities. This principle is used for bargaining problems \citep{Chun1988}, \citep{Chun1991} as well as for bankruptcy problems \citep{Herrero2001}. 
-We introduce two definitions of compromise. In both of them, we pick a spread measure that determines how equally a given vector of real numbers is distributed and make a collective choice where voters give up from their ideal points “as equally as possible" (see \cref{sec:RestrictionOnSigma} for a literature review). However, one of them, called \textit{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \textit{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. 
-The two concepts are logically incompatible. As a result, Pareto efficient \acp{SCR} cannot ensure egalitarian compromises and this is valid under any spread measure. Moreover, several well-known \acp{SCR} of the literature such as Condorcet extensions, scoring rules, $q-$approval fall-back bargaining, all fail to be Paretian compromises under any spread measure. In fact, we are able to observe the existence of instances where being a Paretian compromise necessitates to pick an alternative that is, although Pareto optimal, ranked so low by all voters that this alternative wouldn't be picked by any of the popular \acp{SCR} of the literature. All these observations make the equal-loss principle appear adequate for collective choice problems with at least three individuals, when egalitarianism, in the sense of conceding equally, is a major concern.
+To define an ex-post compromise, we adopt a concept of equal losses that considers allocation of continuous utilities. This principle is used for bargaining \citep{Chun1988}, \citep{Chun1991} and bankruptcy problems \citep{Herrero2001}. 
+We introduce two definitions of compromise. In both of them, we pick a spread measure that determines how equally a given vector of real numbers is distributed and make a collective choice where voters give up from their ideal points “as equally as possible" (see \cref{sec:RestrictionOnSigma} for a literature review). The difference between the two is that one, called \textit{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \textit{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. 
+The two concepts are logically incompatible. As a result, Pareto efficient \acp{SCR} cannot ensure egalitarian compromises under any spread measure. We prove that several well-known \acp{SCR} such as Condorcet extensions, scoring rules, $q-$approval fall-back bargaining, all fail to be Paretian compromises under any spread measure. We provide examples for which being a Paretian compromise would necessitate to pick an alternative that is, although Pareto optimal, ranked very low by all voters. Such alternative would never be picked by any of the above-mentioned \acp{SCR}. 
 
-Collective choice models with two individuals can be interpreted as bargaining or arbitration problems. While the bargaining interpretation necessitates an explicitly defined disagreement outcome (\citep{Kibris2007}), the arbitration interpretation (\citep{Sprumont1993}) remains within the classical collective choice environment with no explicit disagreement outcome. We proceed with the arbitration interpretation of the model. 
+We conclude that the equal-loss principle appears adequate for collective choice problems with at least three individuals, when egalitarianism, in the sense of conceding equally, is a major concern. Imagine a situation where the head of a laboratory needs to decide a project to fund and she asks the laboratory members their preferences over some propositions. For her, keeping the workplace harmony is extremely important and, in order to avoid conflicts, the winning project must be equally supported by all members. 
 
-Arbitration rules are thoroughly discussed by \citep{Barbera2020}. As prominent examples, we have fallback bargaining proposed by \citet{Brams2001}; the veto-rank and short listing procedures analyzed by \citet{Clippel2014} and the Pareto-and-veto rules analyzed by \citet{Laslier2020}. As is ours, these are all models with discrete alternatives which are not contained by the classical \citet{Nash1950} bargaining environment with convex utilities. However, as
-\citet{Mariotti1998} and \citet{Nagahisa2002} illustrate, the two worlds can be interconnected, as we do for the equal-loss principle of \citet{Chun1988} and \citet{Chun1991}. The arbitration environment presents an instance where envy-freeness matters and it is rather surprising to discover that several interesting \acp{SCR} used as arbitration solutions also fail to be Paretian compromises.
+Consider now a situation with only two voters. As the vast literature on the ultimatum game \citep{Werner2014} suggests, mutual consent is hard to obtain when one individual sees injustice at the levels of mutual losses. The equal-loss principle seems to be crucial in this new scenario.
+
+Collective choice models with two individuals can be interpreted as bargaining or arbitration problems. While the bargaining interpretation necessitates an explicitly defined disagreement outcome (\citep{Kibris2007}), the arbitration interpretation (\citep{Sprumont1993}) remains within the classical collective choice environment with no explicit disagreement outcome. In this paper, we consider the latter interpretation. 
+
+Arbitration rules are thoroughly discussed by \citep{Barbera2020}. As prominent examples, we have fallback bargaining proposed by \citet{Brams2001}, the veto-rank and short listing procedures analysed by \citet{Clippel2014} and the Pareto-and-veto rules analysed by \citet{Laslier2020}. These models consider discrete alternatives which are not contained by the classical \citet{Nash1950} bargaining environment with convex utilities. We make the same assumption. However, as \citet{Mariotti1998} and \citet{Nagahisa2002} illustrate, the two worlds can be interconnected, as we do for the equal-loss principle of \citet{Chun1988} and \citet{Chun1991}. The arbitration environment presents an instance where envy-freeness matters and it is rather surprising to discover that several interesting \acp{SCR} used as arbitration solutions fail to be Paretian compromises.
 
 The rest of the paper is organized as follows. Section 2 presents the basic notions and notation. Section 3 introduces egalitarian compromises and Paretian compromises, two concepts that turn out to be logically incompatible. Section 4 shows that with at least three individuals, several \acp{SCR} fail to pick a compromise. Section 5 considers the two-individual case, again showing that several \acp{SCR} of the literature fail to pick compromises. Section 6 makes some concluding remarks. 
 
@@ -113,7 +114,7 @@ A \ac{SCR} $f$ is \emph{Paretian} iff $f(P)\subseteq\paretopt(P)$ $\forall P\in\
 \label{sec:EgCompromise}
 We denote the minimal elements of $X\in2^{A}\setminus \{\emptyset\}$ according to $(\sigma\circ\lambda_{P})$ with $\min_{X} (\sigma \circ \lambda_P) = \set{x \in X \suchthat \forall y \in X: \sigma(\lambda_P(x)) ≤ \sigma(\lambda_P(y))}$. Thus, $\min_{X}(\sigma\circ\lambda_{P})$ denotes the alternatives in X whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
 
-In what follows, we define some classes of \acp{SCR} that we are interested in analyzing. 
+In what follows, we define some classes of \acp{SCR} that we are interested in analysing. 
 
 
 \begin{definition} A \ac{SCR} $f$ is an \emph{Egalitarian Compromise} (EC) iff \[\exists \sigma \in \Sigma \suchthat \forall P \in \linors^N \text{ we have }f(P) \subseteq \musigma.\]
@@ -400,7 +401,7 @@ In addition to \textit{fallback bargaining (FB)} \citep{Brams2001} (defined in \
 
 The \textit{Veto-Rank mechanism (VR)} is commonly used in the selection of arbitrators \citep{Clippel2014}. Given a list of $m$ (odd) alternatives (that are candidates to be arbitrators), each of the two voters (that are the two parties that must agree on an arbitrator) simultaneously vetoes his worst $\frac{m-1}{2}$ alternatives. The selected alternatives are the ones with the highest Borda score among the non-vetoed alternatives.
 
-Again within the context of selecting arbitrators, \citet{Clippel2014} propose and analyze \textit{Shortlisting (SL)} where one of the two parties starts by vetoing her worst $\frac{m-1}{2}$ alternatives ($m$ being odd), and then the second party chooses her best alternative out of the remaining ones. As the outcome of the procedure depends on the party that starts, symmetry among players is ensured by defining the solution as the union of the two outcomes where one and the other party starts.
+Again within the context of selecting arbitrators, \citet{Clippel2014} propose and analyse \textit{Shortlisting (SL)} where one of the two parties starts by vetoing her worst $\frac{m-1}{2}$ alternatives ($m$ being odd), and then the second party chooses her best alternative out of the remaining ones. As the outcome of the procedure depends on the party that starts, symmetry among players is ensured by defining the solution as the union of the two outcomes where one and the other party starts.
 
 
 \begin{definition}
@@ -439,246 +440,14 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
  
 \section{Concluding remarks}
 
-We define an ex-post compromise as an outcome where individuals give up as equally as possible from their ideal points. With three or more individuals, several interesting \acp{SCR} of the literature fail to pick ex-post compromises, under any reasonable meaning attributed to “giving up equally”. This failure is valid whether Pareto optimality is adopted or not. Our findings cover Condorcet extensions and scoring rules but also BK-compromises which impose a willingness to compromise over individuals but may eventually pick an outcome so that some individuals do not effectively compromise at all. This failure prevails for social choice problems with two individuals: all well-known two-person \acp{SCR} of the literature, namely, fallback bargaining, Pareto and veto rules, short listing and veto rank, fail to pick ex-post compromises.
+We define an ex-post compromise as an outcome where individuals give up as equally as possible from their ideal points. With three or more individuals, several well known \acp{SCR} fail to pick ex-post compromises, under any reasonable meaning attributed to “giving up equally”. This failure is valid whether Pareto optimality is adopted or not. Our findings cover Condorcet extensions and scoring rules but also BK-compromises, which impose a willingness to compromise without ensuring a compromised outcome. This failure prevails for social choice problems with two individuals: all well-known two-person \acp{SCR} of the literature, namely, fallback bargaining, Pareto and veto rules, short listing and veto rank, fail to pick ex-post compromises.
 
-The exclusion of the equal-loss principle by almost all \acp{SCR} of the literature leads to ask whether the principle is uninteresting in a discrete social choice context. This seems to be the case for voting contexts where the number of voters exceeds the number of candidates and usually every candidate is ranked last by at least one voter. In such situations, picking an alternative whose "average rank" is highest is more of a concern than every voter giving up "equally". On the other hand, two-person collective choice problems are typically interpreted as arbitration or bargaining situations where mutual consent is a critical element in reaching a solution. As the vast literature on the ultimatum game \citep{Werner2014} suggests, mutual consent is hard to obtain when one individual sees injustice at the levels of mutual losses. Thus, the equal-loss principle appears to be valid for two-person collective choice problems and our analysis raises the question of designing new discrete arbitration rules compatible with the equal-loss principle. 
+The exclusion of the equal-loss principle by almost all \acp{SCR} of the literature leads to ask whether the principle is uninteresting in a discrete social choice context. This seems to be the case for voting situations where the number of voters exceeds the number of candidates and usually every candidate is ranked last by at least one voter. In these cases, the main concern is about the support of alternatives rather than equality. On the other hand, two-person collective choice problems are typically interpreted as arbitration or bargaining situations where mutual consent is a critical element in reaching a solution. Thus, the equal-loss principle appears to be valid for two-person collective choice problems and our analysis raises the question of designing new discrete arbitration rules compatible with the equal-loss principle. 
 
 We close by noting that viewing a compromise through the equal loss principle can be of particular interest in richer informational settings with cardinal individual preferences or a continuum of alternatives.
 
 
 \bibliography{biblio}
 
-\appendix
-
-\newcommand{\smad}{\sigma_\text{mad}}
-
-\section{Spread Measures}
-\label{apdx:proofSM}
-In what follows are showed the proofs for \cref{prop:spreadMeas}.
-\subsection{Mean Absolute Difference}
-\begin{proof} for $\sigma_{mad}$. \\
-	Recall that 
-	\[\sigma_{mad}(l)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|l_i-l_j|.\]
-	Let us define $f_l(i)= \sum_{j}|l_i-l_j|$ and $s(l) = n^2 \smad(l)$. Thus $n^2 \sigma_{mad}(l) = s(l)= \sum_{i} f_l(i)$.
-	
-	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ (where $n-2$ terms are equal to $m-2$) and $l_2=\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$ (where $m-2$ terms go from $m-2$ to $1$, and $m-n+2$ terms are equal to $0$). 
-	The thesis is now that $s(l_1) < s(l_2)$.
-	
-	Let us consider $l_1$ first: 
-	\begin{align}
-		&f_{l_1}(1)= 2+(n-2)=n \\
-		&f_{l_1}(2)= 2+(n-2)=n \\
-		&f_{l_1}(i)= 2 \quad \forall \ 3\leq i \leq n \\ 
-	\end{align}
-	In fact, considering the first term of $l_1$ ($m-3$), the difference between itself and the second term of the vector ($m-1$) is $2$; the difference between itself and any of the other $n-2$ terms of the vector ($m-2$) is $1$. The sum of these differences is represented by $f_{l_1}(1)$. The same argument holds for the second term ($m-1$). Any of the remaining $n-2$ terms ($m-2$) has a difference $1$ with the first and the second term and a difference $0$ with the rest. Therefore 
-	\[s(l_1) =2(2+(n-2))+(n-2)\cdot2)= 4n-4\]
-	
-	To compute $s(l_2)$, let us distinguish the cases $1 ≤ i ≤ m - 2$ and $m - 1 ≤ i$.
-	
-	For $1 ≤ i ≤ m - 2$, 
-	\begin{align}
-		f_{l_2}(i) &= \sum_{1 ≤ j ≤ i} |l_i - l_j| + \sum_{i < j ≤ m - 2} |l_i - l_j| + \sum_{m - 2 < j ≤ n} |l_i - l_j|\\
-		&= [(i - 1) + (i - 2) + … + 0] + [1 + … + (m - 2 - i)] \\
-		&\quad + (m - 1 - i) (n - m + 2)\\
-		%	[that’s i terms, then m - 2 - i terms, then n - m + 2 terms]
-		&= \frac{(i - 1) i}{2} + \frac{(m - 2 - i) (m - 1 - i)}{2} + (m - 1 - i) (n - m + 2)\\
-		&= i^2 / 2 - i / 2 + \frac{(m - 2) (m - 1) - i (m - 2 + m - 1) + i^2}{2} \\
-		&\quad + (m - 1) (n - m + 2) - i (n - m + 2)\\
-		&= i^2 - i \frac{1 + 2m - 3 + 2(n - m + 2)}{2} + (m - 1) \frac{m - 2 + 2 (n - m + 2)}{2}\\
-		&= i^2 - i (n + 1) + (m - 1) \frac{-m + 2n + 2}{2}.
-	\end{align}
-	
-	For $m - 1 ≤ i$, $f_{l_2}(i) = m - 2 + m - 3 + … + 1 = \frac{(m - 2) (m - 1)}{2}$.
-	
-	Thus, 
-	\begin{align}
-		s(l_2) &= \sum_{1 ≤ i ≤ m - 2}[i^2 - i (n + 1) + (m - 1) \frac{-m + 2n + 2}{2}] \\
-		&\quad + (n - (m - 2)) (m - 2) (m - 1) / 2\\
-		&= (m - 2) (m - 1) (2m - 3) / 6 - (n + 1) (m - 2) (m - 1) / 2 \\
-		&\quad + (m - 2) (m - 1) (- m + 2n + 2) / 2 \\
-		&\quad + (n - m + 2) (m - 2) (m - 1) / 2\\
-		%		&\quad + n (m - 2) (m - 1) / 2 - (m - 2)^2 (m - 1) / 2\\
-		&= (m - 2) (m - 1) \left(\frac{2m - 3}{6} - \frac{n + 1}{2} + \frac{- m + 2n + 2}{2} + \frac{n - m + 2}{2}\right)\\
-		%		&= (m - 2) (m - 1) \left(\frac{2m - 3}{6} + \frac{- 2m + 3 + 2n}{2}\right)\\
-		&= (m - 2) (m - 1) \left(\frac{-2m + 3}{3} + n\right).
-	\end{align}
-	
-	Our thesis is now that 
-	\[4n - 4 < \frac{-2m + 3}{3} (m - 2) (m - 1) + n (m - 2) (m - 1)\]
-	or equivalently, that 
-	\[\frac{(2m - 3) (m - 2) (m - 1)}{3} - 4 < n [(m - 2) (m - 1) - 4].\]
-
-	When $m = 4$, using the fact that $4 ≤ n$, the inequality holds: $5 (2) (3) / 3 - 4 < 4 [2] ≤ n [2]$.
-
-	Now assume that $m ≥ 5$. Using the fact that $m - 1 ≤ n$, suffices to show that
-	$(2m - 3) (m - 2) (m - 1) / 3 - 4 < (m - 1) [(m - 2) (m - 1) - 4]$, or equivalently, that
-	$-12 < (m - 1) [3 (m - 2) (m - 1) - 12 - (2m - 3) (m - 2)]$.
-	Note that the right hand side equals $(m - 1) [(m - 2) (3 (m - 1) - (2m - 3)) - 12] = (m - 1) (m^2 - 2m - 12) = (m - 1) (m - 1 + \sqrt{13}) (m - 1 - \sqrt{13})$. As all multiplicands are positive when $m ≥ 5$, the inequality is true when $m ≥ 5$.
-\end{proof}		
-
-\subsection{Average Absolute Deviation}
-\begin{proof} for $\sigma_{ad}$. \\
-	Recall that 
-	\[\sigma_{ad}(l)= \frac{\sum_{i=1}^{n}|l_i-\bar{l}|}{n},\] 
-	where $\bar{l}=\frac{\sum_{i=1}^{n}l_i}{n}$.
-	Let us define $s(l)= \sum_{i}|l_i-\bar{l}|$, so that $s(l) = n \sigma_{ad}(l)$.
-	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=(m-2, m-3, \dots, 1, 0, \dots, 0)$. The thesis is now that $s(l_1) < s(l_2)$.
-	
-	For $l_1$, the arithmetic mean of its values is $m-2$, so 
-	\[s(l_1)=[|m-3-m+2|+|m-1-m+2|+ 0 + \dots + 0]= 2.\]
-
-	For $l_2$, the arithmetic mean is 
-	\[\bar{l_2}=\frac{1}{n}\sum_{i=1}^{m-2}{i}= \frac{(m-2)(m-1)}{2n}.\]
-	Recall that 
-	\begin{align}
-		\sum_{i=k}^{m}{i} &= \frac{(m+1-k)(m+k)}{2} \\
-	\end{align}
-	We can write $s(l_2)$ as:
-	\begin{align}
-		s(l_2)&= \sum_{i=1}^{m-2}{|i-\bltwo|}+(n-(m-2))|0-\bltwo|=\\
-		&= \sum_{i=1}^{m-2}{|i-\bltwo|}+(n-m+2)\bltwo=\\
-		&=\sum_{i=\fltwo+1}^{m-2}{(i-\bltwo)}-\sum_{i=1}^{\fltwo}{(i-\bltwo)} +(n-m+2)\bltwo=\\
-		&=\sum_{i=\fltwo+1}^{m-2}{i}-\sum_{i=\fltwo+1}^{m-2}{\bltwo}-\sum_{i=1}^{\fltwo}{i} +\sum_{i=1}^{\fltwo}{\bltwo}+(n-m+2)\bltwo=\\
-		&= -\frac{(\fltwo+1-m+2-1)(\fltwo+1+m-2)}{\fltwo}-(m-2-\fltwo-1+1)\bltwo\\ &-\frac{\fltwo(\fltwo+1)}{2}+\fltwo \bltwo + (n-m+2)\bltwo=\\
-		&=-\frac{(\fltwo-m+2)(\fltwo+m-1)}{2}-(m-2-\fltwo)\bltwo-\frac{\fltwo(\fltwo+1)}{2} \\
-		&+ \fltwo \bltwo + (n-m+2)\bltwo=\\
-		&=-\frac{(\fltwo)(\fltwo+m-1)}{2}+\frac{(m-2)(\fltwo+m-1)}{2} -(m-2)\bltwo+(\fltwo)\bltwo \\ &-\frac{\fltwo(\fltwo+1)}{2}+ \fltwo \bltwo + (n-m+2)\bltwo=\\
-		&=-\frac{(\fltwo)(\fltwo+m-1)}{2}+\frac{(m-2)\fltwo}{2}+\underbrace{\frac{(m-2)(m-1)}{2}}_{=n \bltwo} -(m-2)\bltwo \\ &-\frac{\fltwo(\fltwo+1)}{2}+ 2\fltwo \bltwo + (n-m+2)\bltwo=\\
-		&=\fltwo(-\frac{\fltwo+m-1}{2}+\frac{m-2}{2}-\frac{\fltwo +1}{2}+2\bltwo)+
-		2\bltwo(n-m+2)=\\
-		&=\fltwo(\frac{-\fltwo-m+1+m-2+4\bltwo-\fltwo-1}{2})+2\bltwo(n-m+2)=\\
-		&=\fltwo(\frac{4\bltwo-2\fltwo-2}{2})+2\bltwo(n-m+2)=\\
-		&=\fltwo(2\bltwo-\fltwo-1)+2\bltwo(n-m+2) \tag{1}\\
-	\end{align}
-	\commentOC{Note that there must be an easier way of getting this result, or perhaps even a simpler one. Imagine I sum from 1 to 5 the distance to a value that would be $3.2$, I’d get $\abs{1 - 3.2} + \abs{2 - 3.2} + \abs{3 - 3.2} + \abs{4 - 3.2} + \abs{5 - 3.2} = 2.2 + 1.2 + 0.2 + 0.8 + 1.8$. Grouping the terms $1.2$ and $0.8$, and $0.2$ and $1.8$, I get $2.2 + 2 + 2$. That said, we do not absolutely need to obtain an easier development if we do not include it in our article, so you can leave this as is if you prefer. Just perhaps try to think a bit about it to see if it leads somewhere easily.}
-
-	Define $\epsilon = \bar{l_2} - \floor{\bar{l_2}}$, thus $0 ≤ \epsilon < 1$. We can rewrite (1), by using the fact that $\floor{\bar{l_2}} = \bar{l_2} - \epsilon$, as:
-	\begin{align}
-		(1)&= (\bltwo-\epsilon)(2\bltwo-(\bltwo-\epsilon)-1)+2\bltwo(n-m+2)=\\
-		&= (\bltwo-\epsilon)(\bltwo+\epsilon-1)+2\bltwo(n-m+2)=\\
-		&= (\bltwo-\epsilon)(\bltwo+\epsilon)-(\bltwo-\epsilon)+2\bltwo(n-m+2)=\\
-		&= \bltwo^2-\epsilon^2-\bltwo+\epsilon+2\bltwo n-2\bltwo m+4\bltwo=\\
-		&= \bltwo^2+2\bltwo n-2\bltwo m+3\bltwo+\epsilon-\epsilon^2\\
-	\end{align}
-	\hfuzz=4cm
-	Define $\delta=\epsilon-\epsilon^2$ and recall that our thesis is now that $s(l_1)<s(l_2)$:
-	\begin{align}
-		2&< \bltwo^2+2\bltwo n-2\bltwo m+3\bltwo+\delta\\
-		0&< \bltwo^2+2\bltwo n-2\bltwo m+3\bltwo+\delta-2\\
-		0&< \bltwo^2 n^2+2\bltwo n^3-2\bltwo m n^2+3\bltwo n^2+\delta n^2-2 n^2\\
-	\end{align}
-	Define $p=\frac{(m-2)(m-1)}{2}=\bltwo n$, we can rewrite the inequality as: 
-	\begin{align}
-		0&< p^2+2p n^2-2p m n+3p n+\delta n^2-2 n^2\\
-	\end{align}
-	\commentOC{
-	Suffices to prove the thesis when $\delta = 0$. We can view the RHS as a function of $n$ (fixing $m$ and $p$) and solve for $n$. Observe also that $2p - 2 = m^2 - 3m = m (m - 3)$. We obtain: $f(n) = m (m - 3) n^2 - p (2 m - 3) n + p^2 = m (m - 3) n^2 - p (m - 3 + m) n + p^2 = (m n - p) [(m - 3) n - p]$. When $n ≥ m - 1$, each of these multiplicands are strictly positive in the range of $m$ of interest. (I let you prove this.)
-	}
-	For $m=4$, $p=3$ and $n\geq4$
-	\begin{align}
-		0&< 3^2+2 \cdot 3 \cdot n^2-2 \cdot 3 \cdot 4 \cdot n+3 \cdot 3 \cdot n+\delta n^2-2 n^2\\
-		0&< 9+6 n^2-24 n+9n+ \delta n^2-2 n^2 \\
-		0&<(4+\delta)n^2-15n+9
-	\end{align}
-	Because $0 \leq \delta < 1$ then $4 \leq 4+\delta < 5$, showing that the inequality holds for $\delta=0$  proves it for all $\delta$.
-	\begin{align}
-		4n^2-15n+9>0 \\
-		n(4n-15)+9>0 
-	\end{align}
-	$4n-15$ is always positive for $n\geq4$. 
-	
-	In order to prove the case $m\geq5$, we show that the inequality holds for $m=5$ and that its derivative is positive for $m\geq5$.
-	For $m=5$, $p=6$ and $n\geq4$
-	\begin{align}
-		0&< 6^2+2 \cdot 6 \cdot n^2-2 \cdot 6 \cdot 5 \cdot n+3 \cdot 6 \cdot n+\delta n^2-2 n^2\\
-		0&< 36+12 n^2-60 n+18n+ \delta n^2-2 n^2 \\
-		0&<(10+\delta)n^2-42n+36
-	\end{align}
-	Because $0 \leq \delta < 1$ then $10 \leq 10+\delta < 11$, showing that the inequality holds for $\delta=0$ proves it for all $\delta$.
-	\begin{align}
-		10n^2-42n+36>0 \\
-		(n - 3) (5n - 6)>0
-	\end{align}
-	this is always positive for $n\geq4$.
-	
-	Now consider $m\geq5$ and $n\geq m-1$, if we show that the derivative of the function for $n=m-1$ is positive then is also positive for $n>m-1$: 
-	\begin{align}
-		&\dv{m}[p^2+2p n^2-2p m n+3p n+\delta n^2-2 n^2]>0 \\
-		&\dv{m}[p^2+2p (m-1)^2-2p m (m-1)+3p (m-1)+\delta (m-1)^2-2 (m-1)^2]>0 \\
-		&\dv{m}[p (p+2(m-1)^2-2m(m-1)+3(m-1))+(m-1)^2(\delta-2)]>0\\
-		&\dv{m}[p (p+(m-1)(2(m-1)-2m+3))]+\dv{m}[(m-1)^2(\delta-2)]>0\\
-		&\dv{m}[p (p+(m-1)(2m-2-2m+3))]+\dv{m}[(m-1)^2(\delta-2)]>0\\
-		&\dv{m}[p (p+m-1)]+\dv{m}[(m-1)^2(\delta-2)]>0\\
-	\end{align}
-	Recall that $p=\frac{(m-2)(m-1)}{2}=\frac{m^2}{2}-\frac{3}{2}m+1$; then $\dv{p}{m}=m-\frac{3}{2}$. 
-	Recall also that $\dv{f(x)\cdot g(x)}{x}=\dv{f(x)}{x}\cdot g(x) + f(x) \cdot \dv{g(x)}{x}$. Thus:
-	\begin{align}
-		&\dv{\ p}{m}(p+m-1)+p\dv{\ (p+m-1)}{m} +\dv{\ (m^2-2m+1)}{m}(\delta-2)>0\\
-		&(m-\frac{3}{2})(p+m-1)+p(m-\frac{3}{2}+1)+(\delta-2)(2m-2)>0\\
-	\end{align}
-	Consider for the same reasons as before $\delta=0$:
-	\begin{align}
-		&mp+m^2-m-\frac{3}{2}p-\frac{3}{2}m+\frac{3}{2}+mp-\frac{3}{2}p+p-4m+4>0 \\
-		&2mp+m^2-m-3p-\frac{3}{2}m+\frac{3}{2}+p-4m+4>0 \\
-		&4mp+2m^2-2m-6p-3m+3+2p-8m+8>0 \\
-		&4mp+2m^2-16m-4p+11>0 \\
-		&2(m-1)^2(m-2)+2m^2-16m-4p+11>0\\
-		&(2m^2-4m+2)(m-2)+2m^2-16m-4p+11>0\\
-		&2m^3-4m^2+2m-4m^2+8m-4+2m^2-16m-4p+11>0\\
-		&2m^3-6m^2-6m+7>0\\
-		&2m(m^2-3m-3)+7>0\\
-	\end{align}
-	Note that $m^2-3m-3=m(m-3)-3$ which is always positive for $m\geq 5$.
-\end{proof}
-
-
-\subsection{Standard Deviation}
-\begin{proof} for $\sigma_{sd}$. \\
-	Recall that 
-	\[\sigma_{sd}(l)= \sqrt{\frac{\sum_{i=1}^{n}(l_i-\bar{l})^2}{n}}\]	
-	where $\bar{l}=\frac{\sum_{i=1}^{n}l_i}{n}$.
-	Let us define $s(l)= \sum_{i}|l_i-\bar{l}|$, so that $s(l) = n \sigma_{sd}(l)^2$.
-	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=(m-2, m-3, \dots, 1, 0, \dots, 0)$. The thesis is now that $s(l_1) < s(l_2)$.
-	
-	For $l_1$, the arithmetic mean of its values is $m-2$ so $s(l_1)$: 
-	\[s(l_1)=(m-3-m+2)^2+(m-1-m+2)^2+ 0 + \dots + 0= 2\]
-	For $l_2$, the arithmetic mean is 
-	\[\bar{l_2}=\frac{1}{n}\sum_{i=2}^{m-2}{i}= \frac{(m-2)(m-1)}{2n}.\]
-	Recall that 
-	\begin{align}
-		\sum_{i=k}^{m}{x} &= (m-k+1)x \\
-		\sum_{i=1}^{m}{i} &= \frac{m(m+1)}{2}\\
-		\sum_{i=1}^{m}{i^2} &= \frac{m(m+1)(2m+1)}{6}
-	\end{align}
-	We can write $s(l_2)$ as:
-	\begin{align}
-		s(l_2)&= \sum_{i=1}^{m-2}{(i-\bltwo)^2}+(n-(m-2))(0-\bltwo)^2=\\
-		&= \sum_{i=1}^{m-2}{(i^2-2i\bltwo+\bltwo^2)}+(n-m+2)\bltwo^2=\\
-		&= \sum_{i=1}^{m-2}{i^2}-\sum_{i=1}^{m-2}{2i\bltwo}+ \sum_{i=1}^{m-2}{\bltwo^2}+(n-m+2)\bltwo^2=\\
-		&=\frac{(m-2)(m-2+1)(2m-4+1)}{6}-2\bltwo\frac{(m-2)(m-2+1)}{2} \\
-		& +(m-2)\bltwo^2 +(n-m+2)\bltwo^2= \\
-	\end{align} 
-
-\end{proof}
-
-\subsection{Gini coefficient}
-\begin{proof} for $\sigma_{G}$. \\
-	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$; their spread using the Gini Coefficient is: 
-	\begin{equation}
-		\begin{split}
-			\sigma_{G}(l_1) &=\frac{4(n-1)}{n^2\cdot 2 \cdot (m-2)}= \frac{2(n-2)}{(m-2)n^2} \\ \\
-			\sigma_{G}(l_2)&=\frac{\frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3)}{n^2\cdot 2 \cdot \frac{m^2-3m+2}{2n}}=\frac{3n-2m+3}{3\cdot n}
-		\end{split}
-	\end{equation}
-	\commentBN{I'm not convinced of this. The \href{https://bit.ly/3hSNvSM}{results} exclude some values for which is true instead.}
-\end{proof}
-
-\begin{definition}[OLD Definition: Pairwise Pareto dominance]
-	\label{def:PPD}
-	For all $r$, $s\in \R_{+}^{N}$: 
-	\[\left[\left\vert r_{i}-r_{j}\right\vert \leq \left\vert s_{i}-s_{j}\right\vert \forall i, j\in N\right] ⇒ \sigma (r)\leq \sigma (s).\] 
-\end{definition}
-We write $\SPPd \subseteq \SAll$ for the class of spread measures that satisfy also PPd.
-Given a vector $r \in \R^N$ of $n$ elements, some examples of spread measures are the following.
-\commentOC{We dropped this because it says that $(0, 2)$ is more equal than $(10^6, 10^6 + 3)$.}
+%\input{appendix.tex}
 \end{document}
