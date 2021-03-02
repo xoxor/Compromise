@@ -19,8 +19,8 @@
 \author{Olivier Cailloux}
 \author{Beatrice Napolitano}
 \author{M. Remzi Sanver}
-\affil{Université Paris-Dauphine, Université PSL, CNRS, LAMSADE\\
-	name.lastname@dauphine.fr
+\affil{Université Paris-Dauphine, Université PSL, CNRS, LAMSADE, 75016 PARIS, FRANCE\\
+	beatrice.napolitano@dauphine.fr
 }
 \hypersetup{
 	pdfsubject={Social choice},
@@ -38,7 +38,7 @@
 
 \section{Introduction}
 \label{sec:introduction}
-In a typical social choice problem, several individuals express their preferences over a set of alternatives and one shall be picked as the collective outcome. Although the literature admits several \acp{SCR} with different properties, there is a common understanding that collective choices must reflect “compromises”. One of the first to explicitly refer to a \ac{SCR} as a compromise is \citet{Sertel1986} introducing the \emph{majoritarian compromise}. This \ac{SCR}, further analysed by \citet{Sertel1999}, is a rediscovery of a method suggested by James W.\ Bucklin at the beginning of the \nth{20} century \citep{Erdelyi2015}. Starting from everyone’s ideal alternative, it falls back to the voters’ second, third and more generally $k$-\emph{th} best, until one of the alternatives considered appears among the first $k$ best for a majority. \citet{Brams2001} generalise this concept and introduce a class of \acp{SCR} called $q$\emph{-approval fall-back bargaining}, where $q$ is the required quantity of support that can vary from a single voter up to unanimity. Different choices of $q$ lead to different \acp{SCR}. Considering $m$ alternatives, the choice of $q=1$ corresponds to the plurality rule, $q=\frac{m}{2}+1$ coincides with the majoritarian compromise and $q=m$ represents a bargaining procedure called \emph{fall-back bargaining}, which has been further analysed by \citet{Kibris2007} and \citet{Congar2012}. 
+In a typical social choice problem, several individuals express their preferences over a set of alternatives and one shall be picked as the collective outcome. Although the literature admits several \acp{SCR} with different properties, there is a common understanding that collective choices must reflect “compromises”. One of the first to explicitly refer to a \ac{SCR} as a compromise is \citet{Sertel1986} introducing the \emph{majoritarian compromise}. This \ac{SCR}, further analysed by \citet{Sertel1999}, is a rediscovery of a method suggested by James W.\ Bucklin at the beginning of the \nth{20} century \citep{Erdelyi2015}. Starting from everyone’s ideal alternative, it falls back to the voters’ second, third and more generally $k$-\emph{th} best, until one of the alternatives considered appears among the first $k$ best for a majority. \citet{Brams2001} generalise this concept and introduce a class of \acp{SCR} called $q$\emph{-approval fall-back bargaining}, where $q$ is the required quantity of support that can vary from a single voter up to unanimity. Different choices of $q$ lead to different \acp{SCR}. Considering $m$ alternatives, the choice of $q=1$ corresponds to the plurality rule, $q=\frac{m}{2}+1$ coincides with the majoritarian compromise and $q=m$ represents a bargaining procedure called \emph{fall-back bargaining}, which has been further analysed by \citet{Kibris2007} and \citet{Congar2012}. We will refer to these rules as Brams and Kilgour (BK) compromises with threshold q. \commentBN{remove hyphen in the rest of the document}
 
 As \citet{OezkalSanver2004} discuss, the concept of compromising is mostly understood as the trade off between the number of voters supporting an alternative (i.e., the quantity of support) and the distance of that alternative from the supporters’ ideal alternative (i.e., the quality of support). This trade off, which is explicit for $q$-approval fall-back bargaining, is also the basis for several other \acp{SCR} such as the \emph{median voting rule} proposed by \citet{Bassett1999} and further analysed by \citet{Gehrlein2003} or the \emph{Condorcet practical method }described by \citet{Nurmi1999}. \citet{Merlin2019} identify and analyse a large class of \emph{compromise rules} that explore this trade off.
 
@@ -90,7 +90,7 @@ Collective choice models with two individuals can be interpreted as bargaining o
 
 Arbitration rules are thoroughly discussed by \citet{Barbera2020}. As prominent examples, we have fallback bargaining proposed by \citet{Brams2001}, the veto-rank and short listing procedures analysed by \citet{Clippel2014} and the Pareto-and-veto rules analysed by \citet{Laslier2020}. These models consider discrete alternatives which are not contained by the classical \citet{Nash1950} bargaining environment with convex utilities. We make the same assumption. However, as \citet{Mariotti1998} and \citet{Nagahisa2002} illustrate, the two worlds can be interconnected, as we do for the equal-loss principle of \citet{Chun1988} and \citet{Chun1991}. The arbitration environment presents an instance where envy-freeness could matter and it is rather surprising to discover that most interesting \acp{SCR} used as arbitration solutions fail to be Paretian compromises.
 
-The rest of the paper is organised as follows. Section 2 presents the basic notions and notation. Section 3 introduces egalitarian compromises and Paretian compromises, two concepts that turn out to be logically incompatible. Section 4 shows that with at least three individuals, many \acp{SCR} fail to pick a compromise. Section 5 considers the two-individual case, showing that most \acp{SCR} of the literature fail to pick compromises \commentOC{Strengthened the claims (many, most) as it feels justified, remove if you think otherwise} \commentRS{I didn't understand}\commentBN{Neither did I}. Section 6 makes some concluding remarks. 
+The rest of the paper is organised as follows. Section 2 presents the basic notions and notation. Section 3 introduces egalitarian compromises and Paretian compromises, two concepts that turn out to be logically incompatible. Section 4 shows that with at least three individuals, many \acp{SCR} fail to pick a compromise. Section 5 considers the two-individual case, showing that most \acp{SCR} of the literature fail to pick compromises. Section 6 makes some concluding remarks. 
 
 \section{Basic notions and notation}
 \label{sec:notation}
@@ -249,14 +249,14 @@ We call antiplurality score vector the vector $w$ such that $w_{i} = 1, \forall 
 	We show the non-emptyness of $f^w_n(P) \cap \mustar[\bar\sigma]$ for any profile $P$.
 
 	Let $k = \min_{\paretopt(P)} \set{(\bar\sigma \circ \lambda_P)(x)}$ be the minimal value attained by $\bar\sigma \circ \lambda_P$ over $\paretopt(P)$.
-	\commentOC{Here (and in the next section) we use $\min$ in (what I believe to be) the most usual sense, whereas elsewhere we use $\min$ instead of $\argmin$. Should we change all these $\min$ to $\argmin$ (my favorite option)? Or should we say that we abuse notation?}\commentRS{Let's go for your favorite option}\commentBN{With "all these" you mean only the latter ones, right?}
+	\commentOC{Here (and in the next section) we use $\min$ in (what I believe to be) the most usual sense, whereas elsewhere we use $\min$ instead of $\argmin$. Should we change all these $\min$ to $\argmin$ (my favorite option)? Or should we say that we abuse notation?}\commentRS{Let's go for your favorite option}\commentBN{When it's supposed to represent the alternatives not the value}
 	By construction of $\bar\sigma$, $k$ equals either $0$ or $1$.
 	
 	For $k = 1$, take any $x \in f^w_n(P) \cap \paretopt(P)$, which exists because the antiplurality rule, although not Paretian, never picks only non-Pareto optimal alternatives. 
-	By definition of $\bar\sigma$, $\bar\sigma(x) ≤ 1$, hence, $x \in \mustar[\bar\sigma]$ \commentOC{Why “$\bar\sigma(x) ≤ 1$, hence”? I propose to write: “As $k = 1$, $x \in \mustar[\bar\sigma]$.”}.\commentRS{I agree}\commentBN{The argument is that since $\bar\sigma(x)$ is by definition $≤ 1$ and the minimum value of $\bar\sigma \circ \lambda_P$ is $1$, then $x \in \mustar[\bar\sigma]$. I'm not sure that just saying "as k=1" conveys it.}
+	By definition of $\bar\sigma$, $\bar\sigma(x) ≤ 1$, hence, $x \in \mustar[\bar\sigma]$.
 %	We then have that $x \in \mustar[\bar\sigma]$ as by definition of $\bar\sigma$, $\bar\sigma(x) ≤ 1$.
 	
-	If $k = 0$, take any $x \in \mustar[\bar\sigma]$. As $\bar\sigma (\lambda _{P}(x))=0$, we have, $\forall i, j \in N$: $\lambda_i^P(x) = \lambda_j^P(x)$, hence, $\forall i, j \in N$: $r_{\succ_i}(x) = r_{\succ_j}(x)$. 
+	For $k = 0$, take any $x \in \mustar[\bar\sigma]$. As $\bar\sigma (\lambda _{P}(x))=0$, we have, $\forall i, j \in N$: $\lambda_i^P(x) = \lambda_j^P(x)$, hence, $\forall i, j \in N$: $r_{\succ_i}(x) = r_{\succ_j}(x)$. 
 	The case $r_{\succ_i}(x) = m, \forall i \in N$ is ruled out by $x \in \paretopt(P)$. Hence, $r_{\succ_i}(x) ≤ m - 1, \forall i \in N$, hence, $x \in f^w_n(P)$.
 \end{proof}
 
@@ -295,7 +295,7 @@ Given any $k\in \intvl{1, m}$, we write $n_{k}(x,P)=\#\{i\in
 N\mid r_{\prefi}(x)\leq k\}$ for the \emph{$k$-support} that $x$ gets at $P$, that is, the number of individuals for whom the rank of alternative $x\in A$ is lower than or equal to $k$ in the profile $P\in $ $L(A)^{N}$.
 Note that $n_{k}(x,P)\in \intvl{1, n}$ is non-decreasing on $k$ and $n_{m}(x,P)=n.$ For each $q\in \intvl{1,n}$, we define $\rho_{q}(x,P)=\min \{k\in \intvl{1,m} \suchthat n_{k}(x,P)\geq q\}$ as the minimal rank $k$ at which the $k$-support that $x$ gets at $P$ is at least $q$. We
 write $\rho _{q}(P) = \min_{x \in A} \set{\rho_{q}(x, P)}$ for the minimal rank $k$ at which the $k$-support that some alternative gets at $P$ is at least $q$. \emph{A Brams and Kilgour (BK) compromise with threshold }$q$ is the
-\ac{SCR} $f_{q}$ defined for each $P\in \linors^N$ as $f_{q}(P)=\{x\in A \suchthat n_{\rho _{q}(P)}(x,P)\geq n_{\rho _{q}(P)}(y,P)$ $\forall y\in A\}.$ \commentOC{Shouldn’t we also say BK compromise in the introduction, then?}\commentRS{I agree}\commentBN{You mean without hyphen?}
+\ac{SCR} $f_{q}$ defined for each $P\in \linors^N$ as $f_{q}(P)=\{x\in A \suchthat n_{\rho _{q}(P)}(x,P)\geq n_{\rho _{q}(P)}(y,P)$ $\forall y\in A\}.$ 
 
 \begin{theorem}
 	\label{th:FBsatsPC}
@@ -353,7 +353,7 @@ Therefore, $r_{\prefi}(y) ≠ r_{\pref_j}(y)$.
 \subsection{Restrictions on sigma}
 \label{sec:RestrictionOnSigma}
 The perfect equality recognition condition we adopt for spread measures, i.e., that the spread gets its lowest value $0$ in case of perfect equality and only in this case, is very basic. Unless this condition is violated, $\Sigma$ is the largest set of spread measures we could conceive. On the other hand, it is possible to let $\Sigma$ shrink by imposing additional conditions over spread measures. Nevertheless, as the satisfaction of PC, PCC, EC, or ECC requires the existence of a spread measure, all of our negative results, namely, those expressed by Theorems \ref{th:nonParetian}, \ref{th:incompatibility}, \ref{th:condorcet}, \ref{th:srECC}, \ref{th:srPCC}, \ref{th:FBfailsECC} and \ref{th:BKthreshold} prevail when $\Sigma$ is restricted. In a similar vein, the positive results in Theorems \ref{th:AntSatsPCC} and \ref{th:FBsatsPC} risk to be lost with additional conditions over spread measures.
-Indeed, this section endeavors to show that a mild supplementary restriction removes the positive results concerning the only two rules that we found to be compatible with any of our compromise concepts. \commentOC{Added this sentence to summarize the results of the section. To be phrased better?}
+Indeed, this section shows that a mild restriction removes the positive results concerning the only two rules that we found to be compatible with any of our compromise concepts.
 
 \begin{definition}
 	\label{def:conditionC}
