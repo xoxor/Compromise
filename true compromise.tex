@@ -20,7 +20,7 @@
 \author{Beatrice Napolitano}
 \author{M. Remzi Sanver}
 \affil{Université Paris-Dauphine, Université PSL, CNRS, LAMSADE, 75016 PARIS, FRANCE\\
-	beatrice.napolitano@dauphine.fr
+	beatrice.napolitano@dauphine.fr - ORCID iD: 0000-0002-3887-6206
 }
 \hypersetup{
 	pdfsubject={Social choice},
@@ -28,7 +28,7 @@
 }
 %\RenewDocumentCommand{\commentOC}{m}{}
 %\RenewDocumentCommand{\commentBN}{m}{}
-
+\date{}
 \begin{document}
 \maketitle
 
@@ -38,7 +38,7 @@
 
 \section{Introduction}
 \label{sec:introduction}
-In a typical social choice problem, several individuals express their preferences over a set of alternatives and one shall be picked as the collective outcome. Although the literature admits several \acp{SCR} with different properties, there is a common understanding that collective choices must reflect “compromises”. One of the first to explicitly refer to a \ac{SCR} as a compromise is \citet{Sertel1986} introducing the \emph{majoritarian compromise}. This \ac{SCR}, further analysed by \citet{Sertel1999}, is a rediscovery of a method suggested by James W.\ Bucklin at the beginning of the \nth{20} century \citep{Erdelyi2015}. Starting from everyone’s ideal alternative, it falls back to the voters’ second, third and more generally $k$-\emph{th} best, until one of the alternatives considered appears among the first $k$ best for a majority. \citet{Brams2001} generalise this concept and introduce a class of \acp{SCR} called $q$\emph{-approval fall-back bargaining}, where $q$ is the required quantity of support that can vary from a single voter up to unanimity. Different choices of $q$ lead to different \acp{SCR}. Considering $m$ alternatives, the choice of $q=1$ corresponds to the plurality rule, $q=\frac{m}{2}+1$ coincides with the majoritarian compromise and $q=m$ represents a bargaining procedure called \emph{fall-back bargaining}, which has been further analysed by \citet{Kibris2007} and \citet{Congar2012}. We will refer to these rules as Brams and Kilgour (BK) compromises with threshold q. \commentBN{remove hyphen in the rest of the document}
+In a typical social choice problem, several individuals express their preferences over a set of alternatives and one shall be picked as the collective outcome. Although the literature admits several \acp{SCR} with different properties, there is a common understanding that collective choices must reflect “compromises”. One of the first to explicitly refer to a \ac{SCR} as a compromise is \citet{Sertel1986} introducing the \emph{majoritarian compromise}. This \ac{SCR}, further analysed by \citet{Sertel1999}, is a rediscovery of a method suggested by James W.\ Bucklin at the beginning of the \nth{20} century \citep{Erdelyi2015}. Starting from everyone’s ideal alternative, it falls back to the voters’ second, third and more generally $k$-\emph{th} best, until one of the alternatives considered appears among the first $k$ best for a majority. \citet{Brams2001} generalise this concept and introduce a class of \acp{SCR} called $q$\emph{-approval fall-back bargaining}, where $q$ is the required quantity of support that can vary from a single voter up to unanimity. Different choices of $q$ lead to different \acp{SCR}. Considering $m$ alternatives, the choice of $q=1$ corresponds to the plurality rule, $q=\frac{m}{2}+1$ coincides with the majoritarian compromise and $q=m$ represents a bargaining procedure called \emph{fall-back bargaining}, which has been further analysed by \citet{Kibris2007} and \citet{Congar2012}. We will refer to these rules as Brams and Kilgour (BK) compromises with threshold q.
 
 As \citet{OezkalSanver2004} discuss, the concept of compromising is mostly understood as the trade off between the number of voters supporting an alternative (i.e., the quantity of support) and the distance of that alternative from the supporters’ ideal alternative (i.e., the quality of support). This trade off, which is explicit for $q$-approval fall-back bargaining, is also the basis for several other \acp{SCR} such as the \emph{median voting rule} proposed by \citet{Bassett1999} and further analysed by \citet{Gehrlein2003} or the \emph{Condorcet practical method} described by \citet{Nurmi1999}. \Citet{Merlin2019} identify and analyse a large class of \emph{compromise rules} that explore this trade off.
 
@@ -56,7 +56,7 @@ Consider the following example.
 		\end{array},
 		$
 	\end{center}
-	which represents one individual who prefers $c$ to $b$, $b$ to $a$, hence $c$ to $a$; and $n-1$ individuals who prefer $a$ to $b$, $b$ to $c$, hence $a$ to $c$. At $P$, all BK-compromises, except when $q=n$ (i.e. fall-back bargaining), will ignore the single voter and will pick $a$ as the collective outcome.
+	which represents one individual who prefers $c$ to $b$, $b$ to $a$, hence $c$ to $a$; and $n-1$ individuals who prefer $a$ to $b$, $b$ to $c$, hence $a$ to $c$. At $P$, all BK compromises, except when $q=n$ (i.e. fall-back bargaining), will ignore the single voter and will pick $a$ as the collective outcome.
 \end{example}
 
 As a matter of fact, almost every \ac{SCR} will ignore this “marginal minority” and choose $a$ in this situation. While this choice is defensible on the grounds of qualified majoritarianism, it is questionable whether $a$ can be qualified as a compromise. Observe that $b$ receives unanimous support when each voter falls back one step from his ideal point. The question becomes more compelling when $a$ remains the collective choice even if the ignored group is much larger.
@@ -72,7 +72,7 @@ As a matter of fact, almost every \ac{SCR} will ignore this “marginal minority
 		\end{array}.
 		$
 	\end{center}
-	When $q\in \intvl{1,\frac{n}{2}+1} $, all BK-compromises pick $a$, and, again, it does not appear as a compromise as 51 voters reach their best alternative while the remaining 49 voters have to be contented with their worst one. Note that for $q\in \intvl{1,\frac{n}{2}-1} $ the set of possible common agreements determined by the fall-back bargaining procedure is $\{a,c\}$. Nevertheless, $a$ receives the highest support, thus it is elected.
+	When $q\in \intvl{1,\frac{n}{2}+1} $, all BK compromises pick $a$, and, again, it does not appear as a compromise as 51 voters reach their best alternative while the remaining 49 voters have to be contented with their worst one. Note that for $q\in \intvl{1,\frac{n}{2}-1} $ the set of possible common agreements determined by the fall-back bargaining procedure is $\{a,c\}$. Nevertheless, $a$ receives the highest support, thus it is elected.
 \end{example}
 
 Observe that all these \acp{SCR} impose to voters a willingness to compromise, but do not ensure an effective compromise when selecting the collective choice. The term “compromise” in this literature refers to procedural compromises that differ from outcome oriented compromises, a conceptual distinction that seems to be overlooked in the literature.
@@ -289,7 +289,7 @@ It is worth noting that the antiplurality rule $f_{n}^{w}$ is not Paretian, henc
 	establishing $a_{m}\notin f^{w}(P)$, thus $f^{w}(P)\cap \mustar=\emptyset $ $\forall \sigma \in \Sigma $.
 \end{proof}
 
-\subsection{BK-compromises}
+\subsection{BK compromises}
 \label{sec:BKn3}
 Given any $k\in \intvl{1, m}$, we write $n_{k}(x,P)=\#\{i\in
 N\mid r_{\prefi}(x)\leq k\}$ for the \emph{$k$-support} that $x$ gets at $P$, that is, the number of individuals for whom the rank of alternative $x\in A$ is lower than or equal to $k$ in the profile $P\in $ $L(A)^{N}$.
@@ -443,7 +443,7 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
  
 \section{Concluding remarks}
 
-We define an ex-post compromise as an outcome where individuals give up as equally as possible from their ideal points. With three or more individuals, several well known \acp{SCR} fail to pick ex-post compromises, under any reasonable meaning attributed to “giving up equally”. This failure is valid whether Pareto optimality is adopted or not. Our findings cover Condorcet extensions and scoring rules but also BK-compromises, which impose a willingness to compromise without ensuring a compromised outcome. This failure prevails for social choice problems with two individuals: all well-known two-person \acp{SCR} of the literature, namely, fallback bargaining, Pareto and veto rules, short listing and veto rank, fail to pick ex-post compromises.
+We define an ex-post compromise as an outcome where individuals give up as equally as possible from their ideal points. With three or more individuals, several well known \acp{SCR} fail to pick ex-post compromises, under any reasonable meaning attributed to “giving up equally”. This failure is valid whether Pareto optimality is adopted or not. Our findings cover Condorcet extensions and scoring rules but also BK compromises, which impose a willingness to compromise without ensuring a compromised outcome. This failure prevails for social choice problems with two individuals: all well-known two-person \acp{SCR} of the literature, namely, fallback bargaining, Pareto and veto rules, short listing and veto rank, fail to pick ex-post compromises.
 
 The exclusion of the equal-loss principle by almost all \acp{SCR} of the literature leads to ask whether the principle is uninteresting in a discrete social choice context. This seems to be the case for voting situations where the number of voters exceeds the number of candidates and usually every candidate is ranked last by at least one voter. In these cases, the main concern is about the support of alternatives rather than equality. On the other hand, two-person collective choice problems are typically interpreted as arbitration or bargaining situations where mutual consent is a critical element in reaching a solution. Thus, the equal-loss principle appears to be valid for two-person collective choice problems and our analysis raises the question of designing new discrete arbitration rules compatible with the equal-loss principle. 
 
