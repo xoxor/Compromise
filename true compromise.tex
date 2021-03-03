@@ -112,7 +112,7 @@ A \ac{SCR} $f$ is \emph{Paretian} iff $f(P)\subseteq\paretopt(P)$ $\forall P\in\
 \section{Egalitarian versus Paretian compromises}
 \subsection{Egalitarian compromises}
 \label{sec:EgCompromise}
-We denote the minimal elements of $X \subseteq A$ according to $(\sigma\circ\lambda_{P})$ with $\min_{X} (\sigma \circ \lambda_P) = \set{x \in X \suchthat \forall y \in X: \sigma(\lambda_P(x)) ≤ \sigma(\lambda_P(y))}$. Thus, $\min_{X}(\sigma\circ\lambda_{P})$ denotes the alternatives in X whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
+We denote the minimal elements of $X \subseteq A$ according to $(\sigma\circ\lambda_{P})$ with $\argmin_{X} (\sigma \circ \lambda_P) = \set{x \in X \suchthat \forall y \in X: \sigma(\lambda_P(x)) ≤ \sigma(\lambda_P(y))}$. Thus, $\argmin_{X}(\sigma\circ\lambda_{P})$ denotes the alternatives in X whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
 
 In what follows, we define some classes of \acp{SCR} that we are interested in analysing. 
 
@@ -248,9 +248,7 @@ We call antiplurality score vector the vector $w$ such that $w_{i} = 1, \forall 
 	Define $\bar\sigma \in \Sigma$ as, $\forall l \in \intvl{0,m-1}^N$: $\bar\sigma(l) = 1$ iff $\exists i, j \in N \suchthat l_i ≠ l_j$; $\bar\sigma(l) = 0$ otherwise.
 	We show the non-emptyness of $f^w_n(P) \cap \mustar[\bar\sigma]$ for any profile $P$.
 
-	Let $k = \min_{\paretopt(P)} \set{(\bar\sigma \circ \lambda_P)(x)}$ be the minimal value attained by $\bar\sigma \circ \lambda_P$ over $\paretopt(P)$.
-	\commentOC{Here (and in the next section) we use $\min$ in (what I believe to be) the most usual sense, whereas elsewhere we use $\min$ instead of $\argmin$. Should we change all these $\min$ to $\argmin$ (my favorite option)? Or should we say that we abuse notation?}\commentRS{Let's go for your favorite option}\commentBN{When it's supposed to represent the alternatives not the value}
-	By construction of $\bar\sigma$, $k$ equals either $0$ or $1$.
+	Let $k = \min_{\paretopt(P)} \set{(\bar\sigma \circ \lambda_P)(x)}$ be the minimal value attained by $\bar\sigma \circ \lambda_P$ over $\paretopt(P)$. By construction of $\bar\sigma$, $k$ equals either $0$ or $1$.
 	
 	For $k = 1$, take any $x \in f^w_n(P) \cap \paretopt(P)$, which exists because the antiplurality rule, although not Paretian, never picks only non-Pareto optimal alternatives. 
 	By definition of $\bar\sigma$, $\bar\sigma(x) ≤ 1$, hence, $x \in \mustar[\bar\sigma]$.
