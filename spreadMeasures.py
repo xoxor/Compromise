@@ -9,7 +9,9 @@ def main():
             x = generateX(m,n)
             y = generateY(m,n)
             proposition = checkProposition(x,y)
-    print(proposition)
+            if not proposition :
+                print("FAIL: m ",m," n ",n)
+                return
 
 def meanAbsDiff(r):
     n=len(r)
