@@ -89,7 +89,7 @@
 
 \begin{abstract}
 A social choice rule aggregates the preferences of a group of individuals over a set of alternatives into a collective choice. The literature admits several social choice rules whose recommendations are supposed to reflect a compromise among individuals. We observe that all these compromise rules can be better described as \emph{procedural compromises}, i.e., they impose over individuals a willingness to compromise but they do not ensure an outcome where everyone has effectively compromised. We revisit the concept of a compromise in a collective choice environment with at least three individuals having strict preferences over a finite set of alternatives. Referring to a large class of spread measures, we view the concept of compromise from an \emph{equal loss} perspective, favoring an outcome where every voter concedes as equally as possible. As such, being a compromise may fail Pareto efficiency, which we ensure by asking voters to concede as equally as possible among the Pareto efficient alternatives. We show that Condorcet consistent rules, scoring rules and Brams-Kilgour compromises all fail to ascertain an outcome which is a compromise. This failure prevails for social choice problems with two individuals: all well-known two-person social choice rules of the literature, namely, fallback bargaining, Pareto and veto rules, short listing and veto rank, fail to pick ex-post compromises. 
-\keywords{Compromise \and Second keyword \and More}
+\keywords{Axiomatic Analysis \and Ex-Post Compromise \and Bargaining \and Egalitarianism \and Arbitration}
 % \PACS{PACS code1 \and PACS code2 \and more}
 % \subclass{MSC code1 \and MSC code2 \and more}
 \end{abstract}
@@ -100,7 +100,8 @@ In a typical social choice problem, several individuals express their preference
 
 As \citet{OezkalSanver2004} discuss, the concept of compromising is mostly understood as the trade off between the number of voters supporting an alternative (i.e., the quantity of support) and the distance of that alternative from the supporters’ ideal alternative (i.e., the quality of support). This trade off, which is explicit for $q$-approval fall-back bargaining, is also the basis for several other \acp{SCR} such as the \emph{median voting rule} proposed by \citet{Bassett1999} and further analysed by \citet{Gehrlein2003} or the \emph{Condorcet practical method} described by \citet{Nurmi1999}. \Citet{Merlin2019} identify and analyse a large class of \emph{compromise rules} that explore this trade off.
 
-One can argue that a collective choice \emph{per se} implies a compromise. Individuals may have conflicting preferences and the final outcome hardly represents the best choice for every member of the group. But, even though all \acp{SCR} carry meanings of compromise, sometimes their result contradicts common sense. If we consider dictatorship, we observe that one voter always ensures his best outcome regardless of others preferences. Most \acp{SCR} base their idea of compromise on the principle that all voters should fall back from their ideal position. Whether all voters do fall back “equally” is the subject of our analysis. In what follows, we will present examples where they do not, which could be considered counter to the spirit of compromising. This objection to the compromise nomenclature was raised by Jean-François Laslier during a CNRS workshop on compromising hosted by Istanbul Bilgi University in 2018.
+One can argue that a collective choice \emph{per se} implies a compromise. After all, except extreme cases such as dictatorships,
+a \acp{SCR} operates on the principle that all voters could fall back from their ideal position. Whether all voters effectively do fall back and whether this fall is “equal among voters” is the subject of our analysis. In what follows, we will present examples where they do not, which could be considered counter to the spirit of compromising. \footnote{This objection to the compromise nomenclature was raised by Jean-François Laslier during a CNRS workshop on compromising hosted by Istanbul Bilgi University in 2018.}
 
 Consider the following example.
 \begin{example}
@@ -111,7 +112,7 @@ Consider the following example.
 		\begin{array}{cccc}
 			\mathbf{1} \quad &c&b&a\\
 			\mathbf{n-1} \quad &a&b&c\\
-		\end{array},
+		\end{array}\quad ,
 		$
 	\end{center}
 	which represents one individual who prefers $c$ to $b$, $b$ to $a$, hence $c$ to $a$; and $n-1$ individuals who prefer $a$ to $b$, $b$ to $c$, hence $a$ to $c$. At $P$, all BK compromises, except when $q=n$ (i.e. fall-back bargaining), will ignore the single voter and will pick $a$ as the collective outcome.
@@ -127,13 +128,13 @@ As a matter of fact, almost every \ac{SCR} will ignore this “marginal minority
 		\begin{array}{cccc}
 			\mathbf{49} \quad &c&b&a\\
 			\mathbf{51} \quad &a&b&c\\
-		\end{array}.
+		\end{array} \quad.
 		$
 	\end{center}
-	When $q\in \intvl{1,\frac{n}{2}+1} $, all BK compromises pick $a$, and, again, it does not appear as a compromise as 51 voters reach their best alternative while the remaining 49 voters have to be contented with their worst one. Note that for $q\in \intvl{1,\frac{n}{2}-1} $ the set of possible common agreements determined by the fall-back bargaining procedure is $\{a,c\}$. Nevertheless, $a$ receives the highest support, thus it is elected.
+	When $q\in \intvl{1,\frac{n}{2}+1} $, all BK compromises pick $a$, and, again, it does not appear as a compromise as 51 voters reach their best alternative while the remaining 49 voters have to be contented with their worst one. 
 \end{example}
 
-Observe that all these \acp{SCR} impose to voters a willingness to compromise, but do not ensure an effective compromise when selecting the collective choice. The term “compromise” in this literature refers to procedural compromises that differ from outcome oriented compromises, a conceptual distinction that seems to be overlooked in the literature.
+Observe that all these \acp{SCR} impose to voters a willingness to compromise, but do not effectively ensure a compromise as the collective choice. In fact, the term “compromise” in this literature refers to procedural compromises that differ from outcome oriented compromises, a conceptual distinction that seems to be overlooked in the literature.
 This can also be viewed as a distinction between ex-ante and ex-post compromises, where the profile is the source of uncertainty.
 
 To define an ex-post compromise, we adapt a concept of equal losses that considers allocation of continuous utilities. This principle is used for bargaining \citep{Chun1988, Chun1991} and bankruptcy problems \citep{Herrero2001}. 
