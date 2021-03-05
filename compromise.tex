@@ -171,7 +171,7 @@ A \ac{SCR} $f$ is \emph{Paretian} iff $f(P)\subseteq\paretopt(P)$ $\forall P\in\
 \section{Egalitarian versus Paretian compromises}
 \subsection{Egalitarian compromises}
 \label{sec:EgCompromise}
-We denote the minimal elements of $X \subseteq A$ according to $(\sigma\circ\lambda_{P})$ with $\argmin_{X} (\sigma \circ \lambda_P) = \set{x \in X \suchthat \forall y \in X: \sigma(\lambda_P(x)) ≤ \sigma(\lambda_P(y))}$. Thus, $\argmin_{X}(\sigma\circ\lambda_{P})$ denotes the alternatives in X whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
+We denote the minimal elements of $X \subseteq A$ according to $(\sigma\circ\lambda_{P})$ with \break $\argmin_{X}(\sigma~\circ~\lambda_P)=\set{x \in X \suchthat \forall y \in X: \sigma(\lambda_P(x)) ≤ \sigma(\lambda_P(y))}$. Thus, $\argmin_{X}(\sigma\circ\lambda_{P})$ denotes the alternatives in X whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
 
 In what follows, we define some classes of \acp{SCR} that we are interested in analysing. 
 
@@ -196,7 +196,7 @@ Under a \ac{SCR} that is EC (resp., ECC), \emph{all} (resp., \emph{some}) winner
 			\mathbf{1} \quad &a_1&a_2&\dots&a_{m-1}&a_m\\
 			\mathbf{n-1} \quad &a_{\pi_(1)}&a_{\pi_(2)}&\dots&a_{\pi_(m-1)}&a_m\\
 		\end{array}
-		$,
+		$ \quad,
 	\end{center}
 	where $\pi$ is the following permutation over $\intvl{1, m-1}$:
 	\[
@@ -204,7 +204,7 @@ Under a \ac{SCR} that is EC (resp., ECC), \emph{all} (resp., \emph{some}) winner
 	\begin{cases}
 		i+1 & \text{if } i \in \intvl{1, m-2} \\
 		1 & \text{if } i = m-1
-	\end{cases}.
+	\end{cases} \quad .
 	\]
 	In $P$, $a_m$ is the only alternative such that $r_{\prefi}(a_m)$ is independent of $i$; hence, $\sigma(\lambda_P(a)) > 0$, $\forall a \in A\setminus \{a_m\}$, $\forall \sigma \in \Sigma$. Thus, the set $\musigma$ consists of the sole element $a_m$, and, because $a_m$ is Pareto dominated, $\musigma \cap \paretopt(P) = \emptyset$.
 \end{proof}
@@ -238,7 +238,8 @@ being PCC, because being PCC does not require to be Paretian. This is however tr
 \begin{proof}	
 	Considering the profile $P$ of \cref{prop:muSigmaLast}, with $a_m$ the alternative mentioned there, any EC $f$ and any $\sigma \in \Sigma$, suffices to prove that $f(P) \cap {\mustar[\sigma][P]} = \emptyset$.
 	
-	First, from \cref{prop:muSigmaLast}, $\set{a_m} \cap \paretopt(P) = \emptyset$, hence $\set{a_m} \cap {\mustar[\sigma][P]} = \emptyset$. 
+	First, from \cref{prop:muSigmaLast} we have that
+	$\set{a_m} \cap \paretopt(P) = \emptyset$, hence $\set{a_m} \cap$ \break $ {\mustar[\sigma][P]} = \emptyset$. 
 	
 	Second, because $f$ is EC, for some $\sigmatop$, $f(P) \subseteq {\musigma[\sigmatop][P]}$. Using \cref{prop:muSigmaLast} again, we see that ${\musigma[\sigmatop][P]} = \set{a_m}$, hence $f(P) = \set{a_m}$.
 	
@@ -275,7 +276,7 @@ admits $x$ as the unique Condorcet winner.
 			\mathbf{n-1} \quad &a_1&a_2&a_3&\dots\\
 			\mathbf{1} \quad &a_3&a_2&\dots&a_1\\
 		\end{array}
-		$.
+		$ \quad.
 	\end{center}
 	
 	Consider any Condorcet consistent \ac{SCR} $f$. Thus, $f(P)=\{a_1\}$. However, $\musigma=\mustar=\{a_2\}$ $\forall \sigma \in \Sigma$, so there exists a profile $P$ such that both $f(P)\cap \musigma$ and $f(P)\cap \mustar$ are empty.
@@ -285,8 +286,7 @@ Note that Condorcet consistent rules need not be Paretian so the fact that they 
 
 \subsection{Scoring rules}
 \label{sec:scoringrules}
-A \emph{score vector} is an $m-$tuple $w=(w_{1},\dots,$ $w_{m})\in \intvl{0, 1}^{m}$ with $w_{1}=1$, $w_{m}=0$ and $w_{i}\geq w_{i+1}$ $\forall
-i\in \intvl{1, m-1}$. Given a score vector $w$, we write $s^{w}(x,P)=\sum_{i\in N}w_{r_{\prefi}(x)}$ for the score of $x\in A$ at $P\in L(A)^{N}$. Every score vector $w$ identifies a \emph{scoring rule} $f^w_n$ defined as $f^w_n(P)=\left\{ x\in A:s^{w}(x,P)\geq s^{w}(y,P) \ \forall y\in A\right\}$ for every $P\in L(A)^{N}$.
+A \emph{score vector} is an $m-$tuple $w=(w_{1},\dots,$ $w_{m})\in \intvl{0, 1}^{m}$ with $w_{1}=1$, $w_{m}=0$ and $w_{i}\geq w_{i+1}$ $\forall i\in \intvl{1, m-1}$. Given a score vector $w$, we write $s^{w}(x,P)=\sum_{i\in N}w_{r_{\prefi}(x)}$ for the score of $x\in A$ at $P\in L(A)^{N}$. Each vector $w$ identifies a \emph{scoring rule} $f^w_n$ defined as $f^w_n(P)=\left\{ x\in A:s^{w}(x,P)\geq s^{w}(y,P) \ \forall y\in A\right\}$ for every $P\in L(A)^{N}$.
 
 We first show that no scoring rule is ECC, for any value of $n$ and $m$ at least 3.
 
@@ -334,7 +334,7 @@ It is worth noting that the antiplurality rule $f_{n}^{w}$ is not Paretian, henc
 			2 ≤ i ≤ m - 2 \quad & a_1 & … & a_m & a_i\\
 			m - 1 ≤ i ≤ n \quad & a_1 & … & a_m & a_{m-1}\\
 		\end{array}
-		$,
+		$\quad,
 	\end{center}
 	where all alternatives except $a_m$ appear at least once in the last rank.
 	Thus, for every $\sigma \in \Sigma$, we have 
@@ -391,7 +391,7 @@ write $\rho _{q}(P) = \min_{x \in A} \set{\rho_{q}(x, P)}$ for the minimal rank 
 			\mathbf{n-1} \quad &a_1&a_2&a_3&\dots\\
 			\mathbf{1} \quad &a_3&a_2&\dots&a_1\\
 		\end{array}
-		$.
+		$\quad.
 	\end{center}
 	We have that $f_{q}(P)=\{a_1\}$, and, because $\sigma(\lambda_P(a_2)) = 0$ and $\sigma(\lambda_P(a_1)) > 0$, neither $\musigma$ nor $\mustar$ contain $a_1$ for any $\sigma \in \Sigma$. 
 	%Remzi’s proof
