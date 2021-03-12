@@ -7,6 +7,7 @@
 In what follows are showed the proofs for \cref{prop:spreadMeas}.
 \subsection{Mean Absolute Difference}
 \begin{proof} for $\sigma_{mad}$. \\
+	\label{proof:sigmamad}
 	Recall that 
 	\[\sigma_{mad}(l)= \frac{1}{n^2} \sum_{i=1}^{n}\sum_{j=1}^{n}|l_i-l_j|.\]
 	Let us define $f_l(i)= \sum_{j}|l_i-l_j|$ and $s(l) = n^2 \smad(l)$. Thus $n^2 \sigma_{mad}(l) = s(l)= \sum_{i} f_l(i)$.
@@ -188,8 +189,8 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 		&=\frac{1}{6}(m-2)(m-1)(2m-3)-(m-2)(m-1)\bltwo+\bltwo^2(m-2+n-m+2)=\\
 		&=\frac{1}{6}(m-2)(m-1)(2m-3)-\frac{(m-2)^2(m-1)^2}{2n}+n\bltwo^2=\\
 		&=\frac{1}{6}(m-2)(m-1)(2m-3)-\frac{(m-2)^2(m-1)^2}{2n}+n\frac{(m-2)^2(m-1)^2}{4n^2}=\\
-		&=(m-2)(m-1)(\frac{1}{6}(2m-3)-\frac{(m-2)(m-1)}{2n}+\frac{1}{2}\frac{(m-2)(m-1)}{2n})=\\
-		&=(m-2)(m-1)(\frac{1}{6}(2m-3)-\frac{1}{2}\frac{(m-2)(m-1)}{2n})
+		&=(m-2)(m-1)\left(\frac{1}{6}(2m-3)-\frac{(m-2)(m-1)}{2n}+\frac{1}{2}\frac{(m-2)(m-1)}{2n}\right)=\\
+		&=(m-2)(m-1)\left(\frac{1}{6}(2m-3)-\frac{1}{2}\frac{(m-2)(m-1)}{2n}\right)
 	\end{align*} 
 	
 	Recall that our thesis is now that $s(l_1)<s(l_2)$:
@@ -203,13 +204,13 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 	\begin{align*}
 		&(m-2)^2(m-1)^2 < \frac{2}{3}(m-2)(m-1)^2(2m-3)-8(m-1)\\
 		&0 < \frac{2}{3}(m-2)(m-1)^2(2m-3)-(m-2)^2(m-1)^2-8(m-1)\\
-		&(m-1)[(m-2)(m-1)(\frac{2}{3}(2m-3)-(m-2))-8]>0\\
-		&(m-1)[(m-2)(m-1)(\frac{4m-6-3m+6}{3})-8]>0\\
-		&(m-1)[(m-2)(m-1)(\frac{m}{3})-8]>0\\
+		&(m-1)[(m-2)(m-1)\left(\frac{2}{3}(2m-3)-(m-2)\right)-8]>0\\
+		&(m-1)[(m-2)(m-1)\left(\frac{4m-6-3m+6}{3}\right)-8]>0\\
+		&(m-1)[(m-2)(m-1)\left(\frac{m}{3}\right)-8]>0\\
 	\end{align*}
 	The first coefficient $(m-1)$ is always positive, so consider only the second term:
 	\begin{align*}
-		&(m-2)(m-1)(\frac{m}{3})-8>0\\
+		&(m-2)(m-1)\left(\frac{m}{3}\right)-8>0\\
 		&\frac{(m-2)(m-1)m}{3}>8\\
 		&(m-2)(m-1)m>24\\
 	\end{align*}
@@ -218,14 +219,50 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 
 \subsection{Gini coefficient}
 \begin{proof} for $\sigma_{G}$. \\
-	Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=\sigma(m-2, m-3, \dots, 1, 0, \dots, 0)$; their spread using the Gini Coefficient is: 
-	\begin{equation}
-		\begin{split}
-			\sigma_{G}(l_1) &=\frac{4(n-1)}{n^2\cdot 2 \cdot (m-2)}= \frac{2(n-2)}{(m-2)n^2} \\ \\
-			\sigma_{G}(l_2)&=\frac{\frac{1}{3}\cdot(m-2)(m-1)(3n-2m+3)}{n^2\cdot 2 \cdot \frac{m^2-3m+2}{2n}}=\frac{3n-2m+3}{3\cdot n}
-		\end{split}
-	\end{equation}
-	\commentBN{I'm not convinced of this. The \href{https://bit.ly/3hSNvSM}{results} exclude some values for which is true instead.}
+		Recall that 
+	\[\sigma_{G}(l)= \frac{\sum_{i=1}^{n}\sum_{j=1}^{n}|l_i-l_j|}{2 \cdot n \cdot \sum_{i=1}^{n} l_i}.\]	
+	Let us define $s(l)= \sum_{i=1}^{n}\sum_{j=1}^{n}|l_i-l_j|$, $t(l)=\sum_{i=1}^{n} l_i$ and $g(l)=s(l)/t(l)$. Consider the two vectors $l_1=(m-3, m-1, m-2, \dots, m-2)$ and $l_2=(m-2, m-3, \dots, 1, 0, \dots, 0)$. The thesis is now that $g(l_1) < g(l_2)$.
+	Note that $s(l)$ corresponds to the one computed for $\sigma_{mad}$ in \cref{proof:sigmamad} and recall that:
+	\begin{align*}
+		s(l_1)&=4n-4\\
+		s(l_2)&= (m - 2) (m - 1) \left(\frac{-2m + 3}{3} + n\right).
+	\end{align*}
+	Consider now $t(l)$. For $l_1$ the sum corresponds to the sum of the first two terms $m-3$, $m-1$ and $n-2$ times the term $m-2$, $t(l_1)=(m-3)+(m-1)+(n-2)(m-2)=n(m-2)$.
+	\begin{align*}
+		t(l_1)&=(m-3)+(m-1)+(n-2)(m-2)=\\
+		&=m-3+m-1-2m-4+n(m-2)=n(m-2)
+	\end{align*}
+	For $l_2$ it suffices to sum the terms from $1$ to $m-2$ because the $n-(m-2)$ terms left are $0$. Thus $t(l_2)=\sum_{i=1}^{n} l_2(i)=\sum_{i=1}^{m-2} l_2(i)=\frac{(m-2)(m-1)}{2}$.
+	Therefore we have:
+	\begin{align*}
+		g(l_1)&=\frac{4n-4}{n(m-2)};\\
+		g(l_2)&=(m - 2) (m - 1) \left(\frac{-2m + 3}{3} + n\right)\frac{2}{(m - 2) (m - 1)}=\\
+		&=\frac{-4m + 6}{3} + 2n.
+	\end{align*}
+	The thesis is now that $g(l_1) < g(l_2)$, so
+	\begin{align*}
+		\frac{4n-4}{n(m-2)}<&\frac{-4m + 6}{3} + 2n \\
+		3(4n-4)<&(-4m+6+6n)n(m-2)\\
+		12(n-1)<&2(-2m+3+3n)n(m-2)\\
+		6(n-1)<&n(-2m+3+3n)(m-2)\\
+	\end{align*}
+	For $m=4$ then:
+	\begin{align*}
+		&6(n-1)<n(-8+3+3n)(4-2)\\
+		&6(n-1)<2n(-8+3+3n)\\
+		&3(n-1)<-8n+3n+3n^2\\
+		&-5n+3n^2-3n+3>0\\
+		&3n^2-8n+3>0\\
+	\end{align*}
+	since $n\geq4$ then $3n^2-8n+3\geq 3 \cdot 16 - 8 \cdot 4+3 =43 > 0$.
+	For $m\geq5$ then $n\geq m-1$, so it suffices to prove it for $n=m-1$:
+	\begin{align*}
+		&6(m-1-1)<(m-1)(-2m+3+3m-3)(m-2)\\
+		&6(m-2)<(m-1)m(m-2)\\
+		&(m-1)m(m-2)-6(m-2)>0\\
+		&(m-2)((m-1)m-6)>0\\
+	\end{align*}
+	Since $m\geq5$ the first term is always positive, consider then $(m-1)m-6>0$ or $(m-1)m>6$ which is always true for $m\geq5$. Which concludes the proof.
 \end{proof}
 
 \begin{definition}[OLD Definition: Pairwise Pareto dominance]
