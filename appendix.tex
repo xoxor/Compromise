@@ -130,11 +130,14 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 		0&< n^2(m-3)m-n(m-3+m)p+p^2\\
 		0&< (mn-p)[(m-3)n-p]
 	\end{align*}
-	When $m=4$, then $n\geq4$ and $p=3$ thus we have that $(4n-p)[(4-3)n-p]\geq(4 \cdot 4-3)[(4-3)4-3]=13>0$. When $m\geq5$ then $n ≥ m - 1$ and we have that
+	\commentOC{From here downwards, we are basically doing the same reasoning twice. It is enough to show that $(m - 3)n - p > 0$ as this is the smaller multiplicand among these two.}
+	\commentOC{Also, we could (almost) get rid of the special case $m = 4$. Just reason for when $n ≥ m - 1$ and afterwards, observe that when $m = 4$, then $n > m - 1$ (strictly) thus the inequality becomes strict.}
+	\commentOC{Or better, try out the following. Our thesis is $2(m - 3) n - (m - 2) (m - 1) > 0$. Define $n = (m - 1) + \alpha$. Observe that $\alpha ≥ 0$ and $\alpha > 0$ when $m = 4$. Divide by $m - 1$. I think that should be enough.}
+	When $m=4$, then $n\geq4$ and $p=3$ thus we have that $(4n-p)[(4-3)n-p]\geq(4 \cdot 4-3)[(4-3)4-3]=13>0$ \commentOC{“When $m=4$, then $n\geq4$” is confusing, because it reads as if we would know that $n ≥ 4$ because $m = 4$. But $n ≥ 4$ always holds, by hypothesis of our statement to be proven, it is not a consequence of $m = 4$. I suggest to write: When $m=4$, then $p=3$, thus, using the fact that $n ≥ 4$, we have that… And similarly for the next sentence.}. When $m\geq5$ then $n ≥ m - 1$ and we have that
 	\begin{align*}
 		(mn-p)[(m-3)n-p] \geq (m(m-1)-p)[(m-3)(m-1)-p]. 
 	\end{align*}
-	Consider the first multiplicand:
+	Consider the first multiplicand \commentOC{After the first line, just factor out $m - 1$ and obtain $(m - 1) (m - \frac{m - 2}{2})$, and I think you can jump to the conclusion.}:
 	\begin{align*}
 		m(m-1)-p &= m(m-1)-\frac{(m-2)(m-1)}{2}= \\
 		&=\frac{1}{2}(2m(m-1)-(m-2)(m-1))=\\
