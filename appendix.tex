@@ -1,3 +1,4 @@
+%!TeX root=compromise.tex
 \appendix
 
 \newcommand{\smad}{\sigma_\text{mad}}
@@ -170,7 +171,7 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 	
 	For $l_1$, the arithmetic mean of its values is $m-2$ so $s(l_1)$: 
 	\[s(l_1)=(m-3-m+2)^2+(m-1-m+2)^2+ 0 + \dots + 0= 2\]
-	For $l_2$, the arithmetic mean is 
+	For $l_2$, the arithmetic mean is \commentOC{Please factor out the computation and results for $\bar{l_1}$ and $\bar{l_2}$, to avoid the repetition.}
 	\[\bar{l_2}=\frac{1}{n}\sum_{i=2}^{m-2}{i}= \frac{(m-2)(m-1)}{2n}.\]
 	Recall that 
 	\begin{align*}
@@ -196,7 +197,7 @@ In what follows are showed the proofs for \cref{prop:spreadMeas}.
 		&=(m-2)(m-1)\left(\frac{1}{6}(2m-3)-\frac{1}{2}\frac{(m-2)(m-1)}{2n}\right)
 	\end{align*} 
 	
-	Recall that our thesis is now that $s(l_1)<s(l_2)$:
+	Recall that our thesis is now that $s(l_1)<s(l_2)$ \commentOC{Plz remove “now”}:
 	\begin{align*}
 		2 &< \frac{1}{6}(m-2)(m-1)(2m-3)-\frac{(m-2)^2(m-1)^2}{4n}\\
 		\frac{(m-2)^2(m-1)^2}{4n} &< \frac{1}{6}(m-2)(m-1)(2m-3)-2 \\
