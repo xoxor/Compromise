@@ -42,6 +42,7 @@
 \documentclass[smallextended,numbook]{svjour3}       % onecolumn (second format)
 %\documentclass[twocolumn]{svjour3}          % twocolumn
 %
+\usepackage[utf8]{inputenc}
 \smartqed  % flush right qed marks, e.g. at end of proof
 %
 %\usepackage{graphicx}
@@ -49,6 +50,7 @@
 \input{preamble/redac}
 \input{preamble/math_basics}
 \input{preamble/math_mine}
+
 %
 % \usepackage{mathptmx}      % use Times fonts if available on your TeX system
 %
@@ -165,7 +167,7 @@ We are interested in measuring the spread of loss vectors. To this end, we defin
 vector. We write $\Sigma$ for the set of spread measures $\sigma$ that satisfy, for every $l\in\alllosses$, $\sigma(l)=0 ⇔ l_{i}=l_{j}$ $\forall i,j\in N$. Thus, the spread of $l$ gets its lowest value $0$ in case of perfect equality and only in this case. 
 
 Given any distinct $x,y\in A$, we say that $x$ \emph{Pareto dominates} $y$ at $P \in\linors^{N}$ (or equivalenty $y$ is \emph{Pareto dominated} by $x $ at $P$) iff $x\prefi y,\forall i\in N$. We denote by
-$\paretopt(P)= \set{x \in A \suchthat \forall y ≠ x \in A, \exists i \in N \suchthat x \pref_i y}$ the set of \emph{Pareto optimal} alternatives at $P$.
+$\paretopt(P)= \set{x \in A \suchthat \forall y \in A\setminus\{x\}, \exists i \in N \suchthat x \pref_i y}$ the set of \emph{Pareto optimal} alternatives at $P$.
 A \ac{SCR} $f$ is \emph{Paretian} iff $f(P)\subseteq\paretopt(P)$ $\forall P\in\linors^{N}$.
 
 \section{Egalitarian versus Paretian compromises}
@@ -194,7 +196,7 @@ Under a \ac{SCR} that is EC (resp., ECC), \emph{all} (resp., \emph{some}) winner
 		$
 		\begin{array}{cccccc}
 			\mathbf{1} \quad &a_1&a_2&\dots&a_{m-1}&a_m\\
-			\mathbf{n-1} \quad &a_{\pi_(1)}&a_{\pi_(2)}&\dots&a_{\pi_(m-1)}&a_m\\
+			\mathbf{n-1} \quad &a_{\pi_{(1)}}&a_{\pi_{(2)}}&\dots&a_{\pi_{(m-1)}}&a_m\\
 		\end{array}
 		$ \quad,
 	\end{center}
@@ -508,7 +510,7 @@ We close by noting that viewing a compromise through the equal loss principle ca
 \bibliographystyle{spbasic}      % basic style, author-year citations
 \bibliography{biblio}
 
-\input{appendix}
+%\input{appendix}
 
 %\begin{acknowledgements}
 %If you'd like to thank anyone, place your comments here
