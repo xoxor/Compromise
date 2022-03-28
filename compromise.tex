@@ -358,6 +358,8 @@ Note that $n_{k}(x,P)\in \intvl{1, n}$ is non-decreasing on $k$ and $n_{m}(x,P)=
 write $\rho _{q}(P) = \min_{x \in A} \set{\rho_{q}(x, P)}$ for the minimal rank $k$ at which the $k$-support that some alternative gets at $P$ is at least $q$. \emph{A Brams and Kilgour (BK) compromise with threshold }$q$ is the
 \ac{SCR} $f_{q}$ defined for each $P\in \linors^N$ as $f_{q}(P)=\{x\in A \suchthat n_{\rho _{q}(P)}(x,P)\geq n_{\rho _{q}(P)}(y,P)$ $\forall y\in A\}.$ 
 
+We first consider the BK compromise with threshold $q=n$, $f_n$, which correspond to the rule known as \textit{Fallback Bargaining} \citep{Brams2001}.
+
 \begin{theorem}
 	\label{th:FBsatsPC}
 	Let $n\geq 3$ and $m\geq 3.$ The BK compromise $f_{n}$ satisfies PC.
@@ -444,7 +446,8 @@ This condition imposes a very reasonable requirement on spread measures for larg
 %			$0,$ $\ 0)$.
 
 We write $\Sigma^{C_{m,n}} \subseteq \Sigma$ for the set of spread measures that satisfy condition $C_{m,n}$. 
-\begin{theorem}
+\begin{theorem} 
+	\label{th:3votRestriction}
 	For all $m\geq 4$, $n\geq \max\{4,m-1\}$, under $\Sigma^{C_{m,n}}$,
 	\begin{itemize}
 		\item [1)] $f_n^{w}$ fails PCC when $w$ is the antiplurality score vector;
@@ -503,23 +506,35 @@ We write $\Sigma^{D_{m}} \subseteq \Sigma$ for the set of spread measures that s
 
 \section{Concluding remarks}
 
-We define an ex-post compromise as an outcome where individuals give up as equally as possible from their ideal points. With three or more individuals, several well known \acp{SCR} fail to pick ex-post compromises, under any reasonable meaning attributed to “giving up equally”. This failure is valid whether Pareto optimality is adopted or not. Our findings cover Condorcet extensions and scoring rules but also BK compromises, which impose a willingness to compromise without ensuring a compromised outcome. This failure prevails for social choice problems with two individuals: all well-known two-person \acp{SCR} of the literature, namely, fallback bargaining, Pareto and veto rules, short listing and veto rank, fail to pick ex-post compromises.
+We define an ex-post compromise as an outcome where individuals give up as equally as possible from their ideal points. 
+With three or more individuals, several well known \acp{SCR} fail to pick ex-post compromises, under any reasonable meaning attributed to “giving up equally”. 
+Our findings cover Condorcet extensions and scoring rules but also BK compromises, which impose a willingness to compromise without ensuring a compromised outcome.
+In particular we find that: no Condorcet procedure is ECC or PCC (\Cref{th:condorcet}), no scoring rule is ECC (\Cref{th:srECC}) or PCC except for the antiplurality rule (\Cref{th:AntSatsPCC,th:srPCC}), BK compromises are neither ECC or PCC (\Cref{th:BKthreshold,th:FBfailsECC}) except for Fallback Bargaining that is PC (\Cref{th:FBsatsPC}).
+
+It is important to note, as seen in \Cref{sec:RestrictionOnSigma}, that all these impossibility results are independent of the concept of \textit{equity} that might be used.
+In fact, these results hold under $\Sigma$, which is the largest set of spread measures one can consider. Any particular notion of equity that one might envision would fall under $\Sigma$, and the impossibilities would still prevail.
+The positive results are not propagated however, in fact, as soon as we define a reasonably mild restriction of $\Sigma$ on four or more voters neither Fallback Bargaining nor antiplurality are any longer PCC (\Cref{th:3votRestriction}).
+
+With two individuals and a restriction similar in spirit, we see that all well-known two-person \acp{SCR} of the literature, namely, Fallback Bargaining, Pareto and veto rules, short listing and veto rank, fail to pick ex-post compromises (\Cref{th:2votPCC}).
 
 The exclusion of the equal-loss principle by almost all \acp{SCR} of the literature leads to ask whether the principle is uninteresting in a discrete social choice context. This seems to be the case for voting situations where the number of voters exceeds the number of candidates and usually every candidate is ranked last by at least one voter. In these cases, the main concern is about the support of alternatives rather than equality. On the other hand, two-person collective choice problems are typically interpreted as arbitration or bargaining situations where mutual consent is a critical element in reaching a solution. Thus, the equal-loss principle appears to be valid for two-person collective choice problems and our analysis raises the question of designing new discrete arbitration rules compatible with the equal-loss principle. 
 
-Different notions of compromise can be conceived. \citet{Borgers1991} defines as compromises all Pareto-optimal alternatives that are not the top choice of any individual. In this context a compromise does not always exist. This is also a possible approach to adopt and we thank the anonymous reviewer for the valuable remark.
+After all, as one anonymous reviewer commented and whom we particularly thank for grasping our objective, the tension between equity and efficiency is not new in economics. In our paper we try to cast this tension in a context where it does not seem to have been considered yet. We certainly hope that this is only the beginning of a discussion that may lead to further progress in the future.
+
+We also want to mention that different notions of compromise can be conceived. \citet{Borgers1991} defines as compromises all Pareto-optimal alternatives that are not the top choice of any individual. In this context a compromise does not always exist. This is also a possible approach to adopt and we thank the anonymous reviewer for the valuable remark.
 
 We close by noting that viewing a compromise through the equal loss principle can be of particular interest in richer informational settings with a status-quo point, cardinal individual preferences or a continuum of alternatives.
+
+
+\begin{acknowledgements}
+	This paper is a part of 'Polarization viewed from a social choice perspective' (POSOP) research project that is carried on under the RDI program funded by İstanbul Bilgi University. We would like to thank POSOP  for the support. We also thank Jean-François Laslier who provided the inspiration and the basis for this article. Last but not least, we thank all anonymous reviewers for their comments and valuable suggestions.
+\end{acknowledgements}
 
 \bibliographystyle{spbasic}      % basic style, author-year citations
 \bibliography{biblio}
 
 %\input{appendix}
 
-%\begin{acknowledgements}
-%If you'd like to thank anyone, place your comments here
-%and remove the percent signs.
-%\end{acknowledgements}
 
 
 % Authors must disclose all relationships or interests that 
