@@ -92,7 +92,10 @@
 \maketitle
 
 \begin{abstract}
-A social choice rule aggregates the preferences of a group of individuals over a set of alternatives into a collective choice. The literature admits several social choice rules whose recommendations are supposed to reflect a compromise among individuals. We observe that all these compromise rules can be better described as \emph{procedural compromises}, i.e., they impose over individuals a willingness to compromise but they do not ensure an outcome where everyone has effectively compromised. We revisit the concept of a compromise in a collective choice environment with at least three individuals having strict preferences over a finite set of alternatives. Referring to a large class of spread measures, we view the concept of compromise from an \emph{equal loss} perspective, favoring an outcome where every voter concedes as equally as possible. As such, being a compromise may fail Pareto efficiency, which we ensure by asking voters to concede as equally as possible among the Pareto efficient alternatives. We show that Condorcet consistent rules, scoring rules (except antiplurality) and Brams-Kilgour compromises (except fallback bargaining) all fail to ascertain an outcome which is a compromise. This failure prevails for social choice problems with two individuals: all well-known two-person social choice rules of the literature, namely, fallback bargaining, Pareto and veto rules, short listing and veto rank, fail to pick ex-post compromises. 
+A social choice rule aggregates the preferences of a group of individuals over a set of alternatives into a collective choice. The literature admits several social choice rules whose recommendations are supposed to reflect a compromise among individuals. We observe that all these compromise rules can be better described as \emph{procedural compromises}, i.e., they impose over individuals a willingness to compromise but they do not ensure an outcome where everyone has effectively compromised. We revisit the concept of a compromise in a collective choice environment with at least three individuals having strict preferences over a finite set of alternatives. Referring to a large class of spread measures, we view the concept of compromise from an \emph{equal loss} perspective, favoring an outcome where every voter concedes as equally as possible. As such, being a compromise may fail Pareto efficiency, which we ensure by asking voters to concede as equally as possible among the Pareto efficient alternatives. We show that Condorcet consistent rules, scoring rules (except antiplurality) and Brams-Kilgour compromises (except fallback bargaining) all fail to ascertain an outcome which is a compromise. 
+\commentOC{We show that a slight restriction on acceptable spread measures suffices to extend this negative result to antiplurality and fallback bargaining.}
+This failure also prevails for social choice problems with two individuals: all well-known two-person social choice rules of the literature, namely, fallback bargaining, Pareto and veto rules, short listing and veto rank, fail to pick ex-post compromises.
+\commentOC{We conclude that there is a need to propose and study rules that satisfy this equal loss, or outcome oriented, notion of a compromise.}
 \keywords{Axiomatic Analysis \and Ex-Post Compromise \and Bargaining \and Egalitarianism \and Arbitration}
 % \PACS{PACS code1 \and PACS code2 \and more}
 % \subclass{MSC code1 \and MSC code2 \and more}
@@ -100,9 +103,10 @@ A social choice rule aggregates the preferences of a group of individuals over a
 
 \section{Introduction}
 \label{sec:introduction}
-In a typical social choice problem, several individuals express their preferences over a set of alternatives and one shall be picked as the collective outcome. Although the literature admits several \acp{SCR} with different properties, there is a common understanding that collective choices must reflect “compromises”. One of the first to explicitly refer to a \ac{SCR} as a compromise is \citet{Sertel1986} introducing the \emph{majoritarian compromise}. This \ac{SCR}, further analysed by \citet{Sertel1999}, is a rediscovery of a method suggested by James W.\ Bucklin at the beginning of the \nth{20} century \citep{Erdelyi2015}. Starting from everyone’s ideal alternative, it falls back to the voters’ second, third and more generally $k$-\emph{th} best, until one of the alternatives considered appears among the first $k$ best for a majority. \citet{Brams2001} generalise this concept and introduce a class of \acp{SCR} called $q$\emph{-approval fall-back bargaining}, where $q$ is the required quantity of support that can vary from a single voter up to unanimity. Different choices of $q$ lead to different \acp{SCR}. Considering $m$ alternatives, the choice of $q=1$ corresponds to the plurality rule, $q=\frac{n}{2}+1$ coincides with the majoritarian compromise and $q=n$ represents a bargaining procedure called \emph{fall-back bargaining}, which has been further analysed by \citet{Kibris2007} and \citet{Congar2012}. We will refer to these rules as Brams and Kilgour (BK) compromises with threshold q.
+In a typical social choice problem, several individuals express their preferences over a set of alternatives and one shall be picked as the collective outcome. Although the literature admits several \acp{SCR} with different properties, there is a common understanding that collective choices must reflect “compromises”. One of the first to explicitly refer to a \ac{SCR} as a compromise is \citet{Sertel1986} introducing the \emph{majoritarian compromise}. This \ac{SCR}, further analysed by \citet{Sertel1999}, is a rediscovery of a method suggested by James W.\ Bucklin at the beginning of the \nth{20} century \citep{Erdelyi2015}. Starting from everyone’s ideal alternative, it falls back to the voters’ second, third and more generally $k$-\emph{th} best, until one of the alternatives considered appears among the first $k$ best for a majority. \citet{Brams2001} generalise this concept and introduce a class of \acp{SCR} called $q$\emph{-approval fall-back bargaining}, where $q$ is the required quantity of support that can vary from a single voter up to unanimity. Different choices of $q$ lead to different \acp{SCR}. Considering $m$ alternatives, the choice of $q=1$ corresponds to the plurality rule, $q=\frac{n}{2}+1$ \commentOC{Is this correct?}
+coincides with the majoritarian compromise and $q=n$ represents a bargaining procedure called \emph{fall-back bargaining}, which has been further analysed by \citet{Kibris2007} and \citet{Congar2012}. We will refer to these rules as Brams and Kilgour (BK) compromises with threshold q.
 
-As \citet{OezkalSanver2004} discuss, the concept of compromising is mostly understood as the trade off between the number of voters supporting an alternative (i.e., the quantity of support) and the distance of that alternative from the supporters’ ideal alternative (i.e., the quality of support). This trade off, which is explicit for $q$-approval fall-back bargaining, is also the basis for several other \acp{SCR} such as the \emph{median voting rule} proposed by \citet{Bassett1999} and further analysed by \citet{Gehrlein2003} or the \emph{Condorcet practical method} described by \citet{Nurmi1999}. \Citet{Merlin2019} identify and analyse a large class of \emph{compromise rules} that explore this trade off.
+As \citet{OezkalSanver2004} \commentOC{Isn’t this Ö italicized? I suppose that it shouldn’t.} discuss, the concept of compromising is mostly understood as the trade off between the number of voters supporting an alternative (i.e., the quantity of support) and the distance of that alternative from the supporters’ ideal alternative (i.e., the quality of support). This trade off, which is explicit for $q$-approval fall-back bargaining, is also the basis for several other \acp{SCR} such as the \emph{median voting rule} proposed by \citet{Bassett1999} and further analysed by \citet{Gehrlein2003} or the \emph{Condorcet practical method} described by \citet{Nurmi1999}. \Citet{Merlin2019} identify and analyse a large class of \emph{compromise rules} that explore this trade off.
 
 One can argue that a collective choice \emph{per se} implies a compromise. After all, except extreme cases such as dictatorships,
 a \acp{SCR} operates on the principle that all voters could fall back from their ideal position. Whether all voters effectively do fall back and whether this fall is “equal among voters” is the subject of our analysis. In what follows, we will present examples where they do not, which could be considered counter to the spirit of compromising. \footnote{This objection to the compromise nomenclature was raised by Jean-François Laslier during a CNRS workshop on compromising hosted by Istanbul Bilgi University in 2018.}
@@ -142,8 +146,10 @@ Observe that all these \acp{SCR} impose to voters a willingness to compromise, b
 This can also be viewed as a distinction between ex-ante and ex-post compromises, where the profile is the source of uncertainty.
 
 To define an ex-post compromise, we adapt a concept of equal losses that considers allocation of continuous utilities. This principle is used for bargaining \citep{Chun1988, Chun1991} and bankruptcy problems \citep{Herrero2001}. 
-We introduce two definitions of compromise. In both of them, we pick a spread measure that determines how equally a given vector of real numbers is distributed and we propose to make a collective choice where voters give up from their ideal points “as equally as possible”. The difference between the two is that one, called \emph{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \emph{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. 
-The two concepts are logically incompatible. As a result, Pareto efficient \acp{SCR} cannot ensure egalitarian compromises under any spread measure. We prove that several well-known \acp{SCR} such as Condorcet extensions, scoring rules, $q$-approval fall-back bargaining, all fail to be Paretian compromises under any spread measure. We provide examples for which being a Paretian compromise would necessitate to pick an alternative that is, although Pareto optimal, ranked very low by all voters. Such alternative would never be picked by any of the above-mentioned \acp{SCR}. 
+We introduce two definitions of compromise. In both of them, we pick a spread measure that determines how equally a given vector of real numbers \commentOC{I suggest to delete “real”, as we deal with integer numbers (but there is no point on insisting on this aspect here).} is distributed and we propose to make a collective choice where voters give up from their ideal points “as equally as possible”. The difference between the two is that one, called \emph{egalitarian compromise}, insists on equality at the expense of Pareto efficiency while the other, called \emph{Paretian compromise}, is constrained to pick among the Pareto efficient alternatives. 
+The two concepts are logically incompatible. 
+\commentOC{It seems to me that pointing out here succinctly the incompatibility of these concepts (and deducing the negative result for Pareto efficient \acp{SCR}) is not kind to the reader, considering that we do it in much more detail later. I suggest to replace “The two concepts are logically incompatible. As a result,” with: “A simple argument will show that”, or something like that.} 
+As a result, Pareto efficient \acp{SCR} cannot ensure egalitarian compromises under any spread measure. We prove that several well-known \acp{SCR} such as Condorcet extensions, scoring rules, $q$-approval fall-back bargaining, all fail to be Paretian compromises under any spread measure. We provide examples for which being a Paretian compromise would necessitate to pick an alternative that is, although Pareto optimal, ranked very low by all voters. Such alternative would never be picked by any of the above-mentioned \acp{SCR}. 
 
 We conclude that the equal-loss principle appears adequate for collective choice problems with at least three individuals, when egalitarianism, in the sense of conceding equally, is a major concern. Imagine a situation where the head of a laboratory needs to decide which project to fund and she asks for the preferences of the laboratory members. The workplace harmony is extremely important and, in order to avoid conflicts, the winning project must be equally supported by all members. 
 
@@ -153,6 +159,7 @@ Collective choice models with two individuals can be interpreted as bargaining o
 
 Arbitration rules are thoroughly discussed by \citet{Barbera2020}. As prominent examples, we have fallback bargaining proposed by \citet{Brams2001}, the veto-rank and short listing procedures analysed by \citet{Clippel2014} and the Pareto-and-veto rules analysed by \citet{Laslier2020}. These models consider discrete alternatives which are not contained by the classical \citet{Nash1950} bargaining environment with convex utilities. We make the same assumption. However, as \citet{Mariotti1998} and \citet{Nagahisa2002} illustrate, the two worlds can be interconnected, as we do for the equal-loss principle of \citet{Chun1988} and \citet{Chun1991}. The arbitration environment presents an instance where the equal-loss principle could matter and it is rather surprising to discover that most interesting \acp{SCR} used as arbitration solutions fail to be Paretian compromises. 
 
+\commentOC{Please turn the section labels into hyperlinks so the reader can click them (using \textbackslash{}cref or another suitable means of your choice).}
 The rest of the paper is organised as follows. Section 2 presents the basic notions and notation. Section 3 introduces egalitarian compromises and Paretian compromises, two concepts that turn out to be logically incompatible. Section 4 shows that with at least three individuals, many \acp{SCR} fail to pick a compromise. Section 5 considers the two-individual case, showing that most \acp{SCR} of the literature fail to pick compromises. Section 6 makes some concluding remarks. 
 
 \section{Basic notions and notation}
@@ -160,7 +167,7 @@ The rest of the paper is organised as follows. Section 2 presents the basic noti
 Consider a finite set $N$ of individuals with $\#N=n\geq 2$ and a finite set $A$ of alternatives with $\#A=m\geq 3$. We write $\linors$ for the set of linear orders over $A$.
 A generic element $\prefi$ of $\linors$ stands for a preference of $i\in N$. This implies that, given any $x ≠ y\in A$, precisely one of $x \prefi y$ and $y\prefi x$ holds while $x \prefi x$ holds for no $x\in A.$ Moreover, $x\prefi y$ and $y\prefi z$ implies $x\prefi z$ $\forall x,y,z\in A$.
 
-A \emph{profile} $P: N → \linors$ associates with each individual $i \in N$ a preference $P(i) = {\prefi}$. A \emph{\acl{SCR}} (\acs{SCR}) is a mapping $f:\linors^{N}\rightarrow 2^{A} \setminus \{\emptyset \}$. 
+A \emph{profile} $P: N → \linors$ associates with each individual $i \in N$ a preference $P(i) = {\prefi}$. A \emph{\acl{SCR}} (\acs{SCR}) is a mapping $f:\linors^{N} \rightarrow 2^{A} \setminus \{\emptyset \}$. 
 
 We write $r_{\prefi}(x)=\#\{y\in A \suchthat y \prefi x\}+1$ for the \emph{rank} of $x\in A$ at ${\prefi} \in \linors$. We denote by $\lambda_{\prefi}(x)=r_{\prefi}(x)-1$ the loss in terms of ranks for $i\in N$ with preference $\prefi$, when $x$ is elected instead of the best alternative
 for $i$. The mapping $\lambda_P: A → \alllosses$ assigns to each $x\in A$ the loss vector $\lambda_{P}(x)=(\lambda_{\prefi}(x))_{i\in N}$ induced by the election of $x$. The double brackets denote intervals in the integers.
@@ -175,7 +182,7 @@ A \ac{SCR} $f$ is \emph{Paretian} iff $f(P)\subseteq\paretopt(P)$ $\forall P\in\
 \section{Egalitarian versus Paretian compromises}
 \subsection{Egalitarian compromises}
 \label{sec:EgCompromise}
-We denote the minimal elements of $X \subseteq A$ according to $(\sigma\circ\lambda_{P})$ with \break $\argmin_{X}(\sigma~\circ~\lambda_P)=\set{x \in X \suchthat \forall y \in X: \sigma(\lambda_P(x)) ≤ \sigma(\lambda_P(y))}$. Thus, $\argmin_{X}(\sigma\circ\lambda_{P})$ denotes the alternatives in X whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
+We let $\argmin_{X}(\sigma \circ \lambda_P) = \set{x \in X \suchthat \allowbreak{}\forall y \in X: \sigma(\lambda_P(x)) ≤ \sigma(\lambda_P(y))}$ denote the minimal elements of $X \subseteq A$ according to $(\sigma \circ \lambda_{P})$. In other words, $\argmin_{X}(\sigma\circ\lambda_{P})$ denotes the alternatives in X whose loss vectors are the most equally distributed according to the spread measure $\sigma$.
 
 In what follows, we define some classes of \acp{SCR} that we are interested in analysing. 
 
@@ -187,7 +194,6 @@ In what follows, we define some classes of \acp{SCR} that we are interested in a
 \end{definition}
 
 Under a \ac{SCR} that is EC (resp., ECC), \emph{all} (resp., \emph{some}) winners are among the alternatives with most equally distributed losses. Clearly, EC is a subclass of ECC. Perhaps less obviously, being ECC (or EC) is incompatible with being Paretian. This will be deduced from the following proposition, which will also be useful to prove other theorems.% \cref{th:incompatibility}.
-
 
 \begin{proposition} \label{prop:muSigmaLast}
 	For $n ≥ 2, m ≥ 3$, there exists a profile $P \in \linors^N$ and an alternative $a_m$ such that $\forall i \in N$: $r_{\prefi}(a_m)=m$, and such that $\forall \sigma \in \Sigma: \musigma = \set{a_m}$; hence, $\musigma \cap \paretopt(P) = \emptyset$.
@@ -247,7 +253,7 @@ being PCC, because being PCC does not require to be Paretian. This is however tr
 	
 	Second, because $f$ is EC, for some $\sigmatop$, $f(P) \subseteq {\musigma[\sigmatop][P]}$. Using \cref{prop:muSigmaLast} again, we see that ${\musigma[\sigmatop][P]} = \set{a_m}$, hence $f(P) = \set{a_m}$.
 	
-	That $f(P) \cap {\mustar[\sigma][P]} = \emptyset$ follow from these two facts.
+	That $f(P) \cap {\mustar[\sigma][P]} = \emptyset$ follows from these two facts.
 \end{proof}
 
 It is interesting to note that the incompatibility is not complete, however.
@@ -264,10 +270,10 @@ next section.
 
 \subsection{Condorcet consistent rules}
 
-An alternative $x\in A$ is a \emph{Condorcet winner} at $P\in L(A)^{N}$ iff for all $y\in A \setminus \set{x} $, $\#\set{i \in N \suchthat x \prefi y} >\#\set{i \in N \suchthat y \prefi x}$. So each profile admits
+An alternative $x\in A$ is a \emph{Condorcet winner} at $P\in \linors^N$ iff for all $y\in A \setminus \set{x} $, $\#\set{i \in N \suchthat x \prefi y} >\#\set{i \in N \suchthat y \prefi x}$. So each profile admits
 either no or a unique Condorcet winner. An \ac{SCR} $f$ is \emph{Condorcet
-	consistent} iff $f(P)=$ $\left\{ x\right\} $ at each $P\in L(A)^{N}$ that
-admits $x$ as the unique Condorcet winner.
+	consistent} iff $f(P)=$ $\left\{ x\right\} $ at each $P\in \linors^N$ that
+admits $x$ as the (unique) Condorcet winner.
 
 \begin{theorem} \label{th:condorcet}
 	Let $n\geq 3$ and $m\geq 3$. A Condorcet consistent \ac{SCR} $f$ is neither ECC nor PCC.
@@ -290,7 +296,7 @@ Note that Condorcet consistent rules need not be Paretian so the fact that they 
 
 \subsection{Scoring rules}
 \label{sec:scoringrules}
-A \emph{score vector} is an $m-$tuple $w=(w_{1},\dots,$ $w_{m})\in \intvl{0, 1}^{m}$ with $w_{1}=1$, $w_{m}=0$ and $w_{i}\geq w_{i+1}$ $\forall i\in \intvl{1, m-1}$. Given a score vector $w$, we write $s^{w}(x,P)=\sum_{i\in N}w_{r_{\prefi}(x)}$ for the score of $x\in A$ at $P\in L(A)^{N}$. Each vector $w$ identifies a \emph{scoring rule} $f^w_n$ defined as $f^w_n(P)=\left\{ x\in A:s^{w}(x,P)\geq s^{w}(y,P) \ \forall y\in A\right\}$ for every $P\in L(A)^{N}$.
+A \emph{score vector} is an $m-$tuple $w=(w_{1},\dots,$ $w_{m})\in \intvl{0, 1}^{m}$ with $w_{1}=1$, $w_{m}=0$ and $w_{i}\geq w_{i+1}$ $\forall i\in \intvl{1, m-1}$. Given a score vector $w$, we write $s^{w}(x,P)=\sum_{i\in N}w_{r_{\prefi}(x)}$ for the score of $x\in A$ at $P \in \linors^N$. Each vector $w$ identifies a \emph{scoring rule} $f^w_n$ defined as $f^w_n(P)=\left\{ x\in A:s^{w}(x,P)\geq s^{w}(y,P) \ \forall y\in A\right\}$ for every $P \in \linors^N$.
 
 We first show that no scoring rule is ECC, for any value of $n$ and $m$ at least 3.
 
@@ -321,7 +327,7 @@ We call antiplurality score vector the vector $w$ such that $w_{i} = 1, \forall 
 	The case $r_{\succ_i}(x) = m, \forall i \in N$ is ruled out by $x \in \paretopt(P)$. Hence, $r_{\succ_i}(x) ≤ m - 1, \forall i \in N$, hence, $x \in f^w_n(P)$.
 \end{proof}
 
-It is worth noting that the antiplurality rule $f_{n}^{w}$ is not Paretian, hence fails PC  for all $n\geq 3$. This can be seen by picking a unanimous profile $P\in \linors^{N}$ with $a_{1}\prefi a_{2}\prefi \dots \prefi a_{m}$ $\forall i\in N$, where $\mustar=\left\{ a_{1}\right\} \forall \sigma \in \Sigma $ while $f_{n}^{w}(P)=A \setminus \left\{ a_{m}\right\}$.
+It is worth noting that the antiplurality rule $f_{n}^{w}$ is not Paretian, hence fails PC  for all $n\geq 3$. This can be seen by picking a unanimous profile $P \in \linors^{N}$ with $a_{1}\prefi a_{2}\prefi \dots \prefi a_{m}$ $\forall i\in N$, where $\mustar=\left\{ a_{1}\right\} \forall \sigma \in \Sigma $ while $f_{n}^{w}(P)=A \setminus \left\{ a_{m}\right\}$.
 
 \begin{theorem}
 	\label{th:srPCC}
@@ -329,7 +335,7 @@ It is worth noting that the antiplurality rule $f_{n}^{w}$ is not Paretian, henc
 \end{theorem}
 
 \begin{proof}
-	Take any $m\geq 3$ and any score vector $w$ that is not the antiplurality score vector; therefore, $w_{m-1}<1$. Pick any $n$ such that $n ≥ m - 1$ and $n > \frac{1}{1 - w_{m - 1}}$. Consider a profile $P\in L(A)^{N}$
+	Take any $m\geq 3$ and any score vector $w$ that is not the antiplurality score vector; therefore, $w_{m-1}<1$. Pick any $n$ such that $n ≥ m - 1$ and $n > \frac{1}{1 - w_{m - 1}}$. Consider a profile $P \in \linors^N$ conforming to
 	
 	\begin{center}
 		$
@@ -353,7 +359,7 @@ It is worth noting that the antiplurality rule $f_{n}^{w}$ is not Paretian, henc
 \subsection{BK compromises}
 \label{sec:BKn3}
 Given any $k\in \intvl{1, m}$, we write $n_{k}(x,P)=\#\{i\in
-N\mid r_{\prefi}(x)\leq k\}$ for the \emph{$k$-support} that $x$ gets at $P$, that is, the number of individuals for whom the rank of alternative $x\in A$ is lower than or equal to $k$ in the profile $P\in $ $L(A)^{N}$.
+N\mid r_{\prefi}(x)\leq k\}$ for the \emph{$k$-support} that $x$ gets at $P$, that is, the number of individuals for whom the rank of alternative $x\in A$ is lower than or equal to $k$ in the profile $P \in \linors^N$.
 Note that $n_{k}(x,P)\in \intvl{1, n}$ is non-decreasing on $k$ and $n_{m}(x,P)=n.$ For each $q\in \intvl{1,n}$, we define $\rho_{q}(x,P)=\min \{k\in \intvl{1,m} \suchthat n_{k}(x,P)\geq q\}$ as the minimal rank $k$ at which the $k$-support that $x$ gets at $P$ is at least $q$. We
 write $\rho _{q}(P) = \min_{x \in A} \set{\rho_{q}(x, P)}$ for the minimal rank $k$ at which the $k$-support that some alternative gets at $P$ is at least $q$. \emph{A Brams and Kilgour (BK) compromise with threshold }$q$ is the
 \ac{SCR} $f_{q}$ defined for each $P\in \linors^N$ as $f_{q}(P)=\{x\in A \suchthat n_{\rho _{q}(P)}(x,P)\geq n_{\rho _{q}(P)}(y,P)$ $\forall y\in A\}.$ 
@@ -403,7 +409,7 @@ We first consider the BK compromise with threshold $q=n$, $f_n$, which correspon
 	%Remzi’s proof
 	%Take any $n\geq 3$ and $m\geq 3.$ Let $A=\left\{ a_{1},\text{ }a_{2,}...%
 	%\text{ }a_{m}\right\} $. Pick some $q\in \left\{ 1,...,n\right\} $ and
-	%consider the BK compromise $f_{q}$. Consider the profile $P\in L(A)^{N}$ such that 
+	%consider the BK compromise $f_{q}$. Consider the profile $P\in \linors^{N}$ such that 
 	%$a_{1}\succ _{i}a_{2}\succ _{i}...\succ _{i}a_{m}$ $\forall i\in N\diagdown
 	%\left\{ n\right\} $ and $a_{\pi (1)}\succ _{n}a_{\pi (2)}\succ _{n}...\succ
 	%_{n}a_{\pi (m)}$ where $\pi $ is a bijection on $\left\{ 1,\text{ }2,...,%
@@ -516,11 +522,13 @@ Our impossibility results are stated for the set of spread measures $\Sigma$, bu
 The exclusion of the equal-loss principle by almost all \acp{SCR} of the literature leads to ask whether the principle is uninteresting in a discrete social choice context. This seems to be the case for voting situations where the number of voters exceeds the number of candidates and usually every candidate is ranked last by at least one voter. In these cases, the main concern is about the support of alternatives rather than equality. On the other hand, two-person collective choice problems are typically interpreted as arbitration or bargaining situations where mutual consent is a critical element in reaching a solution. Thus, the equal-loss principle appears to be valid for two-person collective choice problems and our analysis raises the question of designing new discrete arbitration rules compatible with the equal-loss principle. 
 
 We also want to mention that different notions of compromise can be conceived. \citet{Borgers1991} defines as compromises all Pareto-optimal alternatives that are not the top choice of any individual. In this context a compromise does not always exist. This is also a possible approach to adopt and we thank the anonymous reviewer for the valuable remark.
+\commentOC{I find this phrasing a bit odd. Also, I find this idea very arbitrary. I suggest: “This is also a possible approach to adopt and we thank an anonymous reviewer for this remark.”}
 
 We close by noting, as one anonymous reviewer to whom we are grateful remarked, that the tension between equity and efficiency is not new in economics. In our paper we try to cast this tension in a context where it does not seem to have been considered yet. We certainly hope that this is only the beginning of a discussion that may lead to further progress in the future. In particular, viewing a compromise through the equal loss principle can be especially interesting in richer informational settings with a status-quo point, cardinal individual preferences or a continuum of alternatives.
+\commentOC{I suggest to remove the last sentence as it is somewhat redundant with “our analysis raises the question…” (here above); we might want to change the above sentence, instead of adding this one, if we really want to highlight the status-quo, cardinal or continuous settings. Alternatively, we could remove the above sentence and keep this final one. (I have no opinion about which would be best.)}
 
 \begin{acknowledgements}
-	This paper is a part of 'Polarization viewed from a social choice perspective' (POSOP) research project that is carried on under the RDI program funded by İstanbul Bilgi University. We would like to thank POSOP  for the support. We also thank Jean-François Laslier who provided the inspiration and the basis for this article. Last but not least, we thank the associate editor and three anonymous reviewers for their comments and valuable suggestions.
+	This paper is a part of the ‘Polarization viewed from a social choice perspective’ (POSOP) research project that is carried on under the RDI program funded by Istanbul Bilgi University. We would like to thank POSOP  for the support. We also thank Jean-François Laslier who provided the inspiration and the basis for this article. Last but not least, we thank the associate editor and three anonymous reviewers for their comments and valuable suggestions. \commentOC{I’d write “the anonymous reviewers” so as to include the ones of the previous submission as well (but I have no strong opinion about this).}
 \end{acknowledgements}
 
 \bibliographystyle{spbasic}      % basic style, author-year citations
